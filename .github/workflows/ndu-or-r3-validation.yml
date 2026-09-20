@@ -1,0 +1,32 @@
+name: NDU OR R3 isolated validation
+on:
+  push:
+    branches: ['revision/ndu-operations-research-r3-20260920']
+    paths:
+      - '.github/workflows/ndu-or-r3-validation.yml'
+      - 'revisions/or-r3-20260920/**'
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preserve exact source snapshot
+        run: |
+          mkdir -p /tmp/ndu-r3-artifacts
+          tar --exclude=.git -czf /tmp/ndu-r3-artifacts/source.tar.gz .
+          git rev-parse HEAD > /tmp/ndu-r3-artifacts/source-commit.txt
+      - name: Execute revision validation when present
+        run: |
+          if [ -f revisions/or-r3-20260920/validate.py ]; then
+            python -m pip install numpy scipy sympy
+            python revisions/or-r3-20260920/validate.py
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r3-source-and-validation
+          path: /tmp/ndu-r3-artifacts/
+          retention-days: 14
