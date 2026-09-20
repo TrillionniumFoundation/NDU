@@ -1,0 +1,61 @@
+{
+  "schema": "ndu_or_release_manifest_parity_ledger.v1",
+  "round": "R89",
+  "created_at": "2026-05-27 Asia/Shanghai",
+  "package_label": "NDU_RL_OR_R89_release_manifest_parity",
+  "purpose": "Freeze the local OR release-manifest surface across manuscript, ZIP, sidecar, package hash ledger, reviewer handoff index, ZIP source/result partition, root/ZIP forensic parity, reproducibility result, OR-positioning result, and explicit nonclaim boundaries.",
+  "required_root_files": [
+    "main.tex",
+    "main.pdf",
+    "NDU_RL_OR.zip",
+    "NDU_RL_OR.zip.sha256",
+    "NDU_OR_submission_checklist.md",
+    "artifact/ndu_or_release_manifest_parity_ledger.json",
+    "artifact/ndu_or_release_manifest_parity_check.py",
+    "artifact/ndu_or_zip_closure_check.py",
+    "artifact/ndu_or_zip_source_result_partition_check.py",
+    "artifact/ndu_or_root_zip_forensic_parity_check.py",
+    "artifact/ndu_or_reviewer_handoff_index.json",
+    "artifact/ndu_or_reviewer_handoff_index_check.py",
+    "artifact/ndu_or_result_freshness_check.py",
+    "reproducibility/check_ndu_reproducibility.py",
+    "reproducibility/check_ndu_reproducibility_results.json"
+  ],
+  "required_zip_entries": [
+    "main.tex",
+    "main.pdf",
+    "NDU_OR_submission_checklist.md",
+    "artifact/ndu_or_release_manifest_parity_ledger.json",
+    "artifact/ndu_or_release_manifest_parity_check.py",
+    "artifact/ndu_or_zip_closure_check.py",
+    "artifact/ndu_or_zip_source_result_partition_check.py",
+    "artifact/ndu_or_root_zip_forensic_parity_check.py",
+    "artifact/ndu_or_reviewer_handoff_index.json",
+    "artifact/ndu_or_reviewer_handoff_index_check.py",
+    "artifact/ndu_or_result_freshness_check.py",
+    "reproducibility/check_ndu_reproducibility.py",
+    "reproducibility/check_ndu_reproducibility_results.json",
+    "reproducibility/manifest.json"
+  ],
+  "required_pass_results": [
+    "reproducibility/check_ndu_reproducibility_results.json",
+    "artifact/ndu_or_positioning_results.json",
+    "artifact/ndu_or_zip_closure_check_results.json",
+    "artifact/ndu_or_zip_source_result_partition_check_results.json",
+    "artifact/ndu_or_external_boundary_scan_check_results.json",
+    "artifact/ndu_or_package_hash_ledger_check_results.json",
+    "artifact/ndu_or_extracted_hash_ledger_replay_check_results.json",
+    "artifact/ndu_or_root_zip_forensic_parity_check_results.json"
+  ],
+  "required_boundary_phrases": [
+    "R89",
+    "release-manifest parity",
+    "local package/evidence",
+    "no external review",
+    "submission",
+    "upload",
+    "acceptance",
+    "Strong Accept"
+  ],
+  "nonclaim": "Local OR release-manifest parity ledger only; not full PyTorch/CEM regeneration, independent reproduction, external validation, external review, submission, upload, acceptance, or Strong Accept evidence."
+}
