@@ -1,0 +1,234 @@
+{
+  "review_commit": "a91b707883b2408de58d9392e4fc546e08a00881",
+  "protocol_blob": "055cec67f297166cca69b60d92be3faeb0cb86f4",
+  "protocol_sha256": "ef3b61559baa1b015a23ee06ade6e3fa4097273e09ca314559f68047f7809b5b",
+  "protocol_bytes_verified": true,
+  "independent_fraction_states_checked": 1320,
+  "expanded_action_exact_equality": true,
+  "dummy_gate_exact_equality": true,
+  "all_state_monotonicity_comparisons": 416,
+  "minimum_value_cross_difference": "9/250",
+  "exact_envelope_states_checked": 264,
+  "greatest_optimal_pair_checked": true,
+  "compiled_c2_neural_critic_levels": 5,
+  "compiled_neural_policy_states_checked": 1320,
+  "factored_exact_equality": true,
+  "exhaustive_candidates": 37752,
+  "factored_candidates": 2904,
+  "stage_precomputations": 429,
+  "net_reward_gain_over_frozen": "60463811896246358919998377/64000000000000000000000000",
+  "physical_cost_reduction_over_frozen": "68225264375561860996773/320000000000000000000000",
+  "physical_excess_over_oracle": "277785360524124379003227/320000000000000000000000",
+  "batches": 64,
+  "episodes_per_batch": 4096,
+  "training_pairs_per_conditioning_batch": 2048,
+  "regressions": {
+    "penalty_sign_exact": true,
+    "gibbs_variational_error": 0.0,
+    "spatial_boundary_counterexample_value": 0.569782824730923,
+    "missing_boundary_counterexample": "w(t,x)=(1-t)^(-1/2) exp(-x^2/[4(1-t)]), x in [1,2]",
+    "policy_two_comparisons": "For optimal residual and greedy-gap bounds: 2*d_boundary+T*(2*d_H+d_A).",
+    "terminal_only_one_comparison_regression": {
+      "terminal_error": "1",
+      "bellman_error": "0",
+      "greedy_error": "0",
+      "actual_policy_loss": "19/10"
+    },
+    "QA_is_not_a_mathematical_certificate": true
+  },
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "execution_seconds": 14.779982373999985,
+  "scientific_scope": "Exact finite-model certificates and analytic manufactured-PDE bounds; natural-data least-squares experiment; no new large-neural training or field experiment."
+}
+
+EXACT DP
+[
+  {
+    "method": "joint_contract",
+    "optimization_value": "-320147875493408505080001623/64000000000000000000000000",
+    "net_reward": -5.002310554584508,
+    "physical_cost": 9.374173780421842,
+    "premium": 9.88965799465036,
+    "liability": 1.0018591595329636,
+    "maintenance": 4.308149339422545,
+    "adjustment": 0.2077862698575164,
+    "filled_demand": 17.1685709088308,
+    "lost_demand": 2.2945267417765494,
+    "demand": 19.463097650607352,
+    "undiscounted_filled": 19.03038174875,
+    "undiscounted_lost": 2.56961825125,
+    "undiscounted_demand": 21.6,
+    "fill_rate": 0.8821088614481186,
+    "unique_economic_actions": 143,
+    "bellman_candidates": 37752
+  },
+  {
+    "method": "expanded_action_mdp",
+    "optimization_value": "-320147875493408505080001623/64000000000000000000000000",
+    "net_reward": -5.002310554584508,
+    "physical_cost": 9.374173780421842,
+    "premium": 9.88965799465036,
+    "liability": 1.0018591595329636,
+    "maintenance": 4.308149339422545,
+    "adjustment": 0.2077862698575164,
+    "filled_demand": 17.1685709088308,
+    "lost_demand": 2.2945267417765494,
+    "demand": 19.463097650607352,
+    "undiscounted_filled": 19.03038174875,
+    "undiscounted_lost": 2.56961825125,
+    "undiscounted_demand": 21.6,
+    "fill_rate": 0.8821088614481186,
+    "unique_economic_actions": 143,
+    "bellman_candidates": 37752
+  },
+  {
+    "method": "frozen_contract",
+    "optimization_value": "-23788230461853429/4000000000000000",
+    "net_reward": -5.947057615463358,
+    "physical_cost": 9.587377731595472,
+    "premium": 7.20855468541013,
+    "liability": 0.8650265622492156,
+    "maintenance": 2.703208007028799,
+    "adjustment": 0.0,
+    "filled_demand": 18.021386713525324,
+    "lost_demand": 1.441710937082026,
+    "demand": 19.463097650607352,
+    "undiscounted_filled": 20.0,
+    "undiscounted_lost": 1.6,
+    "undiscounted_demand": 21.6,
+    "fill_rate": 0.9259259259259259,
+    "unique_economic_actions": 13,
+    "bellman_candidates": 3432
+  },
+  {
+    "method": "capacity_matched_gate",
+    "optimization_value": "-23788230461853429/4000000000000000",
+    "net_reward": -5.947057615463358,
+    "physical_cost": 9.587377731595472,
+    "premium": 7.20855468541013,
+    "liability": 0.8650265622492156,
+    "maintenance": 2.703208007028799,
+    "adjustment": 0.0,
+    "filled_demand": 18.021386713525324,
+    "lost_demand": 1.441710937082026,
+    "demand": 19.463097650607352,
+    "undiscounted_filled": 20.0,
+    "undiscounted_lost": 1.6,
+    "undiscounted_demand": 21.6,
+    "fill_rate": 0.9259259259259259,
+    "unique_economic_actions": 13,
+    "bellman_candidates": 37752
+  },
+  {
+    "method": "physical_oracle",
+    "optimization_value": "-42530472643919767/5000000000000000",
+    "net_reward": -11.972029684072613,
+    "physical_cost": 8.506094528783953,
+    "premium": 14.41710937082026,
+    "liability": 6.920212497993725,
+    "maintenance": 10.812832028115196,
+    "adjustment": 0.15,
+    "filled_demand": 13.696253902279247,
+    "lost_demand": 5.766843748328104,
+    "demand": 19.463097650607352,
+    "undiscounted_filled": 15.2,
+    "undiscounted_lost": 6.4,
+    "undiscounted_demand": 21.6,
+    "fill_rate": 0.7037037037037037,
+    "unique_economic_actions": 143,
+    "bellman_candidates": 37752
+  }
+]
+
+CONDITIONING
+[
+  {
+    "epsilon": 0.1,
+    "direct_p_mse": 0.0013135334881520422,
+    "inferred_p_mse": 0.001313533488152041,
+    "induced_z_mse": 0.0002627066976304081,
+    "direct_design_condition": 6.901255288206791,
+    "z_design_condition": 3.4608804996170845,
+    "max_parity_error": 1.4432899320127035e-15
+  },
+  {
+    "epsilon": 0.01,
+    "direct_p_mse": 0.00010901814800347777,
+    "inferred_p_mse": 0.00010901814800347744,
+    "induced_z_mse": 2.180362960069549e-06,
+    "direct_design_condition": 6.901255288206791,
+    "z_design_condition": 2.9800842260175906,
+    "max_parity_error": 1.1102230246251565e-15
+  },
+  {
+    "epsilon": 0.001,
+    "direct_p_mse": 1.0516755268001864e-05,
+    "inferred_p_mse": 1.0516755268001908e-05,
+    "induced_z_mse": 2.1033510536003816e-08,
+    "direct_design_condition": 6.901255288206791,
+    "z_design_condition": 7.653255672736469,
+    "max_parity_error": 1.1102230246251565e-15
+  },
+  {
+    "epsilon": 0.0001,
+    "direct_p_mse": 1.042711290563099e-06,
+    "inferred_p_mse": 1.0427112905630193e-06,
+    "induced_z_mse": 2.0854225811260387e-10,
+    "direct_design_condition": 6.901255288206791,
+    "z_design_condition": 23.718673117263343,
+    "max_parity_error": 1.3322676295501878e-15
+  }
+]
+
+MESH
+[
+  {
+    "spatial_cells_per_axis": 4,
+    "spatial_nodes": 25,
+    "time_steps": 4,
+    "action_points_per_coordinate": 9,
+    "h": 0.5,
+    "dt": 0.25,
+    "transition_exit_probability": 0.875,
+    "all_time_node_value_error": 0.04451240078125002,
+    "proved_node_value_bound": 0.34765625,
+    "bound_type": "analytic quadratic-solution truncation plus nonexpansive Bellman propagation"
+  },
+  {
+    "spatial_cells_per_axis": 8,
+    "spatial_nodes": 81,
+    "time_steps": 10,
+    "action_points_per_coordinate": 17,
+    "h": 0.25,
+    "dt": 0.1,
+    "transition_exit_probability": 0.9,
+    "all_time_node_value_error": 0.025671346586980615,
+    "proved_node_value_bound": 0.1650390625,
+    "bound_type": "analytic quadratic-solution truncation plus nonexpansive Bellman propagation"
+  },
+  {
+    "spatial_cells_per_axis": 16,
+    "spatial_nodes": 289,
+    "time_steps": 29,
+    "action_points_per_coordinate": 33,
+    "h": 0.125,
+    "dt": 0.034482758620689655,
+    "transition_exit_probability": 0.896551724137931,
+    "all_time_node_value_error": 0.014049643050921518,
+    "proved_node_value_bound": 0.080322265625,
+    "bound_type": "analytic quadratic-solution truncation plus nonexpansive Bellman propagation"
+  },
+  {
+    "spatial_cells_per_axis": 32,
+    "spatial_nodes": 1089,
+    "time_steps": 94,
+    "action_points_per_coordinate": 65,
+    "h": 0.0625,
+    "dt": 0.010638297872340425,
+    "transition_exit_probability": 0.8936170212765957,
+    "all_time_node_value_error": 0.007426131150776116,
+    "proved_node_value_bound": 0.03961181640625,
+    "bound_type": "analytic quadratic-solution truncation plus nonexpansive Bellman propagation"
+  }
+]
