@@ -1,0 +1,25 @@
+name: NDU revision validation
+on:
+  push:
+    branches: [revision/ndu-mathematical-reconstruction-2026-09-20]
+    paths:
+      - '.github/workflows/ndu-revision.yml'
+      - 'revisions/2026-09-20/**'
+permissions:
+  contents: read
+jobs:
+  source-and-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record source revision
+        run: |
+          git rev-parse HEAD > /tmp/ndu-source-commit.txt
+          git archive --format=tar.gz HEAD > /tmp/ndu-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-revision-source
+          path: |
+            /tmp/ndu-source.tar.gz
+            /tmp/ndu-source-commit.txt
+          retention-days: 7
