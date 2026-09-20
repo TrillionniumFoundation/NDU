@@ -1,0 +1,57 @@
+{
+  "revision": "OR-R2-20260920",
+  "review_snapshot": "26b21f821e2f956f7cb2e3c42c9c08b2ddc2b971",
+  "reviewed_manuscript_commit": "036c3b9914789ef5717a807598d04eacdbf0e1d9",
+  "historical_model_design": "Adapted without parameter screening from revisions/2026-09-20/PROTOCOL.json at e8a7059f00876d3e155b29b0304299d9c981abea; this is a new execution, not a claim that the earlier protocol was executed.",
+  "model": {
+    "horizon": 8,
+    "discount": "97/100",
+    "regimes": [0, 1, 2],
+    "transition": [["7/10", "1/4", "1/20"], ["3/20", "7/10", "3/20"], ["1/20", "1/4", "7/10"]],
+    "base_demand": [0, 1, 2, 3],
+    "probabilities": ["1/10", "3/10", "2/5", "1/5"],
+    "demand": "regime + base_demand",
+    "stock_grid": "0,1/2,...,6",
+    "contract_grid": "0,1/10,...,1",
+    "initial_state": {"regime": 1, "previous_contract": "1/2"},
+    "physical_cost": "(3/10)*S + (3/5)*(S-D)^+ + (13/20)*(D-S)^+",
+    "external_premium": "(3/5+(7/5)*regime)*theta",
+    "incremental_contract_liability": "(6/5)*theta*(D-S)^+",
+    "maintenance": "(3/2)*theta^2",
+    "adjustment": "(3/5)*(theta-previous_contract)^2",
+    "net_reward": "premium - physical_cost - incremental_contract_liability - maintenance - adjustment",
+    "transition_semantics": "Perishable stock; unmet demand is lost. Regime follows the declared exogenous transition. Next previous_contract equals the actual contract action. No inventory or backlog is carried. External prices and physical-cost weights cannot be controlled.",
+    "terminal_reward": 0
+  },
+  "methods": ["joint_contract", "expanded_action_mdp", "frozen_contract", "capacity_matched_gate", "physical_oracle"],
+  "optimization": {
+    "primary": "Exact rational finite-horizon dynamic programming. Joint and expanded-action controls enumerate every (S,theta). Frozen and dummy-gate controls fix economic theta=1/2 but optimize an unrestricted state-aware stock table. Physical oracle minimizes only physical cost with the same state information.",
+    "tie_break": "Lexicographically greatest (objective,stock,contract); verify separately that this is the greatest optimal pair where the lattice theorem applies.",
+    "fairness": "Report unique economic actions and actual Bellman evaluations. No fictitious equality of unique action counts from dummy gates. Exhaustive optimization eliminates differential search error and every stock map is unrestricted.",
+    "selection": "No parameter or configuration changes based on output signs. All predeclared methods and tests are reported."
+  },
+  "evaluation": {
+    "primary": "Exact expected discounted net reward and full ledger decomposition.",
+    "simulation_seed_start": 2026092300,
+    "batches": 64,
+    "episodes_per_batch": 4096,
+    "common_random_numbers": true,
+    "secondary": ["physical_cost", "premium", "liability", "maintenance", "adjustment", "filled_demand", "lost_demand"],
+    "uncertainty": "Paired batch confidence intervals describe simulation error only; no training, selection-adjusted inference or field-validation claim."
+  },
+  "conditioning": {
+    "seed_start": 2026092400,
+    "batches": 64,
+    "training_pairs": 2048,
+    "epsilons": [0.1, 0.01, 0.001, 0.0001],
+    "data": "u uniform[-1,1], xi normal(0,1), payoff=(u+sqrt(2*epsilon)*xi)^2/2",
+    "fits": "Exact least squares for k*u^2/2+b and zeta*u^2/(2*sqrt(2*epsilon))+b, using identical data; P=k*u, inferred P=zeta*u/sqrt(2*epsilon).",
+    "report": "Integrated P MSE, naturally induced Z MSE, design condition numbers and parameterization parity. No injected target noise or test-tuned regularization."
+  },
+  "certification": {
+    "inventory": "Exact rational Bellman, terminal, greedy and accounting identities; all-state monotonicity; a max-affine-plus-quadratic critic representing the same grid model; continuous-contract action-quantization bounds on nested grids with 10,20,40,80,160 intervals.",
+    "pde": "Boundary-complete stopped controlled diffusion with V=(c^2+u^2)/2 on [0,1]x[-1,1]^2. Generator a*d_c + (theta/4)*d_u + .045*d_cc + .08*d_uu; running reward a*c-independent part specified as -a^2-(5/4)*theta^2-c^2/4-u^2/80-.125, controls a,theta in [-1,1]. Perturbed critics V+e*(1-t)*(1-c^2)*(1-u^2), e=2^-m, m=4,8,12,16,20; analytic residual bound 2.30e+1.05e^2; report exact zero parabolic-boundary error and analytic greedy controls. This is a manufactured control example, not the inventory model or a trained-neural result.",
+    "regressions": ["penalty-only sign counterexample", "Gibbs variational identity", "finite-horizon policy certificate needs both value comparisons", "nonterminal spatial-boundary counterexample", "ledger separation"]
+  },
+  "historical_evidence": "Original manuscript, reports, code, tables and release remain unchanged in the parent tree. Historical avg_cost is total cost, not theta-free cost. Historical learned-neural HJB diagnostics remain distinct from the new exact and analytic certificates."
+}
