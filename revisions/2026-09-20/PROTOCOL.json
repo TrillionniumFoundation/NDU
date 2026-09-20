@@ -1,0 +1,58 @@
+{
+  "version": "NDU-R1-2026-09-20",
+  "parent_review_commit": "ab8b8bb2153084e65e6b1c602ceeb4e16adc39c0",
+  "purpose": "One canonical contract-backed inventory model; exact finite-model optimization and untouched common-random-number evaluation. This protocol is committed before executing the new experiment.",
+  "model": {
+    "horizon": 8,
+    "discount": "97/100",
+    "regimes": [0, 1, 2],
+    "transition": [["7/10", "1/4", "1/20"], ["3/20", "7/10", "3/20"], ["1/20", "1/4", "7/10"]],
+    "base_demand": [0, 1, 2, 3],
+    "demand_probabilities": ["1/10", "3/10", "2/5", "1/5"],
+    "total_demand": "regime + base_demand",
+    "stock_levels": "0, 1/2, ..., 6",
+    "contract_levels": "0, 1/10, ..., 1",
+    "initial_regime": 1,
+    "initial_contract": "1/2",
+    "order_cost": "3/10",
+    "holding_cost": "3/5",
+    "base_shortage_cost": "13/20",
+    "contract_shortage_slope": "6/5",
+    "contract_premium": "(3/5 + (7/5)*regime)*theta",
+    "maintenance_cost": "(3/2)*theta^2",
+    "adjustment_cost": "(3/5)*(theta-previous_theta)^2",
+    "inventory_semantics": "Perishable periodic-review stock. Unmet demand is lost, not carried. Only the exogenous regime and previous contract persist. No identification with the historical backlog simulator is made.",
+    "terminal_reward": 0
+  },
+  "methods": {
+    "full_contract": "Exact backward induction over every stock and contract level.",
+    "expanded_action_mdp": "Ordinary MDP with action (stock,contract), identical primitives; must coincide exactly with full_contract.",
+    "frozen_contract": "Exact state-aware stock optimization; economic contract fixed at 1/2. Same full state observation and unrestricted stock table.",
+    "physical_oracle": "Exact state-aware minimization of theta-free physical cost; evaluated also under the fixed contract 1/2. No deliberately misspecified physical reward.",
+    "capacity_matched_gate": "Unrestricted stock table with a dummy latent gate and frozen economic contract. Must coincide with frozen_contract. Dummy evaluations are explicitly not distinct economic actions."
+  },
+  "optimization": {
+    "method": "Exact rational backward induction; no trained network, search seed, or hyperparameter selection.",
+    "tie_break": "Greatest maximizer in the product order, implemented by lexicographic (value,stock,contract) maximization.",
+    "evaluation_accounting": "Record distinct actions and all candidate evaluations separately. The same 143 candidate slots can be evaluated for each state/stage; frozen methods have duplicate contract slots. Exact exhaustive optimization, not duplicate slots, removes the search-capacity confound."
+  },
+  "evaluation": {
+    "seed_start": 2026092100,
+    "seed_count": 64,
+    "episodes_per_seed": 4096,
+    "common_random_numbers": true,
+    "primary": "Discounted net contractual reward versus frozen_contract.",
+    "secondary": ["theta-free physical cost", "incremental contract penalty", "premium", "maintenance", "adjustment", "unmet demand", "filled demand"],
+    "uncertainty": "Exact model expectations are primary. Paired 64-batch Monte Carlo means and standard errors measure simulation error only, not external validity or training variability.",
+    "no_selection": "No configuration screening, test-seed replacement, favorable-subset reporting, or tuning against observed test signs."
+  },
+  "additional_checks": [
+    "Original penalty-only counterexample and external-premium monotonicity condition",
+    "Gibbs variational identity and action-conditioned versus full-operator distinction",
+    "Boundary-complete HJB value/policy estimates and an explicit monotone upwind scheme",
+    "Finite-state residual certificate with both value-comparison contributions",
+    "Direct-P/Z conditioning under fixed, vanishing, and data-generated noise scales",
+    "Historical inventory ledger reconstruction without changing its training protocol"
+  ],
+  "interpretation": "Synthetic verification of a specified model, not field validation and not a certificate for historical neural inventory runs. Negative physical comparisons will be retained."
+}
