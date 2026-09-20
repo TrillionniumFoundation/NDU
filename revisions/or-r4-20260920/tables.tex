@@ -1,0 +1,113 @@
+\begin{table}[!ht]
+\centering
+\caption{Exact discounted operating outcomes}
+\label{tab:exact}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Net reward & Physical cost & Fill rate & Actions\\
+\midrule
+Joint contract & -5.002311 & 9.374174 & 0.882109 & 143\\
+Expanded-action MDP & -5.002311 & 9.374174 & 0.882109 & 143\\
+Frozen contract & -5.947058 & 9.587378 & 0.925926 & 13\\
+Dummy gate & -5.947058 & 9.587378 & 0.925926 & 13\\
+Physical oracle & -11.972030 & 8.506095 & 0.703704 & 143\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\small All expectations are exact rational calculations; displayed decimals are rounded. Actions count distinct economic choices. The physical oracle minimizes physical cost, not the convention-dependent net reward shown here.\end{minipage}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Contract cash-flow decomposition}
+\label{tab:ledger}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Premium & Liability & Maintenance & Adjustment\\
+\midrule
+Joint contract & 9.889658 & 1.001859 & 4.308149 & 0.207786\\
+Expanded-action MDP & 9.889658 & 1.001859 & 4.308149 & 0.207786\\
+Frozen contract & 7.208555 & 0.865027 & 2.703208 & 0.000000\\
+Dummy gate & 7.208555 & 0.865027 & 2.703208 & 0.000000\\
+Physical oracle & 14.417109 & 6.920212 & 10.812832 & 0.150000\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\small Net reward equals premium minus physical cost, liability, maintenance, and adjustment. The oracle uses contract one under the recorded tie convention.\end{minipage}
+\end{table}
+
+\clearpage
+\begin{table}[!ht]
+\centering
+\caption{Exact grid values and continuous-contract enclosures}
+\label{tab:contractgrid}
+\begin{tabular}{rrrr}
+\toprule
+Intervals & Grid value & Loss bound & Value upper bound\\
+\midrule
+10 & -5.00231055 & 0.04715774 & -4.95515281\\
+20 & -4.99648554 & 0.01178944 & -4.98469611\\
+40 & -4.99331402 & 0.00294736 & -4.99036666\\
+80 & -4.99288305 & 0.00073684 & -4.99214621\\
+160 & -4.99278573 & 0.00018421 & -4.99260152\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\small Theorem~\ref{thm:quadratic} bounds contract discretization for the unchanged stock set. The lower endpoint is the grid value; the upper endpoint adds the proved bound.\end{minipage}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Identical-data least-squares conditioning experiment}
+\label{tab:conditioning}
+\begin{tabular}{rrrrr}
+\toprule
+$\varepsilon$ & Direct $P$ MSE &  $P$ MSE via $Z$ & Direct condition & $Z$ condition\\
+\midrule
+0.1 & 0.00131353 & 0.00131353 & 6.901 & 3.461\\
+0.01 & 0.00010902 & 0.00010902 & 6.901 & 2.980\\
+0.001 & 0.00001052 & 0.00001052 & 6.901 & 7.653\\
+0.0001 & 0.00000104 & 0.00000104 & 6.901 & 23.719\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\small Means over 64 batches, each with 2,048 pairs. Integrated shadow-price MSE uses uniform test states on $[-1,1]$. Condition numbers are spectral design-matrix condition numbers.\end{minipage}
+\end{table}
+
+\clearpage
+\begin{table}[!ht]
+\centering
+\caption{Absolute certificates for the stopped diffusion}
+\label{tab:pde}
+\begin{tabular}{rrrrrr}
+\toprule
+$m$ & $\delta_H$ bound & $\delta_T$ & $\delta_\partial$ & $\delta_A$ & Policy-loss bound\\
+\midrule
+4 & 0.147851563 & 0 & 0 & 0 & 0.295703125\\
+8 & 0.009000397 & 0 & 0 & 0 & 0.018000793\\
+12 & 0.000561586 & 0 & 0 & 0 & 0.001123172\\
+16 & 0.000035095 & 0 & 0 & 0 & 0.000070191\\
+20 & 0.000002193 & 0 & 0 & 0 & 0.000004387\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\small $e=2^{-m}$. The entire parabolic boundary is exact, and the actor is analytically greedy. These are manufactured analytic critics, not fitted neural inventory models.\end{minipage}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Joint space--time--action refinement}
+\label{tab:mesh}
+\begin{tabular}{rrrrr}
+\toprule
+Spatial nodes & Time steps & Actions per axis & Node error & Proved bound\\
+\midrule
+25 & 4 & 9 & 0.04451240 & 0.34765625\\
+81 & 10 & 17 & 0.02567135 & 0.16503906\\
+289 & 29 & 33 & 0.01404964 & 0.08032227\\
+1089 & 94 & 65 & 0.00742613 & 0.03961182\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.98\textwidth}\small Observed errors are maximized over every computed state--time node. The bounds are supplied by Proposition~\ref{prop:scheme}; they do not certify interpolation or a continuous-state actor.\end{minipage}
+\end{table}

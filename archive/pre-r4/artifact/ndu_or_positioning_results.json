@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "checks": 12,
+  "failures": 0,
+  "abstract_words": 181,
+  "title": "NDU: A Generalization of Fixed-Preference Reinforcement Learning",
+  "keywords": "stochastic control; endogenous valuation; adaptive preferences; forward--backward stochastic differential equations; dynamic optimization",
+  "subjectclass": "Dynamic programming/optimal control: stochastic control; continuous time. Operations management: inventory/service systems. Simulation: computational experiments.",
+  "check_results": [
+    {
+      "name": "title_locked_current",
+      "ok": true,
+      "detail": "title=NDU: A Generalization of Fixed-Preference Reinforcement Learning"
+    },
+    {
+      "name": "title_generalization_terms",
+      "ok": true,
+      "detail": "title=NDU: A Generalization of Fixed-Preference Reinforcement Learning"
+    },
+    {
+      "name": "abstract_word_limit",
+      "ok": true,
+      "detail": "abstract_words=181"
+    },
+    {
+      "name": "abstract_opens_or",
+      "ok": true,
+      "detail": "Many operations models optimize physical actions after service levels, shortage penalties, or risk weights have been fix"
+    },
+    {
+      "name": "abstract_fixed_preference_as_limit",
+      "ok": true,
+      "detail": "RL is framed as a limiting/comparison case"
+    },
+    {
+      "name": "keywords_oriented",
+      "ok": true,
+      "detail": "keywords=stochastic control; endogenous valuation; adaptive preferences; forward--backward stochastic differential equations; dynamic optimization"
+    },
+    {
+      "name": "subjectclass_oriented",
+      "ok": true,
+      "detail": "subjectclass=Dynamic programming/optimal control: stochastic control; continuous time. Operations management: inventory/service systems. Simulation: computational experiments."
+    },
+    {
+      "name": "or_interpretation_table",
+      "ok": true,
+      "detail": "OR interpretation table and examples present before related literature"
+    },
+    {
+      "name": "scope_guard_after_table",
+      "ok": true,
+      "detail": "table is scoped as interpretation, not extra theorem/evidence"
+    },
+    {
+      "name": "theorem_scope_table",
+      "ok": true,
+      "detail": "front-of-paper theorem scope map present"
+    },
+    {
+      "name": "theorem_scope_labels",
+      "ok": true,
+      "detail": "main formal/computational result labels are represented"
+    },
+    {
+      "name": "theorem_scope_boundaries",
+      "ok": true,
+      "detail": "scope map names the major claim-boundary classes"
+    }
+  ],
+  "main_finding": "OR-positioning and theorem-scope guardrails pass: the manuscript is stochastic-control / operations framed, and its major formal claims are front-mapped with claim boundaries."
+}

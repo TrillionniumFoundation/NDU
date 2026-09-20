@@ -1,0 +1,118 @@
+{
+  "artifact_count": 6,
+  "artifacts": [
+    {
+      "bytes": 2395,
+      "path": "data/neural_guard_refinement_stress_audit.csv",
+      "rows": 6,
+      "sha256": "cf25b0479059d2adad2d9173a920f8230ec200e2688c9d5085ca2066e22025e4"
+    },
+    {
+      "bytes": 2342,
+      "path": "data/neural_guard_holdout_bootstrap_stability_audit.csv",
+      "rows": 6,
+      "sha256": "681ac55a93da976ad2c91501c2216171d1c5419a93f286f556e9677ee50f5259"
+    },
+    {
+      "bytes": 722,
+      "path": "data/neural_guard_concordance_audit.csv",
+      "rows": 2,
+      "sha256": "7f568a83ab14e1c96ca24c4c22a800e7cd06db02c57c805b3731033eb43b7962"
+    },
+    {
+      "bytes": 3629,
+      "path": "data/neural_guard_leave_one_out_robustness_audit.csv",
+      "rows": 12,
+      "sha256": "06a6195d407fad8d3c87c122b093f732a661635bbabfe0c17ace23f55b037fe6"
+    },
+    {
+      "bytes": 1950,
+      "path": "data/neural_bounded_composition_envelope_certificate.csv",
+      "rows": 2,
+      "sha256": "d8e4daca08eed6563c321b070b8da498d557018cce5dff03fa34ad60c44969f4"
+    },
+    {
+      "bytes": 1482,
+      "path": "data/neural_guard_stress_frontier_audit.csv",
+      "rows": 2,
+      "sha256": "c4be347f302717da8fddbc6d2726a64be2aa02235cb57b4be271ba66717ef73a"
+    }
+  ],
+  "boundary": "Does not rerun full PyTorch training and does not evidence external review, submission, acceptance, or Strong Accept.",
+  "certificate": "package_self_replay_certificate",
+  "command_count": 7,
+  "commands": [
+    {
+      "argv": [
+        "-m",
+        "py_compile",
+        "check_ndu_reproducibility.py",
+        "scripts/make_neural_guard_refinement_stress_audit.py",
+        "scripts/make_neural_guard_holdout_bootstrap_stability_audit.py",
+        "scripts/make_neural_guard_concordance_audit.py",
+        "scripts/make_neural_guard_leave_one_out_robustness_audit.py",
+        "scripts/make_neural_bounded_composition_envelope_certificate.py",
+        "scripts/make_neural_guard_stress_frontier_audit.py"
+      ],
+      "name": "py_compile_self_replay_chain",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "argv": [
+        "scripts/make_neural_guard_refinement_stress_audit.py"
+      ],
+      "name": "regenerate_refinement_stress",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "wrote data/neural_guard_refinement_stress_audit.csv rows=6"
+    },
+    {
+      "argv": [
+        "scripts/make_neural_guard_holdout_bootstrap_stability_audit.py"
+      ],
+      "name": "regenerate_holdout_bootstrap",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "wrote data/neural_guard_holdout_bootstrap_stability_audit.csv rows=6"
+    },
+    {
+      "argv": [
+        "scripts/make_neural_guard_concordance_audit.py"
+      ],
+      "name": "regenerate_concordance",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "wrote data/neural_guard_concordance_audit.csv rows=2"
+    },
+    {
+      "argv": [
+        "scripts/make_neural_guard_leave_one_out_robustness_audit.py"
+      ],
+      "name": "regenerate_leave_one_out",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "wrote data/neural_guard_leave_one_out_robustness_audit.csv rows=12"
+    },
+    {
+      "argv": [
+        "scripts/make_neural_bounded_composition_envelope_certificate.py"
+      ],
+      "name": "regenerate_bounded_composition",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "wrote data/neural_bounded_composition_envelope_certificate.csv rows=2"
+    },
+    {
+      "argv": [
+        "scripts/make_neural_guard_stress_frontier_audit.py"
+      ],
+      "name": "regenerate_stress_frontier",
+      "returncode": 0,
+      "status": "PASS",
+      "stdout": "wrote data/neural_guard_stress_frontier_audit.csv rows=2"
+    }
+  ],
+  "scope": "deterministic local package self-replay over the finite neural guard chain",
+  "status": "PASS"
+}

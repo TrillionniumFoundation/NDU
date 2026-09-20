@@ -1,0 +1,149 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\theequation}{EC.\arabic{equation}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Electronic Companion}\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{EC--\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Electronic Companion: NDU Endogenous Service Contracts},pdfauthor={Anonymous}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Electronic Companion\par}
+\medskip
+{\large Neural Differential Utility:\ Endogenous Service Contracts and Certified Dynamic Optimization\par}
+\medskip
+{Revision R4, September 20, 2026}
+\end{center}
+This companion retains supporting derivations, counterexamples, implementation details, and the mapping of historical evidence. Equation and theorem references without an EC prefix refer to the main paper. The canonical operating model is the externally priced, perishable-inventory contract model of Section~2. Historical internal-penalty examples are retained as distinct models, not silently identified with that model.
+
+\section{Comparator geometry and inner optimization}
+\subsection{What an exposed-face argument proves}
+Fix a state and a physical action, and let the continuation-value vector range over an open subset $U\subset\R^d$. A finite family of admissible valuation controls induces
+\begin{equation}
+ F(v)=\max_{j=1,\ldots,J}\{g_j+\beta p_j^\top v\}.
+\end{equation}
+Here $p_j$ is a transition probability vector and $g_j$ includes the control-dependent payoff and adjustment terms. The restrictions on the comparator must be specified before any non-equivalence statement is made.
+
+\begin{proposition}[Two exposed slopes]
+Suppose $\beta>0$ and there are open subsets $U_1,U_2\subset U$ on which distinct indices $j_1,j_2$ are the unique maximizers, with $p_{j_1}\ne p_{j_2}$. No single affine primitive $g+\beta p^\top v$ equals $F$ throughout $U$. Nevertheless, an ordinary Markov decision problem with the valuation index admitted as an action represents $F$ exactly.
+\end{proposition}
+\begin{proof}
+On $U_i$, the derivative of $F$ is $\beta p_{j_i}$. Equality with a single affine function on an open set would require its derivative to equal both distinct vectors. This is impossible. The last statement follows by taking the ordinary action set to be the original physical action paired with $j$.\end{proof}
+Different intercepts alone do not establish the premise: if all slopes coincide, the largest intercept gives a single affine envelope. Nor does the proposition say that a continuum of affine functions must have a nonsmooth envelope. For example, with strictly positive reference probabilities $p_i$ and $\rho>0$, set
+\[
+ Z=\sum_i p_i e^{\rho\beta v_i},\qquad
+ q_i^*=p_i e^{\rho\beta v_i}/Z.
+\]
+For any probability vector $q$,
+\begin{equation}
+ \beta q^\top v-\rho^{-1}\KL(q\Vert p)
+ =\rho^{-1}\log Z-\rho^{-1}\KL(q\Vert q^*).
+\end{equation}
+Nonnegativity of relative entropy proves the Gibbs variational identity. Entropic continuation is therefore an exact member of a sufficiently rich payoff--kernel envelope family. A fixed entropic risk parameter does not exclude this representation. The sign of the risk parameter matters: the displayed maximization convention is for $\rho>0$; the corresponding negative-parameter convention reverses the variational optimization. No general exclusion of risk-sensitive or robust control is claimed.
+
+Exogenous preference processes and fixed multiplier formulations can be compared only after fixing their admissible transition/payoff families. A restricted family may fail to contain a particular joint policy; that is not a theorem that every conventional stochastic-control formulation fails. Expanded-action equality in Proposition~2.1 of the main paper is the definitive representation check.
+
+\subsection{Conditional strongly concave reductions}
+A separate sufficient computational condition, useful in continuous-control models, is strong concavity of a particular inner Hamiltonian. It is not needed for the exact envelope algorithm or the quadratic contract-grid bound.
+
+\begin{proposition}[Inner-selector residual bound]
+Let $f$ be differentiable and $\mu$-strongly concave on a compact convex set $\Theta\subset\R^d$. Let $\widehat\theta\in\Theta$ satisfy
+\[
+ \nabla f(\widehat\theta)=n+e,\quad
+ n\in N_\Theta(\widehat\theta),\quad\norm e\leq\varepsilon,
+\]
+where $N_\Theta(x)=\{n:n^\top(y-x)\leq0\ \forall y\in\Theta\}$. Then the unique maximizer $\theta^*$ satisfies
+\[
+ \norm{\theta^*-\widehat\theta}\leq\varepsilon/\mu,
+ \qquad f(\theta^*)-f(\widehat\theta)\leq\varepsilon^2/(2\mu).
+\]
+For $f(\theta)=b^\top\theta-\theta^\top R\theta/2$ with $R\succ0$, the optimizer is the projection of $R^{-1}b$ onto $\Theta$ in the $R$ norm. In the scalar interval case it is ordinary clipping.
+\end{proposition}
+\begin{proof}
+Strong concavity and the normal-cone inequality give
+\[
+ f(\theta^*)-f(\widehat\theta)
+ \leq\varepsilon d-\mu d^2/2\leq\varepsilon^2/(2\mu),
+ \quad d=\norm{\theta^*-\widehat\theta}.
+\]
+For the distance bound, combine the strong monotonicity of $-\nabla f$ with the first-order optimality condition at $\theta^*$ and the stated approximate normal-cone condition. They imply $\mu d^2\leq\varepsilon d$. Completing the square in the quadratic objective proves the projection statement.\end{proof}
+Thus a physical-action approximation with gap $\delta_a$, combined with an inner residual $\varepsilon$, has total maximization gap at most $\delta_a+\varepsilon^2/(2\mu)$ when these hypotheses hold uniformly. Positive maintenance cost by itself does not establish global concavity after taking the stock envelope and adding continuation. The main paper avoids that unsupported inference.
+
+\section{Physical metrics and the historical newsvendor argument}
+\subsection{Restricted critical-fractile mismatch}
+Consider the separate physical cost
+\[
+ C_z(S)=h\E\pos{S-D_z}+p_z\E\pos{D_z-S},\qquad h,p_z>0.
+\]
+Assume the relevant stock interval has a density $f_z\geq\underline f_z>0$ and the interior minimizer $S_z^*$ satisfies $F_z(S_z^*)=p_z/(h+p_z)$. A fixed service parameter uses a common effective shortage coefficient $\bar p$ and selects $\bar S_z$ at fractile $\bar p/(h+\bar p)$. Then
+\begin{equation}
+ C_z(\bar S_z)-C_z(S_z^*)
+ \geq\frac{(h+p_z)\underline f_z}{2}(\bar S_z-S_z^*)^2.
+\end{equation}
+Indeed $C'_z(S_z^*)=0$ and $C''_z=(h+p_z)f_z$ on the connecting interval; integrate the second derivative twice. A positive-weight collection of regimes yields a strict expected gap whenever at least one selected stock differs from its physical optimum. Bounds on density and on quantile separation make this a stable mismatch statement.
+
+This argument is useful and is retained. Its comparator is a common critical-fractile parameter, not an unrestricted state-aware inventory controller. Selecting a state-dependent parameter afterward so that its penalty equals $p_z$ does not prove that an endogenous net-reward optimizer selects it. The actual-optimal-policy accounting theorem in Section~4 supplies that missing distinction. In the new experiment the joint policy's physical cost is computed from its own exact optimizing actions, not from a physical-cost-matching contract inserted by hand.
+
+\subsection{The actual optimized ledger}
+Write $W^\pi=K^\pi-C^\pi$, with all entries discounted under the same law. The exact results give
+\[
+ W^J-W^F=0.944747060878850\ldots,
+ \qquad C^F-C^J=0.213203951173630\ldots .
+\]
+Their difference is the increase in net contract transfers. The physical-cost oracle attains approximately $8.506094529$; the joint policy costs $9.374173780$. Thus improved net reward does not imply physical optimality. The oracle's contract-one implementation is fixed by the recorded tie convention, and its net cash flow is not the objective it minimizes.
+
+Fill rate is discounted filled demand divided by discounted demand, not a reward rescaling. It declines from $0.9259259259\ldots$ under the frozen contract to $0.8821088614\ldots$ under the joint contract. This decline is part of the result, not a failed run to discard. The full output also retains undiscounted filled, lost, and total demand. Historical columns named \texttt{avg\_cost} that include adjustment or valuation-dependent terms remain total-cost diagnostics; they are not relabeled as physical cost.
+
+\section{Continuous-time derivations and boundary controls}
+\subsection{Value volatility and the adjoint}
+For shared Brownian noise, the general relation is
+\[
+ Z=\sigma_c^\top P_c+\sigma_h^\top P_u,
+\]
+not two independently invertible observations. When $\sigma_h=0$, the internal gradient is absent from this volatility. If the external block also lacks full row rank, some components of $P_c$ are unobserved as well. If the physical action affects internal drift, the term $P_u^\top\partial_a h$ enters the physical first-order condition; the degeneracy need not be confined to the contract action.
+
+For completeness, suppose the value is sufficiently smooth, diffusion is control-independent, the optimal selector satisfies the Hamiltonian envelope condition, and all required derivatives and stochastic integrals exist. Before exit, set $P=\nabla V$ and $Q=D^2V\Sigma$. Differentiating the HJB equation and applying It\^o's formula gives
+\begin{equation}
+ dP_s=-\left[b_x^\top P_s+r_x+\sum_j(\sigma_j)_x^\top Q_{s,j}-\rho P_s\right]ds+Q_s\,dB_s.
+\end{equation}
+Here derivatives of the primitives hold the control fixed; the envelope condition removes derivatives of the maximizing selector. Along paths reaching the terminal face without prior exit, $P_T=\nabla G$. A Dirichlet exit payoff fixes the boundary value and tangential derivatives when smooth, but does not fix the normal derivative. Consequently one must not impose $P_\tau=\nabla\psi$ in all directions merely from the Dirichlet value condition. The stopped value-process equation, rather than such an extra adjoint terminal condition, is used in the main certificate.
+
+Adding an independent diffusion $\sqrt{2\varepsilon}I$ to the internal block gives $Z_u^\varepsilon=\sqrt{2\varepsilon}P_u$. Its inverse has squared amplification $1/(2\varepsilon)$ under additive volatility error. A direct gradient avoids this inverse but must still solve the value or adjoint problem. The main paper's least-squares parity result tests naturally generated data rather than adding a fixed error floor to the volatility target.
+
+\subsection{Why both boundary faces and both comparisons are necessary}
+A terminal condition alone does not determine a compact spatial problem. On $x\in[1,2]$, let
+\[
+ w(t,x)=(1-t)^{-1/2}\exp\{-x^2/[4(1-t)]\},\quad t<1,
+ \qquad w(1,x)=0.
+\]
+It satisfies $w_t+w_{xx}=0$ and extends smoothly to zero at the terminal face on this spatial interval, yet it is nonzero in the interior. The zero function has the same terminal data and interior equation. Their distinct lateral values explain the difference. An interior and terminal residual cannot control that difference without boundary information.
+
+A separate one-step example shows why a policy bound needs both critic comparisons. There are two actions leading deterministically to distinct terminal states, with true terminal reward zero. Action rewards are $0$ and $1.9$. A terminal critic equal to $+1$ at the first state and $-1$ at the second has terminal sup error one. Its greedy action selects the first action, yielding true policy loss $1.9$. The preceding critic can be its exact Bellman update, so the Bellman residual and greedy gap relative to that critic are zero. A policy bound of only one terminal error is false; two terminal errors suffice. This example is executed as an exact rational regression.
+
+The main theorem separately bounds value error and the critic-to-actor value error. For an actor-induced residual, the difference between the actor and optimal Hamiltonians must also be charged. A Neumann defect, reflected boundary local time, and a state-constraint viscosity inequality are not interchangeable with the Dirichlet mismatch used here.
+
+\subsection{From finite validation to a uniform bound}
+Suppose an independently established Lipschitz constant $L_R$ bounds the interior residual over the specified compact domain, and validation nodes form a cover of fill distance $h_R$. Then
+\[
+ \sup_D|R|\leq\max_{x_i}|R(x_i)|+L_Rh_R.
+\]
+Terminal and lateral defects require their own covers and constants. An actor gap likewise requires a certified action cover and Hamiltonian continuity modulus. Training loss, a sampled percentile, or a ratio against another network supplies none of these constants by itself. A differentiable network does not automatically supply a useful global residual bound: derivative growth and domain coverage must be bounded.
+
+A vanishing-viscosity value conclusion can be made under explicit comparison, common boundary attainment, uniform boundedness and equicontinuity, and locally uniform convergence of the HJB operators. Compactness gives subsequential value limits; stability of the sub- and supersolution inequalities identifies a solution of the limiting boundary problem; comparison identifies all such limits. Uniform value convergence alone does not prove convergence of gradients or recovery of the missing shadow price. These conditional observations preserve the original regularization motivation without using it as a substitute for the absolute certificate.
+
+
+\input{revisions/or-r4-20260920/sections/companion_execution_history.tex}

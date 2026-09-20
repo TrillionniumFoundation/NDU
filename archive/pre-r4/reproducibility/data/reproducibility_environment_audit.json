@@ -1,0 +1,166 @@
+{
+  "audit": "reproducibility_environment_audit",
+  "external_boundary": "Local environment provenance only; no external review, submission, portal action, acceptance, or Strong Accept outcome is evidenced.",
+  "full_regeneration_dependency_boundary": {
+    "boundary": "The lightweight package gates pass here; this audit does not prove full optional PyTorch/pandas/matplotlib/seaborn regeneration in this interpreter.",
+    "declared_requirement_count": 5,
+    "missing_optional_in_current_interpreter": [
+      "pandas",
+      "matplotlib",
+      "seaborn",
+      "torch"
+    ],
+    "status": "NOT_PROVEN_IN_CURRENT_INTERPRETER"
+  },
+  "lightweight_gate": {
+    "minimum_python": "3.10",
+    "required_stdlib_modules": [
+      "csv",
+      "hashlib",
+      "importlib.metadata",
+      "json",
+      "math",
+      "pathlib",
+      "shutil",
+      "subprocess",
+      "zipfile"
+    ],
+    "required_tools": [
+      "latexmk",
+      "pdflatex",
+      "sha256sum",
+      "unzip",
+      "zip"
+    ],
+    "scope": "checker, LaTeX build, zip integrity, checksum, and extracted-package replay prerequisites",
+    "status": "PASS"
+  },
+  "platform": {
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "system": "Linux"
+  },
+  "python": {
+    "implementation": "CPython",
+    "major_minor": "3.12",
+    "version": "3.12.3"
+  },
+  "requirements": [
+    {
+      "available": true,
+      "declared_spec": "",
+      "installed_version": "1.26.4",
+      "package": "numpy",
+      "satisfies_declared_spec": true,
+      "scope": "optional_full_regeneration_dependency"
+    },
+    {
+      "available": false,
+      "declared_spec": "",
+      "installed_version": null,
+      "package": "pandas",
+      "satisfies_declared_spec": false,
+      "scope": "optional_full_regeneration_dependency"
+    },
+    {
+      "available": false,
+      "declared_spec": "",
+      "installed_version": null,
+      "package": "matplotlib",
+      "satisfies_declared_spec": false,
+      "scope": "optional_full_regeneration_dependency"
+    },
+    {
+      "available": false,
+      "declared_spec": "",
+      "installed_version": null,
+      "package": "seaborn",
+      "satisfies_declared_spec": false,
+      "scope": "optional_full_regeneration_dependency"
+    },
+    {
+      "available": false,
+      "declared_spec": ">=2.11",
+      "installed_version": null,
+      "package": "torch",
+      "satisfies_declared_spec": false,
+      "scope": "optional_full_regeneration_dependency"
+    }
+  ],
+  "status": "PASS",
+  "stdlib_modules": [
+    {
+      "available": true,
+      "module": "csv"
+    },
+    {
+      "available": true,
+      "module": "hashlib"
+    },
+    {
+      "available": true,
+      "module": "importlib.metadata"
+    },
+    {
+      "available": true,
+      "module": "json"
+    },
+    {
+      "available": true,
+      "module": "math"
+    },
+    {
+      "available": true,
+      "module": "pathlib"
+    },
+    {
+      "available": true,
+      "module": "shutil"
+    },
+    {
+      "available": true,
+      "module": "subprocess"
+    },
+    {
+      "available": true,
+      "module": "zipfile"
+    }
+  ],
+  "toolchain": [
+    {
+      "available": true,
+      "path_basename": "latexmk",
+      "returncode": 0,
+      "tool": "latexmk",
+      "version_head": "Latexmk, John Collins, 31 Jan. 2024. Version 4.83"
+    },
+    {
+      "available": true,
+      "path_basename": "pdflatex",
+      "returncode": 0,
+      "tool": "pdflatex",
+      "version_head": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)"
+    },
+    {
+      "available": true,
+      "path_basename": "zip",
+      "returncode": 0,
+      "tool": "zip",
+      "version_head": "Copyright (c) 1990-2008 Info-ZIP - Type 'zip \"-L\"' for software license."
+    },
+    {
+      "available": true,
+      "path_basename": "unzip",
+      "returncode": 0,
+      "tool": "unzip",
+      "version_head": "UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP."
+    },
+    {
+      "available": true,
+      "path_basename": "sha256sum",
+      "returncode": 0,
+      "tool": "sha256sum",
+      "version_head": "sha256sum (GNU coreutils) 9.4"
+    }
+  ]
+}

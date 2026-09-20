@@ -1,0 +1,140 @@
+\section{Net reward, physical cost, and service}\label{sec:physical}
+For a policy $\pi$, let $C^\pi$ be its expected discounted physical cost and let $K^\pi$ be its expected discounted premium minus liability, maintenance, and adjustment. Its net reward is $W^\pi=K^\pi-C^\pi$. All these quantities use the same external coefficients. Let $J$ denote a net-reward-optimal joint policy, $F$ a frozen-contract policy optimized for that reward, and $O$ a physical-cost-optimal policy with the same information and admissible stock actions.
+
+\begin{theorem}[Accounting and an optimizer-based physical-cost bound]\label{thm:physical}
+For these actual policies,
+\begin{align}
+ C^F-C^J&=(W^J-W^F)-(K^J-K^F),\label{eq:identity}\\
+ 0\leq C^J-C^O&\leq K^J-K^O.\label{eq:oraclebudget}
+\end{align}
+Thus $J$ improves physical cost over $F$ exactly when its optimized net-reward gain exceeds the increase in net contract transfers. Physical-cost dominance over $O$ cannot follow from net-reward optimality. A physical oracle may have multiple contract implementations; \eqref{eq:oraclebudget} holds for any specified feasible implementation.
+\end{theorem}
+\begin{proof}
+Subtract $W=K-C$ for the two policies to obtain \eqref{eq:identity}. Physical optimality gives $C^O\leq C^J$. Net-reward optimality gives $K^J-C^J\geq K^O-C^O$, yielding the other inequality. Neither step inserts a preferred contract into the optimizing policy.\end{proof}
+
+The bound can be strengthened by choosing the net-transfer-maximizing implementation within the physical-optimal policy set. Our primary experiment does not change the previously recorded oracle implementation for this purpose: the greatest-contract tie convention selects contract one. The physical lower bound is independent of that convention, whereas the oracle's reported net cash flow is not.
+
+A positive physical gap can also be stable without assuming that all reoptimized policies remain unchanged. Suppose the same two calibrated policies are deployed under a perturbed exogenous one-step law whose total-variation distance is at most $\eta$ uniformly in regime, and physical stage cost lies in $[0,\bar C]$. Coupling exogenous histories gives
+\begin{equation}\label{eq:robust}
+ \left|(C^F-C^J)_{\rm new}-(C^F-C^J)_{\rm old}\right|
+ \leq 2\bar C\eta\sum_{t=0}^{T-1}\beta^t(t+1).
+\end{equation}
+Before a coupling failure the two copies of each fixed policy choose identical contracts and stock. The chance of failure by period $t$ is at most $(t+1)\eta$; summation proves the bound. This statement concerns deployment of the calibrated policies, not arbitrary policy reselection at a tie. The traditional critical-fractile mismatch argument is retained separately in EC.2; it is not used to attribute physical improvement to an unproved endogenous selector.
+
+\section{Continuous reconfiguration and boundary-complete computation}\label{sec:continuous}
+The continuous-time counterpart allows a physical state $c$ and an internal or contractual state $u$ to evolve under $\alpha=(a,\theta)$. On a domain $K$, consider
+\begin{equation}\label{eq:sde}
+ dX_s=b(X_s,\alpha_s)\,ds+\Sigma_\varepsilon(X_s,\alpha_s)\,dB_s,
+ \quad X=(c,u),\qquad
+ \Sigma_\varepsilon=\begin{bmatrix}\sigma_c&0\\0&\sqrt{2\varepsilon}I\end{bmatrix}
+\end{equation}
+in the block-diagonal special case. A controlled internal ordinary differential equation is obtained at $\varepsilon=0$. A neural differential parameterization can specify its drift; it does not alter the external reward rule. This continuous model is not claimed to be a diffusion limit of the perishable finite experiment.
+
+\subsection{Value gradients, volatility, and conditioning}
+For a smooth value function $v$, define column vectors $P=\nabla v$ and $Z=\Sigma_\varepsilon^\top P$. Along an optimal trajectory, before stopping,
+\begin{equation}\label{eq:bsde}
+ dY_s=-(r(X_s,\alpha_s)-\rho Y_s)\,ds+Z_s^\top dB_s,
+ \qquad Y_s=v(s,X_s),
+\end{equation}
+with the appropriate terminal or exit payoff. When the diffusion is control-independent, the maximizing drift--reward expression is $P^\top b+r$. For a controlled diffusion, the Hessian term must also be optimized. We never infer a feedback law from $Z$ alone when the map $P\mapsto\Sigma^\top P$ has a nontrivial kernel. This is the value-process representation underlying the forward--backward viewpoint \citep{MaProtterYong1994}; deep BSDE approximations provide one numerical parameterization \citep{HanJentzenE2018}.
+
+\begin{lemma}[Singular inversion and compatible direct gradients]\label{lem:conditioning}
+In the preference block of \eqref{eq:sde}, $Z_u=\sqrt{2\varepsilon}P_u$. If $\widehat Z_u=Z_u+\eta_Z$ is inverted, then
+\begin{equation}\label{eq:mse}
+ \E\norm{\widehat P_u-P_u}^2=\frac{\E\norm{\eta_Z}^2}{2\varepsilon}.
+\end{equation}
+A direct error $\widehat P_u=P_u+\eta_P$ has mean-square error $\E\norm{\eta_P}^2$ without this inversion factor. At $\varepsilon=0$, $Z_u$ contains no information about $P_u$. Taking $P_\phi=\nabla v_\phi$ enforces gradient compatibility, but by itself proves neither an HJB residual bound nor policy optimality.
+\end{lemma}
+\begin{proof}
+Subtract the two volatility identities and divide by $\sqrt{2\varepsilon}$. Squaring and taking expectations gives \eqref{eq:mse}. The zero-noise assertion follows directly from the linear map. A scalar critic has a conservative gradient wherever it is differentiable; optimality requires the separate residual and action conditions below.\end{proof}
+
+Equal-scale additive target errors are an assumption of the conditioning comparison, not a consequence of learning from identical observations. In the recorded least-squares experiment, the direct and volatility parameterizations span precisely the same fitted functions. Their recovered gradients agree to floating-point precision. The observed parity is consistent with \eqref{eq:mse}: naturally induced volatility error can shrink with the noise level, so a fixed target-error floor need not apply.
+
+\subsection{A stopped Dirichlet problem}
+Fix $D=[0,T]\times\overline K$ and the stopping time $\tau=T\wedge\inf\{s\geq t:X_s\notin K\}$. On exit before $T$, pay $\psi(\tau,X_\tau)$; at $T$, pay $G(X_T)$. The value is
+\begin{equation}\label{eq:stopped}
+ V^*(t,x)=\sup_\alpha\E_{t,x}\left[\int_t^\tau e^{-\rho(s-t)}r(X_s,\alpha_s)\,ds
+                   +e^{-\rho(\tau-t)}\Phi(\tau,X_\tau)\right],
+\end{equation}
+where $\Phi=\psi$ on lateral faces and $\Phi=G$ on the terminal face, with compatible corner data. Assume bounded data, compact controls, well-posed stopped dynamics, admissible arbitrarily accurate Hamiltonian selectors, and the dynamic programming principle and comparison for this Dirichlet problem. Uniform ellipticity and a sufficiently regular bounded domain are one sufficient setting; the theorem below also applies when the stated probabilistic assumptions hold for a degenerate model. Write
+\[
+ H^\alpha[w]=r^\alpha+b^\alpha\cdot\nabla w+\tfrac12
+       \operatorname{tr}(\Sigma^\alpha\Sigma^{\alpha\top}D^2w),\qquad
+ F[w]=w_t+\sup_\alpha H^\alpha[w]-\rho w.
+\]
+The problem is $F[V^*]=0$ in the interior, $V^*=\psi$ on the lateral boundary, and $V^*(T,\cdot)=G$. Reflected and state-constrained problems use different boundary operators and are not implicitly substituted for this one.
+
+\begin{theorem}[Absolute value and policy certificates]\label{thm:certificate}
+Let $w\in C^{1,2}(D)$ satisfy the integrability conditions for stopped It\^o's formula. Let $A$ be a measurable admissible actor. Suppose
+\begin{align*}
+ |F[w]|&\leq\delta_H, &
+ 0\leq\sup_\alpha H^\alpha[w]-H^A[w]&\leq\delta_A \quad\hbox{in the interior},\\
+ |w(T,x)-G(x)|&\leq\delta_T, &
+ |w(s,x)-\psi(s,x)|&\leq\delta_\partial \quad\hbox{on lateral faces}.
+\end{align*}
+Put $\delta_B=\max(\delta_T,\delta_\partial)$ and
+$\Hh_\rho(s)=(1-e^{-\rho s})/\rho$ for $\rho>0$, with $\Hh_0(s)=s$. Then
+\begin{align}
+ |w(t,x)-V^*(t,x)|&\leq\delta_B+\Hh_\rho(T-t)\delta_H,\label{eq:valuecert}\\
+ 0\leq V^*(t,x)-V^A(t,x)&\leq
+ 2\delta_B+\Hh_\rho(T-t)(2\delta_H+\delta_A).\label{eq:policycert}
+\end{align}
+If instead the certified residual is $|w_t+H^A[w]-\rho w|\leq\widetilde\delta_H$, a direct bound is
+\begin{equation}\label{eq:actorcert}
+ V^*-V^A\leq2\delta_B+\Hh_\rho(T-t)(2\widetilde\delta_H+\delta_A).
+\end{equation}
+A sequence whose relevant absolute defects vanish therefore has uniformly convergent values and asymptotically optimal actors on this stopped problem.
+\end{theorem}
+\begin{proof}
+For any admissible control, stopped It\^o's formula gives
+\[
+ J^\alpha-w(t,x)=\E\left[e^{-\rho(\tau-t)}(\Phi-w)(\tau,X_\tau)
+ +\int_t^\tau e^{-\rho(s-t)}(w_t+H^\alpha[w]-\rho w)(s,X_s)\,ds\right].
+\]
+The integrand is at most $\delta_H$ for every control. Approximate measurable maximizers make it at least $-\delta_H$ up to an arbitrarily small error. The boundary contribution has absolute value at most $\delta_B$, proving \eqref{eq:valuecert}. For actor $A$, the integrand lies between $-\delta_H-\delta_A$ and $\delta_H$, so $w-V^A\leq\delta_B+\Hh_\rho(T-t)(\delta_H+\delta_A)$. Adding this comparison to the upper bound on $V^*-w$ proves \eqref{eq:policycert}. In particular, both boundary comparisons must be counted.
+
+For \eqref{eq:actorcert}, the actor integrand has absolute value at most $\widetilde\delta_H$, while every competing integrand is at most $\widetilde\delta_H+\delta_A$. Applying the same identity once to a competitor and once to $A$ gives the displayed result. Bounded stopping horizons justify the use of $\Hh_\rho(T-t)$.\end{proof}
+
+A sampled root-mean-square residual is not a bound on $\delta_H$. A deterministic validation cover can supply one only with an independently justified modulus: if $F[w]$ is $L_R$-Lipschitz and the cover has fill distance $h$, then $\delta_H\leq\max_{\rm cover}|F[w]|+L_Rh$. Terminal and lateral defects require their own covers and moduli. The action gap needs a separate enclosure over all admissible actions. EC.3 retains these verification details and a counterexample to omitting the lateral boundary.
+
+\subsection{A constructive instance and a scheme-specific bound}\label{sec:pde}
+Consider $T=1$, $K=(-1,1)^2$, controls $a,\theta\in[-1,1]$, no discount, and
+\begin{align}
+ \mathcal L^{a,\theta}&=a\partial_c+\tfrac\theta4\partial_u
+                     +0.045\partial_{cc}+0.08\partial_{uu},\label{eq:generator}\\
+ r(c,u,a,\theta)&=-a^2-\tfrac54\theta^2-\tfrac14c^2-\tfrac1{80}u^2-0.125.\label{eq:pder}
+\end{align}
+Pay $(c^2+u^2)/2$ on the entire parabolic boundary. Then $V^*=(c^2+u^2)/2$: the maximizing controls are $a=c/2$ and $\theta=u/10$, their maximized terms cancel the state costs, and the diffusion contribution is $0.125$.
+
+For $e\in[0,1/16]$, define $w_e=V^*+e(1-t)(1-c^2)(1-u^2)$. Its exact greedy actor is $a_e=(w_e)_c/2$, $\theta_e=(w_e)_u/10$, which remains inside the control box. Direct expansion gives
+\begin{equation}\label{eq:analytic}
+ \delta_T=\delta_\partial=\delta_A=0,\qquad
+ \delta_H\leq2.30e+1.05e^2.
+\end{equation}
+Indeed, the time and diffusion terms contribute at most $(1+0.09+0.16)e$, the linear Hamiltonian perturbations at most $(1+0.05)e$, and the squared perturbations at most $(1+0.05)e^2$. Thus \eqref{eq:valuecert}--\eqref{eq:policycert} give an analytic uniform certificate sequence as $e\downarrow0$. This is a manufactured controlled diffusion, not a trained inventory critic.
+
+We also solve a genuinely refined discrete problem using a locally consistent Markov-chain construction of the type developed by \citet{KushnerDupuis2001}. With spatial step $h$, forward/backward differences $D^+,D^-$, central second differences $D^2_h$, and $b^+=\max(b,0)$, $b^-=\min(b,0)$, define
+\begin{align*}
+ L_h^{a,\theta}v={}&a^+D_c^+v+a^-D_c^-v
+    +\tfrac14(\theta^+D_u^+v+\theta^-D_u^-v)
+    +0.045D_{cc,h}^2v+0.08D_{uu,h}^2v,\\
+ T_hv={}&\max_{a,\theta\in A_k}\{v+\Delta t(L_h^{a,\theta}v+r^{a,\theta})\},
+\end{align*}
+where $A_k=\{-1,-1+2/k,\ldots,1\}$. Boundary nodes receive the prescribed payoff at every time. If
+\begin{equation}\label{eq:cfl}
+ \Delta t\left(0.25h^{-2}+1.25h^{-1}\right)\leq1,
+\end{equation}
+all transition weights are nonnegative and sum to one.
+
+\begin{proposition}[Quantitative refinement for the displayed scheme]\label{prop:scheme}
+For \eqref{eq:generator}--\eqref{eq:pder}, exact terminal and lateral data, and \eqref{eq:cfl}, the discrete backward solution $v_h$ satisfies, at every state--time node,
+\begin{equation}\label{eq:schemerate}
+ |v_h-V^*|\leq (1-t)\left(\frac58h+\frac9{4k^2}\right).
+\end{equation}
+This is a grid-value bound for this scheme and solution, not a certificate for an arbitrary interpolated neural actor.
+\end{proposition}
+\begin{proof}
+Central differences of $V^*$ are exact. The upwind first derivative contributes an additional $h|a|/2$ and $h|\theta|/8$ to the generator, together at most $5h/8$. Nearest grid controls are within $1/k$ of the continuous maximizers. Completing squares in the two Hamiltonians bounds their joint quantization loss by $(1+5/4)/k^2$. The exact solution is time-independent, so no temporal truncation term remains for this instance. Hence the one-step defect of $V^*$ is at most $\Delta t(5h/8+9/(4k^2))$. Nonnegative transition weights make $T_h$ nonexpansive in the sup norm. Backward induction from the exact parabolic data adds one local defect per step and proves \eqref{eq:schemerate}.\end{proof}
+
+Unlike a fixed state grid with more actions, this construction refines state, time, and actions together. A more general smooth solution would require the corresponding spatial and temporal truncation terms; merely naming monotonicity, stability, and consistency would not establish \eqref{eq:schemerate}.
+
