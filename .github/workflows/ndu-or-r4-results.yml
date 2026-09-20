@@ -1,0 +1,76 @@
+name: NDU OR R4 immutable numerical replay
+on:
+  push:
+    branches: ['revision/ndu-operations-research-r4-20260920']
+    paths:
+      - '.github/workflows/ndu-or-r4-results.yml'
+      - 'revisions/or-r4-20260920/execute.py'
+      - 'revisions/or-r4-20260920/local-execution-sha256.json'
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r4-immutable-results
+  cancel-in-progress: false
+jobs:
+  replay:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r4-20260920'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install recorded numerical versions
+        run: python -m pip install numpy==2.3.5 scipy==1.17.0
+      - name: Execute and verify exact results against the local record
+        run: |
+          set -euo pipefail
+          python revisions/or-r4-20260920/execute.py > revisions/or-r4-20260920/ci-replay.log
+          python revisions/or-r4-20260920/make_tables.py
+          git diff --exit-code -- revisions/or-r4-20260920/tables.tex
+          python - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          p=Path('revisions/or-r4-20260920')
+          expected=json.loads((p/'local-execution-sha256.json').read_text())
+          names=['exact_dp_summary.csv','exact_certificates.json','exact_envelopes.json','joint_policy_exact.csv','contract_grid_refinement.csv','analytic_pde_certificate.csv','neural_critic_certificates.csv']
+          checked={}
+          for name in names:
+              actual=hashlib.sha256((p/'results'/name).read_bytes()).hexdigest()
+              assert actual==expected[name], (name,actual,expected[name])
+              checked[name]=actual
+          v=json.loads((p/'results/validation.json').read_text())
+          assert v['expanded_action_exact_equality'] and v['independent_fraction_states_checked']==1320
+          record={'source_commit':os.environ['GITHUB_SHA'],'workflow_run_id':os.environ['GITHUB_RUN_ID'],'exact_local_replay_sha256':checked,'all_five_methods_executed':True,'table_source_unchanged':True,'scope':'Independent runner replay; exact files must be byte-identical. Seeded floating-point last bits and execution metadata may differ.'}
+          (p/'CI_REPLAY.json').write_text(json.dumps(record,indent=2,sort_keys=True)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r4-complete-executed-results
+          path: |
+            revisions/or-r4-20260920/results/
+            revisions/or-r4-20260920/CI_REPLAY.json
+            revisions/or-r4-20260920/ci-replay.log
+          retention-days: 30
+      - name: Commit complete outputs to the isolated revision branch
+        env:
+          TARGET_BRANCH: revision/ndu-operations-research-r4-20260920
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF" = "refs/heads/$TARGET_BRANCH"
+          mkdir -p /tmp/ndu-r4-results
+          cp -a revisions/or-r4-20260920/results /tmp/ndu-r4-results/
+          cp revisions/or-r4-20260920/CI_REPLAY.json revisions/or-r4-20260920/ci-replay.log /tmp/ndu-r4-results/
+          git fetch origin "$TARGET_BRANCH"
+          git diff --exit-code "$GITHUB_SHA" FETCH_HEAD -- main.tex electronic_companion.tex revisions/or-r4-20260920/sections/ revisions/or-r4-20260920/execute.py revisions/or-r4-20260920/make_tables.py
+          git checkout -f -B "$TARGET_BRANCH" FETCH_HEAD
+          cp -a /tmp/ndu-r4-results/results/. revisions/or-r4-20260920/results/
+          cp /tmp/ndu-r4-results/CI_REPLAY.json /tmp/ndu-r4-results/ci-replay.log revisions/or-r4-20260920/
+          git config user.name 'NDU R4 numerical replay'
+          git config user.email 'ndu-r4-replay@users.noreply.github.com'
+          git add revisions/or-r4-20260920/results/ revisions/or-r4-20260920/CI_REPLAY.json revisions/or-r4-20260920/ci-replay.log
+          git diff --cached --quiet || git commit -m 'results(or-r4): publish all exact policies, envelopes, seeded batches, and absolute certificates'
+          git push origin "HEAD:refs/heads/$TARGET_BRANCH"
