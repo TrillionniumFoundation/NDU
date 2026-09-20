@@ -1,0 +1,60 @@
+{
+  "version": "NDU-OR-R1-20260920",
+  "review_commit": "26b21f821e2f956f7cb2e3c42c9c08b2ddc2b971",
+  "historical_protocol_commit": "e8a7059f00876d3e155b29b0304299d9c981abea",
+  "historical_model_protocol_blob": "a93dd7571c7c7efd1c9ceb1d6742797f72683bef",
+  "historical_conditioning_protocol_blob": "cde6ae437bed287dd1cbca1bb568a5f3f3f2b8f6",
+  "model": {
+    "horizon": 8,
+    "discount": "97/100",
+    "regimes": [0, 1, 2],
+    "transition": [["7/10", "1/4", "1/20"], ["3/20", "7/10", "3/20"], ["1/20", "1/4", "7/10"]],
+    "base_demand": [0, 1, 2, 3],
+    "demand_probabilities": ["1/10", "3/10", "2/5", "1/5"],
+    "stock_levels": "0, 1/2, ..., 6",
+    "contract_levels": "0, 1/10, ..., 1",
+    "initial_regime": 1,
+    "initial_contract": "1/2",
+    "order_cost": "3/10",
+    "holding_cost": "3/5",
+    "base_shortage_cost": "13/20",
+    "contract_shortage_slope": "6/5",
+    "premium_intercept": "3/5",
+    "premium_regime_slope": "7/5",
+    "maintenance_cost": "3/2",
+    "adjustment_cost": "3/5",
+    "terminal_reward": 0,
+    "inventory_semantics": "Perishable stock; lost sales; exogenous Markov regime and previous contract are the persistent state. Premium and incremental shortage compensation are external contractual transfers, not internal relabeling of physical cost."
+  },
+  "comparators": ["full_contract", "expanded_action_mdp", "frozen_contract", "capacity_matched_gate", "physical_oracle"],
+  "optimization": {
+    "method": "Exhaustive exact rational backward induction; no training or configuration search.",
+    "tie_break": "Greatest product-order maximizer, checked directly; lexicographic (value, stock, contract) is used only after lattice closure is verified.",
+    "accounting": "Report 13 stock choices and 11 contract choices per state. Frozen and dummy-gate comparators have unrestricted state-aware stock tables; distinguish distinct economic actions from repeated slots.",
+    "primary": "Exact expected discounted net contractual reward relative to the frozen contract 1/2.",
+    "secondary": ["theta_free_physical_cost", "incremental_contract_penalty", "premium", "maintenance", "adjustment", "unmet_demand", "filled_demand"]
+  },
+  "simulation": {
+    "seed_start": 2026092100,
+    "seed_count": 64,
+    "episodes_per_seed": 4096,
+    "common_random_numbers": true,
+    "no_selection": "Use every seed and every specified comparator. Do not tune numerical primitives after seeing outcomes.",
+    "uncertainty": "Paired batch means and standard errors quantify simulation error only. Exact model expectations are primary; no field-validation or training-variability inference."
+  },
+  "conditioning": {
+    "model": "dU=sqrt(2*epsilon)dW, T=1, payoff U_T^2/2; exact P(0,u)=u.",
+    "sample_count": 2048,
+    "epsilons": [0.1, 0.01, 0.001, 0.0001],
+    "seed_start": 2026092200,
+    "seed_count": 64,
+    "method": "Fit k*u^2/2+b and the identical value critic reparameterized by zeta=sqrt(2*epsilon)*k to the same stochastic-return data. No independent additive Z-target noise is injected.",
+    "metric": "Integrated gradient MSE=(k-1)^2/3, design condition numbers, induced Z error, and transformed-coefficient parity."
+  },
+  "additional_analyses": {
+    "canonical_network": "Construct exact max-affine-minus-quadratic value network and rational hysteresis breakpoints; certify Bellman residuals on all previous-contract values in [0,1] for the specified finite action grid.",
+    "scheme": "Prove a scheme-specific continuous-action quantization bound using an explicit Lipschitz constant, separately from finite-model exactness and diffusion HJB comparison.",
+    "pde": "Boundary-complete stopped diffusion verification and explicit monotone upwind/central-diffusion scheme. A manufactured quadratic certificate is a separate diffusion instance, never relabeled as inventory evidence.",
+    "historical": "Retain every historical file and negative result; repair metric definitions through a traceable ledger rather than overwriting historical outcomes."
+  }
+}
