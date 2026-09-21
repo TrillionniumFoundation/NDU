@@ -1,42 +1,47 @@
-# Neural Differential Utility — Operations Research revision R7
+# Neural Differential Utility — Operations Research revision R10
 
-Current scientific revision: `revision/ndu-operations-research-r7-20260921`.
+Current scientific branch: `revision/ndu-operations-research-r10-20260921`.
 
-This revision responds to the [R7 referee report](reviews/operation_research_referee_report_r7_2026-09-21.md) at `31c8d31b8041f19b89dcac8193d0e0dcccbdcbe8`. It builds on scientific revision R6 at `1004079f29ce65e9a8e3157c63d654b28d42f1f6`. The main branch and earlier revision/review branches are not modified.
+**Title:** Neural Differential Utility: Accepted Adaptive Service Control and Certified Value-Gradient Learning.
 
-## Current review sources
+This is an integrated revision responding to the R9 report at `c4cf05f40feb0eb690f4f0c65a0d6176b3d32b28`, on the R9 predecessor `584296b1a22de455a482c6809f00eda1387b6dab`. Main and previous review/revision branches are unchanged.
 
-[Manuscript source](main.tex), [electronic companion source](electronic_companion.tex), [point-by-point response](revisions/or-r7-20260921/RESPONSE_TO_REFEREE.md), and [preservation map](revisions/or-r7-20260921/PRESERVATION.md) identify the current package. This is a **source-first branch**: compile the sources to obtain the current PDFs. No link here assumes that a root PDF has been committed. Legacy `main.bib` and `main.bbl` are preserved historical files; the current manuscript uses the reference section under the R7 directory.
+## Read the current manuscript
 
-## Principal new results
+[Main manuscript](main.pdf) ([source](main.tex)), [electronic companion](electronic_companion.pdf) ([source](electronic_companion.tex)), and [historical scientific supplement](historical_supplement.pdf) ([source](historical_supplement.tex)) are the complete reading package. The historical supplement preserves all earlier continuous-time, diffusion, and computational material without presenting it as validation of the new model.
 
-The continuous accepted optimum is deterministic and gains **0.6366652716114345** over the optimized continuous static contract, with exactly unchanged customer utility, filled demand, and physical cost. Accepted increments are **0.0008168767827264** for time, **0.616558016063448** for the current regime, and **0.0192903787652605** for the inherited tier. These are rationally verified values, not the older provider-relaxation decomposition.
+[Point-by-point response](revisions/or-r10-20260921/RESPONSE_TO_REFEREE.md), [preservation map](revisions/or-r10-20260921/PRESERVATION.md), and [build audit](revisions/or-r10-20260921/results/package_validation.json) make the new theorem chain, remaining empirical limitations, and integration explicit.
 
-Allowing the customer to exit at all **3,280** review-history nodes retains a feasible gain of **0.4530787632236716**, with a rational upper gap below **6.95e-7**. A new accepted policy-loss identity and a rational residual certificate support coupled learned deployments with **1,024** tier coordinates. All **288** evaluated decisions pass exact acceptance and certificate replay. The largest learned value–gradient bound is **8.0436e-7 per service**. The comparison includes equal raw-oracle value-only fitting, ten paired seeds, analytic filtering, conjugate gradients, and direct solvers; stronger classical accuracy and inconclusive seed intervals remain visible.
+## Scientific revision
 
-The accepted robustness design has 31 cases, including two infeasible commitments and a zero-gain case. Fine menus, deterministic incumbents, complete multi-tier inaction regions, the original coarse exact certificate, and the full historical evidence are retained with separate scopes.
+The general formulation now has vector node tiers, joint graph resource costs, explicit information equalities, and all continuation-participation rows. Stock identification handles exogenous occupation weights, constrained quantiles, one-sided derivatives, and a specified vector extension. Standard convex and Bregman tools are credited as standard.
 
-## Build and reproduce
+A new complete scalar tree-edge criterion identifies whether a payment-neutral static protocol is globally optimal using primitive marginal reward ratios. A violated edge constructs a continuation-compatible improvement. Curvature bounds quantify its value; absolute switching admits an exact two-review friction threshold. A remaining-payment Bellman state and an exact zero-friction counterexample separate contractual memory from extra demand information.
 
-The build first runs `prepare_sources.py`, which checks the Git blob IDs of the preserved R6 inputs and deterministically assembles their annotated R7 copies. All newly proved R7 sections are tracked as ordinary TeX. With Python 3 and a LaTeX installation containing `newtx`, `natbib`, `xr-hyper`, and the standard AMS packages:
+The exact R7 accepted hierarchy and customer-exit gain are retained and replayed. A new graph-coupled **quartic multistage** task trains compatible nonlinear scalar potentials, uses 720 certified scalar teacher records, and audits 176 complete contingent-plan proposals with 2,640 exact continuation checks. Test instances reach 992 tier coordinates and change graph family, weights, curvature, and horizon. Cached-preconditioned nonlinear solvers, setup cost, repeated end-to-end timings, and paired training-seed uncertainty are disclosed.
 
-```sh
-bash revisions/or-r7-20260921/build.sh
-```
+All repaired proposals are feasible, but not all learned proposals improve the static comparator. Severe weighted-block shift produces adverse raw results; the static gate prevents negative incremental deployment reward. The paired seed interval includes zero: a reproducible superiority of gradient supervision is **not** claimed. The study is synthetic, not a calibrated field application. These findings are visible in the manuscript and raw records, not deleted or labeled successful transfer.
 
-The audited local build produces 31-page `main.pdf` and 31-page `electronic_companion.pdf`, with no unresolved references or overfull text boxes. On minimal TeX Live installations, `binhex.tex` is supplied by the plain/generic packages; install them rather than replacing the manuscript's math fonts.
+## Build and replay
 
-To rerun the R7 experiments and exact certificate checks:
+With Python 3.11+ and a TeX Live installation containing `newtx`, `endfloat`, `natbib`, `xr-hyper`, and the ordinary AMS packages:
 
 ```sh
-python -m pip install -r revisions/or-r7-20260921/requirements.txt
-bash revisions/or-r7-20260921/reproduce.sh
+python -m pip install -r revisions/or-r10-20260921/requirements.txt
+bash revisions/or-r10-20260921/reproduce.sh
+bash revisions/or-r10-20260921/build.sh
 ```
 
-The source checkout includes tracked tables, compact recorded metrics, and hashes for the reviewed run. Full generated policies and diagnostic arrays are written to `revisions/or-r7-20260921/results/` by reproduction. The delivered reproducibility bundle additionally contains those complete generated records and the compiled PDFs. Reproduction writes separate replay tables under `results/replay_tables/` and does not overwrite the tracked paper tables; numerical iterates and wall times can vary by environment. Exact proofs and exact acceptance checks do not use a solver status as a substitute for a certificate.
+Independent verification of the recorded R10 rational results (without running or importing the learner):
 
-## Preservation and evidence scope
+```sh
+python revisions/or-r10-20260921/verify.py
+python revisions/or-r10-20260921/structural_checks.py
+python revisions/or-r10-20260921/check_package.py --pdf
+```
 
-R6 and earlier scientific directories remain unchanged. The reviewed root manuscript, companion, README, and checklist are copied to `archive/pre-r7/`. The current main paper and companion retain all prior substantive theorem families and reported adverse outcomes; the response explains their placement.
+The R10 `results/` directory and `replayed_r7/` archive contain full rational policies, multipliers, all oracle endpoint records, problem primitives, raw timing observations, and summary files. The R10 workflow builds all three documents, runs both the R7 and R10 scientific checks, and publishes actual ordinary source files and complete records on this branch. Its artifact is a convenience, not the sole archival location. Reproduction updates recorded timings and generated tables for its environment; the commit and manifest identify which run accompanies each PDF. It does not retroactively recover the original R7 timing run.
 
-The portfolio experiment is a coupled accepted review/terminal Bellman update, not an arbitrary 1,024-dimensional multistage solution. Its critic is a trained quadratic graph-filter readout, not a new generic architecture. The continuous-rate HJB model remains a separate extension. Rational certificates, floating-point LP diagnostics, sampled historical neural results, and editorial judgments are not interchangeable.
+## Scope and preservation
+
+[Preservation map](revisions/or-r10-20260921/PRESERVATION.md) lists every predecessor input and its new location. No earlier scientific directory is overwritten to replace a theorem or suppress an adverse result. The predecessor root sources are preserved verbatim. Bibliographic entries are retained and a verified convex-optimization reference is added. Private information, endogenous tariff design, and a real-world service calibration remain outside the demonstrated model.

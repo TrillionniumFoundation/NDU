@@ -1,0 +1,79 @@
+\section{Primitive structure under continuation participation}\label{sec:r10-tree}
+Continuation participation changes which customer-neutral reallocations are permissible. We give a complete scalar tree criterion and a quantitative improvement that can be checked from local primitives, without solving the defining nonlinear control program. The graph formulation above remains available for portfolios; the scalar result is not silently promoted to a graph theorem.
+
+\subsection{An edge test rather than a high-dimensional direction search}
+Let $o$ be the root of a finite decision tree. Assume $a_n>0$, $w_n>0$, scalar continuous tiers, and an interior constant comparator $\bar\theta$. Define $c_n=w_na_n$ and the accepted, payment-neutral class
+\begin{equation}\label{eq:r10-subtrees}
+ \sum_n c_n(x_n-\bar\theta)=0,\qquad
+ \sum_{j\succeq n}c_j(x_j-\bar\theta)\leq0\quad(n\ne o),\qquad 0\leq x_n\leq1.
+\end{equation}
+Here $j\succeq n$ includes $n$ itself. Root equality holds customer utility exactly fixed; every nonroot inequality prevents the remaining expected payment from exceeding the static outside protocol. Identified fill and physical cost stay fixed. This is a subclass of weak acceptance, so every strict improvement obtained here also improves the weakly accepted problem.
+
+Let $\mathcal R$ be convex and differentiable, and define the primitive marginal reward per payment unit at the comparator by
+\begin{equation}\label{eq:r10-k}
+ k_n=\frac{w_na_n-\partial_n\mathcal R(\bar\theta\mathbf1)}{w_na_n}.
+\end{equation}
+For scalar maintenance and centered smooth switching, $A_n'(0)=0$ and $\nabla\mathcal G(\bar\theta\mathbf1)=0$, this is $k_n=1-M_n'(\bar\theta)/a_n$ at every nonroot node. At the root, subtract also $A_o'(\bar\theta-q_0)/a_o$. Thus the test permits nonquadratic maintenance, arbitrary finite smooth friction, and nonstationary tariffs. Initial installation is not omitted.
+
+\begin{theorem}[Complete continuation-compatible edge criterion]\label{thm:r10-edge}
+In \eqref{eq:r10-subtrees}, the static protocol is globally optimal if and only if
+\begin{equation}\label{eq:r10-edge-condition}
+ k_n\geq k_{\mathrm{pa}(n)}\quad\text{on every nonroot edge}.
+\end{equation}
+If some edge $u\to v$ has $\Delta=k_u-k_v>0$, set $d_u=1/c_u$, $d_v=-1/c_v$, and all other components to zero. Then $\bar\theta\mathbf1+sd$ is feasible for
+\[
+ 0\leq s\leq s_{\max}=\min\{c_u(1-\bar\theta),c_v\bar\theta\},
+\]
+and strictly improves the reward for all sufficiently small positive $s$. If $d^\top\nabla^2\mathcal R(\bar\theta\mathbf1+sd)d\leq L_d$, its gain is at least $s\Delta-L_ds^2/2$. The edge test costs $O(N)$ comparisons once the primitive marginal costs have been evaluated.
+\end{theorem}
+\begin{proof}
+For any feasible $x$, put $y_n=c_n(x_n-\bar\theta)$ and $S_n=\sum_{j\succeq n}y_j$. Then $S_o=0$ and $S_n\leq0$ for $n\ne o$. Since $y_n=S_n-\sum_{v:\mathrm{pa}(v)=n}S_v$, finite summation by parts gives
+\begin{equation}\label{eq:r10-summation}
+ \nabla W(\bar\theta\mathbf1)^\top(x-\bar\theta\mathbf1)
+ =\sum_{n\ne o}(k_n-k_{\mathrm{pa}(n)})S_n.
+\end{equation}
+Condition \eqref{eq:r10-edge-condition} makes this nonpositive for every feasible $x$; concavity proves global optimality. If an edge violates it, the displayed two-coordinate transfer has $S_v=-s$ and all other nonroot subtree sums zero. It therefore satisfies every continuation inequality, not just an ex ante budget. Its derivative is $\Delta>0$, and the box gives $s_{\max}$. The curvature bound proves the finite gain. This also proves necessity without appealing to existence of unknown optimizer multipliers.
+\end{proof}
+
+The direction moves expected payment from a descendant review to its parent. This timing respects a customer's later option to leave. By contrast, shifting payment from a low-price state to a high-price sibling can violate that sibling's continuation promise, even when total payment is unchanged. The edge criterion exposes precisely the order imposed by this institution. For weak root acceptance instead of equality, the same calculation adds $k_oS_o$; the complete scalar criterion is \eqref{eq:r10-edge-condition} together with $k_o\geq0$.
+
+A primitive curvature bound is obtained by summing all affected terms:
+\begin{equation}\label{eq:r10-curvature}
+ L_d\leq\sum_n w_n\overline M_n d_n^2+
+ \sum_n w_n\overline A_n(d_n-d_{\mathrm{pa}(n)})^2+\overline G_d,
+ \qquad d_{\mathrm{pa}(o)}=0.
+\end{equation}
+Here $\overline M_n,\overline A_n$ bound second derivatives along the entire feasible segment, and $\overline G_d$ bounds the joint coupling curvature. The sum includes incoming and outgoing switching edges, including unchanged children of either perturbed node. If $L_d=L_0+\lambda L_A$, an untruncated step yields a guaranteed gain $\Delta^2/[2(L_0+\lambda L_A)]$. Finite smooth adjustment can make the gain small without necessarily eliminating it.
+
+\subsection{An exact threshold for nonsmooth switching}
+The contrast with absolute adjustment is substantive rather than notational. Consider a two-review chain $o\to v$, $q_0=\bar\theta$, the same root payment equality and child participation constraint, and switching cost
+$\lambda\{\kappa_o|x_o-q_0|+\kappa_v|x_v-x_o|\}$, where $\kappa_o,\kappa_v>0$ include their probability weights. Let $k_o,k_v$ now exclude that absolute switching term, and let the remaining resource cost be differentiable and convex. Set
+\[
+ K=\kappa_o/c_o+\kappa_v(1/c_o+1/c_v),\qquad
+ \lambda_c=\max\{0,(k_o-k_v)/K\}.
+\]
+\begin{corollary}[Friction threshold with an exit option]\label{cor:r10-threshold}
+The static protocol is globally optimal exactly when $\lambda\geq\lambda_c$. For $0\leq\lambda<\lambda_c$, a sufficiently small customer-neutral transfer from the child to its parent strictly improves reward while satisfying continuation participation.
+\end{corollary}
+\begin{proof}
+Every feasible displacement has $d_o=s/c_o$, $d_v=-s/c_v$ for $s\geq0$. Its right derivative at zero is $k_o-k_v-\lambda K$. A positive derivative gives improvement. A nonpositive derivative, combined with concavity on this one-dimensional feasible interval, rules out improvement everywhere, including the equality case. The threshold therefore uses primitive rates and frictions, not an uncomputed optimizer.
+\end{proof}
+
+\subsection{What the value of contractual memory does and does not mean}
+\begin{proposition}[Zero-friction bound without history-specific promises]\label{prop:r10-memory}
+With exogenous regimes, compact convex tiers in $[0,1]^d$, convex stage resources, and only ex ante linear payment commitments, assume that stage resource functions and payment coefficients depend only on time and the current regime, with no other history-dependent feasibility or physical carry-over. Let $W_{\mathrm{full}}(\lambda)$ and $W_{t,z}(\lambda)$ allow full observed history or only time and current regime. Suppose the sole inherited-tier term is $\lambda\E\sum_t\beta^t\|x_t-x_{t-1}\|^2$. For any time--regime optimizer $\pi_0$ at zero friction,
+\[
+ 0\leq W_{\mathrm{full}}(\lambda)-W_{t,z}(\lambda)
+ \leq\lambda\mathcal A(\pi_0)\leq\lambda d\sum_t\beta^t.
+\]
+\end{proposition}
+\begin{proof}
+At zero friction, conditional expectation of actions given $(t,z_t)$ preserves expected linear commitments and reduces convex stage costs. Thus both zero-friction values coincide and compactness gives $\pi_0$. Adding nonnegative friction reduces the full value, whereas using $\pi_0$ loses at most $\lambda\mathcal A(\pi_0)$. Compact tier bounds give the last inequality.
+\end{proof}
+The proposition deliberately excludes history-specific promises. This exclusion has content: with two equiprobable histories leading to the same terminal regime, terminal utility $x-x^2$, and respective tier caps $1/4$ and $3/4$, history-dependent control earns $(3/16+1/4)/2=7/32$, whereas a common terminal tier earns $3/16$. The gap is $1/32$ even at zero friction. Both histories and their caps are public. Different earlier installed tiers can record which promise applies. The missing information concerns a contractual obligation, not a new signal about demand. Consequently no unconditional claim that continuation-constrained memory value vanishes is made.
+
+For the continuation institution, a remaining-payment budget supplies the appropriate dynamic state. At node $n$, with incoming budget $b$ and outside-protocol cap $\bar b_n$, choose the tier $x$ and child budgets $b_v$ subject to
+\begin{equation}\label{eq:r10-budget-dp}
+ a_n^\top x+\beta\sum_{v\in\mathrm{ch}(n)}P_{nv}b_v\leq\min\{b,\bar b_n\}.
+\end{equation}
+The Bellman state is $(n,q,b)$, or $(t,z,q,b)$ when the subtree primitives and outside caps are Markov. Its continuation term is $\beta\sum_vP_{nv}V_v(x,b_v)$. Backward induction establishes equivalence with the full tree program: feasible child budgets give a feasible subtree protocol, while a feasible protocol supplies child budgets equal to its actual expected remaining payments. At zero friction the recursion does not use $q$, but it still uses the promise budget and the information determining the outside caps. This is the precise continuation-aware replacement for conditioning on demand regime alone.

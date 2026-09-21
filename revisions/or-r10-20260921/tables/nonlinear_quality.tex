@@ -1,0 +1,24 @@
+\begin{table}[p]
+\centering\small
+\caption{Nonlinear multistage control: mean normalized gain and exact audit. Gains divide total discounted reward by discounted service--reviews. Each learned row averages ten training seeds and two problem seeds; a classical row has two problems. The maximum certificate bound is not an estimated realized loss. ``Static gate'' selects the higher exact reward of the proposal and optimized static rule; no test is removed.}
+\label{tab:r10-quality}
+\begin{tabular}{llrrrr}\toprule
+Family & Method & Raw gain & Static gate & Max. bound & Gate returns static\\\midrule
+Cycle & Newton--direct & 0.011549 & 0.011549 & 5.63e-10 & 0/2 \\
+Cycle & Newton--PCG & 0.011549 & 0.011549 & 5.63e-10 & 0/2 \\
+Cycle & Value only & 0.008528 & 0.008528 & 0.0124 & 0/20 \\
+Cycle & Value--gradient & 0.009686 & 0.009686 & 0.00784 & 0/20 \\
+Random edge & Newton--direct & 0.014342 & 0.014342 & 1.6e-10 & 0/2 \\
+Random edge & Newton--PCG & 0.014342 & 0.014342 & 1.6e-10 & 0/2 \\
+Random edge & Value only & 0.012158 & 0.012158 & 0.0221 & 0/20 \\
+Random edge & Value--gradient & 0.013160 & 0.013160 & 0.00649 & 0/20 \\
+Geometric & Newton--direct & 0.009155 & 0.009155 & 3.6e-10 & 0/2 \\
+Geometric & Newton--PCG & 0.009155 & 0.009155 & 5.15e-10 & 0/2 \\
+Geometric & Value only & 0.002601 & 0.002634 & 0.0397 & 2/20 \\
+Geometric & Value--gradient & 0.003773 & 0.003829 & 0.0287 & 1/20 \\
+Weighted block & Newton--direct & 0.001953 & 0.001953 & 5.51e-10 & 0/2 \\
+Weighted block & Newton--PCG & 0.001953 & 0.001953 & 5.51e-10 & 0/2 \\
+Weighted block & Value only & -0.097068 & 0.000000 & 4.8 & 20/20 \\
+Weighted block & Value--gradient & -0.098095 & 0.000000 & 3.69 & 20/20 \\
+\bottomrule\end{tabular}
+\end{table}

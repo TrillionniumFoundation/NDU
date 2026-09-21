@@ -1,0 +1,57 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Historical Scientific Supplement}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning},pdfauthor={Anonymous}}
+
+\externaldocument{main-labels}[main.pdf]
+\externaldocument{ec-labels}[electronic_companion.pdf]
+\renewcommand{\thesection}{H.\arabic{section}}
+\renewcommand{\theequation}{H.\arabic{equation}}
+\begin{document}
+\begin{center}{\Large\bfseries Historical Scientific Supplement\par}\medskip
+{\large Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning\par}\medskip
+Preserved material accompanying Revision R10, September 21, 2026
+\end{center}
+This archival supplement preserves, without scientific deletion, the earlier continuous-time, diffusion, and computational derivations formerly embedded in the electronic companion. It is separately labeled so that historical evidence is not mistaken for verification of the current accepted nonlinear tree model. The complete source and all cited predecessors remain in the revision package.
+\input{revisions/or-r7-20260921/sections/retained_ec_front.tex}
+\input{revisions/or-r6-20260921/sections/operational_continuous.tex}
+\input{revisions/or-r7-20260921/sections/legacy_study.tex}
+\input{revisions/or-r6-20260921/sections/retained_history.tex}
+\input{revisions/or-r6-20260921/sections/retained_diffusion.tex}
+\input{revisions/or-r6-20260921/sections/retained_study.tex}
+\clearpage
+\input{revisions/or-r4-20260920/tables.tex}
+\clearpage
+\input{revisions/or-r10-20260921/sections/references.tex}
+\end{document}

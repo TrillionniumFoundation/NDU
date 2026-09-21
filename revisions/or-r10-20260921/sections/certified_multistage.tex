@@ -1,0 +1,66 @@
+\section{Certified learning for nonlinear multistage service control}\label{sec:r10-nonlinear}
+The quadratic portfolio study tests an exactly analyzable deployment primitive. A multistage contract requires more: the action changes inherited tiers, all future reviews enter the objective, and participation must hold on every continuation subtree. We now study this full finite-tree problem with nonquadratic resources. The experiment isolates approximation from verification; it does not assume that learning dominates a classical optimizer.
+
+\subsection{A common nonlinear objective and a cumulative certificate}
+Let $D=\operatorname{diag}(w)$ repeat each node's discounted probability for every service. On a binary scenario tree, let $x_n\in[0,1]^d$, $q_0=\mathbf1/2$, and set
+\begin{align}\label{eq:r10-quartic}
+ F(x)={}&\sum_n w_n\{m\|x_n\|^2+\gamma\sum_j x_{nj}^4
+                  +\lambda\|x_n-x_{\mathrm{pa}(n)}\|^2\}\notag\\
+       &+\zeta\sum_n w_n\sum_{(i,j)\in E}\omega_{ij}(x_{ni}-x_{nj})^2,\qquad
+ J(p)=\max_{0\leq x\leq1,\,Ax\leq b}\{p^\top Dx-F(x)\}.
+\end{align}
+Here $m>0$, $\gamma>0$, and graph weights are nonnegative. Every row of $A$ gives total discounted tariff payment in one subtree; its cap equals the corresponding payment of the static outside protocol. Therefore every observed history has a participation constraint. Spatial graph edges and temporal parent--child edges appear simultaneously. All scenarios and parameters are specified before operations, while a tree action depends only on its realized history; no future realization is revealed to the controller.
+
+The net tariff is $a$, and $p=a+r$ collects a linear provider resource saving $r$. Adding a fixed resource offset of ten per service--review makes the simulated resource costs nonnegative without changing any decision or reward difference. This extension does not represent endogenous pricing. In each central test instance, weighted-centered rational shocks set $p_i=m+\gamma/2+e_i$ with $\sum_iw_ie_i=0$. Hence the derivative of the constant-tier objective at one half is exactly zero. Strict concavity makes that tier the unique reoptimized static optimum, including initial installation; it is feasible for every continuation constraint. The comparison does not select a weak baseline to favor the learner.
+
+\begin{theorem}[Full-horizon nonlinear residual certificate]\label{thm:r10-certificate}
+For any feasible $x$ in \eqref{eq:r10-quartic} and any $\eta\geq0$, define
+\[
+ r=Dp-\nabla F(x)-A^\top\eta,\qquad
+ \varepsilon(x,\eta)=\frac{1}{4m}\sum_i\frac{r_i^2}{w_i}
+                         +\eta^\top(b-Ax).
+\]
+Then $0\leq J(p)-[p^\top Dx-F(x)]\leq\varepsilon(x,\eta)$. This is a cumulative discounted policy-value bound for the whole contingent tree, not a single-review error. With rational primitives and rational $x,\eta$, feasibility and the bound are exactly checkable, including quartic, graph, and all parent--child terms.
+\end{theorem}
+\begin{proof}
+Since $\nabla^2F\succeq2mD$, for any feasible $y$ the reward difference is at most
+\[
+ r^\top(y-x)-m\|y-x\|_D^2+\eta^\top A(y-x)
+ \leq r^\top(y-x)-m\|y-x\|_D^2+\eta^\top(b-Ax).
+\]
+Completing the square bounds the first two terms by $\|r\|_{D^{-1}}^2/(4m)$. Taking the supremum over $y$ proves the assertion. No floating-point solver status or learned generalization premise enters this inequality.
+\end{proof}
+This is the standard strong-convexity residual argument \citep{BoydVandenberghe2004} specialized to the continuation-constrained nonlinear tree. Its operational content is an independently replayable full-horizon upper bound. Learning supplies a candidate, not the validity of that bound.
+
+The same upper bound supports a no-harm deployment gate. Let $V_x$ and $V_s$ be the exact rewards of the proposed and optimized static feasible protocols. Deploy whichever has larger reward; its upper gap is
+\begin{equation}\label{eq:r10-gate}
+ V_x+\varepsilon(x,\eta)-\max\{V_x,V_s\}\geq0.
+\end{equation}
+Thus failed transfer cannot force adoption of a worse protocol. For a prescribed loss tolerance, a candidate whose bound is too large must be refined by a classical solver until a valid certificate meets that tolerance; the experiments do not count such refinement as free. The present timing table measures candidate construction and audit, not a hypothetical unmeasured equal-accuracy hybrid.
+
+For a receding-horizon implementation, the budget state in \eqref{eq:r10-budget-dp} must be propagated. If a feasible action and child-budget allocation incur a verified Bellman loss at most $\epsilon_t$ relative to the same continuation value, the standard Bellman telescoping argument gives cumulative loss at most $\E\sum_t\beta^t\epsilon_t$. This observation requires valid continuation bounds; separate one-step neural residuals alone do not establish it. The experiment below instead certifies complete contingent plans directly by Theorem~\ref{thm:r10-certificate}.
+
+\subsection{Nonlinear compatible critics and equally available scalar observations}
+Strong convexity yields a unique $x^*(p)$ and the envelope identity $\nabla_pJ(p)=Dx^*(p)$. Moreover, $\nabla J$ is Lipschitz from the $D$ norm to its dual with constant $1/(2m)$. We fit a scalar neural potential and obtain its actor by differentiation, rather than fitting unrelated value and policy outputs. The potential uses 63 softplus features of the forcing residual and its first two local graph--tree smoothing transforms. The transforms are $D$-self-adjoint; the trained parameters are the readout coefficients. This finite-feature neural model is nonlinear and compatible, but is not claimed to be a new universal architecture.
+
+Each of 24 training instances contributes the same three scalar observations at $p-hu,p,p+hu$, with $h=1/40$ and a sign direction $u$. The value-only and value--gradient objectives use exactly those 72 values. Endpoint perturbations hold the tariff, outside protocol, and feasible set fixed: they are local value-function oracle queries, not new reoptimized static comparisons. Both fits use the same fixed ridge, features, and scaling. Unlike the earlier quadratic diagnostic, centered differences here are not exact derivatives. If the two endpoint value errors are bounded by $\epsilon_-$ and $\epsilon_+$, the directional target for the value residual, normalized by $M=\sum_iw_i$, satisfies
+\begin{equation}\label{eq:r10-fd}
+ \left|\widehat\partial_u(J-J_s)/M-\partial_u(J-J_s)/M\right|
+ \leq\frac{h\|u\|_D^2}{4mM}+\frac{\epsilon_-+\epsilon_+}{2hM}.
+\end{equation}
+Indeed, integrate the directional derivative between the endpoints and use the Lipschitz constant; $J_s$ is linear in $p$. All 720 scalar training records have rationally verified error bars. The largest unnormalized oracle gap is $\RtenTeacherGap$ in the recorded run, and the largest normalized directional error bound is approximately $\RtenDirectionalBound$. These are target-error guarantees, not a statistical guarantee for the fitted network.
+
+A deployment first clips the actor to the box, rounds down to rational tiers, and applies a common nonnegative scaling that satisfies every subtree cap. Multipliers are proposed by nonnegative least squares and rounded; an independent verifier recomputes all derivatives and participation inequalities with fractions. The static gate then compares exact values. No failed or negative-reward proposal is discarded from the reported sample.
+
+\subsection{Design and results under graph, horizon, and curvature shifts}
+Ten training seeds use three-review trees and four-service cycle graphs, or 28 tier coordinates. Testing uses two separately generated instances in each of four families: the training-sized cycle; an eight-service random-edge graph; an eight-service geometric graph on a four-review tree; and a weighted two-block graph with 32 services on a five-review tree. The largest contingent plan has 992 coordinates. The last two families also change quartic curvature and coupling strength. Thus topology, degree, weights, horizon, and operator spectrum can change together. This is a deliberately difficult synthetic transfer study, not evidence of calibration to a real service operation.
+
+Classical comparisons solve exactly the same nonquadratic tree problem. Newton--direct factorizes its changing Hessian. Newton--PCG caches one baseline Hessian factorization per problem and uses it as a preconditioner for all subsequent changing Hessians and repeated solves. Setup is separated from online cost. Both methods retain the common participation dual, rational repair, and full audit. Fifteen repetitions follow one warmup; raw timing observations, setup costs, and training times are retained. Timing is not pooled with training-seed uncertainty.
+
+Table~\ref{tab:r10-quality} reports every outcome. All 176 deployment candidates satisfy all continuation constraints after repair, with 2,640 exact subtree checks and 52,624 exact tier-bound checks. Classical maximum normalized upper gaps are below $5.7\times10^{-10}$. Learned proposals create positive mean incremental reward in the cycle, random-edge, and geometric families, but both learned methods lose reward on average under the severe weighted-block shift. The static gate preserves nonnegative incremental reward without concealing those raw failures. The neural upper bounds on this shifted family are correspondingly loose; the earlier one-millionth quadratic bound is not transferred to this experiment.
+
+Across the eight problems, the ten paired training-seed mean differences favor derivative weighting by approximately $\RtenMeanDifference$ per discounted service--review, with a Student 95\% interval of $[\RtenIntervalLower,\RtenIntervalUpper]$. The interval includes zero. These observations do not establish a reproducible superiority claim for derivative supervision. They do establish that the accepted nonlinear multistage implementation, its adverse transfer outcomes, and its complete value certificates can be examined independently.
+
+Table~\ref{tab:r10-timing} includes candidate generation, repair, multiplier proposal where needed, and rational certification. Cached preconditioning materially reduces the measured cost of the largest classical case relative to repeated changing-Hessian factorization. Neural candidate times are smaller in this run, but their accuracy is different and some proposals fail the economic improvement test. Neither this table nor the quadratic portfolio table implies a repeated-solve advantage at matched certified loss.
+\input{revisions/or-r10-20260921/tables/nonlinear_quality.tex}
+\input{revisions/or-r10-20260921/tables/nonlinear_timing.tex}

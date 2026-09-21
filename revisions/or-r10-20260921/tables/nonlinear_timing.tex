@@ -1,0 +1,24 @@
+\begin{table}[p]
+\centering\small
+\caption{Measured end-to-end candidate construction, feasibility repair, and rational audit, in milliseconds. Entries average the two problem-instance medians and their 10th--90th percentiles, each from 15 repetitions after one warmup. Learned timing uses the prespecified training seed zero, not the fastest seed. Factorization setup and training are separate. Methods do not have matched accuracy; this table is not a speedup-at-equal-quality claim.}
+\label{tab:r10-timing}
+\begin{tabular}{llrr}\toprule
+Family & Method & Median & [10th, 90th]\\\midrule
+Cycle & Newton--direct & 11.33 & [10.54, 14.38] \\
+Cycle & Newton--PCG & 13.00 & [12.53, 14.88] \\
+Cycle & Value only & 4.23 & [3.99, 5.32] \\
+Cycle & Value--gradient & 4.06 & [3.89, 4.24] \\
+Random edge & Newton--direct & 12.47 & [11.16, 14.59] \\
+Random edge & Newton--PCG & 11.98 & [11.28, 17.76] \\
+Random edge & Value only & 6.27 & [6.09, 7.84] \\
+Random edge & Value--gradient & 6.67 & [6.26, 7.67] \\
+Geometric & Newton--direct & 32.30 & [30.71, 36.73] \\
+Geometric & Newton--PCG & 31.33 & [28.54, 36.06] \\
+Geometric & Value only & 11.86 & [11.25, 13.01] \\
+Geometric & Value--gradient & 11.83 & [11.25, 14.67] \\
+Weighted block & Newton--direct & 433.64 & [424.56, 452.47] \\
+Weighted block & Newton--PCG & 180.04 & [177.22, 191.25] \\
+Weighted block & Value only & 140.20 & [134.76, 153.40] \\
+Weighted block & Value--gradient & 142.24 & [135.44, 198.48] \\
+\bottomrule\end{tabular}
+\end{table}
