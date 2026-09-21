@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\caption{Adjustment cost, adaptive value, and squared movement}\label{tab:r6sensitivity}
+\small
+\begin{tabular}{rrrrr}
+\toprule
+$\lambda$ & Full reward & Best static grid & Gain & Movement \\
+\midrule
+0.000000 & -4.714286 & -5.867764 & 1.153478 & 0.584931 \\
+0.150000 & -4.800467 & -5.869264 & 1.068797 & 0.541675 \\
+0.300000 & -4.880586 & -5.870764 & 0.990178 & 0.520250 \\
+0.600000 & -5.002311 & -5.873764 & 0.871453 & 0.346310 \\
+1.200000 & -5.162935 & -5.879764 & 0.716828 & 0.192041 \\
+2.400000 & -5.339598 & -5.891764 & 0.552166 & 0.102878 \\
+4.800000 & -5.515444 & -5.915764 & 0.400320 & 0.051710 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{0.96\textwidth}\footnotesize Each static comparator is reoptimized at its own coefficient. Movement is the expected discounted sum of squared tier changes, without multiplying by the coefficient.\end{minipage}
+\end{table}

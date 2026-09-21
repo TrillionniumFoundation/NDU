@@ -1,50 +1,35 @@
 \documentclass[11pt,letterpaper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath,amsthm,booktabs,array}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
 \usepackage{newtxtext,newtxmath}
-\usepackage[round,authoryear]{natbib}
 \usepackage{setspace}
-\usepackage{longtable,xr}
-\externaldocument{main-labels}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
-\onehalfspacing
-\setlength{\emergencystretch}{2em}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}
-\newtheorem{assumption}[theorem]{Assumption}
-\newtheorem{remark}[theorem]{Remark}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
 \newcommand{\E}{\mathbb E}
 \newcommand{\R}{\mathbb R}
-\newcommand{\1}{\mathbf 1}
-\newcommand{\Lip}{\operatorname{Lip}}
 \newcommand{\KL}{\operatorname{KL}}
-\newcommand{\argmax}{\operatorname*{arg\,max}}
-\newcommand{\argmin}{\operatorname*{arg\,min}}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
 \newcommand{\pos}[1]{(#1)^+}
-\newcommand{\clip}{\operatorname{proj}}
-\newcommand{\Hh}{\mathsf H}
-\pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small NDU: Electronic Companion}
-\fancyhead[R]{\small Anonymous}
-\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\hypersetup{pdftitle={Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning},pdfauthor={Anonymous}}
 \renewcommand{\thesection}{EC.\arabic{section}}
 \renewcommand{\theequation}{EC.\arabic{equation}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Electronic Companion}\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{EC--\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Electronic Companion: NDU Endogenous Service Contracts},pdfauthor={Anonymous}}
 \begin{document}
 \begin{center}
 {\Large\bfseries Electronic Companion\par}
 \medskip
-{\large Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning\par}
+{\large Neural Differential Utility:\ Endogenous Service Contracts and Certified Dynamic Optimization\par}
 \medskip
-{Revision R6, September 21, 2026}
+{Revision R4, September 20, 2026}
 \end{center}
-This companion preserves the earlier valid supporting derivations and full numerical baseline. Sections EC.1--EC.5 retain comparator geometry, physical metrics, conditioning, constructive critics, and historical evidence. The formerly separate general diffusion theorem and manufactured checks follow in EC.6--EC.7. They are not substituted for the new nonmanufactured operational learning problem. Current root manuscript, companion, response, and revision directory all identify R6. Original R4 scientific sources and PDFs remain unchanged in the pre-R6 archive; the earlier pre-R4 history is also intact.
+This companion retains supporting derivations, counterexamples, implementation details, and the mapping of historical evidence. Equation and theorem references without an EC prefix refer to the main paper. The canonical operating model is the externally priced, perishable-inventory contract model of Section~2. Historical internal-penalty examples are retained as distinct models, not silently identified with that model.
+
 \section{Comparator geometry and inner optimization}
 \subsection{What an exposed-face argument proves}
 Fix a state and a physical action, and let the continuation-value vector range over an open subset $U\subset\R^d$. A finite family of admissible valuation controls induces
@@ -137,7 +122,7 @@ For completeness, suppose the value is sufficiently smooth, diffusion is control
 \end{equation}
 Here derivatives of the primitives hold the control fixed; the envelope condition removes derivatives of the maximizing selector. Along paths reaching the terminal face without prior exit, $P_T=\nabla G$. A Dirichlet exit payoff fixes the boundary value and tangential derivatives when smooth, but does not fix the normal derivative. Consequently one must not impose $P_\tau=\nabla\psi$ in all directions merely from the Dirichlet value condition. The stopped value-process equation, rather than such an extra adjoint terminal condition, is used in the main certificate.
 
-Adding an independent diffusion $\sqrt{2\varepsilon}I$ to the internal block gives $Z_u^\varepsilon=\sqrt{2\varepsilon}P_u$. Its inverse has squared amplification $1/(2\varepsilon)$ under additive volatility error. A direct gradient avoids this inverse but must still solve the value or adjoint problem. The retained least-squares parity result tests naturally generated data rather than adding a fixed error floor to the volatility target.
+Adding an independent diffusion $\sqrt{2\varepsilon}I$ to the internal block gives $Z_u^\varepsilon=\sqrt{2\varepsilon}P_u$. Its inverse has squared amplification $1/(2\varepsilon)$ under additive volatility error. A direct gradient avoids this inverse but must still solve the value or adjoint problem. The main paper's least-squares parity result tests naturally generated data rather than adding a fixed error floor to the volatility target.
 
 \subsection{Why both boundary faces and both comparisons are necessary}
 A terminal condition alone does not determine a compact spatial problem. On $x\in[1,2]$, let
@@ -161,20 +146,4 @@ Terminal and lateral defects require their own covers and constants. An actor ga
 A vanishing-viscosity value conclusion can be made under explicit comparison, common boundary attainment, uniform boundedness and equicontinuity, and locally uniform convergence of the HJB operators. Compactness gives subsequential value limits; stability of the sub- and supersolution inequalities identifies a solution of the limiting boundary problem; comparison identifies all such limits. Uniform value convergence alone does not prove convergence of gradients or recovery of the missing shadow price. These conditional observations preserve the original regularization motivation without using it as a substitute for the absolute certificate.
 
 
-
-\input{revisions/or-r6-20260921/sections/retained_history.tex}
-\input{revisions/or-r6-20260921/sections/retained_diffusion.tex}
-\input{revisions/or-r6-20260921/sections/retained_study.tex}
-\clearpage
-\input{revisions/or-r4-20260920/tables.tex}
-\clearpage
-\section{R6 implementation and independent checking}
-The current experiments are in \texttt{revisions/or-r6-20260921/}. \texttt{compute.py} enumerates all continuous-static candidates as rational numbers, solves ordinary dynamic programs and the full-stock occupation programs, and implements the time--regime policy restriction with shared binary tier selectors. \texttt{exact\_certificate.py} independently reconstructs the two deterministic protocols underlying the customer-preserving mixture, propagates their laws using rational arithmetic, and checks all three commitment equalities and a Lagrange Bellman upper bound. Its proof does not use a linear solver.
-
-The time--regime mixed-integer program uses 2,904 stock-reduced occupancy variables and 264 binary tier selectors. For each $(t,z)$, the selectors sum to one; $x_t(z,q,\theta)\leq y_{t,z,\theta}$ for every $q$. Occupancies never exceed one, so this bound is valid. Unreachable states may have arbitrary selectors. The reported global gap is a numerical solver certificate, not an exact rational branch-and-bound proof. The inherited-only value is proved equal to the time-only value, not estimated from a timed-out integer solve.
-
-\texttt{envelopes.py} compares full backward induction using ordered hulls and pairwise enumeration for quadratic and quartic-potential adjustment. It records both candidate counts and measured times. \texttt{continuous\_learning.py} implements the explicit controlled chain, the nonmanufactured refinement, paired value-only and value-gradient training, saved weights, projected derivative actors, policy evaluation, and all-state residual budgets. Training uses float32; subsequent chain policy and residual recursions use float64. The 1,800-step pilot is retained separately and is not pooled with the 6,000-step comparison. Wall times are measured on one CPU environment, not portability guarantees.
-
-The exact discrete-contract results, numerical MIP and LP diagnostics, nonmanufactured chain refinement, and trained-network evaluations are separate evidence classes. In particular, a numerical finite-chain residual budget is not an interval-arithmetic enclosure of a continuum HJB residual. The companion retains the hypotheses needed for such a continuum verification result, including the boundary mechanism. No private customer data, price calibration, hidden-effort identification, or general high-dimensional learning advantage is asserted by this synthetic study.
-\input{revisions/or-r6-20260921/sections/references.tex}
-\end{document}
+\input{revisions/or-r4-20260920/sections/companion_execution_history.tex}
