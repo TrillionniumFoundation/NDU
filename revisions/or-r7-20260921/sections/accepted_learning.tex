@@ -1,0 +1,78 @@
+\section{Compatible learning with an acceptance certificate}\label{sec:accepted-learning}
+The accepted value function supplies both a reconfiguration rule and an audit of an approximate rule. A global sup-norm residual is not the only possible audit. On the identified quadratic model, the economically relevant loss has a direct energy representation.
+
+\begin{theorem}[Accepted policy-loss identity]\label{thm:energy}
+Suppose the feasible physical policy is identified as in Lemma~\ref{lem:stock-pin}, and the interior Bellman recursion \eqref{eq:riccati} has a nonnegative multiplier $\eta^*$ whose optimal protocol satisfies $P^*=\overline P$. For any accepted protocol $\pi$, including a learned or randomized one,
+\begin{equation}\label{eq:energy}
+ W^{\rm acc,*}-W^\pi
+ =\E^\pi\sum_t\beta^t K_t
+    \bigl[\theta_t-\theta_t^{\eta^*}(z_t,q_t)\bigr]^2
+   +\eta^*(\overline P-P^\pi).
+\end{equation}
+The identity concerns continuous tier actions and inherited states, not a scan of a finite chain. Certified upper bounds on the energy and the acceptance slack give a policy-loss certificate on that continuous-action model.
+\end{theorem}
+\begin{proof}
+Completion of squares in each Bellman maximization gives its exact action gap as $K_t[\theta-\theta_t^{\eta^*}(z,q)]^2$. Sum along the law of $\pi$; the discounted continuation terms telescope and the terminal value is zero. The left side before adding the commitment constant is $J^{\eta^*,*}_0-(W^\pi-\eta^*P^\pi)$. Since $W^{\rm acc,*}=J^{\eta^*,*}_0+\eta^*\overline P$, rearrangement gives \eqref{eq:energy}. No smoothness assumption on the learned policy or uniform residual bound enters the argument.
+\end{proof}
+The identity does not make solving every control problem free: its coefficients must be obtained and verified, and its expectation must be bounded for the deployed policy. In the scalar affine case, first and second moments suffice. In a more general model a valid dual value or residual inequality is still needed. The next experiment uses such an inequality and does not require a tensor grid over its inherited contractual state.
+
+\subsection{A coupled portfolio at a service review}\label{sec:portfolio}
+Consider a customer buying $d$ metered services under one portfolio agreement. Each service has the same physical primitives as above, with its observed regime fixed at this review. Aggregate fill and physical-cost commitments identify stock by summing \eqref{eq:stock-pin} over services. The net payment vector $a$ is fixed in the menu. Let $q\in[0,1]^d$ be the installed tier vector. In addition to maintenance $m\|\theta\|^2$, the provider incurs $\zeta\theta^\top L\theta$ to maintain different configurations across linked services, where $L$ is the graph Laplacian of the publicly specified service-dependency graph and $\zeta\geq0$. This is a nonseparable configuration cost, not independent copies labeled as a high-dimensional problem.
+
+At the current review, or at a terminal Bellman update, the accepted operating problem is
+\begin{equation}\label{eq:portfolio}
+ \max_{\theta\in[0,1]^d}
+  \{a^\top\theta-C-m\|\theta\|^2-\zeta\theta^\top L\theta
+                    -\lambda\|\theta-q\|^2\}
+ \quad\text{subject to }a^\top\theta\leq\overline P.
+\end{equation}
+Here acceptance is by the common portfolio buyer, not a claim of separate participation by every service's end user. For $q=\tfrac12\mathbf1$, the uniform static tier is optimized continuously; $L\mathbf1=0$ gives
+\[
+ \bar\theta=\frac{d^{-1}\mathbf1^\top a+\lambda}{2(m+\lambda)},\qquad
+ \overline P=\bar\theta\,\mathbf1^\top a.
+\]
+The experiment isolates a coupled, many-service accepted update. It is not presented as a 1,024-dimensional replication of the entire eight-review information experiment or as a generic nonquadratic inventory solution.
+
+Put $K=(m+\lambda)I+\zeta L$ and $b_\eta=(1-\eta)a+2\lambda q$. The unconstrained quadratic Lagrangian critic is
+\begin{equation}\label{eq:quadratic-critic}
+ J^\eta(q)=-C-\lambda\|q\|^2+\tfrac14b_\eta^\top K^{-1}b_\eta.
+\end{equation}
+It is the actual operating value whenever its maximizer is interior. The training queries below satisfy that condition by the discrete maximum principle for $K$: its inverse is nonnegative and $K^{-1}\mathbf1=(m+\lambda)^{-1}\mathbf1$. In the audit, an unconstrained Lagrangian remains an upper bound even if a different candidate reaches the box boundary.
+
+For a symmetric polynomial filter $p_c(K)$, define the learned scalar critic by replacing $K^{-1}$ in \eqref{eq:quadratic-critic}. Its derivative is compatible by construction, and its associated actor is
+\begin{equation}\label{eq:learned-actor}
+ \widehat\theta= q+\frac{\nabla_q\widehat J^\eta(q)}{2\lambda}
+                =\tfrac12p_c(K)b_\eta.
+\end{equation}
+The computation is a graph-filter network with fixed message-passing features and a trained scalar quadratic readout. Polynomial graph filters are established constructions \citep{Defferrard2016}; the new use here is accepted tier control with an independent deployment certificate, not a claim to have invented graph convolution or polynomial inversion.
+
+\begin{theorem}[A computable accepted deployment bound]\label{thm:portfolio-certificate}
+Let $K\succeq\mu I$ with $\mu>0$. For any rationally specified feasible tier vector $\widehat\theta$, any $\eta\geq0$, and
+$r=(1-\eta)a+2\lambda q-2K\widehat\theta$,
+\begin{equation}\label{eq:portfolio-bound}
+ 0\leq W^{\rm acc,*}-W(\widehat\theta)
+ \leq\frac{\|r\|^2}{4\mu}
+         +\eta(\overline P-a^\top\widehat\theta).
+\end{equation}
+Thus rational input coefficients, deployed tiers, and multiplier yield an exact arithmetic upper bound without solving the optimal program or sampling the inherited-state domain.
+\end{theorem}
+\begin{proof}
+Weak Lagrangian duality bounds the accepted optimum by the unconstrained maximum of $b_\eta^\top\theta-\theta^\top K\theta$ plus its constants. Expanding about $\widehat\theta$ leaves $r^\top d-d^\top Kd\leq\|r\|^2/(4\mu)$. Adding the nonnegative commitment slack gives \eqref{eq:portfolio-bound}. Maximizing over all real $d$ only enlarges the upper bound, so the argument does not require an interior optimal box solution.
+\end{proof}
+This bound is an ex post guarantee for the specified operational instance and deployed vector. It is not a distribution-free prediction of neural performance on an unseen graph. Each unseen graph is audited separately. Unlike the earlier finite-chain residual budget, the arithmetic of this audit is exact, and its scale can be compared directly with the operational improvement.
+
+\subsection{Equal information, transfer, and classical baselines}\label{sec:equal-oracle}
+We fix $m=1.5$, $\lambda=0.6$, and degree-12 Chebyshev features on the spectral interval $[2.1,26.1]$. Graphs consist of a cycle and a random matching, so their maximum degree is at most three; $\zeta\in\{1,2,3,4\}$ gives the stated spectral enclosure. The network has thirteen trained readout coefficients, independent of the number of services. Its feature layers require sparse matrix--vector products, not a learned dense inverse.
+
+Each of ten training seeds supplies 96 independently generated graphs of sizes 32 or 64. For each graph, we make exactly three scalar teacher queries at $q-hu$, $q$, and $q+hu$, with $h=0.025$ and a random sign vector $u$. We use the operational value \eqref{eq:quadratic-critic} at $\eta=0.2$, after removing its known $-C-\lambda\|q\|^2$ terms. Both methods receive all 288 scalar observations. Value-only fitting minimizes their squared errors. Value-gradient fitting adds the directional derivative discrepancy obtained by differencing those same endpoint values. There are no extra teacher values or derivative-oracle calls. Values are normalized by graph size and directional differences by its square root; both objectives use the same least-squares readout solve.
+
+Because both the teacher and the learned scalar critic are quadratic in $q$, the centered directional difference is exact in real arithmetic. The gradient objective is therefore also an explicit finite-difference regularization of the same three value observations. We do not count that algebraically identical formulation as another independent baseline. We test $h=0.01,0.05,0.1$ separately. Sampling seeds quantify variation in the training data; there is no nonconvex optimizer seed to conceal behind this convex readout fit. The scalar construction, the previously compiled cubic-ReLU envelopes, and the historical trained tanh network are distinct implementations.
+
+We deploy without retraining on twelve held-out graphs: four each at 64, 256, and 1,024 services. For each graph, two filtered right-hand sides determine the multiplier that meets the payment budget. Tiers and the multiplier are rounded to denominator $10^{10}$; a one-sided correction enforces the customer budget exactly. All coordinates, every commitment, and \eqref{eq:portfolio-bound} are then checked using integer and rational arithmetic. A failed certificate would remain a failed deployment, not a discarded seed.
+
+Classical comparisons include the analytic degree-12 Chebyshev inverse, dense Cholesky solution, sparse direct solution, and conjugate gradients with relative residual tolerance $10^{-4}$. All solve the same accepted problem, including multiplier calibration. The graph representation is common input to all methods. Training time is reported separately; execution times do not include graph construction or the independent rational audit. Consequently a faster actor is not described as a faster end-to-end proof of optimality.
+\input{revisions/or-r7-20260921/tables/portfolio.tex}
+
+On the 1,024-service cases, the learned value-gradient actor has a median deployment time of approximately 1.21 milliseconds, versus 7.62 milliseconds for sparse direct solution and 18.01 milliseconds for dense Cholesky in the recorded environment. Conjugate gradients take approximately 1.52 milliseconds and are more accurate. The largest exact loss bound for the learned actor is $8.05\times10^{-7}$ per service, whereas its smallest guaranteed gain over the static alternative exceeds $0.01606$ per service. These are decision-useful enclosures, not bounds larger than the economic comparison. The same thirteen coefficients transfer to new graph sizes and graph structures.
+
+The derivative-weighted fit lowers the mean realized loss modestly relative to the equal-information value-only fit, but improves six of ten paired training seeds at each test size, not every seed. The seed-level uncertainty is reported in the companion. The operational conclusion is not universal superiority of gradient weighting: it is that a compact learned compatible critic can deliver accepted decisions with a small, independently proved loss at a nontrivial coupled scale. The conjugate-gradient and analytic-filter results remain visible so that the contribution is evaluated against numerical linear algebra, not only against a deliberately weak neural baseline.

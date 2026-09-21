@@ -1,19 +1,13 @@
-# Current submission checklist — R6, September 21, 2026
+# Operations Research R7 package checklist
 
-The old R89 packaging checklist is preserved, unchanged, at `archive/pre-r6/NDU_OR_submission_checklist.md`. It is not the active submission record.
-
-| Item | Current evidence |
-|---|---|
-| New scientific manuscript | `main.tex` and R6 section sources; source hash differs from reviewed R4/R5 |
-| New electronic companion | `electronic_companion.tex`; retained valid earlier proofs and evidence |
-| Point-by-point response | `revisions/or-r6-20260921/RESPONSE_TO_REFEREE.md` |
-| Exact optimized fixed comparator | `results/static_exact.json`; independent Fraction enumeration |
-| Exact service/customer/cost-preserving gain | `exact_certificate.py`, exact feasible map and Bellman-dual bound |
-| Restricted information optimization | Time-only equality proof, time--regime MIP record, full exact replay |
-| Actual learned operational controls | Four recorded trained critics, full finite-chain policy and residual scans |
-| Layout | 11-point text, one-inch margins, 1.5 spacing, anonymous title, author-date references |
-| PDF build | Main 24 pages, companion 20 pages in the recorded local build; no LaTeX warnings |
-| History | `archive/pre-r6/` and existing historical paths remain available |
-| Branch isolation | New `revision/ndu-operations-research-r6-20260921`, no merge to main |
-
-Exact arithmetic statements, floating optimizer diagnostics, finite-chain numerical budgets, and continuum verification assumptions are deliberately distinguished. Passing checks is not a claim of journal acceptance or an independent referee verdict.
+- Current root manuscript and companion identify R7; current response targets the report at `31c8d31b8041f19b89dcac8193d0e0dcccbdcbe8`.
+- Anonymous title page, 11-point text, one-and-a-half spacing, letter paper, one-inch margins, self-contained abstract below 200 words, and a nonmathematical introduction.
+- Local build: 31 manuscript pages and 31 companion pages; 29 manuscript pages precede the bibliography, including the title page.
+- No undefined references, duplicate bibliography definitions, overfull text boxes, or text outside the audited page margins. All pages rendered for visual inspection.
+- Four continuous accepted information classes verified exactly; original coarse certificate remains separate.
+- All 3,280 continuation constraints and all 288 portfolio decisions independently replayed in rational arithmetic.
+- Thirty-one accepted robustness cases and six menu resolutions retain numerical residuals, infeasible cases, and deterministic-incumbent scope.
+- Equal raw-oracle comparisons, ten seeds, full paired uncertainty, differentiation-step sensitivity, and classical baselines retained.
+- Henig et al. (1997), Nasser and Turcic (2019), and established graph filtering added to the literature positioning.
+- Original root sources and metadata archived under `archive/pre-r7/`; earlier branches and scientific directories unchanged.
+- README is source-first, with no links to nonexistent PDFs. Local compilation and replay are not presented as a GitHub Actions success or an editorial decision.
