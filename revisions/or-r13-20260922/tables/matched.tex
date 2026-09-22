@@ -1,0 +1,12 @@
+\begin{table}[t]
+\centering\small
+\caption{Complete deployment at a common certified gap}\label{tab:r13-matched}
+\begin{tabular}{lrrrrr}\toprule
+Method & Milliseconds & Immediate (\%) & Refine (\%) & First face (\%) & Added iterations \\\midrule
+Cold quadratic program & 19.74 & -- & -- & -- & -- \\
+Neural, three cells & 17.94 & 31.2 & 68.8 & 16.7 & -7.90 \\
+Nearest anchor & 19.82 & 20.8 & 79.2 & 22.9 & -5.21 \\
+Sequential cell check & 5.83 & 52.1 & 47.9 & 0.0 & -13.27 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize Forty-eight fresh 31-node problems. Time includes proposal generation, membership checking, exact rational audit, and any executed refinement. Refused cells use a cold classical refinement, not an unreported warm start. All final normalized gaps are at most $10^{-7}$. First-face masks are descriptive and use the tolerance stated in the data. Offline construction is reported separately; these timings are hardware-dependent observations, not population speed claims.\end{minipage}
+\end{table}

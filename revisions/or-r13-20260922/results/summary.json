@@ -1,0 +1,80 @@
+{
+  "cells": 747,
+  "compatible_gradient_checks": 25,
+  "compatible_gradient_max_error": 6.483419356939635e-11,
+  "environment": {
+    "numpy": "2.3.5",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+    "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+    "scipy": "1.17.0"
+  },
+  "fit_seconds": 0.04662125999999489,
+  "library_seconds": 18.17659355500001,
+  "matched_n": 48,
+  "maximum_final_certificate": 4.2595655149069954e-10,
+  "median_seconds": {
+    "cold": 0.01973510299998793,
+    "nearest-anchor": 0.019815242999996485,
+    "neural-top3": 0.017936650500004703,
+    "sequential-cells": 0.005830215499997848
+  },
+  "methods": {
+    "nearest-anchor": {
+      "first_face_accuracy": 0.22916666666666666,
+      "immediate_fraction": 0.20833333333333334,
+      "mean_added_iterations": -5.208333333333333,
+      "mean_warm_distance": 0.015695408006621614,
+      "refinement_fraction": 0.7916666666666666
+    },
+    "neural-top3": {
+      "first_face_accuracy": 0.16666666666666666,
+      "immediate_fraction": 0.3125,
+      "mean_added_iterations": -7.895833333333333,
+      "mean_warm_distance": 0.019354198937861233,
+      "refinement_fraction": 0.6875
+    },
+    "sequential-cells": {
+      "first_face_accuracy": 0.0,
+      "immediate_fraction": 0.5208333333333334,
+      "mean_added_iterations": -13.270833333333334,
+      "mean_warm_distance": 0.3790511999016964,
+      "refinement_fraction": 0.4791666666666667
+    }
+  },
+  "nodes": 31,
+  "observed_break_even_vs_cold": 4348,
+  "training_failures": 0,
+  "validation": {
+    "B": 0.17199041834736198,
+    "B_fraction": "190546744941/1107891630080",
+    "M": 3,
+    "certified_cell_rates": [
+      0.168701171875,
+      0.29150390625,
+      0.2041015625
+    ],
+    "delta": 0.05,
+    "empirical_certificate_means": [
+      0.056596838271566245,
+      0.04828687544655104,
+      0.05436312950040915
+    ],
+    "empirical_gains": [
+      0.001741797277437834,
+      0.0030061358650076806,
+      0.002207010057773573
+    ],
+    "expected_regret_upper_bounds": [
+      0.06044188369895695,
+      0.052131920873941744,
+      0.05820817492779985
+    ],
+    "model_sha256_before_and_after": "6b4d5e68d5a18c54c487074a4557b7834171c044be4f9472baf832f0f645dd34",
+    "n": 4096,
+    "no_validation_refitting": true,
+    "radius": 0.0038450454273907027,
+    "record_count": 4890,
+    "sampling_seed": 13033,
+    "selected_pipeline": 1
+  }
+}

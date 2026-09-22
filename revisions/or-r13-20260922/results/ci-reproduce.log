@@ -1,0 +1,164 @@
+frozen cells 747 training failures 0 offline seconds 18.223214815000006
+validated 0 1024 exact records 1225
+validated 1024 1024 exact records 1222
+validated 2048 1024 exact records 1222
+validated 3072 1024 exact records 1221
+{
+  "nodes": 31,
+  "cells": 747,
+  "training_failures": 0,
+  "library_seconds": 18.17659355500001,
+  "fit_seconds": 0.04662125999999489,
+  "matched_n": 48,
+  "median_seconds": {
+    "cold": 0.01973510299998793,
+    "neural-top3": 0.017936650500004703,
+    "nearest-anchor": 0.019815242999996485,
+    "sequential-cells": 0.005830215499997848
+  },
+  "observed_break_even_vs_cold": 4348,
+  "maximum_final_certificate": 4.2595655149069954e-10,
+  "compatible_gradient_checks": 25,
+  "compatible_gradient_max_error": 6.483419356939635e-11,
+  "validation": {
+    "M": 3,
+    "n": 4096,
+    "delta": 0.05,
+    "B_fraction": "190546744941/1107891630080",
+    "B": 0.17199041834736198,
+    "radius": 0.0038450454273907027,
+    "empirical_certificate_means": [
+      0.056596838271566245,
+      0.04828687544655104,
+      0.05436312950040915
+    ],
+    "expected_regret_upper_bounds": [
+      0.06044188369895695,
+      0.052131920873941744,
+      0.05820817492779985
+    ],
+    "empirical_gains": [
+      0.001741797277437834,
+      0.0030061358650076806,
+      0.002207010057773573
+    ],
+    "certified_cell_rates": [
+      0.168701171875,
+      0.29150390625,
+      0.2041015625
+    ],
+    "selected_pipeline": 1,
+    "model_sha256_before_and_after": "6b4d5e68d5a18c54c487074a4557b7834171c044be4f9472baf832f0f645dd34",
+    "sampling_seed": 13033,
+    "no_validation_refitting": true,
+    "record_count": 4890
+  },
+  "environment": {
+    "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39"
+  },
+  "methods": {
+    "neural-top3": {
+      "immediate_fraction": 0.3125,
+      "refinement_fraction": 0.6875,
+      "first_face_accuracy": 0.16666666666666666,
+      "mean_warm_distance": 0.019354198937861233,
+      "mean_added_iterations": -7.895833333333333
+    },
+    "nearest-anchor": {
+      "immediate_fraction": 0.20833333333333334,
+      "refinement_fraction": 0.7916666666666666,
+      "first_face_accuracy": 0.22916666666666666,
+      "mean_warm_distance": 0.015695408006621614,
+      "mean_added_iterations": -5.208333333333333
+    },
+    "sequential-cells": {
+      "immediate_fraction": 0.5208333333333334,
+      "refinement_fraction": 0.4791666666666667,
+      "first_face_accuracy": 0.0,
+      "mean_warm_distance": 0.3790511999016964,
+      "mean_added_iterations": -13.270833333333334
+    }
+  }
+}
+confirmation 0 2048
+confirmation 2048 2048
+{
+  "M": 3,
+  "n": 4096,
+  "delta": 0.05,
+  "B": 0.051784069195413535,
+  "B_fraction": "10799930128926863650613598758878419684408858132481321/208557000188069487981498147456000000000000000000000000",
+  "radius": 0.0012518584394010086,
+  "seed": 13035,
+  "model_sha256": "6b4d5e68d5a18c54c487074a4557b7834171c044be4f9472baf832f0f645dd34",
+  "empirical_certificate_means": [
+    0.04165453931504034,
+    0.035432302474511033,
+    0.039192800483397
+  ],
+  "empirical_gains": [
+    0.0017335707652185008,
+    0.003005603161410995,
+    0.0022911992130047287
+  ],
+  "expected_regret_upper_bounds": [
+    0.04290639775444135,
+    0.036684160913912044,
+    0.04044465892279801
+  ],
+  "expected_gain_lower_bounds": [
+    0.00048171232581749215,
+    0.0017537447220099865,
+    0.00103934077360372
+  ],
+  "certificate_sums_fraction": [
+    "948889819956381343414736277377698142029503462749906570077/5561520005015186346173283932160000000000000000000000000",
+    "1210721028315600077559104410314821244788880981418272842269/8342280007522779519259925898240000000000000000000000000",
+    "2678434331946778216948930145693632394752216747122166742353/16684560015045559038519851796480000000000000000000000000"
+  ],
+  "gain_sums_fraction": [
+    "73771035003438369812667873366921362979/10389253761075200000000000000000000000",
+    "63950794647528847689940198269399796611/5194626880537600000000000000000000000",
+    "8863688160751956840822880004616984087/944477614643200000000000000000000000"
+  ],
+  "certified_cell_rates": [
+    0.164306640625,
+    0.28857421875,
+    0.21337890625
+  ],
+  "selected_pipeline": 1,
+  "record_count": 4905,
+  "simultaneous_gain_and_regret": true,
+  "no_refitting": true
+}
+friction paths 81
+binary 31 True 1540 0.06102377499999534 0.002262981999990643
+binary 63 True 4260 0.17651832000001377 0.0025601190000088536
+binary 127 True 6020 0.2641086659999985 0.003826787999997805
+binary 255 True 10940 0.5616234780000013 0.007280713000000105
+binary 511 False 12000 0.7642699339999979 0.014062773000006246
+binary 1023 False 12000 1.010140366999991 0.0336323909999976
+star 31 True 1640 0.06656205199999476 0.001551602000006369
+star 63 True 3700 0.15560372400000233 0.0022302650000085578
+star 127 True 7400 0.33470403800001236 0.003427770999991253
+star 255 False 12000 0.6228742039999986 0.006683660999982521
+star 511 False 12000 0.7536218179999992 0.016316547999991826
+star 1023 False 12000 1.0024874220000015 0.05169755000000009
+raw-face diagnostics 96
+{
+  "status": "pass",
+  "arithmetic": "fractions.Fraction",
+  "optimizer_imports": false,
+  "numerical_library_imports": false,
+  "policies": 10312,
+  "subtrees": 320104,
+  "tier_coordinates": 320104,
+  "critical_brackets": 12,
+  "model_sha256": "6b4d5e68d5a18c54c487074a4557b7834171c044be4f9472baf832f0f645dd34",
+  "confirmation_plan_sha256": "be75e36c808a1bdc70860fa4e2292f9b2c6ffc0a3ff24d37ca812edc2dca686b",
+  "confirmation_simultaneous_confidence": 0.95,
+  "note": "Exact replay checks finite submitted policies and critical brackets; analytic proofs establish the general theorems."
+}
