@@ -1,0 +1,108 @@
+\section{Resource-gradient policies on multistage accepted sets}\label{sec:r15-bridge}
+The full-tree acceptance model does not require a scalar coupling price, a two-date horizon, or known switching signs. This section supplies a value--decision connection for several coupled resources while retaining the original accepted set. The computational distinction is between a \emph{base response}, which retains participation and nonsmooth reconfiguration, and the \emph{coupled problem}, which additionally prices interactions among resources. A base response is an optimization problem, not a free decoder; our comparisons charge its complete cost.
+
+\subsection{The operational statistic and the response problem}
+Fix the public primitive parameter $\vartheta$, a feasible comparison protocol $z$, and the accepted polyhedron $P_\vartheta$ from Section~\ref{sec:accepted}. We use deviations $x$ from $z$, so that $0\in P_\vartheta$. The set may include vector tiers, all nonroot continuation constraints, root payment equalities, physical bounds, and several resource caps. Define
+\begin{equation}\label{eq:r15-objective}
+ \begin{split}
+ F_h(x)&=(b+U^\top h)^\top x-R_0(x)-\psi(x)
+                    -\tfrac12(Ux)^\top C(Ux),\qquad x\in P_\vartheta,\\
+ V(h)&=\max_{x\in P_\vartheta} F_h(x),\qquad
+ \psi(x)=\lambda\sum_a\kappa_a|(Bx+v)_a|,
+ \end{split}
+\end{equation}
+where $C\succ0$, $U\in\mathbb R^{r\times d}$, and $R_0$ is strongly convex in a known positive definite metric $H_0$. Additive constants that set $F_h(0)=0$ have no effect on the results. In the acceptance application $B$ is the full switching incidence, including installation, and $v$ records the already-installed outside protocol. In particular, $v$ need not vanish and the signs of $Bx+v$ are endogenous. Additional proper closed convex terms may be included in $\psi$. We assume $P_\vartheta$ is nonempty and compact. Nothing in the argument requires strict complementarity or a particular active face.
+
+The resource shift $h\in\mathbb R^r$ changes marginal operating rewards in specified physical directions $U$. All other primitives, including $P_\vartheta$, are held fixed when differentiating in $h$. A comparator reoptimized as a function of $h$ would require its own sensitivity terms and is not silently substituted into this derivative. Write $x^*$ for the unique optimizer and $v^*=Ux^*$. For a predicted curvature price $\eta\in\mathbb R^r$, define the feasible base response
+\begin{equation}\label{eq:r15-response}
+ x_\eta=\argmax_{x\in P_\vartheta}
+ \{(b+U^\top h-U^\top\eta)^\top x-R_0(x)-\psi(x)\}.
+\end{equation}
+This response retains the \emph{entire} accepted set and the absolute switching cost. It removes only the coupled quadratic resource term. Its capacity and participation multipliers are internal to its optimality conditions; they are not included in the learned curvature price $\eta^*=Cv^*$.
+
+\begin{theorem}[Global resource-gradient bridge]\label{thm:r15-global}
+Let $S=UH_0^{-1}U^\top$, $\kappa=\lambda_{\max}(C^{1/2}SC^{1/2})$, and
+$K=U(H_0+U^\top CU)^{-1}U^\top$. For every real price $\eta$, put
+$r_\eta=\eta-CUx_\eta$ and $e_\eta=\eta-CUx^*$. Then
+\begin{align}
+ 0\leq V(h)-F_h(x_\eta)&\leq \tfrac12 r_\eta^\top K r_\eta,\label{eq:r15-observable}\\
+ V(h)-F_h(x_\eta)&\leq \tfrac12(1+\kappa)e_\eta^\top S e_\eta.\label{eq:r15-prior}
+\end{align}
+Moreover $V$ is differentiable in $h$, with $\nabla_hV=Ux^*$. A differentiable scalar critic therefore gives an implementable price $\eta=C\nabla_h\widehat V$ and
+\begin{equation}\label{eq:r15-gradient}
+ V(h)-F_h(x_\eta)\leq
+ \tfrac12(1+\kappa)\|\nabla_h\widehat V-\nabla_hV\|_{CSC}^{2}.
+\end{equation}
+These statements hold across changes in all binding commitments, box faces, and switching signs, on multistage trees and with vector decisions. The matrices need not have full row rank. A verified metric projection of $\eta$ onto a set containing $\eta^*$ is optional; no projection or face prediction is needed for the theorem.
+\end{theorem}
+\begin{proof}
+Set $f=R_0+\psi+I_{P_\vartheta}$ and $a=b+U^\top h$. Strong convexity and the base-response optimality condition give, for every feasible $x$,
+\[
+ f(x)\geq f(x_\eta)+(a-U^\top\eta)^\top(x-x_\eta)
+                       +\tfrac12\|x-x_\eta\|_{H_0}^2.
+\]
+Expanding only the coupled quadratic and cancelling the linear terms bounds the full gain by
+$r_\eta^\top U(x-x_\eta)-\|x-x_\eta\|_{H_0+U^\top CU}^2/2$.
+Maximizing over all displacements proves \eqref{eq:r15-observable}. The argument uses the subdifferential of the original nonsmooth cost, not a fixed-sign replacement.
+
+Define the convex response value
+$H(s)=\max_{x\in P_\vartheta}\{a^\top x-f(x)-s^\top Ux\}$.
+Its unique maximizer gives $\nabla H(s)=-Ux_s$. Adding the two base-response optimality inequalities yields
+\[
+ \|x_s-x_t\|_{H_0}^2\leq -(s-t)^\top U(x_s-x_t)
+ \leq \|s-t\|_S\|x_s-x_t\|_{H_0}.
+\]
+Consequently $\|x_s-x_t\|_{H_0}\leq\|s-t\|_S$, and the convex remainder of $H$ between $s$ and $t$ is at most $\|s-t\|_S^2/2$. This last assertion follows either by integrating its gradient on the segment or by applying the preceding strong-convexity inequality to the maximizing displacement. Full optimality implies $x^*=x_{\eta^*}$, where $\eta^*=CUx^*$. Direct substitution gives
+\[
+ V-F_h(x_\eta)=H(\eta^*)-H(\eta)
+ -\nabla H(\eta)^\top(\eta^*-\eta)
+ +\tfrac12\|U(x_\eta-x^*)\|_C^2.
+\]
+The first remainder is at most $e_\eta^\top S e_\eta/2$. The last term is at most
+$\kappa\|x_\eta-x^*\|_{H_0}^2/2$, proving \eqref{eq:r15-prior}. Compactness, continuity, and uniqueness imply the envelope identity $\nabla_hV=Ux^*$. Substituting $e_\eta=C(\nabla_h\widehat V-\nabla_hV)$ proves \eqref{eq:r15-gradient}.
+\end{proof}
+
+The theorem covers a materially different object from a single-resource star: $r$ can exceed one, $P_\vartheta$ can contain the complete vector scenario tree, and switching tensions can change sign. Its practical value depends on whether solving \eqref{eq:r15-response} is appreciably cheaper than solving \eqref{eq:r15-objective}. Taking $U=0$ gives no price-learning problem; taking a full-rank dense $U$ can remove the computational advantage. Neither extreme is concealed by the regret statement. The two-review result in the companion is the case $r=1$, $C=\chi_0$, $U=\rho^\top$, with acceptance fixing the switching signs. Its capacity multiplier is distinct from $\chi_0v^*$, exactly as in the general construction.
+
+\subsection{Inexact responses and a reduced resource-price algorithm}
+An optimization tolerance is not an exact optimality condition. The next result permits the actual feasible output of an approximate base solve, with a separately computed bound on its base suboptimality.
+
+\begin{proposition}[Certified inexact response]\label{prop:r15-inexact}
+Let $y\in P_\vartheta$ and let $\delta\geq0$ certify
+$H(\eta)-\{a^\top y-f(y)-\eta^\top Uy\}\leq\delta$.
+For every $t\in(0,1)$, with $r=\eta-CUy$,
+\begin{equation}\label{eq:r15-inexact}
+ V-F_h(y)\leq\frac{\delta}{t}
+ +\tfrac12 r^\top U\{(1-t)H_0+U^\top CU\}^{-1}U^\top r.
+\end{equation}
+When $\delta=0$, letting $t$ decrease to zero recovers \eqref{eq:r15-observable}. In particular, $t=1/2$ gives an entirely observable bound without assuming that the approximate response has the exact optimizer's switching signs.
+\end{proposition}
+\begin{proof}
+Let $g(x)=f(x)-(a-U^\top\eta)^\top x$, so $g(y)-\min g\leq\delta$.
+Strong convexity at $(1-t)y+tx$ and $\min g\geq g(y)-\delta$ imply
+$g(x)-g(y)\geq(1-t)\|x-y\|_{H_0}^2/2-\delta/t$.
+Add the coupled quadratic difference and complete the square as in the preceding proof.
+\end{proof}
+
+The same response supplies a deterministic refinement method. Define
+\begin{equation}\label{eq:r15-reduced}
+ D(p)=H(C^{1/2}p)+\tfrac12\|p\|^2.
+\end{equation}
+It is one-strongly convex and $(1+\kappa)$-smooth, with gradient
+$p-C^{1/2}Ux_{C^{1/2}p}$. Its unique minimizer is $p^*=C^{1/2}Ux^*$.
+Gradient descent with step $1/(1+\kappa)$ contracts the dual objective gap by at least the factor $\kappa/(1+\kappa)$ per exact response. Thus an initial dual gap $\Delta_0$ reaches $\epsilon$ within
+$\lceil(1+\kappa)\log(\Delta_0/\epsilon)\rceil$ responses when $\Delta_0>\epsilon$; for $\kappa=0$, one step suffices. This is a bound in \emph{response calls}, not a claim of linear work in tree size. Standard smooth strongly convex descent gives the rate \citep{Nesterov2004}; the accepted-set specialization identifies which physical prices are updated and what each oracle must preserve. The directly computed Fenchel bound below is our stopping rule, including when an implementation instead uses a cached full-problem solver for refinement.
+
+\subsection{One certificate for all learning methods and all solver outputs}
+For diagonal $R_0(x)=\sum_i q_ix_i^2/2$, take the box bounds into the separable functions
+$f_i(x_i)=q_ix_i^2/2+I_{[l_i,u_i]}(x_i)$, and write the remaining commitments as $Ax\leq d$ and $Ex=e$. For any $\mu\geq0$, any $\nu$, any $s$ with $|s_a|\leq\lambda\kappa_a$, and any curvature price $\eta$, Fenchel's inequality gives
+\begin{equation}\label{eq:r15-fenchel}
+ V\leq {\cal U}(\eta,s,\mu,\nu):=
+ \tfrac12\eta^\top C^{-1}\eta-s^\top v+\mu^\top d+\nu^\top e
+ +\sum_i f_i^*(a_i-(U^\top\eta+B^\top s+A^\top\mu+E^\top\nu)_i).
+\end{equation}
+The same additive constant used in $F_h$ must also be added to ${\cal U}$. Each conjugate is evaluated at the clipped unconstrained maximizer. This expression applies to any feasible rounded policy, independently of whether it came from a critic, direct-price regression, a nonlinear interpolant, or a classical solver. In particular, no exact-base-response assumption is used in \eqref{eq:r15-fenchel}.
+
+Our audit rounds dual prices, enforces their signs and switching capacities, reconstructs payment-neutral transfers, and checks the implemented rational policy. Integer division bounds every separable conjugate from above; aggregate rational operations evaluate the policy gain exactly. The sum of conjugate rounding errors is less than $d\,10^{-12}$, and is already included in the reported upper bound. A negative-gain candidate is replaced by the feasible outside protocol. A gap exceeding the declared tolerance causes an actual full solve and a second audit. This certifies improvement relative to the specified comparator under the specified model; it is not a guarantee against unmodeled demand, tariff, or execution error.
+
+The envelope theorem, strong convexity, multiplier decomposition, and Fenchel inequalities are classical. Earlier primal--dual policy learning already used online dual checks and backup controllers \citep{Zhang2020}, and self-supervised primal--dual learning has a different way to obtain optimization policies \citep{Park2023}. We do not claim to originate certificate-gated learning. The contribution here is the explicit operational resource direction, its global and inexact regret bounds on the \emph{unchanged accepted multistage set}, and a common certificate that preserves endogenous switching and every continuation row. Learning the price directly remains a legitimate competing implementation, rather than an excluded alternative.
