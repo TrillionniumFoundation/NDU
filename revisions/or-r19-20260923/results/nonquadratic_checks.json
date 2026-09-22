@@ -1,0 +1,647 @@
+{
+  "status": "PASS",
+  "cases": 64,
+  "arithmetic": "fractions.Fraction only; no numerical optimizer",
+  "rows": [
+    {
+      "case": 0,
+      "x_star": "-1/2",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "17409/262144",
+      "inexact_bound": "1478653203/11509170176",
+      "identity_exact": true
+    },
+    {
+      "case": 1,
+      "x_star": "-1/4",
+      "x_response": "-1/14",
+      "implemented": "-71/1000",
+      "base_gap": "9/98000000",
+      "regret": "189470661681/4000000000000",
+      "inexact_bound": "19008490129558162129/147000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 2,
+      "x_star": "-1/8",
+      "x_response": "25/448",
+      "implemented": "7/125",
+      "base_gap": "121/4704000000",
+      "regret": "18072464798153/192000000000000",
+      "inexact_bound": "80915812152923207610481/658560000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 3,
+      "x_star": "0",
+      "x_response": "3/70",
+      "implemented": "43/1000",
+      "base_gap": "1/58800000",
+      "regret": "340226256403/192000000000000",
+      "inexact_bound": "762523071373649104609/244608000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 4,
+      "x_star": "1/3",
+      "x_response": "1/3",
+      "implemented": "333/1000",
+      "base_gap": "1/27000000",
+      "regret": "11998667/108000000000000",
+      "inexact_bound": "287928032994001/1944000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 5,
+      "x_star": "1/2",
+      "x_response": "2/7",
+      "implemented": "143/500",
+      "base_gap": "1/24500000",
+      "regret": "556826339681/4000000000000",
+      "inexact_bound": "287043299019045836161/1078000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 6,
+      "x_star": "-1/2",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "6/539",
+      "identity_exact": true
+    },
+    {
+      "case": 7,
+      "x_star": "-1/4",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "289/3072",
+      "inexact_bound": "373827/2207744",
+      "identity_exact": true
+    },
+    {
+      "case": 8,
+      "x_star": "-1/8",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "98019/262144",
+      "inexact_bound": "53272284147/50969182208",
+      "identity_exact": true
+    },
+    {
+      "case": 9,
+      "x_star": "0",
+      "x_response": "2/7",
+      "implemented": "143/500",
+      "base_gap": "1/24500000",
+      "regret": "204908161601/4000000000000",
+      "inexact_bound": "25215179427240363601/294000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 10,
+      "x_star": "1/3",
+      "x_response": "1/2",
+      "implemented": "1/2",
+      "base_gap": "0",
+      "regret": "67/1728",
+      "inexact_bound": "1067089/7620480",
+      "identity_exact": true
+    },
+    {
+      "case": 11,
+      "x_star": "1/2",
+      "x_response": "1/2",
+      "implemented": "1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "54/1813",
+      "identity_exact": true
+    },
+    {
+      "case": 12,
+      "x_star": "-1/2",
+      "x_response": "-11/28",
+      "implemented": "-393/1000",
+      "base_gap": "1/147000000",
+      "regret": "1052075480803/192000000000000",
+      "inexact_bound": "1179122864218919754409/131712000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 13,
+      "x_star": "-1/4",
+      "x_response": "-1/4",
+      "implemented": "-1/4",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "0",
+      "identity_exact": true
+    },
+    {
+      "case": 14,
+      "x_star": "-1/8",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "27/3430",
+      "identity_exact": true
+    },
+    {
+      "case": 15,
+      "x_star": "0",
+      "x_response": "-3/35",
+      "implemented": "-43/500",
+      "base_gap": "1/14700000",
+      "regret": "85064256403/12000000000000",
+      "inexact_bound": "47674982934203104609/3822000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 16,
+      "x_star": "1/3",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "83611/442368",
+      "inexact_bound": "8027622409/24970788864",
+      "identity_exact": true
+    },
+    {
+      "case": 17,
+      "x_star": "1/2",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "249425/262144",
+      "inexact_bound": "27771222609/18085838848",
+      "identity_exact": true
+    },
+    {
+      "case": 18,
+      "x_star": "-1/2",
+      "x_response": "-2/7",
+      "implemented": "-143/500",
+      "base_gap": "1/18375000",
+      "regret": "444660234803/12000000000000",
+      "inexact_bound": "210648323083569522409/3234000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 19,
+      "x_star": "-1/4",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "1075/49152",
+      "inexact_bound": "12399267/141295616",
+      "identity_exact": true
+    },
+    {
+      "case": 20,
+      "x_star": "-1/8",
+      "x_response": "95/224",
+      "implemented": "53/125",
+      "base_gap": "3/784000000",
+      "regret": "33272270896131/64000000000000",
+      "inexact_bound": "22804697553142354239981/27776000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 21,
+      "x_star": "0",
+      "x_response": "1/14",
+      "implemented": "71/1000",
+      "base_gap": "9/98000000",
+      "regret": "201665411681/64000000000000",
+      "inexact_bound": "33271217895955304043/6272000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 22,
+      "x_star": "1/3",
+      "x_response": "1/3",
+      "implemented": "333/1000",
+      "base_gap": "1/13500000",
+      "regret": "5332889/36000000000000",
+      "inexact_bound": "503928032994001/2430000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 23,
+      "x_star": "1/2",
+      "x_response": "13/35",
+      "implemented": "371/1000",
+      "base_gap": "3/19600000",
+      "regret": "3782220635361/64000000000000",
+      "inexact_bound": "29065024084102320535707/232064000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 24,
+      "x_star": "-1/2",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "6/343",
+      "identity_exact": true
+    },
+    {
+      "case": 25,
+      "x_star": "-1/4",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "75/1024",
+      "inexact_bound": "124609/602112",
+      "identity_exact": true
+    },
+    {
+      "case": 26,
+      "x_star": "-1/8",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "98019/262144",
+      "inexact_bound": "53272284147/57545850880",
+      "identity_exact": true
+    },
+    {
+      "case": 27,
+      "x_star": "0",
+      "x_response": "6/35",
+      "implemented": "171/1000",
+      "base_gap": "3/19600000",
+      "regret": "1794303036081/64000000000000",
+      "inexact_bound": "4067825273325432544587/81536000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 28,
+      "x_star": "1/3",
+      "x_response": "1/2",
+      "implemented": "1/2",
+      "base_gap": "0",
+      "regret": "17/576",
+      "inexact_bound": "1067089/6096384",
+      "identity_exact": true
+    },
+    {
+      "case": 29,
+      "x_star": "1/2",
+      "x_response": "1/2",
+      "implemented": "1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "18/539",
+      "identity_exact": true
+    },
+    {
+      "case": 30,
+      "x_star": "-1/2",
+      "x_response": "-25/56",
+      "implemented": "-223/500",
+      "base_gap": "3/24500000",
+      "regret": "9488223441/4000000000000",
+      "inexact_bound": "4470941265571130883/1078000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 31,
+      "x_star": "-1/4",
+      "x_response": "-1/4",
+      "implemented": "-1/4",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "0",
+      "identity_exact": true
+    },
+    {
+      "case": 32,
+      "x_star": "-1/8",
+      "x_response": "-37/224",
+      "implemented": "-33/200",
+      "base_gap": "1/94080000",
+      "regret": "24160601/2400000000",
+      "inexact_bound": "1622114081289703/83328000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 33,
+      "x_star": "0",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "2561/262144",
+      "inexact_bound": "99820081/4932501504",
+      "identity_exact": true
+    },
+    {
+      "case": 34,
+      "x_star": "1/3",
+      "x_response": "1/84",
+      "implemented": "3/250",
+      "base_gap": "1/165375000",
+      "regret": "18179875729/140625000000",
+      "inexact_bound": "771523162484095087/4152832031250000000",
+      "identity_exact": true
+    },
+    {
+      "case": 35,
+      "x_star": "1/2",
+      "x_response": "-1/70",
+      "implemented": "-7/500",
+      "base_gap": "1/14700000",
+      "regret": "9162575333443/12000000000000",
+      "inexact_bound": "12354703769797677484249/10878000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 36,
+      "x_star": "-1/2",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "17409/262144",
+      "inexact_bound": "1478653203/11509170176",
+      "identity_exact": true
+    },
+    {
+      "case": 37,
+      "x_star": "-1/4",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "273/16384",
+      "inexact_bound": "4133089/38535168",
+      "identity_exact": true
+    },
+    {
+      "case": 38,
+      "x_star": "-1/8",
+      "x_response": "1/112",
+      "implemented": "9/1000",
+      "base_gap": "1/294000000",
+      "regret": "1600491255931/24000000000000",
+      "inexact_bound": "15453910261932450491929/164640000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 39,
+      "x_star": "0",
+      "x_response": "3/70",
+      "implemented": "43/1000",
+      "base_gap": "1/58800000",
+      "regret": "340226256403/192000000000000",
+      "inexact_bound": "762523071373649104609/244608000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 40,
+      "x_star": "1/3",
+      "x_response": "1/3",
+      "implemented": "333/1000",
+      "base_gap": "1/27000000",
+      "regret": "11998667/108000000000000",
+      "inexact_bound": "287928032994001/1944000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 41,
+      "x_star": "1/2",
+      "x_response": "2/7",
+      "implemented": "143/500",
+      "base_gap": "1/24500000",
+      "regret": "556826339681/4000000000000",
+      "inexact_bound": "287043299019045836161/1078000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 42,
+      "x_star": "-1/2",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "6/539",
+      "identity_exact": true
+    },
+    {
+      "case": 43,
+      "x_star": "-1/4",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "289/3072",
+      "inexact_bound": "373827/2207744",
+      "identity_exact": true
+    },
+    {
+      "case": 44,
+      "x_star": "-1/8",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "104163/262144",
+      "inexact_bound": "53272284147/50969182208",
+      "identity_exact": true
+    },
+    {
+      "case": 45,
+      "x_star": "0",
+      "x_response": "2/7",
+      "implemented": "143/500",
+      "base_gap": "1/24500000",
+      "regret": "204908161601/4000000000000",
+      "inexact_bound": "25215179427240363601/294000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 46,
+      "x_star": "1/3",
+      "x_response": "1/2",
+      "implemented": "1/2",
+      "base_gap": "0",
+      "regret": "67/1728",
+      "inexact_bound": "1067089/7620480",
+      "identity_exact": true
+    },
+    {
+      "case": 47,
+      "x_star": "1/2",
+      "x_response": "1/2",
+      "implemented": "1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "54/1813",
+      "identity_exact": true
+    },
+    {
+      "case": 48,
+      "x_star": "-1/2",
+      "x_response": "-11/28",
+      "implemented": "-393/1000",
+      "base_gap": "1/147000000",
+      "regret": "1052075480803/192000000000000",
+      "inexact_bound": "1179122864218919754409/131712000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 49,
+      "x_star": "-1/4",
+      "x_response": "-1/4",
+      "implemented": "-1/4",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "0",
+      "identity_exact": true
+    },
+    {
+      "case": 50,
+      "x_star": "-1/8",
+      "x_response": "-107/448",
+      "implemented": "-239/1000",
+      "base_gap": "27/1568000000",
+      "regret": "264822435537/8000000000000",
+      "inexact_bound": "2642817381379273181403/54880000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 51,
+      "x_star": "0",
+      "x_response": "-3/35",
+      "implemented": "-43/500",
+      "base_gap": "1/14700000",
+      "regret": "85064256403/12000000000000",
+      "inexact_bound": "47674982934203104609/3822000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 52,
+      "x_star": "1/3",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "83611/442368",
+      "inexact_bound": "8027622409/24970788864",
+      "identity_exact": true
+    },
+    {
+      "case": 53,
+      "x_star": "1/2",
+      "x_response": "-1/8",
+      "implemented": "-1/8",
+      "base_gap": "0",
+      "regret": "249425/262144",
+      "inexact_bound": "27771222609/18085838848",
+      "identity_exact": true
+    },
+    {
+      "case": 54,
+      "x_star": "-1/2",
+      "x_response": "-2/7",
+      "implemented": "-143/500",
+      "base_gap": "1/18375000",
+      "regret": "444660234803/12000000000000",
+      "inexact_bound": "210648323083569522409/3234000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 55,
+      "x_star": "-1/4",
+      "x_response": "-19/280",
+      "implemented": "-17/250",
+      "base_gap": "1/58800000",
+      "regret": "39872149633/750000000000",
+      "inexact_bound": "2699253494872138081/25265625000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 56,
+      "x_star": "-1/8",
+      "x_response": "37/112",
+      "implemented": "33/100",
+      "base_gap": "1/23520000",
+      "regret": "116117201473/307200000000",
+      "inexact_bound": "2790218722262612863/5332992000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 57,
+      "x_star": "0",
+      "x_response": "1/14",
+      "implemented": "71/1000",
+      "base_gap": "9/98000000",
+      "regret": "201665411681/64000000000000",
+      "inexact_bound": "33271217895955304043/6272000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 58,
+      "x_star": "1/3",
+      "x_response": "1/3",
+      "implemented": "333/1000",
+      "base_gap": "1/13500000",
+      "regret": "5332889/36000000000000",
+      "inexact_bound": "503928032994001/2430000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 59,
+      "x_star": "1/2",
+      "x_response": "13/35",
+      "implemented": "371/1000",
+      "base_gap": "3/19600000",
+      "regret": "3782220635361/64000000000000",
+      "inexact_bound": "29065024084102320535707/232064000000000000000000",
+      "identity_exact": true
+    },
+    {
+      "case": 60,
+      "x_star": "-1/2",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "0",
+      "inexact_bound": "6/343",
+      "identity_exact": true
+    },
+    {
+      "case": 61,
+      "x_star": "-1/4",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "75/1024",
+      "inexact_bound": "124609/602112",
+      "identity_exact": true
+    },
+    {
+      "case": 62,
+      "x_star": "-1/8",
+      "x_response": "-1/2",
+      "implemented": "-1/2",
+      "base_gap": "0",
+      "regret": "104163/262144",
+      "inexact_bound": "53272284147/57545850880",
+      "identity_exact": true
+    },
+    {
+      "case": 63,
+      "x_star": "0",
+      "x_response": "6/35",
+      "implemented": "171/1000",
+      "base_gap": "3/19600000",
+      "regret": "1794303036081/64000000000000",
+      "inexact_bound": "4067825273325432544587/81536000000000000000000",
+      "identity_exact": true
+    }
+  ]
+}

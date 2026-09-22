@@ -1,0 +1,102 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[tablesonly,nomarkers,nolists,noheads]{endfloat}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Accepted Adaptive Service Control}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Adaptive Service Control and Certified Value-Gradient Learning},pdfauthor={Anonymous}}
+\externaldocument{ec-labels}[electronic_companion.pdf]
+\externaldocument{history-labels}[historical_supplement.pdf]
+\input{revisions/or-r10-20260921/tables/metrics.tex}
+\input{revisions/or-r12-20260922/tables/metrics.tex}
+\input{revisions/or-r13-20260922/tables/metrics.tex}
+\input{revisions/or-r14-20260922/tables/metrics.tex}
+\begin{document}
+\begin{titlepage}\centering
+{\Large\bfseries Neural Differential Utility:\\ Accepted Adaptive Service Control and\\ Certified Value-Gradient Learning\par}
+\vspace{.3in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
+\begin{minipage}{\textwidth}
+\textbf{Abstract.}
+Can an externally priced service protocol adapt without reducing customer utility or service? We study persistent tiers, physical stock, costly reconfiguration, and participation at every review. A full-tree balance characterization relates accepted adaptation to continuation prices, boundary scarcity, and switching capacities. Exact payment-transfer coordinates yield sparse critical-friction programs, constructive dual repairs, and profitable accepted deviations. For quadratic resources, verified parameter cells support scalar value experts. An additional price-mediated construction on two-review trees eliminates face enumeration: a specified scalar value derivative generates a feasible policy with a global quadratic regret bound, including binding-capacity transitions. It also gives an explicit critical friction and a sorting-based exact solution. Nonzero-switching experiments connect these results to accepted decisions, independently audited neural proposals, and frozen-policy expected-gain guarantees. Comparisons include structure-aware classical algorithms, offline fitting, exact audits, and actual refinement. Accurate unrefined neural decisions do not imply a complete-pipeline speed advantage, and the paired derivative-training comparison remains statistically unresolved. Earlier information-value results, multistage theory, and unfavorable nonlinear transfer evidence are retained. The resulting framework connects operational acceptance, a learnable decision statistic, and implementable certification without presuming access to the optimal policy.
+\par\vspace{.16in}\textbf{Keywords:} accepted service control; continuation participation; value-gradient learning.
+\par\vspace{.10in}\textbf{Subject classifications:} Inventory/production: service contracts; Dynamic programming/optimal control: stochastic control; Analysis of algorithms: approximation guarantees.
+\par\vspace{.10in}\textbf{Area of review:} Stochastic Models.
+\end{minipage}\vfill{Revision R14, September 22, 2026\par}\end{titlepage}
+\section{Introduction}
+A service provider can revise both physical capacity and the service tier attached to it. A higher tier earns a premium but can also increase indemnity and maintenance costs; replacing an installed tier consumes resources. Adaptation is useful only when these gains survive the customer's commitments and comparison with a properly optimized outside protocol. We ask when an accepted adaptive protocol creates value, how switching friction changes that answer, and how a learned implementation can be evaluated under the same acceptance requirements.
+
+We study Neural Differential Utility as joint control of physical activity and a persistent, externally priced contractual state. Regimes, stock, tiers, and realized fulfillment are observable and contractible. The tariff and accounting rule are fixed before optimization. The provider commits to an announced contingent protocol; in the continuation model the customer can leave at every review. There is no private type or hidden effort. The model is an ordinary Markov decision process with expanded state and action spaces, not a claimed escape from stochastic control. Its distinctive comparison preserves the customer's utility, expected fill, and physical resource commitments relative to an optimized static arrangement.
+
+Our first contribution identifies the structure of accepted adaptation on a full scenario tree. With absolute switching costs, marginal operating rewards must be balanced by continuation prices, boundary scarcity, and bounded switching tensions. On a scalar tree, eliminating the tensions yields cumulative subtree cuts and an exact critical-friction program. This extends the earlier local edge criterion beyond a two-review adjustment. The general balance theorem admits vector tiers, joint smooth graph costs, multiple commitments, signed net-payment rates, boundary solutions, and nonconstant outside protocols. With all temporal and installation edges penalized, a constant protocol with no initial mismatch becomes optimal at sufficiently large friction. For an already-changing outside protocol, the optimality region can instead have an upper endpoint. We give both a complete characterization and a constructive improving policy when the balance fails. The price--capacity margin bounds accepted value; exact equality requires the stated quadratic curvature and feasible-step clearance, rather than holding for arbitrary boundary problems.
+
+Our second contribution makes the structure algorithmic. On a scalar tree, nonnegative payment transfers parameterize the entire accepted polytope. A two-pass tension repair gives an explicit upper bound on critical friction, while a separating transfer provides both a lower bound and a profitable accepted decision. Keeping the incidence factors separate prevents quadratic fill-in on high-branching trees. Sparse linear programming and a bracketed first-order method are evaluated separately; linear work per iteration does not imply a linear-time optimization algorithm.
+
+Our third contribution supplies an implementable connection to learning. Arbitrary predicted prices give a loss certificate with explicit switching and commitment penalties. Verified quadratic parameter cells make scalar experts usable without knowing the query-time optimal face. On a two-review tree, a second construction avoids face enumeration entirely: a scalar value derivative identifies a coupling price, and its feasible response has a global quadratic regret bound even across binding-capacity transitions. The same reduction gives an explicit friction threshold and a sorting-based exact solver. Learning now targets a specified operational statistic rather than an unavailable optimal face.
+
+Our fourth contribution executes these connections. Positive-switching multistage experiments trace policy changes through critical friction. A separate scalar-critic study measures eight paired training seeds, unrefined policy quality, and an independent frozen-policy gain guarantee. Matched-accuracy comparisons include structure-aware classical solvers, complete audits, actual refinement, and offline costs. The canonical information hierarchy retains its total accepted improvement of 0.63666527 and inherited-tier contribution of 0.01929038. Severe nonlinear transfer failures remain intact in the companion. The evidence supports accurate accepted neural decisions in specified distributions, not universal speed or a statistically resolved advantage of derivative weighting.
+
+\subsection{Related literature and the incremental contribution}
+Inventory decisions and service contracts have long been studied jointly. \citet{Henig1997} embed inventory decisions in supply-contract design; \citet{LiangAtkins2013,Sieke2012,Katok2008} study agreements, penalties, coordination, and review periods. Dynamic stocking under service-level agreements is established \citep{Hosseinifard2022,Caggiano2007,Abbasi2022}. Here the static-contract comparator can already adapt physical stock to the regime. The additional decisions are accepted revisions of contractual tiers, not state-aware inventory actions withheld from the benchmark.
+
+Private information and unobserved effort create different constraints. \citet{NasserTurcic2019} study temporary contract adjustment with a private demand forecast; \citet{PlambeckZenios2003} study incentive-efficient control with unobserved effort. We impose public-state continuation participation, not truth telling or hidden-action incentive compatibility. Combined pricing and inventory optimization is also established \citep{FedergruenHeching1999}; our tariff and demand law remain external to the provider's control.
+
+Constrained Markov decision processes, occupation measures, and Lagrangian resource prices are classical \citep{Altman1999}. Conditional promised utility supports recursive contracting \citep{SpearSrivastava1987}, while self-enforcing wage contracts analyze participation over time \citep{ThomasWorrall1988}. Our remaining-payment state is a service-control specialization, not a new principle of dynamic programming. The contribution is the exact continuation-price and switching-capacity characterization, including its cumulative cut form and friction comparative statics, under the stated observable-service institution.
+
+Monotone selections follow \citet{Topkis1978}, and hysteretic control has predecessors including \citet{HippHolzbaur1988}. Supporting-price stock identification, normal cones, Bregman decompositions, and strong-convexity residual bounds use standard convex tools \citep{BoydVandenberghe2004}. We state those tools explicitly so that their specialization is not mistaken for independent mathematical novelty. Approximate dynamic programming also uses optimization to connect approximate values and decisions \citep{DeFariasVanRoy2003}. Our complete-tree audit retains all participation rows and boundary prices rather than relying on a collection of unverified one-step errors.
+
+Derivative-weighted fitting follows Sobolev training \citep{Czarnecki2017}; graph filtering follows \citet{Defferrard2016}. Safe and constrained learning studies cumulative constraints and, in some models, unknown safe regions \citep{Satija2020,WachiSui2020}. Here the feasible polyhedron is known; learning proposes a policy and a separate calculation certifies it. The acceptance-face theorem and certificate-risk selection result explain the role and limits of this separation. We benchmark SciPy's sequential quadratic programming implementation alongside the preserved sparse Newton methods \citep{Virtanen2020}; no custom implementation is declared the practical optimization frontier. Forward--backward value-process methods \citep{MaProtterYong1994,HanJentzenE2018} and Markov-chain approximation \citep{KushnerDupuis2001} support the separately preserved continuous-time material, not the finite-tree theorem by analogy.
+
+Graph total variation and regularization paths have established dual and algorithmic representations \citep{TibshiraniTaylor2011,ArnoldTibshirani2016}. Explicit constrained control uses multiparametric quadratic programs \citep{Bemporad2002}, and safe screening uses gap-based regions \citep{Fercoq2015}. Our contribution is not to rename those methods: it is the continuation-transfer representation, constructive price repair, and their integration with verified scalar experts and independently validated accepted deployment.
+
+Classical single-resource algorithms already exploit multiplier and breakpoint structure \citep{PatrikssonStromberg2015}. Our additional contribution identifies the accepted-service reduction and the scalar value derivative that controls its regret, not a new generic multiplier method.
+
+The main paper contains the institution, essential proofs, canonical comparison, and current implementation results. Optional predecessor proofs and diagnostic tables are in the electronic companion. The historical supplement preserves the full earlier diffusion, continuous-time, and computational development without making it a prerequisite for understanding the current results.
+
+\input{revisions/or-r14-20260922/sections/model.tex}
+\input{revisions/or-r14-20260922/sections/general_theory.tex}
+\input{revisions/or-r14-20260922/sections/network_structure.tex}
+\input{revisions/or-r13-20260922/sections/constructive_flow.tex}
+\input{revisions/or-r7-20260921/sections/accepted_continuous.tex}
+\input{revisions/or-r13-20260922/sections/learning_bridge.tex}
+\input{revisions/or-r13-20260922/sections/certified_cells.tex}
+\input{revisions/or-r14-20260922/sections/star_bridge.tex}
+\input{revisions/or-r13-20260922/sections/experiment.tex}
+\input{revisions/or-r14-20260922/sections/experiment.tex}
+\section{Conclusions and operational implications}
+Accepted adaptation is a reallocation of real resources under commitments, not a transfer taken from the customer. On a tree, cumulative continuation prices and switching capacities determine which reallocations survive the exit option. The full-tree criterion extends the scalar edge test and distinguishes a zero-switching comparator's critical friction from the interval of frictions supporting an already-changing outside protocol. Boundary and multiple-budget cases belong to the same balance system.
+
+Learning enters through a verified value--decision representation rather than an assumed optimal face. On two-review trees, a price-mediated scalar derivative yields a global quadratic regret bound and feasible deployment without storing any face; the absolute friction remains in the decision problem. Arbitrary predicted prices produce a full-horizon certificate with explicit continuation and switching leakage. Quadratic parameter cells make compatible experts usable without solving the query problem first; a learned index is accepted only after its region and policy are checked. Independent validation establishes a positive expected gain over static for a frozen policy in the declared distribution. It does not establish near-optimal raw learning, universal transfer, or superiority over classical cell lookup. The retained nonlinear failures and the new rejection rates identify where refinement remains necessary. Calibrating a service operation, changing tariffs endogenously, and treating private information are distinct extensions, not implicit features of the present model.
+\paragraph{Preserved scalar precursor.} EC Section~\ref{sec:r10-tree} reproduces the earlier scalar edge theorem and its complete proof. The more general balance, cut, transfer, and new learning results retain their essential proofs here.
+\section*{Data, software, and computation accessibility}
+The versioned review package contains ordinary manuscript inputs, complete proofs, frozen training coefficients, generated test primitives, rational policies and multipliers, independent certificate replay, raw execution times, and source hashes. The README identifies the current build and validation entry points. Predecessor source files and scientific observations are preserved, with an explicit relocation map. All experiments are synthetic; no confidential or personal data are used.
+\clearpage\input{revisions/or-r14-20260922/sections/references.tex}
+\end{document}

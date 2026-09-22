@@ -1,0 +1,20 @@
+\begin{table}[p]
+\centering
+\caption{Unrefined multistage decisions and conditional frozen-fleet gains}\label{tab:r19-quality}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Regret upper & Mean gap & Pass (\%) & Fleet lower \\
+\midrule
+Tanh: value & 0.034374 & 0.193705 & 0.00 & 0.542816 \\
+Tanh: value + gradient & 0.003685 & 0.015856 & 0.54 & 0.573506 \\
+Tanh: price & 0.001581 & 0.007986 & 3.66 & 0.575609 \\
+Quadratic: value & 0.003079 & 0.012446 & 4.59 & 0.574111 \\
+Quadratic: value + gradient & 0.002794 & 0.011081 & 9.47 & 0.574396 \\
+Quadratic: price & 0.000271 & 0.001238 & 65.48 & 0.576919 \\
+RBF: price & 0.000158 & 0.000657 & 86.43 & 0.577032 \\
+\bottomrule
+\end{tabular}
+
+\par\medskip\begin{minipage}{\textwidth}All 2,048 independent deployment contexts per method are included. Pass means the immediate exact full-objective gap is at most $10^{-3}$. No method passes at $10^{-5}$ before refinement. Fleet bounds apply to the explicitly randomized eight-model deployment, not each model or arbitrary retraining.\end{minipage}
+\end{table}

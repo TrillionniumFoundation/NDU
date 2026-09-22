@@ -1,0 +1,33 @@
+\begin{table}[p]
+\centering
+\caption{Retained star stress strata: selected columns, complete records supplied}\label{tab:r19-star}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrr}
+\toprule
+Stratum & Method & Regret upper & Root repair (\%) \\
+\midrule
+original & Tanh: value & 2.85e-06 & 0.0 \\
+original & Tanh: value + gradient & 2.15e-07 & 0.0 \\
+original & Tanh: price & 1.74e-07 & 0.0 \\
+original & Quadratic: price & 1.91e-04 & 0.0 \\
+original & RBF: price & 4.41e-08 & 0.0 \\
+critical-friction & Tanh: value & 1.07e-07 & 0.0 \\
+critical-friction & Tanh: value + gradient & 1.09e-08 & 0.0 \\
+critical-friction & Tanh: price & 6.96e-09 & 0.0 \\
+critical-friction & Quadratic: price & 4.69e-06 & 0.0 \\
+critical-friction & RBF: price & 5.54e-09 & 0.0 \\
+capacity-activation & Tanh: value & 1.48e-10 & 100.0 \\
+capacity-activation & Tanh: value + gradient & 1.48e-10 & 100.0 \\
+capacity-activation & Tanh: price & 1.48e-10 & 100.0 \\
+capacity-activation & Quadratic: price & 1.48e-10 & 100.0 \\
+capacity-activation & RBF: price & 1.48e-10 & 100.0 \\
+primitive-perturbation & Tanh: value & 1.36e-03 & 0.0 \\
+primitive-perturbation & Tanh: value + gradient & 1.35e-03 & 0.0 \\
+primitive-perturbation & Tanh: price & 1.35e-03 & 0.0 \\
+primitive-perturbation & Quadratic: price & 1.43e-03 & 0.0 \\
+primitive-perturbation & RBF: price & 1.35e-03 & 0.0 \\
+\bottomrule
+\end{tabular}
+
+\par\medskip\begin{minipage}{\textwidth}All eight methods, all four seeds, every stratum, and all geometry bins are retained in the machine-readable results; the table displays five methods for readability. Every method in the capacity-activation stratum has the same regret bracket to numerical precision. These are existing R16 observations, not newly generated R19 evidence.\end{minipage}
+\end{table}

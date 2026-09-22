@@ -1,0 +1,64 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[tablesonly,nomarkers,nolists,noheads]{endfloat}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Electronic Companion}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Multistage Service Control and Certified Value-Gradient Decisions},pdfauthor={Anonymous}}
+
+\externaldocument{main-labels}[main.pdf]
+\externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
+\externaldocument{legacy-ec-labels}[revisions/or-r19-20260923/predecessor/electronic_companion.pdf]
+\externaldocument{history-labels}[historical_supplement.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\theequation}{EC.\arabic{equation}}
+\input{revisions/or-r10-20260921/tables/metrics.tex}
+\input{revisions/or-r12-20260922/tables/metrics.tex}
+\input{revisions/or-r13-20260922/tables/metrics.tex}
+\input{revisions/or-r14-20260922/tables/metrics.tex}
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion\par}\medskip
+{\large Neural Differential Utility: Accepted Multistage Service Control and Certified Value-Gradient Decisions\par}\medskip
+Revision R19, September 23, 2026
+\end{center}
+This companion retains complete predecessor scalar, cell, and learning components while providing the current multistage implementation details. Their original experiment labels and claims refer to their own distributions and revision dates. They are not pooled as new R19 observations. The immutable R14 main manuscript and electronic companion, and the unchanged historical supplement, preserve all earlier scientific content, including the full nonlinear failures and continuous-time development. Cross-document references to material outside this companion point to those actual predecessor PDFs.
+\input{revisions/or-r19-20260923/sections/companion.tex}
+\input{revisions/or-r10-20260921/sections/tree_structure.tex}
+\input{revisions/or-r13-20260922/sections/learning_bridge.tex}
+\input{revisions/or-r13-20260922/sections/certified_cells.tex}
+\input{revisions/or-r14-20260922/sections/star_bridge.tex}
+\input{revisions/or-r13-20260922/sections/experiment.tex}
+\input{revisions/or-r14-20260922/sections/experiment.tex}
+\input{revisions/or-r13-20260922/sections/companion.tex}
+\input{revisions/or-r14-20260922/sections/companion.tex}
+\clearpage\input{revisions/or-r14-20260922/sections/references.tex}
+\end{document}

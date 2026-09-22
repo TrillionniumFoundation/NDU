@@ -1,0 +1,12 @@
+{
+  "revision": "R19",
+  "date": "2026-09-23",
+  "base_commit": "d23de668070fc29a7073a9e4ef647c8159b0d580",
+  "latest_actual_referee_report": "reviews/operation_research_referee_report_r14_2026-09-22.md",
+  "provenance": "Developmental revision, not external preregistration. R16 reanalysis is retrospective. R16 MATCHED_COST_PLAN is executed as a separately identified follow-up. New structural tests are deliberate theorem checks.",
+  "primary_theory": ["Global resource-price/value-gradient bridge with exact Bregman identity on the full accepted polyhedron", "Inexact-response regret with separately certified base gap and actual implemented repair", "Conditional uniform frozen-fleet gain, distinct from each constituent model and the training population"],
+  "boundary_design": {"seeds": [19001,19002,19003,19004], "nodes": [15,31,15,31], "services": 2, "ranks": [2,4,4,2], "contexts_per_seed_stratum": 4, "strata": ["heterogeneous","binding-capacity","tier-boundary","switching-kinks"], "targeted_events": "Every instance in a named targeted stratum must actually exhibit the event; fail rather than omit."},
+  "nonquadratic_design": "64 exact rational scalar quartic-coupling cases with switching and box boundaries; both the Bregman identity and inexact bound are checked.",
+  "matched_cost": {"cohorts": 8, "contexts_per_cohort": 16, "repetitions": 2, "methods": 9, "targets": [0.001,0.00001], "initial_numerical_tolerance": 0.00001, "refinement_numerical_tolerance": 0.000000001, "previous_state": "Separate workspace for each requested target; no cross-target within-context warm start.", "offline": "All 256 label computations and all seven fits for every cohort, same host as online study; frozen deployment models unchanged."},
+  "publication": "Complete ordinary TeX and actual PDFs, response, preservation map, raw results, manifest, and exact-final-SHA validation; publish only to a new R19 revision branch."
+}

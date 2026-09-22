@@ -1,0 +1,22 @@
+\begin{table}[p]
+\centering
+\caption{Accuracy-targeted complete-pipeline cost}\label{tab:r19-cost}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\toprule
+Method & \shortstack{Mean ms\\$10^{-3}$} & \shortstack{Mean ms\\$10^{-5}$} & \shortstack{Fall back\\(\%)} & \shortstack{Fall back\\(\%)} \\
+\midrule
+Classical: cold & 14.029 & 26.180 & 0.00 & 42.19 \\
+Classical: previous & 13.453 & 26.822 & 0.00 & 43.36 \\
+Tanh: value & 43.712 & 43.532 & 100.00 & 100.00 \\
+Tanh: value + gradient & 42.169 & 42.721 & 99.22 & 100.00 \\
+Tanh: price & 41.519 & 41.594 & 98.44 & 100.00 \\
+Quadratic: value & 40.264 & 41.201 & 95.31 & 100.00 \\
+Quadratic: value + gradient & 39.654 & 42.080 & 91.41 & 100.00 \\
+Quadratic: price & 19.790 & 39.858 & 44.14 & 100.00 \\
+RBF: price & 9.563 & 37.808 & 12.89 & 100.00 \\
+\bottomrule
+\end{tabular}
+
+\par\medskip\begin{minipage}{\textwidth}The last two columns correspond to $10^{-3}$ and $10^{-5}$, respectively. All methods start with numerical tolerance $10^{-5}$, then refine and re-audit when the independent full-objective gap fails the requested target. Each mean uses 256 records. No prediction, response, repair, audit, or actual refinement cost is omitted.\end{minipage}
+\end{table}

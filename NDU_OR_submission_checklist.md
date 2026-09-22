@@ -1,19 +1,26 @@
-# Operations Research R14 review checklist
+# Operations Research R19 submission checklist
 
-Verified against the official Operations Research submission guidelines on September 22, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
+## Manuscript and files
 
-## Prepared and checked
+- Anonymous current main manuscript: 38 total pages, 35 excluding references; submit as **Lengthy**, not Regular.
+- Current companion: 35 pages; no longer than the main manuscript.
+- Abstract: one paragraph, 172 words; no displayed mathematics.
+- 11-point type, one-inch margins, letter paper, one-and-a-half line spacing; introduction without equations.
+- Author–year citations, alphabetic references, no footnotes, tables after references.
+- Data/software accessibility statement in the manuscript; complete ordinary TeX, actual PDFs, sources, observations, reproducible scripts, response, preservation map, and manifest provided.
+- Exact predecessor root PDFs and sources preserved, old revision directories and reports unchanged.
 
-- Anonymous title page and metadata; title, text-only abstract, subject classifications, and proposed review area present.
-- 11-point type, 1.5 spacing, and one-inch margins. The 184-word abstract is below 200 words. Introduction has no equations or mathematical notation.
-- Lengthy-manuscript category: 43 total main-PDF pages, including three reference pages, hence 40 excluding references. The electronic companion has 38 pages and is shorter than the main manuscript. The historical supplement is an explicitly separate archive.
-- Essential new proofs appear in main Section 7. The optional earlier scalar precursor is moved intact to EC.12; the exact source and prior PDFs are preserved.
-- Author-year references in alphabetical order; the new classical single-resource citation is included. Main tables are captioned, numbered, and deferred after references, without vertical rules.
-- Ordinary TeX sources compile with no undefined references, duplicate labels, or overfull horizontal boxes. Selected title, theorem, proof, empirical, and table pages were rendered and visually inspected.
-- Complete source/data/README entry points, pinned requirements, raw observations, frozen neural coefficients, independent rational replay, all timing components, and source hashes accompany the paper.
-- Complete timing remains unfavorable to learning and the derivative-training interval remains inconclusive; neither finding is suppressed.
-- New branch only. No automatic merge into `main`, no alteration of review branches or earlier revisions.
+## Evidence and provenance
 
-## Author decisions before any journal submission
+- 16,640 independent exact rational policy replays and four rejected negative controls.
+- 64 deliberate multistage boundary instances, 128 current reference/proposal certificates, 64 exact quartic cases.
+- Every current timing target passed for 4,608 complete pipelines; all seven models and both classical baselines included.
+- Retrospective analysis, held-out deployment, deliberate structural checks, and new timing are distinguished.
+- No universal neural-speed, calibration, model-misspecification, or arbitrary-retraining guarantee is asserted.
+- Final published SHA is verified by the `ndu-or-r19/final-sha` commit status, not inferred from the initial source commit's workflow.
 
-The corresponding author must confirm author identities, affiliations, financial-interest disclosures, review area, submission-category justification, and any other journal declarations. Those personal or institutional declarations have not been fabricated. This package is a repository revision for further referee review; it is not a claim that a journal submission has been made or accepted.
+## Author decisions still required before journal submission
+
+Confirm author names/order and affiliations outside the anonymous manuscript, funding and conflict declarations, related-submission disclosures, subject-area choice, and all ScholarOne submission confirmations. This technical package does not invent these declarations or submit to the journal on the authors' behalf.
+
+Official format guidance: https://pubsonline.informs.org/page/opre/submission-guidelines

@@ -1,0 +1,134 @@
+\section{A value-gradient implementation on general accepted polyhedra}\label{sec:r19-bridge}
+The balance theorem identifies when adaptation is valuable. We now construct its implementation without supplying the unknown optimal face or switching signs. The construction retains all continuation constraints in a price-response problem. It removes smooth resource coupling from that problem, not the computational cost of solving it. This distinction matters on multistage trees, where a response need not reduce to a scalar equation.
+
+\subsection{The learnable statistic and its response}
+Translate tiers by any feasible outside protocol and collect the resulting decisions in $x\in X$, where $X$ is a nonempty compact convex polyhedron containing zero. Vector tiers, signed payment coefficients, several capacities, information equalities, and boundary outside protocols are permitted. Let $\phi$ be finite and continuous on $X$ and $D$-strongly convex there, for a specified $D\succ0$: $\phi(x)-x^\top Dx/2$ is convex. In particular,
+\[
+ \phi(x)=\tfrac12x^\top Dx+g(x)
+       +\lambda\sum_a\kappa_a\{|(Bx+v)_a|-|v_a|\},
+ \qquad v=Bz-h_0,
+\]
+is admissible for any convex $g$. The outside protocol $z$ need not be constant, and the signs of $Bx+v$ are not fixed. Let $U$ be a specified $r\times n$ resource map and let $\Psi$ be convex and continuously differentiable on an open convex set containing $UX$. Its gradient is $L_\Psi$-Lipschitz there. Define
+\begin{align}
+ F_h(x)&=(b+U^\top h)^\top x-\phi(x)-\Psi(Ux), &
+ J(h)&=\max_{x\in X}F_h(x),\label{eq:r19-program}\\
+ H_h(\eta)&=\max_{x\in X}\{(b+U^\top h)^\top x-\phi(x)-\eta^\top Ux\},&
+ x_\eta&=\argmax_{x\in X}\{(b+U^\top h)^\top x-\phi(x)-\eta^\top Ux\}.
+ \label{eq:r19-response}
+\end{align}
+Constants normalize the outside gain to zero when needed. All primitives and $X$ are held fixed when differentiating in $h$. Other context coordinates may change them between problems; the derivative is a partial derivative in the explicitly specified reward perturbation, not in a moving feasible set. Set $u_\eta=Ux_\eta$, $L=\|UD^{-1/2}\|_2^2$, and, for a differentiable convex function $f$, write
+$\mathcal B_f(a,b)=f(a)-f(b)-\nabla f(b)^\top(a-b)$.
+
+\begin{theorem}[Global resource-price and value-gradient bridge]\label{thm:r19-global}
+The optimizer $x^*$ in \eqref{eq:r19-program} and every response in \eqref{eq:r19-response} are unique. Put $u^*=Ux^*$ and $\eta^*=\nabla\Psi(u^*)$. Then $x^*=x_{\eta^*}$, $J$ is differentiable with $\nabla_hJ=u^*$, and $H_h$ is differentiable with $\nabla H_h(\eta)=-u_\eta$. For every price $\eta$,
+\begin{align}
+ \|x_\eta-x_\zeta\|_D&\leq\sqrt L\|\eta-\zeta\|,
+ &\|u_\eta-u_\zeta\|&\leq L\|\eta-\zeta\|,\label{eq:r19-lipschitz}\\
+ J(h)-F_h(x_\eta)
+ &=\mathcal B_{H_h}(\eta^*,\eta)+\mathcal B_\Psi(u_\eta,u^*)\label{eq:r19-identity}\\
+ &\leq\tfrac12L(1+L_\Psi L)\|\eta-\eta^*\|^2.\label{eq:r19-pricebound}
+\end{align}
+Suppose a differentiable scalar critic supplies $\widehat u=\nabla_h\widehat J$, both $\widehat u$ and $u^*$ belong to a region on which the stated Lipschitz constant holds, and deploy $\widehat\eta=\nabla\Psi(\widehat u)$. Then
+\begin{equation}\label{eq:r19-gradientbound}
+ J(h)-F_h(x_{\widehat\eta})
+ \leq\tfrac12L L_\Psi^2(1+L_\Psi L)
+              \|\nabla_h\widehat J-\nabla_hJ\|^2.
+\end{equation}
+Alternatively, project $\widehat u$ onto any known closed convex subset of that region containing $UX$ before forming the price; the same bound holds for the unprojected gradient error. No optimal face, strict complementarity, switching-sign prediction, or interiority assumption is required.
+\end{theorem}
+\begin{proof}
+Compactness, continuity, and strong convexity give existence and uniqueness. The first-order inequality for $\phi+I_X$ and the differentiability of the smooth coupling show that $x^*$ minimizes $\phi(x)-(b+U^\top h- U^\top\eta^*)^\top x$ on $X$. Thus it is the stated response. This argument uses the convex subdifferential, not a differentiable switching penalty.
+
+Let $x=x_\eta$ and $y=x_\zeta$. Strong convexity applied to their two minimizing inequalities gives
+\[
+ \|x-y\|_D^2\leq-(\eta-\zeta)^\top U(x-y)
+ \leq\sqrt L\|\eta-\zeta\|\|x-y\|_D.
+\]
+Division, with the zero case immediate, proves the first inequality in \eqref{eq:r19-lipschitz}; applying $UD^{-1/2}$ proves the second. For completeness, sandwich the increment of either maximized value between its objective increments evaluated at the old and new optimizers. Uniqueness and compactness imply continuity of these optimizers. Dividing by the perturbation size proves $\nabla_hJ=u^*$ and $\nabla H_h=-u_\eta$. In particular $H_h$ has an $L$-Lipschitz gradient.
+
+At the two responses, the definitions give
+\[
+ J=H_h(\eta^*)+(\eta^*)^\top u^*-\Psi(u^*),\qquad
+ F_h(x_\eta)=H_h(\eta)+\eta^\top u_\eta-\Psi(u_\eta).
+\]
+Subtract and add $(\eta^*)^\top u_\eta$, using $\eta^*=\nabla\Psi(u^*)$. This proves the exact identity \eqref{eq:r19-identity}. The smooth-convex remainder bounds give
+$\mathcal B_{H_h}(\eta^*,\eta)\leq L\|\eta-\eta^*\|^2/2$ and
+$\mathcal B_\Psi(u_\eta,u^*)\leq L_\Psi\|u_\eta-u^*\|^2/2$.
+Use \eqref{eq:r19-lipschitz} for the latter term to obtain \eqref{eq:r19-pricebound}. Lipschitz continuity of $\nabla\Psi$ proves \eqref{eq:r19-gradientbound}. Euclidean projection onto a closed convex set containing $u^*$ cannot increase distance to $u^*$, proving the final assertion.
+\end{proof}
+The learned price is the marginal smooth resource cost. It is not the vector of all participation or capacity multipliers. Those multipliers, together with endogenous switching tensions, remain inside the response. A neural critic, a polynomial value function, and direct regression of $\eta^*$ can therefore be compared with the same feasible decision map. Equation~\eqref{eq:r19-gradientbound} explains which derivative matters; it does not state that derivative supervision always improves training or that neural approximation is necessary.
+
+The strong-convexity, envelope, and conjugate ingredients are standard \citep{BoydVandenberghe2004}. The accepted-control consequence is their joint application to the complete continuation polyhedron and the unchanged nonsmooth switching objective, with a specified perturbation that makes the relevant resource vector a scalar value gradient. The theorem does not rely on the tree-flow division by positive tariffs. The latter remains a specialized fast representation; signed tariffs and general commitments use $X$ directly.
+
+\subsection{Inexact responses and implemented decisions}
+Solving \eqref{eq:r19-response} approximately, rounding, and repairing a proposed decision must not be hidden inside the exact-response theorem. Let
+$f_\eta(x)=\phi(x)-(b+U^\top h)^\top x+\eta^\top Ux$.
+An implemented $y\in X$ has a certified response error $\delta\geq0$ when
+\begin{equation}\label{eq:r19-basegap}
+ f_\eta(y)-\min_{x\in X}f_\eta(x)\leq\delta.
+\end{equation}
+This inequality can be checked from a dual bound without computing an exact minimizer. Assume additionally that
+$\Psi(u')\geq\Psi(u)+\nabla\Psi(u)^\top(u'-u)+\|u'-u\|_W^2/2$
+for $u,u'\in UX$, with a specified $W\succeq0$. Convexity always permits $W=0$.
+
+\begin{theorem}[Auditable inexact-response bound]\label{thm:r19-inexact}
+For every feasible implemented $y$ satisfying \eqref{eq:r19-basegap}, every $0<\alpha<1$, and $r_y=\eta-\nabla\Psi(Uy)$,
+\begin{equation}\label{eq:r19-inexact}
+ J(h)-F_h(y)\leq\frac{\delta}{\alpha}
+ +\frac12r_y^\top U\big[(1-\alpha)D+U^\top WU\big]^{-1}U^\top r_y.
+\end{equation}
+With an exact response, the limit $\alpha\downarrow0$ gives the sharper residual bound with $D+U^\top WU$ and no response-error term. The inequality remains valid after any repair whose \emph{actual output} is feasible and is used in \eqref{eq:r19-basegap}. Replacing that output by the outside protocol whenever its certified exact gain is negative cannot increase regret.
+\end{theorem}
+\begin{proof}
+For any $x\in X$, strong convexity and feasibility of $(1-\alpha)y+\alpha x$ imply
+\[
+ f_\eta(y)-\delta\leq\min_X f_\eta
+ \leq(1-\alpha)f_\eta(y)+\alpha f_\eta(x)
+ -\tfrac12\alpha(1-\alpha)\|x-y\|_D^2.
+\]
+Rearrangement gives
+$f_\eta(x)\geq f_\eta(y)-\delta/\alpha+(1-\alpha)\|x-y\|_D^2/2$.
+Write $F_h=-f_\eta+\eta^\top Ux-\Psi(Ux)$ and apply the lower curvature inequality for $\Psi$ at $Uy$. Consequently
+\[
+ F_h(x)-F_h(y)\leq\delta/\alpha+r_y^\top U(x-y)
+ -\tfrac12\|x-y\|_{(1-\alpha)D+U^\top WU}^2.
+\]
+Maximizing the right-hand side over all of $\mathbb R^n$ by completing the square proves \eqref{eq:r19-inexact}. For an exact response $\delta=0$, take the indicated limit. Repair and the outside gate follow by applying the already proved statement to their actual objective values, not to an unimplemented floating-point proposal.
+\end{proof}
+The response certificate, analytical regret bound, and full-objective certificate answer different questions. The first quantifies work remaining in the price-response problem. The second bounds lost optimal value analytically. The third bounds the full objective directly and is the acceptance test for a specified computational tolerance. A probability statement about expected gain is different from all three.
+
+\subsection{A computable certificate with endogenous switching}
+The implemented study uses $\Psi(u)=\|u\|^2/2$, diagonal $D=\operatorname{diag}(d_i)$, and
+\[
+ X=\{x\in[\ell,\bar u]:Ax\leq a,\ Ex=0\},\qquad
+ \phi(x)=\tfrac12\sum_i d_ix_i^2+
+ \lambda\sum_j\kappa_j(|(Bx+v)_j|-|v_j|).
+\]
+Here zero is the specified outside protocol in displacement coordinates. Put $q_i(t)=d_it^2/2+I_{[\ell_i,\bar u_i]}(t)$, $b_h=b+U^\top h$. Any resource price $p$, tensions $s$ with $|s_j|\leq\lambda\kappa_j$, inequality prices $\mu\geq0$, and unrestricted $\nu$ give
+\begin{align}
+ \mathcal U(p,s,\mu,\nu)={}&
+ \sum_i q_i^*\big((b_h-U^\top p-B^\top s-A^\top\mu-E^\top\nu)_i\big)
+ +\tfrac12\|p\|^2\notag\\[-2pt]
+ &-s^\top v+\mu^\top a+\lambda\sum_j\kappa_j|v_j|\ \geq\ J(h).
+ \label{eq:r19-fenchel}
+\end{align}
+Indeed $\|Ux\|^2/2\geq p^\top Ux-\|p\|^2/2$, the switching support inequality gives the tension term, and nonnegative multipliers penalize $Ax\leq a$. Maximizing the remaining separated box quadratics proves \eqref{eq:r19-fenchel}. Each conjugate maximizer is $\operatorname{proj}_{[\ell_i,\bar u_i]}(t/d_i)$; rational inputs permit an outward-rounded exact upper bound. Slater's condition is not needed for this weak-duality certificate.
+
+For $p=\eta$, the same dual variables bound the response problem after subtracting $\|\eta\|^2/2$. Thus an auditable choice in Theorem~\ref{thm:r19-inexact} is
+\begin{equation}\label{eq:r19-deltacompute}
+ \delta=\mathcal U(\eta,s,\mu,\nu)-F_h(y)
+                  -\tfrac12\|\eta-Uy\|^2\geq0.
+\end{equation}
+Use the raw implemented gain before the outside gate in this expression. The response price and every feasibility and dual inequality are checked again after rounding. The numerical optimizer is only a proposal generator; independent integer and rational arithmetic supplies the certificate.
+
+\subsection{Refinement and the star as a special case}
+For quadratic coupling, $\mathcal D(\eta)=H_h(\eta)+\|\eta\|^2/2$ is one-strongly convex with $(1+L)$-Lipschitz gradient $\eta-u_\eta$. Exact price iterations
+$\eta_{k+1}=\eta_k-(\eta_k-u_{\eta_k})/(1+L)$ satisfy
+\[
+ \mathcal D(\eta_k)-\min\mathcal D
+ \leq\bigl(1-(1+L)^{-1}\bigr)^k
+        [\mathcal D(\eta_0)-\min\mathcal D].
+\]
+The descent inequality followed by the strong-convexity gradient inequality proves this rate. Moreover $\mathcal D(\eta)-F_h(x_\eta)=\|\eta-u_\eta\|^2/2$. These statements justify a residual stopping rule, not a dimension-free running-time claim: each exact response has a cost, and an inexact response must be audited using Theorem~\ref{thm:r19-inexact}. The measured implementation uses a cached full quadratic-program refinement instead of assuming that exact price iteration is free.
+
+On the two-review scalar accepted-transfer polytope, take $U=\sqrt{\chi_0}\rho^\top$, $\phi(y)=y^\top Dy/2$, and absorb the accepted absolute switching charges in $b_h$. Theorem~\ref{thm:r19-global} then gives the earlier rank-one price bound after the corresponding change of price units. The coupling marginal $\chi_0\rho^\top y$ still excludes the capacity multiplier. EC Section~\ref{sec:r14-star} preserves the explicit critical friction, sorting algorithm, sharper scalar constants, and their complete proofs. The general theorem neither enumerates that star's faces nor fixes the multistage switching signs to resemble a star.
