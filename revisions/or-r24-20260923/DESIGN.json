@@ -1,0 +1,40 @@
+{
+  "revision": "R24",
+  "base_review_sha": "685fdc4d4f1823c6930bd6ccdfbc66822043bf9e",
+  "reviewed_paper_sha": "b4165155612fea340a8832bbe7a8b13fe2b9259b",
+  "status": "design fixed before R24 execution; not an external preregistration",
+  "interior_diagnostic": {
+    "source": "all 96 R23 contexts at radii 0, 1/16, 1/8, 1/4",
+    "interior_models_per_context_radius": 2,
+    "coefficient_grid": "independent integer coordinates in [-7,7], divided by 8",
+    "seed": 2402301,
+    "comparators": ["true model-specific accepted time-only", "common outer time-only at the same interior objective"],
+    "certificate": "exact rational feasible lower and Fenchel upper bounds for both comparators",
+    "reported_slack": "vertex-mixture upper minus true comparator, separated into outer-set and interpolation components",
+    "scope": "descriptive diagnostic on a designed uncertainty family, not coverage calibration or a field failure rate"
+  },
+  "matched_timing": {
+    "specs_nodes_services_rank_capacities_curvature": [[63,2,6,4,1],[127,2,12,8,1],[255,2,6,4,1]],
+    "training_contexts": 64,
+    "training_seed_base": 2402401,
+    "test_contexts": 32,
+    "test_seed_base": 2403401,
+    "repetitions": 3,
+    "targets": [0.001,0.00001],
+    "methods": ["lifted-price-continuation","tanh-gradient","rbf-direct"],
+    "order_seed": 2404401,
+    "labels": "independently audited full accepted optima and optimizer resource vectors; full generation cost charged",
+    "fallback": "same fresh lifted full-objective workspace at numerical tolerance 1e-9, including setup and rational audit; no claimed transfer of predictor state into fallback",
+    "timing_components": ["prediction","initial solve","first rational audit","fixed-primal polishing","fallback setup","fallback solve","fallback audit"],
+    "memory": "serialized predictor bytes, owned predictor array bytes, solver sparse matrix bytes, and process peak RSS with scope stated",
+    "statistics": "context-clustered paired bootstrap intervals after averaging repetitions; conditional on each fixed fit, descriptive, no retraining-level inference",
+    "bootstrap_seed": 2405401,
+    "bootstrap_samples": 10000,
+    "amortization": "label generation plus method-specific fit and incremental setup versus lifted continuation; finite observed crossing only when mean online savings is positive; uncertainty interval separately reported"
+  },
+  "retrospective_analysis": {
+    "r22_scaling": "all 800 rows, medians, IQR, paired differences; original eight-context limitation retained",
+    "r23_robust_cost": "all 1152 implementations, own time plus all eight shared comparator solves charged once per independently certified decision; prediction is separately identified because absent from original timer"
+  },
+  "retention": "Keep every failure, fallback, nonpositive certificate, adverse comparison, original theorem and original experiment; no field calibration or neural superiority is assumed."
+}
