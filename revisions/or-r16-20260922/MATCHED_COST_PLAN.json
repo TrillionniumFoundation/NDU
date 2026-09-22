@@ -1,0 +1,10 @@
+{
+  "source": "revisions/or-r16-20260922/matched_cost.py",
+  "source_sha256": "c5eaa82bb6fce43334fc9a6956d970aa067f61edd8e6d06ccab3bf53109f1af8",
+  "purpose": "Add a stronger accuracy-targeted classical comparison; do not replace the originally frozen timing results or alter any trained model.",
+  "sample": "First 16 deployment contexts in each of all eight frozen cohorts, two repetitions, rotated method order; no best-case sample selection.",
+  "methods": "Cached full classical cold and previous-iterate solvers, plus all seven frozen neural/polynomial/RBF surrogate pipelines.",
+  "stopping": "Each method first uses OSQP absolute/relative tolerance 1e-5. Accept only if the independently computed exact rational full-objective gap meets 1e-3 or 1e-5 as appropriate. Otherwise execute a 1e-9 full solve initialized from that candidate and perform another audit. Charge prediction, response, repair, every audit, and actual refinement.",
+  "amortization": "Report mean, median, p95, fallback rate, and observed break-even query count relative to the lower mean-cost classical comparator. Charge shared labels and all seven-model fit costs conservatively to each learned method. No finite break-even is reported without a positive observed per-query saving. These are empirical estimates, not future-runtime guarantees.",
+  "ordering": "Run only after the original timed study has completed; run no other numerical benchmark concurrently."
+}
