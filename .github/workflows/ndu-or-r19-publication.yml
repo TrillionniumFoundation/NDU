@@ -1,0 +1,154 @@
+name: NDU OR R19 complete publication and final-SHA validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r19-20260923]
+    paths: [.r19-delivery/READY.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+concurrency:
+  group: ndu-or-r19-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r19-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+      REVISION_BRANCH: revision/ndu-operations-research-r19-20260923
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify and extract the complete source bundle
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib, tarfile, shutil, base64, io
+          root=Path('revisions/or-r19-20260923')
+          ready=json.loads(Path('.r19-delivery/READY.json').read_text())
+          parts=[]
+          for i, expected in enumerate(ready['part_sha256']):
+              text=Path(f'.r19-delivery/part-{i:02d}.b64').read_text().strip()
+              # Exact transport-only transcription repair, followed by full source hashes.
+              if i==0:
+                  text=text.replace('Rd9TtHBwd9TtHBwdj','Rd9TtHBwdj')
+                  text=text.replace('Pzb05fDJ+/Bx','Pzb05fDJ+/+/Bx')
+              if i==3:
+                  text=text.replace('+Hn4efh5','',1)
+              assert hashlib.sha256(text.encode()).hexdigest()==expected, f'Part {i} hash mismatch'
+              parts.append(text)
+          bundle=base64.b64decode(''.join(parts),validate=True)
+          assert hashlib.sha256(bundle).hexdigest()==ready['source_archive_sha256']
+          with tarfile.open(fileobj=io.BytesIO(bundle),mode='r:gz') as tar:
+              for m in tar.getmembers():
+                  p=Path(m.name)
+                  assert not p.is_absolute() and '..' not in p.parts and str(p).startswith(str(root)+'/')
+                  assert m.isfile(),m.name
+              tar.extractall('.',filter='data')
+          (root/'results').mkdir(exist_ok=True)
+          (root/'predecessor').mkdir(exist_ok=True)
+          for name in ['main.tex','main.pdf','main.bbl','main.bib','electronic_companion.tex','electronic_companion.pdf','README.md','NDU_OR_submission_checklist.md']:
+              shutil.copy2(name,root/'predecessor'/name)
+          PY
+      - name: Install pinned numerical tools and manuscript packages
+        run: |
+          python -m pip install -r revisions/or-r16-20260922/requirements.txt PyMuPDF==1.26.7
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Preserve predecessor label indices and unchanged historical PDF
+        run: |
+          set -euo pipefail
+          bash revisions/or-r14-20260922/build.sh
+          R=revisions/or-r19-20260923
+          cp main-labels.aux "$R/predecessor/original-main-labels.aux"
+          cp ec-labels.aux "$R/predecessor/original-ec-labels.aux"
+          cp history-labels.aux "$R/predecessor/original-history-labels.aux"
+          git restore --source=d23de668070fc29a7073a9e4ef647c8159b0d580 -- historical_supplement.pdf
+      - name: Execute all new checks, matched-cost pipelines, and independent replay
+        run: |
+          set -euo pipefail
+          R=revisions/or-r19-20260923
+          python "$R/boundary_checks.py" 2>&1 | tee "$R/results/boundary.log"
+          python "$R/nonquadratic_checks.py" 2>&1 | tee "$R/results/nonquadratic.log"
+          python "$R/matched_cost.py" 2>&1 | tee "$R/results/matched-cost.log"
+          python -S "$R/replay.py" 2>&1 | tee "$R/results/replay.log"
+          python "$R/analyze.py" 2>&1 | tee "$R/results/analysis.log"
+      - name: Build actual current manuscripts and check package
+        run: |
+          set -euo pipefail
+          R=revisions/or-r19-20260923
+          bash "$R/build.sh"
+          python "$R/check_package.py"
+          python "$R/package_metadata.py"
+          python "$R/check_package.py" --verify-manifest
+      - name: Publish complete ordinary files only to the new R19 branch
+        id: publish
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git diff --exit-code -- revisions/or-r16-20260922 revisions/or-r14-20260922 revisions/or-r13-20260922 reviews
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R19 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git rm -r .r19-delivery
+          find revisions/or-r19-20260923 -type d -name __pycache__ -prune -exec rm -rf {} +
+          git add -f revisions/or-r19-20260923 main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md main-labels.aux ec-labels.aux history-labels.aux legacy-main-labels.aux legacy-ec-labels.aux
+          git commit -m 'paper(or-r19): publish complete multistage revision, proofs, all evidence, and actual manuscripts'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          SHA=$(git rev-parse HEAD)
+          echo "final_sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "$SHA" > /tmp/R19_FINAL_SHA.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_OR_R19_review_package.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r19-complete-review-package
+          path: |
+            /tmp/NDU_OR_R19_review_package.tar.gz
+            /tmp/R19_FINAL_SHA.txt
+            revisions/or-r19-20260923/results
+          retention-days: 30
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+          fetch-depth: 1
+      - name: Attach pending status to the actual final commit
+        run: |
+          test "$(git rev-parse HEAD)" = "$FINAL_SHA"
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state=pending -f context=ndu-or-r19/final-sha -f description='Independent final-checkout verification in progress' -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Independent final-checkout manifest, PDF, and rational checks
+        run: |
+          set -euo pipefail
+          python -m pip install PyMuPDF==1.26.7
+          python -S revisions/or-r19-20260923/replay.py --check
+          python revisions/or-r19-20260923/check_package.py --verify-manifest
+          git diff --exit-code
+      - name: Publish final-SHA validation result
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          if [ "$JOB_STATUS" = success ]; then state=success; fi
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state="$state" -f context=ndu-or-r19/final-sha -f description='Actual final checkout: manifest, PDFs, and 16640 rational replays' -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
