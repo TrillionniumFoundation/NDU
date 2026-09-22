@@ -1,0 +1,44 @@
+{
+  "revision": "R20",
+  "date": "2026-09-23",
+  "base_commit": "cb4f8644652ebe92f0aac5294baaff898d97f5cf",
+  "review_report": "reviews/operation_research_referee_report_r14_2026-09-22.md",
+  "review_report_blob": "9deb84a647f84d2140ec13284424f010184fe210",
+  "classification": "Internal follow-up after the R14 report and R19 results; four-context numerical prototypes informed the algorithm. This is not preregistered learning or untouched external validation.",
+  "scientific_question": "Can a complete accepted-control certificate identify and reduce avoidable dual slack without changing the deployed policy, and does the resulting audit-first pipeline reduce fully charged work?",
+  "preservation": "Retain the complete R19 theory, all seven model comparisons, all eight frozen cohorts, adverse evidence, all historical revision directories, and the unaltered latest referee report. Preserve exact previous root files under the R20 predecessor directory.",
+  "theory": "Exact decomposition of the full quadratic-coupling Fenchel gap into resource, box, switching and inequality terms; safeguarded resource/equality-price polishing with exact upper-bound selection. General multistage accepted polyhedra remain the main object.",
+  "replay": {
+    "source": "revisions/or-r16-20260922/results/policies.jsonl.gz",
+    "population": "All 16384 archived records: eight cohorts, 256 contexts, reference plus seven methods",
+    "checks": ["original exact audit", "original rational decomposition", "polished rational decomposition", "unchanged primal policy and gain", "nonincreasing exact upper bound"],
+    "rounding_budget": "126 * 10^-12"
+  },
+  "polishing": {
+    "free_variables": "six resource prices and two unrestricted root-equality prices",
+    "fixed_variables": "actual implemented primal policy; switching tensions; inequality multipliers",
+    "maximum_newton_updates": 8,
+    "armijo_coefficient": 0.0001,
+    "maximum_backtracking_trials": 24,
+    "gradient_infinity_tolerance": 1e-10,
+    "dual_integer_denominator": 1000000000,
+    "acceptance_rule": "Retain the smaller independently verified exact upper bound; retain the original witness on numerical failure. Full QP fallback remains required if the requested certificate is not attained."
+  },
+  "matched_cost": {
+    "seeds": [15011,15012,15013,15014,15015,15016,15017,15018],
+    "context_indices": [128,129,130,131,132,133,134,135],
+    "repetitions": 2,
+    "methods": ["classical-cold","classical-previous","tanh-value","tanh-gradient","tanh-direct","quadratic-value","quadratic-gradient","quadratic-direct","rbf-direct"],
+    "modes": ["original","polished"],
+    "exact_gap_tolerances": [0.001,0.00001],
+    "initial_qp_tolerance": 0.00001,
+    "refinement_qp_tolerance": 0.000000001,
+    "expected_pipeline_records": 4608,
+    "state_isolation": "Separate previous-context solver workspaces for each mode and requested tolerance; all other initial solves cold-reset. Methods and mode order rotate deterministically. No within-context cross-mode or cross-tolerance warm starts.",
+    "charged_components": ["prediction","initial response","repair and first exact audit","price polishing and second exact audit when invoked","actual full refinement when required","final exact audit"],
+    "offline_cost": "Regenerate each cohort's 256 labels and all seven model fits on the timing host. Charge the complete label-and-all-fit cost conservatively to each surrogate for descriptive amortization.",
+    "primary_comparison": "Paired eight-cohort mean total-time difference, polished minus original, for tanh-gradient at exact gap 0.001. Report all other methods, both tolerances, failures, and approximate Student intervals without treating timing repetitions as independent training runs.",
+    "limitations": "Frozen existing models and synthetic deployment cohorts; host-specific descriptive timings, not universal superiority or fresh training-procedure inference."
+  },
+  "publication": "Publish complete ordinary main.tex/main.pdf, electronic_companion.tex/electronic_companion.pdf, detailed response, preservation map, runnable scripts and raw evidence on the new R20 branch. Independently check the exact final published SHA."
+}
