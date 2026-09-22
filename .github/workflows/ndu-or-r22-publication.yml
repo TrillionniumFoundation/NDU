@@ -9,7 +9,7 @@ permissions:
   actions: read
 concurrency:
   group: ndu-or-r22-publication-v2
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   publish:
     if: github.ref == 'refs/heads/revision/ndu-operations-research-r22-20260923'
@@ -48,6 +48,7 @@ jobs:
           PY
           python revisions/or-r22-20260923/finalize_revision.py
           python revisions/or-r22-20260923/patch_scaling_fallback.py
+          python revisions/or-r22-20260923/final_proof_edits.py
           python -S revisions/or-r22-20260923/complete_dual_checks.py
       - name: Install manuscript and independent verification dependencies
         run: |
