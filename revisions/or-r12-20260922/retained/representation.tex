@@ -1,0 +1,21 @@
+\subsection{Exact representation and comparator classes}\label{sec:representation}
+\begin{proposition}[Expanded actions and the fixed-contract restriction]\label{prop:expanded}
+The model in \eqref{eq:bellman} is exactly the Markov decision process with state $(z,q)$, action $(S,\theta)$, reward \eqref{eq:reward}, and transition $P_{zz'}\1_{\{q'=\theta\}}$. Its value is unchanged by flattening the product action set into one action index. A frozen-contract problem is the restriction $\theta=\bar\theta$; its value cannot exceed the joint value when the same initial state and external reward are used. A dummy label that changes neither reward nor the next state does not enlarge the attainable value.
+\end{proposition}
+\begin{proof}
+A policy in either representation assigns the same pair to each observed history, so it induces the same joint law of states, actions, and rewards. Equivalently, the two Bellman maxima enumerate the same quantities. The frozen problem optimizes over a subset of these policies. Duplicating a maximand leaves a maximum unchanged.\end{proof}
+
+Optimizing over a genuine extra decision can nevertheless produce a reduced operator that is not affine in the continuation value. For fixed physical action, write
+\begin{equation}\label{eq:support}
+ \mathcal B(v)=\sup_{\theta}\{b_\theta+\beta\langle P_\theta,v\rangle\}.
+\end{equation}
+If this envelope has two different uniquely exposed slopes on an open convex set of continuation values, it cannot equal one fixed affine reward/kernel primitive there. This is a statement about eliminating a decision while retaining one primitive, not a separation from the expanded-action problem. The proof and the precise exposed-slope condition appear in Electronic Companion (EC) Section~EC.1.
+
+Nor does support-envelope geometry exclude entropic control. For $\rho>0$, a finite full-support reference distribution $P$, and any bounded vector $v$,
+\begin{equation}\label{eq:gibbs}
+ \frac1\rho\log\E_P e^{\rho\beta v}
+ =\sup_{Q\in\Delta}\left\{\beta\E_Qv-\frac1\rho\KL(Q\Vert P)\right\}.
+\end{equation}
+The optimizer is proportional to $P\exp(\rho\beta v)$. Subtracting the objective at a particular $Q$ from the left side gives $\rho^{-1}\KL(Q\Vert Q^*)\geq0$. A sufficiently rich kernel-control family therefore represents this entropic operator exactly. The inventory model uses its specific contractual family; the general framework does not claim non-equivalence to all risk-sensitive or robust-control models.
+
+

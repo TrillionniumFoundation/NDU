@@ -1,47 +1,48 @@
-# Neural Differential Utility — Operations Research revision R10
+# Neural Differential Utility — Operations Research revision R12
 
-Current scientific branch: `revision/ndu-operations-research-r10-20260921`.
+**Current branch:** `revision/ndu-operations-research-r12-20260922`  
+**Title:** Neural Differential Utility: Accepted Adaptive Service Control and Certified Value-Gradient Learning.  
+**Date:** September 22, 2026.
 
-**Title:** Neural Differential Utility: Accepted Adaptive Service Control and Certified Value-Gradient Learning.
+This is the complete new revision responding to the R10 report on `review/operation-research-r10-harsh-20260921` (`b3abde1e805f36292f03c7ee65df7ef9298020b0`). It preserves the complete R10 scientific manuscript and the incomplete R11 transport history; main and previous branches are unchanged.
 
-This is an integrated revision responding to the R9 report at `c4cf05f40feb0eb690f4f0c65a0d6176b3d32b28`, on the R9 predecessor `584296b1a22de455a482c6809f00eda1387b6dab`. Main and previous review/revision branches are unchanged.
+## Read the revision
 
-## Read the current manuscript
+[Main manuscript](main.pdf) · [Main source](main.tex) · [Current electronic companion](electronic_companion.pdf) · [Historical scientific archive](historical_supplement.pdf)
 
-[Main manuscript](main.pdf) ([source](main.tex)), [electronic companion](electronic_companion.pdf) ([source](electronic_companion.tex)), and [historical scientific supplement](historical_supplement.pdf) ([source](historical_supplement.tex)) are the complete reading package. The historical supplement preserves all earlier continuous-time, diffusion, and computational material without presenting it as validation of the new model.
+[Point-by-point referee response](revisions/or-r12-20260922/RESPONSE_TO_REFEREE.md) · [Preservation map](revisions/or-r12-20260922/PRESERVATION.md) · [Typesetting/source checks](revisions/or-r12-20260922/results/package_checks.json) · [Independent numerical verification](revisions/or-r12-20260922/results/verification.json) · [Source/data/PDF manifest](revisions/or-r12-20260922/results/manifest.json)
 
-[Point-by-point response](revisions/or-r10-20260921/RESPONSE_TO_REFEREE.md), [preservation map](revisions/or-r10-20260921/PRESERVATION.md), and [build audit](revisions/or-r10-20260921/results/package_validation.json) make the new theorem chain, remaining empirical limitations, and integration explicit.
+The historical archive preserves earlier material but is not part of the current journal EC. All essential new proofs are in the main manuscript. The build uses ordinary committed TeX inputs and does not require the old R7 source-preparation step.
 
-## Scientific revision
+## Substantive additions
 
-The general formulation now has vector node tiers, joint graph resource costs, explicit information equalities, and all continuation-participation rows. Stock identification handles exogenous occupation weights, constrained quantiles, one-sided derivatives, and a specified vector extension. Standard convex and Bregman tools are credited as standard.
+The full-tree capacitated continuation-balance theorem covers arbitrary feasible outside protocols, boundary and vector tiers, multiple commitments, information equalities, signed coefficients, and absolute switching. On scalar trees, eliminating edge tensions gives cumulative subtree cuts and an exact isotonic critical-friction program. Nonconstant outside protocols can have a bounded optimal-friction interval, rather than necessarily an upper ray. A sharp price–capacity margin gives quantitative accepted-gain bounds and an exact optimum on its stated quadratic subclass.
 
-A new complete scalar tree-edge criterion identifies whether a payment-neutral static protocol is globally optimal using primitive marginal reward ratios. A violated edge constructs a continuation-compatible improvement. Curvature bounds quantify its value; absolute switching admits an exact two-review friction threshold. A remaining-payment Bellman state and an exact zero-friction counterexample separate contractual memory from extra demand information.
+The same continuation/boundary prices and switching faces connect the structural theorem to full-horizon policy certification and an approximation-to-decision theorem for compatible value-gradient critics. The acceptance-face hypothesis is essential and is not assumed to be known by the implemented actor. Independent validation gives a separate finite-sample certificate for choosing among frozen, complete learning pipelines under stated sampling and range conditions.
 
-The exact R7 accepted hierarchy and customer-exit gain are retained and replayed. A new graph-coupled **quartic multistage** task trains compatible nonlinear scalar potentials, uses 720 certified scalar teacher records, and audits 176 complete contingent-plan proposals with 2,640 exact continuation checks. Test instances reach 992 tier coordinates and change graph family, weights, curvature, and horizon. Cached-preconditioned nonlinear solvers, setup cost, repeated end-to-end timings, and paired training-seed uncertainty are disclosed.
+The new study contains 48 noncentered graph/tree instances and 432 deployments, with reoptimized service-specific outside tiers and fifteen boundary-inclusive comparators. It measures radial repair, weighted projection, a continuation-feasible tree-flow actor, and actual generation–certification–refinement at matched tolerances. All new deployments satisfy their exact final tolerance and do not underperform the static outside protocol. All forty originally failed 992-coordinate weighted-block actors receive an actually executed classical fallback. The raw failures remain visible.
 
-All repaired proposals are feasible, but not all learned proposals improve the static comparator. Severe weighted-block shift produces adverse raw results; the static gate prevents negative incremental deployment reward. The paired seed interval includes zero: a reproducible superiority of gradient supervision is **not** claimed. The study is synthetic, not a calibrated field application. These findings are visible in the manuscript and raw records, not deleted or labeled successful transfer.
+These runs do not demonstrate a learning speed advantage or a statistically resolved advantage of derivative weighting. The new learning theorems are not described as arbitrary distribution-shift guarantees. All experiments remain synthetic; no field calibration is claimed.
 
-## Build and replay
+## Reproduce and build
 
-With Python 3.11+ and a TeX Live installation containing `newtx`, `endfloat`, `natbib`, `xr-hyper`, and the ordinary AMS packages:
+Use Python 3.13 and a TeX Live installation with `newtx`, `natbib`, `xr-hyper`, `endfloat`, AMS packages, and Poppler utilities. Numerical dependencies are pinned.
 
 ```sh
-python -m pip install -r revisions/or-r10-20260921/requirements.txt
-bash revisions/or-r10-20260921/reproduce.sh
-bash revisions/or-r10-20260921/build.sh
+python -m pip install -r revisions/or-r12-20260922/requirements.txt
+bash revisions/or-r12-20260922/reproduce.sh
+bash revisions/or-r12-20260922/build.sh
+python revisions/or-r12-20260922/manifest.py
 ```
 
-Independent verification of the recorded R10 rational results (without running or importing the learner):
+Independent replay of committed policies and structural examples:
 
 ```sh
+python revisions/or-r12-20260922/verify.py
+python revisions/or-r12-20260922/structural_checks.py
 python revisions/or-r10-20260921/verify.py
-python revisions/or-r10-20260921/structural_checks.py
-python revisions/or-r10-20260921/check_package.py --pdf
 ```
 
-The R10 `results/` directory and `replayed_r7/` archive contain full rational policies, multipliers, all oracle endpoint records, problem primitives, raw timing observations, and summary files. The R10 workflow builds all three documents, runs both the R7 and R10 scientific checks, and publishes actual ordinary source files and complete records on this branch. Its artifact is a convenience, not the sole archival location. Reproduction updates recorded timings and generated tables for its environment; the commit and manifest identify which run accompanies each PDF. It does not retroactively recover the original R7 timing run.
+`verify.py` uses Python fractions and imports neither the optimizer nor NumPy/SciPy. It reconstructs all tested rewards, continuation constraints, boundary prices, and full-horizon residual certificates, including retimed decisions and finite-difference oracle witnesses. Structural LP cross-checks are numerical tests, not substitutes for the analytic proofs. Exact rational examples are recorded separately.
 
-## Scope and preservation
-
-[Preservation map](revisions/or-r10-20260921/PRESERVATION.md) lists every predecessor input and its new location. No earlier scientific directory is overwritten to replace a theorem or suppress an adverse result. The predecessor root sources are preserved verbatim. Bibliographic entries are retained and a verified convex-optimization reference is added. Private information, endogenous tariff design, and a real-world service calibration remain outside the demonstrated model.
+The R12 workflow reproduces, independently checks, compiles, and publishes actual ordinary sources, full result records, and PDFs on this branch only. Hardware-dependent timing observations are identified by the recorded environment; a replay generates new timings rather than claiming to recover the original machine. The source/result manifest binds the published package.

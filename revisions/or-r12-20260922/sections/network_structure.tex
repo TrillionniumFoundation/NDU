@@ -1,0 +1,129 @@
+\section{Full-tree switching, continuation prices, and critical friction}\label{sec:r12-network}
+The scalar edge test in Appendix~\ref{sec:r10-tree} becomes a capacitated balance condition when changing a tier has an absolute cost. The balance formulation also accommodates nonconstant outside protocols, boundary tiers, several commitments, and vector services. It does not divide by a tariff and therefore remains meaningful for zero or negative net payments. Negative net payments can arise when expected indemnity exceeds the premium; they need not be interpreted as negative gross prices.
+
+\subsection{The general balance condition}
+Let $P=\{x\in[l,u]:Ax\leq b,\ Ex=e\}$ be a nonempty compact polyhedron of contingent service tiers. The rows of $A$ can include several discounted commitments at each history; the rows of $E$ include information restrictions or an exact root payment commitment. Fix a feasible comparison protocol $z\in P$. Neither constancy nor interiority of $z$ is assumed. All probabilities remain exogenous. Write
+\begin{equation}\label{eq:r12-problem}
+ W_\lambda(x)=r(x)-\lambda T(x),\quad r(x)=p^\top x-\mathcal R_0(x),\quad
+ T(x)=\sum_{a\in\mathcal A}\kappa_a |(Dx-h)_a|,
+ \qquad\lambda\geq0.
+\end{equation}
+Here $\mathcal R_0$ is convex and differentiable on a neighborhood of the box, $\kappa_a>0$, and $D$ is a specified incidence matrix. A temporal row is the difference between a tier and its parent's tier. An initial-installation row has one nonzero entry and its installed tier in $h$. Spatial switching or coordination edges may be included. Smooth graph coupling remains in $\mathcal R_0$. Omitted switching edges simply have no row. Let $I(z)=\{i:A_i z=b_i\}$, $g=\nabla r(z)$, and let $N_{[l,u]}(z)$ denote the outward box normal: its $j$th component is nonpositive at a lower boundary, nonnegative at an upper boundary, and zero in the interior. Fixed coordinates permit either sign.
+
+\begin{theorem}[Capacitated continuation balance]\label{thm:r12-balance}
+The protocol $z$ maximizes \eqref{eq:r12-problem} on $P$ if and only if there exist continuation prices $\mu_i\geq0$ for $i\in I(z)$, unrestricted equality prices $\nu$, a box normal $\xi\in N_{[l,u]}(z)$, and edge tensions $s$ satisfying
+\begin{align}
+ g&=A_{I(z)}^\top\mu+E^\top\nu+\xi+D^\top s,\label{eq:r12-balance}\\
+ s_a&=\lambda\kappa_a\operatorname{sign}(Dz-h)_a
+                  &&\text{if }(Dz-h)_a\ne0,\label{eq:r12-saturated}\\
+ |s_a|&\leq\lambda\kappa_a
+                  &&\text{if }(Dz-h)_a=0.\label{eq:r12-capacity}
+\end{align}
+Consequently the set of friction coefficients for which this fixed protocol is optimal is a closed interval in $[0,\infty)$, possibly empty, a singleton, or unbounded. Its endpoints are the infimum and supremum of $\lambda$ in the displayed linear program. These are linear programs in primitive derivatives, not the original nonlinear control problem.
+\end{theorem}
+\begin{proof}
+The convex minimization form has objective $\mathcal R_0(x)-p^\top x+\lambda T(x)$. It is finite and continuous on a neighborhood of $P$. The subdifferential sum rule and the polyhedral normal formula give optimality exactly when
+$g\in\partial(\lambda T)(z)+N_P(z)$.
+The subgradients of each absolute value give \eqref{eq:r12-saturated}--\eqref{eq:r12-capacity}; the polyhedral normal is $A_{I(z)}^\top\mu+E^\top\nu+\xi$. No strictly feasible point is needed for this normal representation. Conversely these equations and the supporting inequalities for $\mathcal R_0$, $T$, and $P$ show $W_\lambda(x)\leq W_\lambda(z)$ for every feasible $x$. Finally, all conditions are linear in $(\lambda,s,\mu,\nu,\xi)$, including the signs of box normals. Their projection onto the scalar $\lambda$ is a polyhedron, hence a closed interval with the stated possibilities. An unbounded endpoint is allowed.
+\end{proof}
+The subgradient principle is standard convex analysis \citep{BoydVandenberghe2004}; matrix absolute-value penalties and their dual treatment also appear in the generalized lasso \citep{TibshiraniTaylor2011}. The economic content here is the separation of marginal operating reward into continuation prices, boundary scarcity, and bounded switching tensions. On a tree, the tensions can be eliminated entirely to obtain explicit subtree cuts.
+
+\subsection{Subtree cuts and an isotonic critical-friction program}
+For a scalar tree let $c_n>0$ be discounted net-payment coefficients. Suppose the budget rows are $\sum_{j\succeq n}c_jx_j\leq b_n$ for nonroot nodes and the root has exact payment equality. Let $z$ be any feasible outside protocol. In this subsection $D$ contains the temporal edges and initial installation: $h_o=q_0$, $h_n=0$ off the root. Set $z_{\mathrm{pa}(o)}=q_0$. Introduce a node price $\rho$ such that
+\begin{equation}\label{eq:r12-isotonic}
+ \rho_o\in\mathbb R,\qquad
+ \rho_n-\rho_{\mathrm{pa}(n)}\begin{cases}\geq0,& n\in I(z),\\=0,& n\notin I(z),\end{cases}
+ \quad(n\ne o).
+\end{equation}
+Here $I(z)$ indexes binding continuation budgets only. Define the cumulative residual on a subtree by
+\begin{equation}\label{eq:r12-cut}
+ H_n(\rho,\xi)=\sum_{j\succeq n}(g_j-c_j\rho_j-\xi_j).
+\end{equation}
+
+\begin{corollary}[Exact cut characterization]\label{cor:r12-cuts}
+The comparison protocol $z$ is optimal if and only if some $\rho$ satisfying \eqref{eq:r12-isotonic} and some $\xi\in N_{[l,u]}(z)$ satisfy, at every node including the root,
+\begin{equation}\label{eq:r12-cut-cap}
+ \begin{cases}
+ H_n(\rho,\xi)=\lambda\kappa_n\operatorname{sign}(z_n-z_{\mathrm{pa}(n)}),
+      &z_n\ne z_{\mathrm{pa}(n)},\\
+ |H_n(\rho,\xi)|\leq\lambda\kappa_n,
+      &z_n=z_{\mathrm{pa}(n)}.
+ \end{cases}
+\end{equation}
+For weak root acceptance replace the free root price by $\rho_o\geq0$ when that budget binds, and by $\rho_o=0$ when it is slack. If initial installation has no absolute cost, use $H_o=0$ instead of the root capacity condition.
+
+If $z_n=q_0=\bar\theta\in(l_n,u_n)$ for every node, all continuation caps equal the payments of $z$, and all switching weights including the root are positive, the exact critical friction is finite and equals
+\begin{equation}\label{eq:r12-critical}
+ \lambda_c=\min_{\rho:\,\rho_n\geq\rho_{\mathrm{pa}(n)}}
+            \max_n\frac{|\sum_{j\succeq n}(g_j-c_j\rho_j)|}{\kappa_n}.
+\end{equation}
+The static protocol is optimal exactly for $\lambda\geq\lambda_c$. The root price in \eqref{eq:r12-critical} is unrestricted under root equality.
+\end{corollary}
+\begin{proof}
+The sum of the root multiplier and all binding-budget multipliers on a node's ancestral path is precisely $\rho_n$. This is equivalent to \eqref{eq:r12-isotonic}. For the rooted incidence matrix, $D^\top s=g-c\rho-\xi$ reads
+$s_n-\sum_{v:\mathrm{pa}(v)=n}s_v=g_n-c_n\rho_n-\xi_n$.
+Summing over a subtree cancels all interior edges and leaves $s_n=H_n$. Substitution into Theorem~\ref{thm:r12-balance} proves both directions, including installation and the weak-root variant. In the constant interior case there are no box normals or saturated edges. Minimizing the remaining capacities gives \eqref{eq:r12-critical}. Taking a constant $\rho$, for example zero, gives a finite feasible upper bound; the linear program attains its finite minimum. Increasing $\lambda$ relaxes every remaining capacity, proving the ray characterization.
+\end{proof}
+This program has a linear number of node variables and local balance constraints when subtree sums are represented recursively. Evaluating all cuts for given prices takes one backward tree pass. We do not assert that solving the linear program has linear running time. With $\lambda=0$, the balance reduces to $g_n/c_n=\rho_n$, recovering the scalar edge criterion. For a two-review chain, eliminating its single payment-neutral transfer recovers the threshold in Corollary~\ref{cor:r10-threshold}. In contrast to that special case, \eqref{eq:r12-critical} allows simultaneous transfers across all branches. For vector services, signed coefficients, several budgets, or extra graph edges, Theorem~\ref{thm:r12-balance}, rather than division by $c_n$, is the applicable formulation.
+
+\subsection{Constructive improvements and comparative statics}
+Let $K=T_P(z)$ be the polyhedral tangent cone. Set $v=Dz-h$ and
+\[
+ \phi_z(d)=\sum_{a:v_a\ne0}\kappa_a\operatorname{sign}(v_a)(Dd)_a
+                +\sum_{a:v_a=0}\kappa_a|(Dd)_a|.
+\]
+Thus $\phi_z$ is the directional derivative of switching cost, including boundary installation. The following alternative gives an implementable improving policy when the capacity test fails.
+
+\begin{proposition}[Certified direction and friction sensitivity]\label{prop:r12-direction}
+The balance test fails exactly when the piecewise-linear program
+\begin{equation}\label{eq:r12-direction}
+ \delta=\max_{d\in K,\,\|d\|_\infty\leq1}
+                   \{g^\top d-\lambda\phi_z(d)\}
+\end{equation}
+has positive value. Absolute-value epigraphs turn it into a linear program. For a maximizing direction $d$, choose $a_{\max}>0$ so that $z+ad\in P$ and no nonzero component of $Dz-h$ changes sign for $0\leq a\leq a_{\max}$. If the smooth resource curvature along this segment is at most $L_d$, then
+\begin{equation}\label{eq:r12-gain}
+ W_\lambda(z+ad)-W_\lambda(z)\geq a\delta-L_da^2/2.
+\end{equation}
+When $T(z)=0$, the accepted gain $G(\lambda)=\max_{x\in P}W_\lambda(x)-r(z)$ is nonnegative, nonincreasing, and convex in $\lambda$. If $x_\lambda$ is an optimizer, $-T(x_\lambda)$ is a subgradient of $G$; optimal total switching is nonincreasing with friction. Tightening any commitments while keeping $z$ feasible cannot increase either $G$ or its critical friction. Increasing edge weights cannot increase the critical friction of a zero-switching comparator.
+\end{proposition}
+\begin{proof}
+For a convex objective on a polyhedron, nonnegative directional derivatives in every tangent direction are equivalent to global minimality. Negating this statement gives \eqref{eq:r12-direction}; homogeneity permits the bounded normalization. A tangent direction is feasible for a sufficiently short segment. Bounds from inactive inequalities, box faces, and the finitely many nonzero $v_a$ give the required positive $a_{\max}$. On that segment $T(z+ad)-T(z)=a\phi_z(d)$ exactly. Integrating the smooth curvature bound proves \eqref{eq:r12-gain}; take $a=\min\{a_{\max},\delta/L_d\}$ if $L_d>0$. For $T(z)=0$, $G$ is a supremum of affine nonincreasing functions of $\lambda$, and $z$ supplies the zero lower bound. The maximizing affine function supplies its subgradient. Adding the two optimality inequalities at two friction values orders their optimal switching costs. Feasible-set inclusion proves the commitment statement. Larger edge weights reduce every nonstatic reward without changing $r(z)$, proving the final statement.
+\end{proof}
+For a zero-switching comparator the equivalent variational threshold is the positive part of $\sup_{d\in K,\,T'(z;d)>0}g^\top d/T'(z;d)$. A direction with $T'(z;d)=0$ and $g^\top d>0$ makes this threshold infinite. The initial edge with positive weight eliminates such directions on a scalar rooted tree. This convention matters when installation or an entire component is unpenalized.
+
+For a nonconstant comparison protocol, it would be incorrect to extrapolate the monotone-friction conclusion. The relative gain is still convex, but its supporting slope is $T(z)-T(x_\lambda)$, which can have either sign. An exact example fixes a root tier at zero and permits a child tier $x\in[0,1]$, with $r(x)=x-(x-1)^2/2$ and $T(x)=x$. The outside protocol $z=1$ is optimal exactly on $0\leq\lambda\leq1$. For $1<\lambda<2$ the optimizer is $2-\lambda$, and for $\lambda\geq2$ it is zero. Increasing friction therefore makes this already-changing outside protocol improvable. The interval assertion of Theorem~\ref{thm:r12-balance}, rather than a universal lower threshold, covers this case.
+
+
+\subsection{A sharp price--capacity margin for the value of adaptation}
+The balance test also yields a quantitative measure of accepted value. This measure optimizes the certificate's prices, rather than choosing arbitrary multipliers and interpreting a possibly loose bound. For a positive definite metric $H$, define
+\begin{equation}\label{eq:r12-margin}
+ \mathcal C_\lambda(z)=N_P(z)+\partial(\lambda T)(z),\qquad
+ \Delta_\lambda=\min_{c\in\mathcal C_\lambda(z)}\|g-c\|_{H^{-1}}.
+\end{equation}
+This is a convex quadratic program in the same continuation prices and edge tensions as the linear balance test. It measures the marginal reward that cannot be absorbed by commitments, boundaries, and switching capacities.
+
+\begin{theorem}[Sharp price--capacity margin]\label{thm:r12-margin}
+Suppose $\mathcal R_0$ is $m_0$-strongly convex and $L_0$-smooth in metric $H$, with $0<m_0\leq L_0$. Let $c^*$ attain \eqref{eq:r12-margin} and put $d=H^{-1}(g-c^*)$. Then $d\in T_P(z)$ and
+\begin{equation}\label{eq:r12-margin-slope}
+ g^\top d-\lambda\phi_z(d)=\|d\|_H^2=\Delta_\lambda^2.
+\end{equation}
+For any $a_{\max}>0$ such that the segment $z+[0,a_{\max}]d$ is feasible and preserves every nonzero switching sign, write $a=\min\{a_{\max},1/L_0\}$. The exact accepted gain satisfies
+\begin{equation}\label{eq:r12-margin-bounds}
+ (a-L_0a^2/2)\Delta_\lambda^2
+ \ \leq\ \max_{x\in P}W_\lambda(x)-W_\lambda(z)
+ \ \leq\ \frac{\Delta_\lambda^2}{2m_0}.
+\end{equation}
+If $a_{\max}\geq1/L_0$, the lower bound is $\Delta_\lambda^2/(2L_0)$. If the smooth resource is a quadratic with Hessian $m_0H$ and $a_{\max}\geq1/m_0$, both bounds coincide and $z+d/m_0$ is globally optimal. Thus the same price--capacity program gives both the threshold and the exact gain on this quadratic subclass.
+\end{theorem}
+\begin{proof}
+The set $\mathcal C_\lambda(z)$ is a nonempty closed polyhedron, so the metric projection exists. Write $c^*=n^*+t^*$ with $n^*\in N_P(z)$ and $t^*\in\partial(\lambda T)(z)$. The projection variational inequality gives $d^\top(c-c^*)\leq0$ for all $c\in\mathcal C_\lambda(z)$. Varying only the normal component and taking it equal to zero or $2n^*$ gives $d^\top n^*=0$; varying it arbitrarily gives $d\in N_P(z)^\circ=T_P(z)$. Varying only the switching component gives
+$d^\top t^*=\sup_{t\in\partial(\lambda T)(z)}d^\top t=\lambda\phi_z(d)$.
+Since $(g-c^*)^\top d=\|d\|_H^2$, this proves \eqref{eq:r12-margin-slope}.
+
+For any feasible $x$, the normal inequality, the switching supporting inequality, and strong convexity bound its gain by
+$(g-c^*)^\top(x-z)-m_0\|x-z\|_H^2/2$. Completing the square gives the upper bound. On the specified segment switching cost has its directional affine form. Smoothness and \eqref{eq:r12-margin-slope} give the lower bound at $z+ad$. When the smooth resource is the stated quadratic and $a=1/m_0$, the lower bound reaches the global upper bound. This also proves the claimed policy's global optimality.
+\end{proof}
+For zero-switching comparators, the critical friction is the smallest $\lambda$ for which $\Delta_\lambda=0$. A small nonzero margin with limited box clearance can correspond to a much smaller realizable gain; \eqref{eq:r12-margin-bounds} keeps that clearance explicit. With a nonconstant comparator, sign clearance also matters. These qualifications prevent interpreting an unconstrained quadratic distance as the accepted gain when a proposed step crosses a tier boundary or changes a pre-existing switching sign.
+
+\paragraph{Budget values and normalization.}
+For fixed dynamics, objective, and equality constraints, the optimal value is concave and nondecreasing as a function of feasible upper-budget vectors $b$. Mixing two feasible policies proves concavity; an optimal nonnegative budget multiplier is a supergradient by weak duality. These are sensitivity statements for externally fixed tariffs, not endogenous tariff-design results. In the recursion \eqref{eq:r10-budget-dp}, $b$ and $\bar b_n$ are \emph{conditional} remaining discounted payments, measured from node $n$. Multiplication by $w_n=\beta^{t(n)}\Pr(n)$ gives the unconditional subtree budget used in $A$. The child term uses $\beta P_{nv}$, not the unconditional child probability a second time. Several commitments add a vector budget state and one such inequality per commitment. Resource and promise states are classical constructions \citep{Altman1999,SpearSrivastava1987,ThomasWorrall1988}; the present contribution is the continuation-price and switching-capacity structure they induce in this observable service-control problem.

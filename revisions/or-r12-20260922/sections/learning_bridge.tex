@@ -1,0 +1,83 @@
+\section{Learning on acceptance faces and certified deployment}\label{sec:r12-bridge}
+The structural balance condition also provides a common language for learned and classical implementations. This section distinguishes three questions: whether a candidate is feasible, how far its reward can be from optimal, and whether learning selects candidates with useful out-of-sample guarantees. None of these questions is answered by a solver's success flag.
+
+\subsection{The same balance equations certify a complete contingent policy}
+Suppose $\mathcal R_0$ is $m_0$-strongly convex in a positive definite metric $H$, that is, its supporting quadratic has term $m_0\|y-x\|_H^2/2$. A numerical candidate $x$ must first belong to $P$. Choose any $\mu\geq0$, any equality price $\nu$, nonnegative upper and lower bound prices $u^+,u^-$, and edge tensions $s$ satisfying \eqref{eq:r12-saturated}--\eqref{eq:r12-capacity} at $x$, so that $D^\top s\in\partial(\lambda T)(x)$. Define
+\begin{align}
+ e_x&=\nabla r(x)-D^\top s-A^\top\mu-E^\top\nu-u^++u^-,\notag\\
+ C(x)&=\frac{\|e_x\|_{H^{-1}}^2}{2m_0}
+    +\mu^\top(b-Ax)+(u^+)^\top(u-x)+(u^-)^\top(x-l).\label{eq:r12-certificate}
+\end{align}
+The vector $u$ without a superscript denotes the upper tier bound, not a multiplier.
+
+\begin{theorem}[Balance-residual policy certificate]\label{thm:r12-certificate}
+Every quantity in \eqref{eq:r12-certificate} is nonnegative except possibly individual residual coordinates, and
+\[
+ 0\leq \max_{y\in P}W_\lambda(y)-W_\lambda(x)\leq C(x).
+\]
+For polynomial smooth resources and rational primitives, candidate, prices, and tensions, feasibility and this bound are exactly checkable when $H^{-1}$ and $m_0$ are rational. This certificate covers boundary policies and absolute switching. Its zero-residual, zero-complementarity condition is exactly Theorem~\ref{thm:r12-balance} at the candidate.
+\end{theorem}
+\begin{proof}
+Strong concavity of $r$ and the supporting inequality for $\lambda T$ bound $W_\lambda(y)-W_\lambda(x)$ above by
+$(\nabla r(x)-D^\top s)^\top(y-x)-m_0\|y-x\|_H^2/2$.
+Substitute the residual. Feasibility bounds the budget contribution by $\mu^\top(b-Ax)$ and the box contributions by the two displayed slacks. The equality contribution vanishes. Completing the square bounds the remaining residual term by $\|e_x\|_{H^{-1}}^2/(2m_0)$. All inputs of the resulting polynomial/rational expression can be replayed without trusting the candidate generator.
+\end{proof}
+This is a specialization of the standard strong-convexity bound, not a claim that residual inequalities were invented here. Unlike a stand-alone unconstrained gradient norm, it retains the continuation and boundary prices that also determine accepted adaptivity. In the quartic experiment $H=\operatorname{diag}(w)$ and $m_0=2m$, recovering the earlier certificate and adding explicit box prices.
+
+For a feasible comparison protocol $z$, let $\widehat x$ be whichever of $x,z$ has larger exactly evaluated reward. A valid gap for the selected decision is
+\begin{equation}\label{eq:r12-selected}
+ \min\{W_\lambda(x)+C(x),\ W_\lambda(z)+C(z)\}
+                  -W_\lambda(\widehat x).
+\end{equation}
+The use of both upper bounds is optional but can be substantially tighter than carrying the failed proposal's bound through the gate. A prescribed tolerance is met only when the selected decision's bound meets it. Otherwise the deployed algorithm must refine, return a separately certified alternative, or explicitly report that the tolerance was not attained.
+
+\subsection{Why the acceptance face matters for gradient learning}
+Consider a fixed feasible set and define the forcing-value function
+$J(p)=\max_{x\in P}\{p^\top x-\mathcal R_0(x)-\lambda T(x)\}$.
+Strong convexity gives a unique optimizer $x^*(p)$ and $\nabla J(p)=x^*(p)$. For the weighted forcing used in the experiments, $\nabla_pJ=\operatorname{diag}(w)x^*$ instead. A scalar potential therefore produces compatible value and policy estimates, but compatibility alone does not make the estimated actor feasible.
+
+Let $\mu^*,\nu^*,\xi^*,s^*$ be optimal prices and tensions at $x^*$. Define the convex exposed set
+\begin{align}\label{eq:r12-face}
+ \mathcal F_* =\{y\in P:\ &\mu^{*\top}(b-Ay)=0,\quad
+                  \xi^{*\top}(x^*-y)=0,\notag\\
+ &\lambda T(y)-\lambda T(x^*)-s^{*\top}D(y-x^*)=0\}.
+\end{align}
+The last equality selects the face of the piecewise-linear switching cost supported by $s^*$. It is automatically satisfied when $\lambda=0$.
+
+\begin{theorem}[Gradient accuracy, acceptance prices, and policy loss]\label{thm:r12-face}
+For every feasible $y$,
+\begin{align}
+ J(p)-[p^\top y-\mathcal R_0(y)-\lambda T(y)]
+ ={}&D_{\mathcal R_0}(y,x^*)+\mu^{*\top}(b-Ay)+\xi^{*\top}(x^*-y)\notag\\
+ &+\lambda T(y)-\lambda T(x^*)-s^{*\top}D(y-x^*).\label{eq:r12-loss-split}
+\end{align}
+All four terms are nonnegative. Suppose additionally that $\mathcal R_0$ has $L_0$-Lipschitz gradient in metric $H$ on $P$. For any predicted actor $a$, its metric projection $y=\Pi_{\mathcal F_*}^H(a)$ satisfies
+\begin{equation}\label{eq:r12-gradient-loss}
+ 0\leq J(p)-W_\lambda(y)\leq\frac{L_0}{2}\|a-x^*\|_H^2.
+\end{equation}
+In particular, for a scalar compatible critic use $a=\nabla\widehat J(p)$ (or the appropriately weight-normalized gradient). For any distribution on problems with uniformly bounded $L_0$, the same inequality holds after expectation whenever these face conditions hold problem by problem.
+\end{theorem}
+\begin{proof}
+Add and subtract the smooth linearization at $x^*$ and use
+$p-\nabla\mathcal R_0(x^*)=A^\top\mu^*+E^\top\nu^*+\xi^*+D^\top s^*$.
+Complementary slackness and $E(y-x^*)=0$ give \eqref{eq:r12-loss-split}. Convexity, feasibility, the outward normal, and the switching subgradient give the four signs. On $\mathcal F_*$ only the smooth Bregman term remains, bounded by $L_0\|y-x^*\|_H^2/2$. Projection onto a closed convex set containing $x^*$ is nonexpansive relative to $x^*$, so $\|y-x^*\|_H\leq\|a-x^*\|_H$. Taking expectations proves the final assertion.
+\end{proof}
+This theorem is an approximation-to-decision result, not an assertion that the unknown optimal face is available for free. Verified optimal prices identify it; an unverified predicted face does not establish \eqref{eq:r12-gradient-loss}. The residual certificate remains valid without knowing it. The decomposition explains why a common scaling repair can lose reward even when actor distance is small: it can introduce first-order slack in expensive continuation commitments. Indeed, on $[0,1]$, maximizing $x-(x-1)^2/2$ gives $x^*=1$, while the feasible actor $1-\epsilon$ loses $\epsilon+\epsilon^2/2$, not merely a quadratic amount. Ignoring the boundary-price term would yield a false gradient-to-regret theorem. The full-face projection in this example is the singleton $\{1\}$.
+
+\subsection{A finite-sample certificate for selecting a learning pipeline}
+The preceding results do not certify arbitrary distribution shift. They can, however, turn independent validation into a precise learning statement. Suppose $M$ frozen candidate-generation pipelines, including all repair, fallback, and refinement rules, are fixed before a validation sample is drawn. The pipelines may have been fitted on separate training data. On problem $I$, pipeline $j$ returns a feasible policy with regret bounded by a measurable certificate $C_j(I)\in[0,B]$. A uniform range bound $B$ must be established from the problem class, not obtained by discarding large observed bounds. When a separate valid range bound on regret is available, taking its minimum with a residual certificate is legitimate.
+
+\begin{proposition}[Certificate-risk selection]\label{prop:r12-risk}
+For $n$ independent validation problems drawn from the same distribution as a future problem, with probability at least $1-\delta$ simultaneously for all $M$ pipelines,
+\begin{equation}\label{eq:r12-risk}
+ \mathbb E\,\mathrm{Regret}_j(I)
+ \leq\frac1n\sum_{i=1}^n C_j(I_i)
+             +B\sqrt{\frac{\log(M/\delta)}{2n}}.
+\end{equation}
+The statement also holds for the pipeline selected by minimizing the empirical certificate mean. Moreover its expected certificate is at most the best pipeline's expected certificate plus
+$2B\sqrt{\log(2M/\delta)/(2n)}$ with probability at least $1-\delta$.
+\end{proposition}
+\begin{proof}
+Condition on the training data and hence on the frozen pipelines. Apply the one-sided bounded-variable Hoeffding inequality to each certificate mean and take a union bound. Expected regret is no larger than expected certificate. Simultaneity permits validation-based selection. For the final assertion use the two-sided inequality, then compare the selected empirical mean to that of a population-minimizing pipeline and add the two deviations. Unconditioning preserves both probability statements.
+\end{proof}
+The concentration argument is standard \citep{Hoeffding1963}; the certified object is the selected \emph{complete decision pipeline}, not a neural architecture or an unrestricted distribution-shift claim. A validation set used to change features or tolerances no longer qualifies as independent validation for the displayed guarantee. The new computational study below is a crossed stress test, not a numerical claim that this bound is tight. Constrained-policy learning and value-based safety constructions study different sources of uncertainty \citep{Satija2020,WachiSui2020}; here the feasible polyhedron is known and deterministic certification is separated from candidate quality.

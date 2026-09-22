@@ -1,0 +1,24 @@
+\begin{table}[p]\centering
+\caption{Timing variation separated from test-instance and training-seed variation}\label{tab:r12-repeated}
+\setlength{\tabcolsep}{3.5pt}\begin{tabular}{llrrrr}
+\toprule
+Family & Pipeline & Repetitions & Minimum & Median & Maximum \\
+\midrule
+Cycle & Cold SLSQP & 5 & 14.67 & 14.92 & 15.88 \\
+Cycle & Value & 5 & 23.71 & 23.93 & 24.73 \\
+Cycle & Value--gradient & 5 & 22.95 & 23.37 & 24.21 \\
+Random-edge & Cold SLSQP & 5 & 54.83 & 55.68 & 56.11 \\
+Random-edge & Value & 5 & 66.92 & 67.64 & 71.29 \\
+Random-edge & Value--gradient & 5 & 64.46 & 67.54 & 69.11 \\
+Geometric & Cold SLSQP & 5 & 88.18 & 90.25 & 91.75 \\
+Geometric & Value & 5 & 123.53 & 128.20 & 129.99 \\
+Geometric & Value--gradient & 5 & 125.61 & 127.67 & 133.78 \\
+Weighted block & Cold SLSQP & 5 & 145.83 & 148.62 & 159.71 \\
+Weighted block & Value & 5 & 190.51 & 192.24 & 202.86 \\
+Weighted block & Value--gradient & 5 & 187.97 & 193.00 & 207.60 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{.98\textwidth}\small
+Milliseconds to the same $10^{-7}$ certified tolerance on the first new instance of each family, one frozen training seed, five repetitions after one warmup. Pipeline order is randomized within repetition. This separate experiment does not enlarge the economic test sample; every timing record and final policy is retained.
+\end{minipage}
+\end{table}

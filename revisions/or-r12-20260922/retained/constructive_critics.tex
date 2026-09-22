@@ -1,0 +1,33 @@
+\section{Retained constructive smooth neural critics}
+
+The exact finite-grid envelope also supplies a smooth neural approximation with a deterministic error budget. This construction uses computed envelope weights rather than statistical training. It provides a certified neural representation of the contract model without making a claim about the optimization of a large network.
+
+\begin{corollary}[Smooth value-gradient representation]\label{cor:neural}
+For a finite contract grid, let $V_t^{(n)}$ be the exact grid value, extended to every inherited $q\in[0,1]$ by \eqref{eq:envelope}. For each $(t,z)$ write its convex part as
+\[
+ V_t^{(n)}(z,q)+\lambda q^2=a+bq+\sum_j d_j(q-k_j)^+,
+ \qquad d_j\geq0,\quad \sum_jd_j\leq2\lambda.
+\]
+For $\tau>0$, replace each hinge by
+\[
+ h_\tau(x)=\frac{(x+\tau)_+^3-2x_+^3+(x-\tau)_+^3}{6\tau^2}
+\]
+and denote the resulting critic by $w_{t,\tau}$; keep $w_{T,\tau}=0$. It is a quadratic skip connection plus a finite cubic-ReLU network, is $C^2$ in $q$, and satisfies
+\begin{equation}\label{eq:neuralbound}
+ 0\leq w_{t,\tau}(z,q)-V_t^{(n)}(z,q)\leq\lambda\tau/3.
+\end{equation}
+If $A_\tau$ exactly maximizes the one-step grid objective with continuation $w_{t+1,\tau}$, then, for $r=T-t$,
+\begin{equation}\label{eq:neuralpolicy}
+ 0\leq V_t^{(n)}(z,q)-V_t^{A_\tau}(z,q)
+ \leq\beta(\lambda\tau/3)H_{r-1}.
+\end{equation}
+Combining this bound with \eqref{eq:quadbound} bounds loss relative to continuous contract actions. The derivative $\partial_qw_{t,\tau}$ is a compatible shadow price, not an independently fitted vector field.
+\end{corollary}
+\begin{proof}
+The hinge representation follows from the ordered slopes of the upper envelope. Its total slope increase is at most $2\lambda$, the width of the slope interval. The cubic finite difference equals the convolution of $x^+$ with the symmetric triangular density $(\tau-|y|)_+/\tau^2$. Convexity gives $h_\tau(x)\geq x^+$, and direct integration shows $h_\tau(x)-x^+\leq\tau/6$, with equality at $x=0$. This proves \eqref{eq:neuralbound}. Each cubic-ReLU term is $C^2$.
+
+The exact and approximate one-step action values differ by a number in $[0,\beta\lambda\tau/3]$. Thus maximizing the latter loses at most $\beta\lambda\tau/3$ in the former, rather than twice that amount, because the approximation is one-sided. The final action uses the exact terminal continuation and has zero loss. Backward policy evaluation gives \eqref{eq:neuralpolicy}. The gradient statement follows from the scalar construction.\end{proof}
+
+
+\paragraph{Network size convention.}
+Each hidden unit computes $(wq+b)_+^3$; three units implement one smoothed hinge. The reported maximum of 27 units is per $(t,z)$ critic, excluding its explicit quadratic skip $-\lambda q^2$ and affine skip. There is no sharing across the 24 nonterminal $(t,z)$ critics; their aggregate hidden-unit budget is at most $24\cdot27=648$, not 27 for one joint network. Each unit has a scalar input weight, bias, and output weight; skip coefficients must also be stored. This convention is not directly comparable to the 1,281 trainable parameters of the joint tanh critic in Section~\ref{sec:operationalcontinuous}.
