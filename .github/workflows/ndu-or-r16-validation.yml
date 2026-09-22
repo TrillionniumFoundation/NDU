@@ -1,0 +1,30 @@
+name: NDU OR R16 exact-HEAD validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r16-20260922]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ndu-or-r16-validation
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r16-20260922'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Record immutable source checkpoint
+        run: |
+          git rev-parse HEAD > /tmp/NDU_R16_SOURCE_SHA.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_R16_source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r16-source-checkpoint
+          path: |
+            /tmp/NDU_R16_source.tar.gz
+            /tmp/NDU_R16_SOURCE_SHA.txt
+          retention-days: 30
