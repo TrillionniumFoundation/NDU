@@ -1,0 +1,26 @@
+name: NDU R24 source snapshot
+on:
+  push:
+    branches: ['revision/ndu-operations-research-r24-20260923']
+    paths: ['.github/workflows/ndu-or-r24-snapshot.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Archive pinned working tree
+        run: |
+          mkdir -p /tmp/ndu-r24
+          git archive --format=tar.gz HEAD > /tmp/ndu-r24/source.tar.gz
+          git rev-parse HEAD > /tmp/ndu-r24/COMMIT.txt
+          sha256sum /tmp/ndu-r24/source.tar.gz > /tmp/ndu-r24/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r24-source
+          path: /tmp/ndu-r24/
+          retention-days: 7
+          if-no-files-found: error
