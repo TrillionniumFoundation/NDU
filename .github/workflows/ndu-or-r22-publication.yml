@@ -8,20 +8,20 @@ permissions:
   statuses: write
   actions: read
 concurrency:
-  group: ndu-or-r22-publication
+  group: ndu-or-r22-publication-v2
   cancel-in-progress: false
 jobs:
   publish:
     if: github.ref == 'refs/heads/revision/ndu-operations-research-r22-20260923'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 100
     env:
       GH_TOKEN: ${{ github.token }}
       OPENBLAS_NUM_THREADS: 1
       OMP_NUM_THREADS: 1
       MKL_NUM_THREADS: 1
       REVISION_BRANCH: revision/ndu-operations-research-r22-20260923
-      EVIDENCE_RUN: '35784975101'
+      EVIDENCE_RUN: '35788410875'
     outputs:
       final_sha: ${{ steps.publish.outputs.final_sha }}
     steps:
@@ -47,6 +47,7 @@ jobs:
                   p=Path(m.name);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
           PY
           python revisions/or-r22-20260923/finalize_revision.py
+          python revisions/or-r22-20260923/patch_scaling_fallback.py
           python -S revisions/or-r22-20260923/complete_dual_checks.py
       - name: Install manuscript and independent verification dependencies
         run: |
@@ -56,7 +57,7 @@ jobs:
       - name: Require completed independent numerical execution
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 150); do
+          for attempt in $(seq 1 270); do
             status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$EVIDENCE_RUN" --jq '.status')
             if [ "$status" = completed ]; then
               test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$EVIDENCE_RUN" --jq '.conclusion')" = success
@@ -77,20 +78,20 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: ndu-or-r22-executed-evidence
-          run-id: 35784975101
+          run-id: 35788410875
           github-token: ${{ github.token }}
           path: /tmp/r22-evidence
       - name: Verify source identity and import only executed results
         run: |
           python - <<'PY'
           from pathlib import Path
-          import shutil,json,hashlib,os
+          import shutil,json,os
           r=Path('revisions/or-r22-20260923');e=Path('/tmp/r22-evidence')
-          for n in ['core.py','certificate.py','time_comparator.py','matched_cost.py','validation.py','scaling.py']:
+          for n in ['core.py','certificate.py','time_comparator.py','matched_cost.py','validation.py','scaling.py','patch_scaling_fallback.py']:
               assert (r/n).read_bytes()==(e/n).read_bytes(),('Numerical source mismatch',n)
           for directory in ['results','tables']:
               shutil.copytree(e/directory,r/directory,dirs_exist_ok=True)
-          (r/'results/EVIDENCE_PROVENANCE.json').write_text(json.dumps({'run_id':35784975101,'source_commit':'b1b021c9a9e954edfe08f5759a5d06341cab384a','artifact_id':os.environ['EVIDENCE_ARTIFACT'],'source_identity_verified':True,'mathematical_overlay_changes_no_predictor_or_numerical_study_source':True},indent=2)+'\n')
+          (r/'results/EVIDENCE_PROVENANCE.json').write_text(json.dumps({'run_id':35788410875,'source_commit':'903c6627683b4b715cfd5ff24fd90d05149d4856','artifact_id':os.environ['EVIDENCE_ARTIFACT'],'source_identity_verified':True,'scaling_refinement_amendment':'All methods receive fresh lifted full-objective fallback, with setup charged.','study_hosts':'Matched, validation and scaling each execute on their own isolated runner; timings are not pooled.'},indent=2)+'\n')
           PY
       - name: Recheck actual evidence and construct complete current manuscripts
         run: |
@@ -138,7 +139,7 @@ jobs:
   validate-final:
     needs: publish
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       GH_TOKEN: ${{ github.token }}
       FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
