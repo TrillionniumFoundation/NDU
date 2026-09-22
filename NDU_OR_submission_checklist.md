@@ -1,14 +1,21 @@
-# R10 Operations Research review checklist
+# Operations Research R13 review checklist
 
-The current manuscript is `main.tex` / `main.pdf`, Revision R10. Its electronic companion and separately labeled historical supplement have matching revision metadata.
+This is a repository review package, not a completed journal submission. No author disclosures, conflicts, funding statements, or portal attestations are fabricated.
 
-- Anonymous 11-point, one-and-a-half-spaced source with one-inch margins; text-only abstract below 200 words and no equations in the introduction.
-- Main tables deferred until after the alphabetized author-year references; all measured tables generated from the recorded run.
-- Main input graph includes corrected general theory, the primitive continuation edge theorem, accepted continuous comparisons, and certified nonlinear multistage learning.
-- All predecessor substantive inputs retained in main, electronic companion, or fully compiled historical supplement; preservation check is executable.
-- Independent exact replay covers policies and training labels; full serialized rational records are versioned.
-- Build rejects undefined references, duplicate labels, and overfull text boxes; PDF page counts and SHA-256 values are recorded.
-- Negative learned outcomes, inconclusive seed intervals, synthetic scope, and unequal-accuracy timing comparisons are explicitly reported.
-- Editorial novelty, significance, and acceptance are questions for the referee; a passing checker does not decide them.
+| Item | Package status |
+|---|---|
+| Current referee report | R12 report retained unchanged on the new branch |
+| Integrated revision | Main paper, current EC, and point-by-point response supplied |
+| Main style | 11-point font, 1.5 spacing, one-inch margins, anonymous title page |
+| Abstract and introduction | Text-only abstract below 200 words; introduction has no mathematical notation |
+| Category | Lengthy manuscript; automated check conservatively counts all pages including references and deferred tables against 40 |
+| Companion | Automated check requires it to be no longer than the main paper |
+| Proof location | Every essential new theorem proved in main text |
+| References and tables | Author-year bibliography; new primary sources credited; tables deferred after references |
+| Source integrity | Ordinary committed TeX/Python; predecessor SHA-256 preservation checks |
+| Deterministic certificates | Standard-library-only Fraction replay; no optimizer or numerical-library import |
+| Statistical validation | Frozen policies; declared distribution; prospective confirmation plan; model-derived range; all samples included |
+| Unfavorable evidence | Old nonlinear failures, weak new coverage, stronger classical lookup, broad regret ceilings, and missed bracket targets retained |
+| Author/portal actions | Authors must provide actual identities, disclosures, exclusivity/overlap statements, funding, and any required AI-use disclosure before journal submission |
 
-The historical supplement is an archival preservation document, not a claim that all historical material must be part of the journal's current electronic companion.
+See `revisions/or-r13-20260922/results/package_checks.json` for actual page and build checks, and `RESPONSE_TO_REFEREE.md` for the scientific response. Formal acceptance, originality, and editorial fit remain matters for independent review.

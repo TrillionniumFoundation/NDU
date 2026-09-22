@@ -1,0 +1,76 @@
+\subsection{Accepted transfers as coordinates, not a repair heuristic}\label{sec:r13-flow}
+The scalar specialization has a useful algorithmic consequence. In this subsection the outside tier is constant and interior, $z_n=q_0\in(l_n,u_n)$, payment coefficients satisfy $c_n>0$, every nonroot subtree has its comparator payment cap, and the root payment is fixed at the comparator level. Other polyhedra remain covered by Theorem~\ref{thm:r12-balance}; the coordinate construction below uses these additional assumptions. Include the root installation edge in $D$, so that $D(x-z)$ contains every change from the installed protocol.
+
+For a nonroot node $n$, define the unpaid continuation amount and its tier-scaled version by
+\[
+ f_n=-\sum_{j\succeq n}c_j(x_j-z_j),\qquad y_n=f_n/c_n.
+\]
+Let $B$ have one column for each nonroot node: $B_{nn}=-1$, $B_{\operatorname{pa}(n),n}=c_n/c_{\operatorname{pa}(n)}$, and all other entries zero. Column indices here name nodes rather than consecutive integers.
+\begin{proposition}[Exact continuation-flow coordinates]\label{prop:r13-flow}
+The map $x=z+By$ is a bijection between the scalar accepted polytope and
+\begin{equation}\label{eq:r13-flow-polytope}
+ \mathcal Y=\{y\geq0:l-z\leq By\leq u-z\}.
+\end{equation}
+It preserves all nonroot continuation caps and the root payment equality. Both the map and its inverse require $O(N)$ arithmetic operations and storage on an $N$-node tree. In particular, optimizing in these coordinates does not restrict the feasible set to a selected collection of transfers.
+\end{proposition}
+\begin{proof}
+Set $f_o=0$ at the root. Subtracting child subtree sums from the subtree sum at $n$ gives
+$c_n(x_n-z_n)=\sum_{j:\operatorname{pa}(j)=n}f_j-f_n$.
+This is exactly $x-z=By$. Feasibility gives $f_n\geq0$. Conversely, summing this identity over any subtree cancels every internal transfer, leaving $-f_n$; summing over the whole tree gives zero. Bounds on $x$ give precisely the two remaining inequalities in \eqref{eq:r13-flow-polytope}. The same identities prove uniqueness. One backward summation computes all $f_n$; $B$ has two entries per column.
+\end{proof}
+An amount $f_n$ moves payment from the continuation rooted at $n$ to its parent without changing total payment. Its nonnegativity records the customer's exit option, not an artificial restriction on a learned actor. Conditional and unconditional subtree constraints are equivalent because the conditioning probability is positive.
+
+\subsection{A constructive critical-friction bracket}\label{sec:r13-bracket}
+Put $g=\nabla r(z)$, $a=B^\top g$, and $K=DB$. For $y\ne0$ define $T_B(y)=\sum_n\kappa_n|(Ky)_n|$. Since $D$ is invertible and $B$ has full column rank, $T_B(y)>0$. The tangent cone of \eqref{eq:r13-flow-polytope} at zero is the nonnegative orthant. Thus the critical friction admits the primal and dual expressions
+\begin{equation}\label{eq:r13-critical}
+ \lambda_c=\max\left\{0,\sup_{y\geq0,\,y\ne0}\frac{a^\top y}{T_B(y)}\right\}
+ =\min\{\lambda\geq0:K^\top s\geq a,\ |s_n|\leq\lambda\kappa_n\}.
+\end{equation}
+The first equality follows from the directional optimality condition; the second follows from the support function of the tension box and separation. Equivalently, minimize $\lambda$ subject to
+\[
+ v=D^\top s,\quad B^\top v\geq a,\quad -\lambda\kappa\leq s\leq\lambda\kappa.
+\]
+Keeping $v$ avoids forming $DB$. This linear program has $2N+1$ variables and $9N-3$ matrix nonzeros with the displayed representation. It is not a linear-time claim for solving a general linear program.
+
+\begin{theorem}[Two-pass repair and an improving decision]\label{thm:r13-bracket}
+Take any $\lambda\geq0$ and any $s$ with $|s_n|\leq\lambda\kappa_n$. Let $r=(a-B^\top D^\top s)_+$. Define $v_o=0$, and in forward tree order set
+\[
+ v_n=\frac{c_n}{c_{\operatorname{pa}(n)}}v_{\operatorname{pa}(n)}-r_n,
+ \qquad d_n=\sum_{j\succeq n}v_j.
+\]
+Then, for every nonzero $y\geq0$,
+\begin{equation}\label{eq:r13-bracket}
+ \max\{0,a^\top y/T_B(y)\}\ \leq\ \lambda_c\ \leq\
+ \max_n\frac{|s_n+d_n|}{\kappa_n}
+ \ \leq\lambda+\max_n\frac{|d_n|}{\kappa_n}.
+\end{equation}
+All quantities and both feasibility witnesses are computable in $O(N)$ arithmetic operations. If $\Gamma=a^\top y-\lambda T_B(y)>0$ and the smooth resource is quadratic with Hessian $Q$, let $q=y^\top B^\top QBy>0$ and
+$t_b=\sup\{t\geq0:z+tBy\in[l,u]\}$. The accepted policy with
+$t=\min\{t_b,\Gamma/q\}$ earns exactly
+\begin{equation}\label{eq:r13-ray-gain}
+ W_\lambda(z+tBy)-W_\lambda(z)=t\Gamma-t^2q/2>0.
+\end{equation}
+\end{theorem}
+\begin{proof}
+The forward recursion gives $B^\top v=r$. Backward subtree summation gives $D^\top d=v$, including the installation edge. Consequently
+$B^\top D^\top(s+d)=B^\top D^\top s+r\geq a$.
+This proves the upper bound by dual feasibility; the last inequality is the triangle inequality. The lower bound is the first expression in \eqref{eq:r13-critical}. Every operation is a tree traversal. Interior bounds give $t_b>0$. Along $z+tBy$, switching is positively homogeneous because all changes vanish at $z$, whereas the smooth quadratic expands exactly. Maximizing the resulting concave quadratic on $[0,t_b]$ proves \eqref{eq:r13-ray-gain}. No additional switching-sign clearance is needed along this ray.
+\end{proof}
+The repaired tension has an immediate price interpretation. For $\alpha=B^\top D^\top(s+d)-a\geq0$, the continuation-price increment at node $n$ is $\alpha_n/c_n$. The root price is unrestricted. These increments reconstruct the supporting ancestor prices of Corollary~\ref{cor:r12-cuts}. A positive lower witness instead identifies the branches on which accepted payment reallocation can finance profitable reconfiguration.
+
+\paragraph{A sparse first-order implementation.}
+Write $s=\operatorname{diag}(\kappa)t$ and $b=\operatorname{diag}(c_{-o})^{-1}a$, and define
+\[M=\operatorname{diag}(c_{-o})^{-1}B^\top D^\top\operatorname{diag}(\kappa).\]
+At a trial friction minimize
+\begin{equation}\label{eq:r13-feasibility}
+ \phi_\lambda(t)=\tfrac12\|(b-Mt)_+\|_2^2,\qquad |t_n|\leq\lambda.
+\end{equation}
+Its gradient is $-M^\top(b-Mt)_+$ and is Lipschitz with constant at most $L=\|M\|_1\|M\|_\infty$. Accelerated projected gradient therefore has the standard $O(L\|t_0-t_*\|^2/k^2)$ objective bound \citep{BeckTeboulle2009}. Products with $M$ and its transpose use the two sparse factors, not a materialized matrix. Their absolute row and column sums also have linear-time formulas, given in the companion. Each iteration is $O(N)$; neither the conditioning nor the required number of iterations is asserted to be dimension independent.
+
+Apply Theorem~\ref{thm:r13-bracket} to intermediate tensions, using
+$y=\operatorname{diag}(c_{-o})^{-1}(b-Mt)_+$ as a lower witness when nonzero. Maintain the best lower and upper bounds and choose the next trial at their midpoint. If a trial is infeasible, its minimizer has residual $r\ne0$. The box optimality inequality gives
+$r^\top Mt=\lambda\|M^\top r\|_1$ and hence
+$b^\top r=\lambda\|M^\top r\|_1+\|r\|^2$.
+Thus its lower witness strictly exceeds the trial friction. For a feasible trial the residual tends to zero and the repair upper bound tends to a value no greater than that trial. These facts explain the bracket algorithm without interpreting a small gradient norm as an exact feasibility decision. The implementation stops on the bracket width or reports an iteration cap; it stores rational witnesses in either case.
+
+The computational contribution is the continuation-preserving coordinate map, explicit tension repair, and accepted-gain witness. Total-variation duality and regularization paths themselves are established \citep{TibshiraniTaylor2011,ArnoldTibshirani2016}. Unlike unconstrained fused-lasso denoising, the admissible directions here form a payment-transfer cone; its polar inequality is one-sided and determines continuation prices. Sparse generic linear programming remains an important, and often faster, comparator.

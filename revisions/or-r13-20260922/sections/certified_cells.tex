@@ -1,0 +1,97 @@
+\subsection{Approximate prices without an unknown optimal face}\label{sec:r13-leakage}
+The face in Theorem~\ref{thm:r12-face} explains a loss mechanism but does not by itself implement a policy. We now remove that oracle from the certificate and then give a verifiable local policy representation. First permit \emph{arbitrary} predicted tensions satisfying only $|s_a|\leq\lambda\kappa_a$. They need not have the candidate's switching signs. Define their switching leakage by
+\[
+ \Psi_s(x)=\lambda T(x)-s^\top(Dx-h)\geq0.
+\]
+Keep the residual $e_x$ in \eqref{eq:r12-certificate}, with arbitrary nonnegative inequality and box prices and an arbitrary equality price. Let
+\begin{equation}\label{eq:r13-leakage}
+ \mathcal L_x=\mu^\top(b-Ax)+(u^+)^\top(u-x)+(u^-)^\top(x-l)+\Psi_s(x).
+\end{equation}
+\begin{theorem}[Computable approximate-face certificate]\label{thm:r13-leakage}
+For every feasible $x$ and every such set of predicted prices,
+\begin{equation}\label{eq:r13-gap}
+ 0\leq W_\lambda(x^*)-W_\lambda(x)
+ \leq\widetilde C(x):=\frac{\|e_x\|_{H^{-1}}^2}{2m_0}+\mathcal L_x.
+\end{equation}
+In particular, residual norm at most $\epsilon$ and leakage at most $\eta$ give regret at most $\epsilon^2/(2m_0)+\eta$, without identifying an optimal face. Moreover $x^*$ lies in the metric ball centered at $x$ of radius $R_x=\sqrt{2\widetilde C(x)/m_0}$. An inequality $A_i x\leq b_i$ is strictly inactive at $x^*$ whenever
+$b_i-A_i x>R_x\|A_i\|_{H^{-1}}$. A switching sign is correct whenever
+$|(Dx-h)_a|>R_x\|D_a\|_{H^{-1}}$.
+\end{theorem}
+\begin{proof}
+For any feasible $y$, the tension-box inequality gives
+$-\lambda T(y)\leq-s^\top(Dy-h)$, while at $x$ the difference is exactly $\Psi_s(x)$. Strong concavity therefore gives
+\[
+ W_\lambda(y)-W_\lambda(x)
+ \leq(\nabla r(x)-D^\top s)^\top(y-x)
+       -\tfrac{m_0}{2}\|y-x\|_H^2+\Psi_s(x).
+\]
+Insert $e_x$. Feasibility bounds the normal contributions by the first three terms in \eqref{eq:r13-leakage}; completing the square proves \eqref{eq:r13-gap}. Strong convexity of $-W_\lambda$ and constrained optimality give
+$m_0\|x-x^*\|_H^2/2\leq W_\lambda(x^*)-W_\lambda(x)$.
+Cauchy--Schwarz in this ball proves the two strict tests.
+\end{proof}
+The certificate is computable from a predicted actor and prices, including after exact feasibility repair. Its four leakage terms expose which continuation, boundary, or switching decision causes a first-order loss. For example, maximizing $-x-x^2/2$ on $[0,1]$ loses $\epsilon+\epsilon^2/2$ at $x=\epsilon$: the lower-bound price contributes $\epsilon$. Maximizing $-x^2/2-|x|$ on $[-1,1]$ gives the same loss at $\epsilon$; using $s=0$ contributes switching leakage $\epsilon$. Omitting either term invalidates the purported quadratic bound. Small norm error alone does not justify identifying a binding equality; the strict ball tests only discard inequalities or certify nonzero signs.
+
+Weak duality and gap-based safe regions are established principles \citep{BoydVandenberghe2004,Fercoq2015}. The relevant specialization here is an auditable loss for complete continuation policies, including \emph{incorrect} predicted switching faces. It also prevents rounding a nominally fused edge from silently invalidating a subgradient certificate. Rational replay checks the repaired tiers, sign-independent tension capacities, and every leakage term. The bound can be a certificate-aware fitting objective, but its validity does not assume successful minimization of that objective.
+
+\subsection{Verifiable acceptance cells and compatible neural routing}\label{sec:r13-cells}
+For an implementable positive bridge, specialize the smooth resource to a quadratic and use the full coordinates of Proposition~\ref{prop:r13-flow}. Write the incremental problem as
+\begin{equation}\label{eq:r13-cell-problem}
+ \max_{Fy\leq d}\left\{a(\theta)^\top y-\tfrac12y^\top Q_B y
+                   -\lambda(\theta)\sum_n\kappa_n|(Ky)_n|\right\},
+ \quad Q_B=B^\top QB\succ0.
+\end{equation}
+Here $Fy\leq d$ represents \eqref{eq:r13-flow-polytope}; the context enters $a$ and $\lambda\geq0$ affinely. The matrices and bounds are fixed. General nonlinear resources still have Theorem~\ref{thm:r13-leakage}, but the exact affine representation below uses the quadratic assumption.
+
+Choose a set $I$ of binding inequalities, a set $Z$ of fused edges, and signs $\sigma_n\in\{-1,1\}$ on the remaining edges $S$. Set
+$C=[F_I^\top,K_Z^\top]^\top$ and $d_C=(d_I,0)$. Require $C$ to have full row rank, but do not require \emph{all} binding constraints to be independent. Solve once for the affine maps in $\theta$:
+\begin{equation}\label{eq:r13-cell-system}
+ \begin{pmatrix}Q_B&C^\top\\ C&0\end{pmatrix}
+ \begin{pmatrix}y_\theta\\ \mu_{I,\theta}\\s_{Z,\theta}\end{pmatrix}
+ =\begin{pmatrix}a(\theta)-K_S^\top(\lambda(\theta)\kappa_S\sigma_S)\\d_C\end{pmatrix}.
+\end{equation}
+Set inactive inequality prices to zero and $s_{S,\theta}=\lambda(\theta)\kappa_S\sigma_S$.
+
+\begin{theorem}[Verified cell, stability, and scalar critic]\label{thm:r13-cells}
+Define the closed polyhedral parameter region
+\begin{equation}\label{eq:r13-region}
+ \mathcal C=\{\theta:\lambda(\theta)\geq0,\ Fy_\theta\leq d,\
+       \mu_{I,\theta}\geq0,\ |s_{Z,\theta}|\leq\lambda(\theta)\kappa_Z,\
+       \sigma_S\mathbin{\odot}K_Sy_\theta\geq0\}.
+\end{equation}
+At every $\theta\in\mathcal C$, $z+By_\theta$ is the unique global accepted optimizer. No optimal multiplier at the query point is needed to check membership. If the nonconstant defining inequalities are $r_j(\theta)\geq0$, then the region contains the parameter ball of radius
+\begin{equation}\label{eq:r13-radius}
+ \rho(\theta)=\min_{j:\nabla r_j\ne0}
+                 \frac{r_j(\theta)}{\|\nabla r_j\|_*}
+\end{equation}
+around any of its points, where the norm is dual to the chosen parameter norm. Empty minima are interpreted as infinity. Boundary points can have radius zero.
+
+Substitution in \eqref{eq:r13-cell-problem}, with the fixed signs on $S$, gives a scalar quadratic value expert. The same construction with the full forcing $p$ as parameter satisfies $\nabla_p J(p,\lambda)=z+By_\theta$ on its region. Along a lower-dimensional context map $p(\theta)$, its gradient is the corresponding chain-rule pullback, not an $N$-dimensional actor inferred by inverting that map. Its friction derivative is $-T(x^*)$. Any learned rule that selects a cell and then verifies \eqref{eq:r13-region} returns this compatible value and policy wherever a cell is accepted. Different accepted cells agree on the policy and value at their overlap.
+\end{theorem}
+\begin{proof}
+Positive definiteness of $Q_B$ and full row rank of $C$ make the saddle matrix nonsingular: a homogeneous solution has $Cy=0$ and $y^\top Q_By=0$, hence $y=0$, followed by a zero dual vector. Thus the maps in \eqref{eq:r13-cell-system} are affine. Region membership supplies primal feasibility, dual nonnegativity, complementary slackness, and an absolute-value subgradient. The first block equation supplies stationarity. Convexity makes these conditions sufficient; strict convexity gives uniqueness. For each affine region inequality, perturbation by $h$ changes its value by at most $\|\nabla r_j\|_*\|h\|$, proving \eqref{eq:r13-radius}. On the region, the absolute penalty uses fixed signs, so substitution yields a scalar quadratic. The envelope identity for a unique optimizer gives its forcing and friction derivatives. At a shared boundary uniqueness forces all verified representatives to give the same primal solution and objective.
+\end{proof}
+A partially covered library is not claimed to supply a globally smooth approximate critic across rejection boundaries. The compatible gradient statement concerns its verified pieces; rejected queries use the separate policy certificate.
+
+This is an offline--online construction, not an assertion that optimal faces can be learned without information. Offline optimizers generate candidate bases and affine price maps. A neural classifier learns to propose their indices. Online membership checks and Theorem~\ref{thm:r13-leakage} validate the proposed policy. A rejected or numerically inaccurate proposal invokes the specified static gate or a fully timed classical refinement. Unrepresented cells, degenerate bases, and incorrect classifier predictions cannot bypass the check. With fixed parameter dimension $d_\theta$, an accepted query takes $O(Nd_\theta)$ arithmetic operations per proposed cell after its affine coefficients are stored. Offline factorization, library size, and bit complexity are not hidden in that bound.
+
+Piecewise-affine control from multiparametric quadratic programming is classical \citep{Bemporad2002}, as are active-set path algorithms \citep{ArnoldTibshirani2016}. Our bridge uses this machinery for \emph{joint continuation and switching faces}, pairs each scalar expert with its complete acceptance-price map, and certifies arbitrary rejected-face error by \eqref{eq:r13-gap}. Together these results support a learn--verify--refine algorithm whose sufficient conditions contain no unknown query-time optimum. It does not assert full parameter-space coverage or neural superiority over classical cell lookup.
+
+\subsection{A distribution-free range for a declared parameter box}\label{sec:r13-range}
+A useful validation range can be established from the model instead of the largest observed certificate. Let $z$ be a fixed feasible outside policy with $T(z)=0$, let forcing lie in a specified box, and let $\lambda\geq\lambda_{\min}$. Define incremental gain $G_\theta(x)=W_\theta(x)-W_\theta(z)$ and normalize by a fixed positive review mass $S_0$. At every forcing-box vertex $v$, obtain a feasible policy $x_v$ and a valid gap $C_v$ at $\lambda_{\min}$.
+\begin{proposition}[Corner range and simultaneous gain validation]\label{prop:r13-range}
+Let $B=\max_v\{G_v(x_v)+C_v\}/S_0$. Every feasible policy gated against $z$ has normalized gain in $[0,B]$, and regret at most $B$. For $M$ frozen complete pipelines and $n$ independent validation instances from their declared deployment distribution, set
+\[
+ h=B\sqrt{\log(2M/\delta)/(2n)},\qquad
+ C_j=\min\{B,\widetilde C_j/S_0\}.
+\]
+With probability at least $1-\delta$, simultaneously for every pipeline and for a validation-selected pipeline,
+\begin{equation}\label{eq:r13-validation}
+ \mathbb E\,\mathrm{Regret}_j/S_0\leq\overline C_j+h,
+ \qquad
+ \mathbb E\,G_j/S_0\geq\max\{0,\overline G_j/S_0-h\}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For fixed $z$, optimal incremental gain is a maximum of affine functions of forcing and hence convex. Its maximum on a box is bounded by the largest vertex value. Increasing friction cannot increase incremental gain because $T(z)=0$. Each vertex value is at most $G_v(x_v)+C_v$. Feasibility and the gate give the asserted ranges, including the range for regret. Apply one-sided Hoeffding inequalities to each certificate and each gain, then a union bound over $2M$ statements. Nonnegative gain supplies the zero lower bound. Simultaneity permits selection.
+\end{proof}
+The concentration step remains standard. The new operational point is a deterministic range calculation and an actually frozen deployment rule. A parameter-dependent reoptimized outside policy need not preserve convexity of incremental gain; the corner argument is not applied to the predecessor noncentered experiment. Nor does a positive gain bound establish an advantage over a different nonstatic optimizer.

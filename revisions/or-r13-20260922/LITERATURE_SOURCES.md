@@ -1,0 +1,11 @@
+# Sources checked for R13 positioning and format
+
+The new main paper retains all R12 bibliography entries and adds these primary sources. They are used to delimit, not inflate, the incremental contribution.
+
+- Operations Research, current submission guidelines, checked September 22, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines . Lengthy manuscripts generally at most 40 pages excluding references; EC no longer than main; 11 points, 1.5 spacing, one-inch margins; abstract at most 200 words; no mathematical notation in the introduction; author-year references; tables after references.
+- Bemporad A, Morari M, Dua V, Pistikopoulos EN (2002), *The explicit linear quadratic regulator for constrained systems*, Automatica 38(1):3–20. Primary institutional publication record: https://old.control.ee.ethz.ch/publications/2002/12.html . The paper credits multiparametric quadratic programming and offline–online piecewise-affine control to this literature.
+- Arnold TB, Tibshirani RJ (2016), *Efficient implementations of the generalized lasso dual path algorithm*, JCGS 25(1):1–27. https://doi.org/10.1080/10618600.2015.1008638 ; author preprint https://arxiv.org/abs/1405.3222 . Generic path algorithms and graph-total-variation specializations are not claimed as new.
+- Beck A, Teboulle M (2009), *A fast iterative shrinkage-thresholding algorithm for linear inverse problems*, SIAM Journal on Imaging Sciences 2(1):183–202. https://doi.org/10.1137/080716542 . The accelerated projected-gradient rate is standard; the continuation-flow repair and its exact witnesses are the additional construction.
+- Fercoq O, Gramfort A, Salmon J (2015), *Mind the duality gap: safer rules for the Lasso*, PMLR 37:333–342. https://proceedings.mlr.press/v37/fercoq15.html . Gap-based safe regions and active-set screening are credited as antecedents; this paper's strict primal tests do not claim binding-constraint identification from a ball alone.
+
+The existing Tibshirani–Taylor generalized-lasso, Boyd–Vandenberghe convex-analysis, Hoeffding concentration, and earlier service-contract references remain intact. No new field calibration or unverifiable institutional fact is introduced.
