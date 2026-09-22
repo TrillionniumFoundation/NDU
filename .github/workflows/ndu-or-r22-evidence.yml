@@ -5,10 +5,34 @@ on:
     paths: [.github/workflows/ndu-or-r22-evidence.yml]
 permissions:
   contents: read
+concurrency:
+  group: ndu-or-r22-evidence-v2
+  cancel-in-progress: false
 jobs:
-  evidence:
+  supersede:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Stop only the two superseded R22 execution jobs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for run in 35784975101 35786253284; do
+            status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run" --jq '.status')
+            if [ "$status" != completed ]; then
+              gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$run/cancel" || true
+            fi
+          done
+  study:
+    needs: supersede
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      matrix:
+        study: [matched, validation, scaling]
     env:
       OPENBLAS_NUM_THREADS: 1
       OMP_NUM_THREADS: 1
@@ -18,33 +42,69 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Materialize isolated R22 numerical sources from pinned R21
+      - name: Materialize isolated numerical sources and disclosed refinement amendment
+        env:
+          STUDY: ${{ matrix.study }}
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil,json,os,platform
+          old=Path('revisions/or-r21-20260923'); new=Path('revisions/or-r22-20260923')
+          shutil.copytree(old,new,dirs_exist_ok=True)
+          for src in old.rglob('*'):
+              if src.is_file() and 'predecessor' not in src.parts and src.suffix in ['.py','.sh','.tex','.md','.json']:
+                  p=new/src.relative_to(old)
+                  p.write_text(p.read_text().replace('or-r21-20260923','or-r22-20260923').replace('R21','R22').replace('r21-','r22-').replace('ndu-or-r21/','ndu-or-r22/'))
+          (new/'results').mkdir(exist_ok=True)
+          (new/'results'/('EXECUTION_SOURCE_'+os.environ['STUDY']+'.json')).write_text(json.dumps({'inherited_source':'c2d25791bd1f4c2b1801a446376a86c50eb381fe','execution_commit':os.environ['GITHUB_SHA'],'study':os.environ['STUDY'],'platform':platform.platform(),'timing':'One isolated runner per complete study; no concurrent CPU-intensive study on that runner. No cross-study pooling.'},indent=2)+'\n')
+          PY
+          python revisions/or-r22-20260923/patch_scaling_fallback.py
+          python -m pip install -r revisions/or-r16-20260922/requirements.txt
+      - name: Execute every prespecified record of this study
+        env:
+          STUDY: ${{ matrix.study }}
+        run: |
+          set -euo pipefail
+          file="$STUDY.py"
+          if [ "$STUDY" = matched ]; then file=matched_cost.py; fi
+          python -u "revisions/or-r22-20260923/$file" 2>&1 | tee "revisions/or-r22-20260923/results/$STUDY-execution.log"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r22-study-${{ matrix.study }}
+          path: revisions/or-r22-20260923
+          retention-days: 30
+  evidence:
+    needs: study
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: ndu-or-r22-study-*
+          path: /tmp/r22-studies
+      - name: Require identical scientific sources and merge distinct recorded studies
         run: |
           python - <<'PY'
           from pathlib import Path
           import shutil,json
-          old=Path('revisions/or-r21-20260923'); new=Path('revisions/or-r22-20260923')
-          shutil.copytree(old,new)
-          for p in new.rglob('*'):
-              if p.is_file() and 'predecessor' not in p.parts and p.suffix in ['.py','.sh','.tex','.md','.json']:
-                  s=p.read_text().replace('or-r21-20260923','or-r22-20260923').replace('R21','R22').replace('r21-','r22-').replace('ndu-or-r21/','ndu-or-r22/')
-                  p.write_text(s)
-          (new/'results').mkdir(exist_ok=True)
-          (new/'results'/'EXECUTION_SOURCE.json').write_text(json.dumps({'inherited_source':'c2d25791bd1f4c2b1801a446376a86c50eb381fe','status':'Numerical execution; not a completed manuscript or final-SHA validation.'},indent=2))
+          root=Path('revisions/or-r22-20260923'); folders=sorted(Path('/tmp/r22-studies').iterdir())
+          assert len(folders)==3
+          shutil.copytree(folders[0],root,dirs_exist_ok=True)
+          sources=['core.py','certificate.py','time_comparator.py','matched_cost.py','validation.py','scaling.py','patch_scaling_fallback.py']
+          for folder in folders[1:]:
+              for n in sources:assert (folder/n).read_bytes()==(root/n).read_bytes(),n
+              for p in (folder/'results').rglob('*'):
+                  if not p.is_file():continue
+                  dest=root/'results'/p.relative_to(folder/'results')
+                  if dest.exists():assert dest.read_bytes()==p.read_bytes(),str(dest)
+                  else:dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
+          (root/'results/EXECUTION_MERGE.json').write_text(json.dumps({'status':'PASS','study_artifacts':[p.name for p in folders],'source_identity_verified':sources,'timing':'Separate isolated study hosts. Identical compared-method protocol within each study; no cross-study pooling.'},indent=2)+'\n')
           PY
-          python -m pip install -r revisions/or-r16-20260922/requirements.txt
-      - name: Execute matched complete-pipeline timing
-        run: |
-          set -euo pipefail
-          python -u revisions/or-r22-20260923/matched_cost.py 2>&1 | tee revisions/or-r22-20260923/results/matched-execution.log
-      - name: Execute independent deterministic validation and declared shift
-        run: |
-          set -euo pipefail
-          python -u revisions/or-r22-20260923/validation.py 2>&1 | tee revisions/or-r22-20260923/results/validation-execution.log
-      - name: Execute full-polyhedron scaling with retained failures
-        run: |
-          set -euo pipefail
-          python -u revisions/or-r22-20260923/scaling.py 2>&1 | tee revisions/or-r22-20260923/results/scaling-execution.log
       - name: Independent exact replay and analysis
         run: |
           set -euo pipefail
