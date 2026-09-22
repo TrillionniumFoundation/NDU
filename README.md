@@ -1,26 +1,30 @@
-# Neural Differential Utility — Operations Research revision R13
+# Neural Differential Utility — Operations Research revision R14
 
-This branch contains **Neural Differential Utility: Accepted Adaptive Service Control and Certified Value-Gradient Learning**, revised in response to the R12 Operations Research referee report.
+**Neural Differential Utility: Accepted Adaptive Service Control and Certified Value-Gradient Learning**
 
-**Revision branch:** `revision/ndu-operations-research-r13-certified-faces-20260922`  
-**Reviewed base:** `5b1a62679f890006d8f6a234160fa9a02dcdbc5a`
+This new revision responds to the latest R12 referee report and builds on the completed R13 manuscript rather than reverting to an older version.
+
+**Revision branch:** `revision/ndu-operations-research-r14-20260922`  
+**Scientific parent:** `808b8f0353051581134d3b8b5a7424422d4e48a8`  
+**Review:** `reviews/operation_research_referee_report_r12_2026-09-22.md` at `5b1a62679f890006d8f6a234160fa9a02dcdbc5a`.
 
 ## Current review documents
 
-- [Main manuscript](main.pdf) and [ordinary TeX source](main.tex).
-- [Current electronic companion](electronic_companion.pdf), including the unabridged earlier nonlinear experiment and its adverse outcomes.
-- [Point-by-point referee response](revisions/or-r13-20260922/RESPONSE_TO_REFEREE.md).
-- [Preservation and relocation map](revisions/or-r13-20260922/PRESERVATION.md).
-- [Reproduction instructions](revisions/or-r13-20260922/README.md) and [submission checklist](NDU_OR_submission_checklist.md).
+- [Main manuscript](main.pdf), [ordinary TeX source](main.tex), and [current electronic companion](electronic_companion.pdf).
+- [Point-by-point response to the referee](revisions/or-r14-20260922/RESPONSE_TO_REFEREE.md).
+- [Preservation and relocation map](revisions/or-r14-20260922/PRESERVATION.md).
+- [Reproduction instructions](revisions/or-r14-20260922/README.md) and [submission checklist](NDU_OR_submission_checklist.md).
 
-The new results are exact continuation-flow coordinates, a two-pass critical-friction repair and profitable decision witness, an approximate-face certificate for arbitrary predicted prices, verified parameter cells with compatible scalar experts, and an executed independent-validation procedure. The nonsmooth learning experiment uses strictly positive absolute switching friction. General vector/boundary and nonconstant-comparator theory remains in the main paper.
+## New scientific content
 
-## Evidence and verification
+Main Section 7 supplies an explicit critical friction and a single-price exact algorithm on accepted two-review trees. Its global scalar-value-gradient regret bound requires no optimal query-time face, face library, or strict complementarity. An observable residual and independent rational conjugate bound certify the actual implemented policy, including rounding and capacity repair.
 
-The authoritative machine-readable records are [policy verification](revisions/or-r13-20260922/results/verification.json), [package checks](revisions/or-r13-20260922/results/package_checks.json), [independent confirmation](revisions/or-r13-20260922/results/confirmation.json), [complete timing summary](revisions/or-r13-20260922/results/summary.json), and [source/data hashes](revisions/or-r13-20260922/results/manifest.json). All frozen coefficients, raw policy records, friction paths, face diagnostics, corner bounds, and exact critical-friction witnesses are retained in the same results directory.
+Main Section 9 trains eight paired scalar neural critics, separates raw policy quality from classical refinement, compares against strong scalar solvers, and executes a new independent 2,048-context expected-gain confirmation. Every learned deployment has positive absolute friction. The full vector, boundary, signed-coefficient, nonconstant-comparator, and multistage theory remains in the main manuscript. The previous verified-cell experiment and all unfavorable nonlinear results remain intact.
 
-The positive expected-gain certificate compares a frozen learned policy with static in its declared synthetic distribution. It is not a universal learning-speed, derivative-supervision, or distribution-shift claim. Classical sequential cell lookup, actual refinement cost, limited coverage, broad regret ceilings, missed first-order iteration targets, and all previous unfavorable nonlinear results remain visible.
+The new direct neural policies are accurate before full-objective refinement in the specified synthetic family. Complete audit-inclusive latency still favors classical scalar solvers, and the paired derivative-training comparison is unresolved. These outcomes are reported rather than hidden.
 
-## Preserved history
+## Verification and preservation
 
-All predecessor scientific source files and results remain unchanged. The earlier root documents and PDFs have exact copies under `revisions/or-r13-20260922/predecessor/`. The [historical supplement](historical_supplement.pdf) preserves the diffusion, continuous-time, and earlier computational development; it is not required to establish a new R13 theorem. The reviewed report remains at `reviews/operation_research_referee_report_r12_2026-09-22.md`.
+The authoritative records are [rational replay](revisions/or-r14-20260922/results/verification.json), [structural checks](revisions/or-r14-20260922/results/structural_checks.json), [independent confirmation](revisions/or-r14-20260922/results/validation.json), [paired study and complete timings](revisions/or-r14-20260922/results/summary.json), [package checks](revisions/or-r14-20260922/results/package_checks.json), and [source/data hashes](revisions/or-r14-20260922/results/manifest.json).
+
+All earlier scientific directories and data are unchanged. Exact R13 root documents and PDFs are under `revisions/or-r14-20260922/predecessor/`. The [historical supplement](historical_supplement.pdf) preserves the earlier continuous-time and diffusion development; no new theorem depends on uninspected archival material. The root PDFs are rebuilt actual documents, not encoded placeholders or instructions for the next reviewer to finish.

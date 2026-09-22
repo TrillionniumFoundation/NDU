@@ -1,21 +1,19 @@
-# Operations Research R13 review checklist
+# Operations Research R14 review checklist
 
-This is a repository review package, not a completed journal submission. No author disclosures, conflicts, funding statements, or portal attestations are fabricated.
+Verified against the official Operations Research submission guidelines on September 22, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
 
-| Item | Package status |
-|---|---|
-| Current referee report | R12 report retained unchanged on the new branch |
-| Integrated revision | Main paper, current EC, and point-by-point response supplied |
-| Main style | 11-point font, 1.5 spacing, one-inch margins, anonymous title page |
-| Abstract and introduction | Text-only abstract below 200 words; introduction has no mathematical notation |
-| Category | Lengthy manuscript; automated check conservatively counts all pages including references and deferred tables against 40 |
-| Companion | Automated check requires it to be no longer than the main paper |
-| Proof location | Every essential new theorem proved in main text |
-| References and tables | Author-year bibliography; new primary sources credited; tables deferred after references |
-| Source integrity | Ordinary committed TeX/Python; predecessor SHA-256 preservation checks |
-| Deterministic certificates | Standard-library-only Fraction replay; no optimizer or numerical-library import |
-| Statistical validation | Frozen policies; declared distribution; prospective confirmation plan; model-derived range; all samples included |
-| Unfavorable evidence | Old nonlinear failures, weak new coverage, stronger classical lookup, broad regret ceilings, and missed bracket targets retained |
-| Author/portal actions | Authors must provide actual identities, disclosures, exclusivity/overlap statements, funding, and any required AI-use disclosure before journal submission |
+## Prepared and checked
 
-See `revisions/or-r13-20260922/results/package_checks.json` for actual page and build checks, and `RESPONSE_TO_REFEREE.md` for the scientific response. Formal acceptance, originality, and editorial fit remain matters for independent review.
+- Anonymous title page and metadata; title, text-only abstract, subject classifications, and proposed review area present.
+- 11-point type, 1.5 spacing, and one-inch margins. The 184-word abstract is below 200 words. Introduction has no equations or mathematical notation.
+- Lengthy-manuscript category: 43 total main-PDF pages, including three reference pages, hence 40 excluding references. The electronic companion has 38 pages and is shorter than the main manuscript. The historical supplement is an explicitly separate archive.
+- Essential new proofs appear in main Section 7. The optional earlier scalar precursor is moved intact to EC.12; the exact source and prior PDFs are preserved.
+- Author-year references in alphabetical order; the new classical single-resource citation is included. Main tables are captioned, numbered, and deferred after references, without vertical rules.
+- Ordinary TeX sources compile with no undefined references, duplicate labels, or overfull horizontal boxes. Selected title, theorem, proof, empirical, and table pages were rendered and visually inspected.
+- Complete source/data/README entry points, pinned requirements, raw observations, frozen neural coefficients, independent rational replay, all timing components, and source hashes accompany the paper.
+- Complete timing remains unfavorable to learning and the derivative-training interval remains inconclusive; neither finding is suppressed.
+- New branch only. No automatic merge into `main`, no alteration of review branches or earlier revisions.
+
+## Author decisions before any journal submission
+
+The corresponding author must confirm author identities, affiliations, financial-interest disclosures, review area, submission-category justification, and any other journal declarations. Those personal or institutional declarations have not been fabricated. This package is a repository revision for further referee review; it is not a claim that a journal submission has been made or accepted.

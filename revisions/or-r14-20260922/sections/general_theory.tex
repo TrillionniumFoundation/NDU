@@ -1,0 +1,77 @@
+\section{Identification and a unified accepted-control problem}\label{sec:r10-general}
+This section supplies a common formulation for the scalar contract model, joint service portfolios, and continuation participation. Critical-fractile analysis and convex first-order optimality are established tools; the supporting-price interpretation identifies their role here. The full-tree cut characterization in Section~\ref{sec:r12-network} supplies the switching and continuation structure; the earlier scalar edge criterion is retained in EC Section~\ref{sec:r10-tree}.
+
+\subsection{Demand primitives and identified physical decisions}
+Let $D_z$ be nonnegative demand with finite mean, on an exogenous regime process whose occupation probabilities do not depend on the policy. On a compact stock interval $I_z=[l_z,u_z]$, $l_z<u_z$, write
+\[
+ C_z(S)=cS+h\E(S-D_z)^++p\E(D_z-S)^+,\quad
+ f_z(S)=\E\min(S,D_z),\quad \Psi_z(S)=C_z(S)-\xi f_z(S).
+\]
+Here $\xi>0$ is a supporting service price, not a contractual transfer chosen by the provider. Denote the demand distribution function by $H_z$, avoiding confusion between physical fill and resource cost. The critical level is $\tau=(p+\xi-c)/(h+p+\xi)$, with $h+p+\xi>0$.
+
+\begin{proposition}[Identified stocks, boundaries, and slack commitments]\label{prop:r10-stock}
+Suppose $s_z$ uniquely minimizes $\Psi_z$ on $I_z$. Then the commitments $F^\pi\geq F^s$ and $C^\pi\leq C^s$ force $S_t=s_{z_t}$ almost surely at every positive-probability review, and both commitments bind. This statement includes randomized policies.
+
+For an interior minimizer, the one-sided derivatives satisfy
+\[
+ \Psi'_{z,-}(S)=c-p-\xi+(h+p+\xi)H_z(S-),\qquad
+ \Psi'_{z,+}(S)=c-p-\xi+(h+p+\xi)H_z(S).
+\]
+Thus $H_z(s_z-)\leq\tau\leq H_z(s_z)$. At $l_z$ the condition is $\Psi'_{z,+}(l_z)\geq0$, and at $u_z$ it is $\Psi'_{z,-}(u_z)\leq0$. A strictly straddling atom or a continuously increasing crossing gives uniqueness; when no crossing lies in the feasible interval the constrained minimizer can instead be an endpoint. The condition $0<\tau<1$ alone does not guarantee an interior feasible quantile.
+
+If, separately, $\Psi_z(S)-\Psi_z(s_z)\geq\alpha|S-s_z|^2$ on every $I_z$, then relaxed commitments imply
+\begin{equation}\label{eq:r10-pin}
+ \E^\pi\sum_t\beta^t|S_t-s_{z_t}|^2
+ \leq(\delta_C+\xi\delta_F)/\alpha,
+ \quad F^\pi\geq F^s-\delta_F,\quad C^\pi\leq C^s+\delta_C.
+\end{equation}
+A sufficient smooth-demand condition is a density at least $\rho>0$ throughout the entire feasible stock interval, with $\alpha=(h+p+\xi)\rho/2$.
+\end{proposition}
+\begin{proof}
+The displayed derivatives follow by differentiating expected excess and shortage from the left and right. Convexity gives the endpoint and interior conditions. Sum the nonnegative gaps $\Psi_{z_t}(S_t)-\Psi_{z_t}(s_{z_t})$ under the policy's discounted occupation probabilities. Exogeneity makes the comparator use those same probabilities, while acceptance bounds their sum above by $(C^\pi-C^s)-\xi(F^\pi-F^s)\leq0$. Uniqueness therefore identifies stock at each reachable review. Under quadratic growth the same sum is at least the left side of \eqref{eq:r10-pin} times $\alpha$. The density bound gives $\Psi_z''\geq2\alpha$ almost everywhere; integration and the constrained first-order condition prove the growth inequality even at an endpoint. The smooth-growth conclusion is not attributed to the atomic canonical instance.
+\end{proof}
+
+For $d$ stocks with arbitrary correlated demands, a concrete vector extension is $C_z(S)=\sum_j C_{zj}(S_j)$ and $f_{zj}(S_j)=\E\min(S_j,D_{zj})$, with a separate commitment $F_j^\pi\geq F_j^s$ for every service and a single total physical-cost cap. Choose $\xi_j>0$ and the unique constrained marginal quantiles at levels $(p_j+\xi_j-c_j)/(h_j+p_j+\xi_j)$. On a product stock set, $\Psi_z=C_z-\sum_j\xi_j f_{zj}$ has the unique vector minimizer. Correlation is immaterial because these costs are additive expectations. Under coordinate density bounds, \eqref{eq:r10-pin} holds with a squared Euclidean norm, numerator $\delta_C+\sum_j\xi_j\delta_{F,j}$, and the smallest coordinate curvature. Coupled stock constraints require these coordinate minimizers to be jointly feasible; the statement is not extended to an arbitrary vector service functional by assertion.
+
+\subsection{Joint resources and explicit information restrictions}
+On a finite exogenous tree, let $x_n\in[0,1]^d$ be the tier vector at decision node $n$, $w_n>0$ its discounted probability, and $a_n\in\R^d$ its net payment rates. The fixed initial tier is $q_0$. Identified physical cost $C^s$ is constant. Set
+\begin{align}
+ \mathcal R(x)&=\sum_n w_n\{M_n(x_n)+A_n(x_n-x_{\mathrm{pa}(n)})\}+\mathcal G(x),\label{eq:r10-resource}\\
+ W(x)&=p^\top x-\mathcal R(x)-C^s,\qquad p_n=w_na_n,\notag\\
+ X&=\{x\in[0,1]^{Nd}: Bx\leq b,\ Ex=e\}.\label{eq:r10-poly}
+\end{align}
+All resource functions are differentiable and convex on a neighborhood of the box. The joint function $\mathcal G$ includes, for example, $\sum_n w_n\zeta_n\sum_{(i,j)\in\mathcal E_n}v_{nij}(x_{ni}-x_{nj})^2$. This is genuinely nonseparable within a portfolio. It is not represented by a sum of univariate functions. The equations $Ex=e$ identify actions sharing the same permitted information; equality multipliers remain unrestricted, rather than being disguised as payment prices. Each continuation row of $B$ uses discounted subtree payments. Multiplication by a positive node probability converts a conditional participation inequality to this unconditional form.
+
+Let $\bar x$ embed the reoptimized static comparator, with commitments defined from that comparator and $\bar x\in X$. Put $g=p-\nabla\mathcal R(\bar x)$. Define
+\[
+ T_X(\bar x)=\overline{\{s(y-\bar x):s\geq0,\ y\in X\}},\quad
+ N_X(\bar x)=\{v:v^\top(y-\bar x)\leq0\ \forall y\in X\}.
+\]
+\begin{lemma}[Standard first-order alternative specialized to acceptance]\label{lem:r10-alternative}
+An accepted policy strictly improves $W(\bar x)$ if and only if $g\notin N_X(\bar x)$. Equivalently, the following explicit linear program has a positive value:
+\[
+ \max_d g^\top d\quad\text{s.t. } B_i d\leq0\ (B_i\bar x=b_i),\quad Ed=0,\quad
+ \|d\|_\infty\leq1,\quad
+ d_j\geq0\ (\bar x_j=0),\quad d_j\leq0\ (\bar x_j=1).
+\]
+For such a direction, let $s_{\max}=\sup\{s\geq0:\bar x+ud\in X\text{ for }0\leq u\leq s\}$. If the directional second derivative of $\mathcal R$ is at most $L_d$ on this segment, then
+\begin{equation}\label{eq:r10-step}
+ W(\bar x+sd)-W(\bar x)\geq s g^\top d-L_ds^2/2.
+\end{equation}
+For $L_d>0$, take $s=\min\{s_{\max},g^\top d/L_d\}$.
+\end{lemma}
+\begin{proof}
+Concavity gives $W(y)-W(\bar x)\leq g^\top(y-\bar x)$. Conversely every direction in the displayed polyhedral tangent cone is feasible on a short segment, and a positive derivative gives improvement. Tangent--normal polarity gives the equivalence. Twice integrating the directional curvature bound proves \eqref{eq:r10-step}. This is the ordinary first-order test and curvature estimate for convex optimization, not a new optimality principle \citep{BoydVandenberghe2004}.
+\end{proof}
+
+\begin{lemma}[Resource loss and acceptance slack]\label{lem:r10-bregman}
+At an optimizer $x^*$, suppose $\eta\geq0$, $\xi\in\R^{\mathrm{rows}(E)}$, and $v\in N_{[0,1]^{Nd}}(x^*)$ satisfy
+$p-\nabla\mathcal R(x^*)=B^\top\eta+E^\top\xi+v$ and $\eta^\top(b-Bx^*)=0$. For every $x\in X$,
+\[
+ W^*-W(x)=D_{\mathcal R}(x,x^*)+\eta^\top(b-Bx)+v^\top(x^*-x),
+\]
+where $D_{\mathcal R}(x,x^*)=\mathcal R(x)-\mathcal R(x^*)-\nabla\mathcal R(x^*)^\top(x-x^*)$. Every term is nonnegative.
+\end{lemma}
+\begin{proof}
+Add and subtract the linearization of $\mathcal R$, substitute stationarity, and use complementary slackness and $E(x-x^*)=0$. The signs follow from convexity, feasibility, and the outward-normal definition. For a differentiable convex objective over a nonempty polyhedron, first-order optimality and the polyhedral normal-cone representation provide these multipliers; no interior Slater point is required for that representation. This standard KKT decomposition \citep{BoydVandenberghe2004} separates real resource inefficiency from unused customer commitments in the present model. It is not claimed as a novel algebraic identity.
+\end{proof}

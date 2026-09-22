@@ -1,0 +1,87 @@
+\section{A price-mediated value-gradient policy without face enumeration}\label{sec:r14-star}
+The previous section verifies a proposed face before using its scalar expert. We now give an alternative that does not store or predict a face. The result applies to a two-review scenario tree: one initial node and $m$ mutually exclusive continuation nodes. This is a large-branching specialization, not a replacement for the general vector and multistage theory. Its operational statistic is a single coupling price, which a scalar value derivative identifies.
+
+\subsection{Accepted transfers and an exact friction threshold}
+Let $z$ be a constant interior outside tier, $c_i>0$ the discounted tariff coefficients, and $\rho_i=c_i/c_0$. Write $b_i=z-l_i>0$ and $b_0=u_0-z>0$. Assume diagonal quadratic smooth resources with curvatures $\chi_0,\chi_i>0$, and absolute switching weights $\kappa_i>0$, including installation at the root. Let $g_i$ be the smooth reward gradient at the outside protocol. Leaf acceptance implies $x_i=z-y_i$ with $y_i\geq0$; the root payment equality implies $x_0=z+v$, where $v=\rho^\top y$. Consequently the entire accepted set is
+\begin{equation}\label{eq:r14-Y}
+ Y=\{y:0\leq y_i\leq b_i,\ \rho^\top y\leq b_0\}.
+\end{equation}
+All installation and continuation switching signs are determined on this set: the root moves up and every leaf lies below it. Define
+\begin{equation}\label{eq:r14-objective}
+ \begin{split}
+ a_i&=\rho_i g_0-g_i,\qquad
+ t_i=\kappa_i+\rho_i\sum_{j=0}^m\kappa_j,\qquad d_i=a_i-\lambda t_i,\\
+ G_\lambda(y)&=d^\top y-\tfrac12 y^\top Q_dy-\tfrac12\chi_0(\rho^\top y)^2,
+ \qquad Q_d=\operatorname{diag}(\chi_1,\ldots,\chi_m).
+ \end{split}
+\end{equation}
+The switching term has not been set to zero: acceptance makes its absolute values linear, since $\kappa_0v+\sum_i\kappa_i(v+y_i)=t^\top y$.
+
+\begin{proposition}[Single-price solution and critical friction]\label{prop:r14-price}
+The outside protocol is optimal exactly when
+\begin{equation}\label{eq:r14-critical}
+ \lambda\geq\lambda_c:=\max\{0,\max_i a_i/t_i\}.
+\end{equation}
+This threshold requires $O(m)$ arithmetic operations. Below it, choose an index with $d_i>0$ and set all other transfers to zero. The step
+$\epsilon=\min\{b_i,b_0/\rho_i,d_i/(\chi_i+\chi_0\rho_i^2)\}$ yields strictly positive accepted gain.
+For arbitrary friction, define
+\[
+ S(\tau)=\sum_i\rho_i\min\{b_i,\max\{0,(d_i-\rho_i\tau)/\chi_i\}\}.
+\]
+An optimal policy is $y_i^*=\min\{b_i,\max\{0,(d_i-\rho_i\tau^*)/\chi_i\}\}$, where any nonnegative root of
+\begin{equation}\label{eq:r14-root}
+ S(\tau)=\min\{b_0,\tau/\chi_0\}
+\end{equation}
+can be used. Sorting the leaf breakpoints $(d_i-\chi_ib_i)/\rho_i,d_i/\rho_i$ and the root breakpoint $\chi_0b_0$, then scanning their affine pieces, solves the problem in $O(m\log m)$ arithmetic operations and $O(m)$ storage.
+\end{proposition}
+\begin{proof}
+At zero transfer the directional gain on the nonnegative orthant is $d^\top y$. Positive box and root slack permit a small step along every coordinate. Concavity therefore proves \eqref{eq:r14-critical}, and substitution proves the stated profitable step. For the second statement, fix a total price $\tau$ for root transfer. Each leaf maximizes $(d_i-\rho_i\tau)y_i-\chi_iy_i^2/2$ on its interval. The root maximizes $\tau v-\chi_0v^2/2$ on $[0,b_0]$. Equation~\eqref{eq:r14-root} enforces equality of the supplied and required transfers, so these maximizers satisfy the primal and dual optimality conditions. The left side is continuous and nonincreasing, the right side continuous and nondecreasing, and a root exists between zero and $\max_i(d_i/\rho_i)^+$. A flat interval can make the price nonunique, but strict concavity makes the policy unique. Sorting at most $2m+1$ breakpoints and updating the affine slope and intercept establishes the operation and storage bounds. These are arithmetic, not bit-complexity, bounds.
+\end{proof}
+
+Single-resource breakpoint and multiplier methods are classical \citep{PatrikssonStromberg2015}. The contribution here is their exact reduction from accepted service transfers, including nonzero installation friction, and the derivative-to-policy result below. We do not claim a new generic water-filling algorithm or extend this sorting complexity to arbitrary coupled trees.
+
+\subsection{A global bridge through a predicted coupling price}
+For any predicted coupling price $\eta\in[0,\chi_0b_0]$, implement
+\begin{equation}\label{eq:r14-response}
+ y_\eta=\argmax_{y\in Y}\{d^\top y-\tfrac12 y^\top Q_dy-\eta\rho^\top y\},
+ \quad v_\eta=\rho^\top y_\eta.
+\end{equation}
+This is an implementable response: clip each leaf at price $\eta$; if its total exceeds the root capacity, raise the price by a nonnegative capacity multiplier until the total equals $b_0$. The uncapped response costs $O(m)$; the capped response is a single-resource problem, not a lookup of an optimal query-time face. Its cost is charged to the learned pipeline.
+
+\begin{theorem}[Global scalar-gradient and observable residual bounds]\label{thm:r14-gradient}
+Let $R=\rho^\top Q_d^{-1}\rho$, $k=R/(1+\chi_0R)$, $J=\max_YG_\lambda$, $v^*=\rho^\top y^*$, and $\eta^*=\chi_0v^*$. For every predicted price in the stated interval,
+\begin{align}
+ J-G_\lambda(y_\eta)&\leq \tfrac12 k(\eta-\chi_0v_\eta)^2,\label{eq:r14-residual}\\
+ J-G_\lambda(y_\eta)&\leq \tfrac12 R(1+\chi_0R)(\eta-\eta^*)^2.\label{eq:r14-prior}
+\end{align}
+Suppose the context contains a scalar $h$ with $d(h,\alpha,\lambda)=a_0+\alpha a_1+h\rho-\lambda t$, while $Y,Q_d,\chi_0,\rho$ remain fixed. Then $\partial_hJ=v^*$. For any differentiable scalar critic $\widehat J$, set
+$\eta=\operatorname{proj}_{[0,\chi_0b_0]}(\chi_0\partial_h\widehat J)$. Its feasible response satisfies
+\begin{equation}\label{eq:r14-gradient}
+ J-G_\lambda(y_\eta)\leq
+ \tfrac12\chi_0^2R(1+\chi_0R)|\partial_h\widehat J-\partial_hJ|^2.
+\end{equation}
+The inequalities hold globally, including changes in binding leaf and root capacities; they require neither a correct face nor a positive distance from a switching boundary. They also hold in expectation for any context distribution under these fixed primitives.
+\end{theorem}
+\begin{proof}
+Let $Q=Q_d+\chi_0\rho\rho^\top$ and use the outward normal convention $n^\top(z-y)\leq0$ for $z\in Y$. Optimality in \eqref{eq:r14-response} gives $d-Q_dy_\eta-\eta\rho\in N_Y(y_\eta)$. The full objective gradient is that normal plus $(\eta-\chi_0v_\eta)\rho$. Its exact quadratic expansion, maximized over all displacements after discarding the nonpositive normal term, bounds regret by
+$\tfrac12(\eta-\chi_0v_\eta)^2\rho^\top Q^{-1}\rho$.
+The rank-one inverse identity gives $\rho^\top Q^{-1}\rho=k$ and proves \eqref{eq:r14-residual}.
+
+For the second bound, put $H(s)=\max_{y\in Y}\{d^\top y-y^\top Q_dy/2-s\rho^\top y\}$. Strict concavity and the optimality inequalities imply
+$\|y_s-y_t\|_{Q_d}\leq\sqrt R|s-t|$ and $|v_s-v_t|\leq R|s-t|$. Hence $H'(s)=-v_s$ is $R$-Lipschitz. The full optimizer is $y_{\eta^*}$ even when the root capacity binds: its capacity multiplier belongs to $N_Y$, rather than to $\eta^*=\chi_0v^*$. Direct expansion yields the useful identity
+\[
+ J-G_\lambda(y_\eta)=H(\eta^*)-H(\eta)-H'(\eta)(\eta^*-\eta)
+                  +\tfrac12\chi_0(v_\eta-v^*)^2.
+\]
+The smooth convex remainder is at most $R(\eta-\eta^*)^2/2$; the preceding Lipschitz bound controls the last term. This proves \eqref{eq:r14-prior}. The envelope theorem for the unique maximizer gives $\partial_hJ=\rho^\top y^*$. Projection onto an interval containing $\eta^*$ cannot increase its error, proving \eqref{eq:r14-gradient}. Integration gives the expectation statement.
+\end{proof}
+
+The derivative in this theorem is a specified operational direction, not an inversion of a low-dimensional context gradient into an arbitrary high-dimensional actor. The residual bound is available at deployment without $J$, $y^*$, or $\eta^*$. The gradient bound instead explains what a trained scalar critic must approximate. Neither asserts that derivative-weighted fitting always improves generalization.
+
+\subsection{A certificate that includes numerical repair}
+Numerical clipping and capacity solution are not exact optimality certificates. For $h_q(u)=qu^2/2+I_{[0,b]}(u)$, write
+$h_q^*(s)=s\bar u-q\bar u^2/2$ with $\bar u=\min\{b,\max\{0,s/q\}\}$. Every real price $\tau$ gives the upper bound
+\begin{equation}\label{eq:r14-fenchel}
+ J\leq U(\tau):=h_{\chi_0}^*(\tau)+\sum_i h_{\chi_i}^*(d_i-\rho_i\tau).
+\end{equation}
+Here each conjugate uses its own root or leaf capacity. Fenchel's inequality proves \eqref{eq:r14-fenchel} by cancelling $\tau(v-\rho^\top y)$. Thus $U(\tau)-G_\lambda(y)$ certifies any feasible rounded policy, without assuming that \eqref{eq:r14-response} was solved exactly. The implementation rounds leaf transfers down, scales them if needed to satisfy the root cap, and recomputes every quantity with rational arithmetic. A negative-gain policy is replaced by static; a gap above the declared tolerance triggers an actual scalar solve and a second exact audit. The favorable unrefined outcomes and the full fallback costs are reported separately.
