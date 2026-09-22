@@ -34,7 +34,7 @@
 \fancyhead[L]{\small NDU: Electronic Companion}
 \fancyhead[R]{\small Anonymous}
 \fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\hypersetup{pdftitle={Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains},pdfauthor={Anonymous}}
+\hypersetup{pdftitle={Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Certified Gains},pdfauthor={Anonymous}}
 
 \externaldocument{main-labels}[main.pdf]
 \externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
@@ -116,8 +116,8 @@
 
 \begin{document}
 \begin{center}{\Large\bfseries Electronic Companion\par}\medskip
-{\large Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains\par}\medskip
-Revision R23, September 23, 2026
+{\large Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Certified Gains\par}\medskip
+Revision R22, September 23, 2026
 \end{center}
 This electronic companion contains the new R22 protocol and the complete preserved R19 empirical section, followed by all earlier scalar, verified-cell, and implementation developments. Historical wording is dated explicitly and is not pooled as new evidence. The R22 predecessor directory preserves the complete R19 root manuscripts byte for byte; older revision directories and the historical supplement are unchanged. The R19 fleet calculation is retained under its stated fixed-policy assumptions; the current empirical confidence claims use only the freshly reset final validation described below.
 
@@ -1088,85 +1088,6 @@ The validation policy performs no full objective solve after prediction. The cap
 
 \clearpage
 % BEGIN preserved/input source: revisions/or-r14-20260922/sections/references.tex
-\section{Proof of the global resource-price bridge}\label{ec:r23-preserved-global-proof}
-The following is the complete proof of Theorem~\ref{thm:r19-global}, retained verbatim from the predecessor manuscript.
-\begin{proof}
-Compactness, continuity, and strong convexity give existence and uniqueness. The first-order inequality for $\phi+I_X$ and the differentiability of the smooth coupling show that $x^*$ minimizes $\phi(x)-(b+U^\top h- U^\top\eta^*)^\top x$ on $X$. Thus it is the stated response. This argument uses the convex subdifferential, not a differentiable switching penalty.
-
-Let $x=x_\eta$ and $y=x_\zeta$. Strong convexity applied to their two minimizing inequalities gives
-\[
- \|x-y\|_D^2\leq-(\eta-\zeta)^\top U(x-y)
- \leq\sqrt L\|\eta-\zeta\|\|x-y\|_D.
-\]
-Division, with the zero case immediate, proves the first inequality in \eqref{eq:r19-lipschitz}; applying $UD^{-1/2}$ proves the second. For completeness, sandwich the increment of either maximized value between its objective increments evaluated at the old and new optimizers. Uniqueness and compactness imply continuity of these optimizers. Dividing by the perturbation size proves $\nabla_hJ=u^*$ and $\nabla H_h=-u_\eta$. In particular $H_h$ has an $L$-Lipschitz gradient.
-
-At the two responses, the definitions give
-\[
- J=H_h(\eta^*)+(\eta^*)^\top u^*-\Psi(u^*),\qquad
- F_h(x_\eta)=H_h(\eta)+\eta^\top u_\eta-\Psi(u_\eta).
-\]
-Subtract and add $(\eta^*)^\top u_\eta$, using $\eta^*=\nabla\Psi(u^*)$. This proves the exact identity \eqref{eq:r19-identity}. The smooth-convex remainder bounds give
-$\mathcal B_{H_h}(\eta^*,\eta)\leq L\|\eta-\eta^*\|^2/2$ and
-$\mathcal B_\Psi(u_\eta,u^*)\leq L_\Psi\|u_\eta-u^*\|^2/2$.
-Use \eqref{eq:r19-lipschitz} for the latter term to obtain \eqref{eq:r19-pricebound}. Lipschitz continuity of $\nabla\Psi$ proves \eqref{eq:r19-gradientbound}. Euclidean projection onto a closed convex set containing $u^*$ cannot increase distance to $u^*$, proving the final assertion.
-\end{proof}
-
-\section{Joint misspecification: construction and verification}\label{ec:r23-robust}
-This section supplies the implementation details for Theorem~\ref{thm:r23-robust}. Uncertainty changes the accepted inequalities as well as reward and friction. It is different from the known-model context shift in the preceding experiments.
-
-\subsection{Exact implementation and the comparator outer class}
-Collect the box and vertex participation/capacity inequalities in $a_j^\top x\leq b_j$, retaining the fixed equality $Ex=0$. Suppose an anchor $z$ satisfies that equality and $a_j^\top z<b_j$ for every listed inequality. For an equality-feasible rational proposal $y^0$, set
-\begin{equation}\label{eq:r23-repair}
- \alpha=\max\left\{0,\ \max_{j:a_j^\top y^0>b_j}
- \frac{a_j^\top y^0-b_j}{a_j^\top y^0-a_j^\top z}\right\},\qquad
- y=(1-\alpha)y^0+\alpha z.
-\end{equation}
-An empty inner maximum is omitted. Then $0\leq\alpha<1$, $y$ satisfies every inequality and the equality, and $\alpha$ is the smallest feasible mixing fraction on this ray. Indeed, each violated inequality requires exactly the displayed lower bound on $\alpha$; inequalities already satisfied remain satisfied by convexity. For any concave $F_v$, even if $y^0$ is not accepted,
-\[
- g(y)\geq\min_v\{(1-\alpha)F_v(y^0)+\alpha F_v(z)-U_v\}.
-\]
-Thus repair has an explicit value charge rather than an unreported feasibility tolerance. The anchor condition belongs to this particular repair construction, not to Theorem~\ref{thm:r23-robust}. A rational polyhedral feasibility solve can supply an alternative implementation when a strict anchor does not exist.
-
-In the recorded tree, nonroot anchor displacements are negative and each root displacement is reconstructed from its exact weighted equality. A common positive scale makes all box and capacity inequalities strict. Nonroot continuation coefficients remain positive over the specified uncertainty set, so their subtree sums are strictly negative. The code rounds only nonroot proposed coordinates, reconstructs root equalities in rational arithmetic, and applies \eqref{eq:r23-repair}. The independent verifier then recomputes every inequality from the implemented rational vector.
-
-Write the nominal continuation matrix as $A^0$, the capacity matrix as $C_0$, and nominal capacity budgets as $a^0$. With $\sigma_i\in\{-1,1\}$ and $\zeta\in[-1,1]^3$, continuation rows become $A_{\zeta,ji}=A^0_{ji}(1+\rho\zeta_3\sigma_i)$ and budgets become $(1+\rho\zeta_2)a^0$. Put $m_i=\max\{|\ell_i|,|u_i|\}$. A common outer time-only class is given by the same box, root and time-only equalities, and
-\begin{equation}\label{eq:r23-outer}
- A^0_jx\leq\rho\sum_i|A^0_{ji}|m_i,\qquad
- C_0x\leq(1+\rho)a^0.
-\end{equation}
-For any truly accepted $x$, the first bound follows from
-$A^0_jx=A_{\zeta,j}x-\rho\zeta_3\sum_iA^0_{ji}\sigma_ix_i$;
-the second follows from $\zeta_2\leq1$. Hence every model-specific accepted time-only class is contained in \eqref{eq:r23-outer}. This is an analytical containment argument for all hidden coefficients, not a test on sampled models. At zero radius the outer class equals the nominal accepted time-only class. Positive radius can make the bound conservative; the reported quantity is a lower certificate, not an equality with true robust gain.
-
-\subsection{Frozen-policy interpretation}
-For a context $q$, let $y(q)$ be a predeclared deterministic robust-feasible rule and let $g(q)$ be its certificate. Suppose $F_{q,\zeta}(y(q))\in[0,B]$ and $K_{q,\zeta}\in[0,B]$ uniformly. Then $H(q)=\inf_\zeta\{F_{q,\zeta}(y(q))-K_{q,\zeta}\}\in[-B,B]$ and $H(q)\geq g(q)$. Assume these functions are measurable. For $M$ frozen rules and independent contexts with their stated common deployment law, Hoeffding's inequality and a union bound imply, simultaneously with probability at least $1-\delta$,
-\[
- \E H(q)\geq\frac1N\sum_{i=1}^N g(q_i)
-       -2B\sqrt{\frac{\log(M/\delta)}{2N}}.
-\]
-Apply concentration to $H$, not to an unbounded numerical lower certificate, and then use $H(q_i)\geq g(q_i)$. The hidden coefficients may depend adversarially on the observed context inside its specified uncertainty set. The probability statement is conditional on frozen rules; it does not average over training randomness or establish coverage of an uncalibrated uncertainty set. The new study below reports pointwise certificates and descriptive averages only, not a new positive population lower confidence bound. The earlier nominal-model population results remain separately identified.
-
-\subsection{Predeclared model and executed protocol}
-The instance retains 63 nodes, two service coordinates, six resource factors, four additional capacities, heterogeneous outside tiers, and endogenous switching signs. The predeclared radii are $0,1/16,1/8,1/4$. In addition to \eqref{eq:r23-outer}'s participation and budget perturbations, the true coefficients are
-\[
- b_\zeta=(1+\rho\zeta_1)b_0+\rho\zeta_3w,\quad
- \lambda_\zeta=(1+\rho\zeta_2)\lambda_0,\quad
- w_i=(-1)^i/8,\quad \sigma_i=(-1)^{\lfloor i/2\rfloor},
-\]
-using zero-based coordinate indices. Curvature, resource loadings, switching incidence, outside tiers and root equalities remain fixed. All objectives are affine in the hidden coefficients for fixed decisions, with nonnegative friction throughout. This is simultaneous coefficient misspecification, not uncertain transition probabilities or arbitrary nonlinear model error.
-
-Ninety-six fresh contexts use seed 2302301 and the original declared discrete reward/friction law. The engineering pilot uses two different contexts and is excluded. The two deterministic predictors average the same eight previously frozen tanh-gradient or RBF-direct price models; no fitting or model selection uses this study. Each predictor supplies an observed-model resource price to a nominal-objective response over the robust accepted set. This response is then rationally repaired and evaluated at all eight uncertainty vertices. A gate substitutes the outside policy only when its worst vertex objective is negative. This protects the outside option, not a zero gain relative to the optimized restricted comparator.
-
-For a strong classical comparison, write $H=D+U^\top U$ and introduce switching epigraphs $t\geq\pm(Bx+v)$ and a scalar $\tau$. With the same certified outer-comparator values $U_a$, solve
-\[
- \max_{x,t,\tau}\ \tau-\tfrac12x^\top Hx,\qquad
- \tau\leq b_a^\top x-\lambda_a k^\top t
-       +\lambda_a k^\top|v|-U_a\quad(a\in\mathcal V),
-\]
-subject to robust acceptance. This is an ordinary convex quadratic program. It optimizes the common certified maximin objective before numerical error and repair; it does not compute the exact model-specific worst-case gain. The final reported quantity is recomputed from the implemented rational decision. Nominal learned responses are also retained as nondeployed diagnostics and tested against the entire robust set.
-
-Every solve uses a fresh OSQP workspace and nominal tolerance $10^{-8}$. Eight outer-class solves are charged separately per context and radius, rather than hidden as free certificates. Any numerical failure is recorded; a zero proposal or valid zero-dual upper certificate is available, and negative gain bounds are retained. The script stores integer/rational decisions, multipliers, objective values, and bounds. A Python-standard-library replay reconstructs outer-class containment, robust geometry, exact equalities, all dual-domain constraints and outward-rounded box conjugates without invoking a solver. Mutation controls check invalid tiers, root equalities, inequality prices, switching tensions, outer containment and robust participation rows. The one-dimensional interior-comparator counterexample is independently evaluated at 1,001 rational parameter values.
-
 \begin{thebibliography}{99}
 \bibitem[Abbasi et al.(2022)Abbasi, Bruzda, and Gavirneni]{Abbasi2022}
 Abbasi B, Bruzda J, Gavirneni S (2022) Optimal operational service levels in vendor managed inventory contracts---an exact approach. \emph{Operations Research Letters} 50(5):610--617. doi:10.1016/j.orl.2022.08.007.
@@ -1186,14 +1107,8 @@ Beck A, Teboulle M (2009) A fast iterative shrinkage-thresholding algorithm for 
 \bibitem[Bemporad et al.(2002)Bemporad, Morari, Dua, and Pistikopoulos]{Bemporad2002}
 Bemporad A, Morari M, Dua V, Pistikopoulos EN (2002) The explicit linear quadratic regulator for constrained systems. \emph{Automatica} 38(1):3--20. doi:10.1016/S0005-1098(01)00174-1.
 
-\bibitem[Ben-Tal and Nemirovski(2000)]{BenTalNemirovski2000}
-Ben-Tal A, Nemirovski A (2000) Robust solutions of linear programming problems contaminated with uncertain data. \emph{Mathematical Programming} 88:411--424. doi:10.1007/PL00011380.
-
 \bibitem[Bertsimas and Kallus(2020)]{BertsimasKallus2020}
 Bertsimas D, Kallus N (2020) From predictive to prescriptive analytics. \emph{Management Science} 66(3):1025--1044. doi:10.1287/mnsc.2018.3253.
-
-\bibitem[Bertsimas and Sim(2004)]{BertsimasSim2004}
-Bertsimas D, Sim M (2004) The price of robustness. \emph{Operations Research} 52(1):35--53. doi:10.1287/opre.1030.0065.
 
 \bibitem[Boyd and Vandenberghe(2004)]{BoydVandenberghe2004}
 Boyd S, Vandenberghe L (2004) \emph{Convex Optimization} (Cambridge University Press, Cambridge).

@@ -1,0 +1,25 @@
+\subsection{Accepted gains under joint coefficient uncertainty}\label{sec:r23-robust}
+A change in the context distribution does not test a wrong participation model. We now permit the objective and the accepted set to change together. Fix an observed context and suppress its index. Let $\zeta$ range over a polytope with vertices $\mathcal V$, and define
+\[
+ X_\zeta=\{x\in C:A_\zeta x\leq a_\zeta,\ Ex=0\},\qquad
+ K_\zeta=\max_{x\in Y_\zeta}F_\zeta(x),\quad Y_\zeta\subseteq X_\zeta.
+\]
+Here $C$ is a fixed compact convex box, $A_\zeta,a_\zeta$ are affine in $\zeta$, every $Y_\zeta$ is nonempty and compact, and $F_\zeta$ is continuous and concave in $x$ and affine in $\zeta$ for fixed $x$. The implementation observes the context, not the hidden coefficient realization. A time-only amendment reoptimized at the true coefficients is an example of $Y_\zeta$.
+
+\begin{theorem}[Robust accepted expansion against a model-specific comparator]\label{thm:r23-robust}
+Let $Y^{\rm out}$ be a compact set containing $\bigcup_\zeta Y_\zeta$. For each $v\in\mathcal V$, obtain an upper certificate $U_v\geq\max_{x\in Y^{\rm out}}F_v(x)$. If one implemented decision $y$ belongs to $X_v$ at every vertex, then it is feasible in every $X_\zeta$, and
+\begin{equation}\label{eq:r23-gain}
+ F_\zeta(y)-K_\zeta\ \geq\ g(y):=\min_{v\in\mathcal V}\{F_v(y)-U_v\}
+ \quad\text{for every }\zeta.
+\end{equation}
+For a finite set of such candidates, maximizing $g(y)$ preserves this guarantee. In particular, the certificate applies to the repaired output, regardless of whether its proposal is neural, direct-price, or classical. Neither strong convexity nor strict feasibility is required for this implication.
+\end{theorem}
+\begin{proof}
+Write $\zeta=\sum_v\alpha_v v$, where $\alpha_v\geq0$ and $\sum_v\alpha_v=1$. Affineness gives $A_\zeta y-a_\zeta=\sum_v\alpha_v(A_vy-a_v)\leq0$. For every $x\in Y_\zeta\subseteq Y^{\rm out}$,
+$F_\zeta(x)=\sum_v\alpha_vF_v(x)\leq\sum_v\alpha_vU_v$.
+Subtract this bound from $F_\zeta(y)=\sum_v\alpha_vF_v(y)$ and take the maximum over $Y_\zeta$ and then the minimum over vertices. The same pointwise inequality holds for the selected candidate.
+\end{proof}
+
+The outer class is essential. With $F_\zeta(x)=x$, $C=[0,1]$, and constraints $(1+\zeta)x\leq1-\zeta$ and $(1-\zeta)x\leq1+\zeta$, $\zeta\in[-1,1]$, both vertex feasible sets equal $\{0\}$, whereas $X_0=[0,1]$. Taking $Y_\zeta=X_\zeta$ and $y=0$, the two vertex-specific comparator values suggest a zero lower bound, but the true interior gain is $-1$. The common outer class $[0,1]$ yields the valid bound $-1$. Neither the intersection of restricted classes nor their separately optimized vertex values can replace the union-containing outer class without an additional argument.
+
+This construction uses classical robust counterparts and weak duality, rather than claiming a new generic robust-optimization principle \citep{BenTalNemirovski2000,BertsimasSim2004}. Its role here is to preserve both continuation acceptance and the economically relevant, truly reoptimized comparator when the model is misspecified. The Fenchel certificate of Theorem~\ref{thm:r22-complete} supplies the $U_v$ on a polyhedral outer class; the robust implication itself also covers non-strongly-concave objectives when valid upper bounds are available. Electronic Companion Section~\ref{ec:r23-robust} gives exact repair, an explicit outer class, and a frozen-policy population extension. Validity is conditional on the true coefficients belonging to the declared uncertainty set; that set is not claimed to be field-calibrated.

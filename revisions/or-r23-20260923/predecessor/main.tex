@@ -34,7 +34,7 @@
 \fancyhead[L]{\small NDU: Accepted Service Adaptation}
 \fancyhead[R]{\small Anonymous}
 \fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\hypersetup{pdftitle={Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains},pdfauthor={Anonymous}}
+\hypersetup{pdftitle={Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Certified Gains},pdfauthor={Anonymous}}
 \externaldocument{ec-labels}[electronic_companion.pdf]
 \externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
 \externaldocument{legacy-ec-labels}[revisions/or-r19-20260923/predecessor/electronic_companion.pdf]
@@ -113,15 +113,15 @@
 
 \begin{document}
 \begin{titlepage}\centering
-{\Large\bfseries Accepted Service Adaptation with\\ Neural Differential Utility:\\ Continuation Prices and Robust Certified Gains\par}
+{\Large\bfseries Accepted Service Adaptation with\\ Neural Differential Utility:\\ Continuation Prices and Certified Gains\par}
 \vspace{.3in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
 \begin{minipage}{\textwidth}
 \textbf{Abstract.}
-Service providers can revise contractual tiers only when customers accept continuation terms and physical commitments remain intact. We develop a certified expansion framework that compares accepted adaptation with reoptimized restricted contracts. Continuation prices, switching capacities, and exact transfer coordinates characterize profitable deviations and critical friction. Under stated strong convexity and smooth resource coupling, a prescribed resource-reward value gradient yields a controlled accepted response without an optimal-face oracle. A component certificate separates decision loss from resource, switching, and participation slack; complete dual repair attains the best certificate without strict feasibility. We extend accepted gain certification to simultaneous objective and participation-coefficient uncertainty. A common outer comparator class protects the true model-specific restricted optimum, whereas separately reoptimized vertex comparators can fail. Neural value-gradient and direct-price methods are evaluated using frozen deterministic ensembles, independent validation, structured classical baselines, and full-polyhedron scaling. Joint-misspecification experiments retain positive pointwise gain certificates while unprotected nominal decisions violate uncertain participation constraints. Classical robust optimization and direct-price methods remain strong comparators. The results connect accepted-control geometry, implemented decisions, and certified economic gains without equating neural approximation with computational advantage.
+Service providers can revise contractual tiers only when customers accept continuation terms and physical commitments remain intact. We develop a certified expansion framework that compares accepted adaptation with reoptimized restricted contracts. Continuation prices, switching capacities, and exact transfer coordinates characterize profitable deviations and critical friction. Under stated strong convexity and smooth resource coupling, a prescribed resource-reward value gradient yields a globally controlled accepted response without an optimal-face oracle. A four-component certificate separates decision loss from resource, switching, and participation slack, and distinguishes limited price polishing from complete dual repair with attained optimal certificates. An implemented benchmark gate and independent one-sided validation certify gains relative to the optimized restricted value. Neural value-gradient and direct-price methods are evaluated using frozen deterministic ensembles, fresh in-distribution and shifted contexts, and full-polyhedron scaling. Both ensembles achieve positive conditional expected-gain bounds in the recorded synthetic study; direct-price methods are more accurate, and structured classical optimization remains an essential computational comparator. Complete timing includes repair, certification, and actual fallback. The results establish an auditable path from accepted-control geometry to realized economic gains without equating neural approximation with computational advantage.
 \par\vspace{.16in}\textbf{Keywords:} accepted service control; resource prices; value-gradient decisions.
 \par\vspace{.10in}\textbf{Subject classifications:} Inventory/production: service contracts; Dynamic programming/optimal control: stochastic control; Analysis of algorithms: approximation guarantees.
 \par\vspace{.10in}\textbf{Area of review:} Stochastic Models.
-\end{minipage}\vfill{Revision R23, September 23, 2026\par}\end{titlepage}
+\end{minipage}\vfill{Revision R22, September 23, 2026\par}\end{titlepage}
 \section{Introduction}
 A service provider can adapt physical stock and the contractual tier attached to it. Higher tiers can earn premiums but also increase indemnity, maintenance, and installation costs. A profitable revision is useful only if the customer accepts the resulting continuation and the provider respects its physical commitments. The operational question is therefore not simply whether an adaptive policy has a larger unconstrained objective. It is which accepted revisions create value, when switching friction prevents them, and how repeated decisions can be implemented and checked.
 
@@ -135,7 +135,7 @@ A resource statistic then connects this geometric value to an implemented decisi
 
 The certificate supplies the operational connection. A new component identity separates resource-price error from box optimality, switching tension and participation slack, and identifies when price-only repair cannot meet a requested accuracy. A small-dimensional monotone repair improves the upper bound without changing the decision. A complete-price theorem further shows that full dual repair attains the best possible certificate without strict feasibility; it has a classical projected-gradient guarantee and an auditable nonlearned context warm start. The benchmark-gate theorem then compares the selected feasible output with a reoptimized restricted contract, charging approximation and comparator error explicitly. This is the same accepted expansion problem from geometry through deployment, rather than a separate theorem for each predictor.
 
-The empirical work tests that connection with both neural value gradients and directly learned prices. Original neural, polynomial and RBF results remain available, including adverse comparisons. New independent validation evaluates two fixed deterministic ensembles against optimized time-only amendments, with full numerical-state isolation and a separate shifted context population. The timing comparison includes a structure-aware lifted primal--dual continuation method, identical final certificate targets, and actual fallback. Scaling varies the full accepted polyhedron rather than relying on the old scalar star. The known-model studies are complemented by a new experiment in which reward, friction, participation coefficients, and capacity budgets are jointly misspecified. A robust accepted response and a common outer comparator class protect the gain relative to the truly reoptimized restricted contract. Separate vertex-specific comparators can fail when acceptance itself changes; an explicit counterexample identifies this distinction. The uncertainty set is specified rather than statistically estimated, so the experiments do not establish field calibration.
+The empirical work tests that connection with both neural value gradients and directly learned prices. Original neural, polynomial and RBF results remain available, including adverse comparisons. New independent validation evaluates two fixed deterministic ensembles against optimized time-only amendments, with full numerical-state isolation and a separate shifted context population. The timing comparison includes a structure-aware lifted primal--dual continuation method, identical final certificate targets, and actual fallback. Scaling varies the full accepted polyhedron rather than relying on the old scalar star. These are known-model synthetic experiments, not field calibration or evidence that an unknown acceptance model has been learned correctly.
 \subsection{Related literature and the incremental contribution}
 Inventory decisions and service contracts have long been studied jointly. \citet{Henig1997} embed inventory decisions in supply-contract design; \citet{LiangAtkins2013,Sieke2012,Katok2008} study agreements, penalties, coordination, and review periods. Dynamic stocking under service-level agreements is established \citep{Hosseinifard2022,Caggiano2007,Abbasi2022}. Here the static-contract comparator can already adapt physical stock to the regime. The additional decisions are accepted revisions of contractual tiers, not state-aware inventory actions withheld from the benchmark.
 
@@ -145,7 +145,7 @@ Constrained Markov decision processes, occupation measures, and Lagrangian resou
 
 Monotone selections follow \citet{Topkis1978}, and hysteretic control has predecessors including \citet{HippHolzbaur1988}. Supporting-price stock identification, normal cones, Bregman decompositions, and strong-convexity residual bounds use standard convex tools \citep{BoydVandenberghe2004}. We state those tools explicitly so that their specialization is not mistaken for independent mathematical novelty. Approximate dynamic programming also uses optimization to connect approximate values and decisions \citep{DeFariasVanRoy2003}. Our complete-tree audit retains all participation rows and boundary prices rather than relying on a collection of unverified one-step errors.
 
-Derivative-weighted fitting follows Sobolev training \citep{Czarnecki2017}; graph filtering follows \citet{Defferrard2016}. Safe and constrained learning studies cumulative constraints and, in some models, unknown safe regions \citep{Satija2020,WachiSui2020}. In the nominal studies the feasible polyhedron is known; under joint coefficient uncertainty, an explicit robust counterpart is used. Learning proposes a policy and a separate calculation certifies it. The full-polyhedron resource-price bridge and its inexact-response certificate explain the role and limits of this separation; the earlier acceptance-face construction remains available in the companion. The preserved historical studies benchmark SciPy's sequential quadratic programming implementation alongside sparse Newton methods \citep{Virtanen2020}; no custom implementation is declared the practical optimization frontier. Forward--backward value-process methods \citep{MaProtterYong1994,HanJentzenE2018} and Markov-chain approximation \citep{KushnerDupuis2001} support the separately preserved continuous-time material, not the finite-tree theorem by analogy.
+Derivative-weighted fitting follows Sobolev training \citep{Czarnecki2017}; graph filtering follows \citet{Defferrard2016}. Safe and constrained learning studies cumulative constraints and, in some models, unknown safe regions \citep{Satija2020,WachiSui2020}. Here the feasible polyhedron is known; learning proposes a policy and a separate calculation certifies it. The full-polyhedron resource-price bridge and its inexact-response certificate explain the role and limits of this separation; the earlier acceptance-face construction remains available in the companion. The preserved historical studies benchmark SciPy's sequential quadratic programming implementation alongside sparse Newton methods \citep{Virtanen2020}; no custom implementation is declared the practical optimization frontier. Forward--backward value-process methods \citep{MaProtterYong1994,HanJentzenE2018} and Markov-chain approximation \citep{KushnerDupuis2001} support the separately preserved continuous-time material, not the finite-tree theorem by analogy.
 
 Graph total variation and regularization paths have established dual and algorithmic representations \citep{TibshiraniTaylor2011,ArnoldTibshirani2016}. Explicit constrained control uses multiparametric quadratic programs \citep{Bemporad2002}, and safe screening uses gap-based regions \citep{Fercoq2015}. Our contribution is not to rename those methods: it is the continuation-transfer representation, constructive price repair, and their integration with verified scalar experts and independently validated accepted deployment.
 
@@ -180,9 +180,6 @@ Differentiable QP layers \citep{AmosKolter2017}; dual prediction for column gene
 Cached parametric QP and learned fixed-point warm starts \citep{Stellato2020,Sambharya2024}
 & Cached solves, primal--dual continuation, and learned initial iterates are available alternatives.
 & Proposition~\ref{prop:r22-polishing} identifies a small certificate-repair problem and its accepted-control floor; Theorem~\ref{thm:r22-complete} identifies the exact attainable floor when all prices vary, without strict feasibility. Matched audits test total cost; the standard convergence rate is not a new generic algorithm.\\
-Robust uncertain-data optimization \citep{BenTalNemirovski2000,BertsimasSim2004}
-& Vertex robust counterparts and uncertainty--performance tradeoffs are established.
-& Theorem~\ref{thm:r23-robust} retains the true model-specific accepted comparator through a common outer class; the interior-comparator counterexample shows why separate vertex benchmarks do not suffice.\\
 Hoeffding concentration; fixed policy and independent bounded observations \citep{Hoeffding1963}
 & Conditional expected-gain bounds after a union bound.
 & Proposition~\ref{prop:r22-validation} targets a deterministic rule and the reoptimized restricted optimum using certified one-sided observations: deployment-specific statistical construction.\\
@@ -789,8 +786,26 @@ Suppose a differentiable scalar critic supplies $\widehat u=\nabla_h\widehat J$,
 \end{equation}
 Alternatively, project $\widehat u$ onto any known closed convex subset of that region containing $UX$ before forming the price; the same bound holds for the unprojected gradient error. No optimal face, strict complementarity, switching-sign prediction, or interiority assumption is required.
 \end{theorem}
-The complete proof is in Electronic Companion Section~\ref{ec:r23-preserved-global-proof}.
+\begin{proof}
+Compactness, continuity, and strong convexity give existence and uniqueness. The first-order inequality for $\phi+I_X$ and the differentiability of the smooth coupling show that $x^*$ minimizes $\phi(x)-(b+U^\top h- U^\top\eta^*)^\top x$ on $X$. Thus it is the stated response. This argument uses the convex subdifferential, not a differentiable switching penalty.
 
+Let $x=x_\eta$ and $y=x_\zeta$. Strong convexity applied to their two minimizing inequalities gives
+\[
+ \|x-y\|_D^2\leq-(\eta-\zeta)^\top U(x-y)
+ \leq\sqrt L\|\eta-\zeta\|\|x-y\|_D.
+\]
+Division, with the zero case immediate, proves the first inequality in \eqref{eq:r19-lipschitz}; applying $UD^{-1/2}$ proves the second. For completeness, sandwich the increment of either maximized value between its objective increments evaluated at the old and new optimizers. Uniqueness and compactness imply continuity of these optimizers. Dividing by the perturbation size proves $\nabla_hJ=u^*$ and $\nabla H_h=-u_\eta$. In particular $H_h$ has an $L$-Lipschitz gradient.
+
+At the two responses, the definitions give
+\[
+ J=H_h(\eta^*)+(\eta^*)^\top u^*-\Psi(u^*),\qquad
+ F_h(x_\eta)=H_h(\eta)+\eta^\top u_\eta-\Psi(u_\eta).
+\]
+Subtract and add $(\eta^*)^\top u_\eta$, using $\eta^*=\nabla\Psi(u^*)$. This proves the exact identity \eqref{eq:r19-identity}. The smooth-convex remainder bounds give
+$\mathcal B_{H_h}(\eta^*,\eta)\leq L\|\eta-\eta^*\|^2/2$ and
+$\mathcal B_\Psi(u_\eta,u^*)\leq L_\Psi\|u_\eta-u^*\|^2/2$.
+Use \eqref{eq:r19-lipschitz} for the latter term to obtain \eqref{eq:r19-pricebound}. Lipschitz continuity of $\nabla\Psi$ proves \eqref{eq:r19-gradientbound}. Euclidean projection onto a closed convex set containing $u^*$ cannot increase distance to $u^*$, proving the final assertion.
+\end{proof}
 The learned price is the marginal smooth resource cost. It is not the vector of all participation or capacity multipliers. Those multipliers, together with endogenous switching tensions, remain inside the response. A neural critic, a polynomial value function, and direct regression of $\eta^*$ can therefore be compared with the same feasible decision map. Equation~\eqref{eq:r19-gradientbound} explains which derivative matters; it does not state that derivative supervision always improves training or that neural approximation is necessary.
 
 The strong-convexity, envelope, and conjugate ingredients are standard \citep{BoydVandenberghe2004}. The accepted-control consequence is their joint application to the complete continuation polyhedron and the unchanged nonsmooth switching objective, with a specified perturbation that makes the relevant resource vector a scalar value gradient. The theorem does not rely on the tree-flow division by positive tariffs. The latter remains a specialized fast representation; signed tariffs and general commitments use $X$ directly.
@@ -980,32 +995,6 @@ Feasibility of the decision is unchanged. Clipping enforces the only price const
 \end{proof}
 The audit cost is not zero, and changes in the accepted set invalidate the automatic primal-feasibility assertion. Exact rational checks include forced lower-dimensional accepted sets, switching kinks, complete-price convergence, and transport across changes in both reward and friction. These checks validate the statements, not comparative runtime superiority.
 
-\subsection{Accepted gains under joint coefficient uncertainty}\label{sec:r23-robust}
-A change in the context distribution does not test a wrong participation model. We now permit the objective and the accepted set to change together. Fix an observed context and suppress its index. Let $\zeta$ range over a polytope with vertices $\mathcal V$, and define
-\[
- X_\zeta=\{x\in C:A_\zeta x\leq a_\zeta,\ Ex=0\},\qquad
- K_\zeta=\max_{x\in Y_\zeta}F_\zeta(x),\quad Y_\zeta\subseteq X_\zeta.
-\]
-Here $C$ is a fixed compact convex box, $A_\zeta,a_\zeta$ are affine in $\zeta$, every $Y_\zeta$ is nonempty and compact, and $F_\zeta$ is continuous and concave in $x$ and affine in $\zeta$ for fixed $x$. The implementation observes the context, not the hidden coefficient realization. A time-only amendment reoptimized at the true coefficients is an example of $Y_\zeta$.
-
-\begin{theorem}[Robust accepted expansion against a model-specific comparator]\label{thm:r23-robust}
-Let $Y^{\rm out}$ be a compact set containing $\bigcup_\zeta Y_\zeta$. For each $v\in\mathcal V$, obtain an upper certificate $U_v\geq\max_{x\in Y^{\rm out}}F_v(x)$. If one implemented decision $y$ belongs to $X_v$ at every vertex, then it is feasible in every $X_\zeta$, and
-\begin{equation}\label{eq:r23-gain}
- F_\zeta(y)-K_\zeta\ \geq\ g(y):=\min_{v\in\mathcal V}\{F_v(y)-U_v\}
- \quad\text{for every }\zeta.
-\end{equation}
-For a finite set of such candidates, maximizing $g(y)$ preserves this guarantee. In particular, the certificate applies to the repaired output, regardless of whether its proposal is neural, direct-price, or classical. Neither strong convexity nor strict feasibility is required for this implication.
-\end{theorem}
-\begin{proof}
-Write $\zeta=\sum_v\alpha_v v$, where $\alpha_v\geq0$ and $\sum_v\alpha_v=1$. Affineness gives $A_\zeta y-a_\zeta=\sum_v\alpha_v(A_vy-a_v)\leq0$. For every $x\in Y_\zeta\subseteq Y^{\rm out}$,
-$F_\zeta(x)=\sum_v\alpha_vF_v(x)\leq\sum_v\alpha_vU_v$.
-Subtract this bound from $F_\zeta(y)=\sum_v\alpha_vF_v(y)$ and take the maximum over $Y_\zeta$ and then the minimum over vertices. The same pointwise inequality holds for the selected candidate.
-\end{proof}
-
-The outer class is essential. With $F_\zeta(x)=x$, $C=[0,1]$, and constraints $(1+\zeta)x\leq1-\zeta$ and $(1-\zeta)x\leq1+\zeta$, $\zeta\in[-1,1]$, both vertex feasible sets equal $\{0\}$, whereas $X_0=[0,1]$. Taking $Y_\zeta=X_\zeta$ and $y=0$, the two vertex-specific comparator values suggest a zero lower bound, but the true interior gain is $-1$. The common outer class $[0,1]$ yields the valid bound $-1$. Neither the intersection of restricted classes nor their separately optimized vertex values can replace the union-containing outer class without an additional argument.
-
-This construction uses classical robust counterparts and weak duality, rather than claiming a new generic robust-optimization principle \citep{BenTalNemirovski2000,BertsimasSim2004}. Its role here is to preserve both continuation acceptance and the economically relevant, truly reoptimized comparator when the model is misspecified. The Fenchel certificate of Theorem~\ref{thm:r22-complete} supplies the $U_v$ on a polyhedral outer class; the robust implication itself also covers non-strongly-concave objectives when valid upper bounds are available. Electronic Companion Section~\ref{ec:r23-robust} gives exact repair, an explicit outer class, and a frozen-policy population extension. Validity is conditional on the true coefficients belonging to the declared uncertainty set; that set is not claimed to be field-calibrated.
-
 \section{Certified expansion beyond an optimized restricted contract}\label{sec:r22-benchmark}
 A feasible incumbent is necessary for acceptance accounting but insufficient as the sole economic comparator. Let $Y\subseteq X$ be a nonempty compact restricted policy class containing zero, and define $K(h)=\max_{x\in Y}F_h(x)$. A useful heterogeneous-service example is a \emph{time-only amendment}: the change from the announced outside tier is identical across nodes at a given date and service coordinate. The incumbent's node heterogeneity remains; we optimize its amendment subject to the same continuation, root, box, and resource constraints. This comparator is not mislabeled as the best static total-tier contract.
 
@@ -1155,33 +1144,14 @@ The companion reports the coarse-target table, setup and label costs, every fail
 
 
 
-\subsection{Joint misspecification rather than covariate shift}
-Theorem~\ref{thm:r23-robust} is evaluated on the full 63-node model with simultaneous reward, friction, continuation-coefficient, and capacity-budget error. We freeze the original eight-model ensembles, declare four uncertainty radii before final execution, and use 96 new contexts without retraining. An ordinary robust maximin quadratic program provides a nonlearned comparator. Every reported gain uses eight independently certified upper bounds for a common outer time-only class, and therefore refers to the restricted optimum at the actual hidden coefficients, not merely the robust restricted optimum.
-
-Table~\ref{tab:r23-robust} reports 1,152 implemented policies and 3,072 vertex comparator certificates. All new pointwise gain lower bounds are positive in this study; no numerical solve fails. At 25 percent radius, the mean lower bounds are 0.808414, 0.815943, and 0.848251 for protected tanh-gradient, protected RBF-direct, and classical maximin, respectively. Their minima are 0.225658, 0.278173, and 0.378572. These are descriptive averages of uniformly valid, per-context certificates, not a new population confidence statement.
-
-In contrast, both nominal learned responses violate at least one uncertain continuation or capacity restriction on every recorded positive-radius context. At 25\% radius the median maximum continuation violations, normalized by each row's coefficient sum, are 0.013078 and 0.013184 tier units for tanh and RBF. Robust response plus exact repair eliminates these violations for the declared coefficient cube. The result establishes a concrete operational use of the accepted geometry beyond surrogate regression: the same frozen prices can propose a decision while the constraint and comparator certificates protect against specified coefficient error. Classical maximin remains the strongest measured rule; no neural speed or accuracy superiority is inferred. The uncertainty set is designed rather than estimated, so these results do not establish field calibration or arbitrary-model robustness.
-
-\begin{table}[tbp]\centering\small
-\caption{Certified gains under joint coefficient misspecification.}\label{tab:r23-robust}
-\begin{tabular}{lrrrrr}\toprule
-Radius & Tanh mean & RBF mean & Classical mean & Lowest bound & Unsafe nominal (\%)\\\midrule
-0\% & 1.364006 & 1.366248 & 1.366353 & 0.751482 & 0.00\\
-6.25\% & 1.176079 & 1.179672 & 1.182258 & 0.616950 & 100.00\\
-12.5\% & 1.056337 & 1.061266 & 1.070484 & 0.507726 & 100.00\\
-25\% & 0.808414 & 0.815943 & 0.848251 & 0.225658 & 100.00\\
-\bottomrule\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small Each radius uses the same 96 fresh contexts. Means average pointwise lower certificates against the true, model-specific optimized time-only comparator; they are not lower confidence bounds. \emph{Lowest bound} is the minimum across all three methods and contexts. The classical rule solves the robust maximin certificate problem. Both nominal learned rules have the displayed unsafe fraction before robust response and repair; none of these unsafe diagnostics is deployed. All 1,152 protected implementations are exactly feasible throughout the specified uncertainty cube.\end{minipage}
-\end{table}
-
 \section{Conclusions and operational implications}
 Accepted adaptation can create value beyond an optimized restricted service contract without relaxing customer commitments. Continuation prices and switching capacities identify this expansion value; the resource statistic connects it to a concrete response; and the final certificate and benchmark gate connect that response to realized gain. This is the paper's common theorem chain, not a requirement that every implementation be neural.
 
 The new certificate distinguishes a price problem from a decision problem. Resource and equality prices can be repaired in a low-dimensional space, but fixed switching and participation slack provide an irreducible floor. Allowing all prices to change removes this fixed-block limitation: the best attainable certificate equals true primal regret, and exact projected-gradient repair converges to that value without strict feasibility. A better upper bound does not change primal regret. General convex objectives retain Fenchel certification; the global quadratic derivative-error rate requires its stated curvature, and any added regularization must carry the explicit original-objective bias budget.
 
-Independent final validation now targets frozen deterministic rules and reoptimized time-only amendments, with complete solver-state isolation and fresh contexts. Its positive conditional gains support economically meaningful accepted adaptation in the declared synthetic model. Direct-price methods remain strong competitors, and measured classical structure can outweigh surrogate prediction savings. Complete scaling, offline accounting, and retained failures delimit these computational claims. Joint objective and commitment-coefficient error is now addressed by a robust accepted response and a union-containing outer comparator class. This protects the true model-specific economic comparison even when nominal acceptance fails. The recorded positive pointwise certificates concern the declared coefficient sets; unknown demand, field-calibrated uncertainty and arbitrary retraining remain different empirical targets.
+Independent final validation now targets frozen deterministic rules and reoptimized time-only amendments, with complete solver-state isolation and fresh contexts. Its positive conditional gains support economically meaningful accepted adaptation in the declared synthetic model. Direct-price methods remain strong competitors, and measured classical structure can outweigh surrogate prediction savings. Complete scaling, offline accounting, and retained failures delimit these computational claims. Unknown demand, misspecified commitments, field calibration, and arbitrary retraining are different empirical targets and are not inferred from the present certificates.
 \section*{Data, software, and computation accessibility}
-All current manuscript inputs, proofs, scripts, frozen models, primitive definitions, observations, exact audit records, and build instructions are supplied in the versioned review package. The current README identifies a single main manuscript and electronic companion. Earlier revision directories, reports, and scientific observations are preserved unchanged, and exact predecessor root documents are snapshotted with a relocation map. R22 final validation uses fresh seeds after a documented numerical-state audit; no pilot confidence bound is used as a final result. R23 adds a separately predeclared 96-context joint-misspecification study and independent rational replay; its engineering pilot is excluded. All new measurements are distinguished from retrospective analyses of the R16 dataset. Source and result hashes accompany the published files. All experiments use synthetic data and no personal or confidential operational records.
+All current manuscript inputs, proofs, scripts, frozen models, primitive definitions, observations, exact audit records, and build instructions are supplied in the versioned review package. The current README identifies a single main manuscript and electronic companion. Earlier revision directories, reports, and scientific observations are preserved unchanged, and exact predecessor root documents are snapshotted with a relocation map. R22 final validation uses fresh seeds after a documented numerical-state audit; no pilot confidence bound is used as a final result. All new measurements are distinguished from retrospective analyses of the R16 dataset. Source and result hashes accompany the published files. All experiments use synthetic data and no personal or confidential operational records.
 \clearpage\label{r19-reference-start}
 
 % BEGIN preserved/input source: revisions/or-r14-20260922/sections/references.tex
@@ -1204,14 +1174,8 @@ Beck A, Teboulle M (2009) A fast iterative shrinkage-thresholding algorithm for 
 \bibitem[Bemporad et al.(2002)Bemporad, Morari, Dua, and Pistikopoulos]{Bemporad2002}
 Bemporad A, Morari M, Dua V, Pistikopoulos EN (2002) The explicit linear quadratic regulator for constrained systems. \emph{Automatica} 38(1):3--20. doi:10.1016/S0005-1098(01)00174-1.
 
-\bibitem[Ben-Tal and Nemirovski(2000)]{BenTalNemirovski2000}
-Ben-Tal A, Nemirovski A (2000) Robust solutions of linear programming problems contaminated with uncertain data. \emph{Mathematical Programming} 88:411--424. doi:10.1007/PL00011380.
-
 \bibitem[Bertsimas and Kallus(2020)]{BertsimasKallus2020}
 Bertsimas D, Kallus N (2020) From predictive to prescriptive analytics. \emph{Management Science} 66(3):1025--1044. doi:10.1287/mnsc.2018.3253.
-
-\bibitem[Bertsimas and Sim(2004)]{BertsimasSim2004}
-Bertsimas D, Sim M (2004) The price of robustness. \emph{Operations Research} 52(1):35--53. doi:10.1287/opre.1030.0065.
 
 \bibitem[Boyd and Vandenberghe(2004)]{BoydVandenberghe2004}
 Boyd S, Vandenberghe L (2004) \emph{Convex Optimization} (Cambridge University Press, Cambridge).

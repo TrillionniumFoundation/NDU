@@ -1,0 +1,51 @@
+{
+  "revision": "R23",
+  "base_sha": "fef3bad92ab9c74530b530a885bb6f437e8b1c1a",
+  "review_sha": "18381729edf8d15a536ebef16abf6660ee0db48f",
+  "question": "Joint reward, switching-friction, continuation-coefficient and capacity-budget misspecification, distinct from covariate shift.",
+  "geometry": {
+    "nodes": 63,
+    "services": 2,
+    "resources": 6,
+    "capacities": 4,
+    "seed": 15001
+  },
+  "uncertainty": {
+    "vertices": "{-1,+1}^3",
+    "radii_numerator_over_16": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "reward": "b(v)=(1+rho*v0)*b_nominal + rho*v2*w, w_i=(-1)^i/8",
+    "friction": "lambda(v)=(1+rho*v1)*lambda_nominal",
+    "participation": "A(v)_{ji}=A0_{ji}*(1+rho*v2*(-1)^floor(i/2))",
+    "capacity": "cap(v)=(1+rho*v1)*cap_nominal",
+    "fixed": "D,U,B,v,outside tiers,root equalities"
+  },
+  "validation": {
+    "seed": 2302301,
+    "contexts": 96,
+    "context_law": "R16 contexts: six reward integers uniform -16..16 and friction integer 2..32, independent",
+    "models": "The same eight pre-R22 frozen tanh-gradient and eight RBF-direct models; deterministic mean prediction; no new training",
+    "methods": [
+      "protected-tanh-gradient",
+      "protected-rbf-direct",
+      "classical-robust-maximin"
+    ],
+    "workspace": "Fresh QP workspace for every solve, no inter-query or inter-policy state",
+    "exact_audit": "All recorded implemented decisions and vertex comparator upper bounds replayed in stdlib integer/Fraction arithmetic",
+    "failure_policy": "Record all solve failures, substitute zero proposal with valid zero-dual comparator upper when needed; retain negative certificates",
+    "no_statistical_overreach": "Pointwise robust guarantees and paired descriptive summaries only. No training-randomness claim, no field calibration, no new positive population-gain claim."
+  },
+  "comparator": "At every hidden model the true reoptimized accepted time-only amendment. Each vertex upper bound optimizes a declared common outer class containing the union of these model-specific restricted classes.",
+  "pilot": {
+    "seed": 2302399,
+    "contexts": 2,
+    "excluded_from_final": true
+  },
+  "tolerance": 1e-08,
+  "repair": "Rational equality-preserving root reconstruction and minimal mixture with a strictly robust feasible anchor; no numerical tolerance for feasibility",
+  "cost_scope": "Descriptive solve/repair/audit work on current host; not a matched-runtime acceleration claim. Robust certification adds eight outer-comparator solves per observed context/radius."
+}

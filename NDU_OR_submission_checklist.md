@@ -1,28 +1,10 @@
-# Operations Research R22 submission checklist
+# Operations Research R23 submission checklist
 
-## Current artifacts and journal format
-
-- Current ordinary root R22 main source/PDF and electronic companion source/PDF exist and agree.
-- Main: 41 total pages, 38 excluding 3 reference pages; **Lengthy** category.
-- Companion: 37 pages, no longer than main.
-- Anonymous letter-size pages, 11-point font, 1.5 line spacing, one-inch margins.
-- One-paragraph abstract: 182 words, no mathematical notation. Introduction has no equations or mathematical notation.
-- Author-year alphabetized references; no text footnotes; tables after references with no vertical rules.
-- No unresolved references/citations or overfull text lines; current sources are expanded ordinary TeX, not wrappers or encoded transports.
-- Subject classifications and area of review appear on the title page; current code/data availability statement follows the last main section.
-
-## Scientific/provenance checks
-
-- Latest actual R20 referee report is addressed point by point, not replaced by a generic response to an older report.
-- Exact complete R19 root files have pinned hashes; 58 original mathematical blocks remain verbatim across current manuscripts.
-- Full original experimental block and adverse outcomes are retained in the companion.
-- Matched-cost, deterministic validation, full-class scaling, theory checks and independent rational replays are actual executed records.
-- Scale failures, numerical-state correction, engineering-label amendment and known-model/conditional-inference scope are disclosed.
-- Neural, direct-price and classical methods are distinguished; no unsupported universal neural acceleration, misspecified-model validity or field calibration claim is made.
-- Final published SHA, not merely an input-source SHA, must have `ndu-or-r22/final-sha` success before a clean final-checkout claim.
-
-## Author-side declarations still requiring approval
-
-Authorship/order, ORCID, funding, financial conflicts, overlapping publications, duplicate-submission declarations, permissions and final journal submission must be confirmed by the authors. No declaration is fabricated by this package.
-
-Official preparation source checked September 23, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
+- Current review objects: root `main.pdf`, `main.tex`, `electronic_companion.pdf`, `electronic_companion.tex`; all show Revision R23.
+- Prepared as a **Lengthy** manuscript: main at most 40 pages excluding references; companion no longer than the complete main PDF. Counts are checked from actual PDFs and TeX labels.
+- Anonymous title pages and PDF author metadata; 11-point text, one-and-a-half spacing, one-inch margins; abstract at most 200 words and text only; introduction free of mathematical notation; author-year references; tables after references.
+- Every original mathematical statement/proof block retained verbatim in the current main or companion; predecessor hashes checked; full global-bridge proof relocated intact with an exact cross-reference.
+- Joint-misspecification protocol, all executed records, failed-run policy and independent standard-library verification included. Nominal statistical bounds and new pointwise robust certificates remain distinct.
+- All cross-references and citations resolve; no overfull text lines; complete ordinary sources have no transport dependency.
+- Primary guidelines checked September 23, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
+- **Author sign-off required:** authorship, conflicts, prior/parallel submission status, data/code and any applicable AI-use disclosures, and the final journal submission declarations. The assistant has not submitted to the journal or certified these author-specific declarations.

@@ -1,42 +1,41 @@
-# Neural Differential Utility — Operations Research R22
+# Neural Differential Utility — Operations Research R23
 
-**Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Certified Gains**
+**Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains**
 
-Revision: September 23, 2026. Branch: `revision/ndu-operations-research-r22-20260923`.
+Revision: September 23, 2026. Branch: `revision/ndu-operations-research-r23-20260923`.
 
-## Current reviewer entry points
+## Current review package
 
-[Main manuscript](main.pdf) · [ordinary complete main source](main.tex) · [electronic companion](electronic_companion.pdf) · [ordinary complete companion source](electronic_companion.tex).
+[Main manuscript](main.pdf) · [complete main source](main.tex) · [electronic companion](electronic_companion.pdf) · [complete companion source](electronic_companion.tex).
 
-[Point-by-point referee response](revisions/or-r22-20260923/RESPONSE_TO_REFEREE.md) · [preservation map](revisions/or-r22-20260923/PRESERVATION_MAP.md) · [literature/novelty map](revisions/or-r22-20260923/LITERATURE_MAP.md) · [claim/evidence ledger](revisions/or-r22-20260923/CLAIM_EVIDENCE.md) · [reproduction guide](revisions/or-r22-20260923/README.md).
+[Point-by-point referee response](revisions/or-r23-20260923/RESPONSE_TO_REFEREE.md) · [preservation map](revisions/or-r23-20260923/PRESERVATION_MAP.md) · [literature map](revisions/or-r23-20260923/LITERATURE_MAP.md) · [claim/evidence ledger](revisions/or-r23-20260923/CLAIM_EVIDENCE.md) · [reproduction guide](revisions/or-r23-20260923/README.md).
 
-This is the complete R22 review package, not the earlier R20 plan. It responds to the [September 23 R20 report](reviews/operation_research_referee_report_r20_2026-09-23.md), review commit `18381729edf8d15a536ebef16abf6660ee0db48f`. The reviewed plan-only R20 tip was `45553b28f40c92a14895b8b82d8739e608f6d4b1`; its complete manuscript was R19 at `cb4f8644652ebe92f0aac5294baaff898d97f5cf`. Exact original root files are preserved under [revisions/or-r22-20260923/predecessor/](revisions/or-r22-20260923/predecessor/). Earlier revision directories, reviews, historical supplement and other branches are not overwritten.
+R23 addresses the September 23 R20 review report at `18381729edf8d15a536ebef16abf6660ee0db48f`. Its scientific base is the complete R22 publication `fef3bad92ab9c74530b530a885bb6f437e8b1c1a`. The reviewed R20 tip was a plan on R19; R23 does not claim that a newer referee has already reviewed R22. Exact R22 root documents are preserved in `revisions/or-r23-20260923/predecessor/`; all earlier revision directories, reviews and historical supplements remain unchanged.
 
-## Scientific revision
+## Scientific addition
 
-The common target is the certified gain from expanding an already optimized accepted policy class. The full continuation, friction, transfer, resource-price and inexact-response theory is retained. New proofs separate certificate error into box, resource, switching and participation terms, identify a price-repair floor, establish monotone resource/equality-price repair, prove complete dual attainment and a convergent full-price repair without strict feasibility, certify context transport, charge regularization bias, and connect implemented decisions with a reoptimized restricted contract. A theorem-level literature map distinguishes accepted-control consequences from established sensitivity, duality, decision-focused learning, dual prediction and learned warm starts.
+The current paper retains the accepted-control, friction, transfer, value-gradient, inexact-response, component-certificate and complete-dual-repair results. It now proves robust accepted gains under **joint objective and participation/capacity coefficient uncertainty**. The gain is measured against the true model-specific reoptimized restricted contract. A common outer comparator class contains the union of those restricted classes; a scalar counterexample shows why separately optimized vertex comparators can miss a stronger interior comparator. The new exact repair preserves root equalities and every uncertain inequality, and explicitly charges its value effect.
 
-The original neural and non-neural results, including adverse comparisons, remain in a dated companion section. New experiments include a structure-aware lifted primal--dual classical continuation baseline, full-polyhedron scaling, frozen deterministic neural and direct-price ensembles, an optimized time-only-amendment comparator, and independent in-distribution/shifted validation with fresh numerical workspaces. Positive gain against an optimized restricted class is not equated with neural acceleration or field validity. All operational primitives are synthetic and known.
+The generic robust-counterpart and weak-duality ingredients are identified as classical. The accepted-service consequence, hidden-model comparator distinction and implemented rational certificate are explicit. The uncertainty set is specified rather than field-estimated.
 
-## Executed and independently checked evidence
+## Newly executed R23 evidence
 
-[5,120 matched-cost pipelines](revisions/or-r22-20260923/results/matched_rows.json) include prediction, response, repair, audit, price polishing and actual fallback under identical final tolerances. [Final deterministic validation](revisions/or-r22-20260923/results/validation_summary.json) contains 2,048 IID and 512 shifted contexts for each of two frozen ensembles, with four simultaneous conditional expected-gain bounds against the true optimized restricted value. [Full-class scaling](revisions/or-r22-20260923/results/scaling_summary.json) contains ten geometries, 640 audited training labels and 800 deployment attempts; failures are retained. [Independent rational replay](revisions/or-r22-20260923/results/replay.json) checks 32,416 new policy records, 320 component identities and four rejected invalid controls. [Complete dual-repair checks](revisions/or-r22-20260923/results/complete_dual_checks.json) additionally verify 225 exact optima, 3,600 projected-gradient steps and 450 context transports. The inherited R19 standard-library replay is also rerun without modifying historical inputs.
+The predeclared study uses 96 fresh contexts, four uncertainty radii, the same frozen eight-model neural and RBF ensembles, and a classical robust-maximin QP. It records **1,152 protected implementations**, **3,072 vertex comparator upper certificates** and **768 nondeployed nominal diagnostics**. All protected decisions are exactly robust-feasible and all their gain lower certificates are positive in this sample. The independent Python-standard-library replay also checks 2,304 interior certificate mixtures, the scalar counterexample at 1,001 rational parameters, and six rejected invalid controls. Numerical solve failures: **0**; failure and negative-certificate retention is part of the protocol.
 
-The lower confidence bounds in the final recorded study are:
+At uncertainty radius 0.25:
 
-| Population | Frozen deterministic rule | Conditional expected-gain lower bound |
-|---|---|---:|
-| iid | ensemble-tanh-gradient | 1.158492 |
-| iid | ensemble-rbf-direct | 1.160880 |
-| shift | ensemble-tanh-gradient | 1.386231 |
-| shift | ensemble-rbf-direct | 1.401297 |
+| Implemented rule | Mean robust gain lower certificate | Minimum certificate |
+|---|---:|---:|
+| Protected tanh-gradient | 0.808414 | 0.225658 |
+| Protected RBF-direct | 0.815943 | 0.278173 |
+| Classical robust maximin | 0.848251 | 0.378572 |
 
-These are four simultaneous 95% one-sided bounds conditional on the frozen rules, for their respective declared synthetic context laws. The comparator gate itself requires optimization and is not evidence of a speed advantage. The stateful developmental pilot is excluded; [the correction record](revisions/or-r22-20260923/audit_notes/STATE_ISOLATION_CORRECTION.json) identifies the fresh final protocol.
+These are averages/minima of pointwise, uniformly valid certificates, **not** new population confidence bounds. Both nominal learned rules violate some uncertain restriction in every recorded positive-radius context; their violation magnitudes are retained. None of these unsafe diagnostics is deployed. The classical robust rule remains strongest; no neural speed or accuracy superiority is asserted.
 
-## Format, provenance and verification
+## Preserved evidence and verification
 
-The main PDF has 41 pages (38 excluding references); the companion has 37 pages. The 182-word abstract, 11-point text, one-and-a-half spacing, one-inch margins, anonymous title pages, mathematical-notation-free introduction, author-year references and tables after references are checked against the journal's **Lengthy** manuscript format. All current references resolve. Verbatim preservation checks cover 58 original mathematical statements/proofs.
+All original unfavorable neural/direct-price comparisons, the complete R22 5,120-pipeline matched-cost study, deterministic IID/shift validation, full-polyhedron scaling and prior exact checks remain. Their original provenance and statistical targets are unchanged. Every predecessor mathematical statement/proof block is preserved verbatim across the current main and companion; only the full global-bridge proof is moved intact to the companion.
 
-[Package checks](revisions/or-r22-20260923/results/package_check.json) · [manifest](revisions/or-r22-20260923/MANIFEST.json) · [provenance](revisions/or-r22-20260923/PROVENANCE.json) · [submission checklist](NDU_OR_submission_checklist.md).
+The current main and companion use the journal's anonymous 11-point, one-and-a-half-spaced, one-inch-margin Lengthy format, a text-only abstract below 200 words, a notation-free introduction, author-year references and tables after references. Actual page counts, reference resolution and preservation are in [package checks](revisions/or-r23-20260923/results/package_check.json). [Manifest](revisions/or-r23-20260923/MANIFEST.json) · [provenance](revisions/or-r23-20260923/PROVENANCE.json) · [exact replay](revisions/or-r23-20260923/results/replay.json).
 
-The workflow attaches `ndu-or-r22/final-sha` to the actual final published commit after independent final-checkout replay, PDF and hash verification. A successful source checkpoint alone is not called a completed revision. Author approval of authorship, conflicts and submission declarations is still required. This branch is a referee-ready research package, not journal acceptance.
+The publication workflow attaches `ndu-or-r23/final-sha` only after independent verification of the actual final commit. Author approval of submission declarations is still required; this package is a research revision, not journal acceptance.
