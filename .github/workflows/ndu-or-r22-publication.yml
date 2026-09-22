@@ -1,0 +1,174 @@
+name: NDU OR R22 complete publication and final-SHA validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r22-20260923]
+    paths: [.github/workflows/ndu-or-r22-publication.yml, .r22-delivery/READY.json]
+permissions:
+  contents: write
+  statuses: write
+  actions: read
+concurrency:
+  group: ndu-or-r22-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r22-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+      REVISION_BRANCH: revision/ndu-operations-research-r22-20260923
+      EVIDENCE_RUN: '35784975101'
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify the complete overlay and materialize ordinary R22 source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64,hashlib,io,tarfile
+          raw=base64.b64decode(Path('.r22-delivery/overlay.b64').read_text().strip(),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='ea1ec4a3b2fa4a52092c0055e4de30e4a6f4fc0146ea115fd59affa7850da916'
+          expected={'revisions/or-r22-20260923/finalize_revision.py':'3050a1d7744c5c4d9de930075e6ea0bec3f66d0afbaa069c013a3562801af652','revisions/or-r22-20260923/complete_dual_checks.py':'19f6d666bc34eedfdaa338ec711ebd2384a808ea016eeaa61cf3859c2c46d5ea','revisions/or-r22-20260923/sections/complete_dual.tex':'60dd5ec5f6aee2ba2d43b4d43eecc2569874654ef6db7b34b9e01ac47cbd3d7a'}
+          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:xz') as t:
+              assert set(m.name for m in t.getmembers())==set(expected)
+              for m in t.getmembers():
+                  assert m.isfile() and '..' not in Path(m.name).parts
+                  data=t.extractfile(m).read();assert hashlib.sha256(data).hexdigest()==expected[m.name]
+                  p=Path(m.name);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(data)
+          PY
+          python revisions/or-r22-20260923/finalize_revision.py
+          python -S revisions/or-r22-20260923/complete_dual_checks.py
+      - name: Install manuscript and independent verification dependencies
+        run: |
+          python -m pip install PyMuPDF==1.26.7
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Require completed independent numerical execution
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 150); do
+            status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$EVIDENCE_RUN" --jq '.status')
+            if [ "$status" = completed ]; then
+              test "$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$EVIDENCE_RUN" --jq '.conclusion')" = success
+              gh api "repos/$GITHUB_REPOSITORY/actions/runs/$EVIDENCE_RUN/artifacts" > /tmp/evidence-artifacts.json
+              python - <<'PY'
+          import json,os
+          a=json.load(open('/tmp/evidence-artifacts.json'))['artifacts']
+          a=[x for x in a if x['name']=='ndu-or-r22-executed-evidence' and not x['expired']]
+          assert len(a)==1
+          with open(os.environ['GITHUB_ENV'],'a') as f:f.write('EVIDENCE_ARTIFACT='+str(a[0]['id'])+'\n')
+          PY
+              exit 0
+            fi
+            sleep 20
+          done
+          echo 'Numerical execution did not complete successfully within the bounded dependency wait.' >&2
+          exit 1
+      - uses: actions/download-artifact@v4
+        with:
+          name: ndu-or-r22-executed-evidence
+          run-id: 35784975101
+          github-token: ${{ github.token }}
+          path: /tmp/r22-evidence
+      - name: Verify source identity and import only executed results
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil,json,hashlib,os
+          r=Path('revisions/or-r22-20260923');e=Path('/tmp/r22-evidence')
+          for n in ['core.py','certificate.py','time_comparator.py','matched_cost.py','validation.py','scaling.py']:
+              assert (r/n).read_bytes()==(e/n).read_bytes(),('Numerical source mismatch',n)
+          for directory in ['results','tables']:
+              shutil.copytree(e/directory,r/directory,dirs_exist_ok=True)
+          (r/'results/EVIDENCE_PROVENANCE.json').write_text(json.dumps({'run_id':35784975101,'source_commit':'b1b021c9a9e954edfe08f5759a5d06341cab384a','artifact_id':os.environ['EVIDENCE_ARTIFACT'],'source_identity_verified':True,'mathematical_overlay_changes_no_predictor_or_numerical_study_source':True},indent=2)+'\n')
+          PY
+      - name: Recheck actual evidence and construct complete current manuscripts
+        run: |
+          set -euo pipefail
+          R=revisions/or-r22-20260923
+          python -S "$R/complete_dual_checks.py"
+          python -S "$R/theory_checks.py"
+          python -S "$R/replay.py" --check
+          python -S revisions/or-r19-20260923/replay.py --check
+          python "$R/analyze.py"
+          bash "$R/build.sh"
+          python "$R/check_package.py"
+          python "$R/package_metadata.py"
+          python "$R/check_package.py" --verify-manifest
+      - name: Publish ordinary manuscripts and all results only on the new branch
+        id: publish
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git diff --exit-code -- revisions/or-r21-20260923 revisions/or-r19-20260923 revisions/or-r16-20260922 revisions/or-r14-20260922 reviews historical_supplement.pdf historical_supplement.tex
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R22 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git rm -r .r22-delivery
+          find revisions/or-r22-20260923 -type d -name __pycache__ -prune -exec rm -rf {} +
+          git add -f revisions/or-r22-20260923 main.tex main.pdf main.bib main.bbl electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md main-labels.aux ec-labels.aux
+          git commit -m 'paper(or-r22): complete referee revision, dual-attainment theorem, executed comparisons, and exact evidence'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          SHA=$(git rev-parse HEAD)
+          echo "final_sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "$SHA" > /tmp/R22_FINAL_SHA.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_OR_R22_review_package.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r22-complete-review-package
+          path: |
+            /tmp/NDU_OR_R22_review_package.tar.gz
+            /tmp/R22_FINAL_SHA.txt
+            main.pdf
+            electronic_companion.pdf
+            revisions/or-r22-20260923/results
+          retention-days: 30
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+          fetch-depth: 1
+      - name: Attach status to the actual final commit
+        run: |
+          test "$(git rev-parse HEAD)" = "$FINAL_SHA"
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state=pending -f context=ndu-or-r22/final-sha -f description='Independent final-checkout replay and manuscript checks' -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify final published SHA without rewriting evidence
+        run: |
+          set -euo pipefail
+          python -m pip install PyMuPDF==1.26.7
+          python -S revisions/or-r22-20260923/complete_dual_checks.py --check
+          python -S revisions/or-r22-20260923/replay.py --check
+          python -S revisions/or-r19-20260923/replay.py --check
+          python revisions/or-r22-20260923/check_package.py --verify-manifest
+          git diff --exit-code
+          test ! -d .r22-delivery
+      - name: Publish actual final-SHA result
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          if [ "$JOB_STATUS" = success ]; then state=success; fi
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state="$state" -f context=ndu-or-r22/final-sha -f description='Final checkout: manuscripts, full replay, 225 dual cases and hashes' -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
