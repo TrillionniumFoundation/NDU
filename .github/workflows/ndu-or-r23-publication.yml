@@ -1,0 +1,148 @@
+name: NDU OR R23 complete publication and final-SHA validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r23-20260923]
+    paths: [.github/workflows/ndu-or-r23-publication.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+  actions: read
+concurrency:
+  group: ndu-or-r23-publication
+  cancel-in-progress: true
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r23-20260923
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  GH_TOKEN: ${{ github.token }}
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r23-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify source overlay and preserve exact predecessor documents
+        run: |
+          python - <<'PY'
+          import base64, hashlib, io, json, shutil, tarfile
+          from pathlib import Path
+          b64=''.join(Path(f'.r23-delivery/part{i}.b64').read_text().strip() for i in range(5))
+          raw=base64.b64decode(b64,validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='e620b89f684c6580ecd8df383955a4b97212c90b8242ce49604024ad29cd9ca0'
+          r=Path('revisions/or-r23-20260923')
+          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:xz') as t:
+              for m in t.getmembers():
+                  p=Path(m.name)
+                  assert m.isfile() and p.is_relative_to(r) and '..' not in p.parts
+                  p.parent.mkdir(parents=True,exist_ok=True)
+                  p.write_bytes(t.extractfile(m).read())
+          for d in ('predecessor','results','tables'): (r/d).mkdir(exist_ok=True)
+          for name,h in json.loads((r/'PREDECESSOR_SHA256.json').read_text()).items():
+              source=Path(name)
+              assert hashlib.sha256(source.read_bytes()).hexdigest()==h,name
+              shutil.copyfile(source,r/'predecessor'/name)
+          print('Verified complete source overlay and all ten predecessor documents.')
+          PY
+      - name: Install pinned numerical and PDF dependencies
+        run: |
+          python -m pip install numpy==2.3.5 scipy==1.17.0 casadi==3.7.2 PyMuPDF==1.26.7
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Execute predeclared joint-misspecification study
+        run: |
+          python revisions/or-r23-20260923/robust_study.py
+          python - <<'PY'
+          import json,os,platform,sys
+          from pathlib import Path
+          import numpy,scipy,casadi,fitz
+          p=Path('revisions/or-r23-20260923/results/EXECUTION_PROVENANCE.json')
+          p.write_text(json.dumps({'source_sha':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],'python':sys.version,'platform':platform.platform(),'numpy':numpy.__version__,'scipy':scipy.__version__,'casadi':casadi.__version__,'pymupdf':fitz.VersionBind,'threads':1,'source_overlay_sha256':'e620b89f684c6580ecd8df383955a4b97212c90b8242ce49604024ad29cd9ca0'},indent=2)+'\n')
+          PY
+      - name: Exact new and inherited evidence replay
+        run: |
+          python -S revisions/or-r23-20260923/replay.py
+          python -S revisions/or-r22-20260923/replay.py --check
+          python -S revisions/or-r22-20260923/complete_dual_checks.py --check
+          python -S revisions/or-r19-20260923/replay.py --check
+      - name: Assemble complete ordinary manuscripts and validate PDFs
+        run: |
+          R=revisions/or-r23-20260923
+          python "$R/analyze.py"
+          python "$R/materialize_revision.py"
+          bash "$R/build.sh"
+          python "$R/package_metadata.py"
+          python "$R/check_package.py"
+          python "$R/package_metadata.py" --manifest
+          python "$R/check_package.py" --verify-manifest
+      - name: Publish only the complete R23 branch
+        id: publish
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git diff --exit-code -- revisions/or-r22-20260923 revisions/or-r21-20260923 revisions/or-r19-20260923 reviews historical_supplement.tex historical_supplement.pdf
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R23 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git rm -r .r23-delivery
+          find revisions/or-r23-20260923 -type d -name __pycache__ -prune -exec rm -rf {} +
+          git add -f revisions/or-r23-20260923 main.tex main.pdf main.bib main.bbl electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md main-labels.aux ec-labels.aux
+          git commit -m 'paper(or-r23): complete robust accepted-gain revision, joint-misspecification evidence, and preserved theory'
+          git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          final_sha=$(git rev-parse HEAD)
+          echo "final_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          echo "$final_sha" > /tmp/R23_FINAL_SHA.txt
+          git archive --format=tar.gz -o /tmp/NDU_OR_R23_review_package.tar.gz HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r23-complete-review-package
+          path: |
+            /tmp/NDU_OR_R23_review_package.tar.gz
+            /tmp/R23_FINAL_SHA.txt
+            revisions/or-r23-20260923/results/package_check.json
+            revisions/or-r23-20260923/results/replay.json
+          retention-days: 30
+          if-no-files-found: warn
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Mark actual published commit pending independent verification
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/statuses/${{ needs.publish.outputs.final_sha }}" -f state=pending -f context=ndu-or-r23/final-sha -f description='Independent checkout, exact replay, PDF and hash verification' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Independently verify actual published files
+        run: |
+          python -m pip install PyMuPDF==1.26.7
+          test "$(git rev-parse HEAD)" = '${{ needs.publish.outputs.final_sha }}'
+          test ! -d .r23-delivery
+          python -S revisions/or-r23-20260923/replay.py --check
+          python -S revisions/or-r22-20260923/replay.py --check
+          python -S revisions/or-r22-20260923/complete_dual_checks.py --check
+          python -S revisions/or-r19-20260923/replay.py --check
+          python revisions/or-r23-20260923/check_package.py --verify-manifest
+          git diff --exit-code
+      - name: Attach status to the actual final commit
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          [ "$JOB_STATUS" = success ] && state=success
+          gh api "repos/$GITHUB_REPOSITORY/statuses/${{ needs.publish.outputs.final_sha }}" -f state="$state" -f context=ndu-or-r23/final-sha -f description='Actual final-SHA exact replay, preservation, PDF and manifest checks' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
