@@ -1,0 +1,637 @@
+{
+  "revision": "R16",
+  "replications": 8,
+  "training_contexts_per_replication": 256,
+  "independent_deployment_contexts_per_replication": 256,
+  "methods": {
+    "tanh-value": {
+      "regret_lower": 0.03437426509385259,
+      "regret_upper": 0.03437434614738904,
+      "gain": 1.4111675882805657,
+      "gap": 0.1937051175061833,
+      "gate": 0.0,
+      "repair": 0.00048828125,
+      "iterations": 2039.02587890625,
+      "gradient_mse": 0.04429236517876957,
+      "pass_1e-3": 0.0,
+      "pass_1e-5": 0.0
+    },
+    "tanh-gradient": {
+      "regret_lower": 0.0036845397799495994,
+      "regret_upper": 0.0036846208334860415,
+      "gain": 1.4418573135944683,
+      "gap": 0.01585642607743102,
+      "gate": 0.0,
+      "repair": 0.0009765625,
+      "iterations": 2086.90185546875,
+      "gradient_mse": 0.003174288531523714,
+      "pass_1e-3": 0.00537109375,
+      "pass_1e-5": 0.0
+    },
+    "tanh-direct": {
+      "regret_lower": 0.0015808548406279507,
+      "regret_upper": 0.0015809358941643926,
+      "gain": 1.44396099853379,
+      "gap": 0.007985528612726403,
+      "gate": 0.0,
+      "repair": 0.00048828125,
+      "iterations": 1975.23193359375,
+      "gradient_mse": 0.001744121351896604,
+      "pass_1e-3": 0.03662109375,
+      "pass_1e-5": 0.0
+    },
+    "quadratic-value": {
+      "regret_lower": 0.003078989331497216,
+      "regret_upper": 0.0030790703850336575,
+      "gain": 1.442462864042921,
+      "gap": 0.01244637422620384,
+      "gate": 0.0,
+      "repair": 0.0009765625,
+      "iterations": 1907.4462890625,
+      "gradient_mse": 0.002401635993577484,
+      "pass_1e-3": 0.0458984375,
+      "pass_1e-5": 0.0
+    },
+    "quadratic-gradient": {
+      "regret_lower": 0.00279371127085431,
+      "regret_upper": 0.002793792324390752,
+      "gain": 1.4427481421035637,
+      "gap": 0.01108115285589692,
+      "gate": 0.0,
+      "repair": 0.0009765625,
+      "iterations": 1942.41943359375,
+      "gradient_mse": 0.0021128146180868406,
+      "pass_1e-3": 0.0947265625,
+      "pass_1e-5": 0.0
+    },
+    "quadratic-direct": {
+      "regret_lower": 0.0002710676114944939,
+      "regret_upper": 0.0002711486650309358,
+      "gain": 1.4452707857629234,
+      "gap": 0.0012377083322884347,
+      "gate": 0.0,
+      "repair": 0.00048828125,
+      "iterations": 2074.79248046875,
+      "gradient_mse": 0.00025665141703091847,
+      "pass_1e-3": 0.65478515625,
+      "pass_1e-5": 0.0
+    },
+    "rbf-direct": {
+      "regret_lower": 0.0001576556312360313,
+      "regret_upper": 0.00015773668477247322,
+      "gain": 1.445384197743182,
+      "gap": 0.0006570385202303756,
+      "gate": 0.0,
+      "repair": 0.0,
+      "iterations": 2005.16357421875,
+      "gradient_mse": 0.00012900205068582793,
+      "pass_1e-3": 0.8642578125,
+      "pass_1e-5": 0.0
+    }
+  },
+  "paired_neural_regret_difference": {
+    "mean": -0.030689725313902995,
+    "standard_error": 0.004606639955147261,
+    "interval95": [
+      -0.041582697870200504,
+      -0.019796752757605486
+    ],
+    "units": "independent training/deployment pair; approximate Student interval"
+  },
+  "reference_mean_gain": 1.4455418533744182,
+  "timing": [
+    {
+      "method": "cached-full-cold",
+      "tol": null,
+      "total": 0.03047513550004055,
+      "prediction": 0.0,
+      "response": 0.02805794100000014,
+      "first_audit": 0.0024167514999788864,
+      "refinement": 0.0,
+      "second_audit": 0.0,
+      "fallback_rate": 0.0
+    },
+    {
+      "method": "cached-full-previous",
+      "tol": null,
+      "total": 0.031140509500005464,
+      "prediction": 0.0,
+      "response": 0.02868616099999599,
+      "first_audit": 0.002414461499938625,
+      "refinement": 0.0,
+      "second_audit": 0.0,
+      "fallback_rate": 0.0
+    },
+    {
+      "method": "tanh-value",
+      "tol": 0.001,
+      "total": 0.050580170499927135,
+      "prediction": 0.0001240350000273338,
+      "response": 0.013002348000014763,
+      "first_audit": 0.0023524190000614453,
+      "refinement": 0.027237411499982045,
+      "second_audit": 0.002416632499972593,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "tanh-value",
+      "tol": 1e-05,
+      "total": 0.050868651000087084,
+      "prediction": 0.0001240350000273338,
+      "response": 0.013002348000014763,
+      "first_audit": 0.0023524190000614453,
+      "refinement": 0.027606400000024678,
+      "second_audit": 0.0024152065000464518,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "tanh-gradient",
+      "tol": 0.001,
+      "total": 0.04630569200008949,
+      "prediction": 0.00012299350001399034,
+      "response": 0.012090271500028393,
+      "first_audit": 0.0023316195000120388,
+      "refinement": 0.02595790950005039,
+      "second_audit": 0.002408560000048965,
+      "fallback_rate": 0.9921875
+    },
+    {
+      "method": "tanh-gradient",
+      "tol": 1e-05,
+      "total": 0.04632564150000462,
+      "prediction": 0.00012299350001399034,
+      "response": 0.012090271500028393,
+      "first_audit": 0.0023316195000120388,
+      "refinement": 0.025908197500029928,
+      "second_audit": 0.0024105749999847603,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "tanh-direct",
+      "tol": 0.001,
+      "total": 0.04273586249996697,
+      "prediction": 0.000109618999971417,
+      "response": 0.011623284500046793,
+      "first_audit": 0.0023311775000038892,
+      "refinement": 0.024179231000005075,
+      "second_audit": 0.0024034579999749894,
+      "fallback_rate": 0.9765625
+    },
+    {
+      "method": "tanh-direct",
+      "tol": 1e-05,
+      "total": 0.04364777649999496,
+      "prediction": 0.000109618999971417,
+      "response": 0.011623284500046793,
+      "first_audit": 0.0023311775000038892,
+      "refinement": 0.024739029500040033,
+      "second_audit": 0.0024040235000200028,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "quadratic-value",
+      "tol": 0.001,
+      "total": 0.042312628999980006,
+      "prediction": 0.000756940499996972,
+      "response": 0.011261910000001762,
+      "first_audit": 0.002333389000000352,
+      "refinement": 0.022460530499984088,
+      "second_audit": 0.002400589500012984,
+      "fallback_rate": 0.94921875
+    },
+    {
+      "method": "quadratic-value",
+      "tol": 1e-05,
+      "total": 0.04402670000007447,
+      "prediction": 0.000756940499996972,
+      "response": 0.011261910000001762,
+      "first_audit": 0.002333389000000352,
+      "refinement": 0.02434152149999136,
+      "second_audit": 0.0024014984999922717,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "quadratic-gradient",
+      "tol": 0.001,
+      "total": 0.041238544500032503,
+      "prediction": 0.0007554334999895218,
+      "response": 0.01128322200000298,
+      "first_audit": 0.002333665999998402,
+      "refinement": 0.021847082000022056,
+      "second_audit": 0.002397041000023137,
+      "fallback_rate": 0.91015625
+    },
+    {
+      "method": "quadratic-gradient",
+      "tol": 1e-05,
+      "total": 0.04462939099998664,
+      "prediction": 0.0007554334999895218,
+      "response": 0.01128322200000298,
+      "first_audit": 0.002333665999998402,
+      "refinement": 0.024756702000019004,
+      "second_audit": 0.002404715500006205,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "quadratic-direct",
+      "tol": 0.001,
+      "total": 0.02070621799998662,
+      "prediction": 0.0007458350000035807,
+      "response": 0.011830790499971044,
+      "first_audit": 0.002335244999997599,
+      "refinement": 0.0,
+      "second_audit": 0.0,
+      "fallback_rate": 0.34375
+    },
+    {
+      "method": "quadratic-direct",
+      "tol": 1e-05,
+      "total": 0.041722951000068065,
+      "prediction": 0.0007458350000035807,
+      "response": 0.011830790499971044,
+      "first_audit": 0.002335244999997599,
+      "refinement": 0.022642555500056005,
+      "second_audit": 0.002401780500008499,
+      "fallback_rate": 1.0
+    },
+    {
+      "method": "rbf-direct",
+      "tol": 0.001,
+      "total": 0.015833311499989122,
+      "prediction": 8.590500002014778e-05,
+      "response": 0.011869736999926772,
+      "first_audit": 0.0023316845000351805,
+      "refinement": 0.0,
+      "second_audit": 0.0,
+      "fallback_rate": 0.109375
+    },
+    {
+      "method": "rbf-direct",
+      "tol": 1e-05,
+      "total": 0.040559572000034905,
+      "prediction": 8.590500002014778e-05,
+      "response": 0.011869736999926772,
+      "first_audit": 0.0023316845000351805,
+      "refinement": 0.022869221000007656,
+      "second_audit": 0.0024029074999987188,
+      "fallback_rate": 1.0
+    }
+  ],
+  "offline": {
+    "full_setup": 0.002246400999993625,
+    "previous_full_setup": 0.0022034010000027138,
+    "base_setup": 0.0012918289999959143,
+    "mean_labels_seconds": 11.822540071749998,
+    "mean_fit_all_seconds": 0.018601597624986255
+  },
+  "frozen_bounds": {
+    "M": 56,
+    "delta": 0.05,
+    "n": 256,
+    "deterministic_gain_range_upper": 25,
+    "exact_range_bound": "62305044523/2519637120",
+    "penalty": 2.9275688097968153,
+    "bounds": [
+      {
+        "seed": 15011,
+        "method": "tanh-value",
+        "mean_gain": 1.400397927078079,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15011,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4205348170232144,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15011,
+        "method": "tanh-direct",
+        "mean_gain": 1.4227745321470917,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15011,
+        "method": "quadratic-value",
+        "mean_gain": 1.4206704710916918,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15011,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.4210395705999326,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15011,
+        "method": "quadratic-direct",
+        "mean_gain": 1.4237386401391097,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15011,
+        "method": "rbf-direct",
+        "mean_gain": 1.4239480091289236,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "tanh-value",
+        "mean_gain": 1.4575745009843892,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "tanh-gradient",
+        "mean_gain": 1.494610117524171,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "tanh-direct",
+        "mean_gain": 1.4963312532756734,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "quadratic-value",
+        "mean_gain": 1.4945187919844463,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.4950789489744367,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "quadratic-direct",
+        "mean_gain": 1.498043865926792,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15012,
+        "method": "rbf-direct",
+        "mean_gain": 1.498156044076599,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "tanh-value",
+        "mean_gain": 1.3948414052428486,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4140755404171919,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "tanh-direct",
+        "mean_gain": 1.4161906612240607,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "quadratic-value",
+        "mean_gain": 1.414615848045755,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.414720884863569,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "quadratic-direct",
+        "mean_gain": 1.4171506087375858,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15013,
+        "method": "rbf-direct",
+        "mean_gain": 1.4172515157487424,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "tanh-value",
+        "mean_gain": 1.4568750651681257,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4855823623783273,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "tanh-direct",
+        "mean_gain": 1.486664687078978,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "quadratic-value",
+        "mean_gain": 1.4860472781107255,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.4862514524816803,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "quadratic-direct",
+        "mean_gain": 1.487997240071412,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15014,
+        "method": "rbf-direct",
+        "mean_gain": 1.4880799803427205,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "tanh-value",
+        "mean_gain": 1.4096650467249443,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4314874165692837,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "tanh-direct",
+        "mean_gain": 1.434338381825584,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "quadratic-value",
+        "mean_gain": 1.4328520767573483,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.433049560103993,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "quadratic-direct",
+        "mean_gain": 1.4354380182640445,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15015,
+        "method": "rbf-direct",
+        "mean_gain": 1.4355595056200845,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "tanh-value",
+        "mean_gain": 1.3694881144448687,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4284354808457485,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "tanh-direct",
+        "mean_gain": 1.4306577473049515,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "quadratic-value",
+        "mean_gain": 1.4296340841632647,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.4298286798713244,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "quadratic-direct",
+        "mean_gain": 1.4322978237022443,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15016,
+        "method": "rbf-direct",
+        "mean_gain": 1.4323446233044073,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "tanh-value",
+        "mean_gain": 1.4123762583874737,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4388063774406121,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "tanh-direct",
+        "mean_gain": 1.4406611318124258,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "quadratic-value",
+        "mean_gain": 1.4388305401529737,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.4393521149937705,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "quadratic-direct",
+        "mean_gain": 1.4421263748832485,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15017,
+        "method": "rbf-direct",
+        "mean_gain": 1.442213132882446,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "tanh-value",
+        "mean_gain": 1.3881223882137947,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "tanh-gradient",
+        "mean_gain": 1.4213263965571987,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "tanh-direct",
+        "mean_gain": 1.424069593601556,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "quadratic-value",
+        "mean_gain": 1.4225338220371617,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "quadratic-gradient",
+        "mean_gain": 1.4226639249398039,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "quadratic-direct",
+        "mean_gain": 1.4253737143789516,
+        "lower_bound": 0.0
+      },
+      {
+        "seed": 15018,
+        "method": "rbf-direct",
+        "mean_gain": 1.425520770841533,
+        "lower_bound": 0.0
+      }
+    ],
+    "note": "A zero lower bound is vacuous beyond comparator safety; no population training guarantee is inferred."
+  },
+  "certificate_records": 16384,
+  "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39"
+}
