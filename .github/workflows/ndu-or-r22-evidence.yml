@@ -1,0 +1,61 @@
+name: NDU OR R22 executed evidence
+on:
+  push:
+    branches: [revision/ndu-operations-research-r22-20260923]
+    paths: [.github/workflows/ndu-or-r22-evidence.yml]
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Materialize isolated R22 numerical sources from pinned R21
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil,json
+          old=Path('revisions/or-r21-20260923'); new=Path('revisions/or-r22-20260923')
+          shutil.copytree(old,new)
+          for p in new.rglob('*'):
+              if p.is_file() and 'predecessor' not in p.parts and p.suffix in ['.py','.sh','.tex','.md','.json']:
+                  s=p.read_text().replace('or-r21-20260923','or-r22-20260923').replace('R21','R22').replace('r21-','r22-').replace('ndu-or-r21/','ndu-or-r22/')
+                  p.write_text(s)
+          (new/'results').mkdir(exist_ok=True)
+          (new/'results'/'EXECUTION_SOURCE.json').write_text(json.dumps({'inherited_source':'c2d25791bd1f4c2b1801a446376a86c50eb381fe','status':'Numerical execution; not a completed manuscript or final-SHA validation.'},indent=2))
+          PY
+          python -m pip install -r revisions/or-r16-20260922/requirements.txt
+      - name: Execute matched complete-pipeline timing
+        run: |
+          set -euo pipefail
+          python -u revisions/or-r22-20260923/matched_cost.py 2>&1 | tee revisions/or-r22-20260923/results/matched-execution.log
+      - name: Execute independent deterministic validation and declared shift
+        run: |
+          set -euo pipefail
+          python -u revisions/or-r22-20260923/validation.py 2>&1 | tee revisions/or-r22-20260923/results/validation-execution.log
+      - name: Execute full-polyhedron scaling with retained failures
+        run: |
+          set -euo pipefail
+          python -u revisions/or-r22-20260923/scaling.py 2>&1 | tee revisions/or-r22-20260923/results/scaling-execution.log
+      - name: Independent exact replay and analysis
+        run: |
+          set -euo pipefail
+          R=revisions/or-r22-20260923
+          python -S "$R/theory_checks.py"
+          python -S "$R/replay.py"
+          python -S revisions/or-r19-20260923/replay.py --check
+          python "$R/analyze.py"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r22-executed-evidence
+          path: revisions/or-r22-20260923
+          retention-days: 30
