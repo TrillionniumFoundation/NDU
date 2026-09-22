@@ -1,0 +1,177 @@
+{
+  "revision": "R22",
+  "review_commit": "18381729edf8d15a536ebef16abf6660ee0db48f",
+  "review_path": "reviews/operation_research_referee_report_r20_2026-09-23.md",
+  "reviewed_tip": "45553b28f40c92a14895b8b82d8739e608f6d4b1",
+  "complete_manuscript_base": "cb4f8644652ebe92f0aac5294baaff898d97f5cf",
+  "design_status": "Declared before execution of these new experiments, informed by all published R19 results; not externally preregistered.",
+  "matched_cost": {
+    "cohorts": 8,
+    "contexts_per_cohort": 16,
+    "repetitions": 2,
+    "tolerances": [
+      0.001,
+      1e-05
+    ],
+    "methods": [
+      "classical-cold",
+      "classical-previous",
+      "lifted-price-continuation",
+      "tanh-value",
+      "tanh-gradient",
+      "tanh-direct",
+      "quadratic-value",
+      "quadratic-gradient",
+      "quadratic-direct",
+      "rbf-direct"
+    ],
+    "polish_steps": 12,
+    "initial_solver_tolerance": 1e-05,
+    "fallback_solver_tolerance": 1e-09,
+    "order": "rotated deterministic",
+    "no_changed_models": true
+  },
+  "validation": {
+    "models": [
+      "mean of all eight frozen tanh-gradient prices",
+      "mean of all eight frozen RBF-direct prices"
+    ],
+    "iid_seed": 23011,
+    "iid_count": 2048,
+    "shift_seed": 23012,
+    "shift_count": 512,
+    "shift_support": {
+      "h": [
+        -24,
+        24
+      ],
+      "lambda_integer": [
+        1,
+        48
+      ]
+    },
+    "training": "none; R16 frozen models are inputs",
+    "comparator": "reoptimized accepted time-only amendments, with identical adjustment at each depth and service; outside tier heterogeneity remains",
+    "delta": 0.05,
+    "selection": "No selection on new observations; both deterministic ensembles reported.",
+    "benchmark_gate": "For economic validation, the larger exactly evaluated gain of the response and feasible time-only amendment is deployed. The time-only solve is charged and not part of the speed claim.",
+    "state_isolation": "All numerical workspaces reset per policy/context; no previous-context warm starts in statistical validation.",
+    "amendment": "Fresh seeds after code inspection identified stateful pilot workspaces. See audit_notes/STATE_ISOLATION_CORRECTION.json; no model changes or selection."
+  },
+  "scaling": {
+    "specs": [
+      [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      [
+        127,
+        2,
+        6,
+        4,
+        16
+      ]
+    ],
+    "columns": [
+      "nodes",
+      "services",
+      "resources",
+      "extra_capacities",
+      "curvature_multiplier"
+    ],
+    "contexts_per_spec": 8,
+    "methods": [
+      "dense-cold",
+      "dense-previous",
+      "lifted-price-continuation"
+    ],
+    "target": 1e-05,
+    "all_failures_retained": true,
+    "learned_extension": {
+      "declared_before_scaling_execution": true,
+      "training_seed_base": 25001,
+      "training_count": 64,
+      "methods": [
+        "tanh-gradient",
+        "rbf-direct"
+      ],
+      "model_parameters": "same fixed 192 random tanh features and ridge 1e-7; cubic RBF smoothing 1e-7",
+      "tolerances": [
+        0.001,
+        1e-05
+      ],
+      "rationale": "Evaluate learned and classical pipelines across the full model sizes, not only classical solver scaling.",
+      "finalization_note": "Uniform 64-label budget finalized after dense-label engineering showed large offline cost, before the reported scaling run. No held-out model selection; all configurations and both architectures retained. The original 128-label engineering plan is not described as completed.",
+      "label_backend": "Lifted full-objective QP, initial eps 1e-9, independent gap <=1e-5"
+    },
+    "refinement_protocol": {
+      "backend": "fresh lifted full objective",
+      "numerical_tolerance": 1e-09,
+      "setup_charged": true,
+      "applies_to": "all five methods and both certificate targets",
+      "reason": "Avoid a known structurally weaker dense full-objective fallback at large trees. No new predictor, sample selection, target relaxation or discarded failed attempt."
+    }
+  },
+  "inherited_source": "c2d25791bd1f4c2b1801a446376a86c50eb381fe",
+  "provenance_note": "R21 was an ordinary source checkpoint, not a completed manuscript. R22 executes its numerical design without changing frozen models, seeds, tolerances or sampling targets.",
+  "additional_theory": "Complete-price dual attainment without strict feasibility; exact-iterate projected-gradient rate; auditable context transport. Independent exact checks supplement the proofs."
+}

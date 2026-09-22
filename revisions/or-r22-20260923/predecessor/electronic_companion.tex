@@ -9,7 +9,6 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[tablesonly,nomarkers,nolists,noheads]{endfloat}
-\renewcommand{\efloatseparator}{\par\bigskip}
 \onehalfspacing
 \setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]
@@ -34,7 +33,7 @@
 \fancyhead[L]{\small NDU: Electronic Companion}
 \fancyhead[R]{\small Anonymous}
 \fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\hypersetup{pdftitle={Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Certified Gains},pdfauthor={Anonymous}}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Multistage Service Control and Certified Value-Gradient Decisions},pdfauthor={Anonymous}}
 
 \externaldocument{main-labels}[main.pdf]
 \externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
@@ -116,234 +115,11 @@
 
 \begin{document}
 \begin{center}{\Large\bfseries Electronic Companion\par}\medskip
-{\large Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Certified Gains\par}\medskip
-Revision R22, September 23, 2026
+{\large Neural Differential Utility: Accepted Multistage Service Control and Certified Value-Gradient Decisions\par}\medskip
+Revision R19, September 23, 2026
 \end{center}
-This electronic companion contains the new R22 protocol and the complete preserved R19 empirical section, followed by all earlier scalar, verified-cell, and implementation developments. Historical wording is dated explicitly and is not pooled as new evidence. The R22 predecessor directory preserves the complete R19 root manuscripts byte for byte; older revision directories and the historical supplement are unchanged. The R19 fleet calculation is retained under its stated fixed-policy assumptions; the current empirical confidence claims use only the freshly reset final validation described below.
+This companion retains complete predecessor scalar, cell, and learning components while providing the current multistage implementation details. Their original experiment labels and claims refer to their own distributions and revision dates. They are not pooled as new R19 observations. The immutable R14 main manuscript and electronic companion, and the unchanged historical supplement, preserve all earlier scientific content, including the full nonlinear failures and continuous-time development. Cross-document references to material outside this companion point to those actual predecessor PDFs.
 
-\section{R22 design, exact restricted repair, and replay}\label{ec:r22-details}
-R22 starts from the complete R19 manuscript, not from an unexecuted result attributed to the R20 plan. The newest referee report is dated September 23, 2026. Its reviewed tip contains only that plan beyond the R19 publication. The current sources, manuscripts, response, raw results, and final-checkout tests form one completed object. The design was declared before the new studies, after knowledge of R19 outcomes; it was not externally preregistered. New observations are not pooled with historical studies.
-
-The new code reuses the declared R16 primitive generator and frozen models. Tanh models use 192 fixed random features and ridge parameter $10^{-7}$; the RBF is cubic with smoothing $10^{-7}$. Normalized reward inputs are divided by sixteen, and integer friction input is centered at seventeen and divided by fifteen. The independent final seeds are 23011 and 23012. The inherited R21 audit note records a code-inspection pilot using 23001 and 23002; it is excluded because resetting primal and dual iterates alone need not reset adaptive solver state. The final validation reconstructs every response and restricted-comparator workspace for each context, with both ensembles unchanged. The audit note records this correction and the pilot hashes. Scaling training seeds start at 25001 and held-out seeds at 24001, incrementing with the configuration index. No model or seed is selected by the reported results. Timed studies execute sequentially with one BLAS thread and one OpenMP thread; validation and replay are not run concurrently with timed workloads in the reproduction script.
-
-\subsection{Repair that stays inside the economic comparator class}
-Let $d(j)$ be node $j$'s depth. The restricted amendments satisfy $x_{j,a}=\tau_{d(j),a}$ and every original accepted constraint. Extra equality multipliers are included in the restricted conjugate bound. Using the unrestricted transfer repair would generally destroy these time equalities and invalidate this comparator.
-
-Instead, round the nonroot depth amendments to rationals, then set the root amendment by its exact payment equality. Specifically, if $c_{j,a}>0$ are the declared payment coefficients,
-\[
- \tau_{0,a}=-\frac{\sum_{j\ne0}c_{j,a}\tau_{d(j),a}}{c_{0,a}}.
-\]
-This produces a rational vector $w$ satisfying root and time equalities, but possibly violating an inequality after rounding. Construct a rational strict anchor by setting all nonroot depth amendments negative, imposing the same root formula, and scaling sufficiently toward zero. In the present primitive, zero lies strictly inside every tier box, capacity right-hand sides are positive, and positive payments make every nonroot continuation row strict at that anchor. Hence the required anchor exists; this construction is not asserted for boundary incumbents or signed tariffs without those conditions.
-
-For the finite list of box, capacity, and continuation rows $a_i^\top x\leq b_i$, let $z$ be that strict anchor and put
-\[
- \alpha=\max\left(0,\max_{i:a_i^\top w>b_i}
- \frac{a_i^\top w-b_i}{a_i^\top w-a_i^\top z}\right),\qquad
- y=(1-\alpha)w+\alpha z.
-\]
-All quantities are rational and $0\leq\alpha<1$. For each violated row the definition gives $a_i^\top y\leq b_i$; for every other row feasibility follows from convexity. Both endpoints satisfy all equalities, so $y$ stays in the restricted class. The independent verifier checks the extra equalities explicitly as well as the original commitments. A negative control perturbs two sibling amendments while preserving their total payment; it is accepted by the unrestricted geometry but rejected by the restricted equality check.
-
-\subsection{Recorded objects and independent verification}
-Each timed record contains the initial repaired proposal and its dual certificate, the fixed-primal polished certificate, and the actually returned post-fallback certificate. Replay verifies identical proposal coordinates, switching tensions and inequality prices before and after polishing; nonincreasing rational upper bounds; and the requested final gap. Component checks evaluate the exact four-term identity, including its outward-rounding remainder. An outside gate, when active, is recomputed from the exact proposal value; an ungated component identity is not relabeled as the selected outside decision's gap.
-
-Validation records additionally retain the optimized restricted candidate and its full restricted dual, both deterministic ensemble outputs, reference decisions, and every corner bound. The sample observations use the selected value minus the restricted upper bound. Both the Hoeffding target and its width are independently reconstructed from these objects. The complete dual-repair checks independently optimize 225 small accepted problems, including 45 with no strict-feasibility point; they verify 3,600 exact projected-gradient steps and 450 reward/friction certificate transports. They do not call the numerical optimizer or the main certificate implementation. These are theorem checks, not speed comparisons. The 360 nonsmooth zero-curvature identities and 234 exact regularization-bias checks supplement, rather than replace, the proofs. Historical rational replay remains executable without any numerical solver. Source hashes and final-manuscript hashes are verified on the published commit, rather than only on its pre-publication workflow input.
-
-
-% BEGIN R22 source: revisions/or-r22-20260923/tables/scaling_coarse.tex
-\begin{table}[tbp]\centering\small
-\caption{Coarse-target scaling on complete accepted polyhedra (mean milliseconds).}\label{tab:r22-scaling-coarse}
-\begin{tabular}{llrrrrr}
-\toprule
-Nodes $\times$ services & $r/c/q$ & Cold & Previous & Lifted & Tanh & RBF\\
-\midrule
-$31\times 2$ & 2/4/1 & 6.09 & 5.47 & 4.26 & 5.54 & 4.31\\
-$63\times 2$ & 6/4/1 & 16.40 & 15.45 & 8.87 & 28.01 & 17.48\\
-$127\times 2$ & 6/4/1 & 119.22 & 106.52 & 36.65 & 198.75 & 113.26\\
-$255\times 2$ & 6/4/1 & 794.76 & 513.31 & 88.07 & 342.89 & 359.63\\
-$511\times 2$ & 6/4/1 & 5425.71 & 3881.65 & 1143.13 & 2016.61 & 2045.53\\
-$1023\times 2$ & 6/4/1 & 23790.22 & 17698.93 & 3152.87 & 4005.49 & 4108.01\\
-$127\times 1$ & 2/4/1 & 22.46 & 22.87 & 11.76 & 15.57 & 13.58\\
-$127\times 4$ & 12/4/1 & 619.17 & 420.01 & 103.58 & 548.89 & 561.77\\
-$127\times 2$ & 12/8/1 & 142.29 & 130.56 & 75.95 & 139.92 & 144.35\\
-$127\times 2$ & 6/4/16 & 85.81 & 67.07 & 22.81 & 92.51 & 77.00\\
-\bottomrule
-\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small Each entry includes eight held-out complete attempts. The second column reports resource rank, additional capacities, and the alternating curvature multiplier. All methods receive the same independent target, price repair and actual fallback. Parenthesized superscripts, when present, count failed target checks; such attempts remain in the recorded cost and do not establish a certified speed advantage. A separate 64-label fit is used at every configuration.\end{minipage}
-\end{table}
-
-% END R22 source
-
-
-% BEGIN R22 source: revisions/or-r22-20260923/tables/geometry.tex
-\begin{table}[tbp]\centering\small
-\caption{Actual geometry in the new independent validation populations.}\label{tab:r22-geometry}
-\begin{tabular}{lrrrrr}
-\toprule
-Domain & Contexts & Out of support (\%) & Capacities & Tier bounds & Kinks\\
-\midrule
-IID & 2048 & 0.00 & 0.000 & 0.063 & 61.749\\
-SHIFT & 512 & 93.55 & 0.000 & 0.178 & 65.424\\
-\bottomrule
-\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small The last three columns are mean counts in the audited full reference decision. Zero capacity activation is reported as zero, not relabeled as a capacity stress test. The deliberate inherited R19 suite remains the separate test of forced active geometries.\end{minipage}
-\end{table}
-
-% END R22 source
-
-
-% BEGIN R22 source: revisions/or-r22-20260923/tables/setup.tex
-\begin{table}[tbp]\centering\small
-\caption{Measured scaling offline work and formulation sizes.}\label{tab:r22-setup}
-\begin{tabular}{lrrrrrr}
-\toprule
-Nodes $\times$ services & Labels (s) & Fits (s) & Dense setup & Lifted setups & Dense $P$ & Lifted $P$\\
-\midrule
-$31\times 2$ & 0.448 & 0.034 & 0.001 & 0.001 & 3,566 & 64\\
-$63\times 2$ & 1.747 & 0.003 & 0.002 & 0.002 & 15,464 & 132\\
-$127\times 2$ & 4.489 & 0.003 & 0.016 & 0.003 & 62,804 & 260\\
-$255\times 2$ & 16.793 & 0.002 & 0.045 & 0.006 & 253,474 & 516\\
-$511\times 2$ & 96.487 & 0.003 & 0.227 & 0.008 & 1,017,116 & 1,028\\
-$1023\times 2$ & 232.009 & 0.002 & 1.506 & 0.016 & 4,077,840 & 2,052\\
-$127\times 1$ & 1.772 & 0.002 & 0.002 & 0.001 & 14,761 & 129\\
-$127\times 4$ & 20.889 & 0.003 & 0.074 & 0.006 & 253,614 & 520\\
-$127\times 2$ & 7.969 & 0.003 & 0.016 & 0.003 & 63,432 & 266\\
-$127\times 2$ & 4.653 & 0.003 & 0.015 & 0.003 & 62,804 & 260\\
-\bottomrule
-\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small Labels include 64 lifted full-objective solves and independent audits. Fits include both declared predictors. Lifted setup charges two tolerance-isolated workspaces; dense cold setup charges one. The last columns report stored quadratic-matrix nonzero counts, not an asymptotic complexity theorem. Primitive construction and all remaining setup timings are retained in the raw summary.\end{minipage}
-\end{table}
-
-% END R22 source
-
-
-\paragraph{Reading the preserved R19 study.}
-The following complete section is retained from R19, with its numerical values unchanged. References there to ``new'' or ``current'' computations describe R19, not R22. For its uniform-fleet theorem, the reported experiment uses one common context distribution for every constituent policy; a deployed policy index is drawn independently of that common context. More generally, policy-specific laws define the different joint mixture that first draws the index and then draws a context conditionally on it. The latter is not a guarantee for an index chosen independently of a common deployment context. R22's deterministic ensemble validation avoids this target ambiguity altogether.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/sections/experiment.tex
-\section{Repeated learning, difficult geometry, and complete deployment cost}\label{sec:r19-experiment}
-The empirical design tests the link in Section~\ref{sec:r19-bridge} rather than using the star's easy scalar solve as evidence for difficult stochastic control. We retain the entire earlier information hierarchy, verified-cell studies, star experiments, and adverse nonlinear-transfer results in the companion and the immutable predecessor documents. The current multistage observations were produced in the R16 research run and are integrated into the manuscript here for the first time. Our fleet inference is a retrospective reanalysis of those observations. The accuracy-targeted cost study and deliberate boundary checks are new follow-up computations, separately identified in their execution records.
-
-\subsection{A multistage, vector, nonsmooth study}
-The fixed primitive has 63 nodes on a binary tree with six review levels, two service coordinates per node, six coupled quadratic resources, and four additional cross-service capacity constraints. Outside tiers vary by node and service. Every nonroot subtree retains its payment cap, and each service has its root payment equality. Absolute switching costs include installation and have endogenous signs. The displacement formulation is exactly the quadratic instance following Theorem~\ref{thm:r19-inexact}; it is not a collection of independent stars. Each context changes six resource-reward coordinates and a strictly positive friction coefficient. The complete rational primitive and context grids are recorded in the companion.
-
-We evaluate eight independently seeded training/deployment pairs. Each pair uses 256 training contexts and 256 fresh deployment contexts. No best seed or model is selected. All seven methods use the same exact-solver label population: tanh random-feature scalar critics fitted with value-only or value-and-gradient losses; a direct-price tanh regressor; the corresponding three quadratic response surfaces; and a cubic radial-basis direct-price interpolant. The hidden tanh weights are fixed random features, not a fully trained deep network. Value-only and derivative-supervised critics both deploy through their derivative. Direct-price methods predict the same six-dimensional operational statistic. Thus the comparison does not grant neural methods a different response operator or a more favorable certificate.
-
-The feasible outside protocol is specified and node-dependent, not proved to be the reoptimized best static protocol for this heterogeneous primitive. This study tests accepted implementation relative to that announced comparator. The separate canonical and centered-friction studies retain their reoptimized static comparators. Monetary values in the current study are total normalized tree-objective units; they are not per-review gains from the earlier star normalization. The primitive is synthetic and not calibrated to a service provider. Those distinctions prevent a gain against one known feasible protocol from being advertised as an empirical universal value of adaptation.
-
-The R16 solver amendment increased the iteration ceiling after a failure in the R15 execution, while retaining seeds, methods, loss weights, and tolerances; the full amended study was rerun. We describe this as a frozen, independently deployed internal experiment, not an externally preregistered study. Neither this reanalysis nor the follow-up computations modify its trained models or replace its unfavorable observations.
-
-\subsection{Policy quality and the meaning of derivative supervision}
-Table~\ref{tab:r19-quality} reports all seven methods on all 2,048 deployment contexts. The reference objective is bracketed by its primal value and independent dual upper bound. Therefore the reported regret is an upper bound, not an unverified subtraction from a numerical optimizer. The average reference bracket width is $8.11\times10^{-8}$.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/quality.tex
-\begin{table}[p]
-\centering
-\caption{Unrefined multistage decisions and conditional frozen-fleet gains}\label{tab:r19-quality}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrr}
-\toprule
-Method & Regret upper & Mean gap & Pass (\%) & Fleet lower \\
-\midrule
-Tanh: value & 0.034374 & 0.193705 & 0.00 & 0.542816 \\
-Tanh: value + gradient & 0.003685 & 0.015856 & 0.54 & 0.573506 \\
-Tanh: price & 0.001581 & 0.007986 & 3.66 & 0.575609 \\
-Quadratic: value & 0.003079 & 0.012446 & 4.59 & 0.574111 \\
-Quadratic: value + gradient & 0.002794 & 0.011081 & 9.47 & 0.574396 \\
-Quadratic: price & 0.000271 & 0.001238 & 65.48 & 0.576919 \\
-RBF: price & 0.000158 & 0.000657 & 86.43 & 0.577032 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}All 2,048 independent deployment contexts per method are included. Pass means the immediate exact full-objective gap is at most $10^{-3}$. No method passes at $10^{-5}$ before refinement. Fleet bounds apply to the explicitly randomized eight-model deployment, not each model or arbitrary retraining.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/quality.tex
-
-The mean regret upper bound falls from $0.0343743$ for value-only tanh fitting to $0.00368462$ with derivative supervision. Across eight independent training/deployment pairs, the approximate paired Student interval for their mean difference is $[-0.0415827,-0.0197968]$. This comparison resolves the direction of improvement for these two fitted procedures in this distribution; it does not overwrite the statistically unresolved R14 star comparison. The independent unit is a complete training/deployment pair, not an individual test context or timing repetition.
-
-Direct-price tanh fitting improves further, to $0.00158094$. Quadratic direct-price and radial-basis fitting attain $0.000271149$ and $0.000157737$, respectively. The latter two also have much higher immediate certificate pass rates at $10^{-3}$. Thus the derivative statistic is operationally useful while neural parameterization is not necessary in this study. This is a result of the required comparison, not a reason to remove neural methods, their mathematical guarantee, or their adverse observations. It identifies the stronger current implementation of the same accepted-control architecture.
-
-\subsection{Conditional gain for an explicitly deployed frozen fleet}
-A simultaneous lower bound for each of 56 individual frozen policies, using only its own 256 contexts and the original analytical gain range of 25, is zero. We retain that result. Pooling 2,048 contexts as though they came from one selected model would be invalid. A different, explicitly implementable policy has a more informative guarantee: for each new independent context choose one of the eight frozen policies uniformly, independently of that context, then execute its audited response and outside gate.
-
-\begin{proposition}[Conditional frozen-fleet guarantee]\label{prop:r19-fleet}
-For method $m=1,\ldots,M$, fix $K$ policies before inspecting their deployment cohorts. Conditional on all fitted policies, let $G_{mki}\in[0,B]$ be gains on $n$ independent contexts for policy $k$, with all $Kn$ contexts independent across $k,i$. Contexts may be shared across methods. Put $\overline G_m=(Kn)^{-1}\sum_{k,i}G_{mki}$ and let $\mathcal G_m$ be the expected gain of the uniform frozen fleet. With probability at least $1-\delta$ over these deployment cohorts, simultaneously for all methods,
-\begin{equation}\label{eq:r19-fleet}
- \mathcal G_m\geq\max\left\{0,\overline G_m-
- B\sqrt{\frac{\log(M/\delta)}{2Kn}}\right\}.
-\end{equation}
-This does not assert the bound for each constituent policy or for a population of newly trained policies.
-\end{proposition}
-\begin{proof}
-Conditional on the policies, the $Kn$ summands for each method are independent bounded variables; identical distributions across policies are unnecessary. Their expected average is exactly the uniform fleet's expected gain. Hoeffding's lower-tail bound and a union bound over $M$ methods prove the simultaneous inequality. The comparator gate gives nonnegative gain, justifying truncation of the lower bound at zero. Independence across methods is not used.
-\end{proof}
-For $K=8$, $n=256$, $M=7$, $B=25$, and $\delta=0.05$, the penalty is $0.868352$. The resulting seven lower bounds, included in Table~\ref{tab:r19-quality}, are positive. They certify this finite, frozen randomization rule under the stated context distribution. The eight-pair Student comparison addresses training/deployment variability approximately; the fleet inequality instead gives a finite-sample, conditional guarantee. Neither substitutes for a guarantee over arbitrary retraining, misspecification, or distribution shift.
-
-\subsection{Geometry rather than successful-region averages}
-The earlier R16 structural suite had no binding extra capacity among its 64 tested instances, despite some tier boundaries. We do not relabel those instances as a capacity stress test. The new 64-instance suite deliberately includes heterogeneous controls, root cross-service capacities with positive incentives, tier-boundary incentives with slack extra capacities, and high-friction switching kinks. Each stratum uses four primitive seeds and four contexts per seed on 15- or 31-node, two-service trees with two or four resource factors. All 16 cases in each targeted stratum must actually exhibit the specified geometry or the test fails. No failing instance may be dropped.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/geometry.tex
-\begin{table}[p]
-\centering
-\caption{Deliberate multistage geometry checks}\label{tab:r19-geometry}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrrr}
-\toprule
-Stratum & Cases & Capacity & Tier boundary & Kinks & Gradient error \\
-\midrule
-heterogeneous & 16 & 0 & 0 & 16 & 1.04e-06 \\
-binding capacity & 16 & 16 & 0 & 16 & 5.10e-08 \\
-tier boundary & 16 & 0 & 16 & 16 & 1.48e-11 \\
-switching kinks & 16 & 0 & 0 & 16 & 7.47e-05 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}Capacity, tier boundary, and kinks count instances with at least one such event; diagnostics use $10^{-5}$. Each of 128 implemented reference/proposal certificates is independently replayed. The gradient column is the maximum finite-difference error among the four checked contexts in that stratum.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/geometry.tex
-
-Every reference and repaired response is independently replayed in rational arithmetic. Theorem~\ref{thm:r19-inexact} is checked with its certified response error rather than by treating the numerical subproblem solution as exact. An independent SLSQP solve starts from the outside protocol on a capacity-binding instance. Finite-difference checks perturb only the resource-reward coordinate, keeping acceptance, switching, and all other primitives fixed. Exact rational scalar checks additionally exercise a quartic smooth resource coupling with nonsmooth switching. These are theorem tests, not new trained-policy observations or evidence of calibrated operations performance.
-
-The retained star reassessment also includes all original, critical-friction, capacity-activation, and primitive-perturbation strata. Its capacity-activation stratum binds the root constraint in every case. All methods then require capacity response adjustment and yield the same certified solution to numerical precision. That is evidence for the response solver, not successful neural extrapolation. The companion reports stratification by friction distance, resource binding, leaf activation and saturation, nearest breakpoint, and optimum gain, without selecting only favorable cells.
-
-\subsection{Accuracy-targeted total cost and amortization}
-The original R16 timings charge prediction, the base response, rational repair and audit, actual full-objective refinement, and a second audit. They use a $10^{-9}$ numerical tolerance even for the coarse deployment target. That design may over-solve the classical comparator. We preserve those measurements and execute the previously recorded, but unimplemented, accuracy-targeted comparison instead of treating the earlier apparent speed advantage as decisive.
-
-In the follow-up, both classical solvers and all surrogate response solvers first use numerical tolerance $10^{-5}$. Every method must pass the same independent full-objective certificate at the requested tolerance; otherwise it performs a full $10^{-9}$ refinement and another audit. The cached classical baselines use cold and previous-context starts. All seven frozen surrogate models are included. We use the first 16 contexts of every deployment cohort, two repetitions, and rotated method order. The total comparison contains 4,608 completed pipelines, with 256 records per method and requested tolerance. Timing observations and model-selection units are kept separate.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/matched_cost.tex
-\begin{table}[p]
-\centering
-\caption{Accuracy-targeted complete-pipeline cost}\label{tab:r19-cost}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrr}
-\toprule
-Method & \shortstack{Mean ms\\$10^{-3}$} & \shortstack{Mean ms\\$10^{-5}$} & \shortstack{Fall back\\(\%)} & \shortstack{Fall back\\(\%)} \\
-\midrule
-Classical: cold & 14.029 & 26.180 & 0.00 & 42.19 \\
-Classical: previous & 13.453 & 26.822 & 0.00 & 43.36 \\
-Tanh: value & 43.712 & 43.532 & 100.00 & 100.00 \\
-Tanh: value + gradient & 42.169 & 42.721 & 99.22 & 100.00 \\
-Tanh: price & 41.519 & 41.594 & 98.44 & 100.00 \\
-Quadratic: value & 40.264 & 41.201 & 95.31 & 100.00 \\
-Quadratic: value + gradient & 39.654 & 42.080 & 91.41 & 100.00 \\
-Quadratic: price & 19.790 & 39.858 & 44.14 & 100.00 \\
-RBF: price & 9.563 & 37.808 & 12.89 & 100.00 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}The last two columns correspond to $10^{-3}$ and $10^{-5}$, respectively. All methods start with numerical tolerance $10^{-5}$, then refine and re-audit when the independent full-objective gap fails the requested target. Each mean uses 256 records. No prediction, response, repair, audit, or actual refinement cost is omitted.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/matched_cost.tex
-
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/matched_findings.tex
-At the coarse target, the lower-mean classical baseline costs 13.453 ms, compared with 9.563 ms for radial-basis direct-price deployment. Its observed full-pipeline saving has a conservative offline break-even count of 2,546 queries. At the strict target, the corresponding classical cost is 26.180 ms and the radial-basis cost is 37.808 ms. These are separately measured follow-up results, not the original fixed-solver-tolerance timings.
-
-% END input source: revisions/or-r19-20260923/tables/matched_findings.tex
-
-The table reports mean complete cost, not the sum of separately reported medians. The companion supplies medians, 95th percentiles, fallback rates, and paired cohort intervals. Offline cost is measured on the same host by replaying all 256 training-label computations and all seven fits for every cohort, while leaving the deployed frozen models unchanged. We conservatively charge that entire shared offline cost to each surrogate. A finite break-even count is reported only when its observed mean online saving is positive. It is a benchmark-specific accounting calculation, not a future runtime guarantee. The data do not establish universal neural superiority, and no failed cost comparison is hidden behind a warm-start or an unaudited prediction time.
-
-% END input source: revisions/or-r19-20260923/sections/experiment.tex
 % BEGIN preserved/input source: revisions/or-r19-20260923/sections/companion.tex
 \section{Current study: primitives, audits, and reproducibility}\label{ec:r19-details}
 \subsection{Primitive construction and the scope of the experiment}
@@ -1091,121 +867,71 @@ The validation policy performs no full objective solve after prediction. The cap
 \begin{thebibliography}{99}
 \bibitem[Abbasi et al.(2022)Abbasi, Bruzda, and Gavirneni]{Abbasi2022}
 Abbasi B, Bruzda J, Gavirneni S (2022) Optimal operational service levels in vendor managed inventory contracts---an exact approach. \emph{Operations Research Letters} 50(5):610--617. doi:10.1016/j.orl.2022.08.007.
-
 \bibitem[Altman(1999)]{Altman1999}
 Altman E (1999) \emph{Constrained Markov Decision Processes} (Chapman \& Hall/CRC, Boca Raton, FL).
-
-\bibitem[Amos and Kolter(2017)]{AmosKolter2017}
-Amos B, Kolter JZ (2017) OptNet: Differentiable optimization as a layer in neural networks. \emph{Proceedings of Machine Learning Research} 70:136--145.
-
 \bibitem[Arnold and Tibshirani(2016)]{ArnoldTibshirani2016}
 Arnold TB, Tibshirani RJ (2016) Efficient implementations of the generalized lasso dual path algorithm. \emph{Journal of Computational and Graphical Statistics} 25(1):1--27. doi:10.1080/10618600.2015.1008638.
-
 \bibitem[Beck and Teboulle(2009)]{BeckTeboulle2009}
 Beck A, Teboulle M (2009) A fast iterative shrinkage-thresholding algorithm for linear inverse problems. \emph{SIAM Journal on Imaging Sciences} 2(1):183--202. doi:10.1137/080716542.
-
 \bibitem[Bemporad et al.(2002)Bemporad, Morari, Dua, and Pistikopoulos]{Bemporad2002}
 Bemporad A, Morari M, Dua V, Pistikopoulos EN (2002) The explicit linear quadratic regulator for constrained systems. \emph{Automatica} 38(1):3--20. doi:10.1016/S0005-1098(01)00174-1.
-
-\bibitem[Bertsimas and Kallus(2020)]{BertsimasKallus2020}
-Bertsimas D, Kallus N (2020) From predictive to prescriptive analytics. \emph{Management Science} 66(3):1025--1044. doi:10.1287/mnsc.2018.3253.
-
 \bibitem[Boyd and Vandenberghe(2004)]{BoydVandenberghe2004}
 Boyd S, Vandenberghe L (2004) \emph{Convex Optimization} (Cambridge University Press, Cambridge).
-
 \bibitem[Caggiano et al.(2007)Caggiano, Jackson, Muckstadt, and Rappold]{Caggiano2007}
 Caggiano KE, Jackson PL, Muckstadt JA, Rappold JA (2007) Optimizing service parts inventory in a multiechelon, multi-item supply chain with time-based customer service-level agreements. \emph{Operations Research} 55(2):303--318. doi:10.1287/opre.1060.0345.
-
 \bibitem[Czarnecki et al.(2017)Czarnecki, Osindero, Jaderberg, Swirszcz, and Pascanu]{Czarnecki2017}
 Czarnecki WM, Osindero S, Jaderberg M, Swirszcz G, Pascanu R (2017) Sobolev training for neural networks. \emph{Advances in Neural Information Processing Systems} 30. arXiv:1706.04859.
-
 \bibitem[de Farias and Van Roy(2003)]{DeFariasVanRoy2003}
 de Farias DP, Van Roy B (2003) The linear programming approach to approximate dynamic programming. \emph{Operations Research} 51(6):850--865. doi:10.1287/opre.51.6.850.24925.
-
 \bibitem[Defferrard et~al.(2016)]{Defferrard2016}
 Defferrard M, Bresson X, Vandergheynst P (2016) Convolutional neural networks on graphs with fast localized spectral filtering. \emph{Advances in Neural Information Processing Systems} 29.
-
-\bibitem[Elmachtoub and Grigas(2022)]{ElmachtoubGrigas2022}
-Elmachtoub AN, Grigas P (2022) Smart ``predict, then optimize.'' \emph{Management Science} 68(1):9--26. doi:10.1287/mnsc.2020.3922.
-
 \bibitem[Federgruen and Heching(1999)]{FedergruenHeching1999}
 Federgruen A, Heching A (1999) Combined pricing and inventory control under uncertainty. \emph{Operations Research} 47(3):454--475.
-
 \bibitem[Fercoq et al.(2015)Fercoq, Gramfort, and Salmon]{Fercoq2015}
 Fercoq O, Gramfort A, Salmon J (2015) Mind the duality gap: safer rules for the Lasso. \emph{Proceedings of Machine Learning Research} 37:333--342.
-
 \bibitem[Han et al.(2018)Han, Jentzen, and E]{HanJentzenE2018}
 Han J, Jentzen A, E W (2018) Solving high-dimensional partial differential equations using deep learning. \emph{Proceedings of the National Academy of Sciences} 115(34):8505--8510.
-
 \bibitem[Henig et~al.(1997)]{Henig1997}
 Henig M, Gerchak Y, Ernst R, Pyke DF (1997) An inventory model embedded in designing a supply contract. \emph{Management Science} 43(2):184--189. doi:10.1287/mnsc.43.2.184.
-
 \bibitem[Hipp and Holzbaur(1988)]{HippHolzbaur1988}
 Hipp SK, Holzbaur UD (1988) Decision processes with monotone hysteretic policies. \emph{Operations Research} 36(4):585--588. doi:10.1287/opre.36.4.585.
-
 \bibitem[Hoeffding(1963)]{Hoeffding1963}
 Hoeffding W (1963) Probability inequalities for sums of bounded random variables. \emph{Journal of the American Statistical Association} 58(301):13--30. doi:10.1080/01621459.1963.10500830.
-
 \bibitem[Hosseinifard et al.(2022)Hosseinifard, Shao, and Talluri]{Hosseinifard2022}
 Hosseinifard Z, Shao L, Talluri S (2022) Service-level agreement with dynamic inventory policy: The effect of the performance review period and the incentive structure. \emph{Decision Sciences} 53:802--826. doi:10.1111/deci.12506.
-
 \bibitem[Katok et al.(2008)Katok, Thomas, and Davis]{Katok2008}
 Katok E, Thomas D, Davis A (2008) Inventory service-level agreements as coordination mechanisms: The effect of review periods. \emph{Manufacturing \& Service Operations Management} 10(4):609--624. doi:10.1287/msom.1070.0188.
-
-\bibitem[Kraul et al.(2023)Kraul, Seizinger, and Brunner]{KraulSeizingerBrunner2023}
-Kraul S, Seizinger M, Brunner JO (2023) Machine learning--supported prediction of dual variables for the cutting stock problem with an application in stabilized column generation. \emph{INFORMS Journal on Computing} 35(3):692--709. doi:10.1287/ijoc.2023.1277.
-
 \bibitem[Kushner and Dupuis(2001)]{KushnerDupuis2001}
 Kushner HJ, Dupuis P (2001) \emph{Numerical Methods for Stochastic Control Problems in Continuous Time}, 2nd ed. (Springer, New York).
-
 \bibitem[Liang and Atkins(2013)]{LiangAtkins2013}
 Liang L, Atkins D (2013) Designing service level agreements for inventory management. \emph{Production and Operations Management} 22(5):1103--1117. doi:10.1111/poms.12033.
-
 \bibitem[Ma et al.(1994)Ma, Protter, and Yong]{MaProtterYong1994}
 Ma J, Protter P, Yong J (1994) Solving forward-backward stochastic differential equations explicitly---a four step scheme. \emph{Probability Theory and Related Fields} 98:339--359.
-
 \bibitem[Nasser and Turcic(2019)]{NasserTurcic2019}
 Nasser S, Turcic D (2019) Temporary contract adjustment to a retailer with a private demand forecast. \emph{Management Science} 65(1):209--229. doi:10.1287/mnsc.2017.2942.
 
-
 \bibitem[Patriksson and Str\"omberg(2015)]{PatrikssonStromberg2015}
 Patriksson M, Str\"omberg C (2015) Algorithms for the continuous nonlinear resource allocation problem---new implementations and numerical studies. arXiv:1501.07035.
-
 \bibitem[Plambeck and Zenios(2003)]{PlambeckZenios2003}
 Plambeck EL, Zenios SA (2003) Incentive efficient control of a make-to-stock production system. \emph{Operations Research} 51(3):371--386. doi:10.1287/opre.51.3.371.14954.
-
-\bibitem[Sambharya et al.(2024)Sambharya, Hall, Amos, and Stellato]{Sambharya2024}
-Sambharya R, Hall G, Amos B, Stellato B (2024) Learning to warm-start fixed-point optimization algorithms. \emph{Journal of Machine Learning Research} 25(166):1--46.
-
 \bibitem[Satija et~al.(2020)]{Satija2020}
 Satija H, Amortila P, Pineau J (2020) Constrained Markov decision processes via backward value functions. \emph{Proceedings of Machine Learning Research} 119:8502--8511.
-
 \bibitem[Sieke et al.(2012)Sieke, Seifert, and Thonemann]{Sieke2012}
 Sieke MA, Seifert RW, Thonemann UW (2012) Designing service level contracts for supply chain coordination. \emph{Production and Operations Management} 21(4):698--714. doi:10.1111/j.1937-5956.2011.01301.x.
-
 \bibitem[Spear and Srivastava(1987)]{SpearSrivastava1987}
 Spear SE, Srivastava S (1987) On repeated moral hazard with discounting. \emph{Review of Economic Studies} 54(4):599--617. doi:10.2307/2297484.
-
-\bibitem[Stellato et al.(2020)Stellato, Banjac, Goulart, Bemporad, and Boyd]{Stellato2020}
-Stellato B, Banjac G, Goulart P, Bemporad A, Boyd S (2020) OSQP: An operator splitting solver for quadratic programs. \emph{Mathematical Programming Computation} 12(4):637--672. doi:10.1007/s12532-020-00179-2.
-
 \bibitem[Thomas and Worrall(1988)]{ThomasWorrall1988}
 Thomas J, Worrall T (1988) Self-enforcing wage contracts. \emph{Review of Economic Studies} 55(4):541--554. doi:10.2307/2297404.
-
 \bibitem[Tibshirani and Taylor(2011)]{TibshiraniTaylor2011}
 Tibshirani RJ, Taylor J (2011) The solution path of the generalized lasso. \emph{Annals of Statistics} 39(3):1335--1371. doi:10.1214/11-AOS878.
-
 \bibitem[Topkis(1978)]{Topkis1978}
 Topkis DM (1978) Minimizing a submodular function on a lattice. \emph{Operations Research} 26(2):305--321.
 
 
-
 \bibitem[Virtanen et~al.(2020)]{Virtanen2020}
 Virtanen P, Gommers R, Oliphant TE, et~al. (2020) SciPy 1.0: Fundamental algorithms for scientific computing in Python. \emph{Nature Methods} 17:261--272. doi:10.1038/s41592-019-0686-2.
-
 \bibitem[Wachi and Sui(2020)]{WachiSui2020}
 Wachi A, Sui Y (2020) Safe reinforcement learning in constrained Markov decision processes. \emph{Proceedings of Machine Learning Research} 119:9797--9806.
-
 
 \end{thebibliography}
 

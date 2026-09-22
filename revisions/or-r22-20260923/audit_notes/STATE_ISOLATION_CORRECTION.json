@@ -1,0 +1,100 @@
+{
+  "issue": "Resetting OSQP primal/dual iterates does not necessarily reset adaptive penalty and cached solver state. A fixed-policy IID validation must reset the whole solver workspace.",
+  "correction": "Fresh response workspace for each method/context and fresh restricted-comparator workspace for each context; timing studies intentionally retain their declared continuation states.",
+  "discarded_pilot_seeds": [
+    23001,
+    23002
+  ],
+  "fresh_final_validation_seeds": [
+    23011,
+    23012
+  ],
+  "models": "No refit, selection, weighting, or hyperparameter changes. Both predeclared ensembles remain.",
+  "pilot_summary_for_audit": {
+    "status": "PASS",
+    "observations": 5120,
+    "records": 2816,
+    "summary": [
+      {
+        "domain": "iid",
+        "method": "ensemble-tanh-gradient",
+        "n": 2048,
+        "mean_outside_gain": 1.4386769754332898,
+        "mean_restricted_gain_lower": 1.3261039879259693,
+        "expected_restricted_gain_lower": 1.149944627535865,
+        "hoeffding_penalty": 0.17615936039010438,
+        "range_upper": 2.6928874145727755,
+        "mean_regret_upper": 0.0025323517011235246,
+        "pass_1e3": 0.3759765625,
+        "pass_1e5": 0.0,
+        "max_comparator_gap": 4.817322580456368e-08,
+        "comparator_selected": 0.0
+      },
+      {
+        "domain": "iid",
+        "method": "ensemble-rbf-direct",
+        "n": 2048,
+        "mean_outside_gain": 1.4411042814525221,
+        "mean_restricted_gain_lower": 1.3285312939452016,
+        "expected_restricted_gain_lower": 1.1523719335550973,
+        "hoeffding_penalty": 0.17615936039010438,
+        "range_upper": 2.6928874145727755,
+        "mean_regret_upper": 0.00010504568189133442,
+        "pass_1e3": 0.96630859375,
+        "pass_1e5": 0.00927734375,
+        "max_comparator_gap": 4.817322580456368e-08,
+        "comparator_selected": 0.0
+      },
+      {
+        "domain": "shift",
+        "method": "ensemble-tanh-gradient",
+        "n": 512,
+        "mean_outside_gain": 2.141290643932125,
+        "mean_restricted_gain_lower": 1.959059539842787,
+        "expected_restricted_gain_lower": 1.4146099067206719,
+        "hoeffding_penalty": 0.5444496331221151,
+        "range_upper": 4.161406926252862,
+        "mean_regret_upper": 0.013104737122821673,
+        "pass_1e3": 0.05078125,
+        "pass_1e5": 0.0,
+        "max_comparator_gap": 5.66389341589148e-08,
+        "comparator_selected": 0.0
+      },
+      {
+        "domain": "shift",
+        "method": "ensemble-rbf-direct",
+        "n": 512,
+        "mean_outside_gain": 2.1539055994056717,
+        "mean_restricted_gain_lower": 1.9716744953163334,
+        "expected_restricted_gain_lower": 1.4272248621942183,
+        "hoeffding_penalty": 0.5444496331221151,
+        "range_upper": 4.161406926252862,
+        "mean_regret_upper": 0.0004897816492750425,
+        "pass_1e3": 0.857421875,
+        "pass_1e5": 0.00390625,
+        "max_comparator_gap": 5.66389341589148e-08,
+        "comparator_selected": 0.0
+      }
+    ],
+    "bounds": {
+      "iid": {
+        "upper_exact": "5385774829145550219/2000000000000000000",
+        "upper": 2.6928874145727755,
+        "vertices": 128
+      },
+      "shift": {
+        "upper_exact": "8322813852505722057/2000000000000000000",
+        "upper": 4.161406926252862,
+        "vertices": 128
+      }
+    },
+    "M": 4,
+    "delta": 0.05,
+    "sampling": "Independent IID contexts within each separately declared domain; all eight fitted models frozen before validation. Simultaneous conditional bounds for four deterministic policy/domain pairs. No statement averages over training randomness.",
+    "interval_proof": "The actual excess S-J_time lies in [-B,B], whether or not the numerical comparator is exact. We use width 2B. Each sample contributes the computable lower bound S-U_time; no future uniform numerical-tolerance assumption is required.",
+    "timing": "The economic gate includes online reoptimization of a time-only amendment. This validation is not evidence of computational acceleration.",
+    "scope": "Known synthetic model under reward/friction covariate shift. No unknown-demand, coefficient-misspecification, or field calibration claim."
+  },
+  "pilot_rows_sha256": "71aee260941655c03c928b73b379a1af4ac80833e9b6cbab728f251b264f0a38",
+  "publication_rule": "Only the fresh final validation enters the paper or its confidence bounds."
+}

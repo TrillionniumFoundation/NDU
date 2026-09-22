@@ -1,0 +1,33 @@
+\section{Certified expansion beyond an optimized restricted contract}\label{sec:r22-benchmark}
+A feasible incumbent is necessary for acceptance accounting but insufficient as the sole economic comparator. Let $Y\subseteq X$ be a nonempty compact restricted policy class containing zero, and define $K(h)=\max_{x\in Y}F_h(x)$. A useful heterogeneous-service example is a \emph{time-only amendment}: the change from the announced outside tier is identical across nodes at a given date and service coordinate. The incumbent's node heterogeneity remains; we optimize its amendment subject to the same continuation, root, box, and resource constraints. This comparator is not mislabeled as the best static total-tier contract.
+
+\begin{theorem}[Adaptive-expansion margin and implemented benchmark gate]\label{thm:r22-expansion}
+Let $y_L\in X$ be a learned or classical proposal with certified regret at most $\epsilon_L$, and let $y_T\in Y$ have a restricted upper bound $U_T$ with $U_T-F_h(y_T)\leq\delta_T$. Deploy a maximizer $\bar y$ of $F_h$ over $\{0,y_L,y_T\}$. Then
+\begin{align}
+ F_h(\bar y)-K(h)&\geq\max\{J(h)-K(h)-\epsilon_L,-\delta_T\},\label{eq:r22-expansion}\\
+ F_h(\bar y)-U_T&\leq F_h(\bar y)-K(h)
+ \leq F_h(\bar y)-F_h(y_T).\label{eq:r22-expansionsandwich}
+\end{align}
+In particular, a certified adaptive-expansion margin exceeding the proposal's regret guarantees a positive gain over the optimized restricted class. The statement holds for nonsmooth and merely convex objectives whenever the displayed value bounds are valid.
+\end{theorem}
+\begin{proof}
+The selected value is at least $F_h(y_L)\geq J(h)-\epsilon_L$ and at least $F_h(y_T)\geq K(h)-\delta_T$. Subtract $K(h)$ and take the maximum. The restricted bounds $F_h(y_T)\leq K(h)\leq U_T$ give the sandwich. Feasibility follows because each selectable decision is feasible. No unimplemented interpolation between proposals or estimated acceptance slack enters this argument.
+\end{proof}
+This result connects the geometric expansion margin to the implementation analysis: a continuation-price witness can establish the margin, Theorem~\ref{thm:r19-inexact} or a full certificate bounds implementation loss, and \eqref{eq:r22-expansionsandwich} reports the economically relevant realized comparison. A scalar critic is one way to supply the required price, not an assumption that learning a value is always preferable to learning that price directly. A differentiable scalar critic does impose an integrable field in the specified reward coordinates: its gradient has zero line integral around closed differentiable paths. A general direct regressor need not have this property. The current tanh critics are not constrained to be convex, and we infer neither cyclic monotonicity of their gradients nor an empirical advantage from integrability alone.
+
+\subsection{A deterministic deployment target and an independent final sample}
+Fix a deterministic policy before validation, including its ensemble rule, response solver, repair, and benchmark gate. The following bound certifies its gain against $K$, not an artificial random selection of a training run. Suppose that contexts lie in a fixed box, only the linear reward and friction coefficients vary, and the accepted sets remain fixed. Both optimized values are suprema of affine functions of these coordinates. Consequently, a rational upper bound at every vertex gives a deterministic $B$ such that
+$0\leq K(h)\leq J(h)\leq B$ throughout the box. This extends the companion's corner-range argument to the full accepted polyhedron; it is a convexity bound, not a statistical extrapolation from sampled corners.
+
+\begin{proposition}[Independent validation against the restricted optimum]\label{prop:r22-validation}
+Consider $M$ predeclared policy--distribution pairs. For pair $m$, let $N_m$ independent contexts be drawn from its stated deployment distribution, with range bound $B_m$. All models are fixed independently of these validation observations; methods may share contexts. On observation $i$, let $S_{mi}$ be the exactly evaluated selected value and $U_{T,mi}$ a valid restricted upper bound. With probability at least $1-\delta$, simultaneously for all pairs,
+\begin{equation}\label{eq:r22-validation}
+ \E[S_m-K]\geq\frac1{N_m}\sum_i(S_{mi}-U_{T,mi})
+ -2B_m\sqrt{\frac{\log(M/\delta)}{2N_m}}.
+\end{equation}
+The expectation is conditional on the frozen deterministic deployment rule. No assertion about newly trained models follows.
+\end{proposition}
+\begin{proof}
+The true excess $Z_{mi}=S_{mi}-K(h_{mi})$ lies in $[-B_m,B_m]$: both the selected feasible value and the restricted optimum lie in $[0,B_m]$. Hoeffding's inequality with width $2B_m$ bounds the deviation of its sample mean from its expectation. Since $S_{mi}-U_{T,mi}\leq Z_{mi}$ pointwise, substituting the computable lower observations preserves that lower bound. Apply a union bound over $M$ pairs. This argument does not assume that an observed small numerical comparator gap holds uniformly on future contexts.
+\end{proof}
+The width is deliberately $2B_m$, not $B_m$: a gate against an approximate restricted optimizer need not dominate the exact restricted optimum on every context. This distinguishes the true economic target from the gain over a numerically feasible comparator. Negative lower bounds are retained rather than clipped to zero. The earlier uniform-fleet theorem remains in the companion for its different, explicitly randomized deployment target.

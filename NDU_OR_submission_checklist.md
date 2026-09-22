@@ -1,26 +1,28 @@
-# Operations Research R19 submission checklist
+# Operations Research R22 submission checklist
 
-## Manuscript and files
+## Current artifacts and journal format
 
-- Anonymous current main manuscript: 38 total pages, 35 excluding references; submit as **Lengthy**, not Regular.
-- Current companion: 35 pages; no longer than the main manuscript.
-- Abstract: one paragraph, 172 words; no displayed mathematics.
-- 11-point type, one-inch margins, letter paper, one-and-a-half line spacing; introduction without equations.
-- Author–year citations, alphabetic references, no footnotes, tables after references.
-- Data/software accessibility statement in the manuscript; complete ordinary TeX, actual PDFs, sources, observations, reproducible scripts, response, preservation map, and manifest provided.
-- Exact predecessor root PDFs and sources preserved, old revision directories and reports unchanged.
+- Current ordinary root R22 main source/PDF and electronic companion source/PDF exist and agree.
+- Main: 41 total pages, 38 excluding 3 reference pages; **Lengthy** category.
+- Companion: 37 pages, no longer than main.
+- Anonymous letter-size pages, 11-point font, 1.5 line spacing, one-inch margins.
+- One-paragraph abstract: 182 words, no mathematical notation. Introduction has no equations or mathematical notation.
+- Author-year alphabetized references; no text footnotes; tables after references with no vertical rules.
+- No unresolved references/citations or overfull text lines; current sources are expanded ordinary TeX, not wrappers or encoded transports.
+- Subject classifications and area of review appear on the title page; current code/data availability statement follows the last main section.
 
-## Evidence and provenance
+## Scientific/provenance checks
 
-- 16,640 independent exact rational policy replays and four rejected negative controls.
-- 64 deliberate multistage boundary instances, 128 current reference/proposal certificates, 64 exact quartic cases.
-- Every current timing target passed for 4,608 complete pipelines; all seven models and both classical baselines included.
-- Retrospective analysis, held-out deployment, deliberate structural checks, and new timing are distinguished.
-- No universal neural-speed, calibration, model-misspecification, or arbitrary-retraining guarantee is asserted.
-- Final published SHA is verified by the `ndu-or-r19/final-sha` commit status, not inferred from the initial source commit's workflow.
+- Latest actual R20 referee report is addressed point by point, not replaced by a generic response to an older report.
+- Exact complete R19 root files have pinned hashes; 58 original mathematical blocks remain verbatim across current manuscripts.
+- Full original experimental block and adverse outcomes are retained in the companion.
+- Matched-cost, deterministic validation, full-class scaling, theory checks and independent rational replays are actual executed records.
+- Scale failures, numerical-state correction, engineering-label amendment and known-model/conditional-inference scope are disclosed.
+- Neural, direct-price and classical methods are distinguished; no unsupported universal neural acceleration, misspecified-model validity or field calibration claim is made.
+- Final published SHA, not merely an input-source SHA, must have `ndu-or-r22/final-sha` success before a clean final-checkout claim.
 
-## Author decisions still required before journal submission
+## Author-side declarations still requiring approval
 
-Confirm author names/order and affiliations outside the anonymous manuscript, funding and conflict declarations, related-submission disclosures, subject-area choice, and all ScholarOne submission confirmations. This technical package does not invent these declarations or submit to the journal on the authors' behalf.
+Authorship/order, ORCID, funding, financial conflicts, overlapping publications, duplicate-submission declarations, permissions and final journal submission must be confirmed by the authors. No declaration is fabricated by this package.
 
-Official format guidance: https://pubsonline.informs.org/page/opre/submission-guidelines
+Official preparation source checked September 23, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines

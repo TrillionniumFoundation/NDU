@@ -1,0 +1,51 @@
+\subsection{Complete price repair and the exact attainable certificate floor}\label{sec:r22-complete}
+The floor in Theorem~\ref{thm:r22-decomposition} is a limitation of holding switching tensions and participation prices fixed, not a limitation of convex certification. The following result gives the complementary positive statement for the quadratic model. It also distinguishes a convergent classical alternative from a finite numerical polishing heuristic.
+
+\begin{theorem}[Complete repair, attainment, and certified continuation]\label{thm:r22-complete}
+Let $X$ be the nonempty accepted polyhedron of Section~\ref{sec:r19-bridge}, let every $d_i>0$, and let $\lambda\kappa_j\geq0$. Write $\theta=(p,s,\mu,\nu)$,
+$\mathcal C=\{\theta:|s_j|\leq\lambda\kappa_j,\ \mu\geq0\}$,
+and $M=[U^\top\ B^\top\ A^\top\ E^\top]^\top$.
+Denote the unrounded conjugate upper bound by $Q_h(\theta)$. Then $Q_h$ is convex and continuously differentiable on the ambient price space, with
+\begin{equation}\label{eq:r22-complete-gradient}
+ \nabla Q_h(\theta)=(p-Uz,\ -Bz-v,\ a-Az,\ -Ez),\qquad
+ z_i=\operatorname{clip}_{[\ell_i,\bar u_i]}\big((b_h-M^\top\theta)_i/d_i\big).
+\end{equation}
+A Lipschitz constant for this gradient is
+$L_Q=1+\|MD^{-1/2}\|^2$; replacing the spectral norm by the Frobenius norm remains valid. Without a strict-feasibility or full-row-rank assumption, a dual minimizer $\theta^*\in\mathcal C$ exists and
+\begin{equation}\label{eq:r22-exact-floor}
+ \min_{\theta\in\mathcal C}Q_h(\theta)=J(h),\qquad
+ \min_{\theta\in\mathcal C}\{Q_h(\theta)-F_h(y)\}=J(h)-F_h(y)
+ \quad(y\in X).
+\end{equation}
+For exact projected-gradient iterates
+$\theta^{k+1}=\Pi_{\mathcal C}(\theta^k-L_Q^{-1}\nabla Q_h(\theta^k))$
+from $\theta^0\in\mathcal C$, the upper bounds are nonincreasing and, for $k\geq1$,
+\begin{equation}\label{eq:r22-complete-rate}
+ 0\leq Q_h(\theta^k)-J(h)
+ \leq \frac{L_Q\|\theta^0-\theta^*\|^2}{2k}.
+\end{equation}
+Thus any fixed feasible decision with true regret strictly below a tolerance can eventually meet that tolerance by complete exact price repair. No certificate can overcome the decision's true regret.
+\end{theorem}
+\begin{proof}
+Each box conjugate has the unique maximizer displayed in \eqref{eq:r22-complete-gradient}. Differentiation gives the gradient. Away from clipping breakpoints its Hessian is $M_I D_I^{-1}M_I^\top+P$, where $I$ indexes unclipped coordinates and $P$ is the identity on resource prices and zero elsewhere. At breakpoints the generalized Hessians lie in the convex hull of such limiting matrices. All have norm at most $L_Q$; integration along line segments gives global Lipschitz continuity.
+
+For attainment, minimize the negative objective over $X$. The nonindicator part is finite and continuous everywhere, so its subdifferential sums with $N_X$ without a constraint qualification. The normal cone of a polyhedron is exactly the sum of its active inequality, equality, and box normals, even when it has empty interior. At a primal maximizer $x^*$, choose a switching subgradient $s^*$, complementary nonnegative $\mu^*$, equality price $\nu^*$ and box normal $\xi^*$ such that
+$b_h-Dx^*-U^\top Ux^*-B^\top s^*-A^\top\mu^*-E^\top\nu^*=\xi^*$.
+Set $p^*=Ux^*$. Box Fenchel equality, switching subgradient equality, and complementary slackness make every component in \eqref{eq:r22-components} vanish. Hence $Q_h(\theta^*)=F_h(x^*)=J(h)$; weak duality proves \eqref{eq:r22-exact-floor}.
+
+For the rate, projection optimality, convexity, and the descent inequality imply, for any $\vartheta\in\mathcal C$,
+\[
+ Q_h(\theta^{k+1})-Q_h(\vartheta)
+ \leq \tfrac{L_Q}{2}\big(\|\theta^k-\vartheta\|^2-\|\theta^{k+1}-\vartheta\|^2\big).
+\]
+Taking $\vartheta=\theta^k$ proves monotonicity. Taking $\vartheta=\theta^*$ and summing, then using monotonicity of the nonnegative objective errors, proves \eqref{eq:r22-complete-rate}. The final statement follows by assigning the remaining positive tolerance to this dual error.
+\end{proof}
+This is a model-specific consequence of polyhedral optimality and standard projected-gradient analysis \citep{BoydVandenberghe2004,BeckTeboulle2009}, not a new generic first-order method. Its operational addition is the exact separation between a removable certificate defect and an immutable decision loss, with no accepted-face or strict-feasibility oracle. The rate applies to the stated exact iterates. Retaining the best outward-rounded upper bound after arbitrary numerical proposals guarantees monotonicity, but does not by itself inherit the rate. Neither finite-step convergence at the exact regret threshold nor a runtime advantage over a primal solver is asserted. The measured twelve-step block repair remains a different algorithm.
+
+\begin{corollary}[A nonlearned, auditable context warm start]\label{cor:r22-transport}
+Suppose two contexts have the same accepted polyhedron and fixed $D,U,B,v$, but may have different $h$ and nonnegative $\lambda$. A feasible decision from the first context remains feasible in the second. Keep its resource, participation, and equality prices, and clip each old tension to the new interval $[-\lambda_{\rm new}\kappa_j,\lambda_{\rm new}\kappa_j]$. These transported prices are dual-feasible for the new context. Recomputing its full objective and conjugate upper bound gives a valid new-context certificate; if the gap meets the target, no new optimizer call is needed. Otherwise complete price repair or an actual primal refinement may follow.
+\end{corollary}
+\begin{proof}
+Feasibility of the decision is unchanged. Clipping enforces the only price constraints that change with the context; nonnegativity of participation prices is retained. Weak duality for the new coefficients proves the certificate. Old objective values or old certificates are not reused as new-context bounds.
+\end{proof}
+The audit cost is not zero, and changes in the accepted set invalidate the automatic primal-feasibility assertion. Exact rational checks include forced lower-dimensional accepted sets, switching kinks, complete-price convergence, and transport across changes in both reward and friction. These checks validate the statements, not comparative runtime superiority.

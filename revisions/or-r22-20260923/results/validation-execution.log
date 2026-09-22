@@ -1,0 +1,96 @@
+iid 256 of 2048
+iid 512 of 2048
+iid 768 of 2048
+iid 1024 of 2048
+iid 1280 of 2048
+iid 1536 of 2048
+iid 1792 of 2048
+iid 2048 of 2048
+shift 256 of 512
+shift 512 of 512
+{
+  "status": "PASS",
+  "observations": 5120,
+  "records": 2816,
+  "summary": [
+    {
+      "domain": "iid",
+      "method": "ensemble-tanh-gradient",
+      "n": 2048,
+      "mean_outside_gain": 1.4483765489103653,
+      "mean_restricted_gain_lower": 1.3346513942869862,
+      "expected_restricted_gain_lower": 1.1584920338968818,
+      "hoeffding_penalty": 0.17615936039010438,
+      "range_upper": 2.6928874145727755,
+      "mean_regret_upper": 0.0025010112596598605,
+      "pass_1e3": 0.35498046875,
+      "pass_1e5": 0.0,
+      "max_comparator_gap": 5.5178924576271e-08,
+      "comparator_selected": 0.0
+    },
+    {
+      "domain": "iid",
+      "method": "ensemble-rbf-direct",
+      "n": 2048,
+      "mean_outside_gain": 1.4507641129995745,
+      "mean_restricted_gain_lower": 1.3370389583761955,
+      "expected_restricted_gain_lower": 1.160879597986091,
+      "hoeffding_penalty": 0.17615936039010438,
+      "range_upper": 2.6928874145727755,
+      "mean_regret_upper": 0.00011344717045081172,
+      "pass_1e3": 0.96337890625,
+      "pass_1e5": 0.00439453125,
+      "max_comparator_gap": 5.5178924576271e-08,
+      "comparator_selected": 0.0
+    },
+    {
+      "domain": "shift",
+      "method": "ensemble-tanh-gradient",
+      "n": 512,
+      "mean_outside_gain": 2.109534908813809,
+      "mean_restricted_gain_lower": 1.9306806356097332,
+      "expected_restricted_gain_lower": 1.386231002486852,
+      "hoeffding_penalty": 0.5444496331228812,
+      "range_upper": 4.161406926258717,
+      "mean_regret_upper": 0.015632791154564944,
+      "pass_1e3": 0.060546875,
+      "pass_1e5": 0.0,
+      "max_comparator_gap": 6.010998627198031e-08,
+      "comparator_selected": 0.0
+    },
+    {
+      "domain": "shift",
+      "method": "ensemble-rbf-direct",
+      "n": 512,
+      "mean_outside_gain": 2.124601213413311,
+      "mean_restricted_gain_lower": 1.945746940209235,
+      "expected_restricted_gain_lower": 1.401297307086354,
+      "hoeffding_penalty": 0.5444496331228812,
+      "range_upper": 4.161406926258717,
+      "mean_regret_upper": 0.000566486555063098,
+      "pass_1e3": 0.8515625,
+      "pass_1e5": 0.0,
+      "max_comparator_gap": 6.010998627198031e-08,
+      "comparator_selected": 0.0
+    }
+  ],
+  "bounds": {
+    "iid": {
+      "upper_exact": "5385774829145550219/2000000000000000000",
+      "upper": 2.6928874145727755,
+      "vertices": 128
+    },
+    "shift": {
+      "upper_exact": "8322813852517432423/2000000000000000000",
+      "upper": 4.161406926258717,
+      "vertices": 128
+    }
+  },
+  "M": 4,
+  "delta": 0.05,
+  "state_isolation": "Fresh response workspace for each policy/context; fresh restricted-comparator workspace per context. Adaptive penalty and warm-start state cannot leak between validation decisions.",
+  "sampling": "Independent IID contexts within each separately declared domain; all eight fitted models frozen before validation. Simultaneous conditional bounds for four deterministic policy/domain pairs. No statement averages over training randomness.",
+  "interval_proof": "The actual excess S-J_time lies in [-B,B], whether or not the numerical comparator is exact. We use width 2B. Each sample contributes the computable lower bound S-U_time; no future uniform numerical-tolerance assumption is required.",
+  "timing": "The economic gate includes online reoptimization of a time-only amendment. This validation is not evidence of computational acceleration.",
+  "scope": "Known synthetic model under reward/friction covariate shift. No unknown-demand, coefficient-misspecification, or field calibration claim."
+}

@@ -1,0 +1,7 @@
+# R22 structure-aware scaling refinement amendment
+
+The inherited R21 scale source used a dense full-objective OSQP refinement at numerical tolerance 1e-9. In local development, the 511-node instance entered a dense refinement exceeding 50,000 iterations, with primal residual around 8.8e-7; this was not an infeasibility or a failed mathematical certificate. It was expensive over-solving by a structure-obscuring fallback. That partial development run was stopped and is not used for publication timing or sample counts.
+
+Every scaling method now receives the same fresh lifted full-objective refinement at numerical tolerance 1e-9. Initialization is inside the measured attempt; the workspace is closed after that call. The independent rational certificate, rather than a solver status, still decides whether the requested target has passed. All failures are retained. The implementation does not reuse another method's refinement history.
+
+This changes no training population, geometry, seed, architecture, held-out sample, label criterion or certificate target. The original source is retained in R21 and R22 source commit b1b021c9a9e954edfe08f5759a5d06341cab384a. The 63-node matched experiment retains its original recorded common-refinement protocol. These studies are described separately, and host timings are not pooled. The amendment is an execution-time engineering disclosure, not an external preregistration or a claim that all possible classical baselines have been exhausted.
