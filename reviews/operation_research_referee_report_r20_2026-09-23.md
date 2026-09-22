@@ -108,10 +108,8 @@ I would keep the paired result in a revised paper, but I would not make it a hea
 Theorem “Global resource-price and value-gradient bridge” is elegant. It is also close in structure to what one obtains by combining standard results:
 
 1. strong convexity gives uniqueness and Lipschitz stability of the optimizer/response;
-2. Danskin/envelope sensitivity gives (
-abla_h J=Ux^*);
-3. the smooth coupling price is (eta^*=
-ablaPsi(Ux^*));
+2. Danskin/envelope sensitivity gives grad_h J = Ux*;
+3. the smooth coupling price is eta* = grad Psi(Ux*);
 4. the response at (eta^*) recovers (x^*);
 5. Bregman/Fenchel algebra decomposes suboptimality;
 6. Lipschitz gradients convert the decomposition to a quadratic residual bound.
@@ -148,11 +146,8 @@ A resubmission should also compare with modern learning-augmented warm-start and
 
 # 7. The “value gradient” is created by a deliberately chosen reward perturbation; this must be positioned carefully
 
-The theorem defines a context perturbation (h) through the linear term (U^	op h), and then obtains
-[
-
-abla_h J = Ux^*.
-]
+The theorem defines a context perturbation (h) through the linear term U^T h, and then obtains
+**grad_h J = Ux*.**
 This is correct and useful, but the identity is an envelope result for a deliberately chosen coordinate system. The reader should not be left with the impression that an arbitrary scalar value function naturally reveals every operational resource price.
 
 The statistical problem is therefore not “discover a hidden gradient of value” in the abstract. It is closer to:
@@ -313,10 +308,7 @@ The present manuscript tries to execute both routes simultaneously.
 ### 15.1 Clarify the precise novelty of the two-Bregman identity
 
 The exact identity
-[
-J-F(x_eta)
-=mathcal B_H(eta^*,eta)+mathcal B_Psi(u_eta,u^*)
-]
+**J - F(x_eta) = B_H(eta*, eta) + B_Psi(u_eta, u*).**
 is attractive. The paper should state whether this identity is a new lemma for this composite conjugate pair or a direct instance of a known Fenchel/Bregman duality identity. A direct reference would improve the paper even if the novelty is in its accepted-control use.
 
 ### 15.2 Explain why learning (J) is preferable to learning (eta^*)
