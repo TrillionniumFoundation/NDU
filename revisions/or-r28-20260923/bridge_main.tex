@@ -1,0 +1,63 @@
+\subsection{A shared-table bridge for restriction values}\label{sec:bridge}
+A restriction on histories is not automatically a restriction that a Bellman recursion may impose independently in each successor. In particular, a time-only table must be the \emph{same table} in all histories. Let a finite public memory $m$ update by $m'=F_t(m,z')$, and let $u=(u_{t,m})\in[0,1]^K$ be a table selected once, before uncertainty is resolved. For positive weights $\omega_{t,m}$ and release radius $\delta\geq0$, impose
+\begin{equation}\label{eq:tablecorridor}
+ |x_h-u_{t,m(h)}|\leq\delta\omega_{t,m(h)}.
+\end{equation}
+At zero release this is exact history pooling. Eliminating the scalar table entry gives all pairwise inequalities $|x_h-x_{h'}|\leq2\delta\omega_{t,m}$ within a cell. The factor two matters. Thus this institution is a subclass of Section~\ref{sec:release}, not a new, incomparable benchmark.
+
+For the remainder of this subsection use the positive-payment scalar Markov institution and the stage reward $g_t(z,q,x)=r_t(z)x-h_t(z)x^2/2-\ell_t(z)|x-q|$, with $h_t(z)>0$. Write $\mathcal V^m_t(z,q,b;u,\delta)$ for recursion~\eqref{eq:recursion} with memory appended and corridor~\eqref{eq:tablecorridor} imposed. The global table is a read-only argument of every child problem. The restricted optimum is
+\begin{equation}\label{eq:tablevalue}
+ V_M(\delta)=\max_{u\in[0,1]^K}\mathcal V^{m_0}_0(z_0,q_0,b_0;u,\delta).
+\end{equation}
+Only tables admitting the specified root promise have finite value. Assume at least one such table exists at zero release.
+
+\begin{theorem}[Shared-table, continuation-price bridge]\label{thm:bridge}
+The value in \eqref{eq:tablevalue} equals the optimized history-tree problem with \eqref{eq:tablecorridor}. A maximizing contract has state $(t,z,m,q,b)$ and one precommitted table. The value is nondecreasing, concave, and piecewise quadratic in $\delta$. It need not equal the recursion that reselects the table in each child.
+
+Moreover, finite families of recursively certified affine planes
+\[
+ H_t(q,b;u,\delta)=A_tq+B_tb+\gamma_t^\top u+k_t\delta+C_t
+\]
+give an upper bound on the \emph{optimized} restricted comparator through the root linear program
+\begin{equation}\label{eq:rootLP}
+ U_M(\delta)=\max_{u\in[0,1]^K,v}\{v:v\leq H_{0,a}(q_0,b_0;u,\delta)\ \text{for every stored }a\}.
+\end{equation}
+Every feasible policy with one shared table gives a lower bound $L_M(\delta)$. Consequently,
+\begin{equation}\label{eq:stategain}
+ L_M(\delta)-U_M(0)\leq V_M(\delta)-V_M(0)
+ \leq U_M(\delta)-L_M(0).
+\end{equation}
+These certificates use state planes, policy witnesses, and a $K+1$ variable master problem, not a query history vector.
+
+For finite horizons the class of recursively generated planes is dual-complete: at any feasible fixed root promise and release, there exists a plane for which maximizing over the table gives $V_M(\delta)$ exactly. This is an existence result, not a polynomial bound on the number of planes needed to discover it. A root plane's release coefficient is the expected discounted sum of its local corridor prices. When a tight plane is also maximized by the optimizing table, this coefficient is a supergradient of $V_M$; at a differentiability point it is its marginal release value.
+\end{theorem}
+
+Here is the constructive price recursion. For successor $j$, choose a valid plane with coefficients $(A_j,B_j,\gamma_j,k_j,C_j)$, or a convex combination of such planes. Put $p_j=P_t(z,j)$, $c=(t,m)$, and let $I_j$ be the unrestricted feasible child-promise interval from Theorem~\ref{thm:r26-envelopes}. Choose payment price $\eta\in\R$, participation price $\chi\geq0$, corridor prices $\rho^+,\rho^-\geq0$, and switching tension $|s|\leq\ell_t(z)$. With $a=a_t(z)$, $r=r_t(z)$, $h=h_t(z)$, and $\bar b=\bar b_t(z)$, define
+\begin{equation}\label{eq:bridgeprices}
+\begin{split}
+ d&=r-s-a\eta-\rho^++\rho^-+\beta\sum_jp_jA_j,\\
+ A&=s,\qquad B=\eta-\chi,\\
+ \gamma&=(\rho^+-\rho^-)e_c+\beta\sum_jp_j\gamma_j,\\
+ k&=\omega_c(\rho^++\rho^-)+\beta\sum_jp_j k_j,\\
+ C&=\psi_h(d)+\chi\bar b+
+ \beta\sum_jp_j\left[C_j+\max_{v\in I_j}(B_j-\eta)v\right],
+ \qquad \psi_h(d)=\max_{0\leq x\leq1}(dx-hx^2/2).
+\end{split}
+\end{equation}
+Terminal coefficients are zero and the terminal promise is zero. An empty unrestricted child domain makes the parent infeasible. The use of unrestricted intervals keeps the plane valid as the shared table changes. Using table-dependent intervals without accounting for their dependence would not establish this affine certificate.
+
+\begin{proof}[Proof outline]
+For a fixed table, conditioning and concatenation prove both directions of the state equivalence, without changing the table. Maximizing once over that table proves \eqref{eq:tablevalue}. The scalar interval-intersection criterion eliminates the table and identifies the pairwise release problem. Its value properties follow from Theorem~\ref{thm:release}.
+For the upper bound, insert the child planes, price the exact payment equation, and add the nonnegative slacks of the participation and two corridor inequalities. The switching inequality is $-\ell|x-q|\leq-s(x-q)$. Maximizing the remaining scalar quadratic and each child promise gives \eqref{eq:bridgeprices}; induction and the master problem give \eqref{eq:stategain}. To prove completeness, take an optimal tree primal--dual pair, normalize each price by its discounted reach probability, and construct the planes backward. Child payment prices then satisfy $\eta_j-\chi_j=\eta$, every priced slack vanishes, and the local box maximum is attained. Table stationarity makes the optimal shared table maximize the root plane. EC Section~\ref{ec:bridge} supplies the complete argument, the normalizations, and the limits of this representation.
+\end{proof}
+
+The participation term is essential to this construction: conditional marginal payment prices accumulate along a path as $\eta_j=\eta+\chi_j$. This is the nested-continuation counterpart of $A^\top\mu$ in Proposition~\ref{prop:balance}. The coefficient $\gamma$ keeps the \emph{cross-history} table stationarity, while $k$ keeps the release rent. These two conditions are absent from an unrestricted promise recursion. General signed or nonadditive constraints in \eqref{eq:poly} do not automatically admit this scalar bridge.
+
+An exact two-period example makes the distinction observable. Set $\beta=1$, equal child probabilities, all payment coefficients and quadratic curvatures to one, rewards $(1,0,2)$, root promise one, and child caps $(2/5,4/5)$. A shared time-only child tier gives $(x_0,x_L,x_H)=(3/5,2/5,2/5)$ and value $37/50$. With no pooling the optimum is $(3/5,0,4/5)$ and value $53/50$. Reselecting a separate table in each child falsely reports the latter value even at zero release. Correct release has events at $\delta=1/10,3/10,2/5$; the exact policies, recursively reconstructed prices, and supporting upper planes are independently replayed in EC Section~\ref{ec:bridgeexample}.
+
+\subsection{Choosing an implementable architecture}\label{sec:design}
+The hierarchy becomes an endogenous decision when an architecture $j$ has a declared installation and memory cost and a release cost $C_j(\delta)$. For example, $C_j(\delta)=f_j+c_jT|M_j|+a_j\delta+b_j\delta^2/2$, with $b_j\geq0$, prices a maintained table and the permitted organizational discretion. These are specified design inputs, not estimated causal values of information. The provider chooses
+\[
+ \max_{j,\ 0\leq\delta\leq\bar\delta_j}\{V_{M_j}(\delta)-C_j(\delta)\}.
+\]
+On a regular release segment an interior optimum equates the recursively priced release rent to $C'_j(\delta)$; segment endpoints must also be compared. For a finite offered design menu, bounds $L_j,U_j$ certify the selected feasible design within $\varepsilon$ whenever $\max_i(U_i-C_i)-(L_j-C_j)\leq\varepsilon$. Replacing a zero-release contract by full flexibility in the example is worthwhile precisely when its incremental installation cost is below $8/25$. For a linear release cost $C(\delta)=\delta$, the net optimum is $\delta=1/10$, rather than full flexibility. This decision comparison uses optimized continuation-feasible contracts on both sides.

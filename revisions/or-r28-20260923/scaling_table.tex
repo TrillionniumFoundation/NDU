@@ -1,0 +1,14 @@
+\begin{table}[t]\centering\small
+\caption{New exact-arithmetic scaling and cache governance. Each row has 12 queries; the tolerance is $10^{-3}$ per independent block. ``Changes'' is the fraction of block active-cap labels changing between successive queries. Total costs include coefficients, the same full-policy generator and audit, witness repair, cache evaluation, and any refresh. Fresh uses an exact specialized restricted solve. Memory is isolated-process peak resident memory; these are synthetic block-separable models, not dense-QP speed comparisons.}\label{tab:r28-scaling}
+\begin{tabular}{rrrrrrrrr}\toprule
+$n$ & Services & $d$ & Cache & Changes & Refresh & Cached total & Fresh total & Memory\\
+ & & & & (\%) & /12 & (ms) & (ms) & (MiB)\\\midrule
+12 & 1 & 1 & 1 & 0.0 & 12 & 1.89 & 1.36 & 16.2 \\
+96 & 2 & 4 & 1 & 0.0 & 12 & 15.20 & 10.94 & 16.2 \\
+96 & 2 & 4 & 4 & 0.0 & 11 & 20.06 & 10.95 & 16.3 \\
+96 & 2 & 4 & 4 & 56.8 & 12 & 20.17 & 11.13 & 16.6 \\
+384 & 4 & 8 & 4 & 55.7 & 12 & 81.29 & 45.00 & 16.8 \\
+384 & 4 & 8 & 8 & 55.7 & 12 & 107.61 & 45.10 & 17.7 \\
+1536 & 4 & 8 & 8 & 55.7 & 12 & 427.92 & 178.51 & 28.4 \\
+\bottomrule\end{tabular}
+\end{table}

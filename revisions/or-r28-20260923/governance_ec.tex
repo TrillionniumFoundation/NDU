@@ -1,0 +1,73 @@
+\section{Computable Cache Governance and Complete Query Accounting}\label{ec:governance}
+Let $z^w$ be a feasible restricted witness, not necessarily optimal. Weak duality gives $W_\theta(z^w)\leq K_\theta\leq U$. Subtraction proves Proposition~\ref{prop:governance}. Because every term in the four-term decomposition of Theorem~\ref{thm:r27-cache} is nonnegative at a feasible witness, the width also identifies how much is charged to resource-price mismatch, coordinate response, participation slack, and switching mismatch. It is an upper bound on cache error, not an equality with that error. A poor witness can cause an unnecessary refresh; it cannot create a false quality certificate.
+
+An implementation must first audit the witness against the \emph{actual} query coefficients. If the witness is infeasible, the width is not certified and the controller must repair, refresh, or abstain. With a feasible witness, return the cache only if $U-W_\theta(z^w)\leq\varepsilon$. Otherwise obtain a new independently checked primal--dual pair, or return ``tolerance uncertified.'' The test never converts a failure into a proof of infeasibility or poor optimal value. A complete economic decision separately checks the implemented full-class policy, evaluates its actual objective, subtracts $U$, and subtracts any applicable implementation cost. Thus a good comparator cache alone does not authorize deployment.
+
+\subsection{An optional sufficient face-retention test}
+Select a linearly independent equality basis $B_\theta z=c_\theta$ consisting of the mandatory equalities, proposed active inequality or box rows, and proposed zero-switching rows. Specify the signs $\sigma_j$ of all remaining switching rows, collected in $D_N$. Solve
+\begin{equation}\label{eq:faceKKT}
+ \begin{bmatrix}Q&B_\theta^\top\\B_\theta&0\end{bmatrix}
+ \begin{bmatrix}z\\\zeta\end{bmatrix}
+ =\begin{bmatrix}p_\theta-\lambda_\theta D_N^\top(\kappa_N\sigma_N)\\c_\theta\end{bmatrix}.
+\end{equation}
+A full-row-rank $B_\theta$ and $Q\succ0$ make this matrix nonsingular. Set the prices of unselected inequalities to zero. Check all original inequalities and equalities, every box constraint, the proposed nonzero switching signs, nonnegativity of selected inequality prices in their original orientations, and $|\zeta_j|\leq\lambda_\theta\kappa_j$ for the zero-switching tensions. Check complementarity and stationarity in the original coordinates. If the representation is valid, Proposition~\ref{prop:balance} certifies that $z$ is the unique query restricted optimum. At a degenerate face the chosen independent basis can fail even when some alternative representation works; the procedure is sufficient, not necessary. A singular or inconsistent selected basis is rejected rather than silently inverted.
+
+For the cached anchor in the local clause of Theorem~\ref{thm:r27-cache}, additionally check its positive-price complementarity at $z$, membership of its fixed $v_0$ in the query box normal, and vanishing of its switching gap. The local upper bound then becomes computable from the verified $z$. When the coefficient matrix is fixed and right sides/rewards are affine, $z$ is affine on this checked face and all sign and feasibility tests define a polyhedral retained-face region. Its Lipschitz modulus is obtained from the displayed inverse times the parameter loadings. When $B_\theta$ itself varies, nonsingularity and a lower singular-value bound on a neighborhood give a local Lipschitz bound, but refactorization and regional verification must be accounted for. No cheap fixed-factorization claim is made for changing matrices.
+
+This test is equality-constrained linear algebra followed by a full certificate audit, not an unqualified replacement for constrained optimization. Face transitions can trigger rejection; the original cached weak-duality upper bound remains valid. In particular the retained R27 two-cap example still has linear cache loss across its degenerate face. The R28 checker includes rejection of an infeasible retained-face proposal and a singular active basis.
+
+\subsection{Cost components}
+For a full-vector model, a complete query budget is
+\[
+ C_{\rm coeff}+C_{\rm candidate}+C_{\rm audit}+C_{\rm cache}
+ +\mathbf1_{\rm refresh}(C_{\rm solve}+C_{\rm dual\ audit}+C_{\rm update}).
+\]
+Here coefficient construction is distinct from matrix preprocessing. Candidate generation may involve a full-class optimizer and is never called ``no query optimization.'' Its feasibility audit includes $A_\theta\widehat x$, $F_\theta\widehat x$, boxes, switching, and objective evaluation; dense costs can dominate cached arithmetic. With $k_a$ anchors, cached evaluation uses $O(k_a n(d+1))$ arithmetic after the stated preprocessing, plus storage of all needed coefficients/prices. A witness repair, its audit, and the quality test are additional. A face-KKT test adds a solve with the stored factorization or, when coefficients change, a factorization and its verification. For the state bridge the corresponding charges are policy/promise audits, recursive plane verification, and the shared-table master LP. Neither representation hides these costs in a nominal cache lookup.
+
+\section{Uniform Certification of a Parameter-Dependent Policy}\label{ec:adaptiveuniform}
+On a simplex, write $\theta=\sum_i\lambda_i v_i$ and $\widehat x(\theta)=\sum_i\lambda_i x_i$, with $\lambda_i\geq0$ and $\sum_i\lambda_i=1$. Affine coefficient dependence gives
+\[
+ b_\theta-A_\theta\widehat x(\theta)
+ =\sum_i\lambda_i^2(b_i-A_ix_i)
+ +2\sum_{i<j}\lambda_i\lambda_j
+ \frac{b_i+b_j-A_ix_j-A_jx_i}{2}.
+\]
+The quadratic Bernstein basis weights are nonnegative and sum to one. Nonnegative coefficients therefore certify every inequality throughout the simplex. The same identity proves the accepted equalities $E_\theta\widehat x=e_\theta$ when all coefficients are zero; comparator-only rows in $F_\theta$ are not imposed on the deployed policy. These are sufficient coefficient tests, not a claim that vertex feasibility implies feasibility. The common box is convex, so its vertex test is sufficient. The example $\theta(1-\theta)\leq0$ illustrates why the off-diagonal terms cannot be dropped.
+
+After partitioning at the affine switching hyperplanes, each absolute-value term in the deployed objective has one sign, including its zero boundary. Since the friction scale is affine and the quadratic geometry is fixed, $W_\theta(\widehat x(\theta))$ is a polynomial of degree at most two on each resulting simplex. The R27 upper bound $U_\theta(a)$ is convex in the parameter for a fixed cached price under its fixed-geometry hypotheses. Hence
+\[
+ U_\theta(a)\leq\sum_i\lambda_i U_{v_i}(a),\qquad
+ W_\theta(\widehat x(\theta))-K_\theta\geq f_a(\theta).
+\]
+A quadratic's diagonal Bernstein coefficients are its vertex values. Evaluation at the edge midpoint gives
+$f_a((v_i+v_j)/2)=(g_{ii,a}+2g_{ij,a}+g_{jj,a})/4$, proving the coefficient formula. Taking the smallest coefficient is a lower bound on the whole simplex. Any anchor gives a bound throughout that simplex, so the largest of the anchorwise lower bounds remains valid. Taking the smallest bound over cells proves \eqref{eq:adaptivegain}. Exchanging these extrema or checking only the best anchor separately at each vertex is not justified.
+
+All restrictions are assumed nonempty on every cell. This can be established by a separate restricted witness map passing the same feasibility test; it is not implied by full-policy feasibility. The deployed map, its partition, and the assignment on cell boundaries are part of the certificate. Query-specific optimizer outputs with no declared interpolation law remain pointwise evidence, including the inherited R27 off-ray study. The R28 example below, unlike that study, certifies an explicitly declared nonconstant map on an entire interval.
+
+\subsection{An exact positive adaptive example}
+Let $\theta\in[1/8,3/8]$, $x\in[0,1]^2$, and impose $x_1+x_2=1$ and
+\[
+ (1+\theta)x_1+(1-\theta)x_2\leq1+\theta.
+\]
+The restricted comparator additionally requires $x_1=x_2$. The reward is $p_\theta=(1+\theta,1-\theta)$, $Q=I$, switching operator $D=(1,-1)$, offset zero, weight one, and friction scale $\theta/4$. Thus curvature and switching geometry stay fixed. The constant restricted witness $(1/2,1/2)$ proves nonemptiness throughout the interval and has optimized value $K_\theta=3/4$.
+
+Declare the adaptive policy
+\[
+ \widehat x(\theta)=(1/2+3\theta/4,\ 1/2-3\theta/4).
+\]
+It is in the box, satisfies the payment equality, and has cap slack $\theta-3\theta^2/2\geq0$. All coefficients of the corresponding Bernstein slack on the declared interval are nonnegative. Its gain is $W_\theta(\widehat x(\theta))-K_\theta=9\theta^2/16$.
+
+Use the one exact cached anchor at $\theta_0=1/8$ with zero cap price, root-payment price $1/2$, pooling price $3\theta_0/4$, and normalized switching tension one. Its actual-query upper bound is
+\[
+ U_\theta=3/4+9(\theta-\theta_0)^2/16.
+\]
+For the vertex-chord polynomial, the Bernstein coefficients are $9/1024$, $9/1024$, and $45/1024$. Thus Proposition~\ref{prop:adaptiveuniform} certifies the nonconstant policy's gain uniformly by $9/1024>0$, attained at the left endpoint. The independent checker reconstructs the prices, objective, feasibility coefficients, chord, and all three gain coefficients with rational arithmetic. It also rejects the endpoint-only feasibility counterexample.
+
+\section{Degenerate Frontiers and Closest-Results Comparison}\label{ec:novelty}
+The phrase ``complete release frontier'' denotes the finite global structure, not a guarantee that successive regular-cell formulas alone constitute a robust continuation algorithm. A complete, generally exponential procedure is available: enumerate every switching sign pattern and every independent active-row basis; solve its equality-constrained strictly concave quadratic; test the original sign constraints and all primal--dual feasibility conditions, allowing zero multipliers; project the resulting parameter polyhedron onto the release line; retain the valid intervals and their common unique tier optimizer. Redundant active rows may be assigned zero prices when a valid independent generating subset exists, or their multiplier feasibility can be retained explicitly as a linear feasibility problem. Simultaneous events and isolated feasible cells must be retained. There are finitely many patterns and subsets, so exhaustive enumeration terminates. Optimality follows from the balance criterion, and completeness from polyhedral normal-cone representation and the finite switching partition. This is a structural finite algorithm, not a polynomial or cheap zero-set method. The friction-path reduction has the same limitation.
+
+The central theorem chain in this revision is shared-table implementation, recursively accumulated continuation/restriction prices, and certified net design value. The following comparison distinguishes inherited engines from the added structural conclusion.
+The complete closest-result comparison appears in main Table~\ref{tab:r28-novelty}; the distinction between an inherited engine and the shared-table conclusion is part of the main argument.
+
+
+\citet{RockafellarWets1991} already make information bundles and nonanticipativity central to policy aggregation; \citet{Benders1962} already separate shared design variables from subproblems. \citet{PereiraPinto1991} already use stochastic dual value approximations. We do not rename those methods as inventions. Their general statements do not by themselves establish that the optimized pooled contract with an exact continuation obligation is represented by the displayed state recursion, or that its marginal release value and optimized-comparator certificate are the same recursively assembled price object. Theorem~\ref{thm:bridge} supplies that contract-specific representation and its proof. Its exactness exploits both nested conditional caps and the table's global stationarity. The theorem does not establish priority over all possible combinations of these literatures; its comparison identifies the precise mathematical conclusion proved here.

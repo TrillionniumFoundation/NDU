@@ -1,73 +1,40 @@
-# Accepted Service Adaptation — Operations Research R27
+# Accepted Service Adaptation — Operations Research R28
 
-**Current revision branch:** `revision/ndu-operations-research-r27-20260923`  
-**Scientific base:** R26 `38f99a5b46d8cfe4f1197fc869735d5f798c499a`  
-**Purpose:** a new author/referee revision responding to both latest R24 reports. This repository delivery is not a journal submission or an assertion of acceptance.
+**Revision branch:** `revision/ndu-operations-research-r28-20260923`  
+**Review base:** `61aff783672ce39745713f5cefbcf83d8748ebd6`  
+**Scientific predecessor:** R27 `85fe1a799a192758a93a423bbb6d213ab9f04cce`.
 
 ## Read the revision
 
-| Document | Location |
-|---|---|
-| Current manuscript | [main.pdf](main.pdf) · [LaTeX](main.tex) |
-| Current electronic companion | [electronic_companion.pdf](electronic_companion.pdf) · [LaTeX](electronic_companion.tex) |
-| Response to both latest reports | [R27 response](revisions/or-r27-20260923/RESPONSE_TO_REFEREES.md) |
-| Exact build and preservation results | [Build report](revisions/or-r27-20260923/BUILD_REPORT.md) |
-| Final source/PDF/evidence hashes | [Manifest](revisions/or-r27-20260923/MANIFEST.json) |
-| New rational verification | [Replay results](revisions/or-r27-20260923/results/replay.json) |
-| Current submission-format checklist | [Checklist](NDU_OR_submission_checklist.md) |
+- [Current paper](main.pdf) · [LaTeX](main.tex)
+- [Electronic companion](electronic_companion.pdf) · [LaTeX](electronic_companion.tex)
+- [Point-by-point referee response](revisions/or-r28-20260923/RESPONSE_TO_REFEREES.md)
+- [Novelty and assumptions matrix](revisions/or-r28-20260923/NOVELTY_MATRIX.md)
+- [Exact replay](revisions/or-r28-20260923/results/replay.json)
+- [Full phase-resolved scaling evidence](revisions/or-r28-20260923/results/evidence.json)
+- [Build/preservation report](revisions/or-r28-20260923/BUILD_REPORT.md)
+- [Manifest](revisions/or-r28-20260923/MANIFEST.json)
+- [Latest referee report, unchanged](reviews/operation_research_referee_report_r27_2026-09-23.md)
 
-The theorem chain is: optimized restriction release and continuation/friction rents (Sections 4–5); sufficient promised state and certified continuous implementation (Section 6); implemented gains and optimized-comparator certification (Section 7). The R24 coordinates are retained as a lemma, not the sole scientific conclusion.
+The central result is a shared-table bridge: one ex ante policy table survives the promised-payment recursion; normalized continuation and restriction prices produce an optimized-comparator certificate through a root table LP. A dual-completeness proof states explicitly that discovering an exact finite certificate need not have polynomial storage or construction cost. New results include a net implementation-cost decision, a certified refresh rule, and an interior-valid certificate for a declared adaptive policy.
 
-## New in R27
+The exact two-period example distinguishes the pooled value 37/50 from the unrestricted value 53/50. With unit linear release cost, the optimal release is 1/15. The adaptive continuum example certifies gain 9/1024. These are exact synthetic examples, not field estimates. The scaling design is deliberately block-separable and compares exact rational certificate accounting with a specialized exact solve; it is not a dense-QP speedup claim. Strict tolerances cause frequent cache refreshes.
 
-**Theorem 7.3** retains jointly changing rewards, continuation matrices and budgets, payment/information equalities, and switching friction in a normalized-price cache. It gives a globally valid comparator upper bound, an exact four-term gap decomposition, and a quadratic reuse loss under an exact-anchor, retained-priced-face condition. A degenerate exact example demonstrates why the local condition cannot be discarded.
-
-**Corollary 7.4** gives a uniform economic-gain certificate over an affine parameter polytope. Correctly ordered cell/anchor/vertex extrema preserve coefficient correlations; subdivision and additional cached prices improve the certificate monotonically. An exact positive-gain example and an invalid-minimax counterexample are independently checked.
-
-**New evidence** consists of 24 off-ray parameter queries and 72 newly generated optimization proposals, separately checked with rational arithmetic. The same frozen historical anchor prices produce tighter upper bounds than the historical outer comparator on all 24 new queries, with positive implemented-gain certificates in all 24. A separate 56-query panel evaluates inherited radius records; it is not relabeled as newly generated optimization data. All initial work, offline quality checks, and the absence of any measured end-to-end speedup claim are explicit.
-
-New proofs and the complete experimental specification are in [EC.11 source](revisions/or-r27-20260923/correlated_ec.tex). The main statement is [here](revisions/or-r27-20260923/correlated_main.tex).
-
-## Reproduce or evaluate a query
-
-The independent checker needs only Python's standard library:
+## Reproduce
 
 ```bash
-python -S revisions/or-r27-20260923/replay.py --check
-python -S revisions/or-r27-20260923/make_tables.py --check
-python -S revisions/or-r26-20260923/replay.py --check
-python -S revisions/or-r25-20260923/replay.py --check
-python -S revisions/or-r24-20260923/replay.py --check
+python -S revisions/or-r28-20260923/research.py
+python -S revisions/or-r28-20260923/verify.py
+python -S revisions/or-r28-20260923/make_tables.py
+bash revisions/or-r28-20260923/build.sh
+python revisions/or-r28-20260923/check_package.py --manifest
+python -S revisions/or-r28-20260923/verify.py --check
 ```
 
-A query uses cached prices, not a new optimizer or a query optimizer label:
+The evidence generator and independent verifier require only Python's standard library. The checker does not import the generator. Linux subprocesses measure isolated configuration peak RSS; timings are platform observations, not reproducible performance constants. The inherited R24–R27 replays are unchanged. LaTeX dependencies match R27; the PDF inspection additionally uses PyMuPDF.
 
-```bash
-python -S revisions/or-r27-20260923/query_cache.py \
-  --context-id 0 --rho 1/8 --theta -3 4 5
-```
+## Preservation and scientific status
 
-The three integer direction arguments are divided by eight. This interface evaluates the explicitly designed family; a comparator upper bound alone is not a positive economic-gain certificate.
+All earlier derivations, reports, data, code, and revisions remain at their original paths. The six R27 reader files are preserved byte for byte under `revisions/or-r28-20260923/predecessor/`. Root reader files are updated; no unrelated branch is changed. Inherited-source hashes and final document hashes are verified independently. The latest review is part of the branch ancestry and remains unchanged.
 
-To regenerate the new numerical proposals and their exact audit, install the pinned dependencies in `revisions/or-r27-20260923/requirements.txt`, use a C compiler, and run:
-
-```bash
-python revisions/or-r27-20260923/propose.py
-python -S revisions/or-r27-20260923/replay.py
-python -S revisions/or-r27-20260923/make_tables.py
-```
-
-Numerical proposals and timings can change with the execution platform; the independent rational checks, not an optimizer success label, determine acceptance. The publication workflow records its actual execution provenance.
-
-For the PDFs, install LaTeX with `newtx`, `endfloat`, and the packages declared by the sources. Then run `bash revisions/or-r27-20260923/build.sh`. After inherited replays are recorded in the R27 results directory, run `check_package.py`, `check_package.py --manifest`, and `check_package.py --verify-manifest`. The final-SHA workflow checks a fresh checkout of the published scientific commit.
-
-## Reports and preservation
-
-Both latest reports are retained unchanged:
-
-- [Ordinary R24 report](reviews/operation_research_referee_report_r24_2026-09-23.md), review SHA `9080e29443191f9bb415ab0a213af446d4ce3be3`.
-- [Independent R24 report](reviews/operation_research_referee_report_r24_independent_2026-09-23.md), review SHA `ded3e34349631cd6dc7a4aa35d58a9d248c77d47`.
-
-The complete R26 current-root source/PDF/navigation files are copied byte for byte into [the R27 predecessor directory](revisions/or-r27-20260923/predecessor/). Every inherited repository file is pinned in `INHERITED_SHA256.json`; only six current root documents are revised. All expanded R26 mathematical statements and proofs remain in the current formal documents. R25/R24 and older derivations, raw data, code, learned-method failures, and both computational/historical root supplements retain their original contents and paths.
-
-The scientific ancestors are R24 `63bbb843e1bbe7cac2170dc7d317d4cf18bb2bb8`, R25 `7f3f12c9d412b45a570725dc9b61203d64da5e41`, and R26 `38f99a5b46d8cfe4f1197fc869735d5f798c499a`. Inherited continuous-state results and unfavorable learning timings are not presented as fresh R27 experiments. No calibrated field uncertainty, hidden-information mechanism, unconditional quadratic cache rate, or unmeasured learning speed advantage is claimed.
+This is a substantive author revision for another referee review, not a journal submission, acceptance claim, or independent proof of novelty. Its manuscript uses the Operations Research anonymous, author–year, 11-point, 1.5-spaced format; exact pagination is recorded in the build report.
