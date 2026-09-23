@@ -1,0 +1,995 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[tablesonly,nomarkers,nolists,noheads]{endfloat}
+\renewcommand{\efloatseparator}{\par\bigskip}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Accepted Service Adaptation: Companion}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains},pdfauthor={Anonymous}}
+
+\externaldocument{main-labels}[main.pdf]
+\externaldocument{cs-labels}[computational_supplement.pdf]
+\externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
+\externaldocument{legacy-ec-labels}[revisions/or-r19-20260923/predecessor/electronic_companion.pdf]
+\externaldocument{history-labels}[historical_supplement.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\theequation}{EC.\arabic{equation}}
+
+% BEGIN preserved/input source: revisions/or-r10-20260921/tables/metrics.tex
+% Generated from the recorded run; do not hand-edit.
+\newcommand{\RtenMeanDifference}{0.000577}
+\newcommand{\RtenIntervalLower}{-0.003923}
+\newcommand{\RtenIntervalUpper}{0.005076}
+\newcommand{\RtenTeacherGap}{6.143\times10^{-8}}
+\newcommand{\RtenDirectionalBound}{0.004167}
+
+% END input source: revisions/or-r10-20260921/tables/metrics.tex
+
+
+% BEGIN preserved/input source: revisions/or-r12-20260922/tables/metrics.tex
+\providecommand{\RtwInstances}{48}
+\providecommand{\RtwDeployments}{432}
+\providecommand{\RtwBoundaryInstances}{15}
+\providecommand{\RtwStaticGap}{\ensuremath{5.09\times10^{-14}}}
+\providecommand{\RtwCertificates}{2682}
+\providecommand{\RtwSubtrees}{35742}
+\providecommand{\RtwTiers}{535658}
+\providecommand{\RtwFinalGap}{\ensuremath{9.74\times10^{-8}}}
+\providecommand{\RtwLargeGap}{\ensuremath{4.97\times10^{-10}}}
+\providecommand{\RtwPairedMean}{0.043611}
+\providecommand{\RtwPairedLower}{-0.404368}
+\providecommand{\RtwPairedUpper}{0.450732}
+\providecommand{\RtwRawNegative}{162}
+\providecommand{\RtwLargeMedianMs}{423.71}
+
+% END input source: revisions/or-r12-20260922/tables/metrics.tex
+
+
+% BEGIN preserved/input source: revisions/or-r13-20260922/tables/metrics.tex
+\newcommand{\RThirteenCells}{747}
+\newcommand{\RThirteenOffline}{18.22}
+\newcommand{\RThirteenGainFloor}{0.001754}
+\newcommand{\RThirteenGain}{0.003006}
+\newcommand{\RThirteenRegret}{0.036684}
+\newcommand{\RThirteenRange}{0.051784}
+\newcommand{\RThirteenRadius}{0.001252}
+\newcommand{\RThirteenPolicies}{10,312}
+\newcommand{\RThirteenChecks}{320,104}
+\newcommand{\RThirteenGap}{4.3e-10}
+\newcommand{\RThirteenBreakEven}{4348}
+
+% END input source: revisions/or-r13-20260922/tables/metrics.tex
+
+
+% BEGIN preserved/input source: revisions/or-r14-20260922/tables/metrics.tex
+% Generated from actual R14 execution records.
+\newcommand{\RFourteenOptimalGain}{0.122047}
+\newcommand{\RFourteenValueRegret}{$5.965\times10^{-6}$}
+\newcommand{\RFourteenGradientRegret}{$2.210\times10^{-6}$}
+\newcommand{\RFourteenCapRate}{1.56\%}
+\newcommand{\RFourteenCILow}{-9.568\times10^{-6}}
+\newcommand{\RFourteenCIHigh}{2.059\times10^{-6}}
+\newcommand{\RFourteenImmediateValue}{17.48\%}
+\newcommand{\RFourteenImmediateGradient}{19.04\%}
+\newcommand{\RFourteenColdTime}{5.353}
+\newcommand{\RFourteenLearnedTime}{10.600}
+\newcommand{\RFourteenRange}{0.382478}
+\newcommand{\RFourteenValidationGain}{0.119594}
+\newcommand{\RFourteenValidationFloor}{0.108115}
+\newcommand{\RFourteenValidationGap}{$1.374\times10^{-6}$}
+\newcommand{\RFourteenDenseError}{$1.485\times10^{-13}$}
+\newcommand{\RFourteenCertificates}{6,626}
+\newcommand{\RFourteenChecks}{2,577,514}
+\newcommand{\RFourteenLabelTime}{0.756}
+\newcommand{\RFourteenValueFit}{0.091}
+\newcommand{\RFourteenGradientFit}{0.076}
+
+% END input source: revisions/or-r14-20260922/tables/metrics.tex
+
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion\par}\medskip
+{\large Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains\par}\medskip
+Revision R24, September 23, 2026
+\end{center}
+This companion contains the complete canonical service institution and all formal derivations relocated from the main paper. Every predecessor mathematical statement and proof remains in the current main or companion. Numerical experiments and execution details moved to the Computational Supplement retain their original sources, dates, and adverse results. The R19 randomized-fleet result remains distinct from the R22 deterministic frozen-policy validation.
+
+\section{An externally priced inventory contract}\label{sec:model}
+There are periods $t=0,\ldots,T-1$. The observed state is $(z,q)$, where $z$ is a demand regime in a finite ordered set $\mathcal Z$ and $q\in[0,1]$ is the inherited contract. Conditional demand $D_z$ is nonnegative with finite first moment. A decision consists of stock $S\in\mathcal S\subset[0,\bar S]$ and contract $\theta\in\Theta\subset[0,1]$. Both feasible sets are fixed compact chains; finite grids are allowed. Unused stock perishes and unmet demand is lost. Thus no inventory or backlog is carried. The next regime has exogenous transition matrix $P$, and the next inherited contract equals the chosen contract.
+
+Write the expected overage and shortage as
+\begin{equation}\label{eq:cost}
+ O_z(S)=\E\pos{S-D_z},\qquad L_z(S)=\E\pos{D_z-S},\qquad
+ C_z(S)=cS+hO_z(S)+pL_z(S).
+\end{equation}
+Here $c,h,p\geq0$ are externally fixed physical-cost coefficients. The provider receives premium $r_z\theta$, pays incremental liability $\kappa\theta L_z(S)$, pays maintenance $m\theta^2$, and pays adjustment $\lambda(\theta-q)^2$, where $\kappa,m,\lambda>0$. Expected one-period net reward is
+\begin{equation}\label{eq:reward}
+ g(z,q,S,\theta)=r_z\theta-C_z(S)-\kappa\theta L_z(S)
+                       -m\theta^2-\lambda(\theta-q)^2.
+\end{equation}
+The expectation in this expression is over demand, not over the decision. Premium rates, liability coefficients, and physical-cost weights cannot be controlled. The contract is a real cash-flow commitment. Its level affects both reward and the future state; it is not an estimator of a preference parameter.
+
+\subsection{A customer-accepted master agreement}\label{sec:institution}
+The contract is a publicly specified menu, not a penalty that the provider can change after performance is observed. Before period zero, a risk-neutral customer and provider sign a master agreement. It specifies the premium schedule $r_z\theta$, the indemnity $\kappa\theta(D_z-S)^+$, the horizon, and a contingent operating protocol. Regime, tier, stock, demand, and fulfillment are observable and contractible. At each review the provider implements the announced protocol after observing $(z,q)$ and before demand is realized. Public randomization is permitted when specified in the agreement. The customer commits to the contingent menu, not to a new purchase at each review. Transfers and compliance with the protocol are enforceable. No hidden effort or private type is assumed.
+
+Let $f_z(S)=\E D_z-L_z(S)$ be expected units served. For a fixed service benefit $\nu>0$, the customer's incremental one-period utility is
+\begin{equation}\label{eq:customer}
+ u(z,S,\theta)=\nu f_z(S)+\kappa\theta L_z(S)-r_z\theta.
+\end{equation}
+Indemnity is a transfer from the provider to this customer. Maintenance and adjustment are real resource expenditures, not payments to the customer. Write $F^\pi=\E^\pi\sum_t\beta^t f_{z_t}(S_t)$, $D=\E\sum_t\beta^t\E D_{z_t}$, and $U^\pi=\E^\pi\sum_t\beta^t u(z_t,S_t,\theta_t)$. Demand is exogenous, so $D$ is independent of the protocol. The agreement is accepted only if
+\begin{equation}\label{eq:participation}
+ U^\pi\geq\underline U,\qquad F^\pi\geq\gamma D.
+\end{equation}
+These are ex ante participation and expected discounted fill commitments. They are not period-by-period chance constraints or a right to renegotiate after each regime realization. A customer with such rights would require continuation participation constraints and an additional promised-utility state.
+
+A fixed retainer $A_0$ can fund provider participation. Total provider profit is $A_0+W^\pi$ and total customer surplus is $U^\pi-A_0$; the retainer does not affect policy comparisons. In the canonical inventory study $A_0=6$, $\nu=2$, and the customer's outside alternative is the best fixed-contract arrangement, including the same retainer. Both that arrangement and the accepted adaptive arrangement satisfy a zero provider outside option. We report incremental $W$ and $U$ so that the historical accounting remains exactly comparable.
+
+The institution fixes the menu and designs the contingent protocol subject to acceptance. It does not claim to solve private-information screening or to endogenize every price in the menu. The unconstrained Bellman equation below is the provider relaxation and is also the problem when the acceptance constraints are slack. Section~\ref{sec:accepted} solves the binding-acceptance problem. A lower fill rate or customer surplus in the relaxation is not presented as an improvement under the accepted agreement.
+
+For discount $\beta\in(0,1]$ and zero terminal reward, the Bellman equation is
+\begin{equation}\label{eq:bellman}
+ V_t(z,q)=\max_{S,\theta}\left\{g(z,q,S,\theta)
+       +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta)\right\},\qquad V_T=0.
+\end{equation}
+Finite actions make existence immediate. For compact intervals, bounded demand moments, continuity of the stage reward, and induction give a continuous value and an attained maximum. We select the greatest optimal pair when the lattice conditions below hold.
+
+
+The exact expanded-action representation and the provider-relaxation structure are retained in EC Section~\ref{sec:representation}. The ex ante master agreement above defines the canonical inventory benchmark. The unified formulation below additionally permits an enforceable continuation exit option at every review, implemented by a cap for every nonroot subtree and a root payment equality. The later tree and scalar-critic experiments use that continuation institution; they do not reinterpret an ex ante commitment as a continuation guarantee.
+
+% END input source: revisions/or-r14-20260922/sections/model.tex
+
+
+% BEGIN preserved/input source: revisions/or-r12-20260922/retained/accepted.tex
+\section{Accepted contracts and the value of information}\label{sec:accepted}
+The relevant static comparator is chosen before period zero, not fixed at an arbitrary tier. Let $\mathcal P_{\rm stat}$ consist of constant-contract protocols, with stock still optimized using the observed regime. Every comparator pays the initial installation cost $\lambda(\theta-q_0)^2$. Let $\mathcal P_t$, $\mathcal P_{t,z}$, $\mathcal P_{t,q}$, and $\mathcal P_{t,z,q}$ denote deterministic contract rules using the displayed information. Physical stock can use the full observed state in each class. With a fixed initial contract,
+\begin{equation}\label{eq:classes}
+ \mathcal P_{\rm stat}\subseteq\mathcal P_t
+ \subseteq\mathcal P_{t,z}\subseteq\mathcal P_{t,z,q}.
+\end{equation}
+The inherited-only class is not an additional information increment along this chain.
+\begin{proposition}[Inherited-only information and optimized static contracts]\label{prop:classes}
+For deterministic $q_0$ and deterministic protocols, the value of $\mathcal P_{t,q}$ equals the value of $\mathcal P_t$. For a finite stock menu and continuous tier, the optimal static contract can be found exactly by enumerating stock-envelope breakpoints and the stationary point of the objective on each intervening interval.
+\end{proposition}
+\begin{proof}
+If $\theta_t=f_t(q_t)$ and $q_{t+1}=\theta_t$, induction makes the entire tier path deterministic. A time-only schedule implements that path, and every schedule is an inherited-only rule. Independent private randomization is a mixture of deterministic paths and cannot improve the unconstrained maximum.
+
+For the static calculation define $a_z=\sum_t\beta^t\Pr(z_t=z)$ and $H=\sum_z a_z$. Its objective is
+\begin{equation}\label{eq:static}
+ W_{\rm stat}(\theta)=\sum_z a_z\{r_z\theta+U_z(\theta)\}
+             -mH\theta^2-\lambda(\theta-q_0)^2.
+\end{equation}
+Each $U_z$ is a finite upper envelope of affine stock payoffs. Between all pairwise line crossings, the active stock choices are constant, so \eqref{eq:static} is a concave quadratic with coefficient $-(mH+\lambda)$. Its maximum on that interval is at its stationary point or an endpoint. Checking all such candidates and the endpoints $0,1$ is exhaustive, including ties and nonconcavity across intervals. One may instead first construct each stock upper envelope and enumerate only its surviving breakpoints; intersections never attaining that envelope are unnecessary. Both procedures return the same exhaustive candidate set of active intervals.\end{proof}
+Public randomized accepted classes are treated separately in Proposition~\ref{prop:accepted-jensen}; the unconstrained mixture argument above is not sufficient for them. The equality in the proposition concerns the value from the specified initial state; it is not equality of the two feedback function spaces on unreachable histories. For $\mathcal P_{t,z}$ we use occupation variables and binary tier selectors shared across all inherited states. Optimizing an ordinary full-state Bellman equation and then deleting $q$ from the policy label would not solve this restriction.
+
+\subsection{A constrained operating protocol}
+The customer-accepted problem is
+\begin{equation}\label{eq:master}
+ \max_\pi W^\pi\quad\text{subject to}\quad
+ F^\pi\geq\gamma D,\quad U^\pi\geq\underline U,
+ \quad C^\pi\leq\overline C,
+\end{equation}
+where the optional final constraint rules out financing provider gains with a higher physical resource cost. For a finite tier menu let $x_t(z,q,S,\theta)$ be the undiscounted state--action occupancy. It satisfies $x\geq0$ and
+\begin{align}
+ \sum_{S,\theta}x_0(z,q,S,\theta)&=\mu_0(z,q),\
+ \sum_{S,\theta}x_t(z,q,S,\theta)&=
+ \sum_{z_-,q_-,S_-}P_{z_-z}x_{t-1}(z_-,q_-,S_-,q),\quad t\geq1.\label{eq:flow}
+\end{align}
+All objectives and commitments are linear functionals of $x$, with $\beta^t$ in their coefficients. The transition on the right has next contract $q$, explaining the last action index. The full stock menu is retained: eliminating stock by the unconstrained newsvendor solution is generally invalid under service and participation constraints.
+\begin{theorem}[Acceptance, Pareto comparison, and a certificate]\label{thm:accepted}
+For finite states and actions, \eqref{eq:master} equals the linear program defined by \eqref{eq:flow} and its linear commitments. From any feasible occupation measure, choosing actions with probabilities proportional to the local occupancies implements the same reward and commitments. If a static comparator is feasible, the optimum in a policy class containing it is at least its reward. Moreover, for any $\mu,\eta,\chi\geq0$,
+\begin{equation}\label{eq:dual}
+ W^*_{\rm acc}\leq V^{\mu,\eta,\chi}_0
+           -\mu\gamma D-\eta\underline U+\chi\overline C,
+\end{equation}
+where $V^{\mu,\eta,\chi}$ is the ordinary Bellman value for reward
+$g+\mu f+\eta u-\chi C$. A feasible protocol and this upper bound give a two-sided certificate without trusting an optimizer's status label.
+\end{theorem}
+\begin{proof}
+History-dependent policies induce occupancies satisfying the flow equations. Conversely, normalize each positive local occupancy; induction on $t$ recovers every occupancy, choosing arbitrary actions at zero-mass states. This proves equality and implementability. The finite feasible flow polytope is compact, and linear programming duality applies when the commitment set is nonempty. The comparison follows by feasibility. For the certificate, each feasible policy satisfies
+$W^\pi\leq W^\pi+\mu(F^\pi-\gamma D)+\eta(U^\pi-\underline U)-\chi(C^\pi-\overline C)$.
+Maximize the expression over all policies and evaluate its reward term by Bellman recursion.\end{proof}
+The same Lagrangian retains the inherited-contract envelope because the added commitments depend on current stock and tier, not separately on inherited $q$. However, the premium--liability monotonicity assumptions may change after reweighting. Neither a constrained optimizer nor its randomized policy is assumed to inherit the relaxation's statewise monotonicity without checking those conditions.
+
+\subsection{An exact customer-preserving improvement}\label{sec:pareto}
+For the canonical primitives in Section~\ref{sec:study}, optimize the continuous static tier and set $(\gamma D,\underline U,\overline C)$ equal to its fill, customer utility, and physical cost. The exact stationary candidate is
+\[
+ \theta^*_{\rm stat}=\frac{33217640615804572}{57064160140575975}
+   =0.582110391776\ldots,
+ \qquad W^*_{\rm stat}=-5.870110973047\ldots.
+\]
+On the $0.1$ tier grid, a dynamic protocol achieves
+\begin{equation}\label{eq:paretogain}
+ W_{\rm acc}=-5.244970661075\ldots,
+ \qquad W_{\rm acc}-W^*_{\rm stat}=0.625140311972\ldots,
+\end{equation}
+with exactly equal $F$, $U$, and $C$ to the continuous static comparator. The finer static class makes this comparison more demanding than comparison with the best static grid point. Randomizing over static contracts cannot improve their unconstrained maximum; the static optimum itself satisfies these commitments.
+
+This statement has a constructive rational certificate. Every positive-occupancy stock is $S=z+2$. The protocol is deterministic except at $(t,z,q)=(1,2,0.5)$, where it selects tier $0.8$ with probability
+\[
+ \omega=
+ \frac{23922659112150250115102014240924014583}
+ {112890354847273020834603977168500200000}
+ =0.211910567068\ldots
+\]
+and tier $0.7$ otherwise. The complete feedback map is supplied with the certificate. Fixing that single choice low or high gives two deterministic protocols with rational rewards and utilities. Set $\omega=(\underline U-U_L)/(U_H-U_L)$; exact forward propagation verifies $0\leq\omega\leq1$ and equality of all three commitments. The gain in \eqref{eq:paretogain} is the positive rational number
+\[
+ \frac{1039866308925205364208678517401738512452611721}
+ {1663412659543104261120000000000000000000000000}.
+\]
+An independent rational Bellman recursion for \eqref{eq:dual}, using nonnegative rational prices and $\chi=0$, gives an upper bound less than $8.21\times10^{-16}$ above this feasible reward. Thus the observed improvement is neither Monte Carlo noise nor a payment for lower service. It is an instance-specific, reproducible Pareto improvement in provider reward at the customer's reservation utility and service level; it is not a universal dominance theorem for every set of primitives.
+
+% END input source: revisions/or-r12-20260922/retained/accepted.tex
+
+
+% BEGIN preserved/input source: revisions/or-r7-20260921/sections/accepted_continuous.tex
+\section{What accepted adaptivity buys}\label{sec:accepted-continuous}
+The occupation program establishes a feasible improvement, but an information decomposition must impose its commitments in every class. We now solve that comparison with continuous tiers, rather than transferring an unconstrained information increment to the accepted problem. A supporting-price argument first identifies the physical policy from the commitments themselves.
+
+\subsection{The service and resource commitments identify stock}
+\begin{lemma}[Physical-policy identification]\label{lem:stock-pin}
+Let $s_z$ be a fixed-stock rule and suppose that, for some $\xi>0$,
+\begin{equation}\label{eq:stock-pin}
+ C_z(S)-C_z(s_z)-\xi\{f_z(S)-f_z(s_z)\}\geq0
+\end{equation}
+for every feasible $z,S$, with equality only at $S=s_z$. Demand regimes are exogenous. Any protocol with $F^\pi\geq F^s$ and $C^\pi\leq C^s$ must select $S_t=s_{z_t}$ almost surely at every positive-probability review. Both commitments then hold with equality. For the canonical instance, $s_z=z+2$ and $\xi=1$ satisfy \eqref{eq:stock-pin}, for both the original stock menu and every stock in $[0,6]$.
+\end{lemma}
+\begin{proof}
+The expected discounted sum of the left side of \eqref{eq:stock-pin} is nonnegative. Feasibility bounds that sum above by $(C^\pi-C^s)-\xi(F^\pi-F^s)\leq0$. Every nonnegative summand at a reachable state must therefore vanish. Strictness identifies stock, and exogeneity gives equality of both totals. In the instance, $C_z(z+2)=1.03+0.3z$ and $f_z(z+2)=1.5+z$. On the half-unit menu, the smallest positive supporting gap is exactly $9/40$. The functions are piecewise linear between the demand atoms, all of which belong to that menu. The same unique minimizer consequently holds on the entire stock interval. The positive gap $9/40$ is a menu gap, not a uniform gap on continuous stocks approaching $z+2$.
+\end{proof}
+This is not unconstrained stock elimination inside a constrained problem. Both the service floor and the physical-cost cap are used to prove that no other stock decision is feasible. Under looser commitments, we retain all stock choices in the occupation program.
+
+Set $w_{tz}=\beta^t\Pr(z_t=z)$, $a_z=r_z-\kappa L_z(s_z)$, and $A=\sum_{t,z}w_{tz}a_z$. At the canonical stocks, $a_z=0.36+1.4z$. Let $\bar\theta$ be the optimized continuous static tier, and put $\overline P=A\bar\theta$. The remaining acceptance condition is a payment budget,
+\begin{equation}\label{eq:accepted-payment}
+ P^\pi:=\E^\pi\sum_t\beta^t a_{z_t}\theta_t\leq\overline P,
+ \qquad U^\pi=\nu F^s-P^\pi.
+\end{equation}
+The accepted reward is $W^\pi=P^\pi-C^s-\E^\pi\sum_t\beta^t[m\theta_t^2+\lambda(\theta_t-q_t)^2]$. Thus matching the customer's utility fixes expected net payments. The remaining economic benefit must be a reduction in maintenance and reconfiguration resources, not an unreported transfer from the customer.
+
+\subsection{Randomization and the accepted information hierarchy}
+We define randomization before comparing information. An ex ante public random tape $R$, independent of demand regimes, may select a constant tier, a time schedule, or a map of time and current regime. These classes have rules $f(R)$, $f_t(R)$, and $f_t(z,R)$, respectively. They include deterministic rules and public mixtures of them. They do not silently grant a regime-only rule access to earlier regimes through an unrecorded memory state. Full protocols may use the entire observed history; their optimum will admit a Markov implementation.
+
+\begin{proposition}[Derandomization on a continuous accepted menu]\label{prop:accepted-jensen}
+Under Lemma~\ref{lem:stock-pin}, continuous tier feasibility $[0,1]$, and convex maintenance and adjustment costs, public randomization does not improve the accepted static, time-only, or time--regime value. An inherited-only randomized rule with deterministic initial tier has the same accepted value as a time-only rule. For the canonical quadratic problem, a deterministic full-state rule also attains the unrestricted accepted optimum.
+\end{proposition}
+\begin{proof}
+Replace each restricted rule by its expectation over $R$, holding the regime path fixed. The resulting action remains in $[0,1]$ and in the same information class. Expected payments do not change. Jensen's inequality decreases each maintenance cost and each adjustment cost, including the jointly randomized difference of consecutive tiers. The fixed physical policy preserves the other commitments. Without regime inputs, an inherited-only rule generates a random time schedule from $q_0$ and $R$; the preceding argument applies. For full histories the conditional-mean construction need not preserve the displayed Markov parametrization. The deterministic Markov rule and a matching unrestricted Lagrangian upper bound constructed below establish attainment directly. None of these statements asserts derandomization on a coarse, nonconvex tier menu.
+\end{proof}
+
+For a multiplier $\eta\geq0$, maximize $W^\pi-\eta P^\pi$ and add $\eta\overline P$. This is a different sign convention from the customer-utility multiplier in \eqref{eq:dual}, with the constant customer-service term removed. Write its full-state value as
+\begin{equation}\label{eq:riccati-form}
+ J_t^\eta(z,q)=-A_tq^2+B_{tz}q+D_{tz},\qquad A_T=B_{Tz}=D_{Tz}=0.
+\end{equation}
+When the maximizers are interior, backward completion of squares gives
+\begin{align}
+ K_t&=m+\lambda+\beta A_{t+1},&
+ L_{tz}&=(1-\eta)a_z+\beta\sum_{z'}P_{zz'}B_{t+1,z'},\notag\\
+ A_t&=\lambda-\lambda^2/K_t,& B_{tz}&=\lambda L_{tz}/K_t,\label{eq:riccati}\\
+ D_{tz}&=-C_z(s_z)+\beta\sum_{z'}P_{zz'}D_{t+1,z'}+L_{tz}^2/(4K_t),&
+ \theta_t^\eta(z,q)&=\lambda q/K_t+L_{tz}/(2K_t).\notag
+\end{align}
+Endpoint verification is essential: the affine rule must lie in $[0,1]$ for every $q\in[0,1]$, not just along one simulated path. We verify both endpoints in rational arithmetic for every period and regime in the canonical certificate.
+
+The restricted classes require their own optimization. Give each reachable time--information pair one tier variable $x_i$. Their rewards have the form
+\begin{equation}\label{eq:restricted-qp}
+ W(x)=-x^\top Hx+b^\top x-c_0,\qquad c^\top x\leq\overline P,
+ \qquad H\succ0.
+\end{equation}
+Here the maintenance terms contribute $m w_i$ to the diagonal; an adjustment edge from variable $j$ to variable $i$ contributes its discounted transition weight times $\lambda(x_i-x_j)^2$. The initial installation cost contributes $\lambda(x_0-q_0)^2$. There are one, eight, and twenty-two variables in the static, time, and time--regime problems. For an interior solution,
+\[
+ x=\tfrac12H^{-1}(b-\eta c),\qquad
+ \eta=\max\left\{0,\frac{c^\top H^{-1}b-2\overline P}{c^\top H^{-1}c}\right\}.
+\]
+The matrix is not a full-state Bellman relaxation of the regime restriction: a single variable is shared by every history with the same permitted information.
+
+\begin{theorem}[Exact accepted information values]\label{thm:accepted-hierarchy}
+For the canonical primitives, the commitments of the optimized continuous static contract, and continuous stock and tier intervals, the accepted values in Table~\ref{tab:accepted-hierarchy} are exact rational numbers. Each value is attained without public randomization. The accepted increment from observing the inherited tier, after time and current regime have already been admitted, is $0.019290378765\ldots$. The total gain over the optimized static contract is $0.636665271611\ldots$.
+\end{theorem}
+\begin{proof}
+The exhaustive static stock-envelope calculation yields the stated $\bar\theta$ and stocks. Lemma~\ref{lem:stock-pin} then reduces every feasible protocol, not just the proposed ones, to \eqref{eq:accepted-payment}. For each restricted class, the displayed solution of \eqref{eq:restricted-qp} has every tier strictly between zero and one. Rational arithmetic verifies its stationarity equation, nonnegative multiplier, primal feasibility, and complementary slackness. Strict concavity proves global optimality in the deterministic class; Proposition~\ref{prop:accepted-jensen} includes its public mixtures.
+
+In the full problem, $A_t$ is independent of $\eta$ and $B_{tz}$ is proportional to $1-\eta$. Forward first moments make $P^{\theta^\eta}$ affine in $\eta$. Solving $P^{\theta^\eta}=\overline P$ gives $\eta=0.180271243733\ldots$. Rational endpoint checks verify interior maximization in every Bellman step. The affine policy is feasible, and its Lagrangian bound is equal to its reward. Forward second moments evaluate maintenance and adjustment exactly. This bounds every randomized history-dependent protocol from above and attains the bound with a deterministic Markov policy. The files record the rational values, multipliers, and policy coefficients, rather than only the decimals in the table.
+\end{proof}
+
+% BEGIN preserved/input source: revisions/or-r7-20260921/tables/accepted_hierarchy.tex
+\begin{table}[!ht]
+\centering
+\caption{Accepted continuous-tier information values}\label{tab:accepted-hierarchy}
+\begin{tabular}{lrrr}\toprule
+Information & Provider reward & Increment & Payment price\\
+\midrule
+Static & -5.870110973 & --- & 0.000000000\\
+Time & -5.869294096 & 0.000816877 & 0.001568294\\
+Time--regime & -5.252736080 & 0.616558016 & 0.174849751\\
+Full state & -5.233445701 & 0.019290379 & 0.180271244\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small All four classes have the same filled demand 18.021386714, customer utility 28.657506145, and physical cost 9.587377732. All policies are deterministic. Decimals round exact rational values; stock is optimized over the full interval through Lemma~\ref{lem:stock-pin}.\end{minipage}
+\end{table}
+% END input source: revisions/or-r7-20260921/tables/accepted_hierarchy.tex
+
+The inherited-tier increment is approximately three percent of the total accepted gain. Most of the gain is due to current-regime reallocation; attributing the entire improvement to contractual memory would be incorrect. Nevertheless, inherited information has strictly positive value under the same customer commitments, not only in a provider relaxation. The continuous optimum also exceeds the certified $0.1$-menu optimum by $0.011524959639\ldots$. The earlier lottery is therefore not the source of the economic improvement.
+
+\subsection{A primitive mechanism for a robust improvement}
+\begin{theorem}[A customer-neutral adaptive direction]\label{thm:local-gain}
+Consider a feasible constant tier $\bar\theta\in(0,1)$ with fixed stocks $s_z$, linear net payments $a_z\theta$, and twice continuously differentiable maintenance $M$ near $\bar\theta$, with $M'(\bar\theta)>0$. Suppose that at a review $t\geq1$ two regimes have positive discounted weights $w_L,w_H$ and $0<a_L<a_H$. For every finite quadratic adjustment coefficient, a sufficiently small deterministic time--regime perturbation strictly improves provider reward while preserving customer utility, fill, and physical cost exactly. The conclusion holds in a neighborhood of primitives preserving these strict inequalities.
+\end{theorem}
+\begin{proof}
+Change only that review's tiers by $\varepsilon d_z$, where
+\[
+ d_H=(w_Ha_H)^{-1},\qquad d_L=-(w_La_L)^{-1},\qquad d_z=0\text{ otherwise}.
+\]
+Then $\sum_z w_za_zd_z=0$ and $\sum_z w_zd_z=1/a_H-1/a_L<0$. Payments and physical decisions are unchanged in expectation. The first-order reward gain is
+$\varepsilon M'(\bar\theta)(1/a_L-1/a_H)>0$.
+All changed adjustment costs are second order because the baseline tier is constant at this and the next review; the initial installation is unaffected. If $|M''|\leq L_M$ locally, the absolute quadratic cost is at most
+\[
+ \varepsilon^2\{L_M/2+\lambda+\beta\lambda\mathbf1_{\{t<T-1\}}\}
+       \left(\frac1{w_Ha_H^2}+\frac1{w_La_L^2}\right).
+\]
+Choose $\varepsilon$ small enough to keep both tiers interior and make this term smaller than the positive linear gain. Continuity preserves a strictly positive margin in a sufficiently small neighborhood. For $M(\theta)=m\theta^2$, the displayed first- and second-order terms give the exact payoff difference, not just an asymptotic expansion.
+\end{proof}
+This argument does not require translated demand, a coarse menu, or a lottery. It does require positive and heterogeneous net payment rates and an interior static tier with increasing maintenance cost. It proves existence of an improvement, not that every parameter perturbation has a large gain. It also explains the role of the customer constraint: concentrating a fixed expected payment budget on higher-payment regimes permits a lower average maintained tier. Reconfiguration is worthwhile when those savings exceed its resource cost.
+
+\subsection{Allowing the customer to leave at each review}\label{sec:interim}
+The ex ante institution can be weakened without introducing hidden action or changing the tariff. At every observed regime history $h$ at review $t$, let the customer's outside option be the remaining service utility of the same static contract. The provider remains committed to the announced protocol, but the customer may leave at each such review. Physical stock is still identified by the service and cost commitments. Continuation participation therefore requires
+\begin{equation}\label{eq:interim}
+ \E\left[\left.\sum_{s=t}^{T-1}\beta^{s-t}a_{z_s}\theta_s\right|h\right]
+ \leq\bar\theta\E\left[\left.\sum_{s=t}^{T-1}\beta^{s-t}a_{z_s}\right|h\right]
+ \quad\text{for every reachable }h.
+\end{equation}
+These constraints cannot be replaced by the root participation inequality. On the finite regime tree they are linear, while maintenance and adjustment give a strictly concave quadratic objective. The canonical tree has 3,280 decision nodes. Its policy may depend on history; a promise-state representation is an alternative, not an assumption that the original three-coordinate Markov policy remains sufficient.
+
+We solve this convex program numerically, round its deterministic tiers to rational numbers, and contract the vector slightly toward zero to enforce every continuation inequality exactly. The resulting reward is $-5.417032209823\ldots$, an improvement of $0.453078763224\ldots$ over the static contract. A rational feasible-policy and weighted-residual certificate places the interim-participation optimum less than $6.95\times10^{-7}$ above this reward. Thus the exit option costs approximately $0.18358651$ relative to full customer commitment, but does not eliminate the gain. EC Section~\ref{ec:interim-certificate} gives the upper-bound proof and the complete policy audit. No compensating side payment or change in the fixed menu is used to obtain this result.
+
+% END input source: revisions/or-r7-20260921/sections/accepted_continuous.tex
+
+
+% BEGIN preserved/input source: revisions/or-r14-20260922/sections/general_theory.tex
+
+\section{R22 design, exact restricted repair, and replay}\label{ec:r22-details}
+This subsection records the preserved R22 design and its numerical-state correction. The historical R20 review pointer concerns an earlier plan-only tip; R24 responds instead to the completed R23 manuscript and its September 23 report. The R22 observations remain a separate completed study. The design was declared before the new studies, after knowledge of R19 outcomes; it was not externally preregistered. New observations are not pooled with historical studies.
+
+The new code reuses the declared R16 primitive generator and frozen models. Tanh models use 192 fixed random features and ridge parameter $10^{-7}$; the RBF is cubic with smoothing $10^{-7}$. Normalized reward inputs are divided by sixteen, and integer friction input is centered at seventeen and divided by fifteen. The independent final seeds are 23011 and 23012. The inherited R21 audit note records a code-inspection pilot using 23001 and 23002; it is excluded because resetting primal and dual iterates alone need not reset adaptive solver state. The final validation reconstructs every response and restricted-comparator workspace for each context, with both ensembles unchanged. The audit note records this correction and the pilot hashes. Scaling training seeds start at 25001 and held-out seeds at 24001, incrementing with the configuration index. No model or seed is selected by the reported results. Timed studies execute sequentially with one BLAS thread and one OpenMP thread; validation and replay are not run concurrently with timed workloads in the reproduction script.
+
+\subsection{Repair that stays inside the economic comparator class}
+Let $d(j)$ be node $j$'s depth. The restricted amendments satisfy $x_{j,a}=\tau_{d(j),a}$ and every original accepted constraint. Extra equality multipliers are included in the restricted conjugate bound. Using the unrestricted transfer repair would generally destroy these time equalities and invalidate this comparator.
+
+Instead, round the nonroot depth amendments to rationals, then set the root amendment by its exact payment equality. Specifically, if $c_{j,a}>0$ are the declared payment coefficients,
+\[
+ \tau_{0,a}=-\frac{\sum_{j\ne0}c_{j,a}\tau_{d(j),a}}{c_{0,a}}.
+\]
+This produces a rational vector $w$ satisfying root and time equalities, but possibly violating an inequality after rounding. Construct a rational strict anchor by setting all nonroot depth amendments negative, imposing the same root formula, and scaling sufficiently toward zero. In the present primitive, zero lies strictly inside every tier box, capacity right-hand sides are positive, and positive payments make every nonroot continuation row strict at that anchor. Hence the required anchor exists; this construction is not asserted for boundary incumbents or signed tariffs without those conditions.
+
+For the finite list of box, capacity, and continuation rows $a_i^\top x\leq b_i$, let $z$ be that strict anchor and put
+\[
+ \alpha=\max\left(0,\max_{i:a_i^\top w>b_i}
+ \frac{a_i^\top w-b_i}{a_i^\top w-a_i^\top z}\right),\qquad
+ y=(1-\alpha)w+\alpha z.
+\]
+All quantities are rational and $0\leq\alpha<1$. For each violated row the definition gives $a_i^\top y\leq b_i$; for every other row feasibility follows from convexity. Both endpoints satisfy all equalities, so $y$ stays in the restricted class. The independent verifier checks the extra equalities explicitly as well as the original commitments. A negative control perturbs two sibling amendments while preserving their total payment; it is accepted by the unrestricted geometry but rejected by the restricted equality check.
+
+\section{The preserved conditional frozen-fleet guarantee}\label{ec:r24-fleet}
+The following result concerns the historical randomized frozen fleet, not the current deterministic ensemble target. The observations and interpretation remain in Computational Supplement Section~\ref{sec:r19-experiment}.
+\begin{proposition}[Conditional frozen-fleet guarantee]\label{prop:r19-fleet}
+For method $m=1,\ldots,M$, fix $K$ policies before inspecting their deployment cohorts. Conditional on all fitted policies, let $G_{mki}\in[0,B]$ be gains on $n$ independent contexts for policy $k$, with all $Kn$ contexts independent across $k,i$. Contexts may be shared across methods. Put $\overline G_m=(Kn)^{-1}\sum_{k,i}G_{mki}$ and let $\mathcal G_m$ be the expected gain of the uniform frozen fleet. With probability at least $1-\delta$ over these deployment cohorts, simultaneously for all methods,
+\begin{equation}\label{eq:r19-fleet}
+ \mathcal G_m\geq\max\left\{0,\overline G_m-
+ B\sqrt{\frac{\log(M/\delta)}{2Kn}}\right\}.
+\end{equation}
+This does not assert the bound for each constituent policy or for a population of newly trained policies.
+\end{proposition}
+\begin{proof}
+Conditional on the policies, the $Kn$ summands for each method are independent bounded variables; identical distributions across policies are unnecessary. Their expected average is exactly the uniform fleet's expected gain. Hoeffding's lower-tail bound and a union bound over $M$ methods prove the simultaneous inequality. The comparator gate gives nonnegative gain, justifying truncation of the lower bound at zero. Independence across methods is not used.
+\end{proof}
+
+\section{Primitive structure under continuation participation}\label{sec:r10-tree}
+Continuation participation changes which customer-neutral reallocations are permissible. We give a complete scalar tree criterion and a quantitative improvement that can be checked from local primitives, without solving the defining nonlinear control program. The graph formulation above remains available for portfolios; the scalar result is not silently promoted to a graph theorem.
+
+\subsection{An edge test rather than a high-dimensional direction search}
+Let $o$ be the root of a finite decision tree. Assume $a_n>0$, $w_n>0$, scalar continuous tiers, and an interior constant comparator $\bar\theta$. Define $c_n=w_na_n$ and the accepted, payment-neutral class
+\begin{equation}\label{eq:r10-subtrees}
+ \sum_n c_n(x_n-\bar\theta)=0,\qquad
+ \sum_{j\succeq n}c_j(x_j-\bar\theta)\leq0\quad(n\ne o),\qquad 0\leq x_n\leq1.
+\end{equation}
+Here $j\succeq n$ includes $n$ itself. Root equality holds customer utility exactly fixed; every nonroot inequality prevents the remaining expected payment from exceeding the static outside protocol. Identified fill and physical cost stay fixed. This is a subclass of weak acceptance, so every strict improvement obtained here also improves the weakly accepted problem.
+
+Let $\mathcal R$ be convex and differentiable, and define the primitive marginal reward per payment unit at the comparator by
+\begin{equation}\label{eq:r10-k}
+ k_n=\frac{w_na_n-\partial_n\mathcal R(\bar\theta\mathbf1)}{w_na_n}.
+\end{equation}
+For scalar maintenance and centered smooth switching, $A_n'(0)=0$ and $\nabla\mathcal G(\bar\theta\mathbf1)=0$, this is $k_n=1-M_n'(\bar\theta)/a_n$ at every nonroot node. At the root, subtract also $A_o'(\bar\theta-q_0)/a_o$. Thus the test permits nonquadratic maintenance, arbitrary finite smooth friction, and nonstationary tariffs. Initial installation is not omitted.
+
+\begin{theorem}[Complete continuation-compatible edge criterion]\label{thm:r10-edge}
+In \eqref{eq:r10-subtrees}, the static protocol is globally optimal if and only if
+\begin{equation}\label{eq:r10-edge-condition}
+ k_n\geq k_{\mathrm{pa}(n)}\quad\text{on every nonroot edge}.
+\end{equation}
+If some edge $u\to v$ has $\Delta=k_u-k_v>0$, set $d_u=1/c_u$, $d_v=-1/c_v$, and all other components to zero. Then $\bar\theta\mathbf1+sd$ is feasible for
+\[
+ 0\leq s\leq s_{\max}=\min\{c_u(1-\bar\theta),c_v\bar\theta\},
+\]
+and strictly improves the reward for all sufficiently small positive $s$. If $d^\top\nabla^2\mathcal R(\bar\theta\mathbf1+sd)d\leq L_d$, its gain is at least $s\Delta-L_ds^2/2$. The edge test costs $O(N)$ comparisons once the primitive marginal costs have been evaluated.
+\end{theorem}
+\begin{proof}
+For any feasible $x$, put $y_n=c_n(x_n-\bar\theta)$ and $S_n=\sum_{j\succeq n}y_j$. Then $S_o=0$ and $S_n\leq0$ for $n\ne o$. Since $y_n=S_n-\sum_{v:\mathrm{pa}(v)=n}S_v$, finite summation by parts gives
+\begin{equation}\label{eq:r10-summation}
+ \nabla W(\bar\theta\mathbf1)^\top(x-\bar\theta\mathbf1)
+ =\sum_{n\ne o}(k_n-k_{\mathrm{pa}(n)})S_n.
+\end{equation}
+Condition \eqref{eq:r10-edge-condition} makes this nonpositive for every feasible $x$; concavity proves global optimality. If an edge violates it, the displayed two-coordinate transfer has $S_v=-s$ and all other nonroot subtree sums zero. It therefore satisfies every continuation inequality, not just an ex ante budget. Its derivative is $\Delta>0$, and the box gives $s_{\max}$. The curvature bound proves the finite gain. This also proves necessity without appealing to existence of unknown optimizer multipliers.
+\end{proof}
+
+The direction moves expected payment from a descendant review to its parent. This timing respects a customer's later option to leave. By contrast, shifting payment from a low-price state to a high-price sibling can violate that sibling's continuation promise, even when total payment is unchanged. The edge criterion exposes precisely the order imposed by this institution. For weak root acceptance instead of equality, the same calculation adds $k_oS_o$; the complete scalar criterion is \eqref{eq:r10-edge-condition} together with $k_o\geq0$.
+
+A primitive curvature bound is obtained by summing all affected terms:
+\begin{equation}\label{eq:r10-curvature}
+ L_d\leq\sum_n w_n\overline M_n d_n^2+
+ \sum_n w_n\overline A_n(d_n-d_{\mathrm{pa}(n)})^2+\overline G_d,
+ \qquad d_{\mathrm{pa}(o)}=0.
+\end{equation}
+Here $\overline M_n,\overline A_n$ bound second derivatives along the entire feasible segment, and $\overline G_d$ bounds the joint coupling curvature. The sum includes incoming and outgoing switching edges, including unchanged children of either perturbed node. If $L_d=L_0+\lambda L_A$, an untruncated step yields a guaranteed gain $\Delta^2/[2(L_0+\lambda L_A)]$. Finite smooth adjustment can make the gain small without necessarily eliminating it.
+
+\subsection{An exact threshold for nonsmooth switching}
+The contrast with absolute adjustment is substantive rather than notational. Consider a two-review chain $o\to v$, $q_0=\bar\theta$, the same root payment equality and child participation constraint, and switching cost
+$\lambda\{\kappa_o|x_o-q_0|+\kappa_v|x_v-x_o|\}$, where $\kappa_o,\kappa_v>0$ include their probability weights. Let $k_o,k_v$ now exclude that absolute switching term, and let the remaining resource cost be differentiable and convex. Set
+\[
+ K=\kappa_o/c_o+\kappa_v(1/c_o+1/c_v),\qquad
+ \lambda_c=\max\{0,(k_o-k_v)/K\}.
+\]
+\begin{corollary}[Friction threshold with an exit option]\label{cor:r10-threshold}
+The static protocol is globally optimal exactly when $\lambda\geq\lambda_c$. For $0\leq\lambda<\lambda_c$, a sufficiently small customer-neutral transfer from the child to its parent strictly improves reward while satisfying continuation participation.
+\end{corollary}
+\begin{proof}
+Every feasible displacement has $d_o=s/c_o$, $d_v=-s/c_v$ for $s\geq0$. Its right derivative at zero is $k_o-k_v-\lambda K$. A positive derivative gives improvement. A nonpositive derivative, combined with concavity on this one-dimensional feasible interval, rules out improvement everywhere, including the equality case. The threshold therefore uses primitive rates and frictions, not an uncomputed optimizer.
+\end{proof}
+
+\subsection{What the value of contractual memory does and does not mean}
+\begin{proposition}[Zero-friction bound without history-specific promises]\label{prop:r10-memory}
+With exogenous regimes, compact convex tiers in $[0,1]^d$, convex stage resources, and only ex ante linear payment commitments, assume that stage resource functions and payment coefficients depend only on time and the current regime, with no other history-dependent feasibility or physical carry-over. Let $W_{\mathrm{full}}(\lambda)$ and $W_{t,z}(\lambda)$ allow full observed history or only time and current regime. Suppose the sole inherited-tier term is $\lambda\E\sum_t\beta^t\|x_t-x_{t-1}\|^2$. For any time--regime optimizer $\pi_0$ at zero friction,
+\[
+ 0\leq W_{\mathrm{full}}(\lambda)-W_{t,z}(\lambda)
+ \leq\lambda\mathcal A(\pi_0)\leq\lambda d\sum_t\beta^t.
+\]
+\end{proposition}
+\begin{proof}
+At zero friction, conditional expectation of actions given $(t,z_t)$ preserves expected linear commitments and reduces convex stage costs. Thus both zero-friction values coincide and compactness gives $\pi_0$. Adding nonnegative friction reduces the full value, whereas using $\pi_0$ loses at most $\lambda\mathcal A(\pi_0)$. Compact tier bounds give the last inequality.
+\end{proof}
+The proposition deliberately excludes history-specific promises. This exclusion has content: with two equiprobable histories leading to the same terminal regime, terminal utility $x-x^2$, and respective tier caps $1/4$ and $3/4$, history-dependent control earns $(3/16+1/4)/2=7/32$, whereas a common terminal tier earns $3/16$. The gap is $1/32$ even at zero friction. Both histories and their caps are public. Different earlier installed tiers can record which promise applies. The missing information concerns a contractual obligation, not a new signal about demand. Consequently no unconditional claim that continuation-constrained memory value vanishes is made.
+
+For the continuation institution, a remaining-payment budget supplies the appropriate dynamic state. At node $n$, with incoming budget $b$ and outside-protocol cap $\bar b_n$, choose the tier $x$ and child budgets $b_v$ subject to
+\begin{equation}\label{eq:r10-budget-dp}
+ a_n^\top x+\beta\sum_{v\in\mathrm{ch}(n)}P_{nv}b_v\leq\min\{b,\bar b_n\}.
+\end{equation}
+The Bellman state is $(n,q,b)$, or $(t,z,q,b)$ when the subtree primitives and outside caps are Markov. Its continuation term is $\beta\sum_vP_{nv}V_v(x,b_v)$. Backward induction establishes equivalence with the full tree program: feasible child budgets give a feasible subtree protocol, while a feasible protocol supplies child budgets equal to its actual expected remaining payments. At zero friction the recursion does not use $q$, but it still uses the promise budget and the information determining the outside caps. This is the precise continuation-aware replacement for conditioning on demand regime alone.
+
+% END input source: revisions/or-r10-20260921/sections/tree_structure.tex
+
+
+% BEGIN preserved/input source: revisions/or-r13-20260922/sections/learning_bridge.tex
+\section{Learning on acceptance faces and certified deployment}\label{sec:r12-bridge}
+The structural balance condition also provides a common language for learned and classical implementations. This section distinguishes three questions: whether a candidate is feasible, how far its reward can be from optimal, and whether learning selects candidates with useful out-of-sample guarantees. None of these questions is answered by a solver's success flag.
+
+\subsection{The same balance equations certify a complete contingent policy}
+Suppose $\mathcal R_0$ is $m_0$-strongly convex in a positive definite metric $H$, that is, its supporting quadratic has term $m_0\|y-x\|_H^2/2$. A numerical candidate $x$ must first belong to $P$. Choose any $\mu\geq0$, any equality price $\nu$, nonnegative upper and lower bound prices $u^+,u^-$, and edge tensions $s$ satisfying \eqref{eq:r12-saturated}--\eqref{eq:r12-capacity} at $x$, so that $D^\top s\in\partial(\lambda T)(x)$. Define
+\begin{align}
+ e_x&=\nabla r(x)-D^\top s-A^\top\mu-E^\top\nu-u^++u^-,\notag\\
+ C(x)&=\frac{\|e_x\|_{H^{-1}}^2}{2m_0}
+    +\mu^\top(b-Ax)+(u^+)^\top(u-x)+(u^-)^\top(x-l).\label{eq:r12-certificate}
+\end{align}
+The vector $u$ without a superscript denotes the upper tier bound, not a multiplier.
+
+\begin{theorem}[Balance-residual policy certificate]\label{thm:r12-certificate}
+Every quantity in \eqref{eq:r12-certificate} is nonnegative except possibly individual residual coordinates, and
+\[
+ 0\leq \max_{y\in P}W_\lambda(y)-W_\lambda(x)\leq C(x).
+\]
+For polynomial smooth resources and rational primitives, candidate, prices, and tensions, feasibility and this bound are exactly checkable when $H^{-1}$ and $m_0$ are rational. This certificate covers boundary policies and absolute switching. Its zero-residual, zero-complementarity condition is exactly Theorem~\ref{thm:r12-balance} at the candidate.
+\end{theorem}
+\begin{proof}
+Strong concavity of $r$ and the supporting inequality for $\lambda T$ bound $W_\lambda(y)-W_\lambda(x)$ above by
+$(\nabla r(x)-D^\top s)^\top(y-x)-m_0\|y-x\|_H^2/2$.
+Substitute the residual. Feasibility bounds the budget contribution by $\mu^\top(b-Ax)$ and the box contributions by the two displayed slacks. The equality contribution vanishes. Completing the square bounds the remaining residual term by $\|e_x\|_{H^{-1}}^2/(2m_0)$. All inputs of the resulting polynomial/rational expression can be replayed without trusting the candidate generator.
+\end{proof}
+This is a specialization of the standard strong-convexity bound, not a claim that residual inequalities were invented here. Unlike a stand-alone unconstrained gradient norm, it retains the continuation and boundary prices that also determine accepted adaptivity. In the quartic experiment $H=\operatorname{diag}(w)$ and $m_0=2m$, recovering the earlier certificate and adding explicit box prices.
+
+For a feasible comparison protocol $z$, let $\widehat x$ be whichever of $x,z$ has larger exactly evaluated reward. A valid gap for the selected decision is
+\begin{equation}\label{eq:r12-selected}
+ \min\{W_\lambda(x)+C(x),\ W_\lambda(z)+C(z)\}
+                  -W_\lambda(\widehat x).
+\end{equation}
+The use of both upper bounds is optional but can be substantially tighter than carrying the failed proposal's bound through the gate. A prescribed tolerance is met only when the selected decision's bound meets it. Otherwise the deployed algorithm must refine, return a separately certified alternative, or explicitly report that the tolerance was not attained.
+
+\subsection{Why the acceptance face matters for gradient learning}
+Consider a fixed feasible set and define the forcing-value function
+$J(p)=\max_{x\in P}\{p^\top x-\mathcal R_0(x)-\lambda T(x)\}$.
+Strong convexity gives a unique optimizer $x^*(p)$ and $\nabla J(p)=x^*(p)$. For the weighted forcing used in the experiments, $\nabla_pJ=\operatorname{diag}(w)x^*$ instead. A scalar potential therefore produces compatible value and policy estimates, but compatibility alone does not make the estimated actor feasible.
+
+Let $\mu^*,\nu^*,\xi^*,s^*$ be optimal prices and tensions at $x^*$. Define the convex exposed set
+\begin{align}\label{eq:r12-face}
+ \mathcal F_* =\{y\in P:\ &\mu^{*\top}(b-Ay)=0,\quad
+                  \xi^{*\top}(x^*-y)=0,\notag\\
+ &\lambda T(y)-\lambda T(x^*)-s^{*\top}D(y-x^*)=0\}.
+\end{align}
+The last equality selects the face of the piecewise-linear switching cost supported by $s^*$. It is automatically satisfied when $\lambda=0$.
+
+\begin{theorem}[Gradient accuracy, acceptance prices, and policy loss]\label{thm:r12-face}
+For every feasible $y$,
+\begin{align}
+ J(p)-[p^\top y-\mathcal R_0(y)-\lambda T(y)]
+ ={}&D_{\mathcal R_0}(y,x^*)+\mu^{*\top}(b-Ay)+\xi^{*\top}(x^*-y)\notag\\
+ &+\lambda T(y)-\lambda T(x^*)-s^{*\top}D(y-x^*).\label{eq:r12-loss-split}
+\end{align}
+All four terms are nonnegative. Suppose additionally that $\mathcal R_0$ has $L_0$-Lipschitz gradient in metric $H$ on $P$. For any predicted actor $a$, its metric projection $y=\Pi_{\mathcal F_*}^H(a)$ satisfies
+\begin{equation}\label{eq:r12-gradient-loss}
+ 0\leq J(p)-W_\lambda(y)\leq\frac{L_0}{2}\|a-x^*\|_H^2.
+\end{equation}
+In particular, for a scalar compatible critic use $a=\nabla\widehat J(p)$ (or the appropriately weight-normalized gradient). For any distribution on problems with uniformly bounded $L_0$, the same inequality holds after expectation whenever these face conditions hold problem by problem.
+\end{theorem}
+\begin{proof}
+Add and subtract the smooth linearization at $x^*$ and use
+$p-\nabla\mathcal R_0(x^*)=A^\top\mu^*+E^\top\nu^*+\xi^*+D^\top s^*$.
+Complementary slackness and $E(y-x^*)=0$ give \eqref{eq:r12-loss-split}. Convexity, feasibility, the outward normal, and the switching subgradient give the four signs. On $\mathcal F_*$ only the smooth Bregman term remains, bounded by $L_0\|y-x^*\|_H^2/2$. Projection onto a closed convex set containing $x^*$ is nonexpansive relative to $x^*$, so $\|y-x^*\|_H\leq\|a-x^*\|_H$. Taking expectations proves the final assertion.
+\end{proof}
+This theorem is an approximation-to-decision result, not an assertion that the unknown optimal face is available for free. Verified optimal prices identify it; an unverified predicted face does not establish \eqref{eq:r12-gradient-loss}. The residual certificate remains valid without knowing it. The decomposition explains why a common scaling repair can lose reward even when actor distance is small: it can introduce first-order slack in expensive continuation commitments. Indeed, on $[0,1]$, maximizing $x-(x-1)^2/2$ gives $x^*=1$, while the feasible actor $1-\epsilon$ loses $\epsilon+\epsilon^2/2$, not merely a quadratic amount. Ignoring the boundary-price term would yield a false gradient-to-regret theorem. The full-face projection in this example is the singleton $\{1\}$.
+
+\subsection{A finite-sample certificate for selecting a learning pipeline}
+The preceding results do not certify arbitrary distribution shift. They can, however, turn independent validation into a precise learning statement. Suppose $M$ frozen candidate-generation pipelines, including all repair, fallback, and refinement rules, are fixed before a validation sample is drawn. The pipelines may have been fitted on separate training data. On problem $I$, pipeline $j$ returns a feasible policy with regret bounded by a measurable certificate $C_j(I)\in[0,B]$. A uniform range bound $B$ must be established from the problem class, not obtained by discarding large observed bounds. When a separate valid range bound on regret is available, taking its minimum with a residual certificate is legitimate.
+
+\begin{proposition}[Certificate-risk selection]\label{prop:r12-risk}
+For $n$ independent validation problems drawn from the same distribution as a future problem, with probability at least $1-\delta$ simultaneously for all $M$ pipelines,
+\begin{equation}\label{eq:r12-risk}
+ \mathbb E\,\mathrm{Regret}_j(I)
+ \leq\frac1n\sum_{i=1}^n C_j(I_i)
+             +B\sqrt{\frac{\log(M/\delta)}{2n}}.
+\end{equation}
+The statement also holds for the pipeline selected by minimizing the empirical certificate mean. Moreover its expected certificate is at most the best pipeline's expected certificate plus
+$2B\sqrt{\log(2M/\delta)/(2n)}$ with probability at least $1-\delta$.
+\end{proposition}
+\begin{proof}
+Condition on the training data and hence on the frozen pipelines. Apply the one-sided bounded-variable Hoeffding inequality to each certificate mean and take a union bound. Expected regret is no larger than expected certificate. Simultaneity permits validation-based selection. For the final assertion use the two-sided inequality, then compare the selected empirical mean to that of a population-minimizing pipeline and add the two deviations. Unconditioning preserves both probability statements.
+\end{proof}
+The concentration argument is standard \citep{Hoeffding1963}; the certified object is the selected \emph{complete decision pipeline}, not a neural architecture or an unrestricted distribution-shift claim. A validation set used to change features or tolerances no longer qualifies as independent validation for the displayed guarantee. The predecessor computational study retained in the companion is a crossed stress test, not an independent-validation experiment. Section~\ref{sec:r13-experiment} executes independent validation for the frozen verified-cell policies. Constrained-policy learning and value-based safety constructions study different sources of uncertainty \citep{Satija2020,WachiSui2020}; here the feasible polyhedron is known and deterministic certification is separated from candidate quality.
+
+% END input source: revisions/or-r13-20260922/sections/learning_bridge.tex
+
+
+% BEGIN preserved/input source: revisions/or-r13-20260922/sections/certified_cells.tex
+\subsection{Approximate prices without an unknown optimal face}\label{sec:r13-leakage}
+The face in Theorem~\ref{thm:r12-face} explains a loss mechanism but does not by itself implement a policy. We now remove that oracle from the certificate and then give a verifiable local policy representation. First permit \emph{arbitrary} predicted tensions satisfying only $|s_a|\leq\lambda\kappa_a$. They need not have the candidate's switching signs. Define their switching leakage by
+\[
+ \Psi_s(x)=\lambda T(x)-s^\top(Dx-h)\geq0.
+\]
+Keep the residual $e_x$ in \eqref{eq:r12-certificate}, with arbitrary nonnegative inequality and box prices and an arbitrary equality price. Let
+\begin{equation}\label{eq:r13-leakage}
+ \mathcal L_x=\mu^\top(b-Ax)+(u^+)^\top(u-x)+(u^-)^\top(x-l)+\Psi_s(x).
+\end{equation}
+\begin{theorem}[Computable approximate-face certificate]\label{thm:r13-leakage}
+For every feasible $x$ and every such set of predicted prices,
+\begin{equation}\label{eq:r13-gap}
+ 0\leq W_\lambda(x^*)-W_\lambda(x)
+ \leq\widetilde C(x):=\frac{\|e_x\|_{H^{-1}}^2}{2m_0}+\mathcal L_x.
+\end{equation}
+In particular, residual norm at most $\epsilon$ and leakage at most $\eta$ give regret at most $\epsilon^2/(2m_0)+\eta$, without identifying an optimal face. Moreover $x^*$ lies in the metric ball centered at $x$ of radius $R_x=\sqrt{2\widetilde C(x)/m_0}$. An inequality $A_i x\leq b_i$ is strictly inactive at $x^*$ whenever
+$b_i-A_i x>R_x\|A_i\|_{H^{-1}}$. A switching sign is correct whenever
+$|(Dx-h)_a|>R_x\|D_a\|_{H^{-1}}$.
+\end{theorem}
+\begin{proof}
+For any feasible $y$, the tension-box inequality gives
+$-\lambda T(y)\leq-s^\top(Dy-h)$, while at $x$ the difference is exactly $\Psi_s(x)$. Strong concavity therefore gives
+\[
+ W_\lambda(y)-W_\lambda(x)
+ \leq(\nabla r(x)-D^\top s)^\top(y-x)
+       -\tfrac{m_0}{2}\|y-x\|_H^2+\Psi_s(x).
+\]
+Insert $e_x$. Feasibility bounds the normal contributions by the first three terms in \eqref{eq:r13-leakage}; completing the square proves \eqref{eq:r13-gap}. Strong convexity of $-W_\lambda$ and constrained optimality give
+$m_0\|x-x^*\|_H^2/2\leq W_\lambda(x^*)-W_\lambda(x)$.
+Cauchy--Schwarz in this ball proves the two strict tests.
+\end{proof}
+The certificate is computable from a predicted actor and prices, including after exact feasibility repair. Its four leakage terms expose which continuation, boundary, or switching decision causes a first-order loss. For example, maximizing $-x-x^2/2$ on $[0,1]$ loses $\epsilon+\epsilon^2/2$ at $x=\epsilon$: the lower-bound price contributes $\epsilon$. Maximizing $-x^2/2-|x|$ on $[-1,1]$ gives the same loss at $\epsilon$; using $s=0$ contributes switching leakage $\epsilon$. Omitting either term invalidates the purported quadratic bound. Small norm error alone does not justify identifying a binding equality; the strict ball tests only discard inequalities or certify nonzero signs.
+
+Weak duality and gap-based safe regions are established principles \citep{BoydVandenberghe2004,Fercoq2015}. The relevant specialization here is an auditable loss for complete continuation policies, including \emph{incorrect} predicted switching faces. It also prevents rounding a nominally fused edge from silently invalidating a subgradient certificate. Rational replay checks the repaired tiers, sign-independent tension capacities, and every leakage term. The bound can be a certificate-aware fitting objective, but its validity does not assume successful minimization of that objective.
+
+\subsection{Verifiable acceptance cells and compatible neural routing}\label{sec:r13-cells}
+For an implementable positive bridge, specialize the smooth resource to a quadratic and use the full coordinates of Proposition~\ref{prop:r13-flow}. Write the incremental problem as
+\begin{equation}\label{eq:r13-cell-problem}
+ \max_{Fy\leq d}\left\{a(\theta)^\top y-\tfrac12y^\top Q_B y
+                   -\lambda(\theta)\sum_n\kappa_n|(Ky)_n|\right\},
+ \quad Q_B=B^\top QB\succ0.
+\end{equation}
+Here $Fy\leq d$ represents \eqref{eq:r13-flow-polytope}; the context enters $a$ and $\lambda\geq0$ affinely. The matrices and bounds are fixed. General nonlinear resources still have Theorem~\ref{thm:r13-leakage}, but the exact affine representation below uses the quadratic assumption.
+
+Choose a set $I$ of binding inequalities, a set $Z$ of fused edges, and signs $\sigma_n\in\{-1,1\}$ on the remaining edges $S$. Set
+$C=[F_I^\top,K_Z^\top]^\top$ and $d_C=(d_I,0)$. Require $C$ to have full row rank, but do not require \emph{all} binding constraints to be independent. Solve once for the affine maps in $\theta$:
+\begin{equation}\label{eq:r13-cell-system}
+ \begin{pmatrix}Q_B&C^\top\\ C&0\end{pmatrix}
+ \begin{pmatrix}y_\theta\\ \mu_{I,\theta}\\s_{Z,\theta}\end{pmatrix}
+ =\begin{pmatrix}a(\theta)-K_S^\top(\lambda(\theta)\kappa_S\sigma_S)\\d_C\end{pmatrix}.
+\end{equation}
+Set inactive inequality prices to zero and $s_{S,\theta}=\lambda(\theta)\kappa_S\sigma_S$.
+
+\begin{theorem}[Verified cell, stability, and scalar critic]\label{thm:r13-cells}
+Define the closed polyhedral parameter region
+\begin{equation}\label{eq:r13-region}
+ \mathcal C=\{\theta:\lambda(\theta)\geq0,\ Fy_\theta\leq d,\
+       \mu_{I,\theta}\geq0,\ |s_{Z,\theta}|\leq\lambda(\theta)\kappa_Z,\
+       \sigma_S\mathbin{\odot}K_Sy_\theta\geq0\}.
+\end{equation}
+At every $\theta\in\mathcal C$, $z+By_\theta$ is the unique global accepted optimizer. No optimal multiplier at the query point is needed to check membership. If the nonconstant defining inequalities are $r_j(\theta)\geq0$, then the region contains the parameter ball of radius
+\begin{equation}\label{eq:r13-radius}
+ \rho(\theta)=\min_{j:\nabla r_j\ne0}
+                 \frac{r_j(\theta)}{\|\nabla r_j\|_*}
+\end{equation}
+around any of its points, where the norm is dual to the chosen parameter norm. Empty minima are interpreted as infinity. Boundary points can have radius zero.
+
+Substitution in \eqref{eq:r13-cell-problem}, with the fixed signs on $S$, gives a scalar quadratic value expert. The same construction with the full forcing $p$ as parameter satisfies $\nabla_p J(p,\lambda)=z+By_\theta$ on its region. Along a lower-dimensional context map $p(\theta)$, its gradient is the corresponding chain-rule pullback, not an $N$-dimensional actor inferred by inverting that map. Its friction derivative is $-T(x^*)$. Any learned rule that selects a cell and then verifies \eqref{eq:r13-region} returns this compatible value and policy wherever a cell is accepted. Different accepted cells agree on the policy and value at their overlap.
+\end{theorem}
+\begin{proof}
+Positive definiteness of $Q_B$ and full row rank of $C$ make the saddle matrix nonsingular: a homogeneous solution has $Cy=0$ and $y^\top Q_By=0$, hence $y=0$, followed by a zero dual vector. Thus the maps in \eqref{eq:r13-cell-system} are affine. Region membership supplies primal feasibility, dual nonnegativity, complementary slackness, and an absolute-value subgradient. The first block equation supplies stationarity. Convexity makes these conditions sufficient; strict convexity gives uniqueness. For each affine region inequality, perturbation by $h$ changes its value by at most $\|\nabla r_j\|_*\|h\|$, proving \eqref{eq:r13-radius}. On the region, the absolute penalty uses fixed signs, so substitution yields a scalar quadratic. The envelope identity for a unique optimizer gives its forcing and friction derivatives. At a shared boundary uniqueness forces all verified representatives to give the same primal solution and objective.
+\end{proof}
+A partially covered library is not claimed to supply a globally smooth approximate critic across rejection boundaries. The compatible gradient statement concerns its verified pieces; rejected queries use the separate policy certificate.
+
+This is an offline--online construction, not an assertion that optimal faces can be learned without information. Offline optimizers generate candidate bases and affine price maps. A neural classifier learns to propose their indices. Online membership checks and Theorem~\ref{thm:r13-leakage} validate the proposed policy. A rejected or numerically inaccurate proposal invokes the specified static gate or a fully timed classical refinement. Unrepresented cells, degenerate bases, and incorrect classifier predictions cannot bypass the check. With fixed parameter dimension $d_\theta$, an accepted query takes $O(Nd_\theta)$ arithmetic operations per proposed cell after its affine coefficients are stored. Offline factorization, library size, and bit complexity are not hidden in that bound.
+
+Piecewise-affine control from multiparametric quadratic programming is classical \citep{Bemporad2002}, as are active-set path algorithms \citep{ArnoldTibshirani2016}. Our bridge uses this machinery for \emph{joint continuation and switching faces}, pairs each scalar expert with its complete acceptance-price map, and certifies arbitrary rejected-face error by \eqref{eq:r13-gap}. Together these results support a learn--verify--refine algorithm whose sufficient conditions contain no unknown query-time optimum. It does not assert full parameter-space coverage or neural superiority over classical cell lookup.
+
+\subsection{A distribution-free range for a declared parameter box}\label{sec:r13-range}
+A useful validation range can be established from the model instead of the largest observed certificate. Let $z$ be a fixed feasible outside policy with $T(z)=0$, let forcing lie in a specified box, and let $\lambda\geq\lambda_{\min}$. Define incremental gain $G_\theta(x)=W_\theta(x)-W_\theta(z)$ and normalize by a fixed positive review mass $S_0$. At every forcing-box vertex $v$, obtain a feasible policy $x_v$ and a valid gap $C_v$ at $\lambda_{\min}$.
+\begin{proposition}[Corner range and simultaneous gain validation]\label{prop:r13-range}
+Let $B=\max_v\{G_v(x_v)+C_v\}/S_0$. Every feasible policy gated against $z$ has normalized gain in $[0,B]$, and regret at most $B$. For $M$ frozen complete pipelines and $n$ independent validation instances from their declared deployment distribution, set
+\[
+ h=B\sqrt{\log(2M/\delta)/(2n)},\qquad
+ C_j=\min\{B,\widetilde C_j/S_0\}.
+\]
+With probability at least $1-\delta$, simultaneously for every pipeline and for a validation-selected pipeline,
+\begin{equation}\label{eq:r13-validation}
+ \mathbb E\,\mathrm{Regret}_j/S_0\leq\overline C_j+h,
+ \qquad
+ \mathbb E\,G_j/S_0\geq\max\{0,\overline G_j/S_0-h\}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+For fixed $z$, optimal incremental gain is a maximum of affine functions of forcing and hence convex. Its maximum on a box is bounded by the largest vertex value. Increasing friction cannot increase incremental gain because $T(z)=0$. Each vertex value is at most $G_v(x_v)+C_v$. Feasibility and the gate give the asserted ranges, including the range for regret. Apply one-sided Hoeffding inequalities to each certificate and each gain, then a union bound over $2M$ statements. Nonnegative gain supplies the zero lower bound. Simultaneity permits selection.
+\end{proof}
+The concentration step remains standard. The new operational point is a deterministic range calculation and an actually frozen deployment rule. A parameter-dependent reoptimized outside policy need not preserve convexity of incremental gain; the corner argument is not applied to the predecessor noncentered experiment. Nor does a positive gain bound establish an advantage over a different nonstatic optimizer.
+
+% END input source: revisions/or-r13-20260922/sections/certified_cells.tex
+
+
+% BEGIN preserved/input source: revisions/or-r14-20260922/sections/star_bridge.tex
+\section{A price-mediated value-gradient policy without face enumeration}\label{sec:r14-star}
+The previous section verifies a proposed face before using its scalar expert. We now give an alternative that does not store or predict a face. The result applies to a two-review scenario tree: one initial node and $m$ mutually exclusive continuation nodes. This is a large-branching specialization, not a replacement for the general vector and multistage theory. Its operational statistic is a single coupling price, which a scalar value derivative identifies.
+
+\subsection{Accepted transfers and an exact friction threshold}
+Let $z$ be a constant interior outside tier, $c_i>0$ the discounted tariff coefficients, and $\rho_i=c_i/c_0$. Write $b_i=z-l_i>0$ and $b_0=u_0-z>0$. Assume diagonal quadratic smooth resources with curvatures $\chi_0,\chi_i>0$, and absolute switching weights $\kappa_i>0$, including installation at the root. Let $g_i$ be the smooth reward gradient at the outside protocol. Leaf acceptance implies $x_i=z-y_i$ with $y_i\geq0$; the root payment equality implies $x_0=z+v$, where $v=\rho^\top y$. Consequently the entire accepted set is
+\begin{equation}\label{eq:r14-Y}
+ Y=\{y:0\leq y_i\leq b_i,\ \rho^\top y\leq b_0\}.
+\end{equation}
+All installation and continuation switching signs are determined on this set: the root moves up and every leaf lies below it. Define
+\begin{equation}\label{eq:r14-objective}
+ \begin{split}
+ a_i&=\rho_i g_0-g_i,\qquad
+ t_i=\kappa_i+\rho_i\sum_{j=0}^m\kappa_j,\qquad d_i=a_i-\lambda t_i,\\
+ G_\lambda(y)&=d^\top y-\tfrac12 y^\top Q_dy-\tfrac12\chi_0(\rho^\top y)^2,
+ \qquad Q_d=\operatorname{diag}(\chi_1,\ldots,\chi_m).
+ \end{split}
+\end{equation}
+The switching term has not been set to zero: acceptance makes its absolute values linear, since $\kappa_0v+\sum_i\kappa_i(v+y_i)=t^\top y$.
+
+\begin{proposition}[Single-price solution and critical friction]\label{prop:r14-price}
+The outside protocol is optimal exactly when
+\begin{equation}\label{eq:r14-critical}
+ \lambda\geq\lambda_c:=\max\{0,\max_i a_i/t_i\}.
+\end{equation}
+This threshold requires $O(m)$ arithmetic operations. Below it, choose an index with $d_i>0$ and set all other transfers to zero. The step
+$\epsilon=\min\{b_i,b_0/\rho_i,d_i/(\chi_i+\chi_0\rho_i^2)\}$ yields strictly positive accepted gain.
+For arbitrary friction, define
+\[
+ S(\tau)=\sum_i\rho_i\min\{b_i,\max\{0,(d_i-\rho_i\tau)/\chi_i\}\}.
+\]
+An optimal policy is $y_i^*=\min\{b_i,\max\{0,(d_i-\rho_i\tau^*)/\chi_i\}\}$, where any nonnegative root of
+\begin{equation}\label{eq:r14-root}
+ S(\tau)=\min\{b_0,\tau/\chi_0\}
+\end{equation}
+can be used. Sorting the leaf breakpoints $(d_i-\chi_ib_i)/\rho_i,d_i/\rho_i$ and the root breakpoint $\chi_0b_0$, then scanning their affine pieces, solves the problem in $O(m\log m)$ arithmetic operations and $O(m)$ storage.
+\end{proposition}
+\begin{proof}
+At zero transfer the directional gain on the nonnegative orthant is $d^\top y$. Positive box and root slack permit a small step along every coordinate. Concavity therefore proves \eqref{eq:r14-critical}, and substitution proves the stated profitable step. For the second statement, fix a total price $\tau$ for root transfer. Each leaf maximizes $(d_i-\rho_i\tau)y_i-\chi_iy_i^2/2$ on its interval. The root maximizes $\tau v-\chi_0v^2/2$ on $[0,b_0]$. Equation~\eqref{eq:r14-root} enforces equality of the supplied and required transfers, so these maximizers satisfy the primal and dual optimality conditions. The left side is continuous and nonincreasing, the right side continuous and nondecreasing, and a root exists between zero and $\max_i(d_i/\rho_i)^+$. A flat interval can make the price nonunique, but strict concavity makes the policy unique. Sorting at most $2m+1$ breakpoints and updating the affine slope and intercept establishes the operation and storage bounds. These are arithmetic, not bit-complexity, bounds.
+\end{proof}
+
+Single-resource breakpoint and multiplier methods are classical \citep{PatrikssonStromberg2015}. The contribution here is their exact reduction from accepted service transfers, including nonzero installation friction, and the derivative-to-policy result below. We do not claim a new generic water-filling algorithm or extend this sorting complexity to arbitrary coupled trees.
+
+\subsection{A global bridge through a predicted coupling price}
+For any predicted coupling price $\eta\in[0,\chi_0b_0]$, implement
+\begin{equation}\label{eq:r14-response}
+ y_\eta=\argmax_{y\in Y}\{d^\top y-\tfrac12 y^\top Q_dy-\eta\rho^\top y\},
+ \quad v_\eta=\rho^\top y_\eta.
+\end{equation}
+This is an implementable response: clip each leaf at price $\eta$; if its total exceeds the root capacity, raise the price by a nonnegative capacity multiplier until the total equals $b_0$. The uncapped response costs $O(m)$; the capped response is a single-resource problem, not a lookup of an optimal query-time face. Its cost is charged to the learned pipeline.
+
+\begin{theorem}[Global scalar-gradient and observable residual bounds]\label{thm:r14-gradient}
+Let $R=\rho^\top Q_d^{-1}\rho$, $k=R/(1+\chi_0R)$, $J=\max_YG_\lambda$, $v^*=\rho^\top y^*$, and $\eta^*=\chi_0v^*$. For every predicted price in the stated interval,
+\begin{align}
+ J-G_\lambda(y_\eta)&\leq \tfrac12 k(\eta-\chi_0v_\eta)^2,\label{eq:r14-residual}\\
+ J-G_\lambda(y_\eta)&\leq \tfrac12 R(1+\chi_0R)(\eta-\eta^*)^2.\label{eq:r14-prior}
+\end{align}
+Suppose the context contains a scalar $h$ with $d(h,\alpha,\lambda)=a_0+\alpha a_1+h\rho-\lambda t$, while $Y,Q_d,\chi_0,\rho$ remain fixed. Then $\partial_hJ=v^*$. For any differentiable scalar critic $\widehat J$, set
+$\eta=\operatorname{proj}_{[0,\chi_0b_0]}(\chi_0\partial_h\widehat J)$. Its feasible response satisfies
+\begin{equation}\label{eq:r14-gradient}
+ J-G_\lambda(y_\eta)\leq
+ \tfrac12\chi_0^2R(1+\chi_0R)|\partial_h\widehat J-\partial_hJ|^2.
+\end{equation}
+The inequalities hold globally, including changes in binding leaf and root capacities; they require neither a correct face nor a positive distance from a switching boundary. They also hold in expectation for any context distribution under these fixed primitives.
+\end{theorem}
+\begin{proof}
+Let $Q=Q_d+\chi_0\rho\rho^\top$ and use the outward normal convention $n^\top(z-y)\leq0$ for $z\in Y$. Optimality in \eqref{eq:r14-response} gives $d-Q_dy_\eta-\eta\rho\in N_Y(y_\eta)$. The full objective gradient is that normal plus $(\eta-\chi_0v_\eta)\rho$. Its exact quadratic expansion, maximized over all displacements after discarding the nonpositive normal term, bounds regret by
+$\tfrac12(\eta-\chi_0v_\eta)^2\rho^\top Q^{-1}\rho$.
+The rank-one inverse identity gives $\rho^\top Q^{-1}\rho=k$ and proves \eqref{eq:r14-residual}.
+
+For the second bound, put $H(s)=\max_{y\in Y}\{d^\top y-y^\top Q_dy/2-s\rho^\top y\}$. Strict concavity and the optimality inequalities imply
+$\|y_s-y_t\|_{Q_d}\leq\sqrt R|s-t|$ and $|v_s-v_t|\leq R|s-t|$. Hence $H'(s)=-v_s$ is $R$-Lipschitz. The full optimizer is $y_{\eta^*}$ even when the root capacity binds: its capacity multiplier belongs to $N_Y$, rather than to $\eta^*=\chi_0v^*$. Direct expansion yields the useful identity
+\[
+ J-G_\lambda(y_\eta)=H(\eta^*)-H(\eta)-H'(\eta)(\eta^*-\eta)
+                  +\tfrac12\chi_0(v_\eta-v^*)^2.
+\]
+The smooth convex remainder is at most $R(\eta-\eta^*)^2/2$; the preceding Lipschitz bound controls the last term. This proves \eqref{eq:r14-prior}. The envelope theorem for the unique maximizer gives $\partial_hJ=\rho^\top y^*$. Projection onto an interval containing $\eta^*$ cannot increase its error, proving \eqref{eq:r14-gradient}. Integration gives the expectation statement.
+\end{proof}
+
+The derivative in this theorem is a specified operational direction, not an inversion of a low-dimensional context gradient into an arbitrary high-dimensional actor. The residual bound is available at deployment without $J$, $y^*$, or $\eta^*$. The gradient bound instead explains what a trained scalar critic must approximate. Neither asserts that derivative-weighted fitting always improves generalization.
+
+\subsection{A certificate that includes numerical repair}
+Numerical clipping and capacity solution are not exact optimality certificates. For $h_q(u)=qu^2/2+I_{[0,b]}(u)$, write
+$h_q^*(s)=s\bar u-q\bar u^2/2$ with $\bar u=\min\{b,\max\{0,s/q\}\}$. Every real price $\tau$ gives the upper bound
+\begin{equation}\label{eq:r14-fenchel}
+ J\leq U(\tau):=h_{\chi_0}^*(\tau)+\sum_i h_{\chi_i}^*(d_i-\rho_i\tau).
+\end{equation}
+Here each conjugate uses its own root or leaf capacity. Fenchel's inequality proves \eqref{eq:r14-fenchel} by cancelling $\tau(v-\rho^\top y)$. Thus $U(\tau)-G_\lambda(y)$ certifies any feasible rounded policy, without assuming that \eqref{eq:r14-response} was solved exactly. The implementation rounds leaf transfers down, scales them if needed to satisfy the root cap, and recomputes every quantity with rational arithmetic. A negative-gain policy is replaced by static; a gap above the declared tolerance triggers an actual scalar solve and a second exact audit. The favorable unrefined outcomes and the full fallback costs are reported separately.
+
+% END input source: revisions/or-r14-20260922/sections/star_bridge.tex
+
+
+% BEGIN preserved/input source: revisions/or-r13-20260922/sections/experiment.tex
+\section{Sparse bounds for verified continuation cells}\label{ec:r24-sparse}
+\subsection{Sparse Lipschitz bounds without fill-in}
+For the scaled operator $M$ in \eqref{eq:r13-feasibility}, write $k_i=\kappa_i$, let $d_i$ be the number of children of node $i$, and let $b_i=(k_i+\sum_{j:\operatorname{pa}(j)=i}k_j)/c_i$. The absolute row sum for row $n\ne o$ is $b_{\operatorname{pa}(n)}+b_n$. The root column sum is $d_ok_o/c_o$. For a nonroot column $j$, with parent $p$, the absolute column sum is
+\[
+ k_j\left\{\frac{d_j+1}{c_j}+\frac{d_p+\mathbf1_{\{p\ne o\}}}{c_p}\right\}.
+\]
+To check these formulas, expand $M_{nj}$: its contributions are positive at the parent of $n$ and the children of $n$, negative at $n$ and its siblings. The two contributions at $n$ have the same sign and add. Counting their occurrences yields the displayed sums. Thus both induced norms, and a valid Lipschitz upper bound, are obtained in linear time even on a star. Multiplying separate norm bounds for the two factors instead is valid but can lose the tariff/weight cancellation and make the step unnecessarily small.
+
+Each trial starts from zero tensions. Accelerated projected gradient uses the standard momentum recursion and clips to the trial tension box. Every twentieth iteration, the implementation checks the separating direction and the two-pass repair. It maintains the best bracket, not the latest optimizer residual. The final lower direction and repaired upper tension are serialized as rational numbers and checked by a separate program. At the 12,000-iteration limit the bracket is still valid, but a width above $10^{-4}$ is a failure to meet the requested numerical accuracy. No asymptotic runtime estimate is fitted to these twelve instances.
+
+\section{Proof of the global resource-price bridge}\label{ec:r23-preserved-global-proof}
+The following is the complete proof of Theorem~\ref{thm:r19-global}, retained verbatim from the predecessor manuscript.
+\begin{proof}
+Compactness, continuity, and strong convexity give existence and uniqueness. The first-order inequality for $\phi+I_X$ and the differentiability of the smooth coupling show that $x^*$ minimizes $\phi(x)-(b+U^\top h- U^\top\eta^*)^\top x$ on $X$. Thus it is the stated response. This argument uses the convex subdifferential, not a differentiable switching penalty.
+
+Let $x=x_\eta$ and $y=x_\zeta$. Strong convexity applied to their two minimizing inequalities gives
+\[
+ \|x-y\|_D^2\leq-(\eta-\zeta)^\top U(x-y)
+ \leq\sqrt L\|\eta-\zeta\|\|x-y\|_D.
+\]
+Division, with the zero case immediate, proves the first inequality in \eqref{eq:r19-lipschitz}; applying $UD^{-1/2}$ proves the second. For completeness, sandwich the increment of either maximized value between its objective increments evaluated at the old and new optimizers. Uniqueness and compactness imply continuity of these optimizers. Dividing by the perturbation size proves $\nabla_hJ=u^*$ and $\nabla H_h=-u_\eta$. In particular $H_h$ has an $L$-Lipschitz gradient.
+
+At the two responses, the definitions give
+\[
+ J=H_h(\eta^*)+(\eta^*)^\top u^*-\Psi(u^*),\qquad
+ F_h(x_\eta)=H_h(\eta)+\eta^\top u_\eta-\Psi(u_\eta).
+\]
+Subtract and add $(\eta^*)^\top u_\eta$, using $\eta^*=\nabla\Psi(u^*)$. This proves the exact identity \eqref{eq:r19-identity}. The smooth-convex remainder bounds give
+$\mathcal B_{H_h}(\eta^*,\eta)\leq L\|\eta-\eta^*\|^2/2$ and
+$\mathcal B_\Psi(u_\eta,u^*)\leq L_\Psi\|u_\eta-u^*\|^2/2$.
+Use \eqref{eq:r19-lipschitz} for the latter term to obtain \eqref{eq:r19-pricebound}. Lipschitz continuity of $\nabla\Psi$ proves \eqref{eq:r19-gradientbound}. Euclidean projection onto a closed convex set containing $u^*$ cannot increase distance to $u^*$, proving the final assertion.
+\end{proof}
+
+\section{Joint misspecification: construction and verification}\label{ec:r23-robust}
+This section supplies the implementation details for Lemma~\ref{thm:r23-robust}. Uncertainty changes the accepted inequalities as well as reward and friction. It is different from the known-model context shift in the preceding experiments.
+
+\subsection{Exact implementation and the comparator outer class}
+Collect the box and vertex participation/capacity inequalities in $a_j^\top x\leq b_j$, retaining the fixed equality $Ex=0$. Suppose an anchor $z$ satisfies that equality and $a_j^\top z<b_j$ for every listed inequality. For an equality-feasible rational proposal $y^0$, set
+\begin{equation}\label{eq:r23-repair}
+ \alpha=\max\left\{0,\ \max_{j:a_j^\top y^0>b_j}
+ \frac{a_j^\top y^0-b_j}{a_j^\top y^0-a_j^\top z}\right\},\qquad
+ y=(1-\alpha)y^0+\alpha z.
+\end{equation}
+An empty inner maximum is omitted. Then $0\leq\alpha<1$, $y$ satisfies every inequality and the equality, and $\alpha$ is the smallest feasible mixing fraction on this ray. Indeed, each violated inequality requires exactly the displayed lower bound on $\alpha$; inequalities already satisfied remain satisfied by convexity. For any concave $F_v$, even if $y^0$ is not accepted,
+\[
+ g(y)\geq\min_v\{(1-\alpha)F_v(y^0)+\alpha F_v(z)-U_v\}.
+\]
+Thus repair has an explicit value charge rather than an unreported feasibility tolerance. The anchor condition belongs to this particular repair construction, not to Lemma~\ref{thm:r23-robust}. A rational polyhedral feasibility solve can supply an alternative implementation when a strict anchor does not exist.
+
+In the recorded tree, nonroot anchor displacements are negative and each root displacement is reconstructed from its exact weighted equality. A common positive scale makes all box and capacity inequalities strict. Nonroot continuation coefficients remain positive over the specified uncertainty set, so their subtree sums are strictly negative. The code rounds only nonroot proposed coordinates, reconstructs root equalities in rational arithmetic, and applies \eqref{eq:r23-repair}. The independent verifier then recomputes every inequality from the implemented rational vector.
+
+Write the nominal continuation matrix as $A^0$, the capacity matrix as $C_0$, and nominal capacity budgets as $a^0$. With $\sigma_i\in\{-1,1\}$ and $\zeta\in[-1,1]^3$, continuation rows become $A_{\zeta,ji}=A^0_{ji}(1+\rho\zeta_3\sigma_i)$ and budgets become $(1+\rho\zeta_2)a^0$. Put $m_i=\max\{|\ell_i|,|u_i|\}$. A common outer time-only class is given by the same box, root and time-only equalities, and
+\begin{equation}\label{eq:r23-outer}
+ A^0_jx\leq\rho\sum_i|A^0_{ji}|m_i,\qquad
+ C_0x\leq(1+\rho)a^0.
+\end{equation}
+For any truly accepted $x$, the first bound follows from
+$A^0_jx=A_{\zeta,j}x-\rho\zeta_3\sum_iA^0_{ji}\sigma_ix_i$;
+the second follows from $\zeta_2\leq1$. Hence every model-specific accepted time-only class is contained in \eqref{eq:r23-outer}. This is an analytical containment argument for all hidden coefficients, not a test on sampled models. At zero radius the outer class equals the nominal accepted time-only class. Positive radius can make the bound conservative; the reported quantity is a lower certificate, not an equality with true robust gain.
+
+\subsection{Frozen-policy interpretation}
+For a context $q$, let $y(q)$ be a predeclared deterministic robust-feasible rule and let $g(q)$ be its certificate. Suppose $F_{q,\zeta}(y(q))\in[0,B]$ and $K_{q,\zeta}\in[0,B]$ uniformly. Then $H(q)=\inf_\zeta\{F_{q,\zeta}(y(q))-K_{q,\zeta}\}\in[-B,B]$ and $H(q)\geq g(q)$. Assume these functions are measurable. For $M$ frozen rules and independent contexts with their stated common deployment law, Hoeffding's inequality and a union bound imply, simultaneously with probability at least $1-\delta$,
+\[
+ \E H(q)\geq\frac1N\sum_{i=1}^N g(q_i)
+       -2B\sqrt{\frac{\log(M/\delta)}{2N}}.
+\]
+Apply concentration to $H$, not to an unbounded numerical lower certificate, and then use $H(q_i)\geq g(q_i)$. The hidden coefficients may depend adversarially on the observed context inside its specified uncertainty set. The probability statement is conditional on frozen rules; it does not average over training randomness or establish coverage of an uncalibrated uncertainty set. The new study below reports pointwise certificates and descriptive averages only, not a new positive population lower confidence bound. The earlier nominal-model population results remain separately identified.
+
+\subsection{Predeclared model and executed protocol}
+The instance retains 63 nodes, two service coordinates, six resource factors, four additional capacities, heterogeneous outside tiers, and endogenous switching signs. The predeclared radii are $0,1/16,1/8,1/4$. In addition to \eqref{eq:r23-outer}'s participation and budget perturbations, the true coefficients are
+\[
+ b_\zeta=(1+\rho\zeta_1)b_0+\rho\zeta_3w,\quad
+ \lambda_\zeta=(1+\rho\zeta_2)\lambda_0,\quad
+ w_i=(-1)^i/8,\quad \sigma_i=(-1)^{\lfloor i/2\rfloor},
+\]
+using zero-based coordinate indices. Curvature, resource loadings, switching incidence, outside tiers and root equalities remain fixed. All objectives are affine in the hidden coefficients for fixed decisions, with nonnegative friction throughout. This is simultaneous coefficient misspecification, not uncertain transition probabilities or arbitrary nonlinear model error.
+
+Ninety-six fresh contexts use seed 2302301 and the original declared discrete reward/friction law. The engineering pilot uses two different contexts and is excluded. The two deterministic predictors average the same eight previously frozen tanh-gradient or RBF-direct price models; no fitting or model selection uses this study. Each predictor supplies an observed-model resource price to a nominal-objective response over the robust accepted set. This response is then rationally repaired and evaluated at all eight uncertainty vertices. A gate substitutes the outside policy only when its worst vertex objective is negative. This protects the outside option, not a zero gain relative to the optimized restricted comparator.
+
+For a strong classical comparison, write $H=D+U^\top U$ and introduce switching epigraphs $t\geq\pm(Bx+v)$ and a scalar $\tau$. With the same certified outer-comparator values $U_a$, solve
+\[
+ \max_{x,t,\tau}\ \tau-\tfrac12x^\top Hx,\qquad
+ \tau\leq b_a^\top x-\lambda_a k^\top t
+       +\lambda_a k^\top|v|-U_a\quad(a\in\mathcal V),
+\]
+subject to robust acceptance. This is an ordinary convex quadratic program. It optimizes the common certified maximin objective before numerical error and repair; it does not compute the exact model-specific worst-case gain. The final reported quantity is recomputed from the implemented rational decision. Nominal learned responses are also retained as nondeployed diagnostics and tested against the entire robust set.
+
+Every solve uses a fresh OSQP workspace and nominal tolerance $10^{-8}$. Eight outer-class solves are charged separately per context and radius, rather than hidden as free certificates. Any numerical failure is recorded; a zero proposal or valid zero-dual upper certificate is available, and negative gain bounds are retained. The script stores integer/rational decisions, multipliers, objective values, and bounds. A Python-standard-library replay reconstructs outer-class containment, robust geometry, exact equalities, all dual-domain constraints and outward-rounded box conjugates without invoking a solver. Mutation controls check invalid tiers, root equalities, inequality prices, switching tensions, outer containment and robust participation rows. The one-dimensional interior-comparator counterexample is independently evaluated at 1,001 rational parameter values.
+
+\begin{thebibliography}{99}
+\bibitem[Abbasi et al.(2022)Abbasi, Bruzda, and Gavirneni]{Abbasi2022}
+Abbasi B, Bruzda J, Gavirneni S (2022) Optimal operational service levels in vendor managed inventory contracts---an exact approach. \emph{Operations Research Letters} 50(5):610--617. doi:10.1016/j.orl.2022.08.007.
+
+\bibitem[Altman(1999)]{Altman1999}
+Altman E (1999) \emph{Constrained Markov Decision Processes} (Chapman \& Hall/CRC, Boca Raton, FL).
+
+\bibitem[Amos and Kolter(2017)]{AmosKolter2017}
+Amos B, Kolter JZ (2017) OptNet: Differentiable optimization as a layer in neural networks. \emph{Proceedings of Machine Learning Research} 70:136--145.
+
+\bibitem[Arnold and Tibshirani(2016)]{ArnoldTibshirani2016}
+Arnold TB, Tibshirani RJ (2016) Efficient implementations of the generalized lasso dual path algorithm. \emph{Journal of Computational and Graphical Statistics} 25(1):1--27. doi:10.1080/10618600.2015.1008638.
+
+\bibitem[Beck and Teboulle(2009)]{BeckTeboulle2009}
+Beck A, Teboulle M (2009) A fast iterative shrinkage-thresholding algorithm for linear inverse problems. \emph{SIAM Journal on Imaging Sciences} 2(1):183--202. doi:10.1137/080716542.
+
+\bibitem[Bemporad et al.(2002)Bemporad, Morari, Dua, and Pistikopoulos]{Bemporad2002}
+Bemporad A, Morari M, Dua V, Pistikopoulos EN (2002) The explicit linear quadratic regulator for constrained systems. \emph{Automatica} 38(1):3--20. doi:10.1016/S0005-1098(01)00174-1.
+
+\bibitem[Ben-Tal and Nemirovski(2000)]{BenTalNemirovski2000}
+Ben-Tal A, Nemirovski A (2000) Robust solutions of linear programming problems contaminated with uncertain data. \emph{Mathematical Programming} 88:411--424. doi:10.1007/PL00011380.
+
+\bibitem[Bertsimas and Kallus(2020)]{BertsimasKallus2020}
+Bertsimas D, Kallus N (2020) From predictive to prescriptive analytics. \emph{Management Science} 66(3):1025--1044. doi:10.1287/mnsc.2018.3253.
+
+\bibitem[Bertsimas and Sim(2004)]{BertsimasSim2004}
+Bertsimas D, Sim M (2004) The price of robustness. \emph{Operations Research} 52(1):35--53. doi:10.1287/opre.1030.0065.
+
+\bibitem[Boyd and Vandenberghe(2004)]{BoydVandenberghe2004}
+Boyd S, Vandenberghe L (2004) \emph{Convex Optimization} (Cambridge University Press, Cambridge).
+
+\bibitem[Caggiano et al.(2007)Caggiano, Jackson, Muckstadt, and Rappold]{Caggiano2007}
+Caggiano KE, Jackson PL, Muckstadt JA, Rappold JA (2007) Optimizing service parts inventory in a multiechelon, multi-item supply chain with time-based customer service-level agreements. \emph{Operations Research} 55(2):303--318. doi:10.1287/opre.1060.0345.
+
+\bibitem[Czarnecki et al.(2017)Czarnecki, Osindero, Jaderberg, Swirszcz, and Pascanu]{Czarnecki2017}
+Czarnecki WM, Osindero S, Jaderberg M, Swirszcz G, Pascanu R (2017) Sobolev training for neural networks. \emph{Advances in Neural Information Processing Systems} 30. arXiv:1706.04859.
+
+\bibitem[de Farias and Van Roy(2003)]{DeFariasVanRoy2003}
+de Farias DP, Van Roy B (2003) The linear programming approach to approximate dynamic programming. \emph{Operations Research} 51(6):850--865. doi:10.1287/opre.51.6.850.24925.
+
+\bibitem[Defferrard et~al.(2016)]{Defferrard2016}
+Defferrard M, Bresson X, Vandergheynst P (2016) Convolutional neural networks on graphs with fast localized spectral filtering. \emph{Advances in Neural Information Processing Systems} 29.
+
+\bibitem[Elmachtoub and Grigas(2022)]{ElmachtoubGrigas2022}
+Elmachtoub AN, Grigas P (2022) Smart ``predict, then optimize.'' \emph{Management Science} 68(1):9--26. doi:10.1287/mnsc.2020.3922.
+
+\bibitem[Federgruen and Heching(1999)]{FedergruenHeching1999}
+Federgruen A, Heching A (1999) Combined pricing and inventory control under uncertainty. \emph{Operations Research} 47(3):454--475.
+
+\bibitem[Fercoq et al.(2015)Fercoq, Gramfort, and Salmon]{Fercoq2015}
+Fercoq O, Gramfort A, Salmon J (2015) Mind the duality gap: safer rules for the Lasso. \emph{Proceedings of Machine Learning Research} 37:333--342.
+
+\bibitem[Han et al.(2018)Han, Jentzen, and E]{HanJentzenE2018}
+Han J, Jentzen A, E W (2018) Solving high-dimensional partial differential equations using deep learning. \emph{Proceedings of the National Academy of Sciences} 115(34):8505--8510.
+
+\bibitem[Henig et~al.(1997)]{Henig1997}
+Henig M, Gerchak Y, Ernst R, Pyke DF (1997) An inventory model embedded in designing a supply contract. \emph{Management Science} 43(2):184--189. doi:10.1287/mnsc.43.2.184.
+
+\bibitem[Hipp and Holzbaur(1988)]{HippHolzbaur1988}
+Hipp SK, Holzbaur UD (1988) Decision processes with monotone hysteretic policies. \emph{Operations Research} 36(4):585--588. doi:10.1287/opre.36.4.585.
+
+\bibitem[Hoeffding(1963)]{Hoeffding1963}
+Hoeffding W (1963) Probability inequalities for sums of bounded random variables. \emph{Journal of the American Statistical Association} 58(301):13--30. doi:10.1080/01621459.1963.10500830.
+
+\bibitem[Hosseinifard et al.(2022)Hosseinifard, Shao, and Talluri]{Hosseinifard2022}
+Hosseinifard Z, Shao L, Talluri S (2022) Service-level agreement with dynamic inventory policy: The effect of the performance review period and the incentive structure. \emph{Decision Sciences} 53:802--826. doi:10.1111/deci.12506.
+
+\bibitem[Katok et al.(2008)Katok, Thomas, and Davis]{Katok2008}
+Katok E, Thomas D, Davis A (2008) Inventory service-level agreements as coordination mechanisms: The effect of review periods. \emph{Manufacturing \& Service Operations Management} 10(4):609--624. doi:10.1287/msom.1070.0188.
+
+\bibitem[Kraul et al.(2023)Kraul, Seizinger, and Brunner]{KraulSeizingerBrunner2023}
+Kraul S, Seizinger M, Brunner JO (2023) Machine learning--supported prediction of dual variables for the cutting stock problem with an application in stabilized column generation. \emph{INFORMS Journal on Computing} 35(3):692--709. doi:10.1287/ijoc.2023.1277.
+
+\bibitem[Kushner and Dupuis(2001)]{KushnerDupuis2001}
+Kushner HJ, Dupuis P (2001) \emph{Numerical Methods for Stochastic Control Problems in Continuous Time}, 2nd ed. (Springer, New York).
+
+\bibitem[Liang and Atkins(2013)]{LiangAtkins2013}
+Liang L, Atkins D (2013) Designing service level agreements for inventory management. \emph{Production and Operations Management} 22(5):1103--1117. doi:10.1111/poms.12033.
+
+\bibitem[Ma et al.(1994)Ma, Protter, and Yong]{MaProtterYong1994}
+Ma J, Protter P, Yong J (1994) Solving forward-backward stochastic differential equations explicitly---a four step scheme. \emph{Probability Theory and Related Fields} 98:339--359.
+
+\bibitem[Nasser and Turcic(2019)]{NasserTurcic2019}
+Nasser S, Turcic D (2019) Temporary contract adjustment to a retailer with a private demand forecast. \emph{Management Science} 65(1):209--229. doi:10.1287/mnsc.2017.2942.
+
+
+\bibitem[Patriksson and Str\"omberg(2015)]{PatrikssonStromberg2015}
+Patriksson M, Str\"omberg C (2015) Algorithms for the continuous nonlinear resource allocation problem---new implementations and numerical studies. arXiv:1501.07035.
+
+\bibitem[Plambeck and Zenios(2003)]{PlambeckZenios2003}
+Plambeck EL, Zenios SA (2003) Incentive efficient control of a make-to-stock production system. \emph{Operations Research} 51(3):371--386. doi:10.1287/opre.51.3.371.14954.
+
+\bibitem[Sambharya et al.(2024)Sambharya, Hall, Amos, and Stellato]{Sambharya2024}
+Sambharya R, Hall G, Amos B, Stellato B (2024) Learning to warm-start fixed-point optimization algorithms. \emph{Journal of Machine Learning Research} 25(166):1--46.
+
+\bibitem[Satija et~al.(2020)]{Satija2020}
+Satija H, Amortila P, Pineau J (2020) Constrained Markov decision processes via backward value functions. \emph{Proceedings of Machine Learning Research} 119:8502--8511.
+
+\bibitem[Sieke et al.(2012)Sieke, Seifert, and Thonemann]{Sieke2012}
+Sieke MA, Seifert RW, Thonemann UW (2012) Designing service level contracts for supply chain coordination. \emph{Production and Operations Management} 21(4):698--714. doi:10.1111/j.1937-5956.2011.01301.x.
+
+\bibitem[Spear and Srivastava(1987)]{SpearSrivastava1987}
+Spear SE, Srivastava S (1987) On repeated moral hazard with discounting. \emph{Review of Economic Studies} 54(4):599--617. doi:10.2307/2297484.
+
+\bibitem[Stellato et al.(2020)Stellato, Banjac, Goulart, Bemporad, and Boyd]{Stellato2020}
+Stellato B, Banjac G, Goulart P, Bemporad A, Boyd S (2020) OSQP: An operator splitting solver for quadratic programs. \emph{Mathematical Programming Computation} 12(4):637--672. doi:10.1007/s12532-020-00179-2.
+
+\bibitem[Thomas and Worrall(1988)]{ThomasWorrall1988}
+Thomas J, Worrall T (1988) Self-enforcing wage contracts. \emph{Review of Economic Studies} 55(4):541--554. doi:10.2307/2297404.
+
+\bibitem[Tibshirani and Taylor(2011)]{TibshiraniTaylor2011}
+Tibshirani RJ, Taylor J (2011) The solution path of the generalized lasso. \emph{Annals of Statistics} 39(3):1335--1371. doi:10.1214/11-AOS878.
+
+\bibitem[Topkis(1978)]{Topkis1978}
+Topkis DM (1978) Minimizing a submodular function on a lattice. \emph{Operations Research} 26(2):305--321.
+
+
+
+\bibitem[Virtanen et~al.(2020)]{Virtanen2020}
+Virtanen P, Gommers R, Oliphant TE, et~al. (2020) SciPy 1.0: Fundamental algorithms for scientific computing in Python. \emph{Nature Methods} 17:261--272. doi:10.1038/s41592-019-0686-2.
+
+\bibitem[Wachi and Sui(2020)]{WachiSui2020}
+Wachi A, Sui Y (2020) Safe reinforcement learning in constrained Markov decision processes. \emph{Proceedings of Machine Learning Research} 119:9797--9806.
+
+
+\end{thebibliography}
+
+% END input source: revisions/or-r14-20260922/sections/references.tex
+
+\end{document}

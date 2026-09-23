@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering\small
+\caption{The common outer comparator becomes locally tight}\label{tab:radius}
+\begin{tabular}{lr}
+\toprule
+Uncertainty radius & Mean upper bound on outer-set slack \\ \midrule
+$0$ & 0.000000003 \\
+$1/65536$ & 0.000047365 \\
+$1/16384$ & 0.000189415 \\
+$1/4096$ & 0.000757072 \\
+$1/1024$ & 0.003019002 \\
+$1/256$ & 0.011836705 \\
+$1/64$ & 0.045064142 \\
+$1/16$ & 0.073768497 \\
+$1/8$ & 0.074890218 \\
+$1/4$ & 0.078860565 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{.98\textwidth}\footnotesize Eight fixed contexts and ten radii, with a directly optimized true and outer comparator at each pair (160 certificates). Entries average the outer certified upper value minus the true certified lower value. At zero the true outer-set slack is exactly zero; the displayed residual is the optimization bracket. Maximum individual bracket width is 3.06e-08. This isolates outer-set loss and is not a calibrated uncertainty experiment.\end{minipage}
+\end{table}

@@ -1,0 +1,43 @@
+{
+  "review_sha": "9080e29443191f9bb415ab0a213af446d4ce3be3",
+  "reviewed_scientific_sha": "63bbb843e1bbe7cac2170dc7d317d4cf18bb2bb8",
+  "branch": "revision/ndu-operations-research-r25-20260923",
+  "hierarchy": {
+    "legacy_contexts": "first 24 radius-zero contexts in frozen R23/R24 record",
+    "Markov_seed": 250923,
+    "Markov_contexts": 24,
+    "classes": [
+      "fixed",
+      "time-only",
+      "current-regime",
+      "two-period-memory",
+      "full-history"
+    ],
+    "expected_certificates": 240
+  },
+  "radius": {
+    "contexts": "first 8 of the same legacy selection",
+    "radii": [
+      "0",
+      "1/65536",
+      "1/16384",
+      "1/4096",
+      "1/1024",
+      "1/256",
+      "1/64",
+      "1/16",
+      "1/8",
+      "1/4"
+    ],
+    "expected_certificates": 160
+  },
+  "cache": {
+    "seed": 25923,
+    "anchors": 4,
+    "query_validation_solves": 32,
+    "deployment_query_solves": 0,
+    "fixed_lambda": "29/64",
+    "expected_certificates": 36
+  },
+  "scope": "Designed public-state models; historical timings unchanged; no field calibration, learned speedup, or continuous-grid exactness claim"
+}
