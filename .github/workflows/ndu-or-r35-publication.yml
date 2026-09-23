@@ -1,0 +1,124 @@
+name: NDU R35 Monge frontier and reader build
+on:
+  push:
+    branches: [revision/ndu-operations-research-r35-monge-frontier-20260923]
+    paths:
+      - '.github/workflows/ndu-or-r35-publication.yml'
+      - '.r35-transport/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r35-publication
+  cancel-in-progress: false
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r35-monge-frontier-20260923
+  R: revisions/or-r35-monge-frontier-20260923
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  revise-build-publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r35-monge-frontier-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize hash-verified scientific sources and archive predecessor wrappers
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          python - <<'PY'
+          import base64,hashlib,json,lzma,os,subprocess
+          from pathlib import Path,PurePosixPath
+          base='fbfdf24b370201c810425f633f5fc06048282b5c'
+          rev=Path(os.environ['R'])
+          transport=Path('.r35-transport')
+          ready=json.loads((transport/'READY.json').read_text())
+          assert ready['base_commit']==base and ready['files_count']==22
+          parts=sorted(transport.glob('part*.b64'))
+          assert [p.name for p in parts]==[f'part{i:02d}.b64' for i in range(3)]
+          assert [p.name for p in parts]==[p['name'] for p in ready['parts']]
+          chunks=[]
+          for path,metadata in zip(parts,ready['parts']):
+              chunk=path.read_text()
+              assert len(chunk)==metadata['characters']
+              assert hashlib.sha256(chunk.encode()).hexdigest()==metadata['sha256']
+              chunks.append(chunk)
+          raw=base64.b64decode(''.join(chunks),validate=True)
+          digest=hashlib.sha256(raw).hexdigest()
+          assert digest==ready['compressed_sha256']=='e3ddf0288bff60975b366389f301e9dabeb3f25ec51cab07ae76a47a4f047565'
+          files=json.loads(lzma.decompress(raw))['files']
+          assert len(files)==22
+          wrappers=['main.tex','electronic_companion.tex','README.md','NDU_OR_submission_checklist.md']
+          (rev/'predecessor').mkdir(parents=True,exist_ok=True)
+          for name in wrappers:
+              (rev/'predecessor'/name).write_bytes(subprocess.check_output(['git','show',f'{base}:{name}']))
+          for name,content in files.items():
+              path=PurePosixPath(name)
+              assert not path.is_absolute() and '..' not in path.parts
+              assert name in wrappers or str(path).startswith(str(rev)+'/')
+              assert isinstance(content,str)
+              target=Path(name)
+              assert not target.is_symlink() and not any(p.is_symlink() for p in target.parents)
+              target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_text(content,encoding='utf-8')
+          record={'compressed_sha256':digest,'base_commit':base,'source_files':{n:hashlib.sha256(c.encode()).hexdigest() for n,c in files.items()}}
+          (rev/'SOURCE_PAYLOAD_MANIFEST.json').write_text(json.dumps(record,indent=2)+'\n')
+          print('Verified and materialized 22 source files; archived four predecessor wrappers.')
+          PY
+      - name: Verify exact frontiers, benchmark unchanged quadratic reference, and replay inherited tests
+        run: |
+          python "$R/verify.py"
+          python "$R/benchmark.py"
+          python "$R/reproduce_inherited.py"
+          python "$R/response_reader.py"
+      - name: Commit and publish exact scientific sources and evidence
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git config user.name 'NDU revision build'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r35): prove exact Monge frontier acceleration with rational verification and referee response'
+            git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          fi
+      - name: Install reader-build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile all readers and audit exact source identity, inherited tree, and layout
+        run: python "$R/build_validate.py"
+      - name: Publish validated article, electronic companion, and referee response
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git add -f main.pdf electronic_companion.pdf r35-main-labels.aux r35-ec-labels.aux "$R/BUILD_VALIDATION.json" "$R/RESPONSE_TO_REFEREES.pdf"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r35): publish validated article, electronic companion, and referee response PDFs'
+            git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r35-reader-build
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r35-main-labels.aux
+            r35-ec-labels.aux
+            revisions/or-r35-monge-frontier-20260923/
+            revisions/or-r31-tightness-minimal-machine-20260923/*.tex
+            revisions/or-r32-priority-complexity-closure-20260923/*.tex
+            revisions/or-r33-piecewise-randomized-20260923/
+            revisions/or-r34-global-randomized-frontier-20260923/
+            .build/ndu-r35/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: warn
