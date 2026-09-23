@@ -1,0 +1,2177 @@
+{
+  "status": "PASS",
+  "scientific_source_commit": "59ea34389e6329c56fd4d9a75e640cfebeecfa59",
+  "workflow_trigger_commit": "91f17340d91c72e539cc2662ae7c92878537d7c0",
+  "base_commit": "fbfdf24b370201c810425f633f5fc06048282b5c",
+  "review_commit": "a017f474619e86be533547acac87a3c8354f64cf",
+  "abstract_words": 183,
+  "python": "3.12.14",
+  "runner": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "documents": {
+    "main": {
+      "pages": 40,
+      "sha256": "1304b1e03a1716a4aee7cbf95b2db7e7b995abb62b69c9acc6cab12e6424d31e",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    },
+    "electronic_companion": {
+      "pages": 19,
+      "sha256": "7f0c47a7272150003f8250f13418c04dab8fc3d2c9cb22361b97955dda24e3e6",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    },
+    "RESPONSE_TO_REFEREES": {
+      "pages": 5,
+      "sha256": "c5feb0b6cb01c996235c4594793cc7622b34b27ee97b6ffb6a80e9891f8bf8d5",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    }
+  },
+  "reference_pages": {
+    "first": 35,
+    "last": 36,
+    "count": 2
+  },
+  "main_pages_excluding_references": 38,
+  "page_count_rule": "Whole bibliography pages isolated by explicit page breaks; all title, text, and table pages counted.",
+  "new_exact_verification": {
+    "status": "PASS",
+    "cases": 98,
+    "counts": {
+      "frontier_equalities": 1712,
+      "independent_exhaustive_equalities": 156,
+      "controller_replays": 1712,
+      "edge_monge_inequalities": 2092,
+      "tail_monge_inequalities": 3846,
+      "deterministic_monge_inequalities": 2092,
+      "direct_interval_checks": 1401,
+      "tail_argmin_checks": 384,
+      "invalid_inputs_rejected": 14,
+      "nonanchor_grid_checks": 176,
+      "recursion_work_bound_checks": 196
+    },
+    "source_sha256": {
+      "revisions/or-r35-monge-frontier-20260923/monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f",
+      "revisions/or-r35-monge-frontier-20260923/verify.py": "5eaabca51d8ee519352d66935e0f3d922d84ee53e730250c754d2cc84cfaabaa",
+      "revisions/or-r34-global-randomized-frontier-20260923/randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
+      "revisions/or-r34-global-randomized-frontier-20260923/verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578"
+    }
+  },
+  "benchmark_status": "PASS",
+  "inherited_exact_verification": {
+    "status": "PASS",
+    "base_commit": "fbfdf24b370201c810425f633f5fc06048282b5c",
+    "suites": {
+      "R33": {
+        "status": "PASS",
+        "unchanged_script_sha256": {
+          "exact_compiler.py": "eded5ff0f3ea22a0a729947b8a9ec83305156a147cfca699d79e40d4cfd22a2d",
+          "verify.py": "1da61e188983de45b8c1300f6e423537205579d69007e30ab00a811394aac3e0"
+        },
+        "rerun": {
+          "status": "PASS",
+          "arithmetic": "fractions.Fraction; no numerical tolerances",
+          "random_seed": 20260923,
+          "piecewise_dag_instances": 24,
+          "local_optimality_checks": 4170,
+          "whole_graph_circuit_checks": 834,
+          "primal_dual_certificates": 836,
+          "circuit_inversions": 834,
+          "parametric_active_set_reference": [
+            {
+              "instance": 0,
+              "active_sets_attempted": 130,
+              "valid_kkt_regions": 5,
+              "open_cells_compared": 5,
+              "full_path_equal": true
+            },
+            {
+              "instance": 1,
+              "active_sets_attempted": 130,
+              "valid_kkt_regions": 3,
+              "open_cells_compared": 3,
+              "full_path_equal": true
+            },
+            {
+              "instance": 2,
+              "active_sets_attempted": 130,
+              "valid_kkt_regions": 4,
+              "open_cells_compared": 4,
+              "full_path_equal": true
+            },
+            {
+              "instance": 3,
+              "active_sets_attempted": 130,
+              "valid_kkt_regions": 5,
+              "open_cells_compared": 5,
+              "full_path_equal": true
+            }
+          ],
+          "chain_sizes": [
+            2,
+            4,
+            8,
+            16,
+            32,
+            64,
+            128
+          ],
+          "deterministic_two_symbol_loss": "1/8",
+          "randomized_two_symbol_loss": "1/96",
+          "runtime_seconds": 1.3252078749999967,
+          "limitations": [
+            "Synthetic exact verification, not service data.",
+            "Active-set reference is exponential, not published solver software.",
+            "Timing is descriptive and environment-dependent."
+          ]
+        }
+      },
+      "R34": {
+        "status": "PASS",
+        "unchanged_script_sha256": {
+          "randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
+          "verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578"
+        },
+        "rerun": {
+          "status": "PASS",
+          "seed": 340923,
+          "python": "3.12.14",
+          "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+          "elapsed_seconds": 5.033004519999999,
+          "cases": 51,
+          "counts": {
+            "exhaustive_codebook_candidates": 1932,
+            "frontier_equalities": 446,
+            "controller_replays": 255,
+            "off_anchor_grid_comparisons": 1073,
+            "direct_moment_equalities": 1346,
+            "invalid_inputs_rejected": 10
+          },
+          "case_records": [
+            {
+              "caps": [
+                "1/4",
+                "1/2",
+                "3/4"
+              ],
+              "probabilities": [
+                "1/3",
+                "1/3",
+                "1/3"
+              ],
+              "gamma": [
+                "1",
+                "1",
+                "1"
+              ],
+              "r": "2",
+              "q": "1",
+              "randomized_losses": [
+                "7/16",
+                "1/96",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "7/16",
+                "1/8",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "1/4",
+                "1/2",
+                "3/4"
+              ],
+              "probabilities": [
+                "7/20",
+                "3/5",
+                "1/20"
+              ],
+              "gamma": [
+                "1",
+                "1",
+                "1"
+              ],
+              "r": "2",
+              "q": "1",
+              "randomized_losses": [
+                "49/160",
+                "23/1280",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "49/160",
+                "3/160",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "2/5"
+              ],
+              "probabilities": [
+                "1"
+              ],
+              "gamma": [
+                "0"
+              ],
+              "r": "1",
+              "q": "1",
+              "randomized_losses": [
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "22/41",
+                "32/41"
+              ],
+              "probabilities": [
+                "5/7",
+                "2/7"
+              ],
+              "gamma": [
+                "3/2",
+                "3/2"
+              ],
+              "r": "19/6",
+              "q": "5/2",
+              "randomized_losses": [
+                "4190/35301",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "4190/35301",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "5/41",
+                "20/41"
+              ],
+              "probabilities": [
+                "9/19",
+                "10/19"
+              ],
+              "gamma": [
+                "1",
+                "2"
+              ],
+              "r": "8/3",
+              "q": "5/3",
+              "randomized_losses": [
+                "15525/31939",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "15525/31939",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "15/41",
+                "36/41"
+              ],
+              "probabilities": [
+                "1/11",
+                "10/11"
+              ],
+              "gamma": [
+                "2",
+                "3"
+              ],
+              "r": "2",
+              "q": "2",
+              "randomized_losses": [
+                "13125/18491",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "13125/18491",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "32/41",
+                "38/41"
+              ],
+              "probabilities": [
+                "9/23",
+                "14/23"
+              ],
+              "gamma": [
+                "2",
+                "3/4"
+              ],
+              "r": "7/2",
+              "q": "3",
+              "randomized_losses": [
+                "3423/38663",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "3423/38663",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "5/41",
+                "15/41"
+              ],
+              "probabilities": [
+                "2/3",
+                "1/3"
+              ],
+              "gamma": [
+                "6",
+                "1"
+              ],
+              "r": "5/2",
+              "q": "1",
+              "randomized_losses": [
+                "325/1681",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "325/1681",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "21/41",
+                "25/41"
+              ],
+              "probabilities": [
+                "18/25",
+                "7/25"
+              ],
+              "gamma": [
+                "4/3",
+                "2"
+              ],
+              "r": "4/3",
+              "q": "1/3",
+              "randomized_losses": [
+                "1428/42025",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "1428/42025",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "23/41",
+                "36/41"
+              ],
+              "probabilities": [
+                "20/39",
+                "19/39"
+              ],
+              "gamma": [
+                "0",
+                "3/4"
+              ],
+              "r": "11/4",
+              "q": "5/4",
+              "randomized_losses": [
+                "6137/20172",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "6137/20172",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "2/41",
+                "17/41"
+              ],
+              "probabilities": [
+                "4/7",
+                "3/7"
+              ],
+              "gamma": [
+                "0",
+                "0"
+              ],
+              "r": "10/3",
+              "q": "1/3",
+              "randomized_losses": [
+                "12015/23534",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "12015/23534",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "16/41",
+                "34/41",
+                "35/41"
+              ],
+              "probabilities": [
+                "11/28",
+                "13/28",
+                "1/7"
+              ],
+              "gamma": [
+                "1",
+                "3",
+                "1"
+              ],
+              "r": "1/2",
+              "q": "1/2",
+              "randomized_losses": [
+                "9501/47068",
+                "15/47068",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "9501/47068",
+                "15/47068",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "5/41",
+                "18/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "1/13",
+                "9/13",
+                "3/13"
+              ],
+              "gamma": [
+                "4",
+                "1/2",
+                "5/2"
+              ],
+              "r": "7/2",
+              "q": "3",
+              "randomized_losses": [
+                "627/533",
+                "38796/240383",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "627/533",
+                "5544/21853",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "31/41",
+                "32/41",
+                "37/41"
+              ],
+              "probabilities": [
+                "15/46",
+                "11/46",
+                "10/23"
+              ],
+              "gamma": [
+                "1/4",
+                "5/3",
+                "0"
+              ],
+              "r": "17/4",
+              "q": "4",
+              "randomized_losses": [
+                "61559/927912",
+                "55/38663",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "61559/927912",
+                "6479/927912",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "31/41",
+                "36/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "11/35",
+                "9/35",
+                "3/7"
+              ],
+              "gamma": [
+                "2",
+                "2",
+                "3/2"
+              ],
+              "r": "5/2",
+              "q": "1/2",
+              "randomized_losses": [
+                "13149/47068",
+                "9/11767",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "13149/47068",
+                "3267/47068",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "6/41",
+                "32/41",
+                "36/41"
+              ],
+              "probabilities": [
+                "17/45",
+                "1/3",
+                "13/45"
+              ],
+              "gamma": [
+                "3",
+                "1/3",
+                "0"
+              ],
+              "r": "17/6",
+              "q": "3/2",
+              "randomized_losses": [
+                "13780/15129",
+                "26/1681",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "13780/15129",
+                "10166/226935",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "12/41",
+                "13/41",
+                "30/41"
+              ],
+              "probabilities": [
+                "1/7",
+                "2/7",
+                "4/7"
+              ],
+              "gamma": [
+                "1/2",
+                "3/2",
+                "3"
+              ],
+              "r": "3",
+              "q": "1",
+              "randomized_losses": [
+                "19021/23534",
+                "17/11767",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "19021/23534",
+                "445/23534",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "23/41",
+                "27/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "13/28",
+                "9/28",
+                "3/14"
+              ],
+              "gamma": [
+                "2",
+                "2",
+                "2"
+              ],
+              "r": "5/4",
+              "q": "5/4",
+              "randomized_losses": [
+                "15237/188272",
+                "1065/174824",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "15237/188272",
+                "216/11767",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "4/41",
+                "7/41",
+                "12/41"
+              ],
+              "probabilities": [
+                "5/31",
+                "14/31",
+                "12/31"
+              ],
+              "gamma": [
+                "1",
+                "1",
+                "3/2"
+              ],
+              "r": "3",
+              "q": "1",
+              "randomized_losses": [
+                "16614/52111",
+                "105/52111",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "16614/52111",
+                "4998/52111",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "18/41",
+                "19/41",
+                "36/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "1/25",
+                "19/25",
+                "2/25",
+                "3/25"
+              ],
+              "gamma": [
+                "5/2",
+                "3/2",
+                "2",
+                "4"
+              ],
+              "r": "25/4",
+              "q": "5/4",
+              "randomized_losses": [
+                "48841/67240",
+                "543/67240",
+                "17/8405",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "48841/67240",
+                "56357/336200",
+                "2601/42025",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "18/41",
+                "27/41",
+                "35/41",
+                "36/41"
+              ],
+              "probabilities": [
+                "15/43",
+                "8/43",
+                "19/43",
+                "1/43"
+              ],
+              "gamma": [
+                "0",
+                "0",
+                "6",
+                "4"
+              ],
+              "r": "9/2",
+              "q": "3/2",
+              "randomized_losses": [
+                "309285/289132",
+                "2261/289132",
+                "114/72283",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "309285/289132",
+                "43949/289132",
+                "13/7052",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "6/41",
+                "28/41",
+                "32/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "10/33",
+                "2/33",
+                "6/11",
+                "1/11"
+              ],
+              "gamma": [
+                "1/3",
+                "3",
+                "2/3",
+                "2"
+              ],
+              "r": "19/4",
+              "q": "3/4",
+              "randomized_losses": [
+                "119563/55473",
+                "534/18491",
+                "2/1681",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "119563/55473",
+                "13678/55473",
+                "1406/18491",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "13/41",
+                "15/41",
+                "19/41",
+                "27/41"
+              ],
+              "probabilities": [
+                "14/47",
+                "13/47",
+                "9/47",
+                "11/47"
+              ],
+              "gamma": [
+                "1/2",
+                "2/3",
+                "0",
+                "2"
+              ],
+              "r": "7/3",
+              "q": "5/3",
+              "randomized_losses": [
+                "52138/237021",
+                "620/79007",
+                "260/237021",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "52138/237021",
+                "5624/79007",
+                "1898/79007",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "4/41",
+                "8/41",
+                "16/41",
+                "38/41"
+              ],
+              "probabilities": [
+                "2/15",
+                "1/3",
+                "1/15",
+                "7/15"
+              ],
+              "gamma": [
+                "3",
+                "1",
+                "5/3",
+                "3/4"
+              ],
+              "r": "20/3",
+              "q": "5",
+              "randomized_losses": [
+                "101609/50430",
+                "144/1681",
+                "80/5043",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "101609/50430",
+                "4624/15129",
+                "352/5043",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "2/41",
+                "4/41",
+                "20/41",
+                "38/41"
+              ],
+              "probabilities": [
+                "8/47",
+                "15/47",
+                "18/47",
+                "6/47"
+              ],
+              "gamma": [
+                "5",
+                "1/2",
+                "2",
+                "1/4"
+              ],
+              "r": "2",
+              "q": "1",
+              "randomized_losses": [
+                "45585/79007",
+                "3426/79007",
+                "240/79007",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "45585/79007",
+                "8352/79007",
+                "2385/79007",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "5/41",
+                "14/41",
+                "18/41",
+                "34/41"
+              ],
+              "probabilities": [
+                "19/64",
+                "17/64",
+                "5/16",
+                "1/8"
+              ],
+              "gamma": [
+                "2/3",
+                "4/3",
+                "6",
+                "5/3"
+              ],
+              "r": "2",
+              "q": "1",
+              "randomized_losses": [
+                "363523/645504",
+                "1805/53792",
+                "153/53792",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "363523/645504",
+                "1705/10086",
+                "195/3362",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "2/41",
+                "11/41",
+                "18/41",
+                "26/41"
+              ],
+              "probabilities": [
+                "19/42",
+                "4/21",
+                "1/21",
+                "13/42"
+              ],
+              "gamma": [
+                "6",
+                "3",
+                "1",
+                "0"
+              ],
+              "r": "23/12",
+              "q": "2/3",
+              "randomized_losses": [
+                "45722/105903",
+                "668/105903",
+                "8/15129",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "45722/105903",
+                "13313/105903",
+                "869/60516",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "5/41",
+                "10/41",
+                "15/41",
+                "21/41",
+                "31/41"
+              ],
+              "probabilities": [
+                "5/22",
+                "13/66",
+                "10/33",
+                "8/33",
+                "1/33"
+              ],
+              "gamma": [
+                "1",
+                "5",
+                "0",
+                "1",
+                "4"
+              ],
+              "r": "2/3",
+              "q": "2/3",
+              "randomized_losses": [
+                "3041/20172",
+                "3715/332838",
+                "1229/332838",
+                "325/332838",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "3041/20172",
+                "2963/60516",
+                "1250/55473",
+                "100/18491",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "11/41",
+                "13/41",
+                "19/41",
+                "28/41",
+                "31/41"
+              ],
+              "probabilities": [
+                "10/37",
+                "6/37",
+                "9/37",
+                "7/37",
+                "5/37"
+              ],
+              "gamma": [
+                "1/3",
+                "6",
+                "3/2",
+                "0",
+                "5/2"
+              ],
+              "r": "10/3",
+              "q": "4/3",
+              "randomized_losses": [
+                "36888/62197",
+                "958/62197",
+                "174/62197",
+                "48/62197",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "36888/62197",
+                "47473/248788",
+                "12145/248788",
+                "6065/248788",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "16/41",
+                "19/41",
+                "23/41",
+                "35/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "17/67",
+                "16/67",
+                "9/67",
+                "18/67",
+                "7/67"
+              ],
+              "gamma": [
+                "4/3",
+                "2",
+                "5",
+                "5/4",
+                "1"
+              ],
+              "r": "6",
+              "q": "1",
+              "randomized_losses": [
+                "578385/450508",
+                "3789/225254",
+                "636/112627",
+                "96/112627",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "578385/450508",
+                "33869/112627",
+                "15845/112627",
+                "7385/112627",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "9/41",
+                "10/41",
+                "11/41",
+                "20/41",
+                "21/41"
+              ],
+              "probabilities": [
+                "4/15",
+                "1/10",
+                "1/6",
+                "2/5",
+                "1/15"
+              ],
+              "gamma": [
+                "2",
+                "2",
+                "5/3",
+                "0",
+                "5/2"
+              ],
+              "r": "1/3",
+              "q": "1/3",
+              "randomized_losses": [
+                "1259/33620",
+                "217/302580",
+                "1691/5143860",
+                "1/100860",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "1259/33620",
+                "256/75645",
+                "76/75645",
+                "97/302580",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "12/41",
+                "15/41",
+                "18/41",
+                "22/41",
+                "34/41"
+              ],
+              "probabilities": [
+                "2/13",
+                "5/13",
+                "11/52",
+                "3/26",
+                "7/52"
+              ],
+              "gamma": [
+                "2/3",
+                "5",
+                "4",
+                "5/2",
+                "3/2"
+              ],
+              "r": "1/2",
+              "q": "1/2",
+              "randomized_losses": [
+                "4161/43706",
+                "2491/305942",
+                "9/6724",
+                "33/87412",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "4161/43706",
+                "3831/87412",
+                "5769/349648",
+                "93/21853",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "2/41",
+                "13/41",
+                "19/41",
+                "20/41",
+                "28/41"
+              ],
+              "probabilities": [
+                "1/4",
+                "1/16",
+                "3/8",
+                "1/16",
+                "1/4"
+              ],
+              "gamma": [
+                "1",
+                "1/2",
+                "0",
+                "2",
+                "1"
+              ],
+              "r": "2",
+              "q": "1",
+              "randomized_losses": [
+                "72259/107584",
+                "1227/53792",
+                "37/26896",
+                "1/6724",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "72259/107584",
+                "12725/107584",
+                "3653/107584",
+                "127/53792",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "15/41",
+                "18/41",
+                "25/41",
+                "39/41"
+              ],
+              "probabilities": [
+                "13/61",
+                "10/61",
+                "7/61",
+                "16/61",
+                "15/61"
+              ],
+              "gamma": [
+                "6",
+                "0",
+                "2",
+                "5/4",
+                "0"
+              ],
+              "r": "2",
+              "q": "1",
+              "randomized_losses": [
+                "159117/205082",
+                "10013/205082",
+                "964/102541",
+                "147/205082",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "159117/205082",
+                "56685/205082",
+                "23877/205082",
+                "2877/205082",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "10/41",
+                "14/41",
+                "15/41",
+                "18/41",
+                "22/41"
+              ],
+              "probabilities": [
+                "15/56",
+                "15/56",
+                "1/8",
+                "5/28",
+                "9/56"
+              ],
+              "gamma": [
+                "3/2",
+                "1",
+                "4/3",
+                "1/3",
+                "2/3"
+              ],
+              "r": "19/12",
+              "q": "1/4",
+              "randomized_losses": [
+                "145163/753088",
+                "1045/753088",
+                "45/188272",
+                "3/107584",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "145163/753088",
+                "178537/2259264",
+                "9047/322752",
+                "1487/322752",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "4/41",
+                "7/41",
+                "10/41",
+                "12/41",
+                "26/41",
+                "39/41"
+              ],
+              "probabilities": [
+                "17/57",
+                "1/57",
+                "11/57",
+                "2/19",
+                "5/57",
+                "17/57"
+              ],
+              "gamma": [
+                "1/2",
+                "2/3",
+                "4",
+                "1",
+                "0",
+                "2/3"
+              ],
+              "r": "6",
+              "q": "5",
+              "randomized_losses": [
+                "400847/287451",
+                "11840/95817",
+                "5285/191634",
+                "245/63878",
+                "15/63878",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "400847/287451",
+                "29511/63878",
+                "10295/63878",
+                "1975/63878",
+                "439/63878",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "8/41",
+                "13/41",
+                "24/41",
+                "30/41",
+                "35/41"
+              ],
+              "probabilities": [
+                "4/23",
+                "20/69",
+                "4/69",
+                "14/69",
+                "17/69",
+                "2/69"
+              ],
+              "gamma": [
+                "0",
+                "1",
+                "1",
+                "3",
+                "3",
+                "2"
+              ],
+              "r": "7/3",
+              "q": "4/3",
+              "randomized_losses": [
+                "622381/695934",
+                "11008/347967",
+                "4568/347967",
+                "1460/347967",
+                "440/347967",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "622381/695934",
+                "63506/347967",
+                "30506/347967",
+                "6770/347967",
+                "1720/347967",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "7/41",
+                "8/41",
+                "11/41",
+                "23/41",
+                "24/41",
+                "31/41"
+              ],
+              "probabilities": [
+                "5/66",
+                "19/66",
+                "7/66",
+                "8/33",
+                "17/66",
+                "1/33"
+              ],
+              "gamma": [
+                "0",
+                "1",
+                "2/3",
+                "1",
+                "3/2",
+                "1/2"
+              ],
+              "r": "7",
+              "q": "2",
+              "randomized_losses": [
+                "2045947/1331352",
+                "763/20172",
+                "370/55473",
+                "8/5043",
+                "19/36982",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "2045947/1331352",
+                "247195/1331352",
+                "52121/443784",
+                "31411/443784",
+                "595/20172",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "2/41",
+                "5/41",
+                "11/41",
+                "15/41",
+                "26/41",
+                "31/41"
+              ],
+              "probabilities": [
+                "1/9",
+                "4/63",
+                "1/9",
+                "5/21",
+                "11/63",
+                "19/63"
+              ],
+              "gamma": [
+                "3",
+                "2/3",
+                "1/2",
+                "2",
+                "0",
+                "0"
+              ],
+              "r": "8/3",
+              "q": "1",
+              "randomized_losses": [
+                "31147/30996",
+                "334/11767",
+                "977/211806",
+                "62/35301",
+                "4/11767",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "31147/30996",
+                "453347/1270836",
+                "12841/90774",
+                "2434/35301",
+                "1282/105903",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "7/41",
+                "8/41",
+                "24/41",
+                "28/41",
+                "29/41",
+                "32/41"
+              ],
+              "probabilities": [
+                "5/29",
+                "17/58",
+                "7/58",
+                "3/58",
+                "5/58",
+                "8/29"
+              ],
+              "gamma": [
+                "5",
+                "0",
+                "1",
+                "5",
+                "1/4",
+                "0"
+              ],
+              "r": "29/12",
+              "q": "3/4",
+              "randomized_losses": [
+                "1565537/2339952",
+                "2913/389992",
+                "1185/779984",
+                "9/19024",
+                "9/194996",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "1565537/2339952",
+                "351703/2339952",
+                "37277/779984",
+                "47471/2339952",
+                "2335/584988",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "10/41",
+                "11/41",
+                "21/41",
+                "24/41",
+                "28/41",
+                "37/41"
+              ],
+              "probabilities": [
+                "5/21",
+                "10/63",
+                "11/63",
+                "1/63",
+                "2/7",
+                "8/63"
+              ],
+              "gamma": [
+                "6",
+                "4/3",
+                "2",
+                "0",
+                "1",
+                "5"
+              ],
+              "r": "5/6",
+              "q": "1/2",
+              "randomized_losses": [
+                "426151/1270836",
+                "2647/211806",
+                "1073/423612",
+                "4/15129",
+                "1/35301",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "426151/1270836",
+                "13873/181548",
+                "39295/1270836",
+                "625/181548",
+                "275/423612",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "4/41",
+                "18/41",
+                "20/41",
+                "25/41",
+                "36/41"
+              ],
+              "probabilities": [
+                "1/34",
+                "3/17",
+                "3/17",
+                "5/34",
+                "1/34",
+                "15/34"
+              ],
+              "gamma": [
+                "3",
+                "4",
+                "1",
+                "3/4",
+                "1/3",
+                "5/3"
+              ],
+              "r": "6",
+              "q": "3",
+              "randomized_losses": [
+                "3622033/1371696",
+                "5121/57154",
+                "963/114308",
+                "201/57154",
+                "75/57154",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "3622033/1371696",
+                "1067833/1371696",
+                "27607/342924",
+                "6965/171462",
+                "1345/85731",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "5/41",
+                "8/41",
+                "11/41",
+                "14/41",
+                "15/41",
+                "22/41"
+              ],
+              "probabilities": [
+                "3/35",
+                "2/35",
+                "1/35",
+                "4/35",
+                "19/35",
+                "6/35"
+              ],
+              "gamma": [
+                "3/2",
+                "0",
+                "2",
+                "1/3",
+                "0",
+                "1"
+              ],
+              "r": "6",
+              "q": "1",
+              "randomized_losses": [
+                "80891/58835",
+                "884/58835",
+                "51/58835",
+                "3/11767",
+                "9/117670",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "80891/58835",
+                "36871/117670",
+                "14599/117670",
+                "2901/58835",
+                "1437/117670",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "11/41",
+                "15/41",
+                "19/41",
+                "22/41",
+                "30/41",
+                "33/41"
+              ],
+              "probabilities": [
+                "5/18",
+                "1/18",
+                "1/4",
+                "1/72",
+                "2/9",
+                "1/36",
+                "11/72"
+              ],
+              "gamma": [
+                "2",
+                "0",
+                "5/3",
+                "0",
+                "3",
+                "1/2",
+                "3"
+              ],
+              "r": "3",
+              "q": "3",
+              "randomized_losses": [
+                "69473/80688",
+                "1989/23944",
+                "251/13448",
+                "47/20172",
+                "5/6724",
+                "1/6724",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "69473/80688",
+                "19673/80688",
+                "11201/121032",
+                "538/15129",
+                "130/15129",
+                "4/1681",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "11/41",
+                "14/41",
+                "15/41",
+                "16/41",
+                "29/41",
+                "33/41",
+                "39/41"
+              ],
+              "probabilities": [
+                "9/67",
+                "12/67",
+                "18/67",
+                "2/67",
+                "1/67",
+                "18/67",
+                "7/67"
+              ],
+              "gamma": [
+                "5/3",
+                "5/4",
+                "1",
+                "0",
+                "6",
+                "0",
+                "5/3"
+              ],
+              "r": "4",
+              "q": "4",
+              "randomized_losses": [
+                "379061/675762",
+                "2/41",
+                "1302/112627",
+                "252/112627",
+                "124/112627",
+                "36/112627",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "379061/675762",
+                "34027/225254",
+                "5228/112627",
+                "2906/112627",
+                "1254/112627",
+                "204/112627",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "6/41",
+                "7/41",
+                "9/41",
+                "14/41",
+                "26/41",
+                "27/41",
+                "28/41"
+              ],
+              "probabilities": [
+                "8/77",
+                "4/77",
+                "19/77",
+                "15/77",
+                "2/77",
+                "16/77",
+                "13/77"
+              ],
+              "gamma": [
+                "1/4",
+                "2",
+                "2",
+                "1/4",
+                "2",
+                "0",
+                "2/3"
+              ],
+              "r": "14/3",
+              "q": "3",
+              "randomized_losses": [
+                "758327/776622",
+                "9789/258874",
+                "1707/258874",
+                "36/11767",
+                "36/129437",
+                "12/129437",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "758327/776622",
+                "207847/776622",
+                "90967/776622",
+                "2300/55473",
+                "603/36982",
+                "2074/388311",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "4/41",
+                "11/41",
+                "18/41",
+                "19/41",
+                "36/41",
+                "37/41"
+              ],
+              "probabilities": [
+                "19/80",
+                "1/8",
+                "1/8",
+                "1/40",
+                "19/80",
+                "3/16",
+                "1/16"
+              ],
+              "gamma": [
+                "1/2",
+                "1/2",
+                "0",
+                "3",
+                "5/4",
+                "1/3",
+                "2"
+              ],
+              "r": "19/12",
+              "q": "1/3",
+              "randomized_losses": [
+                "185149/322752",
+                "8947/806880",
+                "215/161376",
+                "113/268960",
+                "7/67240",
+                "7/403440",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "185149/322752",
+                "71341/322752",
+                "33809/645504",
+                "22763/1613760",
+                "727/107584",
+                "215/107584",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "13/41",
+                "16/41",
+                "18/41",
+                "23/41",
+                "24/41",
+                "27/41",
+                "36/41"
+              ],
+              "probabilities": [
+                "3/70",
+                "4/35",
+                "9/70",
+                "1/5",
+                "6/35",
+                "3/35",
+                "9/35"
+              ],
+              "gamma": [
+                "2",
+                "4/3",
+                "0",
+                "3",
+                "3",
+                "1/4",
+                "0"
+              ],
+              "r": "4/3",
+              "q": "1/3",
+              "randomized_losses": [
+                "266369/706020",
+                "545/70602",
+                "251/235340",
+                "2/5043",
+                "1/8405",
+                "3/58835",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "266369/706020",
+                "31333/235340",
+                "10351/235340",
+                "1293/58835",
+                "731/58835",
+                "58/11767",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "10/41",
+                "14/41",
+                "15/41",
+                "23/41",
+                "24/41",
+                "40/41"
+              ],
+              "probabilities": [
+                "3/73",
+                "18/73",
+                "5/73",
+                "12/73",
+                "17/73",
+                "14/73",
+                "4/73"
+              ],
+              "gamma": [
+                "3/4",
+                "3",
+                "5/3",
+                "3/4",
+                "5",
+                "3",
+                "6"
+              ],
+              "r": "6",
+              "q": "4",
+              "randomized_losses": [
+                "1565233/736278",
+                "18524/122713",
+                "7018/122713",
+                "1530/122713",
+                "312/122713",
+                "40/122713",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "1565233/736278",
+                "515233/736278",
+                "178057/736278",
+                "32075/245426",
+                "8819/245426",
+                "2149/122713",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "7/41",
+                "16/41",
+                "22/41",
+                "23/41",
+                "33/41",
+                "39/41"
+              ],
+              "probabilities": [
+                "17/80",
+                "3/20",
+                "1/40",
+                "1/8",
+                "1/8",
+                "3/20",
+                "17/80"
+              ],
+              "gamma": [
+                "1",
+                "5/4",
+                "3/4",
+                "2/3",
+                "0",
+                "4",
+                "1/4"
+              ],
+              "r": "4",
+              "q": "3",
+              "randomized_losses": [
+                "2243113/1613760",
+                "28917/268960",
+                "1371/67240",
+                "183/16810",
+                "39/16810",
+                "9/13448",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "2243113/1613760",
+                "376923/1075840",
+                "70701/537920",
+                "36581/537920",
+                "13427/537920",
+                "193/26896",
+                "0"
+              ]
+            },
+            {
+              "caps": [
+                "3/41",
+                "4/41",
+                "8/41",
+                "16/41",
+                "20/41",
+                "21/41",
+                "26/41"
+              ],
+              "probabilities": [
+                "6/23",
+                "7/69",
+                "10/69",
+                "1/23",
+                "11/69",
+                "19/69",
+                "1/69"
+              ],
+              "gamma": [
+                "1/4",
+                "0",
+                "4/3",
+                "4/3",
+                "2",
+                "1",
+                "2"
+              ],
+              "r": "9",
+              "q": "4",
+              "randomized_losses": [
+                "652112/347967",
+                "1234/38663",
+                "642/38663",
+                "146/38663",
+                "48/38663",
+                "56/115989",
+                "0"
+              ],
+              "deterministic_pathwise_losses": [
+                "652112/347967",
+                "242455/695934",
+                "34955/231978",
+                "19291/231978",
+                "1295/38663",
+                "1400/115989",
+                "0"
+              ]
+            }
+          ],
+          "scaling": [
+            {
+              "branches": 16,
+              "budgets": 8,
+              "randomized_seconds": 0.014026127999997584,
+              "deterministic_seconds": 0.016002703999994594,
+              "max_output_bits": 17,
+              "randomized_loss_m8": "35/39304",
+              "deterministic_pathwise_loss_m8": "5041/117912"
+            },
+            {
+              "branches": 32,
+              "budgets": 8,
+              "randomized_seconds": 0.06127669400000002,
+              "deterministic_seconds": 0.08128986000000538,
+              "max_output_bits": 21,
+              "randomized_loss_m8": "89/71874",
+              "deterministic_pathwise_loss_m8": "109411/1724976"
+            },
+            {
+              "branches": 64,
+              "budgets": 8,
+              "randomized_seconds": 0.25345864800000584,
+              "deterministic_seconds": 0.3596095430000048,
+              "max_output_bits": 26,
+              "randomized_loss_m8": "23/16900",
+              "deterministic_pathwise_loss_m8": "654661/8788000"
+            },
+            {
+              "branches": 128,
+              "budgets": 8,
+              "randomized_seconds": 1.029517159000001,
+              "deterministic_seconds": 1.4949344090000025,
+              "max_output_bits": 29,
+              "randomized_loss_m8": "390425/274776192",
+              "deterministic_pathwise_loss_m8": "22078357/274776192"
+            }
+          ],
+          "off_cap_regression": {
+            "loss": "23/1280",
+            "codebook": [
+              "1/4",
+              "5/8"
+            ],
+            "root_payment": "17/40",
+            "branches": [
+              {
+                "cap": "1/4",
+                "intermediate": "0",
+                "lottery": [
+                  [
+                    0,
+                    "1"
+                  ]
+                ],
+                "expected_cap_residual": "0",
+                "pathwise_cap_satisfied": true
+              },
+              {
+                "cap": "1/2",
+                "intermediate": "0",
+                "lottery": [
+                  [
+                    0,
+                    "1/3"
+                  ],
+                  [
+                    1,
+                    "2/3"
+                  ]
+                ],
+                "expected_cap_residual": "0",
+                "pathwise_cap_satisfied": false
+              },
+              {
+                "cap": "3/4",
+                "intermediate": "1/8",
+                "lottery": [
+                  [
+                    1,
+                    "1"
+                  ]
+                ],
+                "expected_cap_residual": "0",
+                "pathwise_cap_satisfied": true
+              }
+            ],
+            "exact_replay": "PASS"
+          },
+          "uniform_regression": {
+            "loss": "1/96",
+            "codebook": [
+              "1/4",
+              "3/4"
+            ],
+            "root_payment": "1/2",
+            "branches": [
+              {
+                "cap": "1/4",
+                "intermediate": "0",
+                "lottery": [
+                  [
+                    0,
+                    "1"
+                  ]
+                ],
+                "expected_cap_residual": "0",
+                "pathwise_cap_satisfied": true
+              },
+              {
+                "cap": "1/2",
+                "intermediate": "0",
+                "lottery": [
+                  [
+                    0,
+                    "1/2"
+                  ],
+                  [
+                    1,
+                    "1/2"
+                  ]
+                ],
+                "expected_cap_residual": "0",
+                "pathwise_cap_satisfied": false
+              },
+              {
+                "cap": "3/4",
+                "intermediate": "0",
+                "lottery": [
+                  [
+                    1,
+                    "1"
+                  ]
+                ],
+                "expected_cap_residual": "0",
+                "pathwise_cap_satisfied": true
+              }
+            ],
+            "exact_replay": "PASS"
+          },
+          "best_cap_only_off_cap_instance": "3/160",
+          "source_sha256": {
+            "randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
+            "verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578"
+          },
+          "scope": "Exact comparator enumerates the theorem-reduced candidates. Grid checks are falsification, not global proofs. Timings are reproducibility data, not published-specialist benchmarks."
+        }
+      }
+    },
+    "note": "Both suites executed without modifying inherited scripts or result files. These are inherited regression tests, not new independent evidence."
+  },
+  "source_sha256": {
+    "main.tex": "744c78b10f9af52f02cbb6408a22f7045d42579bc0b864e41bd4567cb8ff0469",
+    "electronic_companion.tex": "d3066e6736016d0f43d4bc84254815a49f1a37648939b546e0ceb1362c70a052",
+    "revisions/or-r35-monge-frontier-20260923/DERIVATION_PROVENANCE.md": "e4fb9997de6752af4c7802c39fd4e4515e6782d753298ebf1880e4829eba290e",
+    "revisions/or-r35-monge-frontier-20260923/LOCAL_READER_REVIEW.md": "faf29ede0594fc4fca8af18f4314966abd521e461b54a453e75ebe8e2eae174d",
+    "revisions/or-r35-monge-frontier-20260923/PRESERVATION_MANIFEST.json": "babd49944e33422ec241e1e7ea18b39214cc4c136840332b7a82512c64c58609",
+    "revisions/or-r35-monge-frontier-20260923/README.md": "1cc4d15b06d825ee8a5d648d6f820e72795a95e917b7674fb0f89fd05375d0b0",
+    "revisions/or-r35-monge-frontier-20260923/RESPONSE_TO_REFEREES.md": "7725155041fda278b8e18112ca62da99be65d1040f299d204d188386b10a89bb",
+    "revisions/or-r35-monge-frontier-20260923/RESPONSE_TO_REFEREES.tex": "665ed444100834e57c30d24b626745d452c12aeebcb83f2d00ff7da7856b2e1c",
+    "revisions/or-r35-monge-frontier-20260923/benchmark.json": "ea276b9bbb07a782d7326591b301f6c31ca0f07ea124b0f7b83a8d34a3fa3c7d",
+    "revisions/or-r35-monge-frontier-20260923/benchmark.py": "4740b01f34d3bc6bd8f106749c577a23a7b012bea3bb4bcac516b55680b221ec",
+    "revisions/or-r35-monge-frontier-20260923/build_validate.py": "2062bf765abfc50f250e3834d26af7fc774c4d871f7c49138b93606f327a4d8b",
+    "revisions/or-r35-monge-frontier-20260923/companion_addendum.tex": "3b76a11fa561f55f56f6a680329ab6dcd114b6cbeeba0ce1fadf1cf82d69ab7f",
+    "revisions/or-r35-monge-frontier-20260923/evidence.tex": "3c177d083f39a9bde3f21f2748d249c05ba8fc3af6e7cf61cee22f142a31c41a",
+    "revisions/or-r35-monge-frontier-20260923/evidence_table.tex": "dbf68ef26d5504592c53a90637f847c8833b494fa9a265a1347e5edaa77bc4a3",
+    "revisions/or-r35-monge-frontier-20260923/frontier_acceleration.tex": "b43e0c2319d370df354874bd37d017e44c1b2cd42065547691262ede5c733f91",
+    "revisions/or-r35-monge-frontier-20260923/inherited_verification.json": "8cac722fbe5ee2582dcd9aacec95153c44bd418e2dd4d6c768961db894dc877e",
+    "revisions/or-r35-monge-frontier-20260923/introduction.tex": "a93e0dcd4a3677ee1a3fd6f6c9fcdb584a0ca2bce60cbcde50f36b07a2631e78",
+    "revisions/or-r35-monge-frontier-20260923/monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f",
+    "revisions/or-r35-monge-frontier-20260923/references.tex": "ad58dc21cad15800521f0016060055c841c4d81a45cfece0d5e4cb7fdf0738a2",
+    "revisions/or-r35-monge-frontier-20260923/reproduce_inherited.py": "3b49cc291f35027962634ab2bfde01eeef5de940264545c817793ccb6bcaef83",
+    "revisions/or-r35-monge-frontier-20260923/response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
+    "revisions/or-r35-monge-frontier-20260923/scaling.csv": "c599429aad658c4bb51a7ae7b1403d27532aaebbab3426196218e1b35f249b28",
+    "revisions/or-r35-monge-frontier-20260923/verification.json": "303967f5012d7f6079c30f22ad1acd6e8e7068a8751aff4290a010dfa358eea4",
+    "revisions/or-r35-monge-frontier-20260923/verify.py": "5eaabca51d8ee519352d66935e0f3d922d84ee53e730250c754d2cc84cfaabaa"
+  },
+  "preserved_reader_files": 53,
+  "preserved_predecessor_wrappers": 4,
+  "whole_remote_tree_preservation": {
+    "status": "PASS",
+    "base_commit": "fbfdf24b370201c810425f633f5fc06048282b5c",
+    "deleted_base_files": 0,
+    "unauthorized_changed_base_files": 0,
+    "all_base_paths_checked": true
+  },
+  "submission_category": "Lengthy Manuscript; no journal submission performed",
+  "format": {
+    "font_points": 11,
+    "line_spacing": 1.5,
+    "margins_inches": 1,
+    "tables_after_references": true,
+    "main_excluding_references_at_most_40": true,
+    "companion_not_longer_than_main": true
+  },
+  "note": "A clean build and exact tests do not determine referee acceptance, empirical calibration, or exhaustive literature priority."
+}
