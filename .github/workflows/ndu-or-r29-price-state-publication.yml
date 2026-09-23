@@ -47,8 +47,14 @@ jobs:
           for name,content in data.items():
               assert Path(name).name==name and isinstance(content,str)
               (r/name).write_text(content,encoding='utf-8')
+          overlay=base64.b64decode((r/'transport/final-overlay.py.xz.b64').read_text(),validate=True)
+          assert hashlib.sha256(overlay).hexdigest()=='1d501bdd07940e4a0fb8196d280cfeb4875ae714955df0489610b5ac181aa29b'
+          overlay=lzma.decompress(overlay)
+          assert hashlib.sha256(overlay).hexdigest()=='b0242302377b6fe9e7edac04b65c09c0baf2022756ebf51fa11035f73034f87d'
+          (r/'transport/apply_final_review.py').write_bytes(overlay)
           print('Materialized 27 authored files; both payload hashes verified.')
           PY
+          python -S "$R/transport/apply_final_review.py"
       - name: Install pinned numerical checks and typesetting dependencies
         run: |
           python -m pip install -r "$R/requirements-validation.txt"
