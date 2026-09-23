@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scientific_source_commit": "576c00e98269b89e83393d25c06f1f4226062521",
+  "transport_commit": "00d31413a711b6bc9da8756580298bbef814f2c1",
+  "predecessor_commit": "238bfdb24d93439a545551d275a0c9189dbc017b",
+  "abstract_words": 183,
+  "python": "3.12.14",
+  "runner": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "documents": {
+    "main": {
+      "pages": 30,
+      "sha256": "34065bf10b5d609eb2d409663e887bf13f65fd4c45c8a5eb57ccf9faf3c1bdc2",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    },
+    "electronic_companion": {
+      "pages": 15,
+      "sha256": "f1cc3080585ac171dad950ae52bfbbd18612c68c9c541f10df643ed0e61ffa3a",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    }
+  },
+  "new_exact_verification": {
+    "status": "PASS",
+    "arithmetic": "fractions.Fraction; no numerical tolerances",
+    "random_seed": 20260923,
+    "piecewise_dag_instances": 24,
+    "local_optimality_checks": 4170,
+    "whole_graph_circuit_checks": 834,
+    "primal_dual_certificates": 836,
+    "circuit_inversions": 834,
+    "parametric_active_set_reference": [
+      {
+        "instance": 0,
+        "active_sets_attempted": 130,
+        "valid_kkt_regions": 5,
+        "open_cells_compared": 5,
+        "full_path_equal": true
+      },
+      {
+        "instance": 1,
+        "active_sets_attempted": 130,
+        "valid_kkt_regions": 3,
+        "open_cells_compared": 3,
+        "full_path_equal": true
+      },
+      {
+        "instance": 2,
+        "active_sets_attempted": 130,
+        "valid_kkt_regions": 4,
+        "open_cells_compared": 4,
+        "full_path_equal": true
+      },
+      {
+        "instance": 3,
+        "active_sets_attempted": 130,
+        "valid_kkt_regions": 5,
+        "open_cells_compared": 5,
+        "full_path_equal": true
+      }
+    ],
+    "chain_sizes": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "deterministic_two_symbol_loss": "1/8",
+    "randomized_two_symbol_loss": "1/96",
+    "runtime_seconds": 1.277285237000001,
+    "limitations": [
+      "Synthetic exact verification, not service data.",
+      "Active-set reference is exponential, not published solver software.",
+      "Timing is descriptive and environment-dependent."
+    ]
+  },
+  "tables_after_references": true,
+  "main_all_pages_at_most_30": true,
+  "companion_not_longer_than_main": true,
+  "note": "Exact tests and clean typesetting are not a referee acceptance or an exhaustive priority certification."
+}
