@@ -1,0 +1,89 @@
+\subsection{Continuous promises with executable error certificates}\label{sec:continuous}
+The sufficient-state statement is not yet an approximation guarantee. Interpolating a value table can violate an exact promise or admit a customer continuation that the contract excludes. We next construct both a feasible policy and a value bound without rounding the promise to a grid point.
+
+Specialize to $x,q\in[0,1]$, $a_t(z)>0$, and
+\begin{equation}\label{eq:r26-stage}
+ g_t(z,q,x)=r_t(z)x-\tfrac12d_t(z)x^2-\ell_t(z)|x-q|,
+ \qquad d_t(z)>0,\quad\ell_t(z)\geq0.
+\end{equation}
+Only the Markov continuation caps and the exact payment commitment are imposed in this specialization; additional nonlocal constraints require additional state. Write $I_t(z)=[L_t(z),U_t(z)]$ for feasible remaining promises. With $L_T=U_T=0$, their endpoints satisfy
+\begin{equation}\label{eq:r26-domain}
+ L_t(z)=\beta\sum_jP_t(z,j)L_{t+1}(j),\qquad
+ U_t(z)=\min\left\{\bar b_t(z),\ a_t(z)+\beta\sum_jP_t(z,j)U_{t+1}(j)\right\}.
+\end{equation}
+A state is infeasible if a positive-probability successor is infeasible or the displayed lower endpoint exceeds the upper endpoint. All statements below are on feasible states; $\mathcal D_t(z)=[0,1]\times I_t(z)$ includes the boundary.
+
+At each date and regime, retain finitely many anchors $(q_i,b_i,l_i)$ and affine upper planes $H_k(q,b)=A_kq+B_kb+C_k$. An anchor includes a feasible current action and mixtures of child anchors with the exact inherited tier and remaining promise, not just a scalar value. The anchor coordinates span $\mathcal D_t(z)$. Define
+\begin{equation}\label{eq:r26-envelopes}
+ \begin{split}
+ \underline V_t(z,q,b)&=\max_{\alpha\geq0}\left\{\sum_i\alpha_i l_i:
+ \sum_i\alpha_i=1,\ \sum_i\alpha_i(q_i,b_i)=(q,b)\right\},\\
+ \overline V_t(z,q,b)&=\min_k H_k(q,b).
+ \end{split}
+\end{equation}
+To generate a parent plane, choose any convex mixture of child planes for each successor $j$, with coefficients $(A_j,B_j,C_j)$. Suppress the parent date and regime in $a,r,d,\ell,P$. For any $s\in[-\ell,\ell]$ and $\eta\in\R$, put
+\begin{equation}\label{eq:r26-plane}
+ \begin{split}
+ H(q,b)&=s q+\eta b+C,\\
+ C&=\psi_d\!\left(r-s-a\eta+\beta\sum_jP_jA_j\right)
+ +\beta\sum_jP_j\left[C_j+
+ \max_{v\in I_{t+1}(j)}(B_j-\eta)v\right],\\
+ \psi_d(v)&=\max_{0\leq x\leq1}\{vx-dx^2/2\}.
+ \end{split}
+\end{equation}
+The maximizer in $\psi_d$ is $\min\{1,\max\{0,v/d\}\}$. Thus a proposed plane has a checkable global constant even when its prices were obtained only approximately.
+
+\begin{theorem}[Promise-preserving continuous-state envelopes]\label{thm:r26-envelopes}
+Under \eqref{eq:r26-stage} and the stated Markov assumptions, the interval recursion \eqref{eq:r26-domain} is exact and $\mathcal V_t(z,\cdot,\cdot)$ is concave on $\mathcal D_t(z)$. Start with zero terminal values and construct anchors and planes backward as above. If every anchor reward is a lower bound for its displayed feasible action and child mixtures, and every plane constant is at least \eqref{eq:r26-plane}, then
+\begin{equation}\label{eq:r26-bracket}
+ \underline V_t(z,q,b)\leq\mathcal V_t(z,q,b)\leq\overline V_t(z,q,b)
+ \quad\text{for every }(q,b)\in\mathcal D_t(z).
+\end{equation}
+At a queried state, an optimizing mixture in \eqref{eq:r26-envelopes}, followed by its mixed action and child promises, gives a deterministic accepted policy with value at least $\underline V_t$. Repeating this procedure using only the current augmented state preserves every continuation cap and the exact root payment. Its loss is at most $\overline V_t-\underline V_t$.
+
+A uniform certificate requires no unproved smoothness rate. Triangulate the anchor rectangle using stored grid anchors. For a triangle $C_0$ with vertices $i$, let
+\begin{equation}\label{eq:r26-uniform}
+ \varepsilon_t(z)=\max_{C_0}\min_k\max_{i\in\operatorname{vert}(C_0)}
+ \{H_k(q_i,b_i)-l_i\}.
+\end{equation}
+Then $0\leq\mathcal V_t-\underline V_t\leq\varepsilon_t(z)$ throughout the rectangle. The order of the minimum and maximum in \eqref{eq:r26-uniform} matters: checking only the minimum-plane gap at each vertex does not in general certify the interior.
+\end{theorem}
+\begin{proof}
+The attainable parent promises are the sum of the action-payment interval and the discounted child intervals, intersected with the parent's cap. This proves \eqref{eq:r26-domain} by induction. Deterministic convex combinations of two feasible subtree policies preserve the affine payment equalities and all continuation inequalities. Joint concavity of \eqref{eq:r26-stage}, including its inherited-tier argument, proves value concavity.
+
+For a lower anchor, combine the displayed action with the child mixtures. Induction gives the stated reward lower bound. A convex mixture of parent witnesses remains feasible at its mixed inherited tier and promise; concavity bounds its reward from below by the mixed anchor rewards. At the next review, reoptimizing the child mixture cannot reduce that lower bound. This proves the executable lower envelope without storing a separate policy for every history.
+
+For the upper bound, replace each child value by its chosen affine majorant, use $-\ell|x-q|\leq-s(x-q)$, and subtract $\eta$ times the promise equation. Maximizing the separated action and child-promise terms gives \eqref{eq:r26-plane}. This is weak duality and requires neither an interior promise nor exact optimizer multipliers. The minimum of the resulting planes remains an upper bound.
+
+On a triangle, barycentric interpolation of its anchor rewards is no larger than $\underline V_t$. For any one plane, the difference from that interpolation is affine and is maximized at a vertex. Minimize this bound over planes, then maximize over triangles. This proves \eqref{eq:r26-uniform}.
+\end{proof}
+
+The construction compresses \emph{certificates} as well as values. With at most $A_0$ anchors and $H_0$ planes per date--regime and at most $B_0$ successors, dense witness storage is of order $TS_0B_0(A_0^2+H_0^2)$, not the number of histories. Sparse mixtures reduce storage further. Evaluating a policy still requires a small mixture linear program; building each table requires optimization over child allocations. Neither the anchor count needed for a prescribed tolerance nor the size of rational arithmetic is bounded independently of the problem data. Concave interpolation and stochastic dual cuts are established ideas \citep{PereiraPinto1991}; the contractual conclusion here is that continuous promise interpolation can be accompanied by exact participation feasibility, recursive price witnesses, and an a posteriori policy-loss bound. No such conclusion is inferred from finite-action enumeration alone. In particular, deterministic mixing is invalid for indivisible tiers unless mixtures themselves are admissible actions.
+
+\subsection{What is lost by omitting part of the augmented state?}\label{sec:omitted-state}
+Theorem~\ref{thm:recursion} gives zero value to additional history once the displayed state is sufficient. A smaller decision table can still lose value. That loss can be bounded from a certified full-class decision rather than attributed vaguely to ``adaptivity.''
+
+Let $\mathcal A$ be the affine subspace imposing a predeclared pooling of histories, and let $Y=X\cap\mathcal A$ be nonempty. For the general objective in Section~\ref{sec:model}, define
+$\operatorname{dist}_Q(x,\mathcal A)=\inf_{y\in\mathcal A}\norm{x-y}_Q$, where $\norm{u}_Q^2=u^\top Q u$.
+\begin{proposition}[Certified value of omitted state]\label{prop:r26-dispersion}
+Let $x^*$ maximize $W$ on $X$. Then
+\begin{equation}\label{eq:r26-dispersion}
+ J-K\geq\tfrac12\operatorname{dist}_Q(x^*,\mathcal A)^2.
+\end{equation}
+For any accepted $\widehat x$ and valid $U_X\geq J$, put $\epsilon=U_X-W(\widehat x)$. The computable bound
+\begin{equation}\label{eq:r26-inexact-dispersion}
+ J-K\geq\tfrac12\left[\operatorname{dist}_Q(\widehat x,\mathcal A)
+                   -\sqrt{2\epsilon}\right]_+^2
+\end{equation}
+is valid. If $Q$ is diagonal with entries $d_n>0$ and $\mathcal A$ only pools decisions in cells $C$, the squared distance is
+$\sum_C\sum_{n\in C}d_n(\widehat x_n-\bar x_C)^2$, where
+$\bar x_C=\sum_{n\in C}d_n\widehat x_n/\sum_{n\in C}d_n$.
+\end{proposition}
+\begin{proof}
+Strong concavity and optimality on the convex set $X$ imply
+$W(x^*)-W(y)\geq\norm{x^*-y}_Q^2/2$ for every $y\in X$; the argument also holds at switching kinks by applying strong concavity to the segment from $x^*$ to $y$ and letting its length tend to zero. Minimize the distance over the larger set $\mathcal A$. The same inequality gives $\norm{x^*-\widehat x}_Q\leq\sqrt{2\epsilon}$. Distance to a closed affine set is 1-Lipschitz in that norm. The diagonal formula is the weighted least-squares projection.
+\end{proof}
+
+Two exact examples isolate the omitted coordinates. In the first, a three-date tree has one root, two equiprobable date-1 regimes, and a common date-2 regime. Let $a=\beta=1$, $x\in[0,1]$, stage reward $r_nx-x^2/2$, and reward coefficients $(0,1/4,-1/4,0,0)$ in root, left, right, left-terminal, right-terminal order. Set root promise 2, date-1 caps $3/4$ and $5/4$, and terminal caps 1. The optimal accepted policy is $(1,1/2,1/2,1/4,3/4)$, with value $-25/32$. A date--regime table must pool the terminal actions and has optimum $(1,1/4,3/4,1/2,1/2)$, with value $-27/32$. The gain is $1/16$. The full optimizer reaches the two terminal histories with the same public regime and the same inherited tier $1/2$, but different remaining promises $1/4$ and $3/4$. Thus inherited tier cannot substitute for the promise in these continuation decisions. The curvature lower bound is $1/32$.
+
+Conversely, consider two remaining dates, one regime, the same remaining promise 1, and inherited tiers 0 and 1 occurring with equal probability. With quadratic cost $(x^2+(1-x)^2)/2$, incoming switching cost $3|x-q|/2$, and final switching cost $|1-2x|/2$, the informed first actions are $1/4$ and $3/4$. Their average value is $-15/16$. A tier-blind common first action is optimally $1/2$, with value $-1$. Thus the promise does not replace the inherited tier either. EC Section~\ref{ec:r26} proves both examples, explains the interpolation residual bound, and specifies the independent continuous-state checks.

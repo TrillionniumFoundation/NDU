@@ -1,16 +1,16 @@
-# R25 Operations Research manuscript checklist
+# Operations Research R26 review checklist
 
-- Current anonymous journal-facing documents: `main.pdf`, `electronic_companion.pdf`.
-- Regular-paper target: 11-point text, letter paper, one-inch margins, one-and-a-half line spacing. The total main PDF is within the 30-page regular-paper allowance even before excluding references; the EC is shorter than the main paper. Actual page counts are in `results/package_check.json`.
-- Abstract: 182 words, no equations. Introduction: no equations or mathematical notation.
-- Author–year bibliography; title identifies accepted service adaptation; continuation price is distinguished from promised-payment state.
-- Tables occur after the references. Figure-generation or rendered chart claims are not made: the evidence is in four source-linked tables.
-- Main and EC have resolved internal/external references and citations. Final LaTeX logs and PDF-page geometry are checked.
-- Institution is public-state service adaptation with exit-review participation. Ex ante participation is a root-only special case. No hidden-effort or private-information theorem is claimed.
-- All five comparator classes are optimized on common instances. Amendment pooling and actual-tier pooling are distinguished; raw units differ across the two designed families.
-- Mathematical proofs, numerical proposals, exact certificates, historical timing, and offline validation are separately labeled.
-- Every predecessor paper/EC/computational/historical source/PDF pair is preserved, with hashes and an archive guide. All earlier review/revision material remains in the repository.
-- Data/code accessibility statement, point-by-point response, pinned dependencies, independent replay, and final-SHA verification are included.
-- Human author identities, disclosures, publication permissions, and any journal submission forms still belong to the authors. The GitHub branch is an anonymous referee-review artifact, not an actual journal submission or editorial decision.
+- Isolated new branch: `revision/ndu-operations-research-r26-20260923`; scientific base R25 `7f3f12c9d412b45a570725dc9b61203d64da5e41`.
+- Both R24 reports retained and answered in `revisions/or-r26-20260923/RESPONSE_TO_REFEREES.md`.
+- Main title unchanged; continuation exit is primary; no private-information or learned speedup claim is introduced.
+- Main Theorem 6.2: exact promise domains, feasible deterministic mixtures, global recursive upper prices, whole-domain loss certificate.
+- Proposition 6.3: curvature-weighted omitted-state value, with inexact-optimizer correction.
+- Earlier optimized release, cap/friction rents, transfer, stock, hierarchy, comparator, robustness, and implementation results preserved.
+- Main/EC source and PDF pairs compiled; current page counts and mathematical-block preservation are reported by `results/package_check.json`.
+- Anonymous 11-point type; one-inch margins; 1.5 spacing; no equations in introduction; text-only abstract under 200 words; no footnotes; author–year alphabetical references; tables after references.
+- Regular-manuscript length checked conservatively using total PDF pages, including references and title page; EC shorter than main.
+- Numerical proposals distinguished from exact rational witnesses. New and inherited data kept separate; negative learning results retained.
+- Exact replay, 11 negative controls, predecessor hashes, PDF geometry, references, source-patch reproduction, and complete final manifest checked on the final published SHA.
+- Source/code/data package and response provided for additional author/referee review. Authorship, conflicts, overlap disclosures, review-area acceptance, and journal submission remain author/editor decisions; no such external certification or submission has been made here.
 
-Formatting was checked against the publisher's Operations Research manuscript-submission instructions, including the regular-paper and electronic-companion provisions. The mathematical evidence is not used to infer a publication guarantee.
+Guidelines checked September 23, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines . Publisher-verified literature records and DOI references are in the current bibliography and the response.

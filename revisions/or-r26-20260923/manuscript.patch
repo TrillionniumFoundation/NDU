@@ -1,0 +1,207 @@
+--- a/main.tex
++++ b/main.tex
+@@ -21,7 +21,7 @@
+ \newcommand{\argmax}{\operatorname*{arg\,max}}
+ \newcommand{\argmin}{\operatorname*{arg\,min}}
+ \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation}\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+-\externaldocument{r25-ec-labels}[electronic_companion.pdf]
++\externaldocument{r26-ec-labels}[electronic_companion.pdf]
+ \hypersetup{pdftitle={Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains},pdfauthor={Anonymous}}
+ \begin{document}
+ \begin{titlepage}\centering
+@@ -29,11 +29,11 @@
+ \vspace{.35in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
+ \begin{minipage}{\textwidth}
+ \textbf{Abstract.}
+-A service provider gains from adaptation only if each promised continuation remains acceptable. We study the value of expanding an optimized restricted contract under continuation participation, payment commitments, and switching costs. Our principal result characterizes the entire value frontier as contractual information restrictions are progressively released. On a regular segment, restriction prices determine the initial gain, a reduced curvature matrix determines its decay, and explicit continuation-slack ratios identify the first contractual bottleneck. Reoptimizing both classes yields a second distinction: greater continuation capacity can reduce the adaptation premium, whereas greater switching friction can increase it. Exact examples and a rent decomposition identify both effects. A promised-payment recursion establishes when public-state contracts can be implemented without storing the full history tree and when this compression fails. We evaluate fixed, time-only, current-regime, limited-memory, and full-history restrictions on common instances. Reusable restricted-value envelopes support economic certification without solving a new comparator at every nearby reward query. Radius-refined diagnostics explain the local behavior of robust outer comparators. Historical learned implementations and their unfavorable certified timing comparisons remain available as implementation evidence, separate from the contractual value results.
++A service provider gains from adaptation only if each promised continuation remains acceptable. We study expansion of an optimized restricted contract under continuation participation, payment commitments, and switching costs. A restriction-release theorem identifies the marginal gain, its reduced curvature, and the continuation-slack bottleneck that changes the optimal policy path. Reoptimizing both classes shows why greater continuation capacity can reduce the adaptation premium while greater switching friction can increase it. A second result constructs continuous promised-payment policies and global value bounds without enumerating public histories. Deterministic mixtures preserve exact promises and participation; recursive continuation prices certify an explicit error envelope, including at boundary promises. We quantify the value lost by omitting endogenous state and give exact examples separating promised payment from inherited service tiers. Common-instance comparisons distinguish fixed, scheduled, regime-dependent, limited-memory, and full-history contracts. Continuous-state experiments report verified uniform error bounds, while reusable comparator envelopes reduce repeated economic-certification work. Earlier unfavorable learned-implementation comparisons are retained. The results identify which contractual information creates value and how that value can be implemented with verifiable continuation guarantees.
+ \par\vspace{.15in}\textbf{Keywords:} continuation participation; service adaptation; contractual flexibility.
+ \par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming/optimal control: service adaptation; Inventory/production: service contracts; Programming: parametric convex optimization.
+ \par\vspace{.1in}\textbf{Area of review:} Stochastic Models.
+-\end{minipage}\vfill{Revision R25, September 23, 2026\par}
++\end{minipage}\vfill{Revision R26, September 23, 2026\par}
+ \end{titlepage}
+ 
+ \section{Introduction}
+@@ -47,7 +47,7 @@
+ 
+ A second contribution is the comparator-adjusted rent decomposition. It attributes changes in the adaptation premium to the difference between full-class and restricted-class continuation prices. It separates the value of adding information from the value of relaxing participation or capacity. A hierarchy of optimized contracts then assigns each increment of value to a specified expansion of the implementable menu. These increments are conditional on the ordering of the restrictions, not an invariant allocation of value among information features.
+ 
+-We make the exit-review institution primary. Public demand, fulfillment, service tiers, and the transfer schedule are contractible; there is no hidden effort or private type. A promised-payment state summarizes the remaining participation obligation when the primitives and outside opportunities have a finite Markov description. This is an augmented state: observing the current demand regime alone does not reveal the inherited tier or the remaining payment promise. The recursion is exact under its stated sufficiency conditions. It does not turn an exponentially growing history tree into a universally polynomial long-horizon problem.
++We make the exit-review institution primary. Public demand, fulfillment, service tiers, and the transfer schedule are contractible; there is no hidden effort or private type. A promised-payment state summarizes the remaining participation obligation when the primitives and outside opportunities have a finite Markov description. This is an augmented state: observing the current demand regime alone does not reveal the inherited tier or the remaining payment promise. The recursion is exact under its stated sufficiency conditions. It does not turn an exponentially growing history tree into a universally polynomial long-horizon problem. We therefore accompany the continuous-state recursion with feasible policy mixtures, recursive price upper bounds, and explicit error certificates over the entire promise domain. Exact examples and a curvature bound identify the value lost when a smaller table omits either endogenous coordinate.
+ 
+ Finally, a policy certificate and an economic certificate answer different questions. The first checks whether an implemented decision is accepted and sufficiently close to the full optimum. The second checks whether its value exceeds an optimized restriction. We provide a reusable upper envelope for the latter task when only rewards vary. We also explain why the robust comparator used in the earlier computational record converges at small uncertainty radii despite a steep initial slack curve. These results support deployment accounting; they do not replace the contractual contribution with a claim about a particular prediction architecture.
+ 
+@@ -57,6 +57,8 @@
+ Continuation states are established in dynamic contracting. \citet{SpearSrivastava1987} and \citet{ThomasWorrall1988} use recursive contractual promises in environments with incentive or enforcement constraints. In Operations Research, \citet{ChenSunXiao2020} study optimal monitoring when unobserved effort changes the arrival of adverse events. Their formulation uses the agent's promised continuation utility as a state, with promise keeping, incentive compatibility, and continued participation determining its evolution. \citet{LiangSunTangZhang2023} study resource-allocation contracts that induce effort to reduce adverse events and derive implementable allocation structures using dynamic incentives and self-generating sets.
+ 
+ Our public-state institution does not solve those information problems. Its controls are contingent service tiers under externally fixed prices, and its binding constraints are continuation participation and physical or payment commitments. The question is which accepted deviations improve upon an already optimized information restriction. A \emph{continuation price} here is a multiplier on a continuation participation constraint. It is not the customer's promised utility. The promised payment in Section~\ref{sec:recursion} is instead a primal state variable. This distinction prevents a dual representation from being mistaken for a new promised-utility construction.
++
++The journal-local boundary also includes maintenance, capacity partnerships, and dynamic assignment. \citet{TianSunDuenyas2021} choose payments and potential termination to induce unobserved maintenance and repair effort. \citet{LiuLewisSongKuribko2019} design renegotiated membership agreements and transfers under privately updated demand information. \citet{He2023} derives deadline mechanisms for project assignment with a privately evolving cost type and limited capacity. Here demand and service are public, prices are fixed, and customer exit is a participation constraint rather than a privately informed report or an endogenous termination instrument. Switching friction enters the provider's operating objective. The structural question is the value of relaxing a specified public-information restriction, and its implementation through an exact remaining-payment state; we do not claim a solution to those incentive-design problems.
+ 
+ Constrained Markov decision processes supply resource-state and occupation-measure methods \citep{Altman1999}. Strong convexity, normal cones, and sensitivity of convex values are standard \citep{BoydVandenberghe2004}. Absolute-value switching is an instance of a generalized-lasso penalty \citep{TibshiraniTaylor2011}. Explicit parametric quadratic programming supplies the piecewise-affine policy and piecewise-quadratic value structure used below \citep{Bemporad2002}. We do not claim any of these general principles as new. Our use of them distinguishes restriction rents from participation rents, identifies the continuation-slack event that terminates a profitable release, and accounts for reoptimization of the comparator. The transfer identity by itself establishes none of those value comparisons.
+ 
+@@ -70,7 +72,7 @@
+ \end{equation}
+ Maintenance and switching costs are resources expended by the provider, not transfers received by the customer.
+ 
+-The customer may leave \emph{before implementation at every review}. Remaining contractual utility must exceed the publicly specified outside continuation $\underline U(h_t)$ at every positive-probability history $h_t$. The provider commits to its announced contingent protocol; the exit right does not let it retrospectively change prices or tiers. We consider contracts intended to retain the customer at all modeled reviews. A model in which termination is itself an optimized action would need an additional termination decision.
++An operational interpretation is a service-level agreement or maintenance subscription with verifiable fulfillment and periodic cancellation rights, rather than an unrestricted mechanism-design problem. The customer may leave \emph{before implementation at every review}. Remaining contractual utility must exceed the publicly specified outside continuation $\underline U(h_t)$ at every positive-probability history $h_t$. The provider commits to its announced contingent protocol; the exit right does not let it retrospectively change prices or tiers. We consider contracts intended to retain the customer at all modeled reviews. A model in which termination is itself an optimized action would need an additional termination decision.
+ 
+ Stock can be contractually specified. It can also be identified from service and cost commitments: if $s_z$ uniquely minimizes $C_z(S)-\xi f_z(S)$, $\xi>0$, then $F^\pi\geq F^s$ and $C^\pi\leq C^s$ force $S_t=s_{z_t}$ at every reachable review. The nonnegative expected sum of the minimization gaps must be zero. EC Section~\ref{ec:stock} gives the boundary, vector, and relaxed-commitment statements. Thus the tier reduction need not assume away a stock decision that the accepted physical commitments already determine. Without such identification, stock must remain in the accepted optimization.
+ 
+@@ -278,6 +280,8 @@
+ 
+ A branching factor $B$ and $T$ decision dates can create $N=(B^T-1)/(B-1)$ history nodes. The linear transfer map is linear in $N$, not in $T$. The recursion avoids materializing those histories when the displayed state is sufficient, but its promise state is continuous in the continuous-tier model. A grid with $G$ promise points, $Q_0$ inherited-tier points, $S_0$ regimes, and $k$ commitment coordinates has order $T S_0 Q_0 G^k$ value entries; choosing child allocations is an additional cost and can grow exponentially in the number of successors. Such a grid is an approximation unless the contract institution itself has the stated finite actions and attainable promises. Our exact recursion checks use the latter finite-action interpretation, and exhaustively compare every attainable root promise with the full history enumeration. No interpolation theorem or unrestricted polynomial-horizon guarantee is inferred from them.
+ 
++\input{revisions/or-r26-20260923/continuous_main.tex}
++
+ \section{Implemented Gains and Reusable Comparator Certificates}\label{sec:certification}
+ A feasible implemented $\widehat x$ and a valid upper bound $U_Y\geq K$ give the economic certificate
+ \begin{equation}\label{eq:certificate}
+@@ -332,6 +336,10 @@
+ The row envelope can be tightened by taking its support over the equality-restricted box rather than an unrestricted box. EC Section~\ref{ec:outer} also gives a valid successive-outer-set refinement. Neither a small uncertainty radius nor set containment alone establishes field robustness: the uncertainty set remains a designed, uncalibrated family. Without a uniform anchor, the linear rate above is not asserted. The finer-radius experiment distinguishes high local sensitivity from an actual positive-radius discontinuity.
+ 
+ \section{Computational Evidence}\label{sec:evidence}
++\subsection{Continuous-state guarantees without history enumeration}
++Table~\ref{tab:r26-envelopes} reports the new construction in Section~\ref{sec:continuous}. Bounds cover every inherited tier and feasible root promise, not only evaluation points. In the four-period design, refining from 25 to 289 anchors per date--regime reduces the worst root bound from 0.113253 to 0.019567. The sixteen-period design stores 800 lower anchors rather than constructing a 65,535-node binary history tree; its coarser grid gives a wider 0.193576 bound. These figures report approximation guarantees and storage, not matched-time superiority or a uniform complexity rate. The six designs, complete rational witnesses, and all eleven negative controls are specified in EC Section~\ref{ec:r26}.
++\input{revisions/or-r26-20260923/tables/envelopes.tex}
++
+ \subsection{Protocol and common-instance comparator hierarchy}
+ We use two explicitly different families. The first takes the first 24 nominal contexts of the frozen R24 design: 63 history nodes, two service coordinates, six resource-reward coordinates, all continuation rows, and four shared capacities. A pooled action is an equal \emph{amendment} to the existing heterogeneous tier. The fixed-amendment class is the singleton zero amendment because the exact root payment prevents a nonzero uniform change. Calling this an optimized constant actual tier would be incorrect.
+ 
+@@ -372,5 +380,7 @@
+ \section*{Data and Code Accessibility}
+ The separate code/data package contains the R25 source, rational certificate records, exact example checks, finite-action recursion checks, replay and build scripts, a point-by-point response, and a preservation manifest. It also contains the complete predecessor manuscript, formal companion, computational record, historical supplement, and earlier repository derivations. None of the predecessor mathematical statements or empirical tables is silently discarded. The current manuscript and its formal electronic companion form the journal-facing argument; the predecessor and computational documents are an indexed research archive rather than additional required theorem layers. No field data are used. Repository delivery is for further author/referee review and is not a submission to the journal.
+ 
+-\input{revisions/or-r25-20260923/references.tex}
++The R26 directory adds the continuous-state generators, independent rational verifier, point-by-point response to both R24 reports, and byte-identical R25 predecessor copies. The inherited R25/R24 results are replayed rather than relabeled as new measurements. Both formal documents retain their predecessor mathematical statements and proofs; the new continuous-state and omitted-information results are integrated in Section~\ref{sec:recursion}.
++
++\input{revisions/or-r26-20260923/references.tex}
+ \end{document}
+--- a/electronic_companion.tex
++++ b/electronic_companion.tex
+@@ -17,11 +17,11 @@
+ \renewcommand{\thesection}{EC.\arabic{section}}
+ \renewcommand{\thepage}{EC.\arabic{page}}
+ \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation: Electronic Companion}\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+-\externaldocument{r25-main-labels}[main.pdf]
++\externaldocument{r26-main-labels}[main.pdf]
+ \begin{document}
+ \begin{center}{\Large\bfseries Electronic Companion}\par\vspace{.12in}
+ Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains\par
+-Revision R25, September 23, 2026\end{center}
++Revision R26, September 23, 2026\end{center}
+ This companion contains the supporting derivations for the current theorem chain and the exact experimental specification. The complete R24 manuscript and companion, including the earlier neural/value-gradient and certificate-development results, are preserved byte for byte in the separate code/data research archive. They are not additional sections needed to interpret the main theorems. The primary institution in this revision is participation at every review; the ex ante-only master agreement is the case in which the nonroot participation constraints are absent.
+ 
+ \section{Identified Stocks and the Participation Reduction}\label{ec:stock}
+@@ -291,4 +291,5 @@
+ All historical learned and robust timing records remain unchanged. The new work does not conduct a new neural race, estimate field generalization, or fit a calibrated uncertainty set. The exact certificate calculations validate the displayed designed models and arithmetic; they do not establish journal acceptance or substitute for expert scrutiny of the proofs.
+ 
+ \input{revisions/or-r25-20260923/references.tex}
++\input{revisions/or-r26-20260923/continuous_ec.tex}
+ \end{document}
+--- a/main.bib
++++ b/main.bib
+@@ -465,3 +465,8 @@
+  journal={Operations Research}, year={2023}, volume={71}, number={5}, pages={1889--1907},
+  doi={10.1287/opre.2022.2322}, note={First published online in 2022}
+ }
++
++@article{TianSunDuenyas2021, author={Tian, Feng and Sun, Peng and Duenyas, Izak}, title={Optimal Contract for Machine Repair and Maintenance}, journal={Operations Research}, year={2021}, volume={69}, number={3}, pages={916--949}, doi={10.1287/opre.2020.2018}}
++@article{LiuLewisSongKuribko2019, author={Liu, Fang and Lewis, Tracy R. and Song, Jing-Sheng and Kuribko, Nataliya}, title={Long-Term Partnership for Achieving Efficient Capacity Allocation}, journal={Operations Research}, year={2019}, volume={67}, number={4}, pages={984--1001}, doi={10.1287/opre.2019.1878}}
++@article{He2023, author={He, Wei}, title={Technical Note---Dynamic Mechanism Design with Capacity Constraint}, journal={Operations Research}, year={2023}, volume={71}, number={5}, pages={1610--1618}, doi={10.1287/opre.2023.2449}}
++@article{PereiraPinto1991, author={Pereira, M. V. F. and Pinto, L. M. V. G.}, title={Multi-stage stochastic optimization applied to energy planning}, journal={Mathematical Programming}, year={1991}, volume={52}, pages={359--375}, doi={10.1007/BF01582895}}
+--- a/README.md
++++ b/README.md
+@@ -1,42 +1,39 @@
+-# Accepted Service Adaptation — Operations Research R25
++# Accepted Service Adaptation — Operations Research R26
+ 
+ **Current manuscript:** *Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains*.
+ 
+-R25 is a theory-centered response to the September 23 R24 referee report. The isolated delivery branch is `revision/ndu-operations-research-r25-20260923`. It starts from review commit `9080e29443191f9bb415ab0a213af446d4ce3be3`; the reviewed scientific predecessor is `63bbb843e1bbe7cac2170dc7d317d4cf18bb2bb8`. No default or review branch is edited.
++R26 responds to both September 23 R24 reports, including the independent report absent from the R25 tree. It builds on the complete R25 scientific tip `7f3f12c9d412b45a570725dc9b61203d64da5e41` and is delivered only on `revision/ndu-operations-research-r26-20260923`. Main and review branches, R25, and previous revision branches are not changed.
+ 
+ ## Referee reading order
+ 
+-Read `main.pdf` (source `main.tex`), then `electronic_companion.pdf` for extended proofs and exact experimental specification. The point-by-point reply is `revisions/or-r25-20260923/RESPONSE_TO_REFEREE.md`. The key results are Theorem 4.1 (restriction-release frontier, reduced curvature, first continuation-slack bottleneck), Theorem 5.1 (comparator-adjusted continuation rents), Proposition 5.2 (optimized friction path), and Theorem 6.1 (sufficient promised-payment state). Propositions 7.1–7.2 support comparator reuse and local outer-comparator loss.
++Read `main.pdf`, then `electronic_companion.pdf`. The response is `revisions/or-r26-20260923/RESPONSE_TO_REFEREES.md`. The optimized restriction-release and comparator-rent results remain Theorem 4.1, Theorem 5.1, and Proposition 5.2. New **Theorem 6.2** gives continuous promised-payment policies and global error bounds; **Proposition 6.3** certifies the value of omitted state. Main Table 1 and EC.10 specify the new continuous-state evidence. All retained R25 hierarchy, radius, cache, and historical timing tables follow it.
+ 
+-The new experiments compare all five optimized contract classes on 48 common instances, examine eight contexts at ten uncertainty radii, and validate a four-anchor comparator cache. The raw coefficients, policies, dual bounds, exact examples, and separate verifier are under `revisions/or-r25-20260923/`. The current matched-learning conclusion remains negative; no new speed advantage is asserted.
++The exact examples separate the promise from the inherited tier. The continuous-state study verifies 4,414 feasible anchors and 1,123 recursive price planes across six synthetic models. Its uniform guarantees cover all feasible promises and inherited tiers, not only sampled states. The study makes no learned speedup or matched-time comparison.
+ 
+-## Preserved research archive
++## Preservation
+ 
+-`revisions/or-r25-20260923/predecessor/` contains byte-identical R24 source/PDF pairs for the main paper, formal companion, computational record, and historical supplement, together with its bibliography and reading guides. `PREDECESSOR_SHA256.json` verifies them. All previous revision directories and review reports remain unchanged. The root `computational_supplement.pdf` and `historical_supplement.pdf` remain the historical documents, not new R25 evidence. Their original labels and provenance are retained.
++R26 `predecessor/` preserves 12 R25 source/PDF/reference/guide files byte for byte. Every R25 mathematical statement/proof environment is retained in the current formal documents. All earlier revision paths and both R24 reports remain available. The R24 predecessor inside R25 and the root computational/historical supplements are unchanged. `ARCHIVE_GUIDE.md`, `PREDECESSOR_SHA256.json`, and `SOURCE_REVIEWS.json` identify lineage and evidence boundaries.
+ 
+-Use `revisions/or-r25-20260923/ARCHIVE_GUIDE.md` for the theory lineage and evidence boundaries. The current main/EC are the journal-facing argument; the archive is not an extra chain of required formal supplements.
++## Replay and regeneration
+ 
+-## Replay, regeneration, and build
+-
+-Independent replay requires only Python's standard library:
++Independent verification uses only Python's standard library:
+ 
+ ```bash
++python -S revisions/or-r26-20260923/replay.py --check
+ python -S revisions/or-r25-20260923/replay.py --check
+ python -S revisions/or-r24-20260923/replay.py --check
+ ```
+ 
+-To regenerate the new designed evidence, install the pinned packages in `requirements.txt` within the R25 directory. The numerical proposals use OSQP and CasADi's HiGHS/IPOPT interfaces; acceptance is determined by the independent rational verifier, not solver status. No neural model is fitted in R25.
++Regenerate only the new study and build the current PDFs:
+ 
+ ```bash
+-R=revisions/or-r25-20260923
+-python "$R/structural_checks.py"
+-python -S "$R/promise_checks.py"
+-python "$R/study.py" all
+-python -S "$R/replay.py"
++R=revisions/or-r26-20260923
++python -m pip install -r "$R/requirements.txt"
++bash "$R/regenerate.sh"
+ bash "$R/build.sh"
+ python "$R/check_package.py"
+ ```
+ 
+-The LaTeX build needs the standard AMS, NewTX, natbib, endfloat, geometry, and xr-hyper packages. The build filters external-label files to labels only and runs four paired passes; `main.bib` preserves and extends the bibliography while the current manual bibliography is `revisions/or-r25-20260923/references.tex`. `MANIFEST.json` records the actual published source, PDF, and evidence hashes. The publication workflow checks out the final generated commit for a second replay and attaches status `ndu-or-r25/final-sha` to that commit.
++`envelope.py` uses numerical LP proposals; `replay.py` checks exact rational continuation feasibility, prices, supports, and whole-domain bounds. No solver status is accepted as a certificate. `MANIFEST.json` pins the complete published source/PDF/evidence package. The publication workflow creates the final scientific commit, checks it out again, and attaches `ndu-or-r26/final-sha` only after independent verification.
+ 
+-Exact replay proves statements about the stored models, bounds, and finite examples. It does not establish field robustness, a continuous-state grid error rate, an end-to-end learning speedup, or journal acceptance. This repository delivery is for further author/referee review, not a journal submission.
++The current PDFs follow the Operations Research anonymous, 11-point, one-inch-margin, 1.5-spaced format, with an equation-free introduction and author–year references. This is repository delivery for further review, not submission to the journal or a guarantee of acceptance. The unfavorable historical learned-amortization results remain unchanged.
+--- a/NDU_OR_submission_checklist.md
++++ b/NDU_OR_submission_checklist.md
+@@ -1,16 +1,16 @@
+-# R25 Operations Research manuscript checklist
++# Operations Research R26 review checklist
+ 
+-- Current anonymous journal-facing documents: `main.pdf`, `electronic_companion.pdf`.
+-- Regular-paper target: 11-point text, letter paper, one-inch margins, one-and-a-half line spacing. The total main PDF is within the 30-page regular-paper allowance even before excluding references; the EC is shorter than the main paper. Actual page counts are in `results/package_check.json`.
+-- Abstract: 182 words, no equations. Introduction: no equations or mathematical notation.
+-- Author–year bibliography; title identifies accepted service adaptation; continuation price is distinguished from promised-payment state.
+-- Tables occur after the references. Figure-generation or rendered chart claims are not made: the evidence is in four source-linked tables.
+-- Main and EC have resolved internal/external references and citations. Final LaTeX logs and PDF-page geometry are checked.
+-- Institution is public-state service adaptation with exit-review participation. Ex ante participation is a root-only special case. No hidden-effort or private-information theorem is claimed.
+-- All five comparator classes are optimized on common instances. Amendment pooling and actual-tier pooling are distinguished; raw units differ across the two designed families.
+-- Mathematical proofs, numerical proposals, exact certificates, historical timing, and offline validation are separately labeled.
+-- Every predecessor paper/EC/computational/historical source/PDF pair is preserved, with hashes and an archive guide. All earlier review/revision material remains in the repository.
+-- Data/code accessibility statement, point-by-point response, pinned dependencies, independent replay, and final-SHA verification are included.
+-- Human author identities, disclosures, publication permissions, and any journal submission forms still belong to the authors. The GitHub branch is an anonymous referee-review artifact, not an actual journal submission or editorial decision.
++- Isolated new branch: `revision/ndu-operations-research-r26-20260923`; scientific base R25 `7f3f12c9d412b45a570725dc9b61203d64da5e41`.
++- Both R24 reports retained and answered in `revisions/or-r26-20260923/RESPONSE_TO_REFEREES.md`.
++- Main title unchanged; continuation exit is primary; no private-information or learned speedup claim is introduced.
++- Main Theorem 6.2: exact promise domains, feasible deterministic mixtures, global recursive upper prices, whole-domain loss certificate.
++- Proposition 6.3: curvature-weighted omitted-state value, with inexact-optimizer correction.
++- Earlier optimized release, cap/friction rents, transfer, stock, hierarchy, comparator, robustness, and implementation results preserved.
++- Main/EC source and PDF pairs compiled; current page counts and mathematical-block preservation are reported by `results/package_check.json`.
++- Anonymous 11-point type; one-inch margins; 1.5 spacing; no equations in introduction; text-only abstract under 200 words; no footnotes; author–year alphabetical references; tables after references.
++- Regular-manuscript length checked conservatively using total PDF pages, including references and title page; EC shorter than main.
++- Numerical proposals distinguished from exact rational witnesses. New and inherited data kept separate; negative learning results retained.
++- Exact replay, 11 negative controls, predecessor hashes, PDF geometry, references, source-patch reproduction, and complete final manifest checked on the final published SHA.
++- Source/code/data package and response provided for additional author/referee review. Authorship, conflicts, overlap disclosures, review-area acceptance, and journal submission remain author/editor decisions; no such external certification or submission has been made here.
+ 
+-Formatting was checked against the publisher's Operations Research manuscript-submission instructions, including the regular-paper and electronic-companion provisions. The mathematical evidence is not used to infer a publication guarantee.
++Guidelines checked September 23, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines . Publisher-verified literature records and DOI references are in the current bibliography and the response.

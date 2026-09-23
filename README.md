@@ -1,42 +1,39 @@
-# Accepted Service Adaptation — Operations Research R25
+# Accepted Service Adaptation — Operations Research R26
 
 **Current manuscript:** *Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains*.
 
-R25 is a theory-centered response to the September 23 R24 referee report. The isolated delivery branch is `revision/ndu-operations-research-r25-20260923`. It starts from review commit `9080e29443191f9bb415ab0a213af446d4ce3be3`; the reviewed scientific predecessor is `63bbb843e1bbe7cac2170dc7d317d4cf18bb2bb8`. No default or review branch is edited.
+R26 responds to both September 23 R24 reports, including the independent report absent from the R25 tree. It builds on the complete R25 scientific tip `7f3f12c9d412b45a570725dc9b61203d64da5e41` and is delivered only on `revision/ndu-operations-research-r26-20260923`. Main and review branches, R25, and previous revision branches are not changed.
 
 ## Referee reading order
 
-Read `main.pdf` (source `main.tex`), then `electronic_companion.pdf` for extended proofs and exact experimental specification. The point-by-point reply is `revisions/or-r25-20260923/RESPONSE_TO_REFEREE.md`. The key results are Theorem 4.1 (restriction-release frontier, reduced curvature, first continuation-slack bottleneck), Theorem 5.1 (comparator-adjusted continuation rents), Proposition 5.2 (optimized friction path), and Theorem 6.1 (sufficient promised-payment state). Propositions 7.1–7.2 support comparator reuse and local outer-comparator loss.
+Read `main.pdf`, then `electronic_companion.pdf`. The response is `revisions/or-r26-20260923/RESPONSE_TO_REFEREES.md`. The optimized restriction-release and comparator-rent results remain Theorem 4.1, Theorem 5.1, and Proposition 5.2. New **Theorem 6.2** gives continuous promised-payment policies and global error bounds; **Proposition 6.3** certifies the value of omitted state. Main Table 1 and EC.10 specify the new continuous-state evidence. All retained R25 hierarchy, radius, cache, and historical timing tables follow it.
 
-The new experiments compare all five optimized contract classes on 48 common instances, examine eight contexts at ten uncertainty radii, and validate a four-anchor comparator cache. The raw coefficients, policies, dual bounds, exact examples, and separate verifier are under `revisions/or-r25-20260923/`. The current matched-learning conclusion remains negative; no new speed advantage is asserted.
+The exact examples separate the promise from the inherited tier. The continuous-state study verifies 4,414 feasible anchors and 1,123 recursive price planes across six synthetic models. Its uniform guarantees cover all feasible promises and inherited tiers, not only sampled states. The study makes no learned speedup or matched-time comparison.
 
-## Preserved research archive
+## Preservation
 
-`revisions/or-r25-20260923/predecessor/` contains byte-identical R24 source/PDF pairs for the main paper, formal companion, computational record, and historical supplement, together with its bibliography and reading guides. `PREDECESSOR_SHA256.json` verifies them. All previous revision directories and review reports remain unchanged. The root `computational_supplement.pdf` and `historical_supplement.pdf` remain the historical documents, not new R25 evidence. Their original labels and provenance are retained.
+R26 `predecessor/` preserves 12 R25 source/PDF/reference/guide files byte for byte. Every R25 mathematical statement/proof environment is retained in the current formal documents. All earlier revision paths and both R24 reports remain available. The R24 predecessor inside R25 and the root computational/historical supplements are unchanged. `ARCHIVE_GUIDE.md`, `PREDECESSOR_SHA256.json`, and `SOURCE_REVIEWS.json` identify lineage and evidence boundaries.
 
-Use `revisions/or-r25-20260923/ARCHIVE_GUIDE.md` for the theory lineage and evidence boundaries. The current main/EC are the journal-facing argument; the archive is not an extra chain of required formal supplements.
+## Replay and regeneration
 
-## Replay, regeneration, and build
-
-Independent replay requires only Python's standard library:
+Independent verification uses only Python's standard library:
 
 ```bash
+python -S revisions/or-r26-20260923/replay.py --check
 python -S revisions/or-r25-20260923/replay.py --check
 python -S revisions/or-r24-20260923/replay.py --check
 ```
 
-To regenerate the new designed evidence, install the pinned packages in `requirements.txt` within the R25 directory. The numerical proposals use OSQP and CasADi's HiGHS/IPOPT interfaces; acceptance is determined by the independent rational verifier, not solver status. No neural model is fitted in R25.
+Regenerate only the new study and build the current PDFs:
 
 ```bash
-R=revisions/or-r25-20260923
-python "$R/structural_checks.py"
-python -S "$R/promise_checks.py"
-python "$R/study.py" all
-python -S "$R/replay.py"
+R=revisions/or-r26-20260923
+python -m pip install -r "$R/requirements.txt"
+bash "$R/regenerate.sh"
 bash "$R/build.sh"
 python "$R/check_package.py"
 ```
 
-The LaTeX build needs the standard AMS, NewTX, natbib, endfloat, geometry, and xr-hyper packages. The build filters external-label files to labels only and runs four paired passes; `main.bib` preserves and extends the bibliography while the current manual bibliography is `revisions/or-r25-20260923/references.tex`. `MANIFEST.json` records the actual published source, PDF, and evidence hashes. The publication workflow checks out the final generated commit for a second replay and attaches status `ndu-or-r25/final-sha` to that commit.
+`envelope.py` uses numerical LP proposals; `replay.py` checks exact rational continuation feasibility, prices, supports, and whole-domain bounds. No solver status is accepted as a certificate. `MANIFEST.json` pins the complete published source/PDF/evidence package. The publication workflow creates the final scientific commit, checks it out again, and attaches `ndu-or-r26/final-sha` only after independent verification.
 
-Exact replay proves statements about the stored models, bounds, and finite examples. It does not establish field robustness, a continuous-state grid error rate, an end-to-end learning speedup, or journal acceptance. This repository delivery is for further author/referee review, not a journal submission.
+The current PDFs follow the Operations Research anonymous, 11-point, one-inch-margin, 1.5-spaced format, with an equation-free introduction and author–year references. This is repository delivery for further review, not submission to the journal or a guarantee of acceptance. The unfavorable historical learned-amortization results remain unchanged.
