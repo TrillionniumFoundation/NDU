@@ -1,7 +1,7 @@
 # Confidential Referee Report for Operations Research
 
 **Manuscript:** *Accepted Service Adaptation: Shared Policy Tables, Continuation Prices, and Certified Design*  
-**Branch reviewed:** `revision/ndu-operations-research-r29-20260923`  
+**Branch reviewed:** revision/ndu-operations-research-r29-20260923  
 **Nominal revision:** R29, September 23, 2026  
 **Scientific manuscript actually reviewed:** R28 content carried unchanged into R29  
 **Review type:** Independent harsh review against the *Operations Research* bar  
@@ -12,9 +12,9 @@
 
 I reviewed the tip of the branch identified above, the journal-facing manuscript, the electronic companion, the R28 shared-table bridge and governance material, the computational evidence, and the immediately preceding referee report.
 
-My first finding is procedural but scientifically important: **R29 is not a scientific manuscript revision.** Relative to `revision/ndu-operations-research-r28-20260923`, the R29 branch adds only the file
+My first finding is procedural but scientifically important: **R29 is not a scientific manuscript revision.** Relative to revision/ndu-operations-research-r28-20260923, the R29 branch adds only the file
 
-`reviews/operation_research_referee_report_r28_2026-09-23.md`.
+reviews/operation_research_referee_report_r28_2026-09-23.md.
 
 The manuscript source, electronic companion, computational supplement, R28 bridge, R28 governance section, evidence, bibliography, README content, and delivery checklist are not revised. The README still calls the package “Operations Research R28,” the title page still says “Revision R28,” and the checklist is still the R28 checklist. There is no R29 response-to-referees directory and no R29 scientific delta.
 
@@ -34,18 +34,18 @@ I did not find a simple fatal algebraic contradiction in the bridge proof, the r
 
 This point should be stated explicitly in the editorial record.
 
-The branch comparison R28 (ightarrow) R29 contains one added file and no scientific manuscript changes:
+The branch comparison R28 \(\rightarrow\) R29 contains one added file and no scientific manuscript changes:
 
-- added: `reviews/operation_research_referee_report_r28_2026-09-23.md`;
-- no change to `main.tex`;
-- no change to `electronic_companion.tex`;
-- no change to `computational_supplement.tex`;
+- added: reviews/operation_research_referee_report_r28_2026-09-23.md;
+- no change to main.tex;
+- no change to electronic_companion.tex;
+- no change to computational_supplement.tex;
 - no change to the R28 shared-table bridge;
 - no change to the R28 governance theorem;
 - no change to the R28 scaling evidence;
 - no change to the R28 bibliography.
 
-The current README begins “Accepted Service Adaptation — Operations Research R28.” The title page in `main.tex` says “Revision R28, September 23, 2026.” The delivery checklist is titled “R28 Operations Research format and delivery checklist.”
+The current README begins “Accepted Service Adaptation — Operations Research R28.” The title page in main.tex says “Revision R28, September 23, 2026.” The delivery checklist is titled “R28 Operations Research format and delivery checklist.”
 
 Therefore, if R29 is intended as a response to the preceding R28 referee report, it has not yet occurred. The branch number advanced; the paper did not.
 
@@ -74,7 +74,7 @@ The manuscript itself partly acknowledges this by saying that Benders decomposit
 
 I see the following residual statement:
 
-> for a particular additive scalar continuation-contract institution, the extensive-form dual multipliers can be normalized so that continuation prices obey a path recursion and table-corridor prices aggregate into a global stationarity condition.
+> For a particular additive scalar continuation-contract institution, the extensive-form dual multipliers can be normalized so that continuation prices obey a path recursion and table-corridor prices aggregate into a global stationarity condition.
 
 That is a clean representation theorem. I do not see why it is a top-journal stochastic-optimization result by itself.
 
@@ -84,11 +84,7 @@ That is a clean representation theorem. I do not see why it is a top-journal sto
 
 The phrase “dual-complete” sounds stronger than what is proved.
 
-The EC proof explicitly says:
-
-> Take an optimum of the joint ((x,u)) problem.
-
-It then obtains the relevant tree multipliers, normalizes them, and constructs the recursive planes backward.
+The EC proof explicitly begins from an optimum of the joint \((x,u)\) extensive-form problem. It then obtains the relevant tree multipliers, normalizes them, and constructs the recursive planes backward.
 
 Thus exactness is established **after the full extensive-form optimum and its dual information are available**.
 
@@ -115,9 +111,9 @@ I would strongly prefer a term such as **extensive-form-dual representability** 
 # 4. The root LP is a Benders-style master and should be positioned as such
 
 The root optimization
-[
-max_{u,v}{v: vle H_{0,a}(q_0,b_0;u,delta) orall a}
-]
+\[
+\max_{u,v}\{v: v\le H_{0,a}(q_0,b_0;u,\delta)\ \text{for every stored }a\}
+\]
 is a master problem over a global design variable constrained by affine cuts.
 
 That is a Benders-style master.
@@ -144,9 +140,9 @@ The bibliography continues to cite the classical origins—Benders (1962), Rocka
 
 At minimum, the manuscript should confront:
 
-- Girardeau, Leclere, and Philpott, “On the Convergence of Decomposition Methods for Multistage Stochastic Convex Programs,” *Mathematics of Operations Research* 40(1):130–145;
-- Dowson, “The Policy Graph Decomposition of Multistage Stochastic Programming Problems,” *Networks* 76(1):3–23;
-- Füllner and Rebennack, “Stochastic Dual Dynamic Programming and Its Variants: A Review,” *SIAM Review* 67(3):415–539.
+- P. Girardeau, V. Leclere, and A. B. Philpott, “On the Convergence of Decomposition Methods for Multistage Stochastic Convex Programs,” *Mathematics of Operations Research* 40(1):130–145;
+- O. Dowson, “The Policy Graph Decomposition of Multistage Stochastic Programming Problems,” *Networks* 76(1):3–23;
+- C. Füllner and S. Rebennack, “Stochastic Dual Dynamic Programming and Its Variants: A Review,” *SIAM Review* 67(3):415–539.
 
 This is not a request for cosmetic citations.
 
@@ -179,7 +175,7 @@ If the number of planes can grow with the number of histories, and if discoverin
 
 The paper acknowledges this in the companion, but the abstract and main narrative continue to benefit rhetorically from the word “state.”
 
-For Operations Research, I would want one of the following:
+For *Operations Research*, I would want one of the following:
 
 - a bound on plane growth;
 - a finite convergence theorem;
@@ -193,16 +189,16 @@ None is present.
 
 # 7. The shared-table dimension can itself erase the claimed compression
 
-The table (uin[0,1]^K) is global.
+The table \(u\in[0,1]^K\) is global.
 
-For a fixed finite-memory architecture, (K) may be manageable. But the paper does not characterize how (K) scales as the allowed memory class becomes richer.
+For a fixed finite-memory architecture, \(K\) may be manageable. But the paper does not characterize how \(K\) scales as the allowed memory class becomes richer.
 
-For a (d)-step history memory, the number of table cells can grow with the number of admissible public-memory states. If memory is enlarged toward full history, (K) can itself inherit combinatorial growth.
+For a \(d\)-step history memory, the number of table cells can grow with the number of admissible public-memory states. If memory is enlarged toward full history, \(K\) can itself inherit combinatorial growth.
 
-This matters because the root master has (K+1) variables, every stored plane carries a (K)-dimensional coefficient, and the companion’s own storage formula is
-[
+This matters because the root master has \(K+1\) variables, every stored plane carries a \(K\)-dimensional coefficient, and the companion’s own storage formula is
+\[
 O(TS_0M_0P_0(K+1)).
-]
+\]
 
 Thus the paper has not proved that the global table is a low-dimensional design object over the model classes that generate the largest value of information.
 
@@ -246,13 +242,13 @@ At present the paper wants the breadth of the general convex framework and the s
 # 9. The architecture-design section is mathematically correct but too elementary to supply operational novelty
 
 The “endogenous” architecture problem is
-[
-max_{j,delta}{V_{M_j}(delta)-C_j(delta)},
-]
+\[
+\max_{j,\delta}\{V_{M_j}(\delta)-C_j(\delta)\},
+\]
 with a declared cost schedule such as
-[
-C_j(delta)=f_j+c_jT|M_j|+a_jdelta+b_jdelta^2/2.
-]
+\[
+C_j(\delta)=f_j+c_jT|M_j|+a_j\delta+b_j\delta^2/2.
+\]
 
 This is a valid decision model.
 
@@ -267,17 +263,17 @@ Consequently the structural result reduces to:
 
 That is not a new information-acquisition theorem.
 
-The exact (delta=1/15) example is a useful illustration, not a paper-level contribution.
+The exact \(\delta=1/15\) example is a useful illustration, not a paper-level contribution.
 
 ---
 
 # 10. Cache governance is correct weak duality, and the paper’s own evidence is adverse
 
 The governance result
-[
-0le U-K_	hetale U-W_	heta(z^w)
-]
-is immediate once (W_	heta(z^w)le K_	hetale U).
+\[
+0\le U-K_\theta\le U-W_\theta(z^w)
+\]
+is immediate once \(W_\theta(z^w)\le K_\theta\le U\).
 
 It is a sensible operational rule, but it is not a substantial theorem.
 
@@ -332,8 +328,8 @@ A convincing experiment would compare against a competent extensive-form/nested-
 
 The companion’s conditional rate is explicit:
 
-- (O((L/arepsilon)^{d_s})) under Lipschitz regularity;
-- (O((M/arepsilon)^{d_s/2})) under smoothness.
+- \(O((L/\varepsilon)^{d_s})\) under Lipschitz regularity;
+- \(O((M/\varepsilon)^{d_s/2})\) under smoothness.
 
 This is mathematically honest.
 
@@ -407,19 +403,19 @@ I record these to distinguish “I disagree with the novelty claim” from “th
 ## 15.1 Shared-table quantifier order
 
 The paper is correct that
-[
-max_u sum_j p_j V_j(u)
-]
+\[
+\max_u \sum_j p_j V_j(u)
+\]
 cannot generally be replaced by
-[
-sum_jp_jmax_{u^j}V_j(u^j).
-]
+\[
+\sum_jp_j\max_{u^j}V_j(u^j).
+\]
 
 The latter changes the policy class. This is an important modeling warning, but it is fundamentally a nonanticipativity/linking-variable issue.
 
 ## 15.2 Corridor elimination
 
-For one scalar table entry in a memory cell, the common-intersection condition produces pairwise spread bounds with the factor (2deltaomega_c). The R28 example appears internally consistent on this point.
+For one scalar table entry in a memory cell, the common-intersection condition produces pairwise spread bounds with the factor \(2\delta\omega_c\). The R28 example appears internally consistent on this point.
 
 ## 15.3 Root-master upper bound
 
@@ -430,9 +426,9 @@ My objection is that exactness of the plane class is proved by importing the ext
 ## 15.4 Continuation-price normalization
 
 The relation
-[
-eta_j-chi_j=eta_n
-]
+\[
+\eta_j-\chi_j=\eta_n
+\]
 is a clear contract-specific normalization of nested cap prices. This is probably the most interesting structural identity in the paper.
 
 The missing step is a consequence theorem showing that this identity yields something unavailable to a generic multistage convex-program formulation.
@@ -537,4 +533,3 @@ The central bridge is an elegant specialization and reorganization of known mult
 I therefore do not see a plausible ordinary-revision path from this manuscript to the *Operations Research* bar. A publishable successor would need a different theorem-level center of gravity, not another layer of certification around the same representation.
 
 **Decision recommendation: Reject.**
-
