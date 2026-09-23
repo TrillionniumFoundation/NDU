@@ -1,0 +1,47 @@
+\section{Monge Structure and Exact Frontier Acceleration}\label{sec:r35-monge}
+The global construction in Section~\ref{sec:r34-global} searches every terminal interval for every last anchor and every preceding anchor for every prefix state. Neither quadratic scan is necessary. We show that both search families have ordered minimizers, including after the continuous highest level has been optimized. The deterministic frontier has the same property. This provides a same-input acceleration of the complete institutional comparison, rather than a speed ratio against an unfolded problem.
+
+The matrix-search principle is classical. Quadrangle inequalities and monotone search have long been used to accelerate dynamic programs \citep{Yao1980,AggarwalEtAl1987}. Our contribution here is to establish that structure for the contractual interpolation and \emph{continuously minimized terminal} costs. The implementation below uses elementary divide-and-conquer search; it does not claim to implement the stronger linear-search bounds available for suitable totally monotone matrix interfaces.
+
+Let $I_\ell=[b_\ell,b_{\ell+1}]$ for $\ell<k$, and $I_k=\{b_k\}$. Define
+\begin{equation}\label{eq:r35-Q}
+ Q(i,\ell)=\min_{z\in I_\ell}\Psi_{i\ell}(z),\qquad i\leq\ell\leq k.
+\end{equation}
+Thus $T_i=\min_{\ell\geq i}Q(i,\ell)$. A cost array is Monge on its feasible domain if every feasible ordered two-by-two subarray satisfies the uncrossing inequality: its northwest plus southeast entries do not exceed its northeast plus southwest entries. We always select the leftmost minimizer.
+
+\begin{theorem}[Monge frontiers]\label{thm:r35-monge}
+Under \eqref{eq:r34-primitives}, the following statements hold.
+\begin{enumerate}
+\item The anchored-edge costs $E$ and deterministic cell costs $C$ satisfy
+\begin{equation}\label{eq:r35-quad}
+ A(a,c)+A(b,d)\leq A(a,d)+A(b,c),\qquad a\leq b\leq c\leq d,
+\end{equation}
+for $A=E,C$. The cell-cost statement also holds under the general assumptions of Theorem~\ref{thm:frontier}.
+\item The interval-minimized terminal array $Q$ is Monge on $i\leq\ell$. Its leftmost minimizing interval is nondecreasing in the final-anchor index. The leftmost preceding-anchor indices in every feasible layer of \eqref{eq:r34-prefix} and \eqref{eq:segmentation} are nondecreasing in the endpoint index.
+\item For ordered rational inputs and $1\leq m\leq k$, both complete frontiers through budget $m$, including optimal codebooks, can be computed in
+\begin{equation}\label{eq:r35-work}
+ O\bigl(mk\log(k+1)\bigr)
+\end{equation}
+exact rational operations and comparisons, using $O(mk+k)$ stored scalars and indices. With the coefficient-height bound $S$ in Theorem~\ref{thm:r34-global}, a conservative Turing bound is $O(mk\log(k+1)S^3)$. This changes computation, not the feasible institution or the optimal frontier.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Expanding the quadratic interpolation costs gives \eqref{eq:r35-quad} for $E$: the difference between its right and left sides is a sum of nonnegative cap gaps times positive probabilities. For $C$, that difference is the sum over $h=c+1,\ldots,d$ of
+\[
+ \pi_h\{f(b_b)-f(b_a)+h_h(b_h-b_a)-h_h(b_h-b_b)\},
+\]
+which is nonnegative. The companion supplies the explicit edge factorization, including coincident-index boundaries.
+
+The terminal minimization requires an additional argument. Write $\Psi_i(z)$ for the piecewise function obtained by joining \eqref{eq:r34-tail}. For $i<j$ and $z\geq b_j$, cancellation of all above-$z$ costs gives
+\begin{align}\label{eq:r35-difference}
+ \Psi_i(z)-\Psi_j(z)=\frac q2\biggl[&
+ \sum_{h=i+1}^{j}\pi_h(b_h-b_i)(z-b_h)\nonumber\\[-2pt]
+ &+(b_j-b_i)\sum_{b_j<b_h\leq z}\pi_h(z-b_h)\biggr].
+\end{align}
+This continuous function is nondecreasing in $z$. Consequently $\Psi_i(x)+\Psi_j(y)\leq\Psi_i(y)+\Psi_j(x)$ whenever $b_j\leq x\leq y$. For two ordered terminal intervals, choose the minimizers of the two crossed entries of $Q$. They are ordered because the intervals are ordered. Applying the preceding inequality and then minimizing the uncrossed entries proves the Monge inequality for $Q$. Merely knowing that each terminal cell is convex would not establish this conclusion.
+
+Adding a preceding-layer cost to each column preserves the Monge inequality. Its standard exchange argument makes leftmost row minimizers nondecreasing. The triangular feasible domains cause no exception: in a hypothetical crossing, the two crossed indices are feasible for both rows. A midpoint-row search may therefore restrict its left descendants to columns no larger than its minimizer, and its right descendants to columns no smaller. At each recursion depth the scanned intervals overlap only at their boundaries. This gives $O(k\log(k+1))$ oracle calls per layer and for all terminal minima. Each oracle uses the six moment arrays from Theorem~\ref{thm:r34-global}, including exact terminal clamping. The companion gives the search invariant and output accounting.
+
+The frontier combination needs $O(mk)$ further comparisons. Reconstructing only the winning codebook once per budget takes $O(m^2)$ work and storage, already within $O(mk)$ for $m\leq k$. Two cost rows, terminal optima, and retained backpointers give the stated storage. Search changes which entries are visited but not their algebraic construction; therefore the same reduced-rational height bound applies. Exact comparison and fraction reduction give the stated Turing bound.\end{proof}
+
+The economic comparison is unchanged: conditional-expectation participation uses the randomized frontier, while private-draw pathwise participation uses the deterministic frontier by Theorem~\ref{thm:r34-pathwise}. Heterogeneous intermediate curvatures cancel in \eqref{eq:r35-difference}, so they do not destroy terminal monotonicity. Convex nondecreasing nonquadratic intermediate costs retain that monotonicity with a one-dimensional minimization oracle; the exact rational work bound here remains specific to the quadratic input interface.

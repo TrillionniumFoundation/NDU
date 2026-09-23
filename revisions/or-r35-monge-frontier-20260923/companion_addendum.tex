@@ -1,0 +1,39 @@
+\section{Monge Acceleration: Proof Details and Reproduction}\label{sec:ec-r35}
+This section expands the implementation and boundary arguments for Theorem~\ref{thm:r35-monge}. It preserves the global continuous optimization and cap-anchor proofs of Section~\ref{sec:r34-global}; an ordered search is used only after its hypotheses have been established.
+
+\subsection{Edge factorization and triangular boundaries}
+For $a\leq b\leq c\leq d$, direct expansion of \eqref{eq:r34-edge} gives
+\begin{align*}
+ &E(a,d)+E(b,c)-E(a,c)-E(b,d)\\
+ &=\frac q2\biggl[(b_d-b_c)\sum_{h=a}^{b-1}\pi_h(b_h-b_a)
+ +(b_b-b_a)(b_d-b_c)\sum_{h=b}^{c}\pi_h\\
+ &\hspace{40mm}+(b_b-b_a)\sum_{h=c+1}^{d}\pi_h(b_d-b_h)\biggr]\geq0.
+\end{align*}
+Empty sums are zero. Every term is nonnegative, so the argument includes adjacent anchors, zero gaps arising from coincident indices, and arbitrary positive probabilities. The deterministic identity in the article follows by canceling every cap through $c$; monotonicity of $f$ and $h_h$ suffices, without a differentiability argument.
+
+For terminal rows $i<j$ and columns $\ell<t$ with $j\leq\ell$, let $x$ attain $Q(j,\ell)$ and $y$ attain $Q(i,t)$. Compactness gives attainment and $x\leq y$, including adjacent intervals with a shared endpoint. Equation~\eqref{eq:r35-difference} gives
+\[
+ Q(i,\ell)+Q(j,t)
+ \leq\Psi_i(x)+\Psi_j(y)
+ \leq\Psi_i(y)+\Psi_j(x)
+ =Q(i,t)+Q(j,\ell).
+\]
+The degenerate last cell $I_k=\{b_k\}$ causes no division by zero; its value is evaluated at that endpoint. The derivative argument is not applied across a discontinuity: the joined $\Psi_i$ and the difference in \eqref{eq:r35-difference} are continuous at every cap because the term being added there has zero value.
+
+For completeness, suppose a later terminal row had a strictly smaller leftmost minimizing column. Both candidate columns would then be feasible for both rows. Monge uncrossing and the two minimizing inequalities force equality, contradicting leftmost selection in the earlier row. The same exchange applies to prefix rows. There the feasible predecessor columns grow with the endpoint; if the later selected column were smaller, both columns would again be feasible for both rows. Thus no artificial infinity values or unproved total-monotonicity convention for missing entries is required.
+
+\subsection{Search, storage, and exact arithmetic}
+The routine \texttt{monotone\_minima} processes a middle row, scans only the intersection of its feasible columns with inherited lower and upper bounds, and selects the first attaining column. It recurses to the left with that column as upper bound, and to the right with it as lower bound. Induction on the recursion tree shows that the true leftmost row minimizer remains in every search interval. At one depth the intervals have disjoint interiors, with at most one duplicated boundary per sibling pair. The sum of their lengths is $O(k+2^d)$ at depth $d$. Summing over $O(\log(k+1))$ depths gives $O(k\log(k+1))$ calls, with $O(\log(k+1))$ recursion stack.
+
+The randomized routine first obtains all terminal minima. It then builds the anchored prefix layers, using the single reachable endpoint at the first layer rather than querying infeasible entries. It retains two cost rows and one predecessor for each reachable layer/endpoint pair. Combination with the terminal costs is a linear scan per budget. Only the winning candidate is backtracked, once per budget. This detail prevents an uncharged reconstruction loop from being hidden inside the improved search bound. Codebooks share no uncharged history register: the reconstructed symbols and their probabilities use the same decoder interface as the unaccelerated algorithm.
+
+The deterministic routine uses the analogous prefix search with the quadratic cell cost evaluated by the same six prefix moments. The structural cell Monge inequality is valid more generally, but a constant-work cell oracle is part of the stated complexity interface. Sorting unordered inputs adds $O(k\log k)$ exact comparisons and must carry probabilities and costs with each cap. The implemented interface instead rejects repeated or unsorted caps. It also rejects floating inputs, invalid probability sums, negative curvatures, and noninteger or nonpositive alphabet budgets.
+
+All economic calculations use reduced fractions. Neither search introduces an additional optimization parameter or nested algebraic extension. Terminal minimizers still require only the quadratic coefficient ratio and exact clamping; prefix costs still add at most $k$ edges. Thus the height bound in Theorem~\ref{thm:r34-global} remains a valid conservative bound for values, controls, comparisons, and reconstructed lottery probabilities. Oracle-call counts in the computational table are not represented as bit-operation counts.
+
+\subsection{Evidence and independence}
+The new suite compares both accelerated frontiers with the unchanged complete-frontier R34 algorithms on 98 exact instances, including heterogeneous probabilities and curvatures, zero intermediate curvature, the allowed $r=q$ boundary, near-endpoint caps, and symmetric tie cases. It records 1,712 frontier equalities and 1,712 expected or pathwise controller replays. An inherited but independently coded exhaustive cap-prefix enumerator, which reconstructs each terminal quadratic from direct branchwise values rather than using prefix moments or either dynamic program, supplies 156 additional frontier equalities over 550 candidates.
+
+Direct branchwise checks establish 1,401 terminal-cell oracle identities. There are 2,092 edge, 3,846 terminal-array, and 2,092 deterministic-cell Monge inequality checks, together with 384 leftmost terminal-argmin comparisons. These finite checks are falsification and implementation tests, not proofs of the universal inequalities. An additional 176 nonanchor-grid codebooks do not improve the exact frontier. Fourteen invalid-input tests and 196 conservative recursion-work checks are recorded. The deterministic and randomized production implementations share the inherited primitive moment evaluator; this dependence is disclosed rather than described as complete implementation independence.
+
+The scale study computes budgets one through eight on 16, 32, 64, 128, 256, 512, and 1,024 branches. The first five sizes are compared on identical inputs with the unchanged exact R34 randomized algorithm, with exact equality of every budget value. The larger sizes are accelerated execution and replay tests; the baseline was not run there. Missing baseline entries are therefore neither estimates nor censored timeouts. The separate pathwise implementation is also timed and replayed. Machine-dependent timings, exact losses, oracle counts, source hashes, and environment metadata are retained. This is an ablation of the newly proved cost structure, not a benchmark of a published parametric-flow package, and the instances are not empirically calibrated service data.

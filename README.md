@@ -1,46 +1,43 @@
-# NDU — Operations Research revision R34
+# NDU — Operations Research revision R35
 
 **Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory**
 
-Revision branch: `revision/ndu-operations-research-r34-global-randomized-frontier-20260923`.
-Base: R33 at `38b3f264e371758054d94a9f94088ae17a816241`.
-Latest independent report answered: `a017f474619e86be533547acac87a3c8354f64cf` (reviewed R30, not the later revisions).
+Branch: `revision/ndu-operations-research-r35-monge-frontier-20260923`.
+Scientific baseline: R34 at `fbfdf24b370201c810425f633f5fc06048282b5c`.
+Independent report answered: `a017f474619e86be533547acac87a3c8354f64cf`, which reviewed R30, not R31–R34.
 
-## Reader entry points
+## Review entry points
 
-- `main.tex` / `main.pdf`: full revised article, with the new global randomized frontier and pathwise theorem proved in the main text.
-- `electronic_companion.tex` / `electronic_companion.pdf`: retained companion plus new implementation and verification concordance.
-- `revisions/or-r34-global-randomized-frontier-20260923/RESPONSE_TO_REFEREES.md`: response organized against the report, separating R31–R33 inherited changes from new R34 results.
-- `revisions/or-r34-global-randomized-frontier-20260923/DERIVATION_PROVENANCE.md`: immutable review/base commits and proof dependencies.
-- `revisions/or-r34-global-randomized-frontier-20260923/BUILD_VALIDATION.json`: source identity, PDF hashes, page counts, source preservation, and actual tests. A predecessor PDF or a transport commit alone is not a validated R34 reader.
+- `main.tex` / `main.pdf`: complete revised article, including the new Monge-frontier theorem and proof.
+- `electronic_companion.tex` / `electronic_companion.pdf`: retained technical companion plus exact search, boundary, and verification details.
+- `revisions/or-r35-monge-frontier-20260923/RESPONSE_TO_REFEREES.md` / `.pdf`: point-by-point response, separating inherited repairs from new R35 results.
+- `revisions/or-r35-monge-frontier-20260923/DERIVATION_PROVENANCE.md`: immutable report/base identities and proof/evidence dependencies.
+- `revisions/or-r35-monge-frontier-20260923/BUILD_VALIDATION.json`: authoritative source identity, reader hashes, page counts, tests, and preservation checks.
 
-## New mathematical result
+## New result
 
-For the heterogeneous quadratic renewal family, an optimal randomized terminal codebook has all nonhighest levels at branch caps and at most one continuous highest level. An ordered dynamic program plus exact interval minimization computes the global frontier through budget `m` in `O(m k^2)` rational operations and `O(m k+k)` scalar storage for `m<=k`. The highest level cannot simply be restricted to caps: the new three-branch example has optimal levels `1/4,5/8` and loss `23/1280`, below the best cap-only loss `3/160`.
-
-A separate all-budget theorem shows that private-draw pathwise participation has exactly the deterministic frontier under the stated saturated-root renewal architecture. Expected participation can admit a strictly better randomized frontier. Both institutions retain the same exact-optimum alphabet threshold when the full-information optimum is unique.
-
-These results add to, rather than replace, the retained quotient, tightness, piecewise-quadratic, machine-minimization, circuit, comparator, and historical switching/deployment results.
+The heterogeneous quadratic renewal model has Monge interpolation costs and deterministic cell costs. Crucially, the terminal cost array remains Monge **after the continuous highest codeword is optimized in each interval**. Leftmost monotone search computes both the global expected-participation randomized frontier and the deterministic/pathwise frontier through budget `m` in `O(m k log(k+1))` exact rational operations and comparisons, with `O(m k+k)` storage for `m<=k`. The earlier global algorithm required `O(m k^2)` work. Both solve the same problem, including off-cap terminal levels. Generic Monge search is attributed to the classical literature; the new result proves its contractual-cost hypotheses.
 
 ## Reproduction
 
-From the repository root, with Python 3.12 or newer and no third-party Python packages:
+From the repository root, with Python 3.12 or newer:
 
 ```sh
-R=revisions/or-r34-global-randomized-frontier-20260923
+R=revisions/or-r35-monge-frontier-20260923
 python "$R/verify.py"
+python "$R/benchmark.py"
 python "$R/reproduce_inherited.py"
 python "$R/build_validate.py"
 ```
 
-The last command also requires pdfLaTeX with newtx/standard LaTeX packages and Poppler utilities. It records the current Git source commit and checks both documents. The isolated GitHub Actions workflow executes the same steps and publishes validated readers only on the R34 branch.
+The first three commands use only the Python standard library. The final command requires pdfLaTeX with newtx and standard packages, plus Poppler. It compiles the main article, companion, and response; checks references, layout, source preservation, and test status; and binds their hashes to the exact scientific source commit. Run `NDU_LOCAL_VALIDATION=1` only outside a Git checkout; that mode records content hashes and does not invent a Git commit.
 
-The exact new suite passed 51 small instances, 1,932 reduced-candidate comparisons, 446 frontier equalities, 1,073 nonanchor-grid checks, 1,346 moment identities, 255 controller replays, and ten invalid-input checks. The scale family computes all budgets through eight on 16, 32, 64, and 128 branches. `verification.json`, `scaling.csv`, and `inherited_verification.json` record the actual run and environment.
+The new exact suite passes 98 cases, 1,712 frontier equalities, 1,712 controller replays, 8,030 Monge inequalities, 1,401 direct terminal checks, 384 leftmost-argmin checks, and 14 invalid-input rejections. Independent exhaustive and nonanchor-grid checks are recorded separately. Both unchanged R33 and R34 suites are rerun in temporary directories.
 
-The exhaustive comparator uses the proved anchor reduction but is independent of the production DP and moment arithmetic. Grids are falsification tests, not a proof over the continuum. No published specialized solver implementation is represented as having been run. Instances are synthetic, not calibrated service data.
+The scale study computes every budget through eight on 16–1,024 branches. Exact comparisons with the unchanged R34 randomized solver are run through 256 branches. At that size, combined terminal/prefix evaluations decline from 192,546 to 12,177. Larger baseline entries are NOT_RUN, not estimated or timeout results. `benchmark.json` and `scaling.csv` preserve exact losses, work counts, actual timings, source hashes, and environment metadata. The instances are synthetic; no published specialized flow-solver benchmark is claimed.
 
-## Preservation and presentation
+## Preservation and review status
 
-All R31–R33 source modules and earlier evidence remain in the branch. Original root wrappers are archived in the R34 `predecessor/` directory. `PRESERVATION_MANIFEST.json` validates 35 inherited reader/source/evidence files and four archived wrappers. The remote tree inherits every other historical file unchanged. `main` and all previous revision/review branches are left untouched.
+All inherited R31–R34 theorem modules, earlier records, and historical theory volumes remain in the branch. The four original root wrappers are archived in the new revision's `predecessor/` directory. The preservation manifest verifies the inherited reader/source/evidence snapshot; a remote tree audit verifies that every other base path remains unchanged. `main` and all earlier review/revision branches are untouched.
 
-The full article is prepared under the Operations Research Lengthy Manuscript category, preserving 11-point text, 1.5 spacing, one-inch margins, author–year references, and tables after references. The validated build conservatively requires no more than 40 total main pages, a companion no longer than the main paper, an abstract of at most 200 words, and no unresolved references/citations or overfull boxes. It is a manuscript for further review, not a journal submission or acceptance.
+This is a new manuscript for further referee review, not a journal submission or an editorial decision. The Operations Research lengthy-manuscript format preserves the complete theory rather than deleting results to fit a shorter reader.
