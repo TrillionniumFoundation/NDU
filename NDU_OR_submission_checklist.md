@@ -1,21 +1,13 @@
-# R35 Operations Research reader checklist
+# Operations Research R36 reader checklist
 
-The official submission guidelines were checked on September 23, 2026. This is a repository revision for further review, not a completed journal submission.
+Guidelines checked September 24, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
 
-| Requirement | Revision treatment |
-|---|---|
-| Manuscript category | Lengthy Manuscript; final page count in BUILD_VALIDATION.json |
-| Font, spacing, margins | 11-point, 1.5-spaced, one-inch margins |
-| Abstract | One text-only paragraph, 183 words |
-| Introduction | Expository, without equations |
-| Review identity | Anonymous main and companion title pages; no author names added |
-| Citations | Author–year, alphabetical references, including classical Monge attribution |
-| Tables | Numbered, referred to in text, collected after the reference list |
-| Mathematical contents | All inherited theorem modules retained; new main theorem and companion detail |
-| Source identity | Immutable baseline/report commits; exact build commit and PDF/source hashes |
-| Tests | New exact suite, same-input scale runs, unchanged R33/R34 reruns |
-| Preservation | Archived predecessor wrappers and hash manifest; no historical deletion |
-| Readability and layout | Recompiled cross-references; zero unresolved citations/references and overfull boxes required |
-| Remaining author-only actions | Funding/conflict declarations, overlap disclosures, reviewer nominations, author details, submission selection and upload remain with the authors |
+Reader category: Lengthy Manuscript. The automated build records actual total/reference/nonreference pages and checks at most 40 nonreference pages and a companion no longer than the main manuscript. It counts title and table pages; references are isolated by explicit page breaks.
 
-Reference: https://pubsonline.informs.org/page/opre/submission-guidelines . The category generally allows 40 pages excluding references; the local validation conservatively checks no more than 40 total main pages when feasible and reports its exact counting rule. A passing technical build is not a claim of referee acceptance or exhaustive priority verification.
+Anonymous title page; one-paragraph text-only abstract at most 200 words; nonmathematical introduction; 11-point font, 1.5 spacing, one-inch margins; author–year alphabetical references; all prior references retained; tables after references; final code/data statement; complete electronic companion and response; clean reference/citation and overfull-box checks.
+
+Scientific audit: latest located independent report is commit a017f474619e86be533547acac87a3c8354f64cf, reviewing R30. R36 inherits the actual R35 reader commit 7e49851cd04f0f7e015c2561b43a4e7591574e67, not an obsolete report snapshot. New proof, source, exact tests, all-budget comparisons, and unchanged inherited test reruns accompany the manuscript. All inherited theorem inputs remain and prior wrappers are archived byte-for-byte.
+
+The build performs a complete immutable-base-tree preservation audit, not only a reader-subset check. The new source commit and PDF hashes are reported in revisions/or-r36-linear-frontier-20260924/BUILD_VALIDATION.json.
+
+No journal submission, cover letter, authorship approval, or conflict-of-interest declaration has been made. Those declarations must come from the responsible authors. This repository package is for further referee examination.
