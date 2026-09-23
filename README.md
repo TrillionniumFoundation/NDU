@@ -1,18 +1,19 @@
-# NDU — Operations Research revision R30
+# NDU — Operations Research revision R31
 
-Current manuscript: **Accepted Service Adaptation: Compact Allocation Quotients and Minimal Price Memory**.
+Current manuscript: **Accepted Service Adaptation: Tight Parametric Quotients and Minimal Additional Writable Memory**.
 
-This branch is the R30 revision responding to the R29 price-state referee report. It preserves the referee report in branch history and does not modify `main` or unrelated manuscript branches.
+This branch is the R31 revision responding to the independent R30 referee report. It branches directly from `review/operation-research-r30-independent-harsh-20260923`, so the answered report is preserved in ancestry. `main` and unrelated manuscript branches are untouched.
 
 ## Review files
-- `main.pdf` / `main.tex`: revised Operations Research manuscript.
-- `electronic_companion.pdf` / `electronic_companion.tex`: revised electronic companion.
-- `revisions/or-r30-quotient-memory-20260923/RESPONSE_TO_REFEREES.pdf`: point-by-point response.
-- `revisions/or-r30-quotient-memory-20260923/RESPONSE_TO_REFEREES.md`: readable response source.
-- `revisions/or-r30-quotient-memory-20260923/`: theorem modules, implementation, validation, and aggregate computational evidence.
 
-The manuscript PDFs and core source files on this branch are byte-identical to local revision commit `55baedb835bc5573593e1234c6ea8477b3d7827c`. Very large, regenerable per-instance certificate traces are not duplicated through the GitHub connector; aggregate results, generators, auditors, hashes, and an omission manifest are supplied instead.
+- `main.tex` / `main.pdf`: R31 Operations Research manuscript.
+- `electronic_companion.tex` / `electronic_companion.pdf`: R31 electronic companion.
+- `revisions/or-r31-tightness-minimal-machine-20260923/RESPONSE_TO_REFEREES.md`: point-by-point response.
+- `revisions/or-r31-tightness-minimal-machine-20260923/LITERATURE_AUDIT.md`: residual priority audit.
+- `revisions/or-r31-tightness-minimal-machine-20260923/DERIVATION_PROVENANCE.md`: derivation and preservation map.
+- `revisions/or-r31-tightness-minimal-machine-20260923/NOVELTY_MATRIX.md`: precise inherited/new boundary.
+- `revisions/or-r31-tightness-minimal-machine-20260923/tightness_check.py`: exact checker for the matching response-size lower-bound family.
 
-Review report parent: `d1f7f977132e46ac9ca582a1d78f5219365509c8`.
-Scientific baseline: `51552e4198f09b82c764956b92d7b1ee2ad57aff`.
-Remote branch: `revision/ndu-operations-research-r30-quotient-memory-20260923`.
+R30 and all earlier derivation/evidence directories remain preserved. R31 does not use deletion or claim contraction to answer the referee; it adds the requested priority comparisons, matching complexity lower bounds, explicit machine-minimization framing, and architecture-conditional memory accounting.
+
+A branch-specific GitHub Actions workflow rebuilds the two reader PDFs and records source/build checks on the remote branch.
