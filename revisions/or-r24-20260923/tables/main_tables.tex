@@ -1,0 +1,35 @@
+\begin{table}[tbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Interior-model certificate conservatism. Each radius has 192 models; entries use certified upper endpoints of slack brackets.}
+\label{tab:r24-tightness}
+\begin{tabular}{lrrrrr}
+\toprule
+Radius & Outer mean & Interpolation mean & Total mean & Total median & Total 95th\\
+\midrule
+0.0000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000\\
+0.0625 & 0.070624 & 0.001173 & 0.071798 & 0.068096 & 0.115731\\
+0.1250 & 0.071246 & 0.004920 & 0.076166 & 0.071124 & 0.124045\\
+0.2500 & 0.075207 & 0.020896 & 0.096102 & 0.092725 & 0.138898\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[tbp]\centering\small\setlength{\tabcolsep}{4pt}
+\caption{Strict-target matched timing in milliseconds. Thirty-two contexts and three repetitions per fixed fit. Positive paired savings favor the predictor; bracketed savings intervals are descriptive percentile resampling intervals.}
+\label{tab:r24-timing}
+\begin{tabular}{lrrrrrr}
+\toprule
+Nodes & Method & Mean & Median & Quartiles & Fallback & Savings [interval]\\
+\midrule
+63 & Lifted & 10.34 & 6.61 & [4.72, 15.70] & 40.6\% & ---\\
+63 & Tanh & 18.84 & 15.52 & [14.23, 19.56] & 100.0\% & -8.50 [-13.44, -4.57]\\
+63 & RBF & 18.91 & 15.41 & [13.88, 20.00] & 100.0\% & -8.57 [-13.24, -4.84]\\
+127 & Lifted & 96.24 & 101.00 & [18.94, 144.52] & 62.5\% & ---\\
+127 & Tanh & 112.53 & 108.50 & [67.54, 138.37] & 100.0\% & -16.29 [-28.38, -5.07]\\
+127 & RBF & 113.62 & 104.60 & [71.04, 136.24] & 100.0\% & -17.38 [-29.28, -6.12]\\
+255 & Lifted & 239.93 & 205.55 & [121.07, 266.39] & 81.2\% & ---\\
+255 & Tanh & 277.86 & 229.33 & [178.64, 283.21] & 100.0\% & -37.93 [-59.19, -18.05]\\
+255 & RBF & 274.96 & 237.07 & [169.57, 271.41] & 100.0\% & -35.02 [-56.91, -15.11]\\
+\bottomrule
+\end{tabular}
+\end{table}
+

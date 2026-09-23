@@ -1,41 +1,35 @@
-# Neural Differential Utility — Operations Research R23
+# Accepted Service Adaptation — Operations Research R24
 
-**Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains**
+**Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains**
 
-Revision: September 23, 2026. Branch: `revision/ndu-operations-research-r23-20260923`.
+Revision: September 23, 2026. Branch: `revision/ndu-operations-research-r24-20260923`.
 
-## Current review package
+[Main manuscript](main.pdf) · [complete main source](main.tex) · [formal electronic companion](electronic_companion.pdf) · [companion source](electronic_companion.tex) · [computational record](computational_supplement.pdf).
 
-[Main manuscript](main.pdf) · [complete main source](main.tex) · [electronic companion](electronic_companion.pdf) · [complete companion source](electronic_companion.tex).
+[Point-by-point response](revisions/or-r24-20260923/RESPONSE_TO_REFEREE.md) · [preservation map](revisions/or-r24-20260923/PRESERVATION_MAP.md) · [claim/evidence ledger](revisions/or-r24-20260923/CLAIM_EVIDENCE.md) · [literature boundary](revisions/or-r24-20260923/LITERATURE_MAP.md) · [reproduction guide](revisions/or-r24-20260923/README.md).
 
-[Point-by-point referee response](revisions/or-r23-20260923/RESPONSE_TO_REFEREE.md) · [preservation map](revisions/or-r23-20260923/PRESERVATION_MAP.md) · [literature map](revisions/or-r23-20260923/LITERATURE_MAP.md) · [claim/evidence ledger](revisions/or-r23-20260923/CLAIM_EVIDENCE.md) · [reproduction guide](revisions/or-r23-20260923/README.md).
+## Review target and substantive revision
 
-R23 addresses the September 23 R20 review report at `18381729edf8d15a536ebef16abf6660ee0db48f`. Its scientific base is the complete R22 publication `fef3bad92ab9c74530b530a885bb6f437e8b1c1a`. The reviewed R20 tip was a plan on R19; R23 does not claim that a newer referee has already reviewed R22. Exact R22 root documents are preserved in `revisions/or-r23-20260923/predecessor/`; all earlier revision directories, reviews and historical supplements remain unchanged.
+R24 responds to the latest completed R23 referee report at `685fdc4d4f1823c6930bd6ccdfbc66822043bf9e`, reviewing the paper at `b4165155612fea340a8832bbe7a8b13fe2b9259b`. The new branch inherits the report and all historical derivations. No other manuscript branch is changed.
 
-## Scientific addition
+The new benchmark-relative continuation-transfer theorem permits nonconstant and boundary restricted contracts with unused participation slack. It parametrizes the entire stated positive-payment accepted class, represents restricted equalities exactly, and gives the exact quadratic expansion formula or a comparator-error-charged lower certificate. The worked optimized time-only example has restricted value **5/24**, full accepted value **21/64**, and exact expansion **23/192**. Its negative relative flow demonstrates why cap-matching nonnegative coordinates cannot simply be applied around a slack benchmark. The proof is supported by 64 exact rational tree tests.
 
-The current paper retains the accepted-control, friction, transfer, value-gradient, inexact-response, component-certificate and complete-dual-repair results. It now proves robust accepted gains under **joint objective and participation/capacity coefficient uncertainty**. The gain is measured against the true model-specific reoptimized restricted contract. A common outer comparator class contains the union of those restricted classes; a scalar counterexample shows why separately optimized vertex comparators can miss a stronger interior comparator. The new exact repair preserves root equalities and every uncertain inequality, and explicitly charges its value effect.
+The paper's organizing contribution is accepted-control structure and implemented economic gain certification. All neural, direct-price, face, scalar and full-polyhedron results remain. The robust implication is explicitly a certification lemma, not a claim to invent generic robustness or duality.
 
-The generic robust-counterpart and weak-duality ingredients are identified as classical. The accepted-service consequence, hidden-model comparator distinction and implemented rational certificate are explicit. The uncertainty set is specified rather than field-estimated.
+## New executed evidence
 
-## Newly executed R23 evidence
+The interior diagnostic contains **768 models and 1,536 independently certified comparator brackets**. Each model separately reoptimizes the true accepted time-only class and the common outer class. At radius 0.25, mean total certificate slack is **0.096102**, comprising **0.075207** outer-set relaxation and **0.020896** interpolation. The maximum comparator interval width is **3.839e-08**; failed solves: **0**. These are designed-model diagnostics, not field-calibrated coverage.
 
-The predeclared study uses 96 fresh contexts, four uncertainty radii, the same frozen eight-model neural and RBF ensembles, and a classical robust-maximin QP. It records **1,152 protected implementations**, **3,072 vertex comparator upper certificates** and **768 nondeployed nominal diagnostics**. All protected decisions are exactly robust-feasible and all their gain lower certificates are positive in this sample. The independent Python-standard-library replay also checks 2,304 interior certificate mixtures, the scalar counterexample at 1,001 rational parameters, and six rejected invalid controls. Numerical solve failures: **0**; failure and negative-certificate retention is part of the protocol.
+The repeated-query study executes **1728 pipelines**, with 64 paid optimizer labels for each of three configurations, 32 held-out contexts, three repetitions, both accuracy targets and all three methods. It records individual fit/setup/storage costs, prediction, solve, audit, polishing, and every fallback phase. Failed pipelines: **0**. Finite observed break-even cases against lifted continuation: **0** in this study; this is an observed result, not a universal impossibility statement. Paired resampling intervals are descriptive for fixed fits, with serial-dependence sensitivity and no retraining-level guarantee.
 
-At uncertainty radius 0.25:
+A separate fresh-host robust accounting study audits **96 complete pointwise certificates and 256 comparator certificates**, including ensemble prediction and all eight comparator solves per independently certified method. It does not splice prediction timings from a new host into archived R23 timings. Candidates can achieve different robust gains, so these costs do not imply matched-quality speed superiority. All **800** original R22 scaling rows and **1152** original R23 robust rows remain and receive explicitly dated retrospective cost/variability analyses.
 
-| Implemented rule | Mean robust gain lower certificate | Minimum certificate |
-|---|---:|---:|
-| Protected tanh-gradient | 0.808414 | 0.225658 |
-| Protected RBF-direct | 0.815943 | 0.278173 |
-| Classical robust maximin | 0.848251 | 0.378572 |
+## Preservation, format, and verification
 
-These are averages/minima of pointwise, uniformly valid certificates, **not** new population confidence bounds. Both nominal learned rules violate some uncertain restriction in every recorded positive-radius context; their violation magnitudes are retained. None of these unsafe diagnostics is deployed. The classical robust rule remains strongest; no neural speed or accuracy superiority is asserted.
+All **72** predecessor mathematical statement/proof blocks remain in the main-plus-companion pair, with only the documented robust theorem-to-lemma relabeling. Original empirical tables and adverse results are retained. Exact reviewed roots are archived in `predecessor/`; prior revisions and the historical supplement are unchanged.
 
-## Preserved evidence and verification
+The formal journal package is the main paper and **one** electronic companion. The computational PDF is a readable code/data-archive record, not an additional formal companion. The manuscript uses anonymous 11-point, one-and-a-half-spaced, one-inch-margin Lengthy formatting, an equation-free introduction, a text-only abstract below 200 words, author-year citations, and tables after references.
 
-All original unfavorable neural/direct-price comparisons, the complete R22 5,120-pipeline matched-cost study, deterministic IID/shift validation, full-polyhedron scaling and prior exact checks remain. Their original provenance and statistical targets are unchanged. Every predecessor mathematical statement/proof block is preserved verbatim across the current main and companion; only the full global-bridge proof is moved intact to the companion.
+[Actual package checks](revisions/or-r24-20260923/results/package_check.json) · [independent rational replay](revisions/or-r24-20260923/results/replay.json) · [manifest](revisions/or-r24-20260923/MANIFEST.json) · [provenance](revisions/or-r24-20260923/PROVENANCE.json).
 
-The current main and companion use the journal's anonymous 11-point, one-and-a-half-spaced, one-inch-margin Lengthy format, a text-only abstract below 200 words, a notation-free introduction, author-year references and tables after references. Actual page counts, reference resolution and preservation are in [package checks](revisions/or-r23-20260923/results/package_check.json). [Manifest](revisions/or-r23-20260923/MANIFEST.json) · [provenance](revisions/or-r23-20260923/PROVENANCE.json) · [exact replay](revisions/or-r23-20260923/results/replay.json).
-
-The publication workflow attaches `ndu-or-r23/final-sha` only after independent verification of the actual final commit. Author approval of submission declarations is still required; this package is a research revision, not journal acceptance.
+The publication workflow attaches `ndu-or-r24/final-sha` only after a fresh checkout independently verifies the actual published files. Numerical audits do not establish scientific priority or journal acceptance. Author submission declarations remain for the authors; no submission has been made by this workflow.

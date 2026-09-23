@@ -1,0 +1,112 @@
+\section{Certificate tightness and repeated-query economics}\label{sec:r24-diagnostics}
+These diagnostics answer different questions from the geometric expansion
+theorems. They do not pool new timing observations with historical runs or
+reinterpret a fixed-model confidence statement as a training-algorithm
+guarantee. The complete measurements and computation protocol are in the
+Computational Supplement, Section~\ref{cs:r24-details}.
+
+\subsection{How conservative is the robust economic certificate?}
+For each of the 96 recorded contexts and four uncertainty radii, we draw two
+strictly interior coefficient vectors from the declared rational grid. This
+gives 768 interior models. For each model, we solve both the true accepted
+time-only comparator and the common outer comparator at that same objective.
+Separate rational feasibility and Fenchel calculations certify lower and upper
+values $L_K\leq K_\zeta\leq U_K$ and
+$L_O\leq O_\zeta:=\max_{Y^{\rm out}}F_\zeta\leq U_O$.
+For the vertex-mixture upper certificate
+$U_{\rm mix}=\sum_v\alpha_vU_v$, the actual certificate slack satisfies
+\[
+ U_{\rm mix}-K_\zeta\in[U_{\rm mix}-U_K,U_{\rm mix}-L_K].
+\]
+It has two distinct sources:
+\[
+ U_{\rm mix}-K_\zeta=(O_\zeta-K_\zeta)+(U_{\rm mix}-O_\zeta).
+\]
+The first is the outer-set relaxation and the second includes vertex
+interpolation and the vertex solver's upper-bound error. Both components are
+nonnegative. Their computed intervals, rather than an uncertified numerical
+optimum, determine the reported summaries.
+
+All 1,536 comparator solves completed. The largest independent comparator
+bracket width is \RTwentyFourInteriorGap. Table~\ref{tab:r24-tightness} reports
+upper endpoints; the distinction from lower endpoints is at most twice that numerical
+scale. At radius one quarter, mean total slack is
+\RTwentyFourSlackTotal, split into \RTwentyFourSlackOuter\ from the outer set
+and \RTwentyFourSlackInterpolation\ from interpolation. Thus the certificate
+is informative but not exact. An interior diagnostic is not a replacement for
+the uniform vertex proof and is not a sampled proof of uncertainty-set coverage.
+
+\subsection{Repeated computation against the strongest classical baseline}
+The new matched study uses 63-, 127-, and 255-node polyhedra, one separately
+fitted 64-label model pair per configuration, 32 held-out contexts, and three
+repetitions. The middle configuration has twelve resources and eight extra
+capacities; the others have six and four. All methods face the same two exact
+certificate targets. Initial method order is randomized within each context;
+each tolerance has a separate continuation state. The original eight-context
+scaling table remains unchanged, with medians, interquartile ranges, and paired
+differences now provided for all its entries in the Computational Supplement.
+
+Every timed decision records prediction, initial optimization, rational audit,
+fixed-primal polishing, and fallback setup, solve, and final audit. The fallback
+is the same fresh lifted full-objective solve from a zero state for every
+method. Therefore no predictor state is credited with saving refinement work
+\emph{conditional on fallback}; its possible benefit in this protocol is
+avoiding fallback. This distinction prevents warm-start value from being
+attributed to a predictor that never initializes the fallback. The full study
+contains \RTwentyFourTimingRows\ attempted pipelines and
+\RTwentyFourTimingFailures\ failed pipelines; failures, if any, remain in the
+raw timing record rather than being discarded.
+
+Let $C_{\rm off}$ be the method's label-generation, fit, and incremental setup
+cost relative to lifted continuation, and let $\bar t_L,\bar t_C$ be the
+matched per-query mean times. The measured cost difference after $Q$ queries is
+\[
+ C_{\rm off}+Q(\bar t_L-\bar t_C).
+\]
+A finite observed crossing exists only when $\bar t_C>\bar t_L$; its threshold
+is $C_{\rm off}/(\bar t_C-\bar t_L)$. An interval spanning zero online savings
+does not support a stable break-even conclusion. Table~\ref{tab:r24-timing}
+reports paired context-cluster bootstrap intervals after averaging the three
+repetitions. A moving-block sensitivity analysis also retains short-range dependence from classical continuation. Neither resampling calculation supplies a distribution-free coverage theorem. They describe these fixed fits and sampled contexts, not
+arbitrary retraining, tuning, or changing deployment laws. Serialized predictor
+sizes, reachable arrays, sparse matrix storage, label times, and individual fit
+times are disclosed separately; sparse input storage is not mislabeled as the
+solver's total factorization memory.
+
+\subsection{What is required before a decision is called certified?}
+There are three distinct protocols. An accepted-policy implementation computes
+a response, repairs it, and audits acceptance and its own full-objective gap.
+A \emph{pointwise economic certificate} additionally computes a valid upper
+bound for the optimized restricted comparator. Under joint uncertainty this
+requires all eight common-outer comparator bounds unless previously valid
+bounds can be reused. A \emph{population validation} evaluates a frozen policy
+on an independent sample, charging those comparator solves to the validation
+experiment; it does not make them free online calculations.
+
+The nominal timing tables measure the first protocol, not an online guarantee
+of improvement over the optimized restricted contract. The robust experiment's
+pointwise certificate uses the second. The archived robust cost analysis now
+reports own-decision time plus the complete eight-comparator batch, charged
+once to each independently certified method. Its original timers excluded
+ensemble prediction; that omission is explicitly identified, so those archived
+sums are not advertised as complete learned-pipeline timings. No robust neural
+speed claim is inferred. The numerical comparison concerns the third protocol
+when the comparator is computed only for offline evaluation. The positive
+frozen-ensemble economic-gain bounds remain conditional on those fixed rules,
+not on new fitting or model selection.
+
+
+A separate fresh-host run closes the prediction-timer omission without mixing
+machines. It uses sixteen fresh contexts at zero and one-quarter radius and
+the unchanged eight-model ensembles. All ninety-six pointwise certifications
+include prediction, a fresh candidate workspace, rational repair, vertex
+evaluation, and the full eight-comparator batch. At one-quarter radius, mean
+complete times are \RTwentyFourRobustTanh, \RTwentyFourRobustRBF, and
+\RTwentyFourRobustClassical\ milliseconds for protected tanh, protected RBF,
+and classical robust maximin, respectively. Model loading and geometry setup
+are disclosed separately from repeated-query cost. Computational Supplement
+Table~\ref{tab:r24-robust-cost} reports both candidate and comparator work.
+These are descriptive fixed-implementation costs, not a robustness-coverage
+or algorithm-level superiority claim.
+
+The robust candidates need not attain the same maximin certificate value. These fresh times are complete cost accounting, not a speed comparison at matched robust gain.

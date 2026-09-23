@@ -1,0 +1,996 @@
+{
+  "status": "ANALYZED",
+  "summary": [
+    {
+      "instance": 0,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 6.10109180207985,
+        "median": 5.683899000018755,
+        "q25": 4.569939499987186,
+        "q75": 6.87027925003747,
+        "p95": 10.03457424999965,
+        "max": 13.821500000005926
+      },
+      "fallback_fraction": 0.0,
+      "phase_mean_ms": {
+        "prediction": 0.0,
+        "initial_solve": 3.481879520834378,
+        "first_audit": 1.4485649583377835,
+        "polishing": 1.1374696041670518,
+        "fallback_setup": 0.0,
+        "fallback_solve": 0.0,
+        "fallback_audit": 0.0
+      },
+      "fallback_conditional_mean_ms": null,
+      "fallback_conditional_mean_iterations": null,
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      }
+    },
+    {
+      "instance": 0,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 18.918821093752314,
+        "median": 15.716071999975156,
+        "q25": 14.224874500015972,
+        "q75": 19.970678500015993,
+        "p95": 31.12347050000608,
+        "max": 71.56894100000954
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.06567723958520826,
+        "initial_solve": 3.3111361979116793,
+        "first_audit": 1.4372905312504496,
+        "polishing": 1.1352515312500107,
+        "fallback_setup": 1.2901818854160751,
+        "fallback_solve": 10.205597604164396,
+        "fallback_audit": 1.4332637708320088
+      },
+      "fallback_conditional_mean_ms": 12.92904326041248,
+      "fallback_conditional_mean_iterations": 1505.46875,
+      "paired_savings_ms": {
+        "mean": -12.817729291672464,
+        "percentile95": [
+          -17.03905526980426,
+          -9.821279238802754
+        ],
+        "moving_block4_percentile95": [
+          -17.15054822839481,
+          -9.99078166927386
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0008388336666484975,
+      "offline_seconds": 0.8826586893333683,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 0.8954764186250408,
+        "100": 2.1644316185006147,
+        "1000": 13.700387981005832,
+        "10000": 129.059951606058,
+        "100000": 1282.6555878565796,
+        "1000000": 12818.611950361797
+      }
+    },
+    {
+      "instance": 0,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 9.333560593750198,
+        "median": 7.310164000045916,
+        "q25": 5.447425249997195,
+        "q75": 12.571334999975647,
+        "p95": 20.192222500028834,
+        "max": 24.381140000002688
+      },
+      "fallback_fraction": 0.28125,
+      "phase_mean_ms": {
+        "prediction": 0.041754583332812935,
+        "initial_solve": 3.6244135625036478,
+        "first_audit": 1.4353814791684034,
+        "polishing": 1.1378294375029203,
+        "fallback_setup": 0.36074262500029874,
+        "fallback_solve": 2.2991778749995953,
+        "fallback_audit": 0.39924796874935
+      },
+      "fallback_conditional_mean_ms": 10.877043444441757,
+      "fallback_conditional_mean_iterations": 1197.2222222222222,
+      "paired_savings_ms": {
+        "mean": -3.232468791670347,
+        "percentile95": [
+          -5.246376382559322,
+          -1.4316479778630449
+        ],
+        "moving_block4_percentile95": [
+          -5.027703011459665,
+          -1.4372646432330602
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0008388336666484975,
+      "offline_seconds": 0.8514213883333923,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 0.8546538571250627,
+        "100": 1.174668267500427,
+        "1000": 4.083890180003739,
+        "10000": 33.17610930503686,
+        "100000": 324.0983005553681,
+        "1000000": 3233.3202130586806
+      }
+    },
+    {
+      "instance": 0,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 10.342972499998973,
+        "median": 6.611854999988509,
+        "q25": 4.71585024996557,
+        "q75": 15.696497499988027,
+        "p95": 19.859468000021252,
+        "max": 32.4247000000355
+      },
+      "fallback_fraction": 0.40625,
+      "phase_mean_ms": {
+        "prediction": 0.0,
+        "initial_solve": 3.453495166664785,
+        "first_audit": 1.435103260416663,
+        "polishing": 1.136739718754498,
+        "fallback_setup": 0.5207266145822823,
+        "fallback_solve": 3.1789508854161617,
+        "fallback_audit": 0.5820411875016399
+      },
+      "fallback_conditional_mean_ms": 10.539615230769437,
+      "fallback_conditional_mean_iterations": 1132.6923076923076,
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      }
+    },
+    {
+      "instance": 0,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 18.839737250002504,
+        "median": 15.516872000006288,
+        "q25": 14.233073999989188,
+        "q75": 19.563415749999535,
+        "p95": 32.742263749995004,
+        "max": 69.93553500001326
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.06424789583133379,
+        "initial_solve": 3.2777686770829226,
+        "first_audit": 1.4295369062479562,
+        "polishing": 1.132414104167978,
+        "fallback_setup": 1.2766300833343773,
+        "fallback_solve": 10.187034614582183,
+        "fallback_audit": 1.432365895836914
+      },
+      "fallback_conditional_mean_ms": 12.896030593753474,
+      "fallback_conditional_mean_iterations": 1505.46875,
+      "paired_savings_ms": {
+        "mean": -8.496764750003532,
+        "percentile95": [
+          -13.439060240632182,
+          -4.568214238804232
+        ],
+        "moving_block4_percentile95": [
+          -14.194800829175014,
+          -4.447603571870854
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0008386843333407038,
+      "offline_seconds": 0.8826588386666762,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 0.8911556034166797,
+        "100": 1.7323353136670292,
+        "1000": 9.379423588670209,
+        "10000": 85.85030633870198,
+        "100000": 850.5591338390199,
+        "1000000": 8497.6474088422
+      }
+    },
+    {
+      "instance": 0,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 18.91392516666457,
+        "median": 15.405643999997665,
+        "q25": 13.878412500005766,
+        "q75": 20.001641999982667,
+        "p95": 30.907829250011787,
+        "max": 70.16320899998618
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.04071507291847354,
+        "initial_solve": 3.3209564583322284,
+        "first_audit": 1.4351498020837756,
+        "polishing": 1.1361335104176362,
+        "fallback_setup": 1.3206518437491137,
+        "fallback_solve": 10.193955041667499,
+        "fallback_audit": 1.426883999999499
+      },
+      "fallback_conditional_mean_ms": 12.94149088541611,
+      "fallback_conditional_mean_iterations": 1505.46875,
+      "paired_savings_ms": {
+        "mean": -8.570952666665594,
+        "percentile95": [
+          -13.241506948175067,
+          -4.839536908333091
+        ],
+        "moving_block4_percentile95": [
+          -13.872031504952426,
+          -4.733809652601832
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0008386843333407038,
+      "offline_seconds": 0.8514215376667001,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 0.8599924903333658,
+        "100": 1.7085168043332595,
+        "1000": 9.422374204332295,
+        "10000": 86.56094820432264,
+        "100000": 857.9466882042261,
+        "1000000": 8571.804088203262
+      }
+    },
+    {
+      "instance": 1,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 27.554378552081243,
+        "median": 21.007409000048938,
+        "q25": 17.083034000023645,
+        "q75": 34.517752500036636,
+        "p95": 57.21259424998948,
+        "max": 103.68759499999669
+      },
+      "fallback_fraction": 0.03125,
+      "phase_mean_ms": {
+        "prediction": 0.0,
+        "initial_solve": 18.907784989583714,
+        "first_audit": 3.8165273541614178,
+        "polishing": 2.6303403645862033,
+        "fallback_setup": 0.06649904166581659,
+        "fallback_solve": 1.9633999166674225,
+        "fallback_audit": 0.11784059375112103
+      },
+      "fallback_conditional_mean_ms": 68.72766566669952,
+      "fallback_conditional_mean_iterations": 3400.0,
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      }
+    },
+    {
+      "instance": 1,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 111.57823809375009,
+        "median": 107.34505849998754,
+        "q25": 67.91553575000364,
+        "q75": 134.58638675004408,
+        "p95": 221.87082799997881,
+        "max": 266.6028000001006
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.08351352083243076,
+        "initial_solve": 15.616801187498789,
+        "first_audit": 3.8372111145884937,
+        "polishing": 2.6737255312519657,
+        "fallback_setup": 2.1669081770839447,
+        "fallback_solve": 83.33507143749881,
+        "fallback_audit": 3.801736843745592
+      },
+      "fallback_conditional_mean_ms": 89.30371645832837,
+      "fallback_conditional_mean_iterations": 4472.65625,
+      "paired_savings_ms": {
+        "mean": -84.02385954166884,
+        "percentile95": [
+          -102.3063404890623,
+          -66.50771558776836
+        ],
+        "moving_block4_percentile95": [
+          -95.05416426693473,
+          -70.60439602734348
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0012065826666685098,
+      "offline_seconds": 5.854278247333355,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 5.938302106875024,
+        "100": 14.25666420150024,
+        "1000": 89.8781377890022,
+        "10000": 846.0928736640218,
+        "100000": 8408.240232414219,
+        "1000000": 84029.71381991619
+      }
+    },
+    {
+      "instance": 1,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 113.58392246875344,
+        "median": 105.46611749998647,
+        "q25": 70.85726025000838,
+        "q75": 132.70272799996974,
+        "p95": 221.79431475004208,
+        "max": 270.43997700002365
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.06601360416406503,
+        "initial_solve": 17.22027396875229,
+        "first_audit": 3.8603357916677794,
+        "polishing": 2.669727104162097,
+        "fallback_setup": 2.162023156246917,
+        "fallback_solve": 83.71745762500282,
+        "fallback_audit": 3.8241982395816145
+      },
+      "fallback_conditional_mean_ms": 89.70367902083136,
+      "fallback_conditional_mean_iterations": 4472.65625,
+      "paired_savings_ms": {
+        "mean": -86.0295439166722,
+        "percentile95": [
+          -105.2961588078203,
+          -68.28688561510964
+        ],
+        "moving_block4_percentile95": [
+          -97.66526153177723,
+          -72.34159050442844
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0012065826666685098,
+      "offline_seconds": 5.851465919333293,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 5.937495463249966,
+        "100": 14.454420311000513,
+        "1000": 91.88100983600549,
+        "10000": 866.1469050860553,
+        "100000": 8608.805857586553,
+        "1000000": 86035.39538259152
+      }
+    },
+    {
+      "instance": 1,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 96.23644755208478,
+        "median": 100.99789550000082,
+        "q25": 18.943949749953504,
+        "q75": 144.5224227500006,
+        "p95": 237.83081924999294,
+        "max": 270.2499160000116
+      },
+      "fallback_fraction": 0.625,
+      "phase_mean_ms": {
+        "prediction": 0.0,
+        "initial_solve": 19.035142031246604,
+        "first_audit": 3.867543437501434,
+        "polishing": 2.6603637083274143,
+        "fallback_setup": 1.39799935416877,
+        "fallback_solve": 66.79940028125309,
+        "fallback_audit": 2.416807708329453
+      },
+      "fallback_conditional_mean_ms": 112.98273175000209,
+      "fallback_conditional_mean_iterations": 5673.75,
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      }
+    },
+    {
+      "instance": 1,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 112.528635677083,
+        "median": 108.49732900004483,
+        "q25": 67.54184974997202,
+        "q75": 138.37064700003054,
+        "p95": 213.46396874994866,
+        "max": 267.67722099998537
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.08332809375251789,
+        "initial_solve": 16.04673692708225,
+        "first_audit": 3.829651489582512,
+        "polishing": 2.6797437604197207,
+        "fallback_setup": 2.1597100416599346,
+        "fallback_solve": 83.83224401042236,
+        "fallback_audit": 3.8350696979196166
+      },
+      "fallback_conditional_mean_ms": 89.82702375000191,
+      "fallback_conditional_mean_iterations": 4472.65625,
+      "paired_savings_ms": {
+        "mean": -16.29218812499822,
+        "percentile95": [
+          -28.383620355732415,
+          -5.07434616041834
+        ],
+        "moving_block4_percentile95": [
+          -25.873007646870505,
+          -7.483031497393092
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0011375626666184264,
+      "offline_seconds": 5.854347267333405,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 5.870639455458403,
+        "100": 7.483566079833227,
+        "1000": 22.146535392331625,
+        "10000": 168.7762285173156,
+        "100000": 1635.0731597671554,
+        "1000000": 16298.042472265553
+      }
+    },
+    {
+      "instance": 1,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 113.61639704166926,
+        "median": 104.59530300005326,
+        "q25": 71.036157500032,
+        "q75": 136.2424277500338,
+        "p95": 221.41563999997516,
+        "max": 272.05465899999126
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.06527370833116682,
+        "initial_solve": 17.40345404166928,
+        "first_audit": 3.845676072915083,
+        "polishing": 2.670286489582452,
+        "fallback_setup": 2.1678968437554382,
+        "fallback_solve": 83.57295799999953,
+        "fallback_audit": 3.828348270832412
+      },
+      "fallback_conditional_mean_ms": 89.56920311458738,
+      "fallback_conditional_mean_iterations": 4472.65625,
+      "paired_savings_ms": {
+        "mean": -17.379949489584472,
+        "percentile95": [
+          -29.283523310933084,
+          -6.124632437496628
+        ],
+        "moving_block4_percentile95": [
+          -27.553640414072586,
+          -8.19819964244429
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0011375626666184264,
+      "offline_seconds": 5.851534939333344,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 5.868914888822928,
+        "100": 7.589529888291791,
+        "1000": 23.231484428917817,
+        "10000": 179.65102983517806,
+        "100000": 1743.8464838977804,
+        "1000000": 17385.801024523807
+      }
+    },
+    {
+      "instance": 2,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 57.45138167707845,
+        "median": 49.07497650003734,
+        "q25": 34.79272949999768,
+        "q75": 67.59802349998267,
+        "p95": 156.1938187499834,
+        "max": 174.50860199994622
+      },
+      "fallback_fraction": 0.0,
+      "phase_mean_ms": {
+        "prediction": 0.0,
+        "initial_solve": 43.57232426041335,
+        "first_audit": 8.955197385413763,
+        "polishing": 4.852641874998416,
+        "fallback_setup": 0.0,
+        "fallback_solve": 0.0,
+        "fallback_audit": 0.0
+      },
+      "fallback_conditional_mean_ms": null,
+      "fallback_conditional_mean_iterations": null,
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      }
+    },
+    {
+      "instance": 2,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 278.44979172916715,
+        "median": 234.60522999999966,
+        "q25": 180.7598410000537,
+        "q75": 284.57589374997383,
+        "p95": 688.8137955000389,
+        "max": 926.3941149999937
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.09217094792054088,
+        "initial_solve": 62.749103072913925,
+        "first_audit": 8.909667281251643,
+        "polishing": 4.829889447924766,
+        "fallback_setup": 2.957493041670034,
+        "fallback_solve": 189.7811905937523,
+        "fallback_audit": 9.040865166668985
+      },
+      "fallback_conditional_mean_ms": 201.7795488020913,
+      "fallback_conditional_mean_iterations": 6234.375,
+      "paired_savings_ms": {
+        "mean": -220.99841005208867,
+        "percentile95": [
+          -283.5309581591265,
+          -168.00328929193677
+        ],
+        "moving_block4_percentile95": [
+          -273.16109847787123,
+          -171.9011948119857
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0012631033333339776,
+      "offline_seconds": 18.536361592666633,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 18.757360002718723,
+        "100": 40.636202597875496,
+        "1000": 239.5347716447553,
+        "10000": 2228.5204621135535,
+        "100000": 22118.37736680153,
+        "1000000": 221016.94641368135
+      }
+    },
+    {
+      "instance": 2,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 247.69065532290804,
+        "median": 194.6165730000189,
+        "q25": 114.9852409999994,
+        "q75": 266.4850787499802,
+        "p95": 675.8802087499873,
+        "max": 1037.7961789999972
+      },
+      "fallback_fraction": 0.8229166666666666,
+      "phase_mean_ms": {
+        "prediction": 0.07498280208295682,
+        "initial_solve": 60.573527041666374,
+        "first_audit": 8.936651812497587,
+        "polishing": 4.831852354174752,
+        "fallback_setup": 2.44061398958569,
+        "fallback_solve": 163.36320909374535,
+        "fallback_audit": 7.384591177096667
+      },
+      "fallback_conditional_mean_ms": 210.45680720254506,
+      "fallback_conditional_mean_iterations": 6487.025316455696,
+      "paired_savings_ms": {
+        "mean": -190.2392736458296,
+        "percentile95": [
+          -264.52403448047943,
+          -131.58271543487658
+        ],
+        "moving_block4_percentile95": [
+          -258.6484855750066,
+          -129.41305588722855
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0012631033333339776,
+      "offline_seconds": 18.53509519866672,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 18.72533447231255,
+        "100": 37.559022563249684,
+        "1000": 208.7743688444963,
+        "10000": 1920.9278316569628,
+        "100000": 19042.462459781626,
+        "1000000": 190257.80874102825
+      }
+    },
+    {
+      "instance": 2,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 239.93331992709696,
+        "median": 205.54865799999789,
+        "q25": 121.06628949999276,
+        "q75": 266.38910074993305,
+        "p95": 597.8616409999518,
+        "max": 899.1214769999942
+      },
+      "fallback_fraction": 0.8125,
+      "phase_mean_ms": {
+        "prediction": 0.0,
+        "initial_solve": 44.19230092708659,
+        "first_audit": 8.923488479171718,
+        "polishing": 4.836437906238444,
+        "fallback_setup": 2.4046811041706917,
+        "fallback_solve": 172.08675203124696,
+        "fallback_audit": 7.405348062495894
+      },
+      "fallback_conditional_mean_ms": 223.87296147435504,
+      "fallback_conditional_mean_iterations": 6984.615384615385,
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      }
+    },
+    {
+      "instance": 2,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 277.8644813229138,
+        "median": 229.3338005000578,
+        "q25": 178.63833399999862,
+        "q75": 283.2124490000183,
+        "p95": 689.8682592500052,
+        "max": 975.1031710000007
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.09054821874817283,
+        "initial_solve": 61.25123532291473,
+        "first_audit": 8.952810635425598,
+        "polishing": 4.848458833334253,
+        "fallback_setup": 2.943741875001867,
+        "fallback_solve": 190.73986987499225,
+        "fallback_audit": 8.950874270835149
+      },
+      "fallback_conditional_mean_ms": 202.63448602082926,
+      "fallback_conditional_mean_iterations": 6234.375,
+      "paired_savings_ms": {
+        "mean": -37.931161395816794,
+        "percentile95": [
+          -59.19036564711672,
+          -18.050628550243488
+        ],
+        "moving_block4_percentile95": [
+          -54.458387800770055,
+          -22.22668394502818
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0013761169999876681,
+      "offline_seconds": 18.536248578999977,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 18.574179740395795,
+        "100": 22.329364718581658,
+        "1000": 56.467409974816775,
+        "10000": 397.8478625371679,
+        "100000": 3811.6523881606795,
+        "1000000": 37949.6976443958
+      }
+    },
+    {
+      "instance": 2,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 96,
+      "failures": 0,
+      "total_ms": {
+        "mean": 274.955549635416,
+        "median": 237.06925950000368,
+        "q25": 169.57015650004337,
+        "q75": 271.4073059999862,
+        "p95": 662.5034834999326,
+        "max": 1029.5266139999057
+      },
+      "fallback_fraction": 1.0,
+      "phase_mean_ms": {
+        "prediction": 0.07274967708899756,
+        "initial_solve": 58.474727406252924,
+        "first_audit": 8.915310229167991,
+        "polishing": 4.835144458336771,
+        "fallback_setup": 2.95212557292146,
+        "fallback_solve": 190.67998146874388,
+        "fallback_audit": 8.938332437491425
+      },
+      "fallback_conditional_mean_ms": 202.57043947915676,
+      "fallback_conditional_mean_iterations": 6234.375,
+      "paired_savings_ms": {
+        "mean": -35.022229708318996,
+        "percentile95": [
+          -56.90830565284483,
+          -15.111021901017338
+        ],
+        "moving_block4_percentile95": [
+          -56.41693307550808,
+          -16.831573318993318
+        ],
+        "pairs": 32,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "incremental_setup_seconds": -0.0013761169999876681,
+      "offline_seconds": 18.534982185000064,
+      "observed_crossing_queries": null,
+      "resampling_savings_lower_positive": false,
+      "cost_difference_seconds_at_query_volume": {
+        "1": 18.570004414708382,
+        "100": 22.037205155831963,
+        "1000": 53.557211893319064,
+        "10000": 368.75727926819,
+        "100000": 3520.7579530168996,
+        "1000000": 35040.764690504
+      }
+    }
+  ],
+  "resampling_note": "Repetitions averaged within context. Main intervals are descriptive paired percentile intervals; moving-block length four sensitivity is also retained because continuation creates serial dependence. Neither is a retraining-level or distribution-free confidence guarantee."
+}

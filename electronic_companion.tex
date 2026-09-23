@@ -31,12 +31,13 @@
 \newcommand{\clip}{\operatorname{proj}}
 \newcommand{\Hh}{\mathsf H}
 \pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small NDU: Electronic Companion}
+\fancyhead[L]{\small Accepted Service Adaptation: Companion}
 \fancyhead[R]{\small Anonymous}
 \fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\hypersetup{pdftitle={Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains},pdfauthor={Anonymous}}
+\hypersetup{pdftitle={Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains},pdfauthor={Anonymous}}
 
 \externaldocument{main-labels}[main.pdf]
+\externaldocument{cs-labels}[computational_supplement.pdf]
 \externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
 \externaldocument{legacy-ec-labels}[revisions/or-r19-20260923/predecessor/electronic_companion.pdf]
 \externaldocument{history-labels}[historical_supplement.pdf]
@@ -116,13 +117,263 @@
 
 \begin{document}
 \begin{center}{\Large\bfseries Electronic Companion\par}\medskip
-{\large Accepted Service Adaptation with Neural Differential Utility: Continuation Prices and Robust Certified Gains\par}\medskip
-Revision R23, September 23, 2026
+{\large Accepted Service Adaptation: Continuation Prices, Transfer Coordinates, and Certified Gains\par}\medskip
+Revision R24, September 23, 2026
 \end{center}
-This electronic companion contains the new R22 protocol and the complete preserved R19 empirical section, followed by all earlier scalar, verified-cell, and implementation developments. Historical wording is dated explicitly and is not pooled as new evidence. The R22 predecessor directory preserves the complete R19 root manuscripts byte for byte; older revision directories and the historical supplement are unchanged. The R19 fleet calculation is retained under its stated fixed-policy assumptions; the current empirical confidence claims use only the freshly reset final validation described below.
+This companion contains the complete canonical service institution and all formal derivations relocated from the main paper. Every predecessor mathematical statement and proof remains in the current main or companion. Numerical experiments and execution details moved to the Computational Supplement retain their original sources, dates, and adverse results. The R19 randomized-fleet result remains distinct from the R22 deterministic frozen-policy validation.
+
+\section{An externally priced inventory contract}\label{sec:model}
+There are periods $t=0,\ldots,T-1$. The observed state is $(z,q)$, where $z$ is a demand regime in a finite ordered set $\mathcal Z$ and $q\in[0,1]$ is the inherited contract. Conditional demand $D_z$ is nonnegative with finite first moment. A decision consists of stock $S\in\mathcal S\subset[0,\bar S]$ and contract $\theta\in\Theta\subset[0,1]$. Both feasible sets are fixed compact chains; finite grids are allowed. Unused stock perishes and unmet demand is lost. Thus no inventory or backlog is carried. The next regime has exogenous transition matrix $P$, and the next inherited contract equals the chosen contract.
+
+Write the expected overage and shortage as
+\begin{equation}\label{eq:cost}
+ O_z(S)=\E\pos{S-D_z},\qquad L_z(S)=\E\pos{D_z-S},\qquad
+ C_z(S)=cS+hO_z(S)+pL_z(S).
+\end{equation}
+Here $c,h,p\geq0$ are externally fixed physical-cost coefficients. The provider receives premium $r_z\theta$, pays incremental liability $\kappa\theta L_z(S)$, pays maintenance $m\theta^2$, and pays adjustment $\lambda(\theta-q)^2$, where $\kappa,m,\lambda>0$. Expected one-period net reward is
+\begin{equation}\label{eq:reward}
+ g(z,q,S,\theta)=r_z\theta-C_z(S)-\kappa\theta L_z(S)
+                       -m\theta^2-\lambda(\theta-q)^2.
+\end{equation}
+The expectation in this expression is over demand, not over the decision. Premium rates, liability coefficients, and physical-cost weights cannot be controlled. The contract is a real cash-flow commitment. Its level affects both reward and the future state; it is not an estimator of a preference parameter.
+
+\subsection{A customer-accepted master agreement}\label{sec:institution}
+The contract is a publicly specified menu, not a penalty that the provider can change after performance is observed. Before period zero, a risk-neutral customer and provider sign a master agreement. It specifies the premium schedule $r_z\theta$, the indemnity $\kappa\theta(D_z-S)^+$, the horizon, and a contingent operating protocol. Regime, tier, stock, demand, and fulfillment are observable and contractible. At each review the provider implements the announced protocol after observing $(z,q)$ and before demand is realized. Public randomization is permitted when specified in the agreement. The customer commits to the contingent menu, not to a new purchase at each review. Transfers and compliance with the protocol are enforceable. No hidden effort or private type is assumed.
+
+Let $f_z(S)=\E D_z-L_z(S)$ be expected units served. For a fixed service benefit $\nu>0$, the customer's incremental one-period utility is
+\begin{equation}\label{eq:customer}
+ u(z,S,\theta)=\nu f_z(S)+\kappa\theta L_z(S)-r_z\theta.
+\end{equation}
+Indemnity is a transfer from the provider to this customer. Maintenance and adjustment are real resource expenditures, not payments to the customer. Write $F^\pi=\E^\pi\sum_t\beta^t f_{z_t}(S_t)$, $D=\E\sum_t\beta^t\E D_{z_t}$, and $U^\pi=\E^\pi\sum_t\beta^t u(z_t,S_t,\theta_t)$. Demand is exogenous, so $D$ is independent of the protocol. The agreement is accepted only if
+\begin{equation}\label{eq:participation}
+ U^\pi\geq\underline U,\qquad F^\pi\geq\gamma D.
+\end{equation}
+These are ex ante participation and expected discounted fill commitments. They are not period-by-period chance constraints or a right to renegotiate after each regime realization. A customer with such rights would require continuation participation constraints and an additional promised-utility state.
+
+A fixed retainer $A_0$ can fund provider participation. Total provider profit is $A_0+W^\pi$ and total customer surplus is $U^\pi-A_0$; the retainer does not affect policy comparisons. In the canonical inventory study $A_0=6$, $\nu=2$, and the customer's outside alternative is the best fixed-contract arrangement, including the same retainer. Both that arrangement and the accepted adaptive arrangement satisfy a zero provider outside option. We report incremental $W$ and $U$ so that the historical accounting remains exactly comparable.
+
+The institution fixes the menu and designs the contingent protocol subject to acceptance. It does not claim to solve private-information screening or to endogenize every price in the menu. The unconstrained Bellman equation below is the provider relaxation and is also the problem when the acceptance constraints are slack. Section~\ref{sec:accepted} solves the binding-acceptance problem. A lower fill rate or customer surplus in the relaxation is not presented as an improvement under the accepted agreement.
+
+For discount $\beta\in(0,1]$ and zero terminal reward, the Bellman equation is
+\begin{equation}\label{eq:bellman}
+ V_t(z,q)=\max_{S,\theta}\left\{g(z,q,S,\theta)
+       +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta)\right\},\qquad V_T=0.
+\end{equation}
+Finite actions make existence immediate. For compact intervals, bounded demand moments, continuity of the stage reward, and induction give a continuous value and an attained maximum. We select the greatest optimal pair when the lattice conditions below hold.
+
+
+The exact expanded-action representation and the provider-relaxation structure are retained in EC Section~\ref{sec:representation}. The ex ante master agreement above defines the canonical inventory benchmark. The unified formulation below additionally permits an enforceable continuation exit option at every review, implemented by a cap for every nonroot subtree and a root payment equality. The later tree and scalar-critic experiments use that continuation institution; they do not reinterpret an ex ante commitment as a continuation guarantee.
+
+% END input source: revisions/or-r14-20260922/sections/model.tex
+
+
+% BEGIN preserved/input source: revisions/or-r12-20260922/retained/accepted.tex
+\section{Accepted contracts and the value of information}\label{sec:accepted}
+The relevant static comparator is chosen before period zero, not fixed at an arbitrary tier. Let $\mathcal P_{\rm stat}$ consist of constant-contract protocols, with stock still optimized using the observed regime. Every comparator pays the initial installation cost $\lambda(\theta-q_0)^2$. Let $\mathcal P_t$, $\mathcal P_{t,z}$, $\mathcal P_{t,q}$, and $\mathcal P_{t,z,q}$ denote deterministic contract rules using the displayed information. Physical stock can use the full observed state in each class. With a fixed initial contract,
+\begin{equation}\label{eq:classes}
+ \mathcal P_{\rm stat}\subseteq\mathcal P_t
+ \subseteq\mathcal P_{t,z}\subseteq\mathcal P_{t,z,q}.
+\end{equation}
+The inherited-only class is not an additional information increment along this chain.
+\begin{proposition}[Inherited-only information and optimized static contracts]\label{prop:classes}
+For deterministic $q_0$ and deterministic protocols, the value of $\mathcal P_{t,q}$ equals the value of $\mathcal P_t$. For a finite stock menu and continuous tier, the optimal static contract can be found exactly by enumerating stock-envelope breakpoints and the stationary point of the objective on each intervening interval.
+\end{proposition}
+\begin{proof}
+If $\theta_t=f_t(q_t)$ and $q_{t+1}=\theta_t$, induction makes the entire tier path deterministic. A time-only schedule implements that path, and every schedule is an inherited-only rule. Independent private randomization is a mixture of deterministic paths and cannot improve the unconstrained maximum.
+
+For the static calculation define $a_z=\sum_t\beta^t\Pr(z_t=z)$ and $H=\sum_z a_z$. Its objective is
+\begin{equation}\label{eq:static}
+ W_{\rm stat}(\theta)=\sum_z a_z\{r_z\theta+U_z(\theta)\}
+             -mH\theta^2-\lambda(\theta-q_0)^2.
+\end{equation}
+Each $U_z$ is a finite upper envelope of affine stock payoffs. Between all pairwise line crossings, the active stock choices are constant, so \eqref{eq:static} is a concave quadratic with coefficient $-(mH+\lambda)$. Its maximum on that interval is at its stationary point or an endpoint. Checking all such candidates and the endpoints $0,1$ is exhaustive, including ties and nonconcavity across intervals. One may instead first construct each stock upper envelope and enumerate only its surviving breakpoints; intersections never attaining that envelope are unnecessary. Both procedures return the same exhaustive candidate set of active intervals.\end{proof}
+Public randomized accepted classes are treated separately in Proposition~\ref{prop:accepted-jensen}; the unconstrained mixture argument above is not sufficient for them. The equality in the proposition concerns the value from the specified initial state; it is not equality of the two feedback function spaces on unreachable histories. For $\mathcal P_{t,z}$ we use occupation variables and binary tier selectors shared across all inherited states. Optimizing an ordinary full-state Bellman equation and then deleting $q$ from the policy label would not solve this restriction.
+
+\subsection{A constrained operating protocol}
+The customer-accepted problem is
+\begin{equation}\label{eq:master}
+ \max_\pi W^\pi\quad\text{subject to}\quad
+ F^\pi\geq\gamma D,\quad U^\pi\geq\underline U,
+ \quad C^\pi\leq\overline C,
+\end{equation}
+where the optional final constraint rules out financing provider gains with a higher physical resource cost. For a finite tier menu let $x_t(z,q,S,\theta)$ be the undiscounted state--action occupancy. It satisfies $x\geq0$ and
+\begin{align}
+ \sum_{S,\theta}x_0(z,q,S,\theta)&=\mu_0(z,q),\
+ \sum_{S,\theta}x_t(z,q,S,\theta)&=
+ \sum_{z_-,q_-,S_-}P_{z_-z}x_{t-1}(z_-,q_-,S_-,q),\quad t\geq1.\label{eq:flow}
+\end{align}
+All objectives and commitments are linear functionals of $x$, with $\beta^t$ in their coefficients. The transition on the right has next contract $q$, explaining the last action index. The full stock menu is retained: eliminating stock by the unconstrained newsvendor solution is generally invalid under service and participation constraints.
+\begin{theorem}[Acceptance, Pareto comparison, and a certificate]\label{thm:accepted}
+For finite states and actions, \eqref{eq:master} equals the linear program defined by \eqref{eq:flow} and its linear commitments. From any feasible occupation measure, choosing actions with probabilities proportional to the local occupancies implements the same reward and commitments. If a static comparator is feasible, the optimum in a policy class containing it is at least its reward. Moreover, for any $\mu,\eta,\chi\geq0$,
+\begin{equation}\label{eq:dual}
+ W^*_{\rm acc}\leq V^{\mu,\eta,\chi}_0
+           -\mu\gamma D-\eta\underline U+\chi\overline C,
+\end{equation}
+where $V^{\mu,\eta,\chi}$ is the ordinary Bellman value for reward
+$g+\mu f+\eta u-\chi C$. A feasible protocol and this upper bound give a two-sided certificate without trusting an optimizer's status label.
+\end{theorem}
+\begin{proof}
+History-dependent policies induce occupancies satisfying the flow equations. Conversely, normalize each positive local occupancy; induction on $t$ recovers every occupancy, choosing arbitrary actions at zero-mass states. This proves equality and implementability. The finite feasible flow polytope is compact, and linear programming duality applies when the commitment set is nonempty. The comparison follows by feasibility. For the certificate, each feasible policy satisfies
+$W^\pi\leq W^\pi+\mu(F^\pi-\gamma D)+\eta(U^\pi-\underline U)-\chi(C^\pi-\overline C)$.
+Maximize the expression over all policies and evaluate its reward term by Bellman recursion.\end{proof}
+The same Lagrangian retains the inherited-contract envelope because the added commitments depend on current stock and tier, not separately on inherited $q$. However, the premium--liability monotonicity assumptions may change after reweighting. Neither a constrained optimizer nor its randomized policy is assumed to inherit the relaxation's statewise monotonicity without checking those conditions.
+
+\subsection{An exact customer-preserving improvement}\label{sec:pareto}
+For the canonical primitives in Section~\ref{sec:study}, optimize the continuous static tier and set $(\gamma D,\underline U,\overline C)$ equal to its fill, customer utility, and physical cost. The exact stationary candidate is
+\[
+ \theta^*_{\rm stat}=\frac{33217640615804572}{57064160140575975}
+   =0.582110391776\ldots,
+ \qquad W^*_{\rm stat}=-5.870110973047\ldots.
+\]
+On the $0.1$ tier grid, a dynamic protocol achieves
+\begin{equation}\label{eq:paretogain}
+ W_{\rm acc}=-5.244970661075\ldots,
+ \qquad W_{\rm acc}-W^*_{\rm stat}=0.625140311972\ldots,
+\end{equation}
+with exactly equal $F$, $U$, and $C$ to the continuous static comparator. The finer static class makes this comparison more demanding than comparison with the best static grid point. Randomizing over static contracts cannot improve their unconstrained maximum; the static optimum itself satisfies these commitments.
+
+This statement has a constructive rational certificate. Every positive-occupancy stock is $S=z+2$. The protocol is deterministic except at $(t,z,q)=(1,2,0.5)$, where it selects tier $0.8$ with probability
+\[
+ \omega=
+ \frac{23922659112150250115102014240924014583}
+ {112890354847273020834603977168500200000}
+ =0.211910567068\ldots
+\]
+and tier $0.7$ otherwise. The complete feedback map is supplied with the certificate. Fixing that single choice low or high gives two deterministic protocols with rational rewards and utilities. Set $\omega=(\underline U-U_L)/(U_H-U_L)$; exact forward propagation verifies $0\leq\omega\leq1$ and equality of all three commitments. The gain in \eqref{eq:paretogain} is the positive rational number
+\[
+ \frac{1039866308925205364208678517401738512452611721}
+ {1663412659543104261120000000000000000000000000}.
+\]
+An independent rational Bellman recursion for \eqref{eq:dual}, using nonnegative rational prices and $\chi=0$, gives an upper bound less than $8.21\times10^{-16}$ above this feasible reward. Thus the observed improvement is neither Monte Carlo noise nor a payment for lower service. It is an instance-specific, reproducible Pareto improvement in provider reward at the customer's reservation utility and service level; it is not a universal dominance theorem for every set of primitives.
+
+% END input source: revisions/or-r12-20260922/retained/accepted.tex
+
+
+% BEGIN preserved/input source: revisions/or-r7-20260921/sections/accepted_continuous.tex
+\section{What accepted adaptivity buys}\label{sec:accepted-continuous}
+The occupation program establishes a feasible improvement, but an information decomposition must impose its commitments in every class. We now solve that comparison with continuous tiers, rather than transferring an unconstrained information increment to the accepted problem. A supporting-price argument first identifies the physical policy from the commitments themselves.
+
+\subsection{The service and resource commitments identify stock}
+\begin{lemma}[Physical-policy identification]\label{lem:stock-pin}
+Let $s_z$ be a fixed-stock rule and suppose that, for some $\xi>0$,
+\begin{equation}\label{eq:stock-pin}
+ C_z(S)-C_z(s_z)-\xi\{f_z(S)-f_z(s_z)\}\geq0
+\end{equation}
+for every feasible $z,S$, with equality only at $S=s_z$. Demand regimes are exogenous. Any protocol with $F^\pi\geq F^s$ and $C^\pi\leq C^s$ must select $S_t=s_{z_t}$ almost surely at every positive-probability review. Both commitments then hold with equality. For the canonical instance, $s_z=z+2$ and $\xi=1$ satisfy \eqref{eq:stock-pin}, for both the original stock menu and every stock in $[0,6]$.
+\end{lemma}
+\begin{proof}
+The expected discounted sum of the left side of \eqref{eq:stock-pin} is nonnegative. Feasibility bounds that sum above by $(C^\pi-C^s)-\xi(F^\pi-F^s)\leq0$. Every nonnegative summand at a reachable state must therefore vanish. Strictness identifies stock, and exogeneity gives equality of both totals. In the instance, $C_z(z+2)=1.03+0.3z$ and $f_z(z+2)=1.5+z$. On the half-unit menu, the smallest positive supporting gap is exactly $9/40$. The functions are piecewise linear between the demand atoms, all of which belong to that menu. The same unique minimizer consequently holds on the entire stock interval. The positive gap $9/40$ is a menu gap, not a uniform gap on continuous stocks approaching $z+2$.
+\end{proof}
+This is not unconstrained stock elimination inside a constrained problem. Both the service floor and the physical-cost cap are used to prove that no other stock decision is feasible. Under looser commitments, we retain all stock choices in the occupation program.
+
+Set $w_{tz}=\beta^t\Pr(z_t=z)$, $a_z=r_z-\kappa L_z(s_z)$, and $A=\sum_{t,z}w_{tz}a_z$. At the canonical stocks, $a_z=0.36+1.4z$. Let $\bar\theta$ be the optimized continuous static tier, and put $\overline P=A\bar\theta$. The remaining acceptance condition is a payment budget,
+\begin{equation}\label{eq:accepted-payment}
+ P^\pi:=\E^\pi\sum_t\beta^t a_{z_t}\theta_t\leq\overline P,
+ \qquad U^\pi=\nu F^s-P^\pi.
+\end{equation}
+The accepted reward is $W^\pi=P^\pi-C^s-\E^\pi\sum_t\beta^t[m\theta_t^2+\lambda(\theta_t-q_t)^2]$. Thus matching the customer's utility fixes expected net payments. The remaining economic benefit must be a reduction in maintenance and reconfiguration resources, not an unreported transfer from the customer.
+
+\subsection{Randomization and the accepted information hierarchy}
+We define randomization before comparing information. An ex ante public random tape $R$, independent of demand regimes, may select a constant tier, a time schedule, or a map of time and current regime. These classes have rules $f(R)$, $f_t(R)$, and $f_t(z,R)$, respectively. They include deterministic rules and public mixtures of them. They do not silently grant a regime-only rule access to earlier regimes through an unrecorded memory state. Full protocols may use the entire observed history; their optimum will admit a Markov implementation.
+
+\begin{proposition}[Derandomization on a continuous accepted menu]\label{prop:accepted-jensen}
+Under Lemma~\ref{lem:stock-pin}, continuous tier feasibility $[0,1]$, and convex maintenance and adjustment costs, public randomization does not improve the accepted static, time-only, or time--regime value. An inherited-only randomized rule with deterministic initial tier has the same accepted value as a time-only rule. For the canonical quadratic problem, a deterministic full-state rule also attains the unrestricted accepted optimum.
+\end{proposition}
+\begin{proof}
+Replace each restricted rule by its expectation over $R$, holding the regime path fixed. The resulting action remains in $[0,1]$ and in the same information class. Expected payments do not change. Jensen's inequality decreases each maintenance cost and each adjustment cost, including the jointly randomized difference of consecutive tiers. The fixed physical policy preserves the other commitments. Without regime inputs, an inherited-only rule generates a random time schedule from $q_0$ and $R$; the preceding argument applies. For full histories the conditional-mean construction need not preserve the displayed Markov parametrization. The deterministic Markov rule and a matching unrestricted Lagrangian upper bound constructed below establish attainment directly. None of these statements asserts derandomization on a coarse, nonconvex tier menu.
+\end{proof}
+
+For a multiplier $\eta\geq0$, maximize $W^\pi-\eta P^\pi$ and add $\eta\overline P$. This is a different sign convention from the customer-utility multiplier in \eqref{eq:dual}, with the constant customer-service term removed. Write its full-state value as
+\begin{equation}\label{eq:riccati-form}
+ J_t^\eta(z,q)=-A_tq^2+B_{tz}q+D_{tz},\qquad A_T=B_{Tz}=D_{Tz}=0.
+\end{equation}
+When the maximizers are interior, backward completion of squares gives
+\begin{align}
+ K_t&=m+\lambda+\beta A_{t+1},&
+ L_{tz}&=(1-\eta)a_z+\beta\sum_{z'}P_{zz'}B_{t+1,z'},\notag\\
+ A_t&=\lambda-\lambda^2/K_t,& B_{tz}&=\lambda L_{tz}/K_t,\label{eq:riccati}\\
+ D_{tz}&=-C_z(s_z)+\beta\sum_{z'}P_{zz'}D_{t+1,z'}+L_{tz}^2/(4K_t),&
+ \theta_t^\eta(z,q)&=\lambda q/K_t+L_{tz}/(2K_t).\notag
+\end{align}
+Endpoint verification is essential: the affine rule must lie in $[0,1]$ for every $q\in[0,1]$, not just along one simulated path. We verify both endpoints in rational arithmetic for every period and regime in the canonical certificate.
+
+The restricted classes require their own optimization. Give each reachable time--information pair one tier variable $x_i$. Their rewards have the form
+\begin{equation}\label{eq:restricted-qp}
+ W(x)=-x^\top Hx+b^\top x-c_0,\qquad c^\top x\leq\overline P,
+ \qquad H\succ0.
+\end{equation}
+Here the maintenance terms contribute $m w_i$ to the diagonal; an adjustment edge from variable $j$ to variable $i$ contributes its discounted transition weight times $\lambda(x_i-x_j)^2$. The initial installation cost contributes $\lambda(x_0-q_0)^2$. There are one, eight, and twenty-two variables in the static, time, and time--regime problems. For an interior solution,
+\[
+ x=\tfrac12H^{-1}(b-\eta c),\qquad
+ \eta=\max\left\{0,\frac{c^\top H^{-1}b-2\overline P}{c^\top H^{-1}c}\right\}.
+\]
+The matrix is not a full-state Bellman relaxation of the regime restriction: a single variable is shared by every history with the same permitted information.
+
+\begin{theorem}[Exact accepted information values]\label{thm:accepted-hierarchy}
+For the canonical primitives, the commitments of the optimized continuous static contract, and continuous stock and tier intervals, the accepted values in Table~\ref{tab:accepted-hierarchy} are exact rational numbers. Each value is attained without public randomization. The accepted increment from observing the inherited tier, after time and current regime have already been admitted, is $0.019290378765\ldots$. The total gain over the optimized static contract is $0.636665271611\ldots$.
+\end{theorem}
+\begin{proof}
+The exhaustive static stock-envelope calculation yields the stated $\bar\theta$ and stocks. Lemma~\ref{lem:stock-pin} then reduces every feasible protocol, not just the proposed ones, to \eqref{eq:accepted-payment}. For each restricted class, the displayed solution of \eqref{eq:restricted-qp} has every tier strictly between zero and one. Rational arithmetic verifies its stationarity equation, nonnegative multiplier, primal feasibility, and complementary slackness. Strict concavity proves global optimality in the deterministic class; Proposition~\ref{prop:accepted-jensen} includes its public mixtures.
+
+In the full problem, $A_t$ is independent of $\eta$ and $B_{tz}$ is proportional to $1-\eta$. Forward first moments make $P^{\theta^\eta}$ affine in $\eta$. Solving $P^{\theta^\eta}=\overline P$ gives $\eta=0.180271243733\ldots$. Rational endpoint checks verify interior maximization in every Bellman step. The affine policy is feasible, and its Lagrangian bound is equal to its reward. Forward second moments evaluate maintenance and adjustment exactly. This bounds every randomized history-dependent protocol from above and attains the bound with a deterministic Markov policy. The files record the rational values, multipliers, and policy coefficients, rather than only the decimals in the table.
+\end{proof}
+
+% BEGIN preserved/input source: revisions/or-r7-20260921/tables/accepted_hierarchy.tex
+\begin{table}[!ht]
+\centering
+\caption{Accepted continuous-tier information values}\label{tab:accepted-hierarchy}
+\begin{tabular}{lrrr}\toprule
+Information & Provider reward & Increment & Payment price\\
+\midrule
+Static & -5.870110973 & --- & 0.000000000\\
+Time & -5.869294096 & 0.000816877 & 0.001568294\\
+Time--regime & -5.252736080 & 0.616558016 & 0.174849751\\
+Full state & -5.233445701 & 0.019290379 & 0.180271244\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small All four classes have the same filled demand 18.021386714, customer utility 28.657506145, and physical cost 9.587377732. All policies are deterministic. Decimals round exact rational values; stock is optimized over the full interval through Lemma~\ref{lem:stock-pin}.\end{minipage}
+\end{table}
+% END input source: revisions/or-r7-20260921/tables/accepted_hierarchy.tex
+
+The inherited-tier increment is approximately three percent of the total accepted gain. Most of the gain is due to current-regime reallocation; attributing the entire improvement to contractual memory would be incorrect. Nevertheless, inherited information has strictly positive value under the same customer commitments, not only in a provider relaxation. The continuous optimum also exceeds the certified $0.1$-menu optimum by $0.011524959639\ldots$. The earlier lottery is therefore not the source of the economic improvement.
+
+\subsection{A primitive mechanism for a robust improvement}
+\begin{theorem}[A customer-neutral adaptive direction]\label{thm:local-gain}
+Consider a feasible constant tier $\bar\theta\in(0,1)$ with fixed stocks $s_z$, linear net payments $a_z\theta$, and twice continuously differentiable maintenance $M$ near $\bar\theta$, with $M'(\bar\theta)>0$. Suppose that at a review $t\geq1$ two regimes have positive discounted weights $w_L,w_H$ and $0<a_L<a_H$. For every finite quadratic adjustment coefficient, a sufficiently small deterministic time--regime perturbation strictly improves provider reward while preserving customer utility, fill, and physical cost exactly. The conclusion holds in a neighborhood of primitives preserving these strict inequalities.
+\end{theorem}
+\begin{proof}
+Change only that review's tiers by $\varepsilon d_z$, where
+\[
+ d_H=(w_Ha_H)^{-1},\qquad d_L=-(w_La_L)^{-1},\qquad d_z=0\text{ otherwise}.
+\]
+Then $\sum_z w_za_zd_z=0$ and $\sum_z w_zd_z=1/a_H-1/a_L<0$. Payments and physical decisions are unchanged in expectation. The first-order reward gain is
+$\varepsilon M'(\bar\theta)(1/a_L-1/a_H)>0$.
+All changed adjustment costs are second order because the baseline tier is constant at this and the next review; the initial installation is unaffected. If $|M''|\leq L_M$ locally, the absolute quadratic cost is at most
+\[
+ \varepsilon^2\{L_M/2+\lambda+\beta\lambda\mathbf1_{\{t<T-1\}}\}
+       \left(\frac1{w_Ha_H^2}+\frac1{w_La_L^2}\right).
+\]
+Choose $\varepsilon$ small enough to keep both tiers interior and make this term smaller than the positive linear gain. Continuity preserves a strictly positive margin in a sufficiently small neighborhood. For $M(\theta)=m\theta^2$, the displayed first- and second-order terms give the exact payoff difference, not just an asymptotic expansion.
+\end{proof}
+This argument does not require translated demand, a coarse menu, or a lottery. It does require positive and heterogeneous net payment rates and an interior static tier with increasing maintenance cost. It proves existence of an improvement, not that every parameter perturbation has a large gain. It also explains the role of the customer constraint: concentrating a fixed expected payment budget on higher-payment regimes permits a lower average maintained tier. Reconfiguration is worthwhile when those savings exceed its resource cost.
+
+\subsection{Allowing the customer to leave at each review}\label{sec:interim}
+The ex ante institution can be weakened without introducing hidden action or changing the tariff. At every observed regime history $h$ at review $t$, let the customer's outside option be the remaining service utility of the same static contract. The provider remains committed to the announced protocol, but the customer may leave at each such review. Physical stock is still identified by the service and cost commitments. Continuation participation therefore requires
+\begin{equation}\label{eq:interim}
+ \E\left[\left.\sum_{s=t}^{T-1}\beta^{s-t}a_{z_s}\theta_s\right|h\right]
+ \leq\bar\theta\E\left[\left.\sum_{s=t}^{T-1}\beta^{s-t}a_{z_s}\right|h\right]
+ \quad\text{for every reachable }h.
+\end{equation}
+These constraints cannot be replaced by the root participation inequality. On the finite regime tree they are linear, while maintenance and adjustment give a strictly concave quadratic objective. The canonical tree has 3,280 decision nodes. Its policy may depend on history; a promise-state representation is an alternative, not an assumption that the original three-coordinate Markov policy remains sufficient.
+
+We solve this convex program numerically, round its deterministic tiers to rational numbers, and contract the vector slightly toward zero to enforce every continuation inequality exactly. The resulting reward is $-5.417032209823\ldots$, an improvement of $0.453078763224\ldots$ over the static contract. A rational feasible-policy and weighted-residual certificate places the interim-participation optimum less than $6.95\times10^{-7}$ above this reward. Thus the exit option costs approximately $0.18358651$ relative to full customer commitment, but does not eliminate the gain. EC Section~\ref{ec:interim-certificate} gives the upper-bound proof and the complete policy audit. No compensating side payment or change in the fixed menu is used to obtain this result.
+
+% END input source: revisions/or-r7-20260921/sections/accepted_continuous.tex
+
+
+% BEGIN preserved/input source: revisions/or-r14-20260922/sections/general_theory.tex
 
 \section{R22 design, exact restricted repair, and replay}\label{ec:r22-details}
-R22 starts from the complete R19 manuscript, not from an unexecuted result attributed to the R20 plan. The newest referee report is dated September 23, 2026. Its reviewed tip contains only that plan beyond the R19 publication. The current sources, manuscripts, response, raw results, and final-checkout tests form one completed object. The design was declared before the new studies, after knowledge of R19 outcomes; it was not externally preregistered. New observations are not pooled with historical studies.
+This subsection records the preserved R22 design and its numerical-state correction. The historical R20 review pointer concerns an earlier plan-only tip; R24 responds instead to the completed R23 manuscript and its September 23 report. The R22 observations remain a separate completed study. The design was declared before the new studies, after knowledge of R19 outcomes; it was not externally preregistered. New observations are not pooled with historical studies.
 
 The new code reuses the declared R16 primitive generator and frozen models. Tanh models use 192 fixed random features and ridge parameter $10^{-7}$; the RBF is cubic with smoothing $10^{-7}$. Normalized reward inputs are divided by sixteen, and integer friction input is centered at seventeen and divided by fifteen. The independent final seeds are 23011 and 23012. The inherited R21 audit note records a code-inspection pilot using 23001 and 23002; it is excluded because resetting primal and dual iterates alone need not reset adaptive solver state. The final validation reconstructs every response and restricted-comparator workspace for each context, with both ensembles unchanged. The audit note records this correction and the pilot hashes. Scaling training seeds start at 25001 and held-out seeds at 24001, incrementing with the configuration index. No model or seed is selected by the reported results. Timed studies execute sequentially with one BLAS thread and one OpenMP thread; validation and replay are not run concurrently with timed workloads in the reproduction script.
 
@@ -143,128 +394,8 @@ For the finite list of box, capacity, and continuation rows $a_i^\top x\leq b_i$
 \]
 All quantities are rational and $0\leq\alpha<1$. For each violated row the definition gives $a_i^\top y\leq b_i$; for every other row feasibility follows from convexity. Both endpoints satisfy all equalities, so $y$ stays in the restricted class. The independent verifier checks the extra equalities explicitly as well as the original commitments. A negative control perturbs two sibling amendments while preserving their total payment; it is accepted by the unrestricted geometry but rejected by the restricted equality check.
 
-\subsection{Recorded objects and independent verification}
-Each timed record contains the initial repaired proposal and its dual certificate, the fixed-primal polished certificate, and the actually returned post-fallback certificate. Replay verifies identical proposal coordinates, switching tensions and inequality prices before and after polishing; nonincreasing rational upper bounds; and the requested final gap. Component checks evaluate the exact four-term identity, including its outward-rounding remainder. An outside gate, when active, is recomputed from the exact proposal value; an ungated component identity is not relabeled as the selected outside decision's gap.
-
-Validation records additionally retain the optimized restricted candidate and its full restricted dual, both deterministic ensemble outputs, reference decisions, and every corner bound. The sample observations use the selected value minus the restricted upper bound. Both the Hoeffding target and its width are independently reconstructed from these objects. The complete dual-repair checks independently optimize 225 small accepted problems, including 45 with no strict-feasibility point; they verify 3,600 exact projected-gradient steps and 450 reward/friction certificate transports. They do not call the numerical optimizer or the main certificate implementation. These are theorem checks, not speed comparisons. The 360 nonsmooth zero-curvature identities and 234 exact regularization-bias checks supplement, rather than replace, the proofs. Historical rational replay remains executable without any numerical solver. Source hashes and final-manuscript hashes are verified on the published commit, rather than only on its pre-publication workflow input.
-
-
-% BEGIN R22 source: revisions/or-r22-20260923/tables/scaling_coarse.tex
-\begin{table}[tbp]\centering\small
-\caption{Coarse-target scaling on complete accepted polyhedra (mean milliseconds).}\label{tab:r22-scaling-coarse}
-\begin{tabular}{llrrrrr}
-\toprule
-Nodes $\times$ services & $r/c/q$ & Cold & Previous & Lifted & Tanh & RBF\\
-\midrule
-$31\times 2$ & 2/4/1 & 6.09 & 5.47 & 4.26 & 5.54 & 4.31\\
-$63\times 2$ & 6/4/1 & 16.40 & 15.45 & 8.87 & 28.01 & 17.48\\
-$127\times 2$ & 6/4/1 & 119.22 & 106.52 & 36.65 & 198.75 & 113.26\\
-$255\times 2$ & 6/4/1 & 794.76 & 513.31 & 88.07 & 342.89 & 359.63\\
-$511\times 2$ & 6/4/1 & 5425.71 & 3881.65 & 1143.13 & 2016.61 & 2045.53\\
-$1023\times 2$ & 6/4/1 & 23790.22 & 17698.93 & 3152.87 & 4005.49 & 4108.01\\
-$127\times 1$ & 2/4/1 & 22.46 & 22.87 & 11.76 & 15.57 & 13.58\\
-$127\times 4$ & 12/4/1 & 619.17 & 420.01 & 103.58 & 548.89 & 561.77\\
-$127\times 2$ & 12/8/1 & 142.29 & 130.56 & 75.95 & 139.92 & 144.35\\
-$127\times 2$ & 6/4/16 & 85.81 & 67.07 & 22.81 & 92.51 & 77.00\\
-\bottomrule
-\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small Each entry includes eight held-out complete attempts. The second column reports resource rank, additional capacities, and the alternating curvature multiplier. All methods receive the same independent target, price repair and actual fallback. Parenthesized superscripts, when present, count failed target checks; such attempts remain in the recorded cost and do not establish a certified speed advantage. A separate 64-label fit is used at every configuration.\end{minipage}
-\end{table}
-
-% END R22 source
-
-
-% BEGIN R22 source: revisions/or-r22-20260923/tables/geometry.tex
-\begin{table}[tbp]\centering\small
-\caption{Actual geometry in the new independent validation populations.}\label{tab:r22-geometry}
-\begin{tabular}{lrrrrr}
-\toprule
-Domain & Contexts & Out of support (\%) & Capacities & Tier bounds & Kinks\\
-\midrule
-IID & 2048 & 0.00 & 0.000 & 0.063 & 61.749\\
-SHIFT & 512 & 93.55 & 0.000 & 0.178 & 65.424\\
-\bottomrule
-\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small The last three columns are mean counts in the audited full reference decision. Zero capacity activation is reported as zero, not relabeled as a capacity stress test. The deliberate inherited R19 suite remains the separate test of forced active geometries.\end{minipage}
-\end{table}
-
-% END R22 source
-
-
-% BEGIN R22 source: revisions/or-r22-20260923/tables/setup.tex
-\begin{table}[tbp]\centering\small
-\caption{Measured scaling offline work and formulation sizes.}\label{tab:r22-setup}
-\begin{tabular}{lrrrrrr}
-\toprule
-Nodes $\times$ services & Labels (s) & Fits (s) & Dense setup & Lifted setups & Dense $P$ & Lifted $P$\\
-\midrule
-$31\times 2$ & 0.448 & 0.034 & 0.001 & 0.001 & 3,566 & 64\\
-$63\times 2$ & 1.747 & 0.003 & 0.002 & 0.002 & 15,464 & 132\\
-$127\times 2$ & 4.489 & 0.003 & 0.016 & 0.003 & 62,804 & 260\\
-$255\times 2$ & 16.793 & 0.002 & 0.045 & 0.006 & 253,474 & 516\\
-$511\times 2$ & 96.487 & 0.003 & 0.227 & 0.008 & 1,017,116 & 1,028\\
-$1023\times 2$ & 232.009 & 0.002 & 1.506 & 0.016 & 4,077,840 & 2,052\\
-$127\times 1$ & 1.772 & 0.002 & 0.002 & 0.001 & 14,761 & 129\\
-$127\times 4$ & 20.889 & 0.003 & 0.074 & 0.006 & 253,614 & 520\\
-$127\times 2$ & 7.969 & 0.003 & 0.016 & 0.003 & 63,432 & 266\\
-$127\times 2$ & 4.653 & 0.003 & 0.015 & 0.003 & 62,804 & 260\\
-\bottomrule
-\end{tabular}
-\par\smallskip\begin{minipage}{.98\textwidth}\small Labels include 64 lifted full-objective solves and independent audits. Fits include both declared predictors. Lifted setup charges two tolerance-isolated workspaces; dense cold setup charges one. The last columns report stored quadratic-matrix nonzero counts, not an asymptotic complexity theorem. Primitive construction and all remaining setup timings are retained in the raw summary.\end{minipage}
-\end{table}
-
-% END R22 source
-
-
-\paragraph{Reading the preserved R19 study.}
-The following complete section is retained from R19, with its numerical values unchanged. References there to ``new'' or ``current'' computations describe R19, not R22. For its uniform-fleet theorem, the reported experiment uses one common context distribution for every constituent policy; a deployed policy index is drawn independently of that common context. More generally, policy-specific laws define the different joint mixture that first draws the index and then draws a context conditionally on it. The latter is not a guarantee for an index chosen independently of a common deployment context. R22's deterministic ensemble validation avoids this target ambiguity altogether.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/sections/experiment.tex
-\section{Repeated learning, difficult geometry, and complete deployment cost}\label{sec:r19-experiment}
-The empirical design tests the link in Section~\ref{sec:r19-bridge} rather than using the star's easy scalar solve as evidence for difficult stochastic control. We retain the entire earlier information hierarchy, verified-cell studies, star experiments, and adverse nonlinear-transfer results in the companion and the immutable predecessor documents. The current multistage observations were produced in the R16 research run and are integrated into the manuscript here for the first time. Our fleet inference is a retrospective reanalysis of those observations. The accuracy-targeted cost study and deliberate boundary checks are new follow-up computations, separately identified in their execution records.
-
-\subsection{A multistage, vector, nonsmooth study}
-The fixed primitive has 63 nodes on a binary tree with six review levels, two service coordinates per node, six coupled quadratic resources, and four additional cross-service capacity constraints. Outside tiers vary by node and service. Every nonroot subtree retains its payment cap, and each service has its root payment equality. Absolute switching costs include installation and have endogenous signs. The displacement formulation is exactly the quadratic instance following Theorem~\ref{thm:r19-inexact}; it is not a collection of independent stars. Each context changes six resource-reward coordinates and a strictly positive friction coefficient. The complete rational primitive and context grids are recorded in the companion.
-
-We evaluate eight independently seeded training/deployment pairs. Each pair uses 256 training contexts and 256 fresh deployment contexts. No best seed or model is selected. All seven methods use the same exact-solver label population: tanh random-feature scalar critics fitted with value-only or value-and-gradient losses; a direct-price tanh regressor; the corresponding three quadratic response surfaces; and a cubic radial-basis direct-price interpolant. The hidden tanh weights are fixed random features, not a fully trained deep network. Value-only and derivative-supervised critics both deploy through their derivative. Direct-price methods predict the same six-dimensional operational statistic. Thus the comparison does not grant neural methods a different response operator or a more favorable certificate.
-
-The feasible outside protocol is specified and node-dependent, not proved to be the reoptimized best static protocol for this heterogeneous primitive. This study tests accepted implementation relative to that announced comparator. The separate canonical and centered-friction studies retain their reoptimized static comparators. Monetary values in the current study are total normalized tree-objective units; they are not per-review gains from the earlier star normalization. The primitive is synthetic and not calibrated to a service provider. Those distinctions prevent a gain against one known feasible protocol from being advertised as an empirical universal value of adaptation.
-
-The R16 solver amendment increased the iteration ceiling after a failure in the R15 execution, while retaining seeds, methods, loss weights, and tolerances; the full amended study was rerun. We describe this as a frozen, independently deployed internal experiment, not an externally preregistered study. Neither this reanalysis nor the follow-up computations modify its trained models or replace its unfavorable observations.
-
-\subsection{Policy quality and the meaning of derivative supervision}
-Table~\ref{tab:r19-quality} reports all seven methods on all 2,048 deployment contexts. The reference objective is bracketed by its primal value and independent dual upper bound. Therefore the reported regret is an upper bound, not an unverified subtraction from a numerical optimizer. The average reference bracket width is $8.11\times10^{-8}$.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/quality.tex
-\begin{table}[p]
-\centering
-\caption{Unrefined multistage decisions and conditional frozen-fleet gains}\label{tab:r19-quality}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrr}
-\toprule
-Method & Regret upper & Mean gap & Pass (\%) & Fleet lower \\
-\midrule
-Tanh: value & 0.034374 & 0.193705 & 0.00 & 0.542816 \\
-Tanh: value + gradient & 0.003685 & 0.015856 & 0.54 & 0.573506 \\
-Tanh: price & 0.001581 & 0.007986 & 3.66 & 0.575609 \\
-Quadratic: value & 0.003079 & 0.012446 & 4.59 & 0.574111 \\
-Quadratic: value + gradient & 0.002794 & 0.011081 & 9.47 & 0.574396 \\
-Quadratic: price & 0.000271 & 0.001238 & 65.48 & 0.576919 \\
-RBF: price & 0.000158 & 0.000657 & 86.43 & 0.577032 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}All 2,048 independent deployment contexts per method are included. Pass means the immediate exact full-objective gap is at most $10^{-3}$. No method passes at $10^{-5}$ before refinement. Fleet bounds apply to the explicitly randomized eight-model deployment, not each model or arbitrary retraining.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/quality.tex
-
-The mean regret upper bound falls from $0.0343743$ for value-only tanh fitting to $0.00368462$ with derivative supervision. Across eight independent training/deployment pairs, the approximate paired Student interval for their mean difference is $[-0.0415827,-0.0197968]$. This comparison resolves the direction of improvement for these two fitted procedures in this distribution; it does not overwrite the statistically unresolved R14 star comparison. The independent unit is a complete training/deployment pair, not an individual test context or timing repetition.
-
-Direct-price tanh fitting improves further, to $0.00158094$. Quadratic direct-price and radial-basis fitting attain $0.000271149$ and $0.000157737$, respectively. The latter two also have much higher immediate certificate pass rates at $10^{-3}$. Thus the derivative statistic is operationally useful while neural parameterization is not necessary in this study. This is a result of the required comparison, not a reason to remove neural methods, their mathematical guarantee, or their adverse observations. It identifies the stronger current implementation of the same accepted-control architecture.
-
-\subsection{Conditional gain for an explicitly deployed frozen fleet}
-A simultaneous lower bound for each of 56 individual frozen policies, using only its own 256 contexts and the original analytical gain range of 25, is zero. We retain that result. Pooling 2,048 contexts as though they came from one selected model would be invalid. A different, explicitly implementable policy has a more informative guarantee: for each new independent context choose one of the eight frozen policies uniformly, independently of that context, then execute its audited response and outside gate.
-
+\section{The preserved conditional frozen-fleet guarantee}\label{ec:r24-fleet}
+The following result concerns the historical randomized frozen fleet, not the current deterministic ensemble target. The observations and interpretation remain in Computational Supplement Section~\ref{sec:r19-experiment}.
 \begin{proposition}[Conditional frozen-fleet guarantee]\label{prop:r19-fleet}
 For method $m=1,\ldots,M$, fix $K$ policies before inspecting their deployment cohorts. Conditional on all fitted policies, let $G_{mki}\in[0,B]$ be gains on $n$ independent contexts for policy $k$, with all $Kn$ contexts independent across $k,i$. Contexts may be shared across methods. Put $\overline G_m=(Kn)^{-1}\sum_{k,i}G_{mki}$ and let $\mathcal G_m$ be the expected gain of the uniform frozen fleet. With probability at least $1-\delta$ over these deployment cohorts, simultaneously for all methods,
 \begin{equation}\label{eq:r19-fleet}
@@ -276,176 +407,7 @@ This does not assert the bound for each constituent policy or for a population o
 \begin{proof}
 Conditional on the policies, the $Kn$ summands for each method are independent bounded variables; identical distributions across policies are unnecessary. Their expected average is exactly the uniform fleet's expected gain. Hoeffding's lower-tail bound and a union bound over $M$ methods prove the simultaneous inequality. The comparator gate gives nonnegative gain, justifying truncation of the lower bound at zero. Independence across methods is not used.
 \end{proof}
-For $K=8$, $n=256$, $M=7$, $B=25$, and $\delta=0.05$, the penalty is $0.868352$. The resulting seven lower bounds, included in Table~\ref{tab:r19-quality}, are positive. They certify this finite, frozen randomization rule under the stated context distribution. The eight-pair Student comparison addresses training/deployment variability approximately; the fleet inequality instead gives a finite-sample, conditional guarantee. Neither substitutes for a guarantee over arbitrary retraining, misspecification, or distribution shift.
 
-\subsection{Geometry rather than successful-region averages}
-The earlier R16 structural suite had no binding extra capacity among its 64 tested instances, despite some tier boundaries. We do not relabel those instances as a capacity stress test. The new 64-instance suite deliberately includes heterogeneous controls, root cross-service capacities with positive incentives, tier-boundary incentives with slack extra capacities, and high-friction switching kinks. Each stratum uses four primitive seeds and four contexts per seed on 15- or 31-node, two-service trees with two or four resource factors. All 16 cases in each targeted stratum must actually exhibit the specified geometry or the test fails. No failing instance may be dropped.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/geometry.tex
-\begin{table}[p]
-\centering
-\caption{Deliberate multistage geometry checks}\label{tab:r19-geometry}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrrr}
-\toprule
-Stratum & Cases & Capacity & Tier boundary & Kinks & Gradient error \\
-\midrule
-heterogeneous & 16 & 0 & 0 & 16 & 1.04e-06 \\
-binding capacity & 16 & 16 & 0 & 16 & 5.10e-08 \\
-tier boundary & 16 & 0 & 16 & 16 & 1.48e-11 \\
-switching kinks & 16 & 0 & 0 & 16 & 7.47e-05 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}Capacity, tier boundary, and kinks count instances with at least one such event; diagnostics use $10^{-5}$. Each of 128 implemented reference/proposal certificates is independently replayed. The gradient column is the maximum finite-difference error among the four checked contexts in that stratum.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/geometry.tex
-
-Every reference and repaired response is independently replayed in rational arithmetic. Theorem~\ref{thm:r19-inexact} is checked with its certified response error rather than by treating the numerical subproblem solution as exact. An independent SLSQP solve starts from the outside protocol on a capacity-binding instance. Finite-difference checks perturb only the resource-reward coordinate, keeping acceptance, switching, and all other primitives fixed. Exact rational scalar checks additionally exercise a quartic smooth resource coupling with nonsmooth switching. These are theorem tests, not new trained-policy observations or evidence of calibrated operations performance.
-
-The retained star reassessment also includes all original, critical-friction, capacity-activation, and primitive-perturbation strata. Its capacity-activation stratum binds the root constraint in every case. All methods then require capacity response adjustment and yield the same certified solution to numerical precision. That is evidence for the response solver, not successful neural extrapolation. The companion reports stratification by friction distance, resource binding, leaf activation and saturation, nearest breakpoint, and optimum gain, without selecting only favorable cells.
-
-\subsection{Accuracy-targeted total cost and amortization}
-The original R16 timings charge prediction, the base response, rational repair and audit, actual full-objective refinement, and a second audit. They use a $10^{-9}$ numerical tolerance even for the coarse deployment target. That design may over-solve the classical comparator. We preserve those measurements and execute the previously recorded, but unimplemented, accuracy-targeted comparison instead of treating the earlier apparent speed advantage as decisive.
-
-In the follow-up, both classical solvers and all surrogate response solvers first use numerical tolerance $10^{-5}$. Every method must pass the same independent full-objective certificate at the requested tolerance; otherwise it performs a full $10^{-9}$ refinement and another audit. The cached classical baselines use cold and previous-context starts. All seven frozen surrogate models are included. We use the first 16 contexts of every deployment cohort, two repetitions, and rotated method order. The total comparison contains 4,608 completed pipelines, with 256 records per method and requested tolerance. Timing observations and model-selection units are kept separate.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/matched_cost.tex
-\begin{table}[p]
-\centering
-\caption{Accuracy-targeted complete-pipeline cost}\label{tab:r19-cost}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lrrrr}
-\toprule
-Method & \shortstack{Mean ms\\$10^{-3}$} & \shortstack{Mean ms\\$10^{-5}$} & \shortstack{Fall back\\(\%)} & \shortstack{Fall back\\(\%)} \\
-\midrule
-Classical: cold & 14.029 & 26.180 & 0.00 & 42.19 \\
-Classical: previous & 13.453 & 26.822 & 0.00 & 43.36 \\
-Tanh: value & 43.712 & 43.532 & 100.00 & 100.00 \\
-Tanh: value + gradient & 42.169 & 42.721 & 99.22 & 100.00 \\
-Tanh: price & 41.519 & 41.594 & 98.44 & 100.00 \\
-Quadratic: value & 40.264 & 41.201 & 95.31 & 100.00 \\
-Quadratic: value + gradient & 39.654 & 42.080 & 91.41 & 100.00 \\
-Quadratic: price & 19.790 & 39.858 & 44.14 & 100.00 \\
-RBF: price & 9.563 & 37.808 & 12.89 & 100.00 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}The last two columns correspond to $10^{-3}$ and $10^{-5}$, respectively. All methods start with numerical tolerance $10^{-5}$, then refine and re-audit when the independent full-objective gap fails the requested target. Each mean uses 256 records. No prediction, response, repair, audit, or actual refinement cost is omitted.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/matched_cost.tex
-
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/matched_findings.tex
-At the coarse target, the lower-mean classical baseline costs 13.453 ms, compared with 9.563 ms for radial-basis direct-price deployment. Its observed full-pipeline saving has a conservative offline break-even count of 2,546 queries. At the strict target, the corresponding classical cost is 26.180 ms and the radial-basis cost is 37.808 ms. These are separately measured follow-up results, not the original fixed-solver-tolerance timings.
-
-% END input source: revisions/or-r19-20260923/tables/matched_findings.tex
-
-The table reports mean complete cost, not the sum of separately reported medians. The companion supplies medians, 95th percentiles, fallback rates, and paired cohort intervals. Offline cost is measured on the same host by replaying all 256 training-label computations and all seven fits for every cohort, while leaving the deployed frozen models unchanged. We conservatively charge that entire shared offline cost to each surrogate. A finite break-even count is reported only when its observed mean online saving is positive. It is a benchmark-specific accounting calculation, not a future runtime guarantee. The data do not establish universal neural superiority, and no failed cost comparison is hidden behind a warm-start or an unaudited prediction time.
-
-% END input source: revisions/or-r19-20260923/sections/experiment.tex
-% BEGIN preserved/input source: revisions/or-r19-20260923/sections/companion.tex
-\section{Current study: primitives, audits, and reproducibility}\label{ec:r19-details}
-\subsection{Primitive construction and the scope of the experiment}
-The 63-node binary tree has two service coordinates at every node. An unconditional coefficient for service $a$ at node $j$ is $c_{ja}=t_{ja}2^{5-\operatorname{depth}(j)}$, with integer $t_{ja}\in\{8,\ldots,12\}$. Outside tiers have denominator 32 and numerators from 13 through 19. Diagonal curvatures have numerators 8 through 24 and denominator 16; marginal reward offsets have numerators $-8$ through 8 and denominator 32. The six-by-126 resource map has integer entries $-4$ through 4 divided by 32. Four nonnegative cross-service capacity rows have integer coefficients 0 through 4 and right-hand sides with denominator 8. All initial installed tiers are one half. These values are generated once using primitive seed 15001; the resulting exact arrays, not a verbal generator alone, are supplied.
-
-Every nonroot subtree has the outside protocol's payment cap separately for each service, while each service's root payment is fixed. The displacement vector therefore obeys homogeneous continuation inequalities and two root equalities. The outside protocol is heterogeneous and is not asserted to solve a static optimization problem for this primitive. Context reward numerators are independent integers from $-16$ through 16 divided by 16, and the positive friction numerator is from 2 through 32 divided by 64. The coefficient of each absolute switching difference has a numerator from 4 through 8 and denominator 8. Primitive heterogeneity does not itself constitute field calibration.
-
-The derivative in Theorem~\ref{thm:r19-global} uses the six reward coordinates, not the scaled friction coordinate. Training rescales friction to a centered unit interval; all derivative targets are resource vectors in the reward coordinates' original units. The 192 tanh random features include a constant and the seven linear input coordinates. The ridge parameter is $10^{-7}$. Quadratic models use the corresponding linear and quadratic monomials; radial-basis direct-price interpolation uses a cubic kernel and smoothing $10^{-7}$. All fitted coefficients and feature weights are serialized. The full generator, solver adapter, independent audit, and model definitions are retained in the R16 source directory.
-
-\subsection{Feasibility and finite precision}
-For each service and nonroot node, negate its weighted subtree displacement and divide by its positive payment coefficient to obtain a transfer coordinate. Negative numerical transfers are truncated to zero and the rest are rounded downward on a grid with denominator $10^8$. The sparse two-entry-per-column transfer map reconstructs a rational displacement satisfying every root equality and continuation cap exactly. A common nonnegative radial contraction toward zero enforces all box and extra capacity rows. This construction works for the study's positive payment coefficients and homogeneous outside-relative commitments; it is not claimed for arbitrary signed tariffs. The general theorem permits any independently certified feasible response instead.
-
-Tensions are clipped to their exact friction capacities; inequality prices are clipped to nonnegativity. Prices and multipliers use denominator $10^9$. The independent verifier recomputes box feasibility, subtree sums, root equalities, resource capacities, tension capacities, exact primal gain, and an outward-rounded conjugate upper bound. It uses only Python integers and rational arithmetic, with no numerical solver or matrix inverse. In particular it does not trust the proposal's active set, the repair routine's assertions, or the solver's termination flag. The gate compares exact gain with the known outside protocol only.
-
-\subsection{Complete timing and offline accounting}
-Each target tolerance has its own previous-context classical workspace. This prevents a second target tolerance from obtaining an uncharged within-context warm start. Cold solvers reset their iterate; all solver matrices and factorizations that the solver caches are already constructed before repeated decisions. Initial numerical tolerance is $10^{-5}$ for both full classical and price-response proposals. Actual full-objective refinement uses $10^{-9}$, initialized from the rejected proposal, with a new rational audit afterward. Prediction, response, repair, both audits when needed, and refinement are charged. The numerical tolerance is not the deployment certificate tolerance.
-
-The first label in each cohort is cold; the subsequent offline labels use previous-solution warm starts. All 256 labels and all seven model fits are measured on the same host as the follow-up online run. Offline coefficients are not substituted for the already frozen deployment models. For a method with mean complete cost $t_m$ and the lower observed classical mean $t_c$, the descriptive break-even count is the ceiling of charged offline cost divided by $t_c-t_m$, only when $t_m<t_c$. The comparison with the lower-mean classical method is descriptive: associated Student intervals are not multiplicity-adjusted claims after comparator selection.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/matched_details.tex
-\begin{table}[p]
-\centering
-\caption{Timing dispersion and conservative offline break-even}\label{tab:r19-cost-details}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llrrr}
-\toprule
-Method & Target & \shortstack{Median\\ms} & \shortstack{95th percentile\\ms} & Break-even \\
-\midrule
-Classical: cold & $10^{-3}$ & 13.50 & 25.40 & -- \\
-Classical: cold & $10^{-5}$ & 16.73 & 84.91 & -- \\
-Classical: previous & $10^{-3}$ & 12.54 & 25.53 & -- \\
-Classical: previous & $10^{-5}$ & 17.04 & 83.12 & -- \\
-Tanh: value & $10^{-3}$ & 34.32 & 109.65 & -- \\
-Tanh: value & $10^{-5}$ & 33.58 & 109.61 & -- \\
-Tanh: value + gradient & $10^{-3}$ & 31.22 & 100.77 & -- \\
-Tanh: value + gradient & $10^{-5}$ & 32.29 & 101.52 & -- \\
-Tanh: price & $10^{-3}$ & 29.29 & 102.34 & -- \\
-Tanh: price & $10^{-5}$ & 29.23 & 104.87 & -- \\
-Quadratic: value & $10^{-3}$ & 30.13 & 98.88 & -- \\
-Quadratic: value & $10^{-5}$ & 30.51 & 98.70 & -- \\
-Quadratic: value + gradient & $10^{-3}$ & 28.97 & 102.22 & -- \\
-Quadratic: value + gradient & $10^{-5}$ & 30.95 & 102.02 & -- \\
-Quadratic: price & $10^{-3}$ & 9.57 & 58.39 & -- \\
-Quadratic: price & $10^{-5}$ & 29.39 & 99.10 & -- \\
-RBF: price & $10^{-3}$ & 6.27 & 28.49 & 2546 \\
-RBF: price & $10^{-5}$ & 29.50 & 96.46 & -- \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}A dash means no positive observed saving (or a classical method), not unmeasured overhead. All same-host label-generation and seven-model fitting cost is charged to each surrogate. Raw rows, component costs, and approximate eight-cohort timing-difference intervals are supplied in the results file.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/matched_details.tex
-
-
-\subsection{Hard-regime stratification and retained adverse evidence}
-The star reassessment has four training seeds, four explicit strata, 128 contexts per stratum and seed, and eight methods, yielding 16,384 method-context records. Methods share contexts within a seed. These are not 16,384 independent training replications. Stratum-level and geometry-level summaries are generated from every record; no stratum, zero-gain context, or failed immediate certification is discarded. The full machine-readable stratification also conditions on absolute distance to critical friction, active and saturated leaf counts, nearest breakpoint distance, and the certified lower optimum gain. Boundaries for these descriptive bins are declared in the analysis script; they are not confidence-based subpopulation discoveries.
-
-% BEGIN preserved/input source: revisions/or-r19-20260923/tables/star_strata.tex
-\begin{table}[p]
-\centering
-\caption{Retained star stress strata: selected columns, complete records supplied}\label{tab:r19-star}
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{llrr}
-\toprule
-Stratum & Method & Regret upper & Root repair (\%) \\
-\midrule
-original & Tanh: value & 2.85e-06 & 0.0 \\
-original & Tanh: value + gradient & 2.15e-07 & 0.0 \\
-original & Tanh: price & 1.74e-07 & 0.0 \\
-original & Quadratic: price & 1.91e-04 & 0.0 \\
-original & RBF: price & 4.41e-08 & 0.0 \\
-critical-friction & Tanh: value & 1.07e-07 & 0.0 \\
-critical-friction & Tanh: value + gradient & 1.09e-08 & 0.0 \\
-critical-friction & Tanh: price & 6.96e-09 & 0.0 \\
-critical-friction & Quadratic: price & 4.69e-06 & 0.0 \\
-critical-friction & RBF: price & 5.54e-09 & 0.0 \\
-capacity-activation & Tanh: value & 1.48e-10 & 100.0 \\
-capacity-activation & Tanh: value + gradient & 1.48e-10 & 100.0 \\
-capacity-activation & Tanh: price & 1.48e-10 & 100.0 \\
-capacity-activation & Quadratic: price & 1.48e-10 & 100.0 \\
-capacity-activation & RBF: price & 1.48e-10 & 100.0 \\
-primitive-perturbation & Tanh: value & 1.36e-03 & 0.0 \\
-primitive-perturbation & Tanh: value + gradient & 1.35e-03 & 0.0 \\
-primitive-perturbation & Tanh: price & 1.35e-03 & 0.0 \\
-primitive-perturbation & Quadratic: price & 1.43e-03 & 0.0 \\
-primitive-perturbation & RBF: price & 1.35e-03 & 0.0 \\
-\bottomrule
-\end{tabular}
-
-\par\medskip\begin{minipage}{\textwidth}All eight methods, all four seeds, every stratum, and all geometry bins are retained in the machine-readable results; the table displays five methods for readability. Every method in the capacity-activation stratum has the same regret bracket to numerical precision. These are existing R16 observations, not newly generated R19 evidence.\end{minipage}
-\end{table}
-% END input source: revisions/or-r19-20260923/tables/star_strata.tex
-
-In the capacity-activation stratum every method activates root repair and attains the same decision value to numerical precision. Accordingly these rows show the power and cost of the constrained response, not a learned model's extrapolation. The older nonlinear shifted actors remain unfavorable and are reproduced in the immutable predecessor electronic companion, including their full diagnostic tables and failed matched-accuracy outcomes. That evidence is not erased by the new multistage result: the successful current construction learns resource prices for a response that retains all modeled constraints and switching, rather than directly transferring an unverified actor across nonlinear models.
-
-\subsection{Verification scopes}
-The published research policies undergo 16,384 independent rational replays. The new multistage geometry suite contributes 128 further policy/certificate replays on 64 instances. Its numerical matrix residual bound is checked against certified reference brackets, not called an exact-arithmetic proof of the matrix inverse. The separate 64-case quartic suite verifies both the exact decomposition and the inexact-response inequality using rational arithmetic throughout. The written theorems, rather than these finitely many instances, establish the general mathematical claims. All follow-up timing pipelines must satisfy their requested full-objective certificate. Build checks separately verify manuscript inputs, cross-references, page layout, archival preservation, and the exact published revision SHA.
-
-% END input source: revisions/or-r19-20260923/sections/companion.tex
-
-
-% BEGIN preserved/input source: revisions/or-r10-20260921/sections/tree_structure.tex
 \section{Primitive structure under continuation participation}\label{sec:r10-tree}
 Continuation participation changes which customer-neutral reallocations are permissible. We give a complete scalar tree criterion and a quantitative improvement that can be checked from local primitives, without solving the defining nonlinear control program. The graph formulation above remains available for portfolios; the scalar result is not silently promoted to a graph theorem.
 
@@ -812,179 +774,7 @@ Here each conjugate uses its own root or leaf capacity. Fenchel's inequality pro
 
 
 % BEGIN preserved/input source: revisions/or-r13-20260922/sections/experiment.tex
-\section{Nonsmooth service decisions and frozen learning pipelines}\label{sec:r13-experiment}
-The experiments separate structural computation, candidate quality, and complete deployment. They do not use the generality of a theorem to imply empirical coverage of every admissible model. The earlier noncentered, boundary-inclusive and nonlinear studies remain intact in the companion; this section exercises nonzero absolute switching and the new verified-cell construction.
-
-\subsection{A declared service-control distribution and operational units}
-Consider binary scenario trees with discount factor $0.9$ and equal branch probabilities. Thus $w_n=(0.9/2)^{\operatorname{depth}(n)}$. Tiers lie in $[0,1]$, the installed tier is $1/2$, and external net-payment coefficients are $c_n=w_n[0.8+0.1(n\bmod5)]$, with nodes numbered from zero. The accepted polytope includes every nonroot continuation cap and the root payment equality. Physical service and stock are held at their identified benchmark levels; the experiment concerns the remaining tier decision, not an untested inventory-learning claim.
-
-The incremental profit, in profit units, is
-\begin{align}\label{eq:r13-data-objective}
- G_{\alpha,\beta,\lambda}(x)={}&\sum_n(g_{0n}+\alpha g_{1n}+\beta g_{2n})(x_n-\tfrac12)
-             -\sum_n w_n(x_n-\tfrac12)^2\notag\\
- &-\tfrac1{10}\sum_{n\ne o}w_n(x_n-x_{\operatorname{pa}(n)})^2
-             -\lambda\sum_n w_n|x_n-x_{\operatorname{pa}(n)}|,
-\end{align}
-where the root's predecessor is $1/2$ in the last term. Three fixed vectors describe net marginal resource offsets after the tariff; each has zero sum. Their exact rational coordinates and generating seed are recorded. Therefore the \emph{reoptimized} fixed-tier comparator is exactly $1/2$ for every context: a common tier change has zero linear gain and strictly positive quadratic cost. This balanced-shock class is different from, and does not replace, the earlier noncentered class with boundary comparators.
-
-One profit unit is the coefficient of a squared full-tier deviation in the per-review maintenance cost. The smooth inter-review cost has coefficient $0.1$, and $\lambda$ prices an absolute unit of reconfiguration. Adding a common level cost can make all gross resource costs positive without changing decisions. Results are divided by the discounted review mass $S_0=\sum_n w_n$. Multiplying all monetary primitives by a currency conversion multiplies every profit and certificate by that conversion; no such conversion is a field calibration. For example, a gain of $0.003$ represents $0.30$ per discounted review if one profit unit is defined as $100$ currency units. No operational population is asserted to have that calibration.
-
-\subsection{Friction changes decisions, not only optimality labels}
-We solve 81 explicit epigraph quadratic programs: three contexts, trees with 15, 31, and 63 nodes, and nine friction values spanning zero to $1.25$ times the computed critical value. Table~\ref{tab:r13-friction} shows one context; every policy, tension, continuation price, and exact gap remains in the data. Nonzero friction changes both binding continuation constraints and fused edges. Switching decreases along the path and accepted gain disappears at the critical value to the certified tolerance. The zero-friction row is a control; the learning distribution below uses strictly positive friction.
-
-% BEGIN preserved/input source: revisions/or-r13-20260922/tables/friction.tex
-\begin{table}[t]
-\centering\small
-\caption{Accepted decisions along nonzero switching-friction paths}\label{tab:r13-friction}
-\begin{tabular}{rrrrrrr}\toprule
-Nodes & $\lambda/\lambda_c$ & $\lambda$ & Gain & Switching & Binding caps & Fused edges \\\midrule
-15 & 0.00 & 0.0000 & 0.008837 & 0.08549 & 8 & 0 \\
-15 & 0.50 & 0.2066 & 0.001294 & 0.01253 & 13 & 12 \\
-15 & 1.00 & 0.4131 & 0.000000 & 0.00000 & 14 & 15 \\
-15 & 1.25 & 0.5164 & 0.000000 & 0.00000 & 14 & 15 \\
-31 & 0.00 & 0.0000 & 0.014286 & 0.09843 & 14 & 0 \\
-31 & 0.50 & 0.2347 & 0.002270 & 0.02281 & 22 & 15 \\
-31 & 1.00 & 0.4694 & 0.000000 & 0.00000 & 30 & 31 \\
-31 & 1.25 & 0.5867 & 0.000000 & 0.00000 & 30 & 31 \\
-63 & 0.00 & 0.0000 & 0.015029 & 0.11327 & 26 & 2 \\
-63 & 0.50 & 0.2823 & 0.001509 & 0.01341 & 45 & 41 \\
-63 & 1.00 & 0.5646 & 0.000000 & 0.00000 & 62 & 63 \\
-63 & 1.25 & 0.7058 & 0.000000 & 0.00000 & 62 & 63 \\
-\bottomrule\end{tabular}
-\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize Context $(0.2,-0.4)$; all 81 paths across three contexts are retained in the data. Gain and switching are per discounted review. Binding and fused masks use $10^{-6}$ for numerical diagnosis; exact rational policy gaps, rather than masks, determine validity. The zero-friction row is the control, not the learning experiment.\end{minipage}
-\end{table}
-% END input source: revisions/or-r13-20260922/tables/friction.tex
-
-
-The critical-friction study also includes binary and star trees from 31 to 1,023 nodes. Table~\ref{tab:r13-scaling} compares the factored and materialized linear programs using the same solver. On a star, forming $DB$ creates quadratically many entries, while the two-factor representation retains $9N-3$ nonzeros. Binary trees do not have this fill-in, and materialization can be faster there. The independent first-order algorithm produces rigorous brackets, but the 12,000-iteration cap does not always attain its $10^{-4}$ width target. Those failures remain visible. The result is a sparsity and certification consequence of the continuation structure, not a blanket speed claim for a custom optimizer.
-
-% BEGIN preserved/input source: revisions/or-r13-20260922/tables/scaling.tex
-\begin{table}[t]
-\centering\small
-\caption{Factored critical-friction computation and independent brackets}\label{tab:r13-scaling}
-\begin{tabular}{lrrrrrr}\toprule
-Tree & Nodes & Factored entries & Expanded entries & Factored ms & Expanded ms & Bracket width \\\midrule
-Binary & 31 & 276 & 242 & 2.26 & 2.56 & 0.00003 \\
-Binary & 127 & 1,140 & 1,010 & 3.83 & 3.74 & 0.00009 \\
-Binary & 1023 & 9,204 & 8,178 & 33.63 & 23.97 & 0.00674 \\
-Star & 31 & 276 & 1,054 & 1.55 & 2.63 & 0.00008 \\
-Star & 127 & 1,140 & 16,510 & 3.43 & 7.03 & 0.00008 \\
-Star & 1023 & 9,204 & 1,049,598 & 51.70 & 462.99 & 0.00175 \\
-\bottomrule\end{tabular}
-\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize Both linear programs use HiGHS; expanded time includes materializing $DB$. The final column is the exact rational width from the separate accelerated projected-gradient algorithm, capped at 12,000 iterations and targeting $10^{-4}$. Widths above target are retained, not recorded as successful solves. Sparse arithmetic is not a claim that this first-order algorithm beats the linear-programming solver.\end{minipage}
-\end{table}
-% END input source: revisions/or-r13-20260922/tables/scaling.tex
-
-
-\subsection{Learning, verification, and actual refinement}
-The learning experiment uses 31-node problems. Context coordinates are independent uniforms on the rational grid $\{-1,-0.999,\ldots,1\}$; friction is independently uniform on $\{0.01,0.011,\ldots,0.20\}$. We solve 1,024 training contexts, recover candidate bases, and retain \RThirteenCells\ distinct verified cells. A 192-unit random-feature ReLU layer, with a fitted multiclass ridge readout, proposes cell indices. Its scalar experts and value gradients are given by Theorem~\ref{thm:r13-cells}. The classifier learns joint continuation and switching patterns; it is not the earlier derivative-weighted regressor, and no superiority of derivative supervision is inferred.
-
-We freeze three static-gated policies: check the first neural proposal, check the first three neural proposals, or check the cell of the nearest training anchor. Each returns the first region-valid proposal after exact flow repair and certificate calculation, comparing its reward with static. If no candidate survives, it returns static. Validation does not enlarge the library, update features, or tune a stopping rule. The complete model hash is recorded before and after both validation cohorts.
-
-A separate 48-context matched-accuracy test adds actual classical refinement whenever the selected policy has normalized gap above $10^{-7}$. It includes a cold epigraph quadratic program and sequential checking of the same frozen cell library. Table~\ref{tab:r13-matched} includes generation, membership, exact audit, and all refinement time. The first-proposal face accuracy and added iteration counts distinguish learned candidate quality from a classical rescue. The data also contain raw face masks, switching signs, distances, and the acceptance and switching leakage of 96 neural/nearest proposals. Finite differences check the scalar experts' context-gradient pullbacks; these numerical checks supplement, not replace, the envelope proof.
-
-% BEGIN preserved/input source: revisions/or-r13-20260922/tables/matched.tex
-\begin{table}[t]
-\centering\small
-\caption{Complete deployment at a common certified gap}\label{tab:r13-matched}
-\begin{tabular}{lrrrrr}\toprule
-Method & Milliseconds & Immediate (\%) & Refine (\%) & First face (\%) & Added iterations \\\midrule
-Cold quadratic program & 19.74 & -- & -- & -- & -- \\
-Neural, three cells & 17.94 & 31.2 & 68.8 & 16.7 & -7.90 \\
-Nearest anchor & 19.82 & 20.8 & 79.2 & 22.9 & -5.21 \\
-Sequential cell check & 5.83 & 52.1 & 47.9 & 0.0 & -13.27 \\
-\bottomrule\end{tabular}
-\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize Forty-eight fresh 31-node problems. Time includes proposal generation, membership checking, exact rational audit, and any executed refinement. Refused cells use a cold classical refinement, not an unreported warm start. All final normalized gaps are at most $10^{-7}$. First-face masks are descriptive and use the tolerance stated in the data. Offline construction is reported separately; these timings are hardware-dependent observations, not population speed claims.\end{minipage}
-\end{table}
-% END input source: revisions/or-r13-20260922/tables/matched.tex
-
-
-Offline construction and fitting cost \RThirteenOffline\ seconds in the recorded environment. Under the observed mean timing difference, neural lookup recovers this cost after \RThirteenBreakEven\ repeated queries relative to cold optimization; this is an accounting calculation, not a forecast or an advantage over sequential cell checking. The small, fixed-dimensional context distribution makes such reuse possible. The cell library can grow rapidly with problem complexity. Timings are single-environment descriptive measurements, and sequential checking is the stronger latency comparator in this run. The positive learning result is verified reuse with explicit rejection and acceptance guarantees, not a claim that the neural router dominates classical lookup.
-
-\subsection{Executed independent validation, including a useful gain certificate}
-A first cohort of 4,096 independent contexts uses the uniform range from the outside gradient residual. Its broad expectation bounds are retained in the data. We then fix a model-derived range using the four deterministic forcing corners at the minimum friction, without altering any policy. The confirmation plan is saved before a second, independent 4,096-context cohort is drawn. This prospective second cohort is conditional on the already frozen model and the declared range calculation; it is not a refit on the first cohort.
-
-Table~\ref{tab:r13-validation} executes Proposition~\ref{prop:r13-range} with $M=3$, $n=4096$, and $\delta=0.05$. The selected three-cell neural policy has empirical gain \RThirteenGain\ and a simultaneous expected-gain lower bound of \RThirteenGainFloor\ per discounted review relative to static. The normalized expected-regret upper bound is \RThirteenRegret. The gain guarantee is positive at the economic improvement scale, whereas the regret ceiling is too wide to establish near-optimality. Classical refinement, separately timed above, is needed for the high-accuracy deployment guarantee. No significant advantage over the nearest-anchor policy or over a fully optimized policy follows from this table.
-
-% BEGIN preserved/input source: revisions/or-r13-20260922/tables/validation.tex
-\begin{table}[t]
-\centering\small
-\caption{Independent validation of frozen, static-gated pipelines}\label{tab:r13-validation}
-\begin{tabular}{lrrrr}\toprule
-Pipeline & Cell accepted (\%) & Mean gain & Expected gain floor & Expected regret ceiling \\\midrule
-Neural, one cell & 16.43 & 0.001734 & 0.000482 & 0.042906 \\
-Neural, three cells & 28.86 & 0.003006 & 0.001754 & 0.036684 \\
-Nearest anchor & 21.34 & 0.002291 & 0.001039 & 0.040445 \\
-\bottomrule\end{tabular}
-\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize A separate sample of $n=4096$ contexts, three frozen pipelines, and $\delta=0.05$. Both expectation bounds hold simultaneously under the declared deployment distribution. The model-derived range is $B=\RThirteenRange$ and the deviation radius is $\RThirteenRadius$. The gain floor compares with static, not with an optimized nonstatic policy. The regret ceilings are valid but not small enough to imply near-optimality.\end{minipage}
-\end{table}
-% END input source: revisions/or-r13-20260922/tables/validation.tex
-
-
-\subsection{Retained evidence and independent audit}
-The noncentered nonlinear study remains scientifically material: 48 instances, 432 deployments, boundary comparators, severe raw actor failures, and slower learned pipelines than cold SLSQP at matched accuracy. Its full text and tables are in Section~\ref{sec:r12-experiment}; no unfavorable row is removed or pooled with the new distribution. The first four frozen predecessor seeds were an economical transfer diagnostic, not a representative sample of training variability. The inconclusive derivative-weighting comparison remains inconclusive. The earlier 992-coordinate failures and their actually executed fallbacks also remain available.
-
-The new standard-library-only verifier independently reconstructs \RThirteenPolicies\ rational policy certificates, \RThirteenChecks\ continuation checks, all corner ranges, and 12 rational critical-friction brackets. It imports neither the optimizer nor a numerical linear-algebra library. Optimizer flags, approximate face masks, and hardware timings are not treated as certificates. All data are synthetic; the mathematical scope, fixed-context validation scope, and previous transfer evidence are kept distinct.
-
-% END input source: revisions/or-r13-20260922/sections/experiment.tex
-
-
-% BEGIN preserved/input source: revisions/or-r14-20260922/sections/experiment.tex
-\section{Direct scalar-critic deployment and independent confirmation}\label{sec:r14-experiment}
-This study exercises Theorem~\ref{thm:r14-gradient} without an offline face library or a query-time optimal policy. It complements, rather than pools with, the preceding multistage experiment. A star has two review dates and many possible continuations; its large leaf count is not evidence about increasing tree depth.
-
-\subsection{Primitives, frozen design, and unrefined decisions}
-There are 127 equally likely continuations and discount $0.9$, giving root weight one, leaf weight $w=0.9/127$, and total discounted review mass $1.9$. Tiers lie in $[0,1]$ with outside tier $1/2$, $\chi_0=2$, and $\chi_i=2w$. All absolute switching weights equal their review weights. The root tariff is one; leaf tariff coefficients are $w k_i/8$, with fixed integers $k_i$ drawn from $8,\ldots,12$. Balanced rational resource offsets make $1/2$ the reoptimized common-tier comparator in every context. The companion specifies the full generating formula and seed, not only the reduced objective. Profits and certificates below are divided by $1.9$; gradient errors refer to the unnormalized value and the stated unit of $h$.
-
-Training and test contexts have independent coordinates: $h$ and $\alpha$ are uniform on the thousandth grid in $[-1,1]$, and $\lambda$ is uniform on the thousandth grid in $[0.01,0.20]$. Thus every deployment has strictly positive absolute friction. Eight independent training seeds each generate 1,024 contexts and a 192-unit random-feature tanh scalar critic with a fitted ridge readout. Within each seed, value-only and value-gradient fits share the examples and hidden features. Their squared-error objectives differ only by the prespecified weight $0.25$ on the squared $h$-derivative error; the ridge coefficient is $10^{-9}$. The frozen design, coefficients, labels, and raw per-seed observations are retained. This is a prospective computational plan within the revision, not an externally registered clinical or field protocol.
-
-An independent shared cohort of 128 contexts measures unrefined proposals. Table~\ref{tab:r14-quality} reports all 2,048 policies. Mean optimum gain is \RFourteenOptimalGain; value-only and value-gradient proposal regrets are \RFourteenValueRegret\ and \RFourteenGradientRegret. Every proposal passes the exact gain gate; root-capacity projection occurs on \RFourteenCapRate\ of proposals. The derivative-weighted mean is better, but its paired regret difference has a 95\% Student interval $[\RFourteenCILow,\RFourteenCIHigh]$, which includes zero. The unit of replication is the training seed, not the 128 reused contexts. This interval is conditional on that test cohort and does not establish a population-wide derivative-supervision advantage.
-
-% BEGIN preserved/input source: revisions/or-r14-20260922/tables/quality.tex
-\begin{table}[t]
-\centering
-\caption{Unrefined accepted scalar-critic policies: eight paired training seeds, 128 shared independent contexts, and positive switching friction.}
-\label{tab:r14-quality}
-\begin{tabular}{lrr}
-\toprule
-Metric & Value only & Value gradient\\
-\midrule
-Mean normalized regret & $5.965\times10^{-6}$ & $2.210\times10^{-6}$\\
-Mean exact normalized gap & $1.534\times10^{-5}$ & $5.367\times10^{-6}$\\
-Mean residual bound & $9.131\times10^{-6}$ & $3.194\times10^{-6}$\\
-Mean gradient bound & $2.224\times10^{-5}$ & $7.046\times10^{-6}$\\
-Partial-gradient squared error & $1.171\times10^{-5}$ & $3.708\times10^{-6}$\\
-Immediately certified at $10^{-7}$ & 17.48\% & 19.04\%\\
-Negative gain, static gate & 0.00\% & 0.00\%\\
-\bottomrule
-\end{tabular}
-\par\smallskip
-\begin{minipage}{0.94\linewidth}
-All proposal losses and bounds precede full-objective refinement. The paired primary regret interval includes zero; lower mean error alone does not establish a derivative-training advantage. The exact gap includes rational repair, whereas the analytical bounds describe the exact feasible price response.
-\end{minipage}
-\end{table}
-% END input source: revisions/or-r14-20260922/tables/quality.tex
-
-
-The observable residual and partial-gradient bounds are small on the profit scale, unlike a condition requiring an unknown optimal face. Exact certification is stricter: only \RFourteenImmediateValue\ and \RFourteenImmediateGradient\ of the respective proposals immediately meet the normalized $10^{-7}$ tolerance. Table~\ref{tab:r14-timing} in the companion charges prediction, capacity repair, rational auditing, and every executed refinement, with cold scalar Newton, Brent, and sorted breakpoints as strong structure-aware comparators. In this environment cold Newton's median complete time is \RFourteenColdTime\ ms and the value-gradient pipeline's is \RFourteenLearnedTime\ ms. The learned pipeline is slower, despite fewer refinement iterations. Its positive result is accurate, accepted \emph{unrefined} deployment and a usable value-gradient theorem, not a latency claim obtained by omitting audits or choosing only a dense baseline.
-
-\subsection{An executed expected-gain guarantee without classical rescue}
-After freezing the two critics from the first prespecified training seed, we draw a separate 2,048-context cohort with a different recorded seed. Neither model is refit or selected using this cohort before evaluation. Both policies use the feasible price response and exact static gate, with no optimization of the full query objective. Because $G_\lambda(y)$ is increasing in $h$ and decreasing in $\lambda$ for every $y\in Y$, and its maximum is convex in $\alpha$, the optimum over the entire context box is bounded by two deterministic corners: $h=1$, $\lambda=0.01$, $\alpha\in\{-1,1\}$. Exact conjugate upper bounds at those corners give a uniform normalized gain range $[0,\RFourteenRange]$ for every gated policy.
-
-A one-sided Hoeffding bound and a union bound over $M=2$ frozen policies therefore give simultaneous expected-gain lower bounds with $n=2048$ and $\delta=0.05$. The selected value-gradient policy has empirical gain \RFourteenValidationGain\ and lower bound \RFourteenValidationFloor\ per discounted review. Its average exact suboptimality certificate is \RFourteenValidationGap; this last number is an empirical average, not a confidence bound on expected regret. Both policies have positive gain lower bounds, and their small gain difference is not established as significant. This confirmation concerns the declared fixed synthetic distribution, not arbitrary shift or new primitive families. It does demonstrate positive accepted neural deployment without the classical rescue needed by the earlier poor actors.
-
-\subsection{Structural cross-checks and preservation of adverse evidence}
-The direct threshold agrees with 160 general tension linear programs. Across 480 solver comparisons, safeguarded Newton, Brent, bisection, and the breakpoint scan agree; 128 small-instance SLSQP comparisons have maximum value discrepancy \RFourteenDenseError. A further 800 arbitrary-price checks include 106 root-capacity-binding cases and verify both global bounds and their underlying remainder identity. These are implementation tests, not substitutes for the proofs. Timing the explicit threshold and scalar solvers through 32,767 leaves confirms the intended sparse implementation; the raw measurements and their two-date limitation appear in Table~\ref{tab:r14-scaling}.
-
-A separate standard-library verifier reconstructs \RFourteenCertificates\ rational policy certificates and \RFourteenChecks\ exact algebraic checks, including every continuation cap, root equality, absolute switching identity, profit, and conjugate upper bound. The full nonlinear and boundary-inclusive predecessor experiment, its badly shifted actors, unresolved derivative comparison, and slower complete learned pipelines remain unchanged. The new result identifies a tractable institution and learning statistic under which the original integrated research objective succeeds; it does not erase failure in the broader distributions.
-
-% END input source: revisions/or-r14-20260922/sections/experiment.tex
-
-
-% BEGIN preserved/input source: revisions/or-r13-20260922/sections/companion.tex
-\section{Implementation details for verified continuation cells}\label{ec:r13-implementation}
-All essential new proofs are in the main paper. This section specifies the algorithms sufficiently to reproduce their numerical implementation. The ordinary Python sources contain no service calls and use pinned NumPy and SciPy versions. Training, validation, confirmation, structural tests, and matched deployment use separate recorded seeds. The confirmation stage does not change the frozen trained model.
-
+\section{Sparse bounds for verified continuation cells}\label{ec:r24-sparse}
 \subsection{Sparse Lipschitz bounds without fill-in}
 For the scaled operator $M$ in \eqref{eq:r13-feasibility}, write $k_i=\kappa_i$, let $d_i$ be the number of children of node $i$, and let $b_i=(k_i+\sum_{j:\operatorname{pa}(j)=i}k_j)/c_i$. The absolute row sum for row $n\ne o$ is $b_{\operatorname{pa}(n)}+b_n$. The root column sum is $d_ok_o/c_o$. For a nonroot column $j$, with parent $p$, the absolute column sum is
 \[
@@ -994,100 +784,6 @@ To check these formulas, expand $M_{nj}$: its contributions are positive at the 
 
 Each trial starts from zero tensions. Accelerated projected gradient uses the standard momentum recursion and clips to the trial tension box. Every twentieth iteration, the implementation checks the separating direction and the two-pass repair. It maintains the best bracket, not the latest optimizer residual. The final lower direction and repaired upper tension are serialized as rational numbers and checked by a separate program. At the 12,000-iteration limit the bracket is still valid, but a width above $10^{-4}$ is a failure to meet the requested numerical accuracy. No asymptotic runtime estimate is fitted to these twelve instances.
 
-\subsection{Cell recovery and rejection}
-Training starts with an explicit epigraph quadratic program. A candidate active set is only a proposal. Pivoted factorization removes redundant equality rows, and a dual feasibility linear program recovers nonnegative inequality prices and capacity-feasible switching tensions. Positive inequality prices and unsaturated zero-edge tensions supply a candidate independent basis. Saturated zero-edge tensions may instead be represented by a signed cell. Every resulting affine map is checked against all primal and dual region inequalities. Failure to find a verified basis is recorded rather than assigned a fabricated label.
-
-The input coordinates are scaled by $(1,1,10)$. The random hidden weights are standard normal; biases are uniform on $[-1,1]$. Features concatenate a constant, the three scaled inputs, and 192 ReLU outputs. The multiclass readout is fitted by ridge least squares with coefficient $0.01$ against one-hot cell labels. All random features and coefficients are serialized. The neural policy checks its ordered first one or three cells. The nearest-anchor comparator uses Euclidean distance in the same scaled context coordinates and then checks that anchor's cell. Sequential lookup tests the same cells in their fixed training order. It receives no different library or optimal query-time face.
-
-Numerical membership permits a $2\times10^{-9}$ inequality tolerance solely as a proposal filter. The deployed flow is rounded to denominator $10^9$, negative flow coordinates are set to zero, and a common radial scaling enforces both tier bounds. Exact subtree feasibility survives this scaling. Nonnegative prices and capacity-feasible tensions are then rounded/clipped, and Theorem~\ref{thm:r13-leakage} is evaluated in rational arithmetic. Thus the numerical region tolerance is not the final feasibility or optimality tolerance. Wrong switching signs contribute leakage, including when rounding opens a nominally fused edge.
-
-\subsection{What each timing and face statistic measures}
-The matched test measures complete pipelines, including exact audit and any classical rescue. Rescue uses a cold feasible start; a rejected region is not credited with unexecuted warm-start savings. The data separate its refinement iterations from initial cell verification. Distance is measured from the first affine proposal to the separately certified reference policy. Binding-constraint masks and switching signs use a $10^{-6}$ diagnostic tolerance and are not proofs that a mathematically active face has been identified. The independent verifier instead checks their associated repaired policies and all prices. The first sequentially tested cell is fixed, so its first-face accuracy has a different interpretation from the learned first proposal.
-
-Offline amortization divides library-construction plus fitting time by the observed mean cold-minus-neural online time, when positive. It excludes no observed online audit cost, but it does not include hypothetical future library maintenance. It also does not turn one timing sample into a confidence statement. The complete matched records allow recalculation under a different deployment volume or hardware cost.
-
-\subsection{Independent sampling and range reconstruction}
-Training uses seed 13031 and random features seed 13032. The first validation uses 13033 and matched deployment 13034. After the deterministic corner range is saved, confirmation uses 13035. Within each cohort the two forcing coordinates and friction are independently generated from the specified finite uniform grids. Samples are not resampled when routing fails: the prescribed static policy is retained, and its certificate contributes to the mean. The first broad-range cohort remains in full. The second range is derived from the model's four forcing vertices, not from truncating unfavorable sample values. For each vertex the standard-library verifier checks both its policy and its upper bound before accepting the range.
-
-The final confidence statement is conditional on the frozen model, distribution, and monetary normalization. Its positive gain floor compares with the static outside arrangement. The simultaneous regret ceilings are intentionally reported alongside it: they remain much wider than high-accuracy deployment tolerances. This distinction prevents the validation theorem from being described as a blanket certification of neural training, distribution shift, or superiority over classical control.
-
-% END input source: revisions/or-r13-20260922/sections/companion.tex
-
-
-% BEGIN preserved/input source: revisions/or-r14-20260922/sections/companion.tex
-\section{Reconstruction and execution details for the scalar-critic study}\label{ec:r14-details}
-\subsection{Primitive service instance and comparator}
-Let $m=127$, $w=9/(10m)$, $k_i\in\{8,\ldots,12\}$, $u_i\in\{-28,\ldots,4\}$, and $v_i\in\{-20,\ldots,20\}$. NumPy's default generator with seed 14001 draws these three integer arrays in that order. They are also stored explicitly, so replay does not depend on a generator implementation. Put $\rho_i=9k_i/(80m)$, $A=-w\sum_i u_i/20$, $B=-w\sum_i v_i/20$, and $r=\sum_i\rho_i$. Smooth reward gradients at the common outside tier are
-\[
- g_0=A+\alpha B+\frac{hr}{1+r},\qquad
- g_i=\frac{w(u_i+\alpha v_i)}{20}-\frac{h\rho_i}{1+r}.
-\]
-Their sum is exactly zero, and $\rho_i g_0-g_i=\rho_i A-wu_i/20+\alpha(\rho_i B-wv_i/20)+h\rho_i$. A common tier displacement therefore has zero first-order reward and strictly positive quadratic cost; installation friction reinforces that inequality. Thus $1/2$ is the reoptimized static comparator, not an arbitrary fixed baseline. The smooth node reward is $g_i(x_i-1/2)-\chi_i(x_i-1/2)^2/2$ relative to that baseline. Given fixed tariff $c_i$, take its resource increment to be $c_i(x_i-1/2)$ minus this reward. Adding a sufficiently large constant makes all gross resource costs nonnegative on the compact tier interval without changing any decision. This is the identified-stock, quadratic-resource specialization of the unified model, not an empirical fit of demand or a claim that every inventory cost reduces to a quadratic.
-
-\subsection{Neural loss, actual computation, and reproducibility}
-Write $z=(h,\alpha,(\lambda-0.105)/0.095)$ and
-$\widehat J_\omega(z)=a+b^\top z+\sum_{j=1}^{192}c_j\tanh(W_j^\top z+\zeta_j)$.
-The hidden coefficients are fixed normal draws with standard deviation $1.5$, and biases are uniform on $[-1,1]$. Only $a,b,c$ are fitted. The derivative of this same scalar function, not an independent vector actor, produces the coupling price. Value and value-gradient fits minimize the sample mean of $(\widehat J-J)^2+\gamma(\partial_h\widehat J-v^*)^2$ plus $10^{-9}$ times the squared readout norm, with $\gamma=0$ and $0.25$, respectively. The analytical derivative is used in training and deployment. Targets use the structure-aware scalar solve; small-instance independent optimization and exact gap replay check the solver. In finite precision target optimality is established to the recorded numerical tolerances, not as a symbolic expression for every training label.
-
-The paired seed interval in the paper is a Student interval on eight seed-level mean differences. It is a conventional small-sample approximation, not a distribution-free guarantee. The independent gain bound is different: its bounded-variable argument is conditional on the frozen models and uses no Gaussian approximation. Only the primary paired regret endpoint was designated before fitting; secondary comparisons are descriptive and do not receive unadjusted claims of significance.
-
-The total label-generation time, charged once per shared training sample rather than twice for the paired methods, is \RFourteenLabelTime\ seconds; fitting the eight value-only and eight derivative-weighted readouts takes \RFourteenValueFit\ and \RFourteenGradientFit\ seconds, respectively. These offline costs are not included in per-query timings and are not claimed to amortize into a speed advantage. Raw deployment timings cover 32 fixed test contexts, three repetitions, and a rotated method order. The exact audit is performed for every proposed policy and again after any refinement. Components and total times are retained for every repetition, including immediate policies. No failed proposal or timing row is dropped.
-
-% BEGIN preserved/input source: revisions/or-r14-20260922/tables/timing.tex
-\begin{table}[htbp]
-\centering
-\caption{Complete matched-accuracy deployment on 32 contexts, with three repetitions. All final normalized exact gaps are at most $10^{-7}$.}
-\label{tab:r14-timing}
-\begin{tabular}{lrrrr}
-\toprule
-Method & Total (ms) & Audit (ms) & Iterations & Refined (\%)\\
-\midrule
-Cold scalar Newton & 5.353 & 5.222 & 3.75 & 0.00\\
-Brent & 5.363 & 5.224 & 7.81 & 0.00\\
-Sorted breakpoints & 5.513 & 5.222 & 57.91 & 0.00\\
-Value only & 10.635 & 10.436 & 1.69 & 81.25\\
-Value gradient & 10.600 & 10.397 & 1.72 & 78.12\\
-\bottomrule
-\end{tabular}
-\par\smallskip
-\begin{minipage}{0.97\linewidth}
-Times are medians including both audits when refinement occurs. Iterations are mean full-objective solver iterations, counting zero for an immediately certified learned response. The classical methods solve directly, so their refinement indicator is zero rather than a claim of zero computation. Breakpoint scan iterations count scanned intervals and are not comparable arithmetic units to Newton or Brent steps.
-\end{minipage}
-\end{table}
-% END input source: revisions/or-r14-20260922/tables/timing.tex
-
-
-The scaling experiment varies branching at a fixed two-date horizon. The threshold requires one vector scan. Breakpoint sorting gives a worst-case arithmetic bound; the implementation additionally benchmarks safeguarded Newton and Brent because they can be faster in practice. The table times the structural calculation itself, not a complete audited deployment; its heading and the separate complete-timing table make that distinction explicit. Five raw repetitions, iteration counts, and primitive seeds are retained at each size.
-
-% BEGIN preserved/input source: revisions/or-r14-20260922/tables/scaling.tex
-\begin{table}[htbp]
-\centering
-\caption{Structural calculation only: median milliseconds over five repetitions at fixed two-date depth. Rational deployment audit is excluded from this scaling table.}
-\label{tab:r14-scaling}
-\begin{tabular}{rrrrr}
-\toprule
-Leaves & Threshold & Scalar Newton & Brent & Breakpoints\\
-\midrule
-31 & 0.007 & 0.069 & 0.096 & 0.096\\
-127 & 0.006 & 0.090 & 0.102 & 0.256\\
-511 & 0.008 & 0.090 & 0.113 & 0.893\\
-2,047 & 0.010 & 0.131 & 0.154 & 3.551\\
-8,191 & 0.020 & 0.404 & 0.360 & 15.672\\
-32,767 & 0.067 & 1.870 & 1.144 & 69.810\\
-\bottomrule\end{tabular}
-\end{table}
-% END input source: revisions/or-r14-20260922/tables/scaling.tex
-
-
-\subsection{Independent certificates and exact fallback semantics}
-The proposer rounds each leaf transfer down to a multiple of $10^{-9}$, clips to its interval, and rescales by an exact common rational factor if the root cap is exceeded. This preserves all leaf continuation inequalities and the root equality by construction. It rounds a proposed total dual price to a rational number and evaluates every conjugate directly. Such a price need not satisfy approximate stationarity: weak duality alone validates the upper bound. The independent verifier imports only the Python standard library, reconstructs all primitive coefficients from the stored integers, and checks exact rational equalities, inequalities, absolute switching, profit, and upper bounds. Numerical gradient inequalities and wall-clock times are explicitly outside that rational proof checker.
-
-The validation policy performs no full objective solve after prediction. The capacity-only response can require scalar water filling, which is part of feasibility implementation and is not hidden as a free oracle. The matched-accuracy policy is a different, explicitly labeled pipeline: a certificate gap above $10^{-7}$ invokes the full scalar solver and a second audit. Its last policy is feasible and its exact gap meets that tolerance. The raw-policy table and independent expected-gain guarantee never substitute this refined policy for the learned proposal.
-
-% END input source: revisions/or-r14-20260922/sections/companion.tex
-
-\clearpage
-% BEGIN preserved/input source: revisions/or-r14-20260922/sections/references.tex
 \section{Proof of the global resource-price bridge}\label{ec:r23-preserved-global-proof}
 The following is the complete proof of Theorem~\ref{thm:r19-global}, retained verbatim from the predecessor manuscript.
 \begin{proof}
@@ -1112,7 +808,7 @@ Use \eqref{eq:r19-lipschitz} for the latter term to obtain \eqref{eq:r19-pricebo
 \end{proof}
 
 \section{Joint misspecification: construction and verification}\label{ec:r23-robust}
-This section supplies the implementation details for Theorem~\ref{thm:r23-robust}. Uncertainty changes the accepted inequalities as well as reward and friction. It is different from the known-model context shift in the preceding experiments.
+This section supplies the implementation details for Lemma~\ref{thm:r23-robust}. Uncertainty changes the accepted inequalities as well as reward and friction. It is different from the known-model context shift in the preceding experiments.
 
 \subsection{Exact implementation and the comparator outer class}
 Collect the box and vertex participation/capacity inequalities in $a_j^\top x\leq b_j$, retaining the fixed equality $Ex=0$. Suppose an anchor $z$ satisfies that equality and $a_j^\top z<b_j$ for every listed inequality. For an equality-feasible rational proposal $y^0$, set
@@ -1125,7 +821,7 @@ An empty inner maximum is omitted. Then $0\leq\alpha<1$, $y$ satisfies every ine
 \[
  g(y)\geq\min_v\{(1-\alpha)F_v(y^0)+\alpha F_v(z)-U_v\}.
 \]
-Thus repair has an explicit value charge rather than an unreported feasibility tolerance. The anchor condition belongs to this particular repair construction, not to Theorem~\ref{thm:r23-robust}. A rational polyhedral feasibility solve can supply an alternative implementation when a strict anchor does not exist.
+Thus repair has an explicit value charge rather than an unreported feasibility tolerance. The anchor condition belongs to this particular repair construction, not to Lemma~\ref{thm:r23-robust}. A rational polyhedral feasibility solve can supply an alternative implementation when a strict anchor does not exist.
 
 In the recorded tree, nonroot anchor displacements are negative and each root displacement is reconstructed from its exact weighted equality. A common positive scale makes all box and capacity inequalities strict. Nonroot continuation coefficients remain positive over the specified uncertainty set, so their subtree sums are strictly negative. The code rounds only nonroot proposed coordinates, reconstructs root equalities in rational arithmetic, and applies \eqref{eq:r23-repair}. The independent verifier then recomputes every inequality from the implemented rational vector.
 
