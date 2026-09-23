@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "family": "R_i(eta)=sum_{j=i}^n [2j-eta]_[0,1]",
+  "records": [
+    {
+      "n": 1,
+      "global_knots": 2,
+      "total_segments": 3,
+      "expected_global_knots": 2,
+      "expected_total_segments": 3
+    },
+    {
+      "n": 2,
+      "global_knots": 4,
+      "total_segments": 8,
+      "expected_global_knots": 4,
+      "expected_total_segments": 8
+    },
+    {
+      "n": 3,
+      "global_knots": 6,
+      "total_segments": 15,
+      "expected_global_knots": 6,
+      "expected_total_segments": 15
+    },
+    {
+      "n": 4,
+      "global_knots": 8,
+      "total_segments": 24,
+      "expected_global_knots": 8,
+      "expected_total_segments": 24
+    },
+    {
+      "n": 8,
+      "global_knots": 16,
+      "total_segments": 80,
+      "expected_global_knots": 16,
+      "expected_total_segments": 80
+    },
+    {
+      "n": 16,
+      "global_knots": 32,
+      "total_segments": 288,
+      "expected_global_knots": 32,
+      "expected_total_segments": 288
+    },
+    {
+      "n": 32,
+      "global_knots": 64,
+      "total_segments": 1088,
+      "expected_global_knots": 64,
+      "expected_total_segments": 1088
+    },
+    {
+      "n": 64,
+      "global_knots": 128,
+      "total_segments": 4224,
+      "expected_global_knots": 128,
+      "expected_total_segments": 4224
+    },
+    {
+      "n": 128,
+      "global_knots": 256,
+      "total_segments": 16640,
+      "expected_global_knots": 256,
+      "expected_total_segments": 16640
+    }
+  ]
+}
