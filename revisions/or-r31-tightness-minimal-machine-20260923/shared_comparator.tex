@@ -1,0 +1,44 @@
+\section{The Optimized Shared-Table Comparator}\label{sec:shared}
+A prescribed observation restriction is optimized before its adaptation value is assessed. Let $c(v)\in\{1,\ldots,C_{\rm info}\}$ be its information cell and let $u_c$ be a single table chosen before uncertainty. The restricted value is denoted $K^{\rm tab}$, keeping the number of cells distinct from the value.
+
+\begin{proposition}[Zero-release graph formulation]\label{prop:shared-zero}
+The optimized zero-release comparator is the convex quadratic program
+\begin{align}
+ K^{\rm tab}=\max_{u,y}\quad&\sum_v\bar w_vg_v(u_{c(v)})\label{eq:table-r30}\\
+ y_v&=a_vu_{c(v)}+\beta\sum_wp_{vw}y_w,\quad y_v\leq B_v,\quad y_0=b_0,\nonumber\\
+ l_v&\leq u_{c(v)}\leq h_v.\nonumber
+\end{align}
+Here $\bar w_v=\beta^{t(v)}\Pr(v)$ is the graph's forward reach weight. There are $C_{\rm info}+N$ variables and $O(N+M+C_{\rm info})$ coefficient occurrences. For a fixed shared table, an incoming absolute switching cost can also be represented exactly by its root term and one reach-weighted epigraph term per public edge.
+\end{proposition}
+\begin{proof}
+A common table fixes every local action by the public vertex. Backward conditional expectation gives the displayed $y_v$ at every occurrence of $v$. Thus all history caps are equivalent to the $N$ displayed caps. Conversely, every feasible table and payment vector implements accepted actions at all histories. Summing rewards by public reach weights proves the objective identity. An edge uses two fixed table entries, so its switching cost is also determined without additional history.\end{proof}
+This supporting formulation uses standard convex optimization; it is not the central algorithmic novelty. In particular, a public table is not the full-information policy class. The difference $J(b_0)-K^{\rm tab}$ compares two optimized protocols on identical primitives.
+
+At a fixed table and release $\delta\geq0$, permit $|x_h-u_{c(v(h))}|\leq\delta\omega_{c(v(h))}$, where $\omega_c\geq0$. Set
+\[
+ l_v^{\rm eff}=\max(l_v,u_{c(v)}-\delta\omega_{c(v)}),\qquad
+ h_v^{\rm eff}=\min(h_v,u_{c(v)}+\delta\omega_{c(v)}).
+\]
+Empty intervals or an infeasible root promise are rejected. Otherwise the finite-price compiler solves this fixed query exactly.
+
+\begin{proposition}[Supporting cuts including coincident bounds]\label{prop:cuts}
+At every feasible fixed query $(u,\delta)$, physical and corridor multipliers can be split so that nonnegative corridor multipliers $\rho^-_{v,\eta},\rho^+_{v,\eta}$ give
+\begin{equation}\label{eq:cut-gradients}
+ G_c=\sum_{(v,\eta):c(v)=c}w_{v,\eta}(\rho^+_{v,\eta}-\rho^-_{v,\eta}),\quad
+ H_\delta=\sum_{(v,\eta)}w_{v,\eta}\omega_{c(v)}(\rho^+_{v,\eta}+\rho^-_{v,\eta}).
+\end{equation}
+For any other feasible design $(\widetilde u,\widetilde\delta)$,
+\begin{equation}\label{eq:global-cut}
+ V(\widetilde u,\widetilde\delta)\leq V(u,\delta)+G^\top(\widetilde u-u)
+       +H_\delta(\widetilde\delta-\delta).
+\end{equation}
+This statement includes physical/corridor ties and zero-width intersections.
+\end{proposition}
+\begin{proof}
+At a reached pair let $d=r_v-q_vx-a_vs$. Choose effective lower and upper multipliers $\ell=\max(-d,0)$, $u^+=\max(d,0)$. A positive lower multiplier occurs only when $x=l_v^{\rm eff}$; a positive upper multiplier only when $x=h_v^{\rm eff}$. Among the original lower inequalities, at least one attains $l_v^{\rm eff}$. Assign nonnegative portions summing to $\ell$ only to the attaining physical and corridor inequalities. Do the analogous split for $u^+$. At a tie any such split works. At zero width both lower and upper normal directions are available, and the sign choice still satisfies stationarity; no division by the width is used.
+
+All assigned original multipliers satisfy complementarity because each receiving bound is active. They therefore form full fixed-query Lagrange multipliers with the root price and reflected cap multipliers. Keep them fixed while changing only the corridor right-hand sides. A corridor upper bound contributes $\rho^+(u_c+\delta\omega_c)$ and a lower bound contributes $-\rho^-(u_c-\delta\omega_c)$ to the dual objective. Their change gives \eqref{eq:cut-gradients}. Weak duality and exact equality at the anchor prove \eqref{eq:global-cut}.
+
+The certificate's old price labels merely aggregate the original history multipliers. Those multipliers can be assigned to the same public histories under any candidate policy, because the public process is exogenous. Thus the upper bound applies to every new feasible policy, not just policies sharing the old state labels.\end{proof}
+
+The oracle supplies a supergradient of the fixed-table value in the design parameters. A continuous Benders-style outer master can use these cuts and feasible-query lower bounds, but no finite exact cut count or global positive-release polynomial algorithm follows. The exact graph-sized zero-release formulation, exact fixed-query compiler, and absence of a finite-cut guarantee for the outer design are distinct results.
