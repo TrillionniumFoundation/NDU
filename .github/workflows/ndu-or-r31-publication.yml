@@ -1,0 +1,149 @@
+name: NDU R31 Operations Research build and publication
+
+on:
+  push:
+    branches:
+      - revision/ndu-operations-research-r31-tightness-minimal-machine-20260923
+    paths:
+      - .github/workflows/ndu-or-r31-publication.yml
+      - main.tex
+      - electronic_companion.tex
+      - revisions/or-r31-tightness-minimal-machine-20260923/*.tex
+      - revisions/or-r31-tightness-minimal-machine-20260923/tightness_check.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ndu-or-r31-publication
+  cancel-in-progress: false
+
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r31-tightness-minimal-machine-20260923
+  R: revisions/or-r31-tightness-minimal-machine-20260923
+
+jobs:
+  build-and-publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r31-tightness-minimal-machine-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install typesetting dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended \
+            texlive-plain-generic texlive-science poppler-utils
+
+      - name: Run independent R31 tightness audit
+        run: |
+          python "$R/tightness_check.py"
+
+      - name: Check revision entry points
+        run: |
+          grep -F 'Revision R31' main.tex
+          grep -F 'Revision R31' electronic_companion.tex
+          grep -F 'thm:tight-response' "$R/quotient_theory.tex"
+          grep -F 'K_*' "$R/memory_theory.tex"
+          ! grep -F 'revisions/or-r30-quotient-memory-20260923/' main.tex
+          ! grep -F 'revisions/or-r30-quotient-memory-20260923/' electronic_companion.tex
+
+      - name: Compile main manuscript and electronic companion
+        run: |
+          rm -f main.aux main.log electronic_companion.aux electronic_companion.log
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          pdflatex -interaction=nonstopmode -halt-on-error electronic_companion.tex
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          pdflatex -interaction=nonstopmode -halt-on-error electronic_companion.tex
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+
+      - name: Enforce clean references and layout diagnostics
+        run: |
+          if grep -E 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined (references|citations)' main.log electronic_companion.log; then
+            echo 'Undefined references or citations detected.' >&2
+            exit 1
+          fi
+          if grep -F 'Overfull \hbox' main.log electronic_companion.log || grep -F 'Overfull \vbox' main.log electronic_companion.log; then
+            echo 'Overfull boxes detected.' >&2
+            exit 1
+          fi
+          test -s main.pdf
+          test -s electronic_companion.pdf
+          pdftotext main.pdf /tmp/main.txt
+          pdftotext electronic_companion.pdf /tmp/ec.txt
+          grep -F 'Tight Parametric Quotients' /tmp/main.txt
+          grep -F 'Minimal Additional Writable Memory' /tmp/main.txt
+          grep -F 'R31 Addendum' /tmp/ec.txt
+
+      - name: Check abstract length and key theorem text
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          s=Path('main.tex').read_text()
+          a=s.split('\\textbf{Abstract.}',1)[1].split('\\par\\vspace',1)[0]
+          words=re.findall(r"[A-Za-z0-9_*]+(?:[-'][A-Za-z0-9_*]+)*", re.sub(r'\\[A-Za-z]+|[{}$\\]', ' ', a))
+          print('abstract_words=',len(words))
+          assert len(words) <= 200, len(words)
+          q=Path('revisions/or-r31-tightness-minimal-machine-20260923/quotient_theory.tex').read_text()
+          assert 'n^2+2n' in q
+          assert 'exactly $2n$ distinct knots' in q
+          m=Path('revisions/or-r31-tightness-minimal-machine-20260923/memory_theory.tex').read_text()
+          assert 'C_*' in m and 'K_*' in m and 'deterministic output transducer' in m
+          PY
+
+      - name: Write build record
+        run: |
+          main_pages=$(pdfinfo main.pdf | awk '/^Pages:/ {print $2}')
+          ec_pages=$(pdfinfo electronic_companion.pdf | awk '/^Pages:/ {print $2}')
+          main_sha=$(sha256sum main.pdf | awk '{print $1}')
+          ec_sha=$(sha256sum electronic_companion.pdf | awk '{print $1}')
+          cat > "$R/BUILD_VALIDATION.md" <<EOF
+          # R31 remote build validation
+
+          - Source commit: `$GITHUB_SHA`
+          - Tightness checker: PASS
+          - Main PDF pages: $main_pages
+          - Electronic companion pages: $ec_pages
+          - Undefined references/citations: 0 detected
+          - Overfull boxes: 0 detected
+          - Main PDF SHA-256: `$main_sha`
+          - Electronic companion SHA-256: `$ec_sha`
+          - Runner: GitHub Actions `ubuntu-latest`
+
+          This record concerns the R31 sources on the isolated revision branch. It does not reinterpret historical computational evidence.
+          EOF
+
+      - name: Publish rebuilt reader PDFs and validation record
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git config user.name 'NDU R31 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add -f main.pdf electronic_companion.pdf "$R/BUILD_VALIDATION.md" "$R/tightness_check.json"
+          if git diff --cached --quiet; then
+            echo 'No generated changes to publish.'
+            exit 0
+          fi
+          git commit -m 'paper(or-r31): rebuild validated reviewer PDFs'
+          git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r31-reader-build
+          path: |
+            main.pdf
+            electronic_companion.pdf
+            revisions/or-r31-tightness-minimal-machine-20260923/BUILD_VALIDATION.md
+            revisions/or-r31-tightness-minimal-machine-20260923/tightness_check.json
+          retention-days: 30
+          if-no-files-found: warn
