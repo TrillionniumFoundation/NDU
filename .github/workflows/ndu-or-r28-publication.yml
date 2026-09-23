@@ -1,0 +1,173 @@
+name: NDU OR R28 shared-table bridge and final-SHA validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r28-20260923]
+    paths: [.github/workflows/ndu-or-r28-publication.yml]
+permissions:
+  contents: write
+  statuses: write
+  actions: read
+concurrency:
+  group: ndu-or-r28-publication
+  cancel-in-progress: false
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r28-20260923
+  GH_TOKEN: ${{ github.token }}
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r28-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Record source receipt and verify the isolated source payload
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=pending -f context=ndu-or-r28/publication -f description='R28 source received; regeneration and scientific publication in progress' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          python - <<'PY'
+          import base64,hashlib,io,tarfile
+          from pathlib import Path
+          raw=base64.b64decode(''.join(Path(f'.r28-delivery/part{i}.b64').read_text().strip() for i in range(4)),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='d581f989aaaba7e5b379499e6d944974eb6b5010495603f3ead12f3354f414cd'
+          r=Path('revisions/or-r28-20260923')
+          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:xz') as t:
+              assert len(t.getmembers())==14
+              for m in t.getmembers():
+                  p=Path(m.name)
+                  assert m.isfile() and p.is_relative_to(r) and '..' not in p.parts
+                  p.parent.mkdir(parents=True,exist_ok=True)
+                  p.write_bytes(t.extractfile(m).read())
+          PY
+          python revisions/or-r28-20260923/assemble.py
+      - name: Install the document checker and typesetting dependencies
+        run: |
+          python -m pip install PyMuPDF==1.26.7
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Regenerate new exact evidence and independently verify every certificate
+        run: |
+          R=revisions/or-r28-20260923
+          python -S "$R/research.py"
+          python -S "$R/verify.py"
+          python -S "$R/make_tables.py"
+          python -S "$R/verify.py" --check
+          python -S "$R/make_tables.py" --check
+      - name: Replay unchanged R24 through R27 evidence
+        run: |
+          R=revisions/or-r28-20260923
+          python -S revisions/or-r24-20260923/replay.py --check > "$R/results/inherited_r24_replay.json" & p24=$!
+          python -S revisions/or-r25-20260923/replay.py --check > "$R/results/inherited_r25_replay.json" & p25=$!
+          python -S revisions/or-r26-20260923/replay.py --check > "$R/results/inherited_r26_replay.json" & p26=$!
+          python -S revisions/or-r27-20260923/replay.py --check > "$R/results/inherited_r27_replay.json" & p27=$!
+          wait "$p24"
+          wait "$p25"
+          wait "$p26"
+          wait "$p27"
+      - name: Compile both formal documents and verify preservation and format
+        run: |
+          R=revisions/or-r28-20260923
+          bash "$R/build.sh"
+          find "$R" -type d -name __pycache__ -prune -exec rm -rf {} +
+          python "$R/check_package.py" --manifest
+          python "$R/check_package.py" --verify-manifest
+      - name: Publish the isolated R28 scientific revision
+        id: publish
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          python - <<'PY'
+          import subprocess
+          allowed={'main.tex','main.pdf','electronic_companion.tex','electronic_companion.pdf','README.md','NDU_OR_submission_checklist.md','r28-main-labels.aux','r28-ec-labels.aux'}
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert all(p in allowed or p.startswith('revisions/or-r28-20260923/') for p in changed),changed
+          print('All inherited scientific files and referee reports are unchanged except the six preserved reader documents.')
+          PY
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R28 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git rm -r .r28-delivery
+          git add -f revisions/or-r28-20260923 main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md r28-main-labels.aux r28-ec-labels.aux
+          git commit -m 'paper(or-r28): shared-table stochastic bridge, endogenous design, governed caches and adaptive continuum certificates'
+          git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          final_sha=$(git rev-parse HEAD)
+          echo "final_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          echo "$final_sha" > /tmp/R28_FINAL_SHA.txt
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$final_sha" -f state=pending -f context=ndu-or-r28/final-sha -f description='Published scientific commit; awaiting independent fresh-checkout validation' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          git archive --format=tar.gz -o /tmp/NDU_OR_R28_review_package.tar.gz HEAD
+          mkdir -p /tmp/ndu-r28-reader
+          cp main.pdf electronic_companion.pdf main.tex electronic_companion.tex README.md /tmp/ndu-r28-reader/
+          cp revisions/or-r28-20260923/RESPONSE_TO_REFEREES.md revisions/or-r28-20260923/NOVELTY_MATRIX.md revisions/or-r28-20260923/BUILD_REPORT.md revisions/or-r28-20260923/MANIFEST.json revisions/or-r28-20260923/results/package_check.json revisions/or-r28-20260923/results/replay.json /tmp/ndu-r28-reader/
+          cp /tmp/R28_FINAL_SHA.txt /tmp/ndu-r28-reader/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r28-complete-review-package
+          path: |
+            /tmp/NDU_OR_R28_review_package.tar.gz
+            /tmp/R28_FINAL_SHA.txt
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r28-reader-files
+          path: /tmp/ndu-r28-reader/
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r28-build-diagnostics
+          path: revisions/or-r28-20260923/results/
+          retention-days: 14
+          if-no-files-found: warn
+      - name: Record source publication result
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          [ "$JOB_STATUS" = success ] && state=success
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state="$state" -f context=ndu-or-r28/publication -f description='R28 source publication completed; final scientific SHA has its own validation status' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Validate the actual published scientific checkout
+        run: |
+          python -m pip install PyMuPDF==1.26.7
+          test "$(git rev-parse HEAD)" = '${{ needs.publish.outputs.final_sha }}'
+          test ! -d .r28-delivery
+          R=revisions/or-r28-20260923
+          python -S "$R/verify.py" --check
+          python -S "$R/make_tables.py" --check
+          python -S revisions/or-r24-20260923/replay.py --check > /tmp/r24-replay.json & p24=$!
+          python -S revisions/or-r25-20260923/replay.py --check > /tmp/r25-replay.json & p25=$!
+          python -S revisions/or-r26-20260923/replay.py --check > /tmp/r26-replay.json & p26=$!
+          python -S revisions/or-r27-20260923/replay.py --check > /tmp/r27-replay.json & p27=$!
+          wait "$p24"
+          wait "$p25"
+          wait "$p26"
+          wait "$p27"
+          python "$R/check_package.py"
+          python "$R/check_package.py" --verify-manifest
+          git diff --exit-code
+      - name: Attach the actual final-SHA validation result
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          [ "$JOB_STATUS" = success ] && state=success
+          gh api "repos/$GITHUB_REPOSITORY/statuses/${{ needs.publish.outputs.final_sha }}" -f state="$state" -f context=ndu-or-r28/final-sha -f description='Actual final SHA: independent rational replay, PDFs, format, and inherited-proof preservation' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
