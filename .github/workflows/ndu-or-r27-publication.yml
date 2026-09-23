@@ -1,0 +1,159 @@
+name: NDU OR R27 correlated-comparator revision and final-SHA validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r27-20260923]
+    paths: [.github/workflows/ndu-or-r27-publication.yml]
+permissions:
+  contents: write
+  statuses: write
+  actions: read
+concurrency:
+  group: ndu-or-r27-publication
+  cancel-in-progress: false
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r27-20260923
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  GH_TOKEN: ${{ github.token }}
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r27-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify source transport and materialize against the scientific predecessor
+        run: |
+          python - <<'PY'
+          import base64,hashlib,io,tarfile
+          from pathlib import Path
+          raw=base64.b64decode(''.join(Path(f'.r27-delivery/part{i}.b64').read_text().strip() for i in range(3)),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='02c57fbd84a7e96167b19724e2c8fb9b239524159cbb13b790e8739a2d3b2857'
+          r=Path('revisions/or-r27-20260923')
+          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:xz') as t:
+              assert len(t.getmembers())==14
+              for m in t.getmembers():
+                  p=Path(m.name)
+                  assert m.isfile() and p.is_relative_to(r) and '..' not in p.parts
+                  p.parent.mkdir(parents=True,exist_ok=True)
+                  p.write_bytes(t.extractfile(m).read())
+          PY
+          python revisions/or-r27-20260923/materialize_revision.py
+      - name: Install pinned proposal and document dependencies
+        run: |
+          python -m pip install -r revisions/or-r27-20260923/requirements.txt
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Regenerate all new proposals and independently audit cached certificates
+        run: |
+          bash revisions/or-r27-20260923/regenerate.sh
+      - name: Independently replay unchanged R24 R25 and R26 scientific records
+        run: |
+          R=revisions/or-r27-20260923
+          python -S revisions/or-r24-20260923/replay.py --check > "$R/results/inherited_r24_replay.json" & p24=$!
+          python -S revisions/or-r25-20260923/replay.py --check > "$R/results/inherited_r25_replay.json" & p25=$!
+          python -S revisions/or-r26-20260923/replay.py --check > "$R/results/inherited_r26_replay.json" & p26=$!
+          wait "$p24"
+          wait "$p25"
+          wait "$p26"
+      - name: Compile the complete paper and companion and check scientific preservation
+        run: |
+          R=revisions/or-r27-20260923
+          bash "$R/build.sh"
+          find "$R" -type d -name __pycache__ -prune -exec rm -rf {} +
+          rm -f "$R/_osqp_bridge.so"
+          python "$R/check_package.py" --manifest
+          python "$R/check_package.py" --verify-manifest
+      - name: Publish only the isolated R27 scientific revision
+        id: publish
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          python - <<'PY'
+          import subprocess
+          allowed={'main.tex','main.pdf','electronic_companion.tex','electronic_companion.pdf','README.md','NDU_OR_submission_checklist.md','r27-main-labels.aux','r27-ec-labels.aux'}
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert all(p in allowed or p.startswith('revisions/or-r27-20260923/') for p in changed),changed
+          print('Every earlier review, revision, and historical research file remains unchanged.')
+          PY
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R27 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git rm -r .r27-delivery
+          git add -f revisions/or-r27-20260923 main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md r27-main-labels.aux r27-ec-labels.aux
+          git commit -m 'paper(or-r27): correlated comparator reuse, uniform gain certificates, exact counterexamples and complete referee response'
+          git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          final_sha=$(git rev-parse HEAD)
+          echo "final_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          echo "$final_sha" > /tmp/R27_FINAL_SHA.txt
+          git archive --format=tar.gz -o /tmp/NDU_OR_R27_review_package.tar.gz HEAD
+          mkdir -p /tmp/ndu-r27-reader
+          cp main.pdf electronic_companion.pdf main.tex electronic_companion.tex README.md /tmp/ndu-r27-reader/
+          cp revisions/or-r27-20260923/RESPONSE_TO_REFEREES.md revisions/or-r27-20260923/MANIFEST.json revisions/or-r27-20260923/results/package_check.json revisions/or-r27-20260923/results/replay.json /tmp/ndu-r27-reader/
+          cp /tmp/R27_FINAL_SHA.txt /tmp/ndu-r27-reader/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r27-complete-review-package
+          path: |
+            /tmp/NDU_OR_R27_review_package.tar.gz
+            /tmp/R27_FINAL_SHA.txt
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r27-reader-files
+          path: /tmp/ndu-r27-reader/
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r27-build-diagnostics
+          path: revisions/or-r27-20260923/results/
+          retention-days: 14
+          if-no-files-found: warn
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Mark actual published scientific commit pending validation
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/statuses/${{ needs.publish.outputs.final_sha }}" -f state=pending -f context=ndu-or-r27/final-sha -f description='Actual scientific checkout, independent rational replay, PDFs and preservation' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Replay the actual final checkout and verify its complete manifest
+        run: |
+          python -m pip install PyMuPDF==1.26.7
+          test "$(git rev-parse HEAD)" = '${{ needs.publish.outputs.final_sha }}'
+          test ! -d .r27-delivery
+          python -S revisions/or-r27-20260923/replay.py --check
+          python -S revisions/or-r24-20260923/replay.py --check > /tmp/r24-replay.json & p24=$!
+          python -S revisions/or-r25-20260923/replay.py --check > /tmp/r25-replay.json & p25=$!
+          python -S revisions/or-r26-20260923/replay.py --check > /tmp/r26-replay.json & p26=$!
+          wait "$p24"
+          wait "$p25"
+          wait "$p26"
+          python revisions/or-r27-20260923/check_package.py
+          python revisions/or-r27-20260923/check_package.py --verify-manifest
+          git diff --exit-code
+      - name: Attach actual final-SHA result
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          [ "$JOB_STATUS" = success ] && state=success
+          gh api "repos/$GITHUB_REPOSITORY/statuses/${{ needs.publish.outputs.final_sha }}" -f state="$state" -f context=ndu-or-r27/final-sha -f description='Final scientific SHA: rational replay, PDFs, proof and ancestor preservation' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
