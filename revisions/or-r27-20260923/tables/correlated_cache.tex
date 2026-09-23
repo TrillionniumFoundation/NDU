@@ -1,0 +1,29 @@
+\begin{table}[htbp]
+\centering
+\caption{Certified comparator upper slack under correlated parameter changes}
+\label{tab:r27-cache}
+\begin{tabular}{lrrrr}
+\toprule
+Radius & Queries & Outer & One price & Three prices\\
+\midrule
+\multicolumn{5}{l}{\textit{Inherited ray holdouts; no query price reused}}\\
+$1/65536$ & 8 & 0.00004737 & 0.00000001 & 0.00000001 \\
+$1/16384$ & 8 & 0.00018942 & 0.00000001 & 0.00000001 \\
+$1/4096$ & 8 & 0.00075708 & 0.00000011 & 0.00000011 \\
+$1/1024$ & 8 & 0.00301901 & 0.00000169 & 0.00000169 \\
+$1/256$ & 8 & 0.01183671 & 0.00002694 & 0.00002694 \\
+$1/64$ & 8 & 0.04506415 & 0.00043085 & 0.00043085 \\
+$1/8$ & 8 & 0.07489022 & 0.02778576 & 0.00711323 \\
+\addlinespace
+\multicolumn{5}{l}{\textit{New off-ray queries; same frozen cache}}\\
+$1/64$ & 8 & 0.04463703 & 0.00073960 & 0.00073960 \\
+$1/16$ & 8 & 0.07337423 & 0.01428873 & 0.01428873 \\
+$1/8$ & 8 & 0.07419502 & 0.05643124 & 0.03486551 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{\textwidth}
+Entries are means of $U-L_K$, where $L_K$ is an independently checked restricted feasible value. Each decimal is rounded upward. The one-price cache uses the nominal anchor; the three-price cache also uses the inherited radii $1/16$ and $1/4$. No anchor query is included in the first panel. Off-ray queries change coefficient directions, not merely radii. Initial prices and the offline validation optimizations are charged separately; these are certificate-quality comparisons, not matched timings.
+\end{minipage}
+\end{table}
