@@ -34,3 +34,7 @@ The inherited bibliography contains the additional polymatroid-sensitivity, aggr
 ## Reproduction boundary
 
 New verification is standard-library exact rational computation. Old large-scale timings remain inherited records, not newly measured runs. Four full-parametric checks use our own exhaustive KKT reference, not published specialized solver software. All instances are synthetic. Runtime measurements are descriptive. Mathematical universal claims rely on the displayed proofs, not finite tests.
+
+## Reader layout preservation
+
+`main_table_layout.tex` is the exact R31 table text with forced inter-table page breaks removed and float placement changed to collected table pages. Every datum and note is retained. The R33 local-response definition is displayed to avoid an overfull theorem-heading line. Full theorem proofs stay in the main article. The predecessor root submission checklist is also archived verbatim. `prepare_reader.py` makes only these idempotent publication changes and fixes decoding of TeX log bytes; mathematical statements are unchanged.

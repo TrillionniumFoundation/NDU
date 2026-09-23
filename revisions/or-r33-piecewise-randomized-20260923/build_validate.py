@@ -4,7 +4,7 @@ import hashlib,json,os,re,subprocess,sys,platform
 ROOT=Path.cwd();R=ROOT/'revisions/or-r33-piecewise-randomized-20260923'
 B=ROOT/'.build/ndu-r33';B.mkdir(parents=True,exist_ok=True)
 def run(args,log=None):
- p=subprocess.run(args,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+ p=subprocess.run(args,text=True,encoding='utf-8',errors='replace',stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
  if log:Path(log).write_text(p.stdout)
  if p.returncode:
   print(p.stdout[-16000:]);raise RuntimeError(f'command failed: {args}')
@@ -33,13 +33,15 @@ for doc in ('main','electronic_companion'):
  (ROOT/f'{doc}.pdf').write_bytes(pdf.read_bytes())
  run(['pdftotext',str(pdf),str(B/f'{doc}.txt')])
  records[doc]={'pages':pages,'sha256':sha(pdf),'undefined_references_or_citations':0,'overfull_boxes':0}
+assert records['main']['pages']<=30
+assert records['electronic_companion']['pages']<=records['main']['pages']
 text=(B/'main.txt').read_text()
 assert 'Piecewise-Quadratic' in text and 'When Randomization' in text and 'R33' in text
 verification=json.loads((R/'verification.json').read_text());assert verification['status']=='PASS'
 record={'status':'PASS','scientific_source_commit':source,'transport_commit':os.environ.get('GITHUB_SHA'),
  'predecessor_commit':'238bfdb24d93439a545551d275a0c9189dbc017b','abstract_words':len(a.split()),
  'python':platform.python_version(),'runner':platform.platform(),'documents':records,
- 'new_exact_verification':verification,'tables_after_references':True,
+ 'new_exact_verification':verification,'tables_after_references':True,'main_all_pages_at_most_30':True,'companion_not_longer_than_main':True,
  'note':'Exact tests and clean typesetting are not a referee acceptance or an exhaustive priority certification.'}
 (R/'BUILD_VALIDATION.json').write_text(json.dumps(record,indent=2)+'\n')
 # Compact rendering previews are also placed in the downloadable build artifact.

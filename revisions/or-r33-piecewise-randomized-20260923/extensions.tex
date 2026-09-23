@@ -11,7 +11,11 @@ Replace the local reward in Section~\ref{sec:model} by a continuous, strictly co
 where $q_{vij}>0$. Adjacent formulas agree in value; the left derivative at a join is at least the right derivative. All breakpoints and coefficients are rational. A fixed coordinate contributes a constant and is recorded separately. Set $D=\sum_vd_v$, $J=\sum_{vi}m_{vi}$ over nonfixed coordinates, and $Q=2J+N$. The transition, scalar commitment, and public cap assumptions remain those of Section~\ref{sec:model}.
 
 \begin{theorem}[Piecewise-quadratic quotient with a primitive event budget]\label{thm:r33-pq}
-Write $\phi_{vi}(\eta)=\argmax_{[l_{vi},h_{vi}]}\{g_{vi}(x)-a_{vi}\eta x\}$. The occurrence quotient, payment recursion, and cap reflection remain exact, with
+The local price response is
+\[
+ \phi_{vi}(\eta)=\argmax_{[l_{vi},h_{vi}]}\{g_{vi}(x)-a_{vi}\eta x\}.
+\]
+The occurrence quotient, payment recursion, and cap reflection remain exact, with
 \begin{equation}\label{eq:r33-pq-recursion}
  d_v(\eta)=\sum_i a_{vi}\phi_{vi}(\eta)+\beta\sum_wp_{vw}R_w(\eta),
  \qquad R_v(\eta)=\min\{B_v,d_v(\eta)\}.
