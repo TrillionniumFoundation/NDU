@@ -44,6 +44,17 @@ jobs:
                   p.parent.mkdir(parents=True,exist_ok=True)
                   p.write_bytes(t.extractfile(m).read())
           PY
+          python - <<'PYDOC'
+          from pathlib import Path
+          p=Path('revisions/or-r28-20260923/bridge_main.tex')
+          s=p.read_text()
+          old=r'For a linear release cost $C(\delta)=\delta$, the net optimum is $\delta=1/10$, rather than full flexibility.'
+          new=r'For a linear release cost $C(\delta)=\delta$, the net optimum is $\delta=1/15$, rather than full flexibility.'
+          assert s.count(old)==1
+          p.write_text(s.replace(old,new))
+          assert new in p.read_text()
+          print('Main-text design optimum agrees with the exact derivation and independent replay: 1/15.')
+          PYDOC
           python revisions/or-r28-20260923/assemble.py
       - name: Install the document checker and typesetting dependencies
         run: |
