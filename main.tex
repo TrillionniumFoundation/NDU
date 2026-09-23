@@ -20,42 +20,43 @@
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r32-ec-labels}[electronic_companion.pdf]
-\hypersetup{pdftitle={Accepted Service Adaptation: Tight Parametric Quotients and Minimal Additional Writable Memory},pdfauthor={Anonymous}}
+\externaldocument{r33-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory},pdfauthor={Anonymous}}
 \begin{document}
 \hypersetup{pageanchor=false}
 \begin{titlepage}\centering
-{\Large\bfseries Accepted Service Adaptation:\\ Tight Parametric Quotients and\\ Minimal Additional Writable Memory\par}
+{\Large\bfseries Accepted Service Adaptation:\\ Exact Parametric Quotients and\\ Minimal Additional Writable Memory\par}
 \vspace{.35in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
 \begin{minipage}{\textwidth}
-\textbf{Abstract.} Public renewal states can recombine while carrying different accepted continuation obligations. For positive additive payments and separable quadratic rewards, the unfolded problem is classical laminar allocation, and normalized memoization yields the same public-graph recursion. We characterize the residual representation problem. An occurrence-to-vertex quotient constructs the complete dual-price response with at most $3N$ global knots and $O(N^2+M)$ response storage; both orders are worst-case tight, and a coefficient-event implementation has polynomial rational bit complexity including exact sorting and comparison. For a fixed root promise, the reached price graph is a deterministic output transducer. Classical state minimization then gives the smallest equivalent reached machine, while contract structure implies ordered behavior classes, a minimum additional writable alphabet $K_*=\max_v c_v$, and a linear worst-case family. We separately report combined reached states and read-only response precision. A heterogeneous renewal model yields an exact memory-value frontier and a strict comparative static along every ordered mean-preserving radial spread of continuation caps. A graph-sized shared-table comparator and exact supporting cuts complete the service benchmark. Exact laminar, convex, and public-graph comparisons validate the representation and repeated-query use.
+\textbf{Abstract.} Renewal agreements can reach the same public state with different accepted continuation obligations. We study their exact representation under one additive commitment and separable concave rewards. Probability weighting yields classical laminar allocation, and normalized memoization gives the public-graph recursion. For quadratic rewards, the global knot universe is linear and separately materialized response tables have worst-case quadratic size. We extend exact closure and rational bit bounds to continuous piecewise-quadratic rewards, including marginal jumps. A shared circuit gives a smaller persistent representation with a quantified query-time tradeoff. For a fixed root promise, the reached price system is a deterministic output transducer. Classical behavioral minimization, combined with price-order structure, identifies the minimum additional writable alphabet conditional on free public-state observation; combined states and read-only storage are accounted for separately. A heterogeneous renewal model yields deterministic ordered memory frontiers and an adjacent-lottery characterization for randomized terminal codebooks. An exactly solved example establishes a strict randomized advantage below the alphabet required for exact optimality. An optimized shared-table comparator, exact complete-path comparisons, and rational certificates support the analysis. Earlier switching and deployment results remain available with their original assumptions.
 \par\vspace{.15in}\textbf{Keywords:} continuation participation; contractual memory; parametric resource allocation.
 \par\vspace{.1in}\textbf{Subject classifications:} Programming: stochastic resource allocation; Dynamic programming/optimal control: contractual memory.
 \par\vspace{.1in}\textbf{Area of review:} Stochastic Models.
-\end{minipage}\vfill{Revision R32, September 23, 2026\par}
+\end{minipage}\vfill{Revision R33, September 23, 2026\par}
 \end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r31-tightness-minimal-machine-20260923/introduction.tex}
-\input{revisions/or-r32-priority-complexity-closure-20260923/referee_closure.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/introduction.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/model_literature.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/quotient_theory.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/extensions.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/memory_theory.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/randomized_memory.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/shared_comparator.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/computational_evidence.tex}
-
+\input{revisions/or-r33-piecewise-randomized-20260923/new_evidence.tex}
 \section{Conclusions}\label{sec:conclusion}
-The accepted-service problem studied here sits inside classical laminar allocation, and normalized memoization of the occurrence-indexed reduction gives the same public-graph recursion. The paper's contribution is therefore not the existence of a scalar marginal price or memoization. It is a sharp representation theorem for the complete response on the compact graph. The quotient has only linearly many distinct knot locations, its quadratic total response-storage order is unavoidable in the worst case, and the coefficient-event compiler has polynomial exact rational complexity.
+Accepted continuations admit an exact quotient on a recombining public graph. The underlying laminar allocation and normalized memoization are classical; the results concern the complete response's event budget, exact rational implementation, and execution architecture. The quadratic specialization attains linear global-knot and quadratic explicit-table orders. Changing curvature and downward marginal jumps preserve finite exact closure with a budget determined by the number of local pieces and public caps.
 
-Execution is a different resource question. For a fixed root promise, the compiler generates a finite deterministic output transducer from a continuous control problem. Classical behavioral minimization yields its coarsest behavior-preserving partition. Contract structure then adds ordered price classes and a worst-case-tight linear bound on the additional writable alphabet. The public vertex, the writable symbol, and the read-only response representation are accounted for separately; $K_*$ is not presented as total controller complexity. Proposition~\ref{prop:three-layer-accounting} collects these resource layers and the post-compilation query cost in one audit statement.
+Representation must be specified before a storage lower bound is interpreted. Separately materialized vertex tables can require quadratic output, while a shared circuit represents the same responses with linear persistent space in the local-piece and graph input after compilation. Its query evaluation is slower. Neither count measures the additional writable history needed to implement one fixed-query optimum. That history is characterized by a contract-generated finite transducer and classical behavioral minimization, with ordered classes and a linear worst-case alphabet.
 
-For renewal agreements, the value of a limited alphabet admits an ordered allocation formula under heterogeneous probabilities and costs. Along every strictly ordered mean-preserving radial spread of continuation caps, insufficient deterministic memory has strictly increasing loss, while the exact alphabet requirement can jump at arbitrarily small spread. This is a radial comparative static, not a general convex-order claim.
+Restricted memory creates a distinct design question. The deterministic renewal frontier has an ordered partition solution. Under conditional-expectation participation, randomized symbols instead use concave-envelope lotteries. The explicit three-branch solution shows that randomization can substantially reduce loss below the exact alphabet threshold without changing that threshold. Expected and pathwise participation remain different institutions. The radial-spread comparative static retains its stated ordered-family scope.
 
-These conclusions rely on a scalar additive commitment, separable strictly concave quadratic rewards, interval controls, exogenous acyclic public transitions, and public-state-sufficient caps. They do not assign the same finite-price guarantee to switching, coupled commitments, or continuous outer shared-table design. Those models and the previously established adaptation, sensitivity, and deployment results retain their assumptions and proofs in the preserved theory volumes. The computational evidence establishes exact agreement and representation behavior for the implemented methods; it does not establish universal algorithmic dominance or empirical service calibration.
+The new exact implementation checks changing curvature, marginal jumps, shared evaluation, inversion, and conjugate certificates. Whole-path agreement with an independently coded KKT enumerator supports the parametric object rather than only selected promises. These checks and the retained computational studies do not establish superiority over unimplemented specialized methods or empirical service calibration. Switching, coupled commitments, and broader deployment questions retain their separate formulations and historical evidence.
 
 \paragraph{Code, data, and reproducibility.}
-The R32 review package adds a referee-facing priority/tightness map, a three-layer representation-accounting proposition, a companion concordance, and an updated point-by-point response. The R31 theorem modules, the R30 implementation and exact audit corpus, and all earlier retained derivations remain preserved unchanged. No adverse or negative result is removed.
-
+The R33 source package includes the additional theorem modules, an exact rational compiler and independent verification script, machine-readable results, a point-by-point response, and a commit-pinned derivation record. All R31 and R32 theorem sources, earlier evidence, and the broader retained theory volumes are preserved. The electronic companion retains the earlier accounting concordance and identifies new and inherited evidence separately. The repository build records the exact scientific source commit and reader-PDF hashes.
 \input{revisions/or-r31-tightness-minimal-machine-20260923/references.tex}
 \clearpage
 \input{revisions/or-r31-tightness-minimal-machine-20260923/tables.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/evidence_table.tex}
 \end{document}

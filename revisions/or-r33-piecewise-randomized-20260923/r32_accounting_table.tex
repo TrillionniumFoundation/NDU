@@ -1,0 +1,18 @@
+\begin{table}[p]
+\caption{Priority, scope, and tightness map for the residual contribution.}\label{tab:closure-map}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.18\textwidth}p{0.25\textwidth}p{0.35\textwidth}p{0.14\textwidth}}
+\toprule
+Object & Inherited principle & Statement used in this paper & Status \\
+\midrule
+Unfolded optimum & Laminar separable resource allocation; scalar marginal allocation & Proposition~\ref{prop:laminar} is an exact reduction and is treated as predecessor structure & Classical \\
+Complete parametric response & Piecewise-affine parametric paths and output-sensitive parametric optimization & Theorem~\ref{thm:quotient}: public-DAG occurrence quotient, at most $3N$ global knots, $O(N^2+M)$ response storage & Upper bound \\
+Response size & Standard worst-case/output-size analysis & Theorem~\ref{thm:tight-response}: $\Omega(N)$ distinct knots and $\Omega(N^2)$ stored affine segments on polynomial-size rational inputs & Tight in order \\
+Exact preprocessing & Rational arithmetic for structured convex programs & Theorem~\ref{thm:bit}: coefficient-event sorting, comparison, crossing, and inversion have polynomial binary complexity & Compiler-specific \\
+Execution reduction & Deterministic output-machine minimization; state aggregation & Theorem~\ref{thm:minimal}: the contract generates a finite reached price transducer with contiguous price classes & Classical minimization plus contract structure \\
+Writable history & Finite-state implementation accounting & $K_*=\max_v c_v$ under the declared free-public-state interface; Corollary~\ref{cor:memory-tight} gives $K_*=\Theta(N)$ in the worst case & Tight in order \\
+Contractual value & Ordered segmentation / finite-memory allocation & Theorem~\ref{thm:frontier} gives the exact deterministic memory-value frontier; Proposition~\ref{prop:dispersion} gives a strict ordered radial-spread comparative static & Exact for stated family \\
+Policy graph & Finite policy-graph representations in dynamic contracts & The reached graph is an exact fixed-query policy graph for the public-information scalar subclass; policy graphs themselves are not claimed as new & Scope boundary \\
+\bottomrule
+\end{tabular}
+\end{table}

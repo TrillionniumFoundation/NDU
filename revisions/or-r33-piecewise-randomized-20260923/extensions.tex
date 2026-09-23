@@ -1,0 +1,82 @@
+\section{Piecewise-Quadratic Rewards and Shared Response Representations}\label{sec:r33-extension}
+The quadratic model identifies the basic mechanism, but a single curvature need not describe all service tiers. A change in staffing intensity can change marginal cost, and crossing a service threshold can produce a downward jump in marginal reward. Both features preserve exact closure. The relevant primitive is a finite, continuous, nonincreasing local price response, not a globally constant curvature.
+
+\subsection{Exact closure with changing curvature and marginal jumps}
+Replace the local reward in Section~\ref{sec:model} by a continuous, strictly concave piecewise-quadratic function. More generally, vertex $v$ may have $d_v$ separable coordinates on a product interval, all contributing to the same scalar payment with coefficients $a_{vi}>0$. For a nonfixed coordinate, let
+\[
+ l_{vi}=t_{vi,0}<t_{vi,1}<\cdots<t_{vi,m_{vi}}=h_{vi},\qquad
+ g_{vi}(x)=c_{vij}+r_{vij}x-\tfrac12q_{vij}x^2
+ \quad(t_{vi,j-1}\leq x\leq t_{vi,j}),
+\]
+where $q_{vij}>0$. Adjacent formulas agree in value; the left derivative at a join is at least the right derivative. All breakpoints and coefficients are rational. A fixed coordinate contributes a constant and is recorded separately. Set $D=\sum_vd_v$, $J=\sum_{vi}m_{vi}$ over nonfixed coordinates, and $Q=2J+N$. The transition, scalar commitment, and public cap assumptions remain those of Section~\ref{sec:model}.
+
+\begin{theorem}[Piecewise-quadratic quotient with a primitive event budget]\label{thm:r33-pq}
+Write $\phi_{vi}(\eta)=\argmax_{[l_{vi},h_{vi}]}\{g_{vi}(x)-a_{vi}\eta x\}$. The occurrence quotient, payment recursion, and cap reflection remain exact, with
+\begin{equation}\label{eq:r33-pq-recursion}
+ d_v(\eta)=\sum_i a_{vi}\phi_{vi}(\eta)+\beta\sum_wp_{vw}R_w(\eta),
+ \qquad R_v(\eta)=\min\{B_v,d_v(\eta)\}.
+\end{equation}
+Every response is continuous and piecewise affine. At most $Q$ globally distinct response knots occur. Explicit response tables use
+\[
+ O(NQ+J+D+M)
+\]
+rational scalars and can be constructed using
+\begin{equation}\label{eq:r33-operations}
+ A_{\rm pq}=O\bigl((N+M)Q\log(Q+1)+(J+D)\log(J+D+2)\bigr)
+\end{equation}
+exact arithmetic operations and comparisons. If all joins are differentiable, $2J$ in the knot budget can be replaced by $\sum_{vi}(m_{vi}+1)$ over nonfixed coordinates.
+
+For total binary input length $L$, a coefficient-event implementation with reduction after each rational update has response-coefficient and event height
+\[
+ S_{\rm pq}=O\bigl((N+1)L+\log(N+M+J+D+2)\bigr)
+\]
+and bit-operation bound $O(A_{\rm pq}S_{\rm pq}^3)$. This bound includes sorting and comparison. For a fixed root promise, at most $N+1$ incoming-price labels are reached, independently of the number of local pieces. The behavioral minimization and price-order contiguity conclusions of Theorem~\ref{thm:minimal} also remain valid.
+\end{theorem}
+\begin{proof}
+On the interior of local piece $j$, the response is $(r_{vij}-a_{vi}\eta)/q_{vij}$. At a join $t$, the action equals $t$ for every price between $g'_{vi,+}(t)/a_{vi}$ and $g'_{vi,-}(t)/a_{vi}$. These intervals have the correct orientation by concavity. The two domain endpoints give constant tails. Thus a coordinate with $m$ pieces contributes at most two endpoint events and two events per internal join, or $2m$ in total. At a differentiable join the two events coincide. Strict concavity gives uniqueness, including at a nondifferentiable join; the local response is continuous and nonincreasing.
+
+The suffix-path bijection in Theorem~\ref{thm:quotient} does not depend on the reward being a single quadratic. Removing the current cap separates coordinates and successors, giving \eqref{eq:r33-pq-recursion}. The cap-reflection inequality in that theorem uses only optimality of the pre-cap continuation and linearity of its payment; it therefore applies without change. A weighted sum creates no knot outside the union of its inputs. A cap creates at most one new crossing. Induction over public vertices yields the global event budget. Merging weighted coefficient changes gives \eqref{eq:r33-operations}. Fixed coordinates contribute constants, not knots.
+
+On an open interval between events, local payment sources now have the forms $a_{vi}t_{vi,j}$, $a_{vi}r_{vij}/q_{vij}$, and $-a_{vi}^2/q_{vij}$, together with cap constants. Expanding response coefficients along acyclic paths produces exactly the same path-product denominator structure as in Theorem~\ref{thm:bit}. The product of primitive numerators and denominators has logarithm $O(L)$; raising it to $N+O(1)$ bounds the denominator of every path term. Summed absolute path weights times the local sources are bounded by a polynomial in $N+D$ times $2^{O(L)}$. Reduced partial sums therefore have height $S_{\rm pq}$. Each crossing is a ratio of a constant number of bounded-height coefficients. Exact gcd reduction and cross-product comparison give the stated conservative Turing bound. These conceptual common denominators are not materialized by the implementation.
+
+Only cap barriers change the carried price. Local marginal joins determine an action at that price but do not create a new writable price. Hence the running price is still the maximum of the root price and visited barriers. Along each suffix, every action coordinate is nonincreasing in the initial price; the endpoint-equality argument for contiguous behavioral classes remains applicable. Strict concavity preserves uniqueness and the exact-optimum randomized lower bound.
+\end{proof}
+
+The extension includes genuine marginal discontinuities, not only a finer partition of an unchanged quadratic. It does not include affine pieces with zero curvature, coupled promises, or switching costs. Those changes can require different uniqueness or state arguments. The results above extend the exact theorem's domain without using those more general models to support an unproved closure claim.
+
+\subsection{A certificate that does not differentiate at a kink}
+Define the bounded local conjugate
+\[
+ k_v(s)=\sum_i\max_{x\in[l_{vi},h_{vi}]}\{g_{vi}(x)-a_{vi}sx\}.
+\]
+At each reached state $(v,\eta)$, let $s$ be its reflected price, $\chi=s-\eta$, and $w_{v,\eta}$ its discounted occupation weight. Then
+\begin{equation}\label{eq:r33-conjugate-certificate}
+ J(b_0)\leq \eta_0b_0+
+ \sum_{(v,\eta)}w_{v,\eta}\{\chi B_v+k_v(s)\}.
+\end{equation}
+The compiled policy attains equality. Indeed, each local action attains its bounded conjugate, $\chi(B_v-Y_v)=0$, and successor-price terms telescope under the occupation-flow equations. This is the same dual argument as Section~\ref{sec:certificate}, expressed without a derivative at a join or an artificial choice between adjacent quadratic formulas. All terms are rational at a rational compiled query. Aggregate certificate numerators may be larger than individual response coefficients; the coefficient-height bound is not an assertion that every printed certificate total has that same height.
+
+\subsection{Explicit tables versus a shared arithmetic circuit}
+The lower bound in Theorem~\ref{thm:tight-response} counts pieces in separately materialized vertex-response tables. It is not an information-theoretic lower bound for every exact representation of the family. That distinction leads to a complementary implementation result rather than a weaker size theorem.
+
+\begin{proposition}[Exact shared-circuit storage--query tradeoff]\label{prop:r33-circuit}
+After compilation, retain the local response curves, graph, cap barriers, and sorted global event set, but discard the per-vertex payment-response tables. The resulting shared circuit represents every $R_v$ exactly using $O(J+D+N+M)$ rational scalars. For a common price, all vertex payments can be evaluated in
+\[
+ T_{\rm eval}=O\left(N+M+D+\sum_{vi}\log(m_{vi}+1)\right)
+\]
+arithmetic operations and comparisons, with the logarithmic sum over nonfixed coordinates. A new feasible root promise can be inverted using $O(T_{\rm eval}\log(Q+1))$ such operations. The result is a post-compilation storage bound; it does not assert that the preprocessing peak space is linear. A separately materialized class-transition table remains charged as in Theorem~\ref{thm:minimal}.
+\end{proposition}
+\begin{proof}
+Store one addition-and-cap node per public vertex and one weighted link per edge. Local piecewise-affine evaluators have total size $O(J+D)$. At a supplied price, evaluate the circuit in reverse topological order using \eqref{eq:r33-pq-recursion}; shared successors are evaluated once. This gives the storage and evaluation counts. Binary search the globally sorted event locations using the circuit's root payment. Between consecutive events the root response is affine, so evaluations at the two endpoints recover the exact inverse by linear interpolation in the payment--price plane. Constant intervals and tails return any finite supporting price, including a finite event endpoint. A constant root response needs no search. Cap barriers and the global event list have size $O(Q)$.
+\end{proof}
+
+For the chain in Theorem~\ref{thm:tight-response}, explicit tables have exactly $n^2+2n$ segments, whereas the shared circuit has $n$ graph nodes and $3n$ local response segments. Both statements hold simultaneously. Materialization purchases faster repeated inversion; sharing saves read-only representation space. Neither representation changes the extra writable alphabet of an already compiled exact policy. Thus read-only storage, combined execution states, and additional writable symbols are distinct design quantities even within the same problem instance.
+
+\subsection{An explicit bridge to parametric flow}
+The relation to parametric optimization can be stated constructively. In the occurrence tree of Proposition~\ref{prop:laminar}, introduce one vertex per occurrence and a sink. Send a feasible root supply $b\leq B_0$ through the tree. An arc from an occurrence's parent to that occurrence carries its total descendant allocation and has capacity $w_hB_{v(h)}$. An allocation arc from $h$ to the sink carries $z_h$, has the transformed local bounds, and has cost
+\[
+ -w_h g_{v(h)}\bigl(z_h/(w_ha_{v(h)})\bigr).
+\]
+Tree arcs have zero cost. Flow conservation makes their flows exactly the descendant sums. For multiple local coordinates, use parallel allocation arcs with their corresponding costs and coefficients. Hence this is a value-preserving convex-cost flow representation, including piecewise-quadratic rewards. Lower bounds can be shifted into node balances.
+
+This reduction makes the comparison with \citet{KlimmWarode2021} precise: root supply is a primal demand parameter, whereas $R_0$ uses its dual price parameter; inversion connects the two. Applicability of a particular implementation must account for capacities, lower flows, and zero-cost structural arcs. The occurrence network can still be exponentially larger than the supplied public graph. The asserted contribution is therefore the primitive event budget and exact representation tradeoff on the quotient, not that piecewise-quadratic flow paths are new. The additional exact active-set reference described below computes complete parametric paths on small unfolded problems. It is not presented as an implementation or timing benchmark of the published parametric-flow algorithm.

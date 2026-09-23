@@ -1,0 +1,21 @@
+\subsection{Referee-facing priority and complexity closure}\label{sec:closure-map}
+The residual contribution can be audited without assigning novelty to the classical reductions on which it builds. Table~\ref{tab:closure-map} separates the inherited principle from the model-specific statement and records whether the relevant size bound is matched by a worst-case construction.
+
+
+
+The table is deliberately asymmetric. Generic parametricity, normalized memoization, deterministic machine minimization, and finite policy graphs are predecessor principles. The paper's theorem burden is instead on the compact-input quotient, sharp response size, exact binary implementation, and the contractual interpretation of the minimized reached machine.
+
+\begin{proposition}[Three-layer representation accounting]\label{prop:three-layer-accounting}
+Under the assumptions of Sections~\ref{sec:model}--\ref{sec:memory}, the exact representation separates into the following resources.
+\begin{enumerate}
+\item \emph{Compilation.} The complete read-only response has $O(N)$ distinct global knots, $O(N^2+M)$ stored rational scalars, and polynomial coefficient height and preprocessing bit complexity. The knot and scalar-storage orders are worst-case tight when $M=O(N)$.
+\item \emph{Fixed-query execution.} A root promise reaches at most $N+1$ raw incoming-price labels. After classical behavioral minimization, the combined reached state count is $C_*=\sum_v c_v$, while the minimum additional writable alphabet under the declared public-observation interface is $K_*=\max_v c_v=O(N)$. The $O(N)$ writable-alphabet order is worst-case tight.
+\item \emph{Query reuse.} Once the complete response is compiled, a new feasible root promise is inverted with $O(\log(N+1))$ exact comparisons plus a constant number of rational arithmetic operations; constructing and auditing the reached execution machine for that query remains separately charged.
+\end{enumerate}
+These quantities are not interchangeable: $K_*$ is not total controller-state complexity, $C_*$ is not read-only compiler storage, and the root-inversion bound does not include policy emission or certification.
+\end{proposition}
+\begin{proof}
+Part 1 combines Theorems~\ref{thm:quotient}, \ref{thm:tight-response}, and \ref{thm:bit}. Part 2 combines the fixed-query label bound in Theorem~\ref{thm:quotient}, Theorem~\ref{thm:minimal}, and Corollary~\ref{cor:memory-tight}. Part 3 is Corollary~\ref{cor:root-query}. The final distinctions follow from the observation architecture in Section~\ref{sec:memory}.
+\end{proof}
+
+This accounting also fixes the interpretation of the service result. A public vertex is an observed operating condition; the writable symbol records only history that is not already present in that public condition. If a different implementation makes additional inherited variables freely observable, the behavioral quotient must be recomputed under that interface. Conversely, charging the public state itself to the controller enlarges total state storage but does not alter the conditional lower bound on the extra writable alphabet established here.

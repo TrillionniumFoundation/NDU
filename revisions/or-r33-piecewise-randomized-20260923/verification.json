@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; no numerical tolerances",
+  "random_seed": 20260923,
+  "piecewise_dag_instances": 24,
+  "local_optimality_checks": 4170,
+  "whole_graph_circuit_checks": 834,
+  "primal_dual_certificates": 836,
+  "circuit_inversions": 834,
+  "parametric_active_set_reference": [
+    {
+      "instance": 0,
+      "active_sets_attempted": 130,
+      "valid_kkt_regions": 5,
+      "open_cells_compared": 5,
+      "full_path_equal": true
+    },
+    {
+      "instance": 1,
+      "active_sets_attempted": 130,
+      "valid_kkt_regions": 3,
+      "open_cells_compared": 3,
+      "full_path_equal": true
+    },
+    {
+      "instance": 2,
+      "active_sets_attempted": 130,
+      "valid_kkt_regions": 4,
+      "open_cells_compared": 4,
+      "full_path_equal": true
+    },
+    {
+      "instance": 3,
+      "active_sets_attempted": 130,
+      "valid_kkt_regions": 5,
+      "open_cells_compared": 5,
+      "full_path_equal": true
+    }
+  ],
+  "chain_sizes": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "deterministic_two_symbol_loss": "1/8",
+  "randomized_two_symbol_loss": "1/96",
+  "runtime_seconds": 1.2822099799999904,
+  "limitations": [
+    "Synthetic exact verification, not service data.",
+    "Active-set reference is exponential, not published solver software.",
+    "Timing is descriptive and environment-dependent."
+  ]
+}
