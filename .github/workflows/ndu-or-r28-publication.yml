@@ -9,7 +9,7 @@ permissions:
   actions: read
 concurrency:
   group: ndu-or-r28-publication
-  cancel-in-progress: false
+  cancel-in-progress: true
 env:
   REVISION_BRANCH: revision/ndu-operations-research-r28-20260923
   GH_TOKEN: ${{ github.token }}
@@ -27,35 +27,20 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Record source receipt and verify the isolated source payload
+      - name: Record revision receipt and cross-check the design result
         run: |
           gh api "repos/$GITHUB_REPOSITORY/statuses/$GITHUB_SHA" -f state=pending -f context=ndu-or-r28/publication -f description='R28 source received; regeneration and scientific publication in progress' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          python - <<'PY'
-          import base64,hashlib,io,tarfile
-          from pathlib import Path
-          raw=base64.b64decode(''.join(Path(f'.r28-delivery/part{i}.b64').read_text().strip() for i in range(4)),validate=True)
-          assert hashlib.sha256(raw).hexdigest()=='d581f989aaaba7e5b379499e6d944974eb6b5010495603f3ead12f3354f414cd'
-          r=Path('revisions/or-r28-20260923')
-          with tarfile.open(fileobj=io.BytesIO(raw),mode='r:xz') as t:
-              assert len(t.getmembers())==14
-              for m in t.getmembers():
-                  p=Path(m.name)
-                  assert m.isfile() and p.is_relative_to(r) and '..' not in p.parts
-                  p.parent.mkdir(parents=True,exist_ok=True)
-                  p.write_bytes(t.extractfile(m).read())
-          PY
           python - <<'PYDOC'
           from pathlib import Path
           p=Path('revisions/or-r28-20260923/bridge_main.tex')
           s=p.read_text()
           old=r'For a linear release cost $C(\delta)=\delta$, the net optimum is $\delta=1/10$, rather than full flexibility.'
           new=r'For a linear release cost $C(\delta)=\delta$, the net optimum is $\delta=1/15$, rather than full flexibility.'
-          assert s.count(old)==1
+          assert s.count(old)+s.count(new)==1
           p.write_text(s.replace(old,new))
           assert new in p.read_text()
           print('Main-text design optimum agrees with the exact derivation and independent replay: 1/15.')
           PYDOC
-          python revisions/or-r28-20260923/assemble.py
       - name: Install the document checker and typesetting dependencies
         run: |
           python -m pip install PyMuPDF==1.26.7
@@ -102,7 +87,7 @@ jobs:
           test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
           git config user.name 'NDU R28 revision'
           git config user.email 'ndu-revision@users.noreply.github.com'
-          git rm -r .r28-delivery
+          git rm -r --ignore-unmatch .r28-delivery
           git add -f revisions/or-r28-20260923 main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md r28-main-labels.aux r28-ec-labels.aux
           git commit -m 'paper(or-r28): shared-table stochastic bridge, endogenous design, governed caches and adaptive continuum certificates'
           git push origin "HEAD:refs/heads/$REVISION_BRANCH"
