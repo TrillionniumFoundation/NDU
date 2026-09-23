@@ -17,11 +17,12 @@ permissions:
 
 concurrency:
   group: ndu-or-r31-publication
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   REVISION_BRANCH: revision/ndu-operations-research-r31-tightness-minimal-machine-20260923
   R: revisions/or-r31-tightness-minimal-machine-20260923
+  B: .build/ndu-r31
 
 jobs:
   build-and-publish:
@@ -57,22 +58,27 @@ jobs:
           ! grep -F 'revisions/or-r30-quotient-memory-20260923/' main.tex
           ! grep -F 'revisions/or-r30-quotient-memory-20260923/' electronic_companion.tex
 
-      - name: Compile main manuscript and electronic companion
+      - name: Compile with filtered cross-document labels
         run: |
-          rm -f main.aux main.log electronic_companion.aux electronic_companion.log
-          pdflatex -interaction=nonstopmode -halt-on-error main.tex
-          pdflatex -interaction=nonstopmode -halt-on-error electronic_companion.tex
-          pdflatex -interaction=nonstopmode -halt-on-error main.tex
-          pdflatex -interaction=nonstopmode -halt-on-error electronic_companion.tex
-          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          mkdir -p "$B"
+          : > r31-main-labels.aux
+          : > r31-ec-labels.aux
+          for pass in 1 2 3 4; do
+            pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory="$B" main.tex > "$B/main-pass-$pass.stdout"
+            grep '^\\newlabel' "$B/main.aux" > r31-main-labels.aux || true
+            pdflatex -interaction=nonstopmode -halt-on-error -file-line-error -output-directory="$B" electronic_companion.tex > "$B/ec-pass-$pass.stdout"
+            grep '^\\newlabel' "$B/electronic_companion.aux" > r31-ec-labels.aux || true
+          done
+          cp "$B/main.pdf" main.pdf
+          cp "$B/electronic_companion.pdf" electronic_companion.pdf
 
-      - name: Enforce clean references and layout diagnostics
+      - name: Enforce clean references, citations, and layout
         run: |
-          if grep -E 'LaTeX Warning: (Reference|Citation).*undefined|There were undefined (references|citations)' main.log electronic_companion.log; then
-            echo 'Undefined references or citations detected.' >&2
+          if grep -E 'undefined references|undefined citations|Citation .* undefined|Reference .* undefined|multiply defined|^!' "$B/main.log" "$B/electronic_companion.log"; then
+            echo 'Cross-reference, citation, or LaTeX warning remains.' >&2
             exit 1
           fi
-          if grep -F 'Overfull \hbox' main.log electronic_companion.log || grep -F 'Overfull \vbox' main.log electronic_companion.log; then
+          if grep -F 'Overfull \hbox' "$B/main.log" "$B/electronic_companion.log" || grep -F 'Overfull \vbox' "$B/main.log" "$B/electronic_companion.log"; then
             echo 'Overfull boxes detected.' >&2
             exit 1
           fi
@@ -115,6 +121,7 @@ jobs:
           - Main PDF pages: $main_pages
           - Electronic companion pages: $ec_pages
           - Undefined references/citations: 0 detected
+          - Multiply-defined citations: 0 detected
           - Overfull boxes: 0 detected
           - Main PDF SHA-256: `$main_sha`
           - Electronic companion SHA-256: `$ec_sha`
@@ -128,7 +135,7 @@ jobs:
           test "$(git branch --show-current)" = "$REVISION_BRANCH"
           git config user.name 'NDU R31 revision'
           git config user.email 'ndu-revision@users.noreply.github.com'
-          git add -f main.pdf electronic_companion.pdf "$R/BUILD_VALIDATION.md" "$R/tightness_check.json"
+          git add -f main.pdf electronic_companion.pdf r31-main-labels.aux r31-ec-labels.aux "$R/BUILD_VALIDATION.md" "$R/tightness_check.json"
           if git diff --cached --quiet; then
             echo 'No generated changes to publish.'
             exit 0
@@ -143,6 +150,8 @@ jobs:
           path: |
             main.pdf
             electronic_companion.pdf
+            r31-main-labels.aux
+            r31-ec-labels.aux
             revisions/or-r31-tightness-minimal-machine-20260923/BUILD_VALIDATION.md
             revisions/or-r31-tightness-minimal-machine-20260923/tightness_check.json
           retention-days: 30
