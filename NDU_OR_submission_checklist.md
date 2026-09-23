@@ -1,15 +1,28 @@
-# Operations Research submission preparation — R30 remote revision
+# Operations Research submission preparation — R31
 
-## Completed on this branch
-- R30 main manuscript and electronic companion sources are present and their compiled PDFs are byte-identical to the locally validated revision.
-- Point-by-point referee response is present in Markdown, LaTeX, and compiled PDF.
-- Core theorem modules, baseline implementations, exact-audit code, build scripts, validation report, literature audit, and aggregate computational outputs are present.
-- Latest R29 price-state referee report is preserved in the branch parent commit.
-- Prior R29 manuscript entry points are preserved under `revisions/or-r30-quotient-memory-20260923/predecessor/`.
-- `main` and unrelated manuscript branches are untouched.
+## Scientific closure on this branch
 
-## Evidence boundary
-The local full revision includes roughly 180 MB of generated per-instance certificate traces. The remote connector publication does not duplicate those large raw traces. It includes the exact generators, auditors, aggregate result files, and compact result archive; the omission is recorded in `REMOTE_PUBLICATION.md`.
+- Latest effective independent R30 referee report identified and preserved in branch ancestry.
+- Parametric optimization, polymatroid sensitivity, machine/model minimization, OR state aggregation, and dynamic-contract policy-graph comparisons added.
+- Matching-order lower-bound theorem added for the global response-knot universe and complete response storage.
+- Linear worst-case additional writable-memory lower bound elevated into the main theorem package.
+- “Minimal memory” replaced by explicit architecture-conditional quantities: writable alphabet, combined reached states, and read-only representation.
+- Randomization feasibility convention and its pathwise alternative stated explicitly.
+- Outside-option comparative static calibrated to ordered mean-preserving radial spreads rather than arbitrary dispersion orders.
+- Computational section reframed around exact path representation, public-graph comparison, response density, and repeated root queries.
+- Historical R30/R29 and broader retained theory/evidence are preserved without deletion.
+
+## Remote validation
+
+The R31 workflow performs:
+- independent exact tightness-family checks;
+- fresh LaTeX builds of the main manuscript and electronic companion;
+- repeated cross-document passes;
+- undefined-reference and undefined-citation scans;
+- overfull-box scans;
+- PDF existence/page-count checks;
+- publication of rebuilt reader PDFs and a build record back to this isolated revision branch.
 
 ## Not inferred
-Author identities/affiliations, ORCIDs, coauthor approval, funding/conflicts, permissions, and journal-submission declarations are not fabricated or marked complete. No remote CI run is claimed unless separately visible in GitHub Actions.
+
+Author identities/affiliations, ORCIDs, coauthor approval, funding/conflicts, permissions, and journal-submission declarations are not fabricated or marked complete.
