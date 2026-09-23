@@ -45,6 +45,12 @@ jobs:
                   assert m.isfile() and p.is_relative_to(r) and '..' not in p.parts
                   p.parent.mkdir(parents=True,exist_ok=True)
                   p.write_bytes(t.extractfile(m).read())
+          # Keep prose upper bounds outward-rounded, as in the rational table.
+          for name in ("manuscript.patch","RESPONSE_TO_REFEREES.md"):
+              p=r/name
+              text=p.read_text()
+              assert "0.193575" in text
+              p.write_text(text.replace("0.193575","0.193576"))
           PY
           test "$(git hash-object reviews/operation_research_referee_report_r24_independent_2026-09-23.md)" = 4f45f76715936234d9f5738f798dd9e4f3b2dc4a
           python revisions/or-r26-20260923/materialize_revision.py
@@ -60,7 +66,7 @@ jobs:
           python - <<'PY'
           import json,os,platform,sys,numpy,scipy,fitz
           from pathlib import Path
-          Path('revisions/or-r26-20260923/results/EXECUTION_PROVENANCE.json').write_text(json.dumps({'source_commit':os.environ['GITHUB_SHA'],'source_base_sha':'7f3f12c9d412b45a570725dc9b61203d64da5e41','run_id':os.environ['GITHUB_RUN_ID'],'run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],'python':sys.version,'platform':platform.platform(),'numpy':numpy.__version__,'scipy':scipy.__version__,'pymupdf':fitz.VersionBind,'threads':1,'source_overlay_sha256':'a9c72d06754b7271eb34a6e0aa361722846b901fc1122dd0679cc7c948dad4ba','new_evidence':'six continuous-tier Markov envelope designs and exact omitted-state examples','inherited_evidence':'R25/R24 unchanged; replayed, not regenerated or attributed to R26'},indent=2)+'\n')
+          Path('revisions/or-r26-20260923/results/EXECUTION_PROVENANCE.json').write_text(json.dumps({'source_commit':os.environ['GITHUB_SHA'],'source_base_sha':'7f3f12c9d412b45a570725dc9b61203d64da5e41','run_id':os.environ['GITHUB_RUN_ID'],'run_attempt':os.environ['GITHUB_RUN_ATTEMPT'],'python':sys.version,'platform':platform.platform(),'numpy':numpy.__version__,'scipy':scipy.__version__,'pymupdf':fitz.VersionBind,'threads':1,'source_overlay_sha256':'a9c72d06754b7271eb34a6e0aa361722846b901fc1122dd0679cc7c948dad4ba','prose_precision_correction':'T16 upper bound rounded outward to 0.193576, matching the rationally generated table','new_evidence':'six continuous-tier Markov envelope designs and exact omitted-state examples','inherited_evidence':'R25/R24 unchanged; replayed, not regenerated or attributed to R26'},indent=2)+'\n')
           PY
       - name: Replay inherited scientific evidence without changing it
         run: |
