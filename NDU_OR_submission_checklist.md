@@ -1,18 +1,15 @@
-# Operations Research R29 — author/referee package checklist
+# Operations Research submission preparation — R30 remote revision
 
-- [x] Latest R29 report read in full at `1647d416e7a2806d36b1c9972aff0c0b54779912`, preserved verbatim, and answered in all 18 sections.
-- [x] Preceding R28 report read at `af01e2c33f85835e550896985b7cb83b3f4b784f`; report and scientific baseline preserved unchanged.
-- [x] New isolated branch `revision/ndu-operations-research-r29-price-state-20260923`.
-- [x] New constructive finite-price theorem, proof, explicit arithmetic/storage bound and assumptions.
-- [x] Necessary memory and exact primitive-driven memory/value frontier.
-- [x] Optimized shared-table comparator distinguished from fixed-table positive-release oracle.
-- [x] Modern decomposition and nested resource-allocation comparisons, primary-source metadata.
-- [x] All historical derivations retained; six overwritten reader files preserved byte for byte.
-- [x] Adverse cache/learning evidence retained and foregrounded.
-- [x] Independent exact certificate checks, independent small-tree matrices and numerical solve, exact table KKT and memory enumeration.
-- [x] Anonymous 11-point, 1.5-spaced, one-inch-margin manuscript; author–year references; no footnotes; abstract at most 200 words.
-- [x] **Lengthy Manuscript** category selected for preservation; published guidance usually permits at most 40 nonreference pages. Current actual counts and companion limit are checked in the build report.
-- [ ] No journal-system submission performed; author declarations, conflicts, cover letter and editorial category approval remain author responsibilities.
-- [ ] Independent referees have not yet adjudicated the new theorem's correctness, priority or significance. Passing software/package checks does not imply editorial acceptance.
+## Completed on this branch
+- R30 main manuscript and electronic companion sources are present and their compiled PDFs are byte-identical to the locally validated revision.
+- Point-by-point referee response is present in Markdown, LaTeX, and compiled PDF.
+- Core theorem modules, baseline implementations, exact-audit code, build scripts, validation report, literature audit, and aggregate computational outputs are present.
+- Latest R29 price-state referee report is preserved in the branch parent commit.
+- Prior R29 manuscript entry points are preserved under `revisions/or-r30-quotient-memory-20260923/predecessor/`.
+- `main` and unrelated manuscript branches are untouched.
 
-See `revisions/or-r29-price-state-20260923/BUILD_REPORT.md`, `MANIFEST.json`, the point-by-point response, and the final scientific commit's separate fresh-checkout status for delivery evidence.
+## Evidence boundary
+The local full revision includes roughly 180 MB of generated per-instance certificate traces. The remote connector publication does not duplicate those large raw traces. It includes the exact generators, auditors, aggregate result files, and compact result archive; the omission is recorded in `REMOTE_PUBLICATION.md`.
+
+## Not inferred
+Author identities/affiliations, ORCIDs, coauthor approval, funding/conflicts, permissions, and journal-submission declarations are not fabricated or marked complete. No remote CI run is claimed unless separately visible in GitHub Actions.
