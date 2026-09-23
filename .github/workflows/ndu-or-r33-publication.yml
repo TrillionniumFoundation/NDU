@@ -1,0 +1,109 @@
+name: NDU R33 scientific revision and reader build
+on:
+  push:
+    branches: [revision/ndu-operations-research-r33-piecewise-randomized-20260923]
+    paths: ['.r33-transport/**', '.github/workflows/ndu-or-r33-publication.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r33-publication
+  cancel-in-progress: false
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r33-piecewise-randomized-20260923
+  R: revisions/or-r33-piecewise-randomized-20260923
+jobs:
+  revise-build-publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r33-piecewise-randomized-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify and materialize the exact revision payload
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64,gzip,hashlib,json,re,subprocess
+          root=Path.cwd();R=root/'revisions/or-r33-piecewise-randomized-20260923'
+          parts=sorted((root/'.r33-transport').glob('part-*.b64'))
+          assert len(parts)==5
+          encoded=''.join(p.read_text().strip() for p in parts)
+          encoded=encoded.replace('HEAD0HtoGGQrlCgj1BC','HEAD0HtoGQrlCgj1BC')
+          data=base64.b64decode(encoded,validate=True)
+          assert hashlib.sha256(data).hexdigest()=='fdca3ab1af2a862fd6b18c4c7d412f6d48d8c36b211fd235c5c887472868636d'
+          obj=json.loads(gzip.decompress(data));base=obj['base_commit']
+          assert base=='238bfdb24d93439a545551d275a0c9189dbc017b'
+          for name,text in obj['files'].items():
+              p=Path(name)
+              assert not p.is_absolute() and '..' not in p.parts
+              assert name in {'main.tex','electronic_companion.tex','README.md'} or name.startswith(str(R.relative_to(root))+'/')
+              assert hashlib.sha256(text.encode()).hexdigest()==obj['sha256'][name]
+              (root/p).parent.mkdir(parents=True,exist_ok=True)
+              (root/p).write_text(text)
+          old=R/'predecessor';old.mkdir(exist_ok=True)
+          for name in ['main.tex','electronic_companion.tex','README.md']:
+              (old/name).write_bytes(subprocess.check_output(['git','show',base+':'+name]))
+          s=(root/'revisions/or-r32-priority-complexity-closure-20260923/referee_closure.tex').read_text()
+          match=re.search(r'\\begin\{table\}.*?\\end\{table\}',s,re.S);assert match
+          (R/'r32_accounting_text.tex').write_text(s[:match.start()]+s[match.end():])
+          table=match.group().replace(r'\begin{table}[t]',r'\begin{table}[p]').replace(r'\small',r'\small\setlength{\tabcolsep}{3pt}')
+          (R/'r32_accounting_table.tex').write_text(table+'\n')
+          b=(root/'revisions/or-r31-tightness-minimal-machine-20260923/references.tex').read_text()
+          kw=re.search(r'^\\bibitem[^\n]*\{KlimmWarode2021\}\n.*?(?=^\\bibitem|^\\end)',b,re.M|re.S);assert kw
+          ec=(root/'revisions/or-r31-tightness-minimal-machine-20260923/companion_references.tex').read_text()
+          ec=ec.replace(r'\bibitem[Pereira',kw.group()+r'\bibitem[Pereira',1)
+          (R/'companion_references.tex').write_text(ec)
+          (R/'PAYLOAD_MANIFEST.json').write_text(json.dumps({'base_commit':base,'payload_sha256':hashlib.sha256(data).hexdigest(),'file_sha256':obj['sha256']},indent=2)+'\n')
+          PY
+      - name: Execute new rational verification and retained tightness check
+        run: |
+          python "$R/verify.py"
+          python revisions/or-r31-tightness-minimal-machine-20260923/tightness_check.py
+      - name: Commit and push the actual scientific revision
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git config user.name 'NDU revision build'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md "$R"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r33): piecewise quotient, shared circuit, and exact randomized memory frontier'
+            git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          fi
+      - name: Install reader-build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile both reader documents and validate
+        run: |
+          python "$R/build_validate.py"
+      - name: Publish validated reader PDFs on the isolated branch
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git add -f main.pdf electronic_companion.pdf r33-main-labels.aux r33-ec-labels.aux "$R/BUILD_VALIDATION.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r33): publish compiled reader PDFs and exact source validation'
+            git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r33-reader-build
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            r33-main-labels.aux
+            r33-ec-labels.aux
+            revisions/or-r33-piecewise-randomized-20260923/
+            revisions/or-r31-tightness-minimal-machine-20260923/*.tex
+            revisions/or-r32-priority-complexity-closure-20260923/*.tex
+            .build/ndu-r33/
+          retention-days: 30
+          if-no-files-found: warn
