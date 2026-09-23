@@ -1,0 +1,15 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Repeated-query and execution-machine measurements}\label{tab:ec-batch}
+\begin{tabular}{rrr}
+\toprule
+Vertices & 101 root inversions & Machine minimization \\
+\midrule
+253 & 0.0014 & 0.0044 \\
+509 & 0.0022 & 0.0129 \\
+1021 & 0.0043 & 0.0509 \\
+2045 & 0.0087 & 0.2075 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Seconds, median of three repetitions. The 101 payments are equally spaced across the compiled feasible root interval. Only inversion is included; emitting and auditing 101 different policies is not included. Machine minimization is for the original single query.\end{minipage}
+\end{table}
