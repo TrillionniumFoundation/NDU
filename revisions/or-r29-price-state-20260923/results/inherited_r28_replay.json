@@ -1,0 +1,51 @@
+{
+  "bridge_exact_records": 9,
+  "counts": {
+    "cached_block_evaluations": 71088,
+    "initial_block_anchors": 5924,
+    "queries": 84,
+    "query_block_policies": 10416,
+    "refresh_queries": 83
+  },
+  "cross_release_support_tests": 81,
+  "evidence_sha256": "a51f283f144f3f35c68a90fe1b9f9e173fbe09df3a869b5fde4e59bbdff1af59",
+  "exact_results": {
+    "adaptive_bernstein": [
+      "9/1024",
+      "9/1024",
+      "45/1024"
+    ],
+    "adaptive_gain": "9/1024",
+    "design_net_value": "56/75",
+    "design_release": "1/15",
+    "face_tests": 3,
+    "master_lp_value": "3/8",
+    "shared_table_value": "37/50",
+    "unrestricted_value": "53/50"
+  },
+  "limitations": [
+    "Synthetic block-separable stress design; not a dense-QP speed comparison.",
+    "Timing observations are not replayed as performance claims.",
+    "The verifier checks finite fixtures and certificate arithmetic, not mathematical novelty or all possible models."
+  ],
+  "negative_controls": 14,
+  "rejected_controls": [
+    "retained low-cap face violates changed high cap",
+    "singular dependent active basis",
+    "endpoint-only adaptive feasibility",
+    "adaptive midpoint violation hidden by vertices",
+    "independent child tables mislabeled as common table",
+    "false pooled value from childwise reoptimization",
+    "incorrect release factor one instead of two",
+    "unpriced continuation cap overstates accepted witness",
+    "corrupt recursive release coefficient",
+    "incorrect conditional price normalization",
+    "negative cached continuation price",
+    "broken root promise witness",
+    "infeasible continuation witness",
+    "unverified tolerance claim"
+  ],
+  "scaling_configurations": 7,
+  "status": "PASS"
+}
+

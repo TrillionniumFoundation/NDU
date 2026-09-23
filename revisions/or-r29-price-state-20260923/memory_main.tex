@@ -1,0 +1,37 @@
+\section{How Much Contractual Memory Is Necessary?}\label{sec:memory}
+The finite-price state yields an operational conclusion: the provider need not retain the complete sequence of customer reviews, but it may have to retain which past participation constraint has the highest effective payment price. Once thresholds and the query-specific root price are stored in a read-only table, the changing record needs at most $\lceil\log_2(N+1)\rceil$ bits. This counts the record index, not the storage or numerical precision of the threshold table. A new root promise can change the root price and requires a new root inversion.
+
+A three-date example shows why the record cannot simply be dropped. The root tier is fixed at zero. Two equally likely intermediate regimes, $A$ and $B$, both lead to the same terminal regime $C$. Payments and discounting are one, all nonfixed tiers lie in $[0,1]$, and rewards are $-x^2/2$ at $A,B$ and $2x-x^2/2$ at $C$. The intermediate caps are $1/4$ and $1$, the terminal cap is $1$, and the exact root promise is $1/2$. The full optimum has intermediate tiers zero and terminal tiers $1/4,3/4$, with value $27/32$. Its effective terminal prices are $7/4,5/4$. A date--regime table instead chooses the same terminal tier $c$. Its optimum is $c=1/4$, with intermediate tiers $0,1/2$, and value $13/32$. Thus retaining the price record creates the optimized gain $7/16$, not merely an improvement over an arbitrary fixed schedule. EC Section~\ref{ec:r29-checks} gives the direct calculation.
+
+The next result derives an entire value--memory frontier from contract primitives, rather than introduce a cost and differentiate a precomputed value function. The segmentation algorithm used to evaluate the frontier is standard; its interval cost and the sufficiency of ordered memory cells are the contractual conclusions.
+
+\begin{theorem}[Necessary labels and an exact memory-value frontier]\label{thm:memory}
+Fix distinct caps $0<b_1<\cdots<b_k<1$. Consider the preceding three-date architecture with $k$ equally likely intermediate regimes, cap $b_j$ in regime $j$, and one common terminal regime. Set the exact root promise to $k^{-1}\sum_jb_j$. The optimal full-information policy has intermediate tier zero and terminal tier $b_j$ on branch $j$. Its value is
+\[
+ J=\frac1k\sum_{j=1}^k(2b_j-b_j^2/2).
+\]
+Any deterministic implementation attaining $J$ needs at least $k$ distinguishable memory symbols upon entering the terminal regime. Thus the linear worst-case order of the finite-price label bound cannot be improved to a constant independent of the public graph.
+
+If at most $m$ terminal memory symbols are available, an optimal encoding partitions the ordered caps into at most $m$ contiguous nonempty cells. For a cell $i,\ldots,j$, the optimal common terminal tier is $b_i$, and its contribution to the loss relative to $J$ is
+\begin{equation}\label{eq:cell-memory-loss}
+ C(i,j)=\frac{2-b_i}{k}\sum_{h=i}^j(b_h-b_i).
+\end{equation}
+The exact minimum loss for $m$ symbols is $D(m,k)$, computed from
+\begin{equation}\label{eq:memory-dp}
+ D(s,j)=\min_{s-1\leq i<j}\{D(s-1,i)+C(i+1,j)\},
+ \qquad D(0,0)=0,
+\end{equation}
+with infeasible indices assigned $+\infty$. Prefix sums give an $O(mk^2)$ arithmetic algorithm and $O(mk)$ storage. A device with $B$ writable bits therefore attains value $J-D(\min\{2^B,k\},k)$ under this institution.
+\end{theorem}
+\begin{proof}
+The root promise is the mean of the conditional caps. Every branch cap must consequently bind: a strict inequality on any branch would make the root promise too small. If branch $j$ has terminal tier $c_j$, its intermediate tier is therefore $b_j-c_j$, with $0\leq c_j\leq b_j$. Its reward is
+\[
+ f_j(c_j)=2c_j-c_j^2/2-(b_j-c_j)^2/2,
+ \qquad f_j'(c_j)=2+b_j-2c_j>0.
+\]
+Thus full information selects $c_j=b_j$. Strict concavity and positive branch probabilities imply a unique optimal tier vector. Since the terminal public regime is common and the $b_j$ are distinct, two branches sharing a terminal memory symbol cannot both implement their required optimal terminal tiers. At least $k$ symbols are necessary, and storing the branch's reflected price is sufficient. This construction has $N=k+2$ public vertices.
+
+For any memory cell, the common terminal tier cannot exceed its smallest cap. Every $f_j$ is increasing on the feasible interval, so that minimum cap is optimal. Subtracting $f_j(c)$ from $f_j(b_j)$ gives $(b_j-c)(2-c)$, proving \eqref{eq:cell-memory-loss} for an ordered cell. Now fix the set of cell minima. Assigning branch $j$ to any eligible minimum $c\leq b_j$ has loss $(b_j-c)(2-c)$, whose derivative with respect to $c$ is $-2-b_j+2c<0$. Each branch therefore belongs to the largest selected minimum not exceeding its cap. This reassignment preserves each selected minimum and makes every cell contiguous, without increasing loss. Dynamic programming over the final cell proves \eqref{eq:memory-dp}. Additional symbols can split cells and never reduce value; hence exactly $\min(m,k)$ symbols are sufficient for an optimum with at most $m$. The bit statement follows by counting available symbols.
+\end{proof}
+
+For $k=8$ and $b_j=j/9$, one symbol loses $119/162$ relative to the full optimum; two symbols lose $5/18$, and three lose $49/324$. The complete frontier and its minimizing partitions are retained in the data. A capacity of two bits permits four symbols, not three. The theorem prices the effect of a concrete memory technology; a declared installation or maintenance cost can subsequently be compared with these gains. It neither estimates that cost nor presumes a calibrated application.

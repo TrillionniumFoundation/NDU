@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "file": "envelopes_T16_m4.json",
+      "sha256": "49b02a348e4f2eef3e6566d59dcefd913de8ed3a85f0379c0ae10d6ea55a9868",
+      "horizon": 16,
+      "grid_subdivisions": 4,
+      "anchors": 800,
+      "dual_planes": 362,
+      "uniform_root_gap": "3526562941144961108597/18218057728000000000000",
+      "uniform_root_gap_decimal": 0.19357513264022966,
+      "not_materialized_history_nodes": 65535
+    },
+    {
+      "file": "envelopes_T3_m2.json",
+      "sha256": "24770025b90598146633849165889b8623a3db10930a22a6f2112b47f49935f2",
+      "horizon": 3,
+      "grid_subdivisions": 2,
+      "anchors": 54,
+      "dual_planes": 34,
+      "uniform_root_gap": "112344794311/375000000000",
+      "uniform_root_gap_decimal": 0.29958611816266667,
+      "not_materialized_history_nodes": 7
+    },
+    {
+      "file": "envelopes_T4_m16.json",
+      "sha256": "4c0268ffb592f1c50077f3784336cf56533b38ecfb513a189132655bbfbdb8b7",
+      "horizon": 4,
+      "grid_subdivisions": 16,
+      "anchors": 2312,
+      "dual_planes": 322,
+      "uniform_root_gap": "782666719/40000000000",
+      "uniform_root_gap_decimal": 0.019566667975,
+      "not_materialized_history_nodes": 15
+    },
+    {
+      "file": "envelopes_T4_m4.json",
+      "sha256": "cfb551da9da122f09af4e4fb848543987bcc0cf5d1b27ff20053fc60d13cbf35",
+      "horizon": 4,
+      "grid_subdivisions": 4,
+      "anchors": 200,
+      "dual_planes": 77,
+      "uniform_root_gap": "360537311535498117/3183480500000000000",
+      "uniform_root_gap_decimal": 0.11325255849234764,
+      "not_materialized_history_nodes": 15
+    },
+    {
+      "file": "envelopes_T4_m8.json",
+      "sha256": "77109e49fdf4a41e2139f9bd64c7fcb36b7a0ef4ebb2197b9eacc3c907338b5d",
+      "horizon": 4,
+      "grid_subdivisions": 8,
+      "anchors": 648,
+      "dual_planes": 153,
+      "uniform_root_gap": "6492363091/125000000000",
+      "uniform_root_gap_decimal": 0.051938904728,
+      "not_materialized_history_nodes": 15
+    },
+    {
+      "file": "envelopes_T8_m4.json",
+      "sha256": "7596c966b924555ec4791639075b77c005614ada033df56fa060d9212e9a4182",
+      "horizon": 8,
+      "grid_subdivisions": 4,
+      "anchors": 400,
+      "dual_planes": 175,
+      "uniform_root_gap": "27381440749/200000000000",
+      "uniform_root_gap_decimal": 0.136907203745,
+      "not_materialized_history_nodes": 255
+    }
+  ],
+  "total_primal_anchor_certificates": 4414,
+  "total_recursive_dual_planes": 1123,
+  "information_examples": {
+    "promise_aware_value": "-25/32",
+    "regime_only_value": "-27/32",
+    "promise_omission_gain": "1/16",
+    "curvature_lower_bound": "1/32",
+    "tier_aware_value": "-15/16",
+    "tier_blind_value": "-1",
+    "tier_omission_gain": "1/16",
+    "finite_action_mixing_counterexample": "{0,1} has no feasible action at exact one-period promise 1/2"
+  },
+  "negative_controls_rejected": [
+    "wrong_discount",
+    "lost_root_cap",
+    "negative_primal_mixture",
+    "altered_exact_promise",
+    "inflated_primal_reward",
+    "exceeded_switching_price",
+    "understated_upper_constant",
+    "unnormalized_dual_mixture",
+    "false_terminal_domain",
+    "understated_triangle_gap",
+    "discrete_action_interpolation_rejected"
+  ],
+  "scope": "Exact rational induction certificates for continuous-tier envelopes of the stored synthetic models. No universal convergence rate, field validation, or learned speedup is asserted."
+}

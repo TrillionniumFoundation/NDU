@@ -1,0 +1,300 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\thepage}{EC.\arabic{page}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation: Electronic Companion}\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r28-main-labels}[main.pdf]
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion}\par\vspace{.12in}
+Accepted Service Adaptation: Shared Policy Tables, Continuation Prices, and Certified Design\par
+Revision R28, September 23, 2026\end{center}
+This companion contains the supporting derivations for the current theorem chain and the exact experimental specification. The complete R24 manuscript and companion, including the earlier neural/value-gradient and certificate-development results, are preserved byte for byte in the separate code/data research archive. They are not additional sections needed to interpret the main theorems. The primary institution in this revision is participation at every review; the ex ante-only master agreement is the case in which the nonroot participation constraints are absent.
+
+\section{Identified Stocks and the Participation Reduction}\label{ec:stock}
+For a public demand regime $z$, let
+\[
+ C_z(S)=cS+h\E(S-D_z)^++p_0\E(D_z-S)^+,\quad
+ f_z(S)=\E\min(S,D_z),\quad \Psi_z(S)=C_z(S)-\xi f_z(S),
+\]
+where $\xi>0$, the stock interval $I_z=[l_z,u_z]$ is compact, and $h+p_0+\xi>0$. These symbols describe the physical inventory problem; $p_0$ is not the tier reward vector $p$ of the main paper.
+
+\begin{proposition}[Stock identification and relaxed commitments]\label{ecprop:stock}
+Suppose $s_z$ uniquely minimizes $\Psi_z$ on $I_z$. On an exogenous regime process, commitments $F^\pi\geq F^s$ and $C^\pi\leq C^s$ force $S_t=s_{z_t}$ almost surely at every positive-probability review, including randomized policies. Both commitments bind. Writing $H_z$ for the demand distribution function, an interior minimizer satisfies
+\[
+ H_z(s_z-)\leq\frac{p_0+\xi-c}{h+p_0+\xi}\leq H_z(s_z).
+\]
+The endpoint conditions are $\Psi'_{z,+}(l_z)\geq0$ and $\Psi'_{z,-}(u_z)\leq0$. A strict atomic straddle or a continuously increasing crossing ensures uniqueness; a quantile level in $(0,1)$ does not alone ensure an interior feasible stock.
+
+If $\Psi_z(S)-\Psi_z(s_z)\geq\alpha|S-s_z|^2$ on all feasible intervals, then
+\[
+ F^\pi\geq F^s-\delta_F,\quad C^\pi\leq C^s+\delta_C
+ \quad\Longrightarrow\quad
+ \E^\pi\sum_t\beta^t|S_t-s_{z_t}|^2\leq\frac{\delta_C+\xi\delta_F}{\alpha}.
+\]
+A demand density bounded below by $\rho>0$ throughout the feasible interval is sufficient with $\alpha=(h+p_0+\xi)\rho/2$.
+\end{proposition}
+\begin{proof}
+The one-sided derivatives are
+\[
+ \Psi'_{z,-}(S)=c-p_0-\xi+(h+p_0+\xi)H_z(S-),\quad
+ \Psi'_{z,+}(S)=c-p_0-\xi+(h+p_0+\xi)H_z(S).
+\]
+Convexity gives the minimization conditions. Each gap $\Psi_z(S)-\Psi_z(s_z)$ is nonnegative. Because the regime process is exogenous, the comparator and the proposed policy have the same discounted regime occupation probabilities. The expected sum of gaps is
+$(C^\pi-C^s)-\xi(F^\pi-F^s)\leq0$. Thus every positive-probability gap is zero and uniqueness identifies stock. Under relaxed commitments the same sum is at most $\delta_C+\xi\delta_F$, and quadratic growth gives the inequality. The density lower bound gives $\Psi_z''\geq2\alpha$ almost everywhere; integration with the constrained first-order condition proves growth even when $s_z$ is an endpoint. No smooth-density conclusion is attributed to an atomic instance.\end{proof}
+
+For several stocks, additive expected costs and a separate service commitment for each coordinate give the same result with $\Psi_z=C_z-\sum_j\xi_j f_{zj}$. Marginal demand correlation does not affect additive expected costs. Product stock sets and jointly feasible coordinate minimizers give a unique vector minimizer. Under coordinate quadratic growth the bound uses the smallest curvature and numerator $\delta_C+\sum_j\xi_j\delta_{F,j}$. Arbitrary coupled stock constraints or a nonadditive service functional require their own minimization argument.
+
+After identification, the remaining expected service benefit at history $n$ is fixed. Customer utility is that benefit minus the conditional net payment. Requiring it to exceed the outside utility yields main equation~\eqref{eq:continuation}. Nonroot outside opportunities may depend on public history. When they do, their induced caps need not have a regime-only description, and the main recursive-state theorem requires augmenting the state. Keeping only the root constraint recovers the ex ante-only master agreement; it is not evidence for continuation acceptance.
+
+\section{Relative Transfer Coordinates}\label{ec:transfer}
+Assume positive scalar payment coefficients and a fixed root payment. For any feasible reference $z$, put
+$f_n=-\sum_{i\succeq n}c_i(x_i-z_i)$ and $y_n=f_n/c_n$ for nonroot $n$. At a nonroot node,
+\[
+ c_n(x_n-z_n)=\sum_{v\in\operatorname{ch}(n)}f_v-f_n,
+\]
+and at the root the same formula has no $f_0$ because total payment is unchanged. This is exactly $x-z=By$ with the incidence matrix of Lemma~\ref{lem:transfers}. Conversely, summing the incidence identity over a subtree cancels its internal transfers and leaves $-c_ny_n$. The maps are therefore mutual inverses, including a comparator on a tier boundary.
+
+The continuation inequality becomes
+\[
+ -c_n y_n\leq b_n-\sum_{i\succeq n}c_i z_i=\sigma_n.
+\]
+Other rows, bounds, and equalities are substituted without being dropped. With an affine information restriction satisfied by $z$, $M(x-z)=0$ becomes $MBy=0$. A postorder traversal computes every subtree total, and a parent--child pass computes the incidence product, each in order $N$ arithmetic operations. This count assumes fixed-cost scalar arithmetic; rational bit complexity and growth of the history tree are separate issues.
+
+For completeness, the exact quadratic gain in these coordinates is
+\[
+ W_\lambda(z+By)-W_\lambda(z)
+ =(B^\top(p-Qz))^\top y-\tfrac12y^\top B^\top QB y
+ -\lambda\sum_a\kappa_a\bigl(|(Dz-h)_a+(DBy)_a|-|(Dz-h)_a|\bigr).
+\]
+It applies to nonconstant optimized references and permits negative $y$. Its proof is expansion of the quadratic plus the subtree identity. The value theorem in the main text additionally solves a release problem and identifies the limiting primal and dual events; that extra claim is not obtained by presenting this identity as a new optimization theorem.
+
+\section{Restriction-Release Derivation and Event Calculation}\label{ec:release}
+\subsection{The global frontier}
+The feasible release graph consists of a fixed compact accepted polyhedron and linear bounds with right sides proportional to $t$. Taking convex combinations of two graph points shows that $V$ is concave. Monotonicity follows from nesting. For continuity at zero, take any sequence of maximizers as $t$ decreases to zero; compactness gives a convergent subsequence whose limit satisfies the exact restriction. Its value cannot exceed $K$. The reverse inequality follows from feasibility of the restricted optimizer. Interior continuity follows from concavity. At other endpoints of a finite feasible parameter interval, mixtures with a feasible interior policy provide the needed approximating policies.
+
+One can treat the absolute-value terms by their finitely many sign regions. On a region the objective is a strictly concave quadratic in the tiers, and its sign boundaries are linear constraints. Select an independent basis of active equations and solve its KKT system. Positive definiteness of $Q$ makes the reduced quadratic solution unique and affine in a scalar right-side parameter. There are only finitely many candidate active patterns. A finite refinement at feasibility events and equal-value crossings yields the global continuous piecewise-affine policy and piecewise-quadratic value. Degenerate multipliers may require several adjacent representations of the same policy; this does not justify applying a regular signed-corner formula when its strict margins are zero.
+
+The Lagrangian for the two release bounds subtracts
+$(\xi^+)^\top(Mx-m_0-t\omega)+(\xi^-)^\top(-Mx+m_0-t\omega)$.
+Holding any optimal multipliers fixed supplies a supporting affine upper bound in $t$, with slope $\omega^\top(\xi^++\xi^-)$. At a differentiability point this directional supporting slope is unique. At a breakpoint the two one-sided slopes can differ. Integrating over finitely many quadratic pieces gives main equation~\eqref{eq:restriction-rent}.
+
+\subsection{Reduced curvature and the affine price path}
+On a regular cell, write
+\[
+ \bar p-Qz=R^\top\alpha_0+M^\top\xi,
+\]
+where $R$ contains the permanent equalities, the currently active accepted bounds, and the zero switching differences. The nonzero switching costs have already been incorporated in $\bar p$. Rows of $R$ have different dual domains: accepted inequality multipliers are nonnegative, permanent equality multipliers are unrestricted, and zero-edge tensions lie in their switching intervals. These domains must be checked separately.
+
+For a prescribed release $\delta$, any cell-feasible displacement has $R(x-z)=0$ and $M(x-z)=\delta$. Write it as $Zv$. Its quadratic cost is $v^\top Hv/2$ and its linear gain, apart from the restriction rent, vanishes on the permanent face. Minimizing this quadratic subject to $MZv=\delta$ gives
+\[
+ v=H^{-1}Z^\top M^\top S\delta,\qquad
+ x=z+P\delta,\qquad P^\top QP=S.
+\]
+Thus the gain is $\xi^\top\delta-\delta^\top S\delta/2$. The full row-rank assumption ensures that $MZ$ has full row rank and that $S$ is positive definite. Changes of basis $Z$ leave $P$ and $S$ unchanged.
+
+For the signed corner $\delta=tv$, with $v_j=\omega_j\operatorname{sign}\xi_j$, the release multiplier is $\xi(t)=\xi-tSv$. The old face multiplier is
+\begin{equation}\label{ec:eq:dualpath}
+ \alpha(t)=\alpha_0-t\dot\alpha,\qquad
+ R^\top\dot\alpha=QPv-M^\top Sv.
+\end{equation}
+The last equation has a unique solution because $R$ has independent rows and its right side is orthogonal to $\ker R$:
+$Z^\top QPv=Z^\top M^\top Sv$. It follows that
+\[
+ \bar p-Q(z+tPv)=R^\top\alpha(t)+M^\top\xi(t).
+\]
+This equation verifies stationarity throughout the segment. It also tells us when an old participation multiplier vanishes or a zero-edge tension reaches a switching capacity. Merely checking the new policy against the continuation caps would miss these dual events.
+
+Every event has the form $a+t\dot a=0$ or $a+t\dot a=\bar a$. Include only positive event times in the direction being followed. For an inactive row $A_i x\leq b_i$, the event is $(b_i-A_i z)/(A_iPv)$ if its denominator is positive. Tier bounds and nonzero edge-sign crossings use the same rule. For release component $j$, its event is $|\xi_j|/[\operatorname{sign}(\xi_j)(Sv)_j]$ if this denominator is positive. Old nonnegative multipliers and bounded tensions are handled by \eqref{ec:eq:dualpath}. The minimum of these event times is $t_1$. All regularity margins are strict at zero, so $t_1>0$. At the event, the old KKT witness remains valid with an equality at its limiting sign or capacity, establishing inclusion of the endpoint.
+
+If some restriction price is zero, maximizing
+$\xi^\top\delta-\delta^\top S\delta/2$ over the release box is still a small strictly concave quadratic program, but its optimum need not be the full signed corner used in main equation~\eqref{eq:release-exact}. If $[R;M]$ is rank deficient, remove redundant restrictions and adjust the release geometry instead of inverting a singular matrix. A nonzero-dimensional accepted face is not silently assumed in the global theorem. These qualifications are why the regular segment is a precise local result embedded in a general frontier.
+
+\subsection{Gain targets and contractual localization}
+On the initial segment, $a=\sum_j\omega_j|\xi_j|>0$ and $q=v^\top Sv>0$. Since the release multipliers retain their signs, $a-qt\geq0$ through the segment. Solving $at-qt^2/2=g$ on its increasing branch gives main equation~\eqref{eq:target}. It is a minimal release because it inverts the maximum attainable accepted value, not the value of an arbitrary feasible policy.
+
+For a subtree $n$, $\sum_{i\succeq n}c_i(x_i(t)-z_i)=t\sum_{i\succeq n}c_i d_i$. A positive sum consumes continuation slack and a nonpositive sum does not. Thus only subtrees with positive consumption can be the next cap event. This localizes the first bottleneck but does not say that all eventual expansion is supported on a single cut, nor that the subtree with the smallest numerical slack necessarily binds first. Slack must be divided by its consumption rate. A different release scale, direction, or active cell can change the first subtree.
+
+\section{Exact Examples and Comparator Reoptimization}\label{ec:examples}
+\subsection{The two-segment release frontier}
+In main equation~\eqref{eq:example-frontier}, the root multiplier is $-x_0$. On the first segment the child-1 cap multiplier is zero and the multiplier on $x_1-x_2\leq t$ is $1/2-t/2$. The stationarity vector is
+\[
+ (-x_0,1-x_1,-x_2)=(-x_0,-x_0+\xi,-x_0-\xi).
+\]
+Child 1 first reaches $3/4$ at $t=1/6$. On the second segment its cap multiplier is $3t-1/2$ and the release multiplier is $3/4-2t$. Both are nonnegative precisely through the stated segment. At $t=3/8$ the release multiplier vanishes and the cap multiplier is $5/8$. Complementarity and primal feasibility establish global optimality because the negative objective is convex. The gain at the first breakpoint is $11/144$, and the final gain is $23/192$. The first policy uses exactly $1/12$ of child-1 continuation slack.
+
+\subsection{The U-shaped optimized premium}
+For $b\in[1/4,2/3]$ in main equation~\eqref{eq:u-shape}, direct substitution gives
+\[
+ J(b)=-3b^2/4+7b/4-9/16,\qquad
+ K(b)=-3b^2+4b-9/8.
+\]
+The full-class multiplier for $x_1\leq b$ is $7/4-3b/2$ and its root multiplier is $-x_0^X$. For the restricted optimizer, the cap multiplier is $4-6b$, the root multiplier is $-x_0^Y$, and the equality $x_1-x_2=0$ has multiplier $b-x_0^Y$. These witnesses satisfy stationarity and complementarity. Other bounds have zero multipliers, including at an endpoint where they happen to bind. Subtracting the two objectives gives $9(2b-1)^2/16$. Subtracting the two cap prices gives its derivative. Hence both optima are genuinely reoptimized, and the U-shape is not an artifact of holding a bad comparator fixed.
+
+\subsection{Increasing friction can increase optimized expansion}
+For main equation~\eqref{eq:friction-example}, the smooth objective is maximized without constraints at $p=(1/2,3/4,1/4)$. Every restricted policy satisfies
+$|x_1-x_0|+|x_2-x_0|\geq|x_1-x_2|=1/2$.
+The policy $p$ attains that lower switching cost and the largest possible smooth reward, so it remains the restricted optimum for every nonnegative friction. For $0\leq\lambda\leq1/4$, the full optimum has switching tensions $(\lambda,-\lambda)$ and gradient $p-x=(0,\lambda,-\lambda)$. For larger friction the constant policy uses tensions $(1/4,-1/4)$, which remain within the enlarged capacities. The root multiplier and other bound multipliers can be zero. These are full KKT witnesses; subtracting the two values yields the displayed formula.
+
+\section{Budget and Friction Sensitivity Details}\label{ec:rents}
+For a fixed accepted inequality matrix and equality restriction, the dual objective is affine in the budget vector when its multipliers are held fixed. Polyhedral normal-cone optimality supplies attained multipliers for the strictly convex quadratic plus a finite absolute-value function, even when there is no strictly feasible tier. Thus an optimal multiplier is a supporting supergradient of the value in every feasible budget direction. Along a one-dimensional budget path, the finitely many active representations give a continuous piecewise-quadratic value. Its one-sided derivatives are read from the adjacent pieces. At interior differentiability points, every optimal multiplier has the same product with the budget-path direction.
+
+At a degenerate interior point of the feasible parameter domain, the right derivative of the concave value is the minimum of the products of that direction with its supergradients, equivalently with the projected optimal budget multipliers; the left derivative uses the maximum. At a boundary, only feasible inward directions are relevant, and normals to the feasible parameter domain must be retained in the supporting-price set. Using the adjacent feasible parametric pieces is an equivalent, unambiguous procedure. The difference of two values must use their respective one-sided derivatives. Selecting unrelated multipliers from two degenerate optimizer outputs is not a valid derivative computation.
+
+For friction, compactness and strict concavity make the optimizer continuous. Comparing each optimum under $\lambda$ and $\lambda+\varepsilon$ sandwiches the value increment between $-\varepsilon T$ at the two optima. Division and continuity give the envelope derivative. Refining the restricted parametric path at every change in accepted active rows and switching signs makes the full-class balance system linear in the friction and its certificate prices. Feasibility of that system is exactly zero expansion. Projection can be obtained by two linear programs for the endpoint frictions on the cell, along with a feasibility check. Empty cells and singleton projections must not be omitted. The count of restricted active cells can be large; this exact threshold construction is not a claim of polynomial complexity or of monotonicity that the optimized restriction need not possess.
+
+\section{Primal--Dual Economic Certificates}\label{ec:dual}
+The recorded computational model uses displacement $x$ from a feasible legacy protocol and the objective
+\[
+ F(x)=b_h^\top x-\tfrac12\sum_i d_i x_i^2-\tfrac12\norm{Ux}^2
+ -\lambda\sum_a\kappa_a\bigl(|(Bx+v)_a|-|v_a|\bigr),
+\]
+subject to $\ell\leq x\leq u$, $Ax\leq a$, and $Ex=0$. Here $B$ is the switching matrix, not the relative-transfer matrix in the main tree lemma. Let
+\[
+ q_i^*(r)=\max_{\ell_i\leq z\leq u_i}\{rz-d_i z^2/2\},\qquad
+ z=\min\{u_i,\max\{\ell_i,r/d_i\}\}.
+\]
+For arbitrary $p$, unrestricted $\eta$, nonnegative $\mu$, and $|s_a|\leq\lambda\kappa_a$, the bound
+\begin{equation}\label{ec:eq:dual}
+ \begin{split}
+ U(p,s,\mu,\eta)={}&\sum_iq_i^*\bigl((b_h-U^\top p-B^\top s-A^\top\mu-E^\top\eta)_i\bigr)\\
+ &+\tfrac12\norm p^2-s^\top v+\mu^\top a
+   +\lambda\sum_a\kappa_a|v_a|
+ \end{split}
+\end{equation}
+is an upper bound on the full optimum. Adding the information equalities to $E$ gives an upper bound on the corresponding restricted optimum.
+
+Indeed, $\norm{Ux}^2/2\geq p^\top Ux-\norm p^2/2$, and $\lambda\kappa_a|(Bx+v)_a|\geq s_a(Bx+v)_a$. Accepted inequalities give $\mu^\top Ax\leq\mu^\top a$, and equality terms vanish. Maximizing the remaining separable quadratic over the box gives \eqref{ec:eq:dual}. All these steps hold for any feasible displayed prices; no optimizer status is a premise.
+
+The implementation rounds proposals to rational nonroot/group coordinates, reconstructs root payments exactly, and mixes with a strict reduced-coordinate anchor only when needed. For inequality rows $a_j^\top x\leq b_j$ and a strict anchor $z$, the minimum feasible ray fraction is
+\[
+ \alpha=\max\left\{0,\max_{j:a_j^\top x>b_j}
+ \frac{a_j^\top x-b_j}{a_j^\top x-a_j^\top z}\right\},\qquad
+ \widehat x=(1-\alpha)x+\alpha z.
+\]
+The anchor and proposal share all required equalities, so these remain exact. Rows already satisfied remain satisfied by convexity. The archive retains the rounded proposal's repair fraction. The separate verifier recomputes all rows and both objective bounds using rational arithmetic; it does not accept a feasibility tolerance. Strict feasibility is needed for this specific ray repair, not for the weak-duality bound or the underlying accepted-balance theorem.
+
+For the fixed-amendment class, the root equalities and uniformity constraints imply the singleton zero displacement. We solve this class algebraically, including exact equality multipliers, rather than burden a numerical solver with a redundant zero-dimensional feasible set. For all other classes, the optimizer proposes both a decision and dual prices. A wide rational bracket would be reported as wide; changing the optimizer tolerance cannot itself certify a tighter value.
+
+\section{Comparator Cache: Proof and Arithmetic}\label{ec:cache}
+Let $x_i^*=\argmax_Y W_{h_i}$ and let $\phi$ be strongly convex in metric $D_0$. Applying the strong-convexity inequality at its constrained minimizer gives
+\[
+ W_{h_i}(x_i^*)-W_{h_i}(z_i)\geq\tfrac12\norm{x_i^*-z_i}_{D_0}^2.
+\]
+Thus any upper certificate gives the same inequality with right-side bound $\delta_i$. Differences of feasible policies belong to the column space of $Z_Y$. The induced operator norm gives
+$\norm{U(x_i^*-z_i)}\leq\sqrt{2L_Y\delta_i}$.
+
+For two exact maximizers $x^*(h)$ and $x^*(\tilde h)$, adding their strong variational inequalities gives
+\[
+ \norm{x^*(h)-x^*(\tilde h)}_{D_0}^2
+ \leq (h-\tilde h)^\top U(x^*(h)-x^*(\tilde h)).
+\]
+Use the restricted operator bound on the right and then on the resulting policy difference to obtain
+$\norm{Ux^*(h)-Ux^*(\tilde h)}\leq L_Y\norm{h-\tilde h}$.
+The envelope argument gives $\nabla K=Ux^*$, including nonsmooth switching in $\phi$. Integration of this Lipschitz gradient gives the quadratic upper Taylor bound. Substitution of the approximate anchor gradient and its error proves Proposition~\ref{prop:cache}.
+
+The recorded $Z_Y$ spans the nullspace of both exact root and time-only equalities, and $D_0$ is the diagonal quadratic curvature. We use the rational trace
+\[
+ L_Y=\operatorname{tr}\bigl(UZ_Y(Z_Y^\top D_0Z_Y)^{-1}Z_Y^\top U^\top\bigr),
+\]
+which bounds the largest eigenvalue of the positive semidefinite matrix. The coupled resource quadratic contributes additional curvature, so ignoring it here is conservative, not invalid. A singular trace value zero means the reward perturbations are constant over the restricted class; the same inequality holds with zero curvature.
+
+To evaluate the square roots without an unreported floating-point tolerance, for a nonnegative rational $r$ and integer denominator $d$, find the least integer $k$ satisfying $k^2\geq r d^2$ and use $k/d$. Integer square roots and exact comparisons implement this outward rounding. Multiplying the two nonnegative upper roots in main equation~\eqref{eq:cache} is conservative. The independent replay checks the trace matrix, every anchor bracket, the recomputed resource vector, each query envelope, and each offline validation bracket. Dropping the approximate-anchor error term would not in general be safe.
+
+Online evaluation stores only $r$-dimensional anchors and resource gradients, scalar bounds and curvature, and their errors. Its arithmetic count is independent of the number of history nodes after this cache is built. Exact rational bit complexity, cache construction, storage, acceptance of the proposed policy, and cache misses remain separate costs. The claim is no new \emph{restricted optimization} for a cache evaluation, not zero-cost end-to-end deployment.
+
+\section{Radius-Sensitive Outer Comparators}\label{ec:outer}
+For $C_0$ containing the common box and all fixed equalities, define the perturbation residual
+$e_{i,\theta}(x)=(A_\theta)_i x-(b_\theta)_i$.
+If $|e_{i,\theta}(x)|\leq\eta_i$ for $x\in C_0$, any true-feasible point satisfies $A_i^0x-b_i^0\leq\rho\eta_i$. Conversely, an outer-feasible point has true-row violation at most $2\rho\eta_i$. A common strict anchor with margin $\gamma_i$ therefore yields the mixing fraction in main equation~\eqref{eq:outer}. The Lipschitz constant can be chosen uniformly because rewards and gradients are bounded on the compact box and uncertainty set; the absolute-value penalty is Lipschitz there as well.
+
+The historical continuation family has
+\[
+ A_{\theta,ji}(\rho)=A^0_{ji}(1+\rho\theta_3\sigma_i),\quad
+ Cx\leq(1+\rho\theta_2)a^0,\quad \theta\in[-1,1]^3.
+\]
+It used $A_j^0x\leq\rho\sum_i|A^0_{ji}|m_i$, $m_i=\max(|\ell_i|,|u_i|)$, and $Cx\leq(1+\rho)a^0$. This is already a shrinking outer class, not a radius-independent positive-radius set. Its common strict time-only anchor has negative nonroot displacements and exact reconstructed root displacements; positive continuation coefficients make nonroot subtree inequalities strict. A sufficiently small common scale makes tier and capacity constraints strict. Continuity on a compact small-radius interval supplies the required uniform margins.
+
+The earlier positive-radius observations were too coarse to diagnose a jump at zero. The new sweep holds the context and interior coefficient direction fixed and reduces the radius to $1/65536$. The measured outer loss then approaches zero. A steep rise before radius $1/16$ is compatible with the analytical bound and with an early change of the active comparator constraints. Neither the new sweep nor this local theorem identifies the uncertainty set as statistically calibrated.
+
+\begin{corollary}[Equality-aware and successive outer refinement]\label{ec:refinement}
+Replace an unrestricted-box envelope by
+$\eta_i(C_0)=\sup_{\theta,x\in C_0}|e_{i,\theta}(x)|$.
+The resulting outer class remains valid and is no larger. More generally, if $O_k$ contains every $Y_\theta(\rho)$, then
+\[
+ O_{k+1}=O_k\cap\{x:A_i^0x\leq b_i^0+\rho\sup_{\theta,z\in O_k}|e_{i,\theta}(z)|\ \text{for all }i\}
+\]
+also contains every true class and is nested inside $O_k$.
+\end{corollary}
+\begin{proof}
+For a true-feasible $x$, write $A_i^0x-b_i^0\leq-\rho e_{i,\theta}(x)$ and use the relevant containing set in its support bound. Induction gives the successive statement.\end{proof}
+For a polyhedral uncertainty set and an affine perturbation, maximization over its vertices and a pair of linear programs over the equality-restricted polyhedron compute each envelope. This does not claim that a finite number of refinements recovers the exact union or that their cost is always worthwhile. The recorded radius comparison uses the original box envelope, so its reduction in observed small-radius slack is not credited to an unexecuted refinement.
+
+\section{Exact Experimental Specification}\label{ec:experiments}
+\subsection{Legacy amendments and the common-instance hierarchy}
+The legacy primitive file is the R23/R24 63-node, two-service design, retained unchanged. We use the first 24 contexts with radius zero from its recorded certificate file, not a newly selected favorable subset. The five pooling keys for node $n$, service $a$, depth $t$, and binary history string $h$ are respectively
+$(a)$, $(t,a)$, $(t,h_{\rm last},a)$, $(t,h_{\rm last\ two},a)$, and $(n,a)$.
+The first class pools all amendment coordinates per service; exact root commitments then force zero. All other classes permit distinct date-zero/root amplitudes. The regime annotation is a pooling key on this heterogeneous legacy tree, not a claim that all of its primitive coefficients have a regime-only Markov representation.
+
+For each class we append the corresponding equality rows to the same accepted root constraints. We optimize the original quadratic-plus-switching objective with the same box, continuation, and shared-capacity rows. The rational repair rounds group amplitudes, reconstructs each root from the exact payment equation, and mixes only within that group subspace. The strict anchor is time-only and therefore belongs to every date-refining class. The current source uses OSQP for the two-service legacy proposals and the HiGHS quadratic-programming interface bundled with CasADi for the one-service Markov proposals, with an IPOPT fallback if the latter raises an exception. The singleton class is solved by exact algebra. Each actual proposal engine and any failed attempt are retained in its record. Development attempts with an over-tight OSQP request stalled on a degenerate canonical instance; they were not counted as completed measurements. The finished evidence contains independently verified brackets for every predeclared instance rather than dropping the difficult case.
+
+\subsection{A public-Markov service-tier family}
+The second family has $T=6$, 63 binary-tree nodes, one tier, baseline $1/2$, and unconditional weights multiplied by 32:
+$c_n=2^{5-t(n)}$. The root regime is zero. A left child has regime $-1$ and a right child has regime $+1$, with probability $1/2$ each. In displacement coordinates $x_n=\theta_n-1/2$, the diagonal curvature is
+$c_n(1+z_n/4)$, the resource-coupling matrix is zero, and the linear reward is
+\[
+ c_n\left(\frac{a}{32}+\frac{z_n b}{32}+\frac{t(n)d}{128}\right)x_n.
+\]
+The switching coefficient is $e/128$, with edge weight $c_n$, temporal difference $x_n-x_{\mathrm{pa}(n)}$, and root installed displacement zero. The root payment is $\sum_n c_nx_n=0$. Every nonroot continuation has displacement slack
+\[
+ s_n=\frac{c_n(6-t(n))(3+z_n)}{64}.
+\]
+Dividing by $c_n$ shows that the conditional cap is a function of date and current regime. Thus this family, unlike the heterogeneous legacy annotation, has the Markov primitive description required for the sufficient-state theorem. Its physical tier box is $[0,1]$, and the same pooling keys now equate actual tiers because the baseline is common.
+
+A pseudorandom generator with seed 250923 draws 24 contexts in the order
+$a\in\{8,\ldots,24\}$, $b\in\{12,\ldots,32\}$, $d\in\{-6,\ldots,6\}$, $e\in\{1,\ldots,5\}$. Every context is retained. The objective's common weight scaling is why shares within a family, rather than raw values across families, are the primary comparison.
+
+For each adjacent class, the archive stores the exact lower and upper values and the enclosing increment interval. Zero-width or very small true increments are not asserted positive from a difference of rounded approximate values. The mean lower-endpoint increments in the main table are numerical summaries with their stated certificate bracket widths, not exact algebraic identities.
+
+\subsection{Fine-radius study and the comparator cache}
+The radius study uses the first eight nominal legacy contexts and the radii
+\[
+0,2^{-16},2^{-14},2^{-12},2^{-10},2^{-8},2^{-6},2^{-4},2^{-3},2^{-2}.
+\]
+It uses a deterministic interior coefficient vector per context. For $i=0,\ldots,7$, the three numerators over eight are
+\[
+(-5+2i)\bmod13-6,\quad (3+i)\bmod11-5,\quad (7+i)\bmod13-6.
+\] The same vector is used at every radius for that context. Perturbation coefficients and outer sets are reconstructed rationally by affine interpolation of the original model's radius-zero and radius-$1/16$ coefficient definitions. This interpolation is exact for the \emph{coefficients}, not an interpolation approximation to optimized values. We directly optimize the true and outer comparator at every recorded radius and audit both.
+
+The cache study fixes the nominal geometry, time-only class, and switching parameter $29/64$. Seed 25923 draws four six-dimensional anchors with coordinate numerators in $\{-12,\ldots,12\}$ over 16. Thirty-two queries cycle through these anchors and add independent integer perturbations from $\{-4,\ldots,4\}$ over 256. Each deployed query takes the minimum of four analytical envelopes. The recorded optimizer solves at these queries are solely offline checks on envelope quality. Anchor errors and curvature are computed from certified values, not from optimizer residuals.
+
+\subsection{Exact promise-state checks and evidence boundaries}
+Two three-date examples use tiers $\{0,1/2,1\}$ and switching coefficients $1/8$ and $3/8$; a four-date example uses tiers $\{0,1\}$ and coefficient $1/8$. Demand regimes are equiprobable $-1,+1$, with root regime zero, inherited initial tier $1/2$, undiscounted payment equal to the tier, and reward
+$(3/4+z/2)x-x^2/2-\gamma(x-q)^2$.
+The continuation cap at a nonroot date is $[3(T-t)+z]/4$. The recursion computes the best reward at every attainable exact root payment and compares the complete dictionary with exhaustive enumeration of all deterministic history policies. There are $2\cdot3^7+2^{15}=37142$ enumerated policies before acceptance filtering. All arithmetic uses fractions. These tests concern a genuinely finite-action contract; they make no claim that a continuous promise grid is exact.
+
+The release and capacity examples are checked by explicit rational KKT witnesses. Twenty-four additional random rational cells use dimensions 3, 5, and 7, positive diagonal curvature, independent pooling differences and root equality, and explicit first-event ratios. The random generator constructs known restricted KKT prices and checks the resulting policy, stationarity, and value formula; it is an algebraic stress test, not a sample of operating data. The inherited 64 rational tree-transfer instances are replayed separately.
+
+All historical learned and robust timing records remain unchanged. The new work does not conduct a new neural race, estimate field generalization, or fit a calibrated uncertainty set. The exact certificate calculations validate the displayed designed models and arithmetic; they do not establish journal acceptance or substitute for expert scrutiny of the proofs.
+
+
+\input{revisions/or-r26-20260923/continuous_ec.tex}
+\input{revisions/or-r27-20260923/correlated_ec.tex}
+\input{revisions/or-r28-20260923/bridge_ec.tex}
+\input{revisions/or-r28-20260923/governance_ec.tex}
+\input{revisions/or-r28-20260923/evidence_ec.tex}
+\input{revisions/or-r28-20260923/references.tex}
+\end{document}

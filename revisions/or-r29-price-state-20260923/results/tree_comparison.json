@@ -1,0 +1,160 @@
+{
+  "exact_method": "expanded conditional-incidence matrix KKT",
+  "floating_method": "SciPy HiGHS feasibility LP then SLSQP, ftol=1e-12",
+  "instances": [
+    {
+      "name": "strict_value_of_price_memory",
+      "tree_nodes": 5,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "27/32",
+      "numerical_value": 0.8437499999999994,
+      "absolute_value_difference": 5.551115123125783e-16,
+      "max_constraint_violation": 2.220446049250313e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.0029051429999640277,
+      "iterations": 3
+    },
+    {
+      "name": "markov-T3-S2-seed41",
+      "tree_nodes": 7,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "361250525939869117/288849022000000000",
+      "numerical_value": 1.2506551811688982,
+      "absolute_value_difference": 2.220446049250313e-16,
+      "max_constraint_violation": 0,
+      "feasibility_lp_plus_slsqp_seconds": 0.0019508309999878293,
+      "iterations": 7
+    },
+    {
+      "name": "markov-T4-S2-seed42-corridor",
+      "tree_nodes": 15,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "38494943884954087/18793036800000000",
+      "numerical_value": 2.0483620765832686,
+      "absolute_value_difference": 1.5987211554602254e-14,
+      "max_constraint_violation": 3.3306690738754696e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.0023740249999946172,
+      "iterations": 14
+    },
+    {
+      "name": "markov-T5-S2-seed43",
+      "tree_nodes": 31,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "332169243258405084001990439359446863797/332727600567275970908730480000000000000",
+      "numerical_value": 0.9983218785916921,
+      "absolute_value_difference": 2.3322455078300663e-12,
+      "max_constraint_violation": 1.1102230246251565e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.005906562000006943,
+      "iterations": 43
+    },
+    {
+      "name": "markov-T3-S2-seed44-corridor",
+      "tree_nodes": 7,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "1246821213991/1024000000000",
+      "numerical_value": 1.2175988417880852,
+      "absolute_value_difference": 6.661338147750939e-16,
+      "max_constraint_violation": 2.220446049250313e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.0014916310000216981,
+      "iterations": 5
+    },
+    {
+      "name": "markov-T4-S2-seed45",
+      "tree_nodes": 15,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "151624671199663443731/118525752800000000000",
+      "numerical_value": 1.2792550784765782,
+      "absolute_value_difference": 3.3306690738754696e-14,
+      "max_constraint_violation": 4.440892098500626e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.0019038800000430456,
+      "iterations": 11
+    },
+    {
+      "name": "markov-T5-S2-seed46-corridor",
+      "tree_nodes": 31,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "7211681394757132889659198976093/6543707755087964897280000000000",
+      "numerical_value": 1.1020787701203894,
+      "absolute_value_difference": 3.872457909892546e-13,
+      "max_constraint_violation": 4.440892098500626e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.005830586999991283,
+      "iterations": 37
+    },
+    {
+      "name": "markov-T3-S2-seed47",
+      "tree_nodes": 7,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "82289169737842707/72266344640000000",
+      "numerical_value": 1.138692847241301,
+      "absolute_value_difference": 2.220446049250313e-16,
+      "max_constraint_violation": 2.7755575615628914e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.001708415999985391,
+      "iterations": 11
+    },
+    {
+      "name": "markov-T4-S2-seed48-corridor",
+      "tree_nodes": 15,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "288584651161406394434053/174027553374208000000000",
+      "numerical_value": 1.6582698863828624,
+      "absolute_value_difference": 4.078959392472825e-13,
+      "max_constraint_violation": 2.220446049250313e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.0024866950000159704,
+      "iterations": 22
+    },
+    {
+      "name": "markov-T5-S2-seed49",
+      "tree_nodes": 31,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "10202613332494165813940140173877/6099103904536732838400000000000",
+      "numerical_value": 1.6728052993004285,
+      "absolute_value_difference": 1.9406698470447736e-13,
+      "max_constraint_violation": 4.440892098500626e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.016145139999991898,
+      "iterations": 28
+    },
+    {
+      "name": "markov-T3-S2-seed50-corridor",
+      "tree_nodes": 7,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "1559228155963/1442880000000",
+      "numerical_value": 1.080636058413035,
+      "absolute_value_difference": 0.0,
+      "max_constraint_violation": 2.220446049250313e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.0025299900000277376,
+      "iterations": 4
+    },
+    {
+      "name": "markov-T4-S2-seed51",
+      "tree_nodes": 15,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "114384165296941770208036826893/78061433993375723694720000000",
+      "numerical_value": 1.465309557426097,
+      "absolute_value_difference": 7.929212841872868e-13,
+      "max_constraint_violation": 4.440892098500626e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.003921198999989883,
+      "iterations": 23
+    },
+    {
+      "name": "markov-T5-S2-seed52-corridor",
+      "tree_nodes": 31,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "529439186346072046669/437961750720000000000",
+      "numerical_value": 1.2088708328425328,
+      "absolute_value_difference": 2.708944180085382e-14,
+      "max_constraint_violation": 4.440892098500626e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.003923142999951779,
+      "iterations": 18
+    },
+    {
+      "name": "markov-T4-S2-seed107",
+      "tree_nodes": 15,
+      "exact_matrix_kkt": "PASS",
+      "exact_value": "147870072467359535386603/81260463680000000000000",
+      "numerical_value": 1.8197050050028398,
+      "absolute_value_difference": 1.4832579608992091e-13,
+      "max_constraint_violation": 2.220446049250313e-16,
+      "feasibility_lp_plus_slsqp_seconds": 0.002526084000010087,
+      "iterations": 18
+    }
+  ]
+}

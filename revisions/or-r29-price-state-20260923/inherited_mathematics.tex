@@ -1,0 +1,209 @@
+\section{The Value Frontier of Releasing a Restriction}\label{sec:release}
+Fix $b,\lambda$ and the optimized comparator $z=\argmax_{Y_b}W_\lambda$. Let $\omega\in\R^k_{++}$ set the units of permitted deviations from the restriction. Define
+\begin{equation}\label{eq:release}
+ V(t)=\max\{W_\lambda(x):x\in X_b,\ |Mx-m_0|\leq t\omega\},\qquad t\geq0.
+\end{equation}
+Thus $V(0)=K_\lambda(b)$. The release does not relax participation: it permits previously pooled decisions to differ while preserving every accepted constraint. The full value is reached for finite $t$, because $X_b$ is compact. Scaling a row of $M$ requires the same scaling of its $\omega$; otherwise it changes the economic release unit.
+
+\subsection{An exact release segment and its first bottleneck}
+To state the explicit segment, fix a regular active cell at $z$. Collect permanent equalities, active accepted inequalities and tier bounds, and zero switching differences into $Rx=r$. Retain the signs of all nonzero switching differences and absorb their linear cost into $\bar p$. Let $R$ and $[R^\top,M^\top]^\top$ have full row rank. Suppose the active accepted-inequality multipliers are strictly positive, zero-edge tensions are strictly within their capacities, inactive constraints and nonzero switching signs have positive clearance, and the restriction multiplier $\xi$ has no zero coordinate. These are local regularity conditions, not assumptions of the global frontier in the theorem. Rows with zero switching coefficient need not be included as kink constraints.
+
+Choose any matrix $Z$ whose columns form a basis for $\ker R$, and set
+\begin{equation}\label{eq:release-matrices}
+ H=Z^\top QZ,\quad
+ S=\bigl[MZH^{-1}Z^\top M^\top\bigr]^{-1},\quad
+ P=ZH^{-1}Z^\top M^\top S,\quad
+ d=P v,\quad v_j=\omega_j\operatorname{sign}\xi_j.
+\end{equation}
+These objects are independent of the choice of basis. $S$ is the marginal curvature of releasing the restriction after the currently binding accepted constraints have been enforced.
+
+\begin{theorem}[Restriction-release frontier]\label{thm:release}
+For \eqref{eq:poly}--\eqref{eq:release}, $V$ is continuous, nondecreasing, concave, and piecewise quadratic. Its unique tier policy is continuous and piecewise affine. At almost every $t>0$,
+\begin{equation}\label{eq:restriction-rent}
+ V'(t)=\omega^\top(\xi^+(t)+\xi^-(t)),
+ \qquad V(t)-V(0)=\int_0^t\omega^\top(\xi^+(s)+\xi^-(s))\,ds,
+\end{equation}
+where $\xi^\pm$ are optimal multipliers on the two release bounds. At differentiability points the displayed directional price is independent of the choice of optimal multipliers.
+
+Under the regular-cell conditions, let $t_1$ be the first nonnegative time at which an inactive accepted constraint or tier bound binds, a nonzero switching difference reaches zero, an old active-inequality multiplier reaches zero, a zero-edge tension reaches a capacity, or a component of $\xi-tSv$ reaches zero in its original signed direction. Then $t_1>0$ and, for $0\leq t\leq t_1$,
+\begin{equation}\label{eq:release-exact}
+ x(t)=z+td,\qquad
+ V(t)-K_\lambda(b)=t\sum_j\omega_j|\xi_j|-\tfrac12t^2 v^\top Sv.
+\end{equation}
+Each event time is an explicit linear ratio obtained from the primal and dual paths. In particular, a currently slack continuation row can be the first bottleneck only at
+\begin{equation}\label{eq:slack-break}
+ t_n=\frac{\sigma_n}{\sum_{i\succeq n}c_i d_i}
+ \quad\text{when }\sum_{i\succeq n}c_i d_i>0;
+\end{equation}
+otherwise that row consumes no slack along this segment. In transfer coordinates this is exactly the time at which its lower bound $y_n\geq-\sigma_n/c_n$ is reached.
+\end{theorem}
+
+\begin{proof}
+Mixing policies feasible at two release levels proves concavity; nesting proves monotonicity. Introduce epigraphs for the absolute values. For fixed active inequalities and switching signs the KKT equations are linear in the parameter, so the unique tier solution is affine and its value is quadratic on that cell. There are finitely many active patterns. Dependent equations may be removed and a finite refinement made; no nondegeneracy assumption is needed for this global piecewise description. Compactness and uniqueness give continuity. Optimal multipliers support the concave value and give \eqref{eq:restriction-rent}; integration is valid for this continuous piecewise-quadratic function.
+
+For the explicit segment, a prescribed restriction displacement $\delta$ has the cell optimum $x=z+P\delta$. Solving the equality-constrained quadratic and using
+$RP=0$, $MP=I$, and $P^\top QP=S$ gives the gain
+$\xi^\top\delta-\delta^\top S\delta/2$. Its maximum over $|\delta|\leq t\omega$ is at $\delta=tv$ while $\xi-tSv$ retains its signed direction. The old active multipliers and kink tensions also evolve affinely. Until one of the listed events, their signs and capacities, the remaining primal inequalities, and the nonzero switching signs all remain valid. They therefore supply the \emph{full} KKT certificate, not just a solution restricted to the cell. Continuity includes the first event. Substitution into a subtree inequality gives \eqref{eq:slack-break}. The detailed dual path and degeneracy qualifications are in EC Section~\ref{ec:release}.\end{proof}
+
+Write $a=\sum_j\omega_j|\xi_j|$ and $q=v^\top Sv>0$. For a desired gain $g\in[0,V(t_1)-K]$, the smallest release on this initial segment is
+\begin{equation}\label{eq:target}
+ t(g)=\frac{a-\sqrt{a^2-2qg}}q.
+\end{equation}
+No accepted improvement can attain this gain with a smaller release, because \eqref{eq:release-exact} is the optimized value, not the gain of a selected direction. At later events one changes the active cell and applies the same equality-constrained calculation. The number of cells need not be polynomial; the theorem is an exact structural path, not a universal complexity claim. If a regularity condition fails, \eqref{eq:restriction-rent} and the global frontier remain valid, but the signed-corner formula is replaced by the appropriate small release quadratic program or a degenerate active-set refinement.
+
+\subsection{A complete three-node frontier}
+Consider a root and two children, $c_i=1$, tiers in $[0,1]$, root payment $x_0+x_1+x_2=3/2$, and child caps $x_1,x_2\leq3/4$. Let
+\[
+ W(x)=x_1-\tfrac12(x_0^2+x_1^2+x_2^2),\qquad Y=\{x\in X:x_1=x_2\}.
+\]
+The optimized restriction is $z=(1/6,2/3,2/3)$ with value $5/24$. Releasing $|x_1-x_2|\leq t$ gives
+\begin{equation}\label{eq:example-frontier}
+ V(t)-K=
+ \begin{cases}
+ t/2-t^2/4,&0\leq t\leq1/6,\\
+ -1/48+3t/4-t^2,&1/6\leq t\leq3/8,\\
+ 23/192,&t\geq3/8.
+ \end{cases}
+\end{equation}
+The first policy segment is $(1/6,2/3+t/2,2/3-t/2)$. Child 1 has slack $1/12$, consumes it at rate $1/2$, and therefore binds at $t=1/6$. The second segment is $(t,3/4,3/4-t)$. At $t=3/8$, the release price becomes zero and the full optimum $(3/8,3/4,3/8)$ is reached. Its relative transfer is $(-1/12,7/24)$; the negative coordinate uses exactly the initially available child-1 slack. Thus the continuation slack determines an actual change in the optimal policy path, rather than only the domain of a coordinate map. EC Section~\ref{ec:examples} supplies exact primal and dual witnesses for both segments.
+
+\section{Capacity, Friction, and Optimized Comparator Rents}\label{sec:rents}
+\subsection{Relaxing a continuation can reduce the adaptation premium}
+Let $b(t)=b^0+td$, with $d\geq0$, and suppose $Y_{b(t)}$ is nonempty on the interval considered. Both optima in \eqref{eq:values} are reoptimized for each $t$.
+\begin{theorem}[Comparator-adjusted continuation rents]\label{thm:rents}
+The full and restricted values are continuous, nondecreasing, concave, and piecewise quadratic along the budget path. If $\mu_X(t)$ and $\mu_Y(t)$ are optimal accepted-inequality multipliers, then, at almost every $t$,
+\begin{equation}\label{eq:rent-difference}
+ \frac{d}{dt}\Delta_\lambda(b(t))
+ =d^\top\bigl(\mu_X(t)-\mu_Y(t)\bigr),\qquad
+ \Delta_\lambda(b(v))-\Delta_\lambda(b(u))
+ =\int_u^v d^\top(\mu_X-\mu_Y)\,dt.
+\end{equation}
+Consequently, the adaptation premium is nondecreasing along the path if and only if the rent difference is nonnegative almost everywhere. At a degenerate point, the right directional value derivative along $d$ is the minimum of $d^\top\mu$ over that problem's optimal multiplier set; one must compute the two directional derivatives separately, rather than subtract arbitrary selected multipliers.
+\end{theorem}
+\begin{proof}
+Mixing and nesting give the first two value properties. Fixed-matrix parametric quadratic programming gives the piecewise description as in Theorem~\ref{thm:release}. Weak duality makes each accepted multiplier a supporting price for the budget. At differentiability points all such directional prices coincide with the derivative. Subtract and integrate the two value derivatives. A continuous piecewise-quadratic function is nondecreasing precisely when its derivative is nonnegative almost everywhere. The one-sided rule follows by taking the directional derivative of the infimum of affine-in-budget dual objectives; EC Section~\ref{ec:rents} supplies the polyhedral qualification.\end{proof}
+
+An exact example makes the distinction material. Keep the preceding three-node objective and root payment, but set $x_1\leq b$, $x_2\leq3/4$, with $b\in[1/4,2/3]$. The time-only restriction remains $x_1=x_2$. The full and restricted optima are
+\[
+ x^X(b)=((3/2-b)/2,b,(3/2-b)/2),\quad
+ x^Y(b)=(3/2-2b,b,b),
+\]
+with cap prices $\mu_X=7/4-3b/2$ and $\mu_Y=4-6b$. Both values increase, but
+\begin{equation}\label{eq:u-shape}
+ \Delta(b)=\frac9{16}(2b-1)^2,\qquad
+ \Delta'(b)=\frac94(2b-1).
+\end{equation}
+The premium falls to zero as $b$ rises to $1/2$, then rises again. A claim that more participation slack necessarily makes adaptation more valuable would get the sign wrong on half this interval. The relevant scarcity measure is the difference of the optimized contractual rents.
+
+\subsection{Friction thresholds when the restriction is reoptimized}
+For fixed $X,Y$, let $x_\lambda$ and $z_\lambda$ be their optima. A fixed-comparator balance test is not enough when $z_\lambda$ changes with friction.
+\begin{proposition}[Optimized-comparator friction path]\label{prop:friction}
+The adaptation premium is continuously differentiable for $\lambda>0$, with a right derivative at zero, and
+\begin{equation}\label{eq:friction}
+ \Delta'(\lambda)=T(z_\lambda)-T(x_\lambda).
+\end{equation}
+On every bounded friction interval its zero set is a finite union of closed intervals and isolated points. It can be computed from the restricted parametric policy path without solving a full-class optimization at every friction: refine that path at changes of its accepted active rows and switching signs, and on each resulting cell impose \eqref{eq:balance} at the affine $z_\lambda$. This is a linear feasibility problem jointly in $\lambda$ and the full-class prices; its projection on $\lambda$ is an interval, possibly empty or a point. The union of these projections is exactly the zero set. This is a structural reduction, not a general complexity improvement. There is no general upward-ray conclusion for arbitrary restrictions.
+\end{proposition}
+\begin{proof}
+Uniqueness and compactness imply continuous optimizers. The envelope argument gives $J'(\lambda)=-T(x_\lambda)$ and $K'(\lambda)=-T(z_\lambda)$, including active-set changes. Both paths are piecewise affine. On a refined cell, every sign in \eqref{eq:balance} is fixed or zero, $z_\lambda$ is affine, and tension bounds and stationarity are linear in the displayed variables. The full balance test is necessary and sufficient. A projection of a polyhedron onto a line is an interval. Finitely many cells establish the assertion; the method does not bound their number polynomially.\end{proof}
+
+For example, use the root payment $3/2$, the box and child caps above, $p=(1/2,3/4,1/4)$, $Q=I$, and $T(x)=|x_1-x_0|+|x_2-x_0|$. A restriction $x_1-x_2=1/2$ has optimized policy $z=p$ for every $\lambda$: its switching cost is already the smallest possible under that restriction. The full optimum is $(1/2,3/4-\lambda,1/4+\lambda)$ until $\lambda=1/4$, and is constant thereafter. Therefore
+\begin{equation}\label{eq:friction-example}
+ \Delta(\lambda)=\begin{cases}\lambda^2,&0\leq\lambda\leq1/4,\\
+ \lambda/2-1/16,&\lambda\geq1/4.
+ \end{cases}
+\end{equation}
+More friction increases the value of removing a restriction that forces switching. This does not contradict constant-comparator critical-friction results: their restriction and zero-switching benchmark are different.
+
+\subsection{Which information expansion creates the value?}
+Let $Y_0\subseteq\cdots\subseteq Y_k=X$ be nonempty predeclared classes and $K_j=\max_{Y_j}W$. Then
+\begin{equation}\label{eq:hierarchy}
+ J-K_0=\sum_{j=1}^k(K_j-K_{j-1}),\qquad K_j-K_{j-1}\geq0.
+\end{equation}
+The identity is elementary; its economic use requires each $K_j$ to be optimized under the \emph{same} accepted constraints. A release path between adjacent equality-defined classes prices that particular increment through Theorem~\ref{thm:release}. The ordering matters when information features interact; the increments are not automatically Shapley values or unique causal attributions.
+
+The fixed class describes an unchanging amendment or tier. The time-only class describes a preannounced schedule. The current-regime class requires public regime measurement and a date--regime decision table. A two-period-memory class additionally requires retaining the preceding regime. The full-history class has no such information pooling. These are operational restrictions, not an assertion that time-only is the universal status quo. Current regime alone can be insufficient even when exogenous primitives are Markov, because the inherited tier and the outstanding promise are endogenous state variables. The next section establishes the corresponding sufficient-state formulation.
+
+\section{Promised-Payment Recursion and Horizon Complexity}\label{sec:recursion}
+Suppose the regime has a finite public Markov transition matrix $P_t$, the one-period net payment is $a_t(z)x$, and the reward is $g_t(z,q,x)$. Suppose further that each conditional payment cap $\bar b_t(z)$ and the feasible actions depend only on the displayed state and date. A general history-dependent outside option does not satisfy this assumption merely because demand is Markov.
+
+Let $\mathcal V_t(z,q,b)$ denote the maximum conditional reward from date $t$ with an \emph{exact} remaining discounted payment promise $b$. Put $\mathcal V_T(z,q,0)=0$ and $\mathcal V_T(z,q,b)=-\infty$ for $b\ne0$. For $b\leq\bar b_t(z)$, define
+\begin{equation}\label{eq:recursion}
+ \begin{split}
+ \mathcal V_t(z,q,b)=\max_{x,\{b_{z'}\}}\quad&
+ g_t(z,q,x)+\beta\sum_{z'}P_t(z,z')\mathcal V_{t+1}(z',x,b_{z'})\\
+ \text{subject to}\quad& a_t(z)x+\beta\sum_{z'}P_t(z,z')b_{z'}=b,\\
+ &b_{z'}\leq\bar b_{t+1}(z')\quad\text{for positive-probability children}.
+ \end{split}
+\end{equation}
+Outside this cap, set the value to $-\infty$. A zero-probability successor imposes no obligation. For a root upper budget rather than an equality, maximize the root value also over permitted $b$.
+
+\begin{theorem}[Exact sufficient-state implementation]\label{thm:recursion}
+Under the stated Markov sufficiency and compact-attainment conditions, \eqref{eq:recursion} has the same value as the full accepted history-tree problem with its specified root promise. There exists an optimal deterministic contract implemented using only $(t,z,q,b)$. Conversely, a feasible recursion policy induces all tree continuation constraints. With several additive commitments, the result holds with a vector of remaining commitments. A history-dependent cap, nonadditive global resource, or omitted physical state must be included in the state or treated on the full tree; otherwise the claimed equivalence need not hold.
+\end{theorem}
+\begin{proof}
+For any history policy, take its conditional remaining payments in each child subtree as the child promises. They satisfy the equality and all child caps, and induction bounds its conditional reward by the right side. Conversely, combine an attained current maximizer with child maximizers at the allocated promises. Induction gives every child obligation, while the displayed equality gives the parent's exact promise. This proves equality and constructs a state-based policy. The vector case applies the same induction to each additive commitment.\end{proof}
+
+Conditional normalization is essential. Multiplying the conditional budget at node $n$ by $w_n$ recovers \eqref{eq:continuation}. Within \eqref{eq:recursion}, the child weights are $\beta P_t(z,z')$, not unconditional probabilities multiplied a second time. Promises are decision variables allocated across next-period regimes; they are not forecasts fixed independently of the current decision.
+
+A branching factor $B$ and $T$ decision dates can create $N=(B^T-1)/(B-1)$ history nodes. The linear transfer map is linear in $N$, not in $T$. The recursion avoids materializing those histories when the displayed state is sufficient, but its promise state is continuous in the continuous-tier model. A grid with $G$ promise points, $Q_0$ inherited-tier points, $S_0$ regimes, and $k$ commitment coordinates has order $T S_0 Q_0 G^k$ value entries; choosing child allocations is an additional cost and can grow exponentially in the number of successors. Such a grid is an approximation unless the contract institution itself has the stated finite actions and attainable promises. Our exact recursion checks use the latter finite-action interpretation, and exhaustively compare every attainable root promise with the full history enumeration. No interpolation theorem or unrestricted polynomial-horizon guarantee is inferred from them.
+
+\input{revisions/or-r26-20260923/continuous_main.tex}
+\input{revisions/or-r28-20260923/bridge_main.tex}
+
+\section{Implemented Gains and Reusable Comparator Certificates}\label{sec:certification}
+A feasible implemented $\widehat x$ and a valid upper bound $U_Y\geq K$ give the economic certificate
+\begin{equation}\label{eq:certificate}
+ W(\widehat x)-K\ \geq\ W(\widehat x)-U_Y.
+\end{equation}
+An upper bound $U_X\geq J$ separately gives $J-W(\widehat x)\leq U_X-W(\widehat x)$. The first establishes an improvement over an optimized restriction; the second establishes implementation accuracy. Neither follows from predictor error or an optimizer's termination label. EC Section~\ref{ec:dual} states the box-conjugate bound used by the independent verifier, retaining every participation row, equality, and switching term.
+
+\subsection{A comparator envelope requiring no new query solve}
+Consider a fixed restricted geometry $Y$ and fixed convex cost $\phi$ with strong-convexity matrix $D_0\succ0$:
+\[
+ K(h)=\max_{x\in Y}\{(b+U^\top h)^\top x-\phi(x)\}.
+\]
+Let the columns of $Z_Y$ span a linear space containing every difference of two points of $Y$, and choose
+\[
+ L_Y\geq\bigl\|UZ_Y(Z_Y^\top D_0Z_Y)^{-1/2}\bigr\|^2.
+\]
+A trace bound on the corresponding positive semidefinite matrix is sufficient and can be evaluated rationally.
+\begin{proposition}[Certified reusable restricted-value envelope]\label{prop:cache}
+At an anchor $h_i$, let $z_i\in Y$ and $U_i\geq K(h_i)$ be certified, and put $\delta_i=U_i-W_{h_i}(z_i)$. Then, for every reward query $h$,
+\begin{equation}\label{eq:cache}
+ K(h)\leq U_i+(Uz_i)^\top(h-h_i)
+ +\sqrt{2L_Y\delta_i}\norm{h-h_i}
+ +\tfrac12L_Y\norm{h-h_i}^2.
+\end{equation}
+The minimum of these bounds over a finite cache remains valid. After storing $U_i$, $Uz_i$, $\delta_i$, and $h_i$, each query uses order $r$ arithmetic operations per anchor, where $r$ is the reward dimension, and no restricted optimization. The bound is valid even when the anchor decision is not exactly optimal.
+\end{proposition}
+\begin{proof}
+Strong convexity gives $\norm{z_i-x^*(h_i)}_{D_0}^2\leq2\delta_i$. Restricting differences to the displayed linear space bounds the gradient error by $\norm{U(z_i-x^*)}\leq\sqrt{2L_Y\delta_i}$. The same strong-monotonicity argument gives an $L_Y$-Lipschitz gradient $\nabla K(h)=Ux^*(h)$. Apply the smooth upper Taylor bound, substitute $U_i\geq K(h_i)$, and bound the anchor-gradient error by Cauchy--Schwarz. EC Section~\ref{ec:cache} gives the full argument, including exact outward square-root rounding.\end{proof}
+
+This is a nearby-reward reuse mechanism, not a theorem for an arbitrarily changing accepted geometry. Changing continuation matrices, budgets, switching coefficients, or information restrictions requires a new valid cache or a bound that explicitly covers those changes. A loose envelope is still valid but may not certify a positive economic gain. A deployment can then request a new comparator certificate; that solve must be charged. Accepted-policy implementation itself need not perform an economic-comparator batch on every query. Theorem~\ref{thm:r27-cache} supplies a separate valid bound for jointly changing constraints and friction.
+
+\subsection{Why the robust outer comparator is locally continuous}
+Write a designed family as
+\[
+ Y_\theta(\rho)=\{x\in C_0:(A^0+\rho A_\theta)x\leq b^0+\rho b_\theta\},
+\]
+where $C_0$ is the common compact box and equality-restricted class, and $\theta$ belongs to a compact uncertainty set. Let $\eta_i$ bound
+$\sup_{\theta,x\in C_0}|(A_\theta)_i x-(b_\theta)_i|$ and put
+$O(\rho)=\{x\in C_0:A_i^0x\leq b_i^0+\rho\eta_i\}$.
+This radius-dependent outer class contains every $Y_\theta(\rho)$ and equals the nominal class at zero. It is not a fixed large union bound switched on at every positive radius.
+\begin{proposition}[Local outer-comparator loss]\label{prop:outer}
+Suppose an anchor in $C_0$ has slack at least $\gamma_i>0$ in every perturbed row for $0\leq\rho\leq\rho_0$. Suppose the objective $W_\theta$ is uniformly $L_W$-Lipschitz on $C_0$, whose diameter is $D_C$. Then
+\begin{equation}\label{eq:outer}
+ 0\leq\max_{O(\rho)}W_\theta-\max_{Y_\theta(\rho)}W_\theta
+ \leq L_WD_C\max_i\frac{2\rho\eta_i}{\gamma_i+2\rho\eta_i}.
+\end{equation}
+Thus the outer-set component of certificate slack vanishes at least linearly as the radius tends to zero under these assumptions. The constant can be large when an important accepted row has little strict slack.
+\end{proposition}
+\begin{proof}
+An outer-feasible decision violates any true row by at most $2\rho\eta_i$. Mix it with the anchor by the largest fraction in \eqref{eq:outer}. Every resulting true row is feasible, and the common equalities and box remain feasible by convexity. The movement is at most that fraction times $D_C$. Apply the Lipschitz bound to an outer maximizer.\end{proof}
+
+The row envelope can be tightened by taking its support over the equality-restricted box rather than an unrestricted box. EC Section~\ref{ec:outer} also gives a valid successive-outer-set refinement. Neither a small uncertainty radius nor set containment alone establishes field robustness: the uncertainty set remains a designed, uncalibrated family. Without a uniform anchor, the linear rate above is not asserted. The finer-radius experiment distinguishes high local sensitivity from an actual positive-radius discontinuity.
+
+\input{revisions/or-r27-20260923/correlated_main.tex}
+\input{revisions/or-r28-20260923/governance_main.tex}
+

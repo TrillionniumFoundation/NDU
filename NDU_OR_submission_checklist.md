@@ -1,11 +1,18 @@
-# R28 Operations Research format and delivery checklist
+# Operations Research R29 — author/referee package checklist
 
-- Anonymous title page, abstract at most 200 words, subject classifications, Stochastic Models area.
-- Letter paper, one-inch margins, 11-point text, one-and-a-half line spacing.
-- Introduction without displayed equations; author–year citations; alphabetic references.
-- Numbered tables without vertical rules, placed after references in the main paper.
-- Data/code accessibility statement; all inherited mathematical material and adverse learning results retained.
-- Current pagination, reference resolution, horizontal overflow, predecessor preservation, and source/PDF hashes are recorded by `revisions/or-r28-20260923/check_package.py`.
-- This branch is for further review; no journal submission or acceptance is asserted.
+- [x] Latest R29 report read in full at `1647d416e7a2806d36b1c9972aff0c0b54779912`, preserved verbatim, and answered in all 18 sections.
+- [x] Preceding R28 report read at `af01e2c33f85835e550896985b7cb83b3f4b784f`; report and scientific baseline preserved unchanged.
+- [x] New isolated branch `revision/ndu-operations-research-r29-price-state-20260923`.
+- [x] New constructive finite-price theorem, proof, explicit arithmetic/storage bound and assumptions.
+- [x] Necessary memory and exact primitive-driven memory/value frontier.
+- [x] Optimized shared-table comparator distinguished from fixed-table positive-release oracle.
+- [x] Modern decomposition and nested resource-allocation comparisons, primary-source metadata.
+- [x] All historical derivations retained; six overwritten reader files preserved byte for byte.
+- [x] Adverse cache/learning evidence retained and foregrounded.
+- [x] Independent exact certificate checks, independent small-tree matrices and numerical solve, exact table KKT and memory enumeration.
+- [x] Anonymous 11-point, 1.5-spaced, one-inch-margin manuscript; author–year references; no footnotes; abstract at most 200 words.
+- [x] **Lengthy Manuscript** category selected for preservation; published guidance usually permits at most 40 nonreference pages. Current actual counts and companion limit are checked in the build report.
+- [ ] No journal-system submission performed; author declarations, conflicts, cover letter and editorial category approval remain author responsibilities.
+- [ ] Independent referees have not yet adjudicated the new theorem's correctness, priority or significance. Passing software/package checks does not imply editorial acceptance.
 
-Official format source: https://pubsonline.informs.org/page/opre/submission-guidelines (checked September 23, 2026). Regular manuscripts are limited to 30 pages excluding references; the lengthy-paper category normally permits 40 excluding references. The final build report identifies the category supported by the generated page counts, rather than assuming that a long revision is regular length.
+See `revisions/or-r29-price-state-20260923/BUILD_REPORT.md`, `MANIFEST.json`, the point-by-point response, and the final scientific commit's separate fresh-checkout status for delivery evidence.
