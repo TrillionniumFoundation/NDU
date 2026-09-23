@@ -1,0 +1,28 @@
+\section{R31 Addendum: Tightness and Memory Accounting}\label{ec:r31-addendum}
+This addendum records implementation-facing consequences of R31 and does not alter the retained R30 benchmark data.
+
+\subsection{Closed-form tightness family}
+For the deterministic chain in the R31 tightness theorem, vertex $i$ has local response
+\[
+ x_i(\eta)=[2i-\eta]_{[0,1]}.
+\]
+With redundant continuation caps,
+\[
+ R_i(\eta)=\sum_{j=i}^{n}[2j-\eta]_{[0,1]}.
+\]
+An independent audit can enumerate the two events $2j-1$ and $2j$, verify that all $2n$ event locations are distinct, construct each suffix sum, and count exactly $n^2+2n$ affine response segments. This is a symbolic test family for the theorem rather than empirical evidence for it.
+
+\subsection{Three accounting quantities}
+For a fixed root promise let $c_v$ be the number of minimized behavioral classes reached at public vertex $v$. R31 reports
+\[
+ K_*=\max_v c_v,\qquad C_*=\sum_v c_v.
+\]
+The first is the common additional writable alphabet when the current public vertex is supplied freely to the decoder. The second counts reached public-observation/behavior pairs. Neither includes the read-only coefficient representation.
+
+The read-only response layer stores the graph plus the exact piecewise-affine responses. With coefficient height $S$, its direct representation uses $O((N^2+M)S)$ bits before any implementation-specific compression. A direct minimized transition table stores one successor-class index for every behavior class and outgoing public edge.
+
+\subsection{Randomization convention}
+The exact-optimum randomized lower bound charges a retained private random seed as writable information and imposes continuation feasibility in conditional expectation at each public history. If private randomization must instead satisfy every cap pathwise, the admissible randomized-controller class is smaller, so the exact lower bound cannot be weakened by that stronger convention.
+
+\subsection{Post-compilation root queries}
+Once the complete root response is sorted by its finite event locations, a new feasible root payment is located by binary search and inverted on one affine segment. Constructing and minimizing the reached transducer, emitting a policy certificate, and auditing that certificate are separate downstream costs.
