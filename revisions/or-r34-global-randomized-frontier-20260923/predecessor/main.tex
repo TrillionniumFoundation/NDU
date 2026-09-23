@@ -20,7 +20,7 @@
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r34-ec-labels}[electronic_companion.pdf]
+\externaldocument{r33-ec-labels}[electronic_companion.pdf]
 \hypersetup{pdftitle={Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory},pdfauthor={Anonymous}}
 \begin{document}
 \hypersetup{pageanchor=false}
@@ -28,24 +28,22 @@
 {\Large\bfseries Accepted Service Adaptation:\\ Exact Parametric Quotients and\\ Minimal Additional Writable Memory\par}
 \vspace{.35in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
 \begin{minipage}{\textwidth}
-\textbf{Abstract.} Renewal agreements can reach the same public state with different accepted continuation obligations. We study exact representation under one additive commitment and separable concave rewards. Probability weighting yields classical laminar allocation, and normalized memoization gives the public-graph recursion. For quadratic rewards, the global knot universe is linear and explicit vertex tables have tight quadratic size. Exact closure extends to continuous piecewise-quadratic rewards, including marginal jumps, with rational complexity bounds and a shared-storage alternative. Classical behavioral minimization of a contract-generated transducer identifies the minimum additional writable alphabet conditional on free public observation; combined states and read-only storage are counted separately. A heterogeneous renewal model yields deterministic memory frontiers. For quadratic terminal and intermediate rewards, we globally optimize randomized codebooks: all but the highest level can be anchored at branch caps, and a finite dynamic program optimizes the remaining continuous level. An exact example shows that a cap-only restriction is suboptimal. Randomization improves the expected-participation frontier but cannot improve any budget under pathwise participation in this renewal architecture. Rational controller replay, exhaustive reduced-candidate comparisons, complete parametric-path tests, and an optimized shared-table comparator support the analysis. Earlier switching and deployment results are preserved.
+\textbf{Abstract.} Renewal agreements can reach the same public state with different accepted continuation obligations. We study their exact representation under one additive commitment and separable concave rewards. Probability weighting yields classical laminar allocation, and normalized memoization gives the public-graph recursion. For quadratic rewards, the global knot universe is linear and separately materialized response tables have worst-case quadratic size. We extend exact closure and rational bit bounds to continuous piecewise-quadratic rewards, including marginal jumps. A shared circuit gives a smaller persistent representation with a quantified query-time tradeoff. For a fixed root promise, the reached price system is a deterministic output transducer. Classical behavioral minimization, combined with price-order structure, identifies the minimum additional writable alphabet conditional on free public-state observation; combined states and read-only storage are accounted for separately. A heterogeneous renewal model yields deterministic ordered memory frontiers and an adjacent-lottery characterization for randomized terminal codebooks. An exactly solved example establishes a strict randomized advantage below the alphabet required for exact optimality. An optimized shared-table comparator, exact complete-path comparisons, and rational certificates support the analysis. Earlier switching and deployment results remain available with their original assumptions.
 \par\vspace{.15in}\textbf{Keywords:} continuation participation; contractual memory; parametric resource allocation.
 \par\vspace{.1in}\textbf{Subject classifications:} Programming: stochastic resource allocation; Dynamic programming/optimal control: contractual memory.
 \par\vspace{.1in}\textbf{Area of review:} Stochastic Models.
-\end{minipage}\vfill{Revision R34, September 23, 2026\par}
+\end{minipage}\vfill{Revision R33, September 23, 2026\par}
 \end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r34-global-randomized-frontier-20260923/introduction.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/introduction.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/model_literature.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/quotient_theory.tex}
 \input{revisions/or-r33-piecewise-randomized-20260923/extensions.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/memory_theory.tex}
 \input{revisions/or-r33-piecewise-randomized-20260923/randomized_memory.tex}
-\input{revisions/or-r34-global-randomized-frontier-20260923/global_frontier.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/shared_comparator.tex}
 \input{revisions/or-r31-tightness-minimal-machine-20260923/computational_evidence.tex}
 \input{revisions/or-r33-piecewise-randomized-20260923/new_evidence.tex}
-\input{revisions/or-r34-global-randomized-frontier-20260923/evidence.tex}
 \section{Conclusions}\label{sec:conclusion}
 Accepted continuations admit an exact quotient on a recombining public graph. The underlying laminar allocation and normalized memoization are classical; the results concern the complete response's event budget, exact rational implementation, and execution architecture. The quadratic specialization attains linear global-knot and quadratic explicit-table orders. Changing curvature and downward marginal jumps preserve finite exact closure with a budget determined by the number of local pieces and public caps.
 
@@ -55,13 +53,10 @@ Restricted memory creates a distinct design question. The deterministic renewal 
 
 The new exact implementation checks changing curvature, marginal jumps, shared evaluation, inversion, and conjugate certificates. Whole-path agreement with an independently coded KKT enumerator supports the parametric object rather than only selected promises. These checks and the retained computational studies do not establish superiority over unimplemented specialized methods or empirical service calibration. Switching, coupled commitments, and broader deployment questions retain their separate formulations and historical evidence.
 
-The randomized frontier is now a global codebook design result rather than only a fixed-codebook formula or an isolated example. Cap anchoring leaves one continuous highest level, whose interval optimum is rational under quadratic intermediate costs. This yields an exact polynomial algorithm for heterogeneous branch probabilities and costs, including cap-only instances that miss the optimum. Pathwise participation changes the feasible institution and restores the deterministic frontier at every budget. These statements use the renewal architecture and root saturation; they do not impose that institution on the broader expected-participation model.
-
 \paragraph{Code, data, and reproducibility.}
-The R34 source package includes the global-codebook and pathwise-institution proofs, an exact rational frontier algorithm, an independent exhaustive comparator, controller replay, machine-readable results, and a point-by-point response. The R33 compiler and its verification package remain unchanged and are rerun separately. Exact predecessor wrappers and a byte-level source-preservation manifest accompany the commit-pinned derivation record. All R31--R33 theorem sources, earlier evidence, and the broader retained theory volumes are preserved. The electronic companion retains the earlier accounting concordance and identifies new and inherited evidence separately. The repository build records the exact scientific source commit and reader-PDF hashes.
+The R33 source package includes the additional theorem modules, an exact rational compiler and independent verification script, machine-readable results, a point-by-point response, and a commit-pinned derivation record. All R31 and R32 theorem sources, earlier evidence, and the broader retained theory volumes are preserved. The electronic companion retains the earlier accounting concordance and identifies new and inherited evidence separately. The repository build records the exact scientific source commit and reader-PDF hashes.
 \input{revisions/or-r31-tightness-minimal-machine-20260923/references.tex}
 \clearpage
 \input{revisions/or-r33-piecewise-randomized-20260923/main_table_layout.tex}
 \input{revisions/or-r33-piecewise-randomized-20260923/evidence_table.tex}
-\input{revisions/or-r34-global-randomized-frontier-20260923/evidence_table.tex}
 \end{document}

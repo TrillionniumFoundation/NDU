@@ -1,37 +1,46 @@
-# NDU — Operations Research revision R33
+# NDU — Operations Research revision R34
 
 **Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory**
 
-Isolated revision branch: `revision/ndu-operations-research-r33-piecewise-randomized-20260923`.
-Scientific base: `238bfdb24d93439a545551d275a0c9189dbc017b` (R32).
-Review answered: independent R30 report at `a017f474619e86be533547acac87a3c8354f64cf`.
+Revision branch: `revision/ndu-operations-research-r34-global-randomized-frontier-20260923`.
+Base: R33 at `38b3f264e371758054d94a9f94088ae17a816241`.
+Latest independent report answered: `a017f474619e86be533547acac87a3c8354f64cf` (reviewed R30, not the later revisions).
 
 ## Reader entry points
 
-- `main.tex` and rebuilt `main.pdf`: complete revised article.
-- `electronic_companion.tex` and rebuilt `electronic_companion.pdf`: retained companion plus new verification and accounting concordance.
-- `revisions/or-r33-piecewise-randomized-20260923/RESPONSE_TO_REFEREES.md`: point-by-point response with inherited/new distinctions.
-- `revisions/or-r33-piecewise-randomized-20260923/DERIVATION_PROVENANCE.md`: exact source commits and proof dependencies.
-- `revisions/or-r33-piecewise-randomized-20260923/BUILD_VALIDATION.json`: source identity, reader-PDF hashes, page counts, and build checks once successfully generated. A stale predecessor PDF is not a validated R33 reader file.
+- `main.tex` / `main.pdf`: full revised article, with the new global randomized frontier and pathwise theorem proved in the main text.
+- `electronic_companion.tex` / `electronic_companion.pdf`: retained companion plus new implementation and verification concordance.
+- `revisions/or-r34-global-randomized-frontier-20260923/RESPONSE_TO_REFEREES.md`: response organized against the report, separating R31–R33 inherited changes from new R34 results.
+- `revisions/or-r34-global-randomized-frontier-20260923/DERIVATION_PROVENANCE.md`: immutable review/base commits and proof dependencies.
+- `revisions/or-r34-global-randomized-frontier-20260923/BUILD_VALIDATION.json`: source identity, PDF hashes, page counts, source preservation, and actual tests. A predecessor PDF or a transport commit alone is not a validated R34 reader.
 
-## New scientific content
+## New mathematical result
 
-The `extensions.tex` module proves exact closure for continuous strictly concave piecewise-quadratic rewards, including marginal jumps, with a local-piece event budget, polynomial rational coefficient-event complexity, and the same cap-only carried-price bound. It supplies a nondifferentiable-safe conjugate certificate, an explicit convex-cost-flow bridge, and a shared-circuit persistent-storage/query tradeoff. Quadratic explicit-table tightness is preserved and is not misrepresented as a lower bound on every shared representation.
+For the heterogeneous quadratic renewal family, an optimal randomized terminal codebook has all nonhighest levels at branch caps and at most one continuous highest level. An ordered dynamic program plus exact interval minimization computes the global frontier through budget `m` in `O(m k^2)` rational operations and `O(m k+k)` scalar storage for `m<=k`. The highest level cannot simply be restricted to caps: the new three-branch example has optimal levels `1/4,5/8` and loss `23/1280`, below the best cap-only loss `3/160`.
 
-The `randomized_memory.tex` module gives an adjacent-lottery characterization for fixed terminal codebooks. It globally solves a three-branch instance: two deterministic symbols lose `1/8`, while two randomized symbols under expected participation lose `1/96`. Exact optimality still requires three symbols. Private-draw pathwise participation is expressly distinguished.
+A separate all-budget theorem shows that private-draw pathwise participation has exactly the deterministic frontier under the stated saturated-root renewal architecture. Expected participation can admit a strictly better randomized frontier. Both institutions retain the same exact-optimum alphabet threshold when the full-information optimum is unique.
 
-## Reproduce the new exact checks
+These results add to, rather than replace, the retained quotient, tightness, piecewise-quadratic, machine-minimization, circuit, comparator, and historical switching/deployment results.
+
+## Reproduction
+
+From the repository root, with Python 3.12 or newer and no third-party Python packages:
 
 ```sh
-python revisions/or-r33-piecewise-randomized-20260923/verify.py
+R=revisions/or-r34-global-randomized-frontier-20260923
+python "$R/verify.py"
+python "$R/reproduce_inherited.py"
+python "$R/build_validate.py"
 ```
 
-This regenerates `verification.json` and `representation.csv`. The local run passed 24 piecewise recombining inputs, 4,170 independent local checks, 834 whole-graph circuit comparisons, 834 circuit inversions, 836 primal–dual certificates, four complete exact active-set paths, and seven chain sizes. The records identify the actual run and environment-dependent timing.
+The last command also requires pdfLaTeX with newtx/standard LaTeX packages and Poppler utilities. It records the current Git source commit and checks both documents. The isolated GitHub Actions workflow executes the same steps and publishes validated readers only on the R34 branch.
 
-The parametric reference is our own exhaustive small-instance KKT enumerator. It is not a published specialized-solver implementation or a competitive speed benchmark. Instances are synthetic; no service calibration is claimed.
+The exact new suite passed 51 small instances, 1,932 reduced-candidate comparisons, 446 frontier equalities, 1,073 nonanchor-grid checks, 1,346 moment identities, 255 controller replays, and ten invalid-input checks. The scale family computes all budgets through eight on 16, 32, 64, and 128 branches. `verification.json`, `scaling.csv`, and `inherited_verification.json` record the actual run and environment.
 
-## Preservation and build
+The exhaustive comparator uses the proved anchor reduction but is independent of the production DP and moment arithmetic. Grids are falsification tests, not a proof over the continuum. No published specialized solver implementation is represented as having been run. Instances are synthetic, not calibrated service data.
 
-All R31/R32 modules, previous theory volumes, and earlier favorable and unfavorable evidence remain in the branch. Exact predecessor wrappers are archived in the R33 `predecessor/` directory. The root wrappers, new R33 modules, and response constitute the revision. `main` and all prior branches are left unchanged.
+## Preservation and presentation
 
-The initial transport was SHA-256 verified before scientific sources were committed. The current isolated R33 workflow builds the tracked revision, applies idempotent layout preparation, runs exact checks, compiles both reader PDFs with filtered cross-document labels, and publishes only validated PDFs on this branch. It checks citations/references, overfull boxes, the 30-total-page main limit, and the companion length. Read the final scientific commit and build record rather than inferring completion from a branch name.
+All R31–R33 source modules and earlier evidence remain in the branch. Original root wrappers are archived in the R34 `predecessor/` directory. `PRESERVATION_MANIFEST.json` validates 35 inherited reader/source/evidence files and four archived wrappers. The remote tree inherits every other historical file unchanged. `main` and all previous revision/review branches are left untouched.
+
+The full article is prepared under the Operations Research Lengthy Manuscript category, preserving 11-point text, 1.5 spacing, one-inch margins, author–year references, and tables after references. The validated build conservatively requires no more than 40 total main pages, a companion no longer than the main paper, an abstract of at most 200 words, and no unresolved references/citations or overfull boxes. It is a manuscript for further review, not a journal submission or acceptance.
