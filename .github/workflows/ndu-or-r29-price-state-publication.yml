@@ -1,0 +1,193 @@
+name: NDU R29 finite-price publication and final-SHA verification
+on:
+  push:
+    branches: [revision/ndu-operations-research-r29-price-state-20260923]
+    paths:
+      - .github/workflows/ndu-or-r29-price-state-publication.yml
+      - revisions/or-r29-price-state-20260923/transport/**
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+concurrency:
+  group: ndu-or-r29-price-state-publication
+  cancel-in-progress: false
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r29-price-state-20260923
+  R: revisions/or-r29-price-state-20260923
+  GH_TOKEN: ${{ github.token }}
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r29-price-state-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    outputs:
+      scientific_sha: ${{ steps.publish.outputs.scientific_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize the hash-verified authored revision
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64,hashlib,json,lzma,os
+          r=Path(os.environ['R'])
+          text=''.join((r/'transport'/f'source.part{i}.b64').read_text().strip() for i in range(5))
+          packed=base64.b64decode(text,validate=True)
+          assert hashlib.sha256(packed).hexdigest()=='8e84c10cf0c63e50290bdb84ce22f1d112b8b0200a0f30df74af68f5845b33c2'
+          raw=lzma.decompress(packed)
+          assert hashlib.sha256(raw).hexdigest()=='9c50732eebcec27a4ea05967fdc74225cded47c85324c6dc4f625d758b0690e4'
+          data=json.loads(raw)
+          expected=set('DERIVATION_PROVENANCE.md LITERATURE_AUDIT.md NOVELTY_MATRIX.md README.template.md RESPONSE_TO_REFEREES.md assemble.py build.sh check_package.py checks_ec.tex evidence_main.tex intro.tex make_tables.py memory_frontier.py memory_main.tex modern_literature.tex oracle_check.py price_main.tex price_solver.py references.tex requirements-validation.txt research.py shared_main.tex submission_checklist.template.md table_comparator.py tree_check.py verify.py verify_extensions.py'.split())
+          assert set(data)==expected
+          for name,content in data.items():
+              assert Path(name).name==name and isinstance(content,str)
+              (r/name).write_text(content,encoding='utf-8')
+          print('Materialized 27 authored files; both payload hashes verified.')
+          PY
+      - name: Install pinned numerical checks and typesetting dependencies
+        run: |
+          python -m pip install -r "$R/requirements-validation.txt"
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Construct and independently audit new mathematical evidence
+        run: |
+          python -S "$R/research.py"
+          python -S "$R/memory_frontier.py"
+          python -S "$R/table_comparator.py"
+          python "$R/tree_check.py"
+          python -S "$R/oracle_check.py"
+          python -S "$R/verify.py"
+          python -S "$R/verify_extensions.py"
+          python -S "$R/make_tables.py"
+          python -S "$R/verify.py" --check
+          python -S "$R/verify_extensions.py" --check
+          python -S "$R/make_tables.py" --check
+      - name: Replay all unchanged R24 through R28 certificates
+        run: |
+          pids=()
+          for n in 24 25 26 27; do
+            python -S "revisions/or-r${n}-20260923/replay.py" --check > "$R/results/inherited_r${n}_replay.json" & pids+=("$!")
+          done
+          python -S revisions/or-r28-20260923/verify.py --check > "$R/results/inherited_r28_replay.json" & pids+=("$!")
+          failed=0
+          for pid in "${pids[@]}"; do wait "$pid" || failed=1; done
+          test "$failed" = 0
+          python - <<'PY'
+          from pathlib import Path
+          import json,os
+          for n in range(24,29):
+              a=json.loads((Path(os.environ['R'])/f'results/inherited_r{n}_replay.json').read_text())
+              assert a['status']=='PASS'
+          print('All five inherited exact replay families passed without modifying their sources or stored evidence.')
+          PY
+      - name: Assemble preserved readers and compile all three PDFs
+        run: |
+          python -S "$R/assemble.py"
+          bash "$R/build.sh"
+          find "$R" -type d -name __pycache__ -prune -exec rm -rf {} +
+          python "$R/check_package.py" --write
+          python "$R/check_package.py" --check
+      - name: Publish the isolated scientific revision
+        id: publish
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R29 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add -f "$R" main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md r29-main-labels.aux r29-ec-labels.aux r29-retained-labels.aux r29-retained-source-main-labels.aux
+          python - <<'PY'
+          import subprocess,os
+          allowed=set('main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md r29-main-labels.aux r29-ec-labels.aux r29-retained-labels.aux r29-retained-source-main-labels.aux'.split())
+          changed=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          assert changed and all(p in allowed or p.startswith(os.environ['R']+'/') for p in changed),changed
+          assert not any('__pycache__' in p for p in changed)
+          PY
+          git commit -m 'paper(or-r29): constructive finite continuation prices, necessary memory and exact memory-value frontier'
+          git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          final_sha=$(git rev-parse HEAD)
+          echo "scientific_sha=$final_sha" >> "$GITHUB_OUTPUT"
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$final_sha" -f state=pending -f context=ndu-or-r29/final-sha -f description='Published R29 scientific checkout; independent final-SHA verification pending' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r29-price-state-build-diagnostics
+          path: revisions/or-r29-price-state-20260923/results/
+          retention-days: 14
+          if-no-files-found: warn
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.scientific_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Independently verify the published scientific SHA
+        run: |
+          test "$(git rev-parse HEAD)" = '${{ needs.publish.outputs.scientific_sha }}'
+          python -m pip install -r "$R/requirements-validation.txt"
+          python -S "$R/verify.py" --check
+          python -S "$R/verify_extensions.py" --check
+          python -S "$R/make_tables.py" --check
+          python "$R/check_package.py" --check
+          mkdir -p /tmp/r29-independent-tree/results
+          cp "$R/tree_check.py" /tmp/r29-independent-tree/
+          cp "$R/results/evidence.json" /tmp/r29-independent-tree/results/
+          python /tmp/r29-independent-tree/tree_check.py
+          pids=()
+          for n in 24 25 26 27; do
+            python -S "revisions/or-r${n}-20260923/replay.py" --check > "/tmp/r29-inherited-r${n}.json" & pids+=("$!")
+          done
+          python -S revisions/or-r28-20260923/verify.py --check > /tmp/r29-inherited-r28.json & pids+=("$!")
+          failed=0
+          for pid in "${pids[@]}"; do wait "$pid" || failed=1; done
+          test "$failed" = 0
+          python - <<'PY'
+          from pathlib import Path
+          import json,os
+          for n in range(24,29):
+              actual=json.loads(Path(f'/tmp/r29-inherited-r{n}.json').read_text())
+              published=json.loads((Path(os.environ['R'])/f'results/inherited_r{n}_replay.json').read_text())
+              assert actual==published and actual['status']=='PASS'
+          PY
+          python "$R/check_package.py" --check
+          git diff --exit-code
+      - name: Package the exact published revision
+        run: |
+          mkdir -p /tmp/ndu-r29-readers
+          git rev-parse HEAD > /tmp/ndu-r29-readers/FINAL_SHA.txt
+          git archive --format=tar HEAD | gzip > /tmp/NDU_OR_R29_review_package.tar.gz
+          cp main.pdf main.tex electronic_companion.pdf electronic_companion.tex README.md /tmp/ndu-r29-readers/
+          cp "$R/retained_evidence.pdf" "$R/RESPONSE_TO_REFEREES.md" "$R/BUILD_REPORT.md" "$R/MANIFEST.json" "$R/NOVELTY_MATRIX.md" "$R/results/package_check.json" /tmp/ndu-r29-readers/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r29-price-state-complete-review-package
+          path: |
+            /tmp/NDU_OR_R29_review_package.tar.gz
+            /tmp/ndu-r29-readers/FINAL_SHA.txt
+          retention-days: 30
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r29-price-state-reader-files
+          path: /tmp/ndu-r29-readers/
+          retention-days: 30
+          if-no-files-found: error
+      - name: Record validation on the actual final scientific SHA
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          [ "$JOB_STATUS" = success ] && state=success
+          gh api "repos/$GITHUB_REPOSITORY/statuses/${{ needs.publish.outputs.scientific_sha }}" -f state="$state" -f context=ndu-or-r29/final-sha -f description='Actual final SHA: fresh-checkout exact replay, tree checks, PDF checks and all historical preservation' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
