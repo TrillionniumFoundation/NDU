@@ -109,26 +109,37 @@ jobs:
 
       - name: Write build record
         run: |
-          main_pages=$(pdfinfo main.pdf | awk '/^Pages:/ {print $2}')
-          ec_pages=$(pdfinfo electronic_companion.pdf | awk '/^Pages:/ {print $2}')
-          main_sha=$(sha256sum main.pdf | awk '{print $1}')
-          ec_sha=$(sha256sum electronic_companion.pdf | awk '{print $1}')
-          cat > "$R/BUILD_VALIDATION.md" <<EOF
-          # R31 remote build validation
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, os, subprocess
 
-          - Source commit: `$GITHUB_SHA`
+          def pages(path):
+              out=subprocess.check_output(['pdfinfo',path],text=True)
+              for line in out.splitlines():
+                  if line.startswith('Pages:'):
+                      return line.split(':',1)[1].strip()
+              raise RuntimeError(path)
+
+          def sha256(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          record=f"""# R31 remote build validation
+
+          - Source commit: `{os.environ['GITHUB_SHA']}`
           - Tightness checker: PASS
-          - Main PDF pages: $main_pages
-          - Electronic companion pages: $ec_pages
+          - Main PDF pages: {pages('main.pdf')}
+          - Electronic companion pages: {pages('electronic_companion.pdf')}
           - Undefined references/citations: 0 detected
           - Multiply-defined citations: 0 detected
           - Overfull boxes: 0 detected
-          - Main PDF SHA-256: `$main_sha`
-          - Electronic companion SHA-256: `$ec_sha`
+          - Main PDF SHA-256: `{sha256('main.pdf')}`
+          - Electronic companion SHA-256: `{sha256('electronic_companion.pdf')}`
           - Runner: GitHub Actions `ubuntu-latest`
 
           This record concerns the R31 sources on the isolated revision branch. It does not reinterpret historical computational evidence.
-          EOF
+          """
+          (Path(os.environ['R'])/'BUILD_VALIDATION.md').write_text(record,encoding='utf-8')
+          PY
 
       - name: Publish rebuilt reader PDFs and validation record
         run: |
