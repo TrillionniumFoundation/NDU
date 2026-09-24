@@ -1,0 +1,24 @@
+\section{Mean-Preserving Radial Spreads of Outside Options}
+Fix positive probabilities, an interior mean $\bar b$, and strictly increasing numbers $d_j$ with $\sum_j\pi_jd_j=0$. Let
+\begin{equation}\label{eq:dispersion-family}
+ b_j(\varepsilon)=\bar b+\varepsilon d_j,
+ \qquad 0<b_j(\varepsilon)<1.
+\end{equation}
+Keep the common service-benefit continuation fixed. The outside options are that continuation minus $b_j(\varepsilon)$. Increasing $\varepsilon$ is therefore a mean-preserving radial spread of continuation caps and outside options along the fixed ordered direction $d$; physical public transitions are unchanged.
+
+\begin{proposition}[Mean-preserving radial spreads increase the value of contractual memory]\label{prop:dispersion}
+For the quadratic renewal family in \eqref{eq:old-cell}, with arbitrary positive branch probabilities and every strictly ordered zero-mean direction $d$, every insufficient deterministic alphabet $m<k$ has $D_m(\varepsilon)>0$ and $D_m(\varepsilon)$ is strictly increasing in $\varepsilon>0$ throughout the admissible range. Moreover $D_m(\varepsilon)=O(\varepsilon)$ as $\varepsilon\downarrow0$. Exact execution needs one symbol at $\varepsilon=0$ and $k$ symbols at every $\varepsilon>0$.
+\end{proposition}
+\begin{proof}
+For a fixed contiguous partition with cell minimum $i$, the loss on branch $h$ in that cell is
+\[
+ \pi_h\varepsilon(d_h-d_i)(2-\bar b-\varepsilon d_i).
+\]
+For $h>i$, its derivative is
+\[
+ \pi_h(d_h-d_i)(2-\bar b-2\varepsilon d_i)>0.
+\]
+If $d_i\leq0$ this is immediate. If $d_i>0$, admissibility gives $\varepsilon d_i<1-\bar b$, so the last factor exceeds $\bar b>0$. A partition with fewer than $k$ cells has at least one positive term. Every candidate partition cost is therefore strictly increasing and positive. The minimum of finitely many strictly increasing candidate costs is strictly increasing: evaluate at the minimizing partition for the larger parameter. Each cost is $O(\varepsilon)$ near zero. Distinct optimal terminal tiers give the alphabet statement.
+\end{proof}
+
+The proposition is intentionally a theorem about every ordered radial spread direction, not a claim about arbitrary convex-order, majorization, or variance comparisons between unrelated cap vectors. It is nevertheless stronger than an equal-weight or one-calibration statement: branch probabilities are arbitrary positive numbers and the direction $d$ is arbitrary subject to strict order and zero weighted mean. The economic distinction remains sharp: the exact alphabet can jump discontinuously at zero spread while the value loss from insufficient memory converges continuously to zero.

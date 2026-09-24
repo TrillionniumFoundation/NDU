@@ -1,0 +1,91 @@
+\section{The Laminar Polymatroid Connection}\label{ec:polymatroid}
+This section supplies the feasible-set link to \citet{FedergruenGroenevelt1986,Groenevelt1991}; it is not offered as a new polymatroid theorem. In the variables of Proposition~\ref{prop:laminar}, set $\ell_h=w_ha_{v(h)}l_{v(h)}$, $u_h=z_h-\ell_h$, and $c_h=w_ha_{v(h)}(h_{v(h)}-l_{v(h)})$. The residual subtree capacities are $C_h=w_hB_{v(h)}-\sum_{j\succeq h}\ell_j\geq0$, and the residual total is $b'=b_0-\sum_h\ell_h\geq0$. Write $\mathcal T_h$ for the descendant set at $h$. For $A\subseteq\mathcal T_h$, define the rank recursively by
+\begin{equation}\label{eq:laminar-rank}
+ f_h(A)=\min\left\{C_h,\ c_h\mathbf1_{\{h\in A\}}+
+                   \sum_{j\text{ child of }h}f_j(A\cap\mathcal T_j)\right\}.
+\end{equation}
+The root function $f_0$ is normalized, nondecreasing, and submodular. Indeed, the expression inside the minimum is a sum of a nonnegative modular function and submodular functions on disjoint ground sets; truncation at a nonnegative constant preserves nondecreasing submodularity. The latter fact follows directly from diminishing marginal increments: the increment of a truncated function is its original nonnegative increment capped by the remaining distance to the truncation level, both of which cannot increase when the conditioning set grows.
+
+The residual packing region is exactly $P(f_0)=\{u\geq0:\sum_{h\in A}u_h\leq f_0(A)\text{ for every }A\}$. To verify the rank, maximize allocation to a subset $A$ on a subtree. The independent child capacities contribute their ranks and the current coordinate contributes $c_h\mathbf1_{\{h\in A\}}$; the current cap truncates their sum. Any value between zero and that sum can be obtained by scaling a feasible nonnegative allocation, which proves \eqref{eq:laminar-rank}. Conversely, the subset inequalities for singleton coordinates and for descendant sets imply the original box and subtree rows, since their ranks do not exceed the respective capacities. This proves equality of the regions.
+
+Feasibility gives $b'\leq f_0(\mathcal T)$. Define $f^{b'}(A)=\min\{b',f_0(A)\}$. The exact-payment feasible set is the base
+\[
+ \left\{u\in P(f^{b'}):\sum_hu_h=f^{b'}(\mathcal T)=b'\right\}.
+\]
+Truncation matters when the promised total is below the maximum feasible allocation. The objective after translation remains separable strictly concave. Hence both the laminar and the polymatroid connections are exact, including nonzero local lower bounds and a root equality. Our input-compression and execution-memory claims concern this repeated-subtree subclass, not separable allocation over all polymatroids.
+
+\section{Coefficient-Event Compilation}\label{ec:events}
+For each response, store ordered rational knots $k_1<\cdots<k_s$ and one affine coefficient pair $(m_i,c_i)$ on each interval, including the two tails. Equal adjacent pairs are removed. Evaluation uses binary search and the convention that a knot belongs to its right interval; continuity makes the value independent of that convention.
+
+At vertex $v$, initialize the left-tail coefficient with $a_vh_v+\beta\sum_wp_{vw}U_w$. The local clipped payment changes slope and intercept at
+\[
+ (r_v-q_vh_v)/a_v,\qquad (r_v-q_vl_v)/a_v.
+\]
+For each successor knot, add the weighted difference between its new and old coefficient pair to the event at that knot. Combining equal-key events before sorting ensures that a repeated downstream breakpoint is stored once at the current vertex. Starting from the left-tail pair, sweep events to recover the pre-cap lines. This operation merges coefficients; it never recovers a slope from two evaluations at newly generated cap crossings.
+
+If the cap is redundant, store the pre-cap curve. Otherwise find the first crossing of $B_v$ by scanning the nonconstant affine pieces. Replace the entire prefix by the constant $B_v$, retain the original crossing line to its right, and discard any newly equal neighboring pairs. The crossing may coincide with an existing knot or lie at the left endpoint of a constant equality plateau. Both cases use the same continuity convention.
+
+The input checker requires rational integers or strings, positive payment and quadratic coefficients, a valid physical interval, positive outgoing probabilities summing to one, topological vertex order, and reachability from the root. Duplicate edges must first be aggregated. It rejects an empty feasible continuation interval or an out-of-range root promise rather than returning an approximate feasible answer. Floating-point primitives are rejected by the exact compiler because their intended rational interpretation would otherwise be ambiguous.
+
+\subsection{A direct plateau argument}
+Let $x_1,x_2$ maximize $G(x)-\eta_1Y(x)$ and $G(x)-\eta_2Y(x)$ over the same compact convex pre-cap set, with $\eta_1<\eta_2$. Optimality gives
+\[
+ G(x_1)-G(x_2)\geq\eta_1(Y(x_1)-Y(x_2)),\quad
+ G(x_1)-G(x_2)\leq\eta_2(Y(x_1)-Y(x_2)).
+\]
+If the two payments coincide, these inequalities imply equal rewards. Both actions then maximize both objectives. Strict concavity forces $x_1=x_2$. A payment plateau therefore changes neither the optimal local tier nor any future tier, although the price supporting that plan may vary. This proves policy uniqueness at a cap-equality plateau without assuming uniqueness of a Lagrange multiplier.
+
+At a response's upper tail, the implementation returns one finite price strictly below its first knot. At the lower tail, it returns an endpoint of the last decreasing segment; a completely constant response uses price zero. None of these choices changes the optimum. If the root itself is capped exactly at its promised payment, its cap multiplier and equality price may be redistributed, but their contribution to the objective remains the same because the two right-hand sides agree.
+
+\subsection{Explicit pseudocode}
+The following procedure is equivalent to the executable coefficient-event implementation.
+\begin{quote}\small
+Process vertices in reverse topological order. At each vertex, validate the feasible lower payment. Create the two local clipping events when the interval is nondegenerate. Add discounted probability-weighted successor coefficient changes into a common event dictionary. Sort its keys and sweep to obtain the pre-cap curve. When necessary, invert that curve at the current cap and replace its left prefix by a constant. Store the remaining lines and current barrier. After the root query arrives, invert the root curve at the exact promised payment. Propagate the maximum of the incoming price and current barrier, aggregate identical reached vertex--price pairs, and record actions and multipliers. Finally minimize the reached execution graph by backward behavioral signatures.
+\end{quote}
+The procedure constructs all graph response curves, but it constructs execution states only for the supplied query. A different query may change both the reached pairs and the minimized machine. The table-storage bound and writable-alphabet bound describe different data structures.
+
+\section{Bit Bounds for Execution and Certificates}\label{ec:certificate-bits}
+The main bit theorem deliberately concerns response preprocessing and one inversion. The next observation explains why exact execution remains polynomial while a printed total value can be much longer than an individual response coefficient.
+
+\begin{proposition}[A conservative execution-height bound]\label{ec:prop-execution-bits}
+Let $S$ be the bit-height bound in Theorem~\ref{thm:bit}, with the root query included in the input length. For a fixed query, all rational numbers needed by a compact execution certificate, including its aggregate reward and dual value, have bit height $O(NS+NL+\log(N+1))$ under a common-denominator implementation. Exact forward/backward execution and auditing thus admit polynomial bit complexity on at most $N(N+1)$ reached pairs and $M(N+1)$ transitions.
+\end{proposition}
+\begin{proof}
+The discounted weight of a reached pair is a sum of probabilities of public paths that produce its price label. Each path contains at most $N-1$ edges. The same product-of-input-denominators argument as in Theorem~\ref{thm:bit} bounds its rational denominator by $D_0^{N+4}$ and its numerator by a comparable height, since its weight is at most one. This representation does not multiply the denominators of individual histories.
+
+There are at most $N+1$ distinct numerical prices. A local action is either a physical endpoint or $(r_v-a_vs)/q_v$ for one such price $s$. A local reward has degree at most two in that price, with rational primitive coefficients. A common denominator for all weighted reward contributions divides a fixed power of $D_0^{N+4}$ times the product of the squared denominators of the distinct prices. Its logarithm is $O(NL+NS)$. The same denominator argument applies to payments, cap-multiplier contributions, bound multipliers, and the squared local dual terms; a difference of two prices introduces denominators already in this product. The sum contains only polynomially many compact-pair terms, and their magnitudes add at most polynomial factors and the bounded-height price magnitudes. This gives the stated height. Forward and backward dynamic programming on the reached graph then uses polynomially many operations on polynomial-height integers.\end{proof}
+
+This is a conservative implementation bound, not an assertion that the experimental total rewards attain it. In the implementation, reward and payment contributions are first grouped by effective price before their final sum. This reduces repeated greatest-common-divisor work across unrelated price denominators without changing the exact result. The independent audit reconstructs conditional payments directly from the action/transition records and checks local normal-cone conditions; it does not trust the compiler's claimed response identity.
+
+For trusted internally generated experiments, the worker explicitly lifts Python's default decimal integer-string length guard. This affects serialization only, not mathematical arithmetic or input validity. The general compiler does not silently reinterpret floating-point inputs or accept arbitrary external executable data. The worker's total reward can have many more decimal digits than a stored slope, precisely the distinction addressed by the proposition.
+
+\section{Behavioral Quotients and Information Accounting}\label{ec:machine}
+A backward signature at a reached pair consists of its rational action and the ordered tuple of successor-vertex and successor-class indices. Two signatures are equal precisely when the corresponding complete suffix plans are equal. Because the graph is acyclic, successor classes are already known when a vertex is processed. The stored class index may be reused at other public vertices. The update map has the public transition as input and writes the successor's local class before the next action is decoded.
+
+This timing convention is important. A past branch cannot be made available to the next action decoder as an additional uncharged register merely by calling it the last observed edge. Similarly, a remaining promise, past service tier, or retained seed would enlarge the observation model if made separately available. The minimal-alphabet theorem fixes these interfaces. It compares controllers with the same read-only program and current public observation, not architectures with different free history channels.
+
+\subsection{A strict reduction beyond counting numerical prices}
+Take a root fixed at zero, two equally likely intermediate vertices, and a common terminal vertex fixed at tier $1/4$. Intermediate rewards are $2x-x^2/2$, their caps are $1/2$ and $1$, payments and discounting are one, and the root promise is $3/4$. Both branch caps bind. The intermediate actions are $1/4$ and $3/4$, so two different prices can reach the terminal vertex. Yet its terminal action is fixed and has no successors. Both prices therefore belong to the same terminal behavioral class, and the entire optimal protocol can use one writable symbol. The exact test records two raw states at that vertex but a minimum alphabet of one. Counting numerical prices alone would overstate necessary memory.
+
+\subsection{Randomization and restricted-memory values}
+The Jensen argument in Theorem~\ref{thm:minimal} concerns a randomized controller attaining the \emph{full} optimum. It forces every action at every positive-probability public history to equal the unique optimum almost surely. It does not prove that randomization leaves all lower-alphabet optima unchanged. The frontier in Theorem~\ref{thm:frontier} is consequently stated for deterministic encodings. These two results have different conclusions and should not be merged into an unsupported randomized-frontier claim.
+
+\section{Heterogeneous Cell Costs and Dispersion}\label{ec:frontier}
+For quadratic terminal reward $f(c)=rc-qc^2/2$ and intermediate cost $h_h(y)=\gamma_hy^2/2$, the cell cost at minimum $b_i$ expands as
+\begin{align*}
+ C(i,j)=\sum_{h=i}^j\pi_h\{&r b_h-qb_h^2/2-rb_i+qb_i^2/2\\
+                         &+\gamma_hb_h^2/2-\gamma_hb_hb_i+\gamma_hb_i^2/2\}.
+\end{align*}
+Prefix sums of $\pi_h$, $\pi_hb_h$, $\pi_hb_h^2$, $\pi_h\gamma_h$, $\pi_h\gamma_hb_h$, and $\pi_h\gamma_hb_h^2$ therefore evaluate a cell in constant arithmetic time. With general convex cost functions, the segmentation recurrence still applies after cell costs are computed; the quadratic prefix-sum preprocessing bound is not assigned to an arbitrary function oracle.
+
+The finite enumeration test does not assume contiguous cells. It enumerates all set partitions for branch counts two through seven, computes each cell at its smallest cap, and compares the best value at every cell count with the ordered dynamic program. Two cost families are used: heterogeneous quadratic costs with quadratic terminal reward, and heterogeneous cubic costs with a strictly increasing piecewise-concave terminal reward. Probabilities are proportional to branch indices rather than equal. In total, 2,308 arbitrary partitions are checked exactly.
+
+For the dispersion test, probabilities are again unequal, the mean cap is $1/2$, and centered branch indices define $d_j$. Four rational positive dispersion levels are tested for each branch count. The resulting 84 strict loss comparisons complement, but do not establish, the analytic monotonicity proof. The limiting alphabet jump at zero dispersion follows from the optimal terminal actions, not from a numerical precision threshold.
+
+\section{Complete Endpoint-Normal Splitting}\label{ec:normals}
+The effective interval is the intersection of four half-spaces on one coordinate: physical lower and upper bounds and corridor lower and upper bounds. At a lower endpoint, its outward lower normal is generated by any original lower inequality attaining the maximum lower bound; at an upper endpoint, the upper normal is generated by an inequality attaining the minimum upper bound. At a singleton, both normal directions are present, even if supplied by different original inequalities. Thus their nonnegative sum is the entire required interval normal cone.
+
+For example, let the physical upper bound be $1/2$ and let the corridor upper bound also equal $1/2$. A positive effective upper multiplier $u^+$ can be split as $\theta u^+$ to the corridor and $(1-\theta)u^+$ to the physical bound for any $0\leq\theta\leq1$. Both original constraints are active, so stationarity and complementarity persist. The resulting supporting cut need not be unique. At zero corridor width, both corridor endpoints coincide; the residual's sign determines a valid orientation without dividing by that width. A physical upper bound coinciding with a corridor lower bound similarly creates a singleton, and the corresponding two opposite normals span every residual sign.
+
+The boundary suite tests physical-first, corridor-first, and equal splitting. It includes ordinary coupled-graph queries, upper and lower physical ties, fixed physical tiers, zero corridor widths, and intersections reduced to one point by different physical and corridor bounds. For each feasible anchor, nearby rational table/width queries are solved and the proposed upper support is evaluated exactly. Infeasible test queries are rejected rather than counted as supporting-cut successes. The recorded 150 anchors and 1,185 inequalities are over feasible queries only.
+

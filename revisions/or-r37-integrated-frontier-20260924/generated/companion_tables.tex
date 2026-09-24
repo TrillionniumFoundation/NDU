@@ -1,0 +1,44 @@
+\begin{longtable}{@{}llrrr@{}}
+\caption{Separate memory runs at 1,024 branches and budgets one through eight; mebibytes.}\label{tab:r37-memory}\\
+\toprule
+Institution & Search & Current heap & Peak heap & Resident peak \\
+\midrule
+\endfirsthead
+\toprule
+Institution & Search & Current heap & Peak heap & Resident peak \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Expected & Divide-conquer & 2.60 & 3.92 & 33.4 \\
+Expected & SMAWK & 0.59 & 2.62 & 29.2 \\
+Expected & PADS & 0.65 & 2.68 & 29.3 \\
+Pathwise & Divide-conquer & 1.96 & 2.88 & 29.7 \\
+Pathwise & SMAWK & 0.53 & 2.50 & 29.3 \\
+Pathwise & PADS & 0.59 & 2.58 & 29.3 \\
+\end{longtable}
+\noindent Tracing starts before input creation and stops before validation. Heap fields are Python-tracked allocations; resident peaks include the process baseline and native allocations. Traced runtimes are not used as the unprofiled comparison.
+
+
+\clearpage
+\begin{longtable}{@{}llrrrrr@{}}
+\caption{Exclusive-time decomposition in separate 512-branch profile runs; percentages.}\label{tab:r37-profile}\\
+\toprule
+Institution & Search & Arithmetic & Oracle & Search & Outer & Other \\
+\midrule
+\endfirsthead
+\toprule
+Institution & Search & Arithmetic & Oracle & Search & Outer & Other \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Expected & Divide-conquer & 69.5 & 11.8 & 1.6 & 0.2 & 16.9 \\
+Expected & SMAWK & 67.5 & 10.6 & 5.2 & 0.1 & 16.5 \\
+Expected & PADS & 67.0 & 10.6 & 4.6 & 0.2 & 17.7 \\
+Pathwise & Divide-conquer & 72.0 & 3.6 & 8.0 & 0.1 & 16.3 \\
+Pathwise & SMAWK & 70.5 & 3.5 & 9.8 & 0.0 & 16.2 \\
+Pathwise & PADS & 70.0 & 3.5 & 9.5 & 0.0 & 17.0 \\
+\end{longtable}
+\noindent Arithmetic includes reduced-fraction operations and gcd. Oracle and search columns count their own exclusive work, not child arithmetic again. Outer combines frontier scans and reconstruction. Percentages use exclusive profile time and are not percentages of unprofiled wall time; rounding can prevent an exact sum of 100.
+

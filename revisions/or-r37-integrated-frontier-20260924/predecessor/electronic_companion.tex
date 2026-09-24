@@ -1,0 +1,43 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r36-main-labels}[main.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\hypersetup{pdftitle={Electronic Companion: Exact Parametric Quotients and Minimal Additional Writable Memory},pdfauthor={Anonymous}}
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion}\par\medskip
+{\large Accepted Service Adaptation:\\ Exact Parametric Quotients and Minimal Additional Writable Memory}\par\medskip
+Anonymous manuscript for Operations Research\par
+Revision R36, September 24, 2026
+\end{center}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/companion_content.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/companion_r31_addendum.tex}
+\input{revisions/or-r32-priority-complexity-closure-20260923/companion_r32_addendum.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/companion_addendum.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/r32_accounting_text.tex}
+\input{revisions/or-r34-global-randomized-frontier-20260923/companion_addendum.tex}
+\input{revisions/or-r35-monge-frontier-20260923/companion_addendum.tex}
+\input{revisions/or-r36-linear-frontier-20260924/companion_addendum.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/companion_references.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/companion_tables.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/r32_accounting_table.tex}
+\end{document}

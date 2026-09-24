@@ -1,49 +1,51 @@
-# NDU — Operations Research revision R36
+# NDU — Operations Research revision R37
 
-**Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory**
+**Service Contracts with Limited Memory: Participation, Randomization, and Exact Design**
 
-New branch: `revision/ndu-operations-research-r36-linear-frontier-20260924`.
-Baseline reader: R35 at `7e49851cd04f0f7e015c2561b43a4e7591574e67`.
-Independent report addressed: `a017f474619e86be533547acac87a3c8354f64cf`, which reviewed R30, not R31–R36.
+Current branch: `revision/ndu-operations-research-r37-integrated-frontier-20260924`.
 
-## Readers and audit entry points
+This revision addresses the **independent R36 report dated September 24, 2026**, at review commit `f26f4da71207a7613735b0504bc34dbe231813c1`, reviewing manuscript commit `8b17bed9079aa8e3bcaf52e6a5847a60cbf7d7ca`. It does not mistake the earlier R30 report for the current review.
 
-- `main.tex` / `main.pdf`: the complete article, including the new linear-work theorem and proof and all inherited R31–R35 theorem modules.
-- `electronic_companion.tex` / `electronic_companion.pdf`: retained technical material plus the full symbolic-completion argument, search invariants, complexity accounting, and evidence details.
-- `revisions/or-r36-linear-frontier-20260924/RESPONSE_TO_REFEREES.md` / `.pdf`: point-by-point cumulative response with inherited/new results distinguished.
-- `revisions/or-r36-linear-frontier-20260924/DERIVATION_PROVENANCE.md`: immutable identities and proof/evidence dependencies.
-- `revisions/or-r36-linear-frontier-20260924/BUILD_VALIDATION.json`: actual source commit, reader hashes, page counts, tests, and preservation checks.
+## Current readers
 
-## New scientific and implementation result
+The authoritative article is root `main.tex` / `main.pdf`; the authoritative electronic companion is root `electronic_companion.tex` / `electronic_companion.pdf`. The R37 package contains `RESPONSE_TO_REFEREES.md` / `.pdf`, the current `code/` directory, measured `results/`, and `BUILD_VALIDATION.json`. The build manifest records actual page counts, reader hashes, source identity, executed validation, and the complete base-tree preservation audit.
 
-Both exact renewal memory frontiers through budget `m` on `k` ordered branches can be computed in `O(m k)` rational operations and comparisons, with `O(m k+k)` storage for `m<=k`, including an optimal codebook for every budget. The conditional-expectation frontier retains its continuously optimized, possibly off-cap highest level. The deterministic frontier remains the private-draw pathwise randomized optimum in the established renewal architecture.
+The paper is now organized around one decision problem: how participation timing changes the service value of a restricted writable alphabet. It preserves global optimization of the continuous highest codeword, the cap-anchoring result, the pathwise-versus-expected distinction, and the contractual Monge identity. Standard staircase completion and SMAWK are attributed to the appropriate full/partial-matrix literature. The main proof covers both favorable orientations, ties, wholly infeasible selected rows, column offsets, and predecessor reachability explicitly.
 
-The new step is a proved symbolic completion of the contractual Monge staircases, including selected submatrices whose rows contain no feasible entry. Uniform infinite padding with ordinary left ties does not satisfy the needed condition. The implementation applies **classical SMAWK**, explicitly attributed, to this interface. Generic matrix search is not claimed as new. The earlier R35 divide-and-conquer implementation and R34 quadratic algorithm remain unchanged.
+A stipulated renewal-desk/dispatch-gateway mechanism specifies offer timing, exit, draw visibility, and charged information. A bounded-overrun variant is solved for the existing three-branch example. Integrated pricing treats writable bits, a stated read-only implementation menu, evaluation work, and amortized compilation as separate resources.
 
-## Exact verification and same-input evidence
+## Executed evidence
 
-The new exact suite passes 100 instances, 4,232 objective equalities against both earlier algorithms, 2,116 controller replays, 156 independent reduced-candidate frontier equalities, 43,431 submatrix argmin checks, 2,595 nonvacuous total-monotonicity implications, 255 direct interval checks, 402 finite Monge checks, 176 nonanchor-grid falsification checks, two padding regressions, 16,273 work checks, and 17 invalid-input rejections.
+The new exact suite checks 784 completed matrices, 282,832 selected-submatrix row minima, 98,728 wholly padded selected rows, 1,890 exact frontier equalities and controller replays, 190 independent bounded-overrun all-pairs equalities, 33 tolerance-frontier values, and 4,092 nonanchor-grid checks. These are regression tests, not proofs by finite enumeration. The unchanged R33–R36 suites also pass.
 
-The study computes all budgets one through eight on 16–2,048 branches. Both frontiers agree exactly with R35 throughout; the quadratic randomized R34 comparison runs through 256 branches. Larger R34 entries are `NOT_RUN`, not estimates or timeouts. Full codebooks, exact losses, counts, actual times, environment, and source hashes are recorded in `benchmark.json` and `scaling.csv`.
+Twenty-four independently assembled reduced networks are solved with compiled HiGHS, then exactly repriced and certified with rational shortest-path potentials. The PADS comparator substitutes independently authored matrix search, while sharing the contractual oracle and reconstruction; this scope is disclosed rather than called a fully independent economic algorithm.
 
-The asymptotic improvement does **not** mean uniform speed. At 16 branches the expected frontier uses 534 economic queries versus R35's 289; at 2,048 it uses 128,966 versus 135,597. The deterministic count at 2,048 remains larger, 163,838 versus 153,180. These unfavorable constants are retained. Inputs are synthetic; there is no claim of an external published-flow-solver benchmark or empirical service calibration.
+The 30-configuration time/memory/profile study completed without a 120-second process-limit observation. At 16,384 branches and budgets one through eight, expected-participation frontier times were 37.436 seconds for divide-and-conquer, 26.601 for the retained SMAWK implementation, and 26.160 for PADS search. Pathwise times were 52.054, 44.132, and 41.401 seconds, respectively. Smaller cases where linear search is slower remain in the data. These are single-run measurements on the recorded runner, not hardware-independent or native-implementation speed claims. Resident memory, Python-tracked heap, and exclusive profile categories are reported separately. All economic instances are synthetic, not calibrated customer data.
 
-## Reproduction
+## Reproduce
 
-From the repository root, with Python 3.12 or newer:
+Use a full Git checkout of this branch, with Python 3.12, SciPy 1.17.0 for the external solver comparison, pdfLaTeX with standard/newtx packages, and Poppler. From the repository root:
 
 ```sh
-R=revisions/or-r36-linear-frontier-20260924
-python "$R/verify.py"
-python "$R/benchmark.py"
-python "$R/reproduce_inherited.py"
-python "$R/build_validate.py"
+python -m pip install scipy==1.17.0
+python revisions/or-r37-integrated-frontier-20260924/code/reproduce.py all
 ```
 
-The first three commands use only the Python standard library. The last needs pdfLaTeX, newtx and standard packages, and Poppler. The inherited R33–R35 suites run unchanged in temporary directories so their prior evidence is not overwritten. R34/R35 comparators share economic primitives and moments; the reduced-candidate and submatrix checks supply separate direct validation.
+The single entry point also accepts `snapshot`, `verify`, `study`, `prepare`, or `build` to reproduce a particular stage. Exact frontier engines and their tests use the Python standard library; HiGHS comparison requires SciPy. `study` reruns timings and therefore need not reproduce the original wall times. `prepare` regenerates the reader tables only from executed result files and archives exact predecessor readers from the pinned base commit. `build` compiles and checks the current sources. A local dirty build is labeled as such instead of receiving a fabricated scientific commit identity. The script does not push, merge, or submit anything by itself.
 
-A local build outside a Git checkout can use `NDU_LOCAL_VALIDATION=1`; it records content hashes, not a fabricated source commit. The remote build commits scientific sources/evidence before compiling, so PDF hashes are tied to an actual source identity.
+Example programmatic use, with this package's `code/` on the Python import path:
 
-## Preservation and further review
+```python
+from frontier import instance, solve
+problem = instance(64)
+solutions, work = solve(problem, 8, institution='expected', engine='linear')
+print(solutions[-1].loss, solutions[-1].codebook)
+```
 
-The original four root wrappers are archived under the new revision's `predecessor/`. Every inherited theorem source and evidence file is preserved, and the full remote tree audit checks that no unrelated base path changes or disappears. Main and previous review/revision branches are untouched. This is a new manuscript for further referee review, not a journal submission or an editorial acceptance claim. The Operations Research lengthy-manuscript format is checked by the build record.
+Valid institutions are `expected` and `pathwise`; engines are `quadratic`, `divide`, `linear`, and `pads`. Inputs to `Problem.make` must satisfy the ordered rational model interface. The PADS substitution is process-local, not thread-safe. For bounded-overrun evaluation, `bounded_loss` implements the explicitly pre-draw-intermediate-action protocol; it is not a solver for every possible risk-constrained dynamic contract.
+
+## Preservation and scope
+
+`PRESERVATION_MAP.md` / `.json` maps inherited theorem modules to the current article, companion, or exact preceding readers. `predecessor/` contains the exact R36 main/companion PDFs and wrappers. Historical cross-references with an `H.` prefix point into those preceding readers. Old theorem sources, code, and evidence remain unchanged, including unfavorable results. Older root computational/historical supplements are historical, not competing current submission readers.
+
+The current companion retains the broader compact-response compiler, tight response-size bounds, piecewise-quadratic closure, exact behavioral memory, dispersion result, and shared-table comparison. Their original assumptions are not silently widened or transferred to a different architecture. Main and every earlier review/revision branch are untouched by the R37 write workflow. This is a new manuscript for referee review, not a journal submission or an editorial acceptance claim.
