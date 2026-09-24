@@ -63,7 +63,7 @@ def certify(model: Model, book: tuple[F, ...], B: F,
 def solve_allocation(model: Model, codebook, promise) -> Allocation:
     """O(k*s+k*log(k+1)) rational work, including a separate certificate check."""
     book, B = tuple(map(rational, codebook)), rational(promise)
-    if not book or tuple(sorted(set(book))) != book:
+    if not book or any(u >= v for u, v in zip(book, book[1:])):
         raise ValueError('Codebook must be nonempty, strictly increasing.')
     bar = sum(p*b for p, b in zip(model.probabilities, model.caps))
     if not 0 <= book[0] <= min(model.caps) or book[-1] > 1:
@@ -135,7 +135,7 @@ def solve_catalog_promise(model: Model, catalog, charges, budget: int, promise):
     """
     a, prices = tuple(map(rational, catalog)), tuple(map(rational, charges))
     B = rational(promise)
-    if not a or tuple(sorted(set(a))) != a or len(a) != len(prices):
+    if not a or any(u >= v for u, v in zip(a, a[1:])) or len(a) != len(prices):
         raise ValueError('Distinct ordered catalog and matching charges required.')
     if a[0] < 0 or a[-1] > 1 or any(x < 0 for x in prices):
         raise ValueError('Invalid catalog level or negative charge.')

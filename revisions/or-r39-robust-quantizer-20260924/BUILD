@@ -1,1 +1,1 @@
-R39 all-promise transport, certified nonsaturated allocation, charged risk catalog, and clean-checkout publication. 2026-09-24.
+R39 final audit: linear ordered-alphabet validation preserves the full O(ks+k log(k+1)) allocation bound, including k=1 and a large alphabet. Exact independent allocation suite rerun successfully. Republish committed sources, certificates, and reader hashes. 2026-09-24.
