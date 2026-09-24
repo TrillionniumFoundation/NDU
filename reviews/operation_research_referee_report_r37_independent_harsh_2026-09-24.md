@@ -27,7 +27,7 @@ The current R37 bibliography and positioning section do not discuss scalar quant
 
 There is a second, more conceptual problem. Almost every clean frontier statement rests on the **saturated root promise**
 [
-ar b=sum_jpi_j b_j,
+ar b=sum_jpi_j b_j,
 ]
 which forces every branch participation cap to bind. That single equality is doing enormous structural work: it identifies the full-information action, converts participation into a mean-preserving representation problem, creates the exact stochastic-rounding interpretation, and makes the pathwise randomization theorem collapse to the deterministic frontier. The paper is candid about the assumption, but it does not yet establish whether the headline conclusions are robust to slack root promises, endogenous continuation budgets, repeated participation, or other economically natural departures. A nonsaturated two-branch example from the historical theory is not a robustness theorem for the restricted-memory frontier.
 
@@ -165,11 +165,8 @@ At present it does not.
 
 Under the saturated renewal model, branch (j) has target cap (b_j). A deterministic codebook selects finitely many terminal levels. Branches assigned to one symbol share one terminal reconstruction level.
 
-The paper proves that optimal cells are contiguous in the ordered caps and that a cell (i,ldots,j) uses reconstruction (b_i), with distortion
-[
-C(i,j)=sum_{h=i}^jpi_h
-{f(b_h)-f(b_i)+h_h(b_h-b_i)}.
-]
+The paper proves that optimal cells are contiguous in the ordered caps and that a cell (i,...,j) uses reconstruction (b_i), with distortion
+`C(i,j) = Σ_{h=i}^j π_h [ f(b_h) - f(b_i) + h_h(b_h-b_i) ].`
 
 This is, mathematically, an ordered scalar clustering/quantization problem with a particular one-sided reconstruction rule and a branch-dependent distortion.
 
@@ -194,9 +191,7 @@ That is a serious priority-audit failure.
 ## 3.2 The expected-participation lottery is mathematically an unbiased adjacent stochastic quantizer
 
 For a fixed ordered codebook (c_1<cdots<c_s), R37's expected-participation theorem sends a branch target (mu_j) to the two adjacent levels bracketing it. The probabilities are chosen so that
-[
-mathbb E[C_j]=mu_j.
-]
+`E[C_j] = μ_j.`
 
 This is exactly the local mathematical primitive usually called stochastic rounding or unbiased randomized quantization: map a scalar to its two adjacent representable levels with distance-proportional probabilities so that the expectation equals the original scalar.
 
@@ -267,10 +262,7 @@ But until the manuscript is rewritten against the correct quantization/control b
 # 4. The saturated root promise is a structural knife edge, not a harmless normalization
 
 The paper now states the saturated root promise early, which is good:
-[
-sum_jpi_jmathbb E[Y_j+C_j]
-=sum_jpi_jb_j.
-]
+`Σ_j π_j E[Y_j+C_j] = Σ_j π_j b_j.`
 
 With positive probabilities and branchwise upper bounds, this forces **every branch cap to bind**.
 
@@ -291,9 +283,7 @@ This is an extraordinarily strong structural device.
 ## 4.1 What happens when the root promise is slack?
 
 Suppose instead that
-[
-sum_jpi_jmathbb E[Y_j+C_j] < sum_jpi_j b_j.
-]
+`Σ_j π_j E[Y_j+C_j] < Σ_j π_j b_j.`
 
 Then not all branch caps must bind. Some continuation slack can be allocated across branches. The branch target is no longer mechanically (b_j). The encoder and service decisions interact with an allocation of the root promise itself.
 
@@ -354,9 +344,7 @@ But it does not solve the global bounded-overrun codebook problem.
 ## 5.2 The global result is one three-branch, two-code example
 
 The paper then solves one heterogeneous three-branch example and obtains
-[
-z_delta=rac12+min{delta,1/8}.
-]
+`z_delta = 1/2 + min{delta, 1/8}.`
 
 This is a nice illustration. It shows continuous movement from the deterministic endpoint to the unrestricted expected-participation optimum.
 
@@ -392,18 +380,9 @@ For publication, I would either:
 
 # 6. The "integrated implementation-resource accounting" is useful accounting, not yet a substantive joint optimization theorem
 
-The resource section introduces
-[
-min_{I,m,t}
-left{
-D_m^I
-+lambda_wlceillog_2mceil
-+lambda_R R_{I,t}
-+lambda_T Q_{I,t}
-+C_{I,t}/H
-+kappa_I
-ight}.
-]
+The resource section introduces the stylized objective
+
+`min_{I,m,t} { D_m^I + lambda_w ceil(log2 m) + lambda_R R_{I,t} + lambda_T Q_{I,t} + C_{I,t}/H + kappa_I }.`
 
 This is a sensible way to prevent "few writable symbols" from being confused with "small implementation."
 
@@ -546,10 +525,7 @@ I did not find an obvious fatal mathematical error in the new core. The followin
 ## 9.1 The fixed-codebook randomized theorem should explicitly identify its quantization form
 
 For a target (b) between adjacent codewords (u<v), the lottery probabilities are necessarily
-[
-Pr(C=v)=rac{b-u}{v-u},qquad
-Pr(C=u)=rac{v-b}{v-u}.
-]
+`Pr(C=v) = (b-u)/(v-u),   Pr(C=u) = (v-b)/(v-u).`
 
 The main paper should display this once and call the mapping what it is: the unique adjacent mean-preserving/unbiased two-point quantizer.
 
