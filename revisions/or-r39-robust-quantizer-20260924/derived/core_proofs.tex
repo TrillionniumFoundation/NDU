@@ -1,0 +1,114 @@
+\section{Proofs for the Saturated Continuous Frontier}
+\subsection{Proof of Theorem~\ref{thm:frontier}}\label{ec-proof-thm-frontier}
+\begin{proof}
+The root promise is the mean of the branch caps, so every branch cap must bind. Hence $y_j=b_j-c_j$ and $0\leq c_j\leq b_j$. The branch reward $f(c)-h_j(b_j-c)$ is strictly increasing on that interval. Full information therefore uniquely selects $c_j=b_j$; different terminal actions require different symbols.
+
+Within a memory cell all terminal actions coincide and cannot exceed its smallest cap. Monotonicity selects that cap and subtraction from the full-information reward gives \eqref{eq:general-cell}. Fix any collection of cell minima. Every branch strictly prefers the largest eligible selected minimum, irrespective of its probability and intermediate cost. Reassigning branches in this way keeps each selected minimum in its own nonempty cell and produces contiguous cells without reducing value. Splitting at the final cell gives \eqref{eq:segmentation}. Expanding the quadratic terms gives the stated prefix-sum implementation.
+\end{proof}
+\subsection{Proof of Theorem~\ref{thm:r33-lotteries}}\label{ec-proof-thm-r33-lotteries}
+\begin{proof}
+The root promise equals the weighted mean of the branch caps. Every branch cap must therefore bind in conditional expectation, so $\mathbb E(Y_j+C_j)=b_j$. Replace a randomized terminal decoder, conditional on a symbol, by its mean. It uses the same number of symbols, preserves payments, and weakly increases reward by concavity. Replace a randomized intermediate tier by its branch mean; convexity of $h_j$ weakly lowers its cost without altering the encoder's terminal-symbol probabilities. These replacements use exogenous transitions and the absence of switching costs.
+
+For a terminal mean $\mu$ in the convex hull of the levels, the largest expected terminal reward is $F_c(\mu)$. The upper hull of the concave points $(c_i,f(c_i))$ consists of adjacent chords; a lottery over their endpoints attains the hull. The branch objective is $F_c(\mu)-h_j(b_j-\mu)$ on $[c_1,\min(b_j,c_s)]$. It is strictly increasing, so its maximum occurs at $\mu_j$. Feasibility requires $c_1\leq b_j$ for every branch, equivalently $c_1\leq b_1$. Subtraction from full information gives the formula. Compactness of symbol probabilities and levels gives attainment, with redundant symbols deleted. Deterministic encodings are admissible randomized encodings, yielding the inequality. The exact-optimum statement follows from the strict-concavity argument in Theorem~\ref{thm:clipped}, not from the restricted-alphabet formula alone.
+\end{proof}
+\subsection{Proof of Proposition~\ref{prop:r33-random-gap}}\label{ec-proof-prop-r33-random-gap}
+\begin{proof}
+The two deterministic contiguous partitions have losses $7/48$ and $1/8$. For the randomized problem, let the two levels be $u\leq v$. Any choice with $v<1/4$ can be improved by raising its levels. For $v\geq1/4$, feasibility requires $u\leq1/4$; raising $u$ to $1/4$ weakly increases every relevant concave chord value. Thus take $u=1/4$.
+
+For $v$ in $[1/4,1/2]$, $[1/2,3/4]$, and $[3/4,1]$, respectively, Theorem~\ref{thm:r33-lotteries} gives loss
+\[
+ \begin{cases}
+ \bigl[(1/2-v)(2-v)+(3/4-v)(2-v)\bigr]/3,\\[2pt]
+ \bigl[(v-1/2)/8+(3/4-v)(2-v)\bigr]/3,\\[2pt]
+ \bigl[(v-1/2)/4+(v-3/4)/2\bigr]/6.
+ \end{cases}
+\]
+The first two expressions strictly decrease on their domains and the third strictly increases. Hence the global minimum is at $v=3/4$ and equals $1/96$. The first and third branches use their respective endpoint symbols; the middle branch uses each with probability one half. All intermediate tiers are zero. The middle branch's loss is the strict-concavity loss $1/32$, weighted by its probability $1/3$. Three distinct terminal symbols attain full information.
+\end{proof}
+\subsection{Proof of Lemma~\ref{lem:r34-anchor}}\label{ec-proof-lem-r34-anchor}
+\begin{proof}
+Attainment follows from the compact level-and-probability formulation in Theorem~\ref{thm:r33-lotteries}. Delete unused levels and coincident duplicates. If all levels lie below $b_1$, raising the largest to $b_1$ improves every branch and leaves only that level relevant. Otherwise delete levels below $b_1$ except the largest such level, if any, and raise it to $b_1$. Every affected cap is bracketed by this level and the next one. Equation~\eqref{eq:r34-chord} shows that raising the lower endpoint weakly lowers loss. This also covers a one-level codebook. The same argument at the other extreme deletes superfluous levels above $b_k$ and lowers the remaining highest endpoint to $b_k$ without increasing loss.
+
+Fix the highest level. Take a nonhighest codeword not equal to a cap. Between the nearest caps and its neighboring codewords, the set of branch caps in each adjacent interpolation interval is fixed. Equation~\eqref{eq:r34-chord} makes the sum of their losses affine in the moving codeword; all other losses are unchanged. Move it to an endpoint that does not increase this affine function. At a cap it becomes anchored. At a collision it can be deleted: no strictly intervening branch cap has been crossed, and the limiting interpolation losses agree. Each move reduces the number of unanchored nonhighest levels or the number of levels. Finitely many moves produce the stated representation. Branches above the fixed highest level are unaffected throughout.\end{proof}
+\subsection{Proof of Theorem~\ref{thm:r34-global}}\label{ec-proof-thm-r34-global}
+\begin{proof}
+By Lemma~\ref{lem:r34-anchor}, a nontrivial optimal codebook consists of an anchored prefix and one final level. The prefix contributes exactly the sum of its edge costs. Splitting at the preceding anchor proves \eqref{eq:r34-prefix} by induction on the number of anchors. If two successive edges share an endpoint cap, its loss is zero, so no term is double counted. Conditional on the final anchor $b_j$, every possible highest level belongs to one of the intervals in \eqref{eq:r34-tail}. Differentiating that quadratic gives \eqref{eq:r34-top}; its quadratic coefficient is strictly positive whenever $\ell<k$ because the remaining probabilities and $q$ are positive. Formula~\eqref{eq:r34-T} therefore optimizes over the entire remaining continuous domain.
+
+Every term in \eqref{eq:r34-frontier} reconstructs a feasible controller with at most $m$ codewords. A coincident final level is deleted. Conversely, the representation lemma maps an optimal controller into one of those terms, including the one-symbol alternative. The two inequalities prove equality, not merely an upper bound or a stationary-point condition. Recover the final level attaining $T_j$, backtrack the minimizing indices in $P$, and apply Theorem~\ref{thm:r33-lotteries} to obtain the encoder probabilities and intermediate tiers.
+
+Prefix sums of $\pi_h$, $\pi_hb_h$, $\pi_hb_h^2$, $\pi_h\gamma_h$, $\pi_h\gamma_hb_h$, and $\pi_h\gamma_hb_h^2$ evaluate each edge and each quadratic tail in constant arithmetic work. All $T_i$ require $O(k^2)$ work. The prefix dynamic program requires $O(mk^2)$ work and $O(mk)$ backpointers; edge costs are evaluated on demand rather than stored in a quadratic array. The six moment arrays and all terminal optima require $O(k)$ storage.
+
+For completeness, each moment, edge coefficient, and tail coefficient is a sum of bounded-degree monomials in rational inputs. A conceptual common denominator is a fixed power of the product of input denominators; it has polynomial bit length and is not constructed by the implementation. Each terminal minimizer adds one division of such coefficients. Each prefix cost adds at most $k$ edges; each final candidate adds one tail optimum. Reducing after every operation gives the conservative height bound $S$. Exact comparisons use cross multiplication on integers of $O(S)$ bits, and ordinary integer arithmetic with greatest-common-divisor reduction costs at most $O(S^3)$ per rational operation. This establishes the stated bound, including comparisons rather than only arithmetic counts. The electronic companion gives an implementation-level concordance.\end{proof}
+\subsection{Proof of Proposition~\ref{prop:r34-offcap}}\label{ec-proof-prop-r34-offcap}
+\begin{proof}
+The representation lemma fixes the lower level at $1/4$. For an upper level $z\in[1/2,3/4]$, the loss is
+\[
+ \frac{3}{40}(z-1/2)+\frac1{20}(3/4-z)(2-z)
+ =\frac{z^2}{20}-\frac{z}{16}+\frac{3}{80}.
+\]
+Its unique minimum is at $z=5/8$ and equals $23/1280$. On $[1/4,1/2]$, both higher-cap branches lie above $z$ and the loss strictly decreases up to $1/2$. Levels above $3/4$ can be lowered, as in Lemma~\ref{lem:r34-anchor}. These observations also exclude the one-level boundary. The cap-only choices with two feasible levels have losses $3/160$ and $3/160$; one level has loss $49/160$. The deterministic partition using levels $1/4,1/2$ has loss $3/160$, while the other contiguous two-cell partition has loss $21/80$. Theorem~\ref{thm:frontier} yields the deterministic optimum.
+
+The middle branch draws terminal level $5/8$ with probability $2/3$ and level $1/4$ with probability $1/3$, with zero intermediate tier. The highest-cap branch uses intermediate tier $1/8$ and terminal tier $5/8$. All branch payments equal their caps in expectation, and the root payment is $17/40$. The resulting weighted losses are $3/320$ and $11/1280$, respectively, summing to $23/1280$.\end{proof}
+\subsection{Proof of Theorem~\ref{thm:r34-pathwise}}\label{ec-proof-thm-r34-pathwise}
+\begin{proof}
+Pathwise feasibility gives $Y_j+C_j\leq b_j$ almost surely at each branch. The root promise is $\sum_j\pi_jb_j$ and every branch has positive probability. Hence $Y_j+C_j=b_j$ almost surely on every branch: any positive expected slack would contradict root saturation.
+
+A retained symbol determines a terminal level, after replacing an independent randomized terminal decoder by its mean. This replacement preserves feasibility and weakly improves reward. To see this under pathwise saturation, conditional on a branch and symbol the only permissible additional terminal randomization is fresh and independent of the earlier tier; otherwise a retained shared seed would be an uncharged state. Independence together with $Y_j+C_j=b_j$ almost surely forces that decoder to be degenerate. This also shows why the memory architecture matters.
+
+For a fixed codebook, a symbol with terminal level $c$ can be used on branch $j$ only if $c\leq b_j$; saturation fixes its intermediate tier at $b_j-c$. Its payoff is $f(c)-h_j(b_j-c)$, which is strictly increasing in $c$. Thus the highest eligible codeword weakly dominates every lottery over eligible symbols, including lotteries with draw-specific intermediate tiers. Selecting it deterministically preserves each branch's payment and cannot reduce payoff. Optimizing codebooks yields the deterministic ordered frontier of Theorem~\ref{thm:frontier}. The reverse inequality follows because every deterministic feasible controller is an admissible pathwise-randomized controller. Strict-concavity uniqueness gives the final threshold assertion.\end{proof}
+\subsection{Proof of Lemma~\ref{lem:r37-cost}}\label{ec-proof-lem-r37-cost}
+\begin{proof}
+For $E$, expansion of \eqref{eq:r34-edge} gives the right-minus-left difference
+\begin{align*}
+ \frac q2\biggl[&(b_d-b_c)\sum_{h=a}^{b-1}\pi_h(b_h-b_a)
+ +(b_b-b_a)(b_d-b_c)\sum_{h=b}^{c}\pi_h\\
+ &+(b_b-b_a)\sum_{h=c+1}^{d}\pi_h(b_d-b_h)\biggr]\geq0.
+\end{align*}
+Every term is nonnegative, including coincident-index and empty-sum cases. For $C$, all terms through $c$ cancel and the difference is
+\[
+ \sum_{h=c+1}^{d}\pi_h\{f(b_b)-f(b_a)+h_h(b_h-b_a)-h_h(b_h-b_b)\}\geq0.
+\]
+Only monotonicity of $f$ and $h_h$ is needed for the second inequality.
+
+Join the functions $\Psi_{i\ell}$ to a continuous function $\Psi_i$ on $[b_i,b_k]$. For $i<j$ and $z\geq b_j$, cancellation gives
+\begin{align}
+ \Psi_i(z)-\Psi_j(z)=\frac q2\biggl[&\sum_{h=i+1}^{j}\pi_h(b_h-b_i)(z-b_h)\nonumber\\
+ &+(b_j-b_i)\sum_{b_j<b_h\leq z}\pi_h(z-b_h)\biggr].\label{eq:r37-crossing}
+\end{align}
+The expression is continuous and nondecreasing in $z$: between caps its slope is nonnegative, and every entering summand is zero at its entry cap. Intermediate-curvature terms cancel. Thus $\Psi_i(x)+\Psi_j(y)\leq\Psi_i(y)+\Psi_j(x)$ for $b_j\leq x\leq y$.
+
+For feasible columns $\ell<t$ with $j\leq\ell$, let $x$ minimize $\Psi_j$ on $I_\ell$ and $y$ minimize $\Psi_i$ on $I_t$. Compactness ensures attainment and interval order gives $x\leq y$, including a common endpoint. Therefore
+\[
+ Q(i,\ell)+Q(j,t)\leq\Psi_i(x)+\Psi_j(y)
+ \leq\Psi_i(y)+\Psi_j(x)=Q(i,t)+Q(j,\ell).
+\]
+The singleton final interval is evaluated directly. This proves the inequality after continuous optimization; convexity of each separate minimization would not by itself suffice.
+\end{proof}
+\subsection{Proof of Lemma~\ref{lem:r37-offset}}\label{ec-proof-lem-r37-offset}
+\begin{proof}
+The two column terms occur once on each side of \eqref{eq:r37-monge} and cancel. For rows $j<j'$ and columns $i<i'$ with $i'<j$, apply Lemma~\ref{lem:r37-cost} to $i<i'<j<j'$ for $E$, and $i+1<i'+1\leq j<j'$ for $C$. Transposition of the cost arguments gives the required inequality. Unreachable predecessor values are removed, not treated as finite offsets.
+\end{proof}
+\subsection{Proof of Lemma~\ref{lem:r37-suffix}}\label{ec-proof-lem-r37-suffix}
+\begin{proof}
+Fix $r<s$ and $c<d$ satisfying the antecedent. There are three possible upper-row configurations.
+
+If both entries are feasible, the strict preference means $A(r,d)<A(r,c)$; equality would select $c$. If both remain feasible in row $s$, Monge gives $A(s,d)-A(s,c)\leq A(r,d)-A(r,c)<0$. If $c$ becomes infeasible but $d$ remains feasible, $d$ wins by its zero first key coordinate. If both become infeasible, $-d<-c$ makes $d$ win. A feasible $c$ with infeasible $d$ is impossible for a suffix.
+
+If $c$ is infeasible and $d$ feasible in row $r$, the nondecreasing cutoff keeps $c$ infeasible in row $s$. Either $d$ remains feasible and wins by its first coordinate, or both are padded and $-d<-c$ wins. Finally, if both are infeasible in row $r$, both remain infeasible in row $s$ and the same padding order applies. These cases are exhaustive. In an entirely infeasible selected row, all keys are $(1,0,-c)$, uniquely minimized at the largest selected column. Thus rows becoming entirely infeasible after column restriction are included, not excluded by an implicit feasibility assumption.
+\end{proof}
+\subsection{Proof of Lemma~\ref{lem:r37-prefix}}\label{ec-proof-lem-r37-prefix}
+\begin{proof}
+If $d>u_r$, either $c$ is feasible and wins by its first key coordinate, or both are padded and $c<d$ wins. The antecedent is false in either case. If the antecedent is true, both upper-row entries are finite. Since $u_s\geq u_r$, both remain finite in row $s$. A finite tie cannot favor $d$ in row $r$, and the strict finite inequality propagates by Monge exactly as above. On a wholly padded selected row, $(1,0,c)$ is uniquely minimized at its smallest column. This covers finite ties, feasible/padded comparisons, and padded/padded comparisons without assigning a numerical infinity.
+\end{proof}
+\subsection{Proof of Lemma~\ref{lem:r37-reach}}\label{ec-proof-lem-r37-reach}
+\begin{proof}
+An anchored path with $s$ distinct indices ending at $j$ requires $j\geq s$. Conversely, $1,2,\ldots,s-1,j$ gives a finite path whenever $j\geq s\geq2$. The one-anchor condition fixes $j=1$. A deterministic partition of $j$ branches into $s$ nonempty ordered cells exists exactly when $j\geq s$. These are necessary and sufficient characterizations. Discarding endpoint $k$, which cannot extend to a later endpoint, preserves interval structure.
+\end{proof}
+\subsection{Proof of Theorem~\ref{thm:r37-linear}}\label{ec-proof-thm-r37-linear}
+\begin{proof}
+The finite-cost, offset, completion, and reachability lemmas verify all hypotheses of classical SMAWK \citep{AggarwalEtAl1987}. Each interface call uses $O(k)$ key comparisons. A request either compares padded indices or performs constantly many moment operations and exact cost evaluations, including repeated requests without caching. The six moment arrays cost $O(k)$ work and space. The terminal pass and at most $m$ program layers cost $O(mk)$. Winner reevaluation and last-anchor scans add $O(mk)$ rather than an uncounted quadratic search.
+
+There are $O(mk)$ predecessors, two active value rows, and $O(k)$ extra search indices. Backtracking one winner for each budget writes at most $\sum_{s=1}^m s=O(m^2)\subseteq O(mk)$ symbols. Reconstruction and output are thus included.
+
+Search introduces no new algebraic depth. A terminal call forms the same six moments, coefficient ratio, clamped level, and substituted quadratic value as Theorem~\ref{thm:r34-global}. A program call adds one edge or cell to a prior path, and a selected path has at most $k$ such costs. Comparisons evaluate a subset, possibly with repetition, of the candidates of quadratic enumeration. Column offsets change no formula; padding uses indices only. The common-denominator argument of that theorem therefore still bounds evaluated rationals and lottery probabilities by $O(S)$ bits. Reduced-fraction arithmetic and cross multiplication cost conservatively $O(S^3)$ per operation. Table~\ref{tab:r37-accounting} records the full accounting.
+\end{proof}

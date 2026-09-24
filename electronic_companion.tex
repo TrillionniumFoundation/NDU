@@ -6,7 +6,8 @@
 \usepackage[round,authoryear]{natbib}
 \usepackage{setspace,xr-hyper}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
 \onehalfspacing\setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -18,30 +19,31 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\argmax}{\operatorname*{arg\,max}}
 \newcommand{\argmin}{\operatorname*{arg\,min}}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Service Contracts with Limited Memory}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r37-main-labels}[main.pdf]
-\externaldocument{r37-history-main-labels}[revisions/or-r37-integrated-frontier-20260924/predecessor/main.pdf]
-\externaldocument{r37-history-ec-labels}[revisions/or-r37-integrated-frontier-20260924/predecessor/electronic_companion.pdf]
-\hypersetup{pdftitle={Electronic Companion: Service Contracts with Limited Memory: Participation, Randomization, and Exact Design},pdfauthor={Anonymous}}
+\externaldocument{r39-main-labels}[main.pdf]
 \renewcommand{\thesection}{EC.\arabic{section}}
 \renewcommand{\theequation}{EC.\arabic{equation}}
 \renewcommand{\thetable}{EC.\arabic{table}}
+\hypersetup{pdftitle={Electronic Companion: Limited-Memory Renewal Contracts},pdfauthor={Anonymous}}
 \begin{document}
-\begin{center}{\Large\bfseries Electronic Companion}\par\medskip
-{\large Service Contracts with Limited Memory:\newline Participation, Randomization, and Exact Design}\par\medskip Anonymous manuscript for Operations Research\par Revision R37, September 24, 2026\end{center}
-\input{revisions/or-r37-integrated-frontier-20260924/companion_guide.tex}
-\input{revisions/or-r31-tightness-minimal-machine-20260923/model_literature.tex}
-\input{revisions/or-r31-tightness-minimal-machine-20260923/quotient_theory.tex}
-\input{revisions/or-r33-piecewise-randomized-20260923/extensions.tex}
-\input{revisions/or-r37-integrated-frontier-20260924/derived/minimal_memory.tex}
-\input{revisions/or-r37-integrated-frontier-20260924/derived/dispersion.tex}
-\input{revisions/or-r31-tightness-minimal-machine-20260923/shared_comparator.tex}
-\input{revisions/or-r37-integrated-frontier-20260924/derived/supporting_proofs.tex}
-\input{revisions/or-r37-integrated-frontier-20260924/derived/representation_accounting.tex}
-\input{revisions/or-r37-integrated-frontier-20260924/derived/oracle_concordance.tex}
-\input{revisions/or-r37-integrated-frontier-20260924/derived/divide_conquer.tex}
+\begin{center}{\Large\bfseries Electronic Companion}\par
+Limited-Memory Renewal Contracts: Participation, Quantization, and Exact Design\end{center}
+This companion supplies the detailed proofs and implementation evidence used by the article. It is self-contained together with the article; the broader historical response-compilation program is preserved separately in the repository and is not a hidden premise of the current theorems.
+\input{revisions/or-r39-robust-quantizer-20260924/derived/core_proofs.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/mechanism.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/historical_example.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/oracle_concordance.tex}
+\input{revisions/or-r37-integrated-frontier-20260924/bounded_overrun.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/allocation_companion.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/generated/allocation_evidence.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/methodology.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/legacy_evidence.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/accounting_table.tex}
 \clearpage
-\input{revisions/or-r37-integrated-frontier-20260924/generated/companion_references.tex}
+\input{revisions/or-r37-integrated-frontier-20260924/generated/main_tables.tex}
+\clearpage\input{revisions/or-r37-integrated-frontier-20260924/generated/companion_tables.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/generated/catalog_table.tex}
 \clearpage
+\input{revisions/or-r39-robust-quantizer-20260924/generated/references.tex}
 \end{document}

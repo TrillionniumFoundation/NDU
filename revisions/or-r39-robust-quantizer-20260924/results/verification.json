@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "seed": 380924,
+  "counts": {
+    "catalog_frontier_equalities": 768,
+    "direct_support_book_checks": 26604,
+    "promise_scaling_lift_checks": 600,
+    "clipped_kkt_checks": 660,
+    "fixed_book_concavity_checks": 2460,
+    "repeated_cap_checks": 128,
+    "invalid_input_rejections": 8,
+    "quantizer_comparisons": 2
+  },
+  "charge_switch": {
+    "uncharged_book": [
+      "1/4",
+      "5/8"
+    ],
+    "uncharged_loss": "23/1280",
+    "charged_book": [
+      "1/4",
+      "1/2"
+    ],
+    "charged_optimum": "3/160",
+    "old_book_charged_cost": "5/256"
+  },
+  "promise_certificate": {
+    "saturated_gap": "11/96",
+    "L_f": 2,
+    "H": "3/4",
+    "strict_interval_left_open": "11/24",
+    "strict_interval_right_closed": "1/2"
+  },
+  "mse_comparison": [
+    {
+      "cut": 1,
+      "mse_centers": [
+        "1/4",
+        "5/8"
+      ],
+      "mse_objective": "1/96",
+      "pathwise_feasible": false
+    },
+    {
+      "cut": 2,
+      "mse_centers": [
+        "3/8",
+        "3/4"
+      ],
+      "mse_objective": "1/96",
+      "pathwise_feasible": false
+    }
+  ],
+  "elapsed_seconds": 18.914231486000006,
+  "scope": "Exact finite regression and independent support/subset enumeration; not proof by testing."
+}

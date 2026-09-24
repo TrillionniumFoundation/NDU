@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "seed": 390924,
+  "counts": {
+    "allocation_dual_equalities": 1715,
+    "supporting_branch_maxima": 6955,
+    "saturated_catalog_equalities": 72,
+    "all_promise_catalog_checks": 48,
+    "pairwise_policy_transport_checks": 480,
+    "invalid_inputs_rejected": 8
+  },
+  "fixed_book_example": [
+    {
+      "B": "1/4",
+      "value": "15/32",
+      "targets": [
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "multiplier": "3/2",
+      "dual_gap": "0"
+    },
+    {
+      "B": "11/24",
+      "value": "25/32",
+      "targets": [
+        "1/4",
+        "1/2",
+        "5/8"
+      ],
+      "multiplier": "3/2",
+      "dual_gap": "0"
+    },
+    {
+      "B": "23/48",
+      "value": "13/16",
+      "targets": [
+        "1/4",
+        "1/2",
+        "11/16"
+      ],
+      "multiplier": "3/2",
+      "dual_gap": "0"
+    },
+    {
+      "B": "1/2",
+      "value": "27/32",
+      "targets": [
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "multiplier": "3/2",
+      "dual_gap": "0"
+    }
+  ],
+  "elapsed_seconds": 3.7198978539999956,
+  "scope": "Exact certificate and independent event-search regression; no proof by enumeration."
+}
