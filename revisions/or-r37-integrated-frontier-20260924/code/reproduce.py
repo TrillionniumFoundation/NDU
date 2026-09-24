@@ -23,6 +23,7 @@ def snapshot():
 
 def prepare_readers():
     command('prepare.py')
+    command('layout.py')
     shutil.copy2(R/'README.md', ROOT/'README.md')
     shutil.copy2(R/'SUBMISSION_CHECKLIST.md', ROOT/'NDU_OR_submission_checklist.md')
 
