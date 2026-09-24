@@ -3,6 +3,7 @@
 
 **Manuscript:** *Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory*  
 **Revision reviewed:** revision/ndu-operations-research-r36-linear-frontier-20260924  
+**Reviewed revision branch head:** 8b17bed9079aa8e3bcaf52e6a5847a60cbf7d7ca  
 **Scientific source commit identified by the R36 build record:** a3a68823e30e7673684ea486a566ebdd84d0aab5  
 **Scientific baseline:** R35 commit 7e49851cd04f0f7e015c2561b43a4e7591574e67  
 **Review branch:** review/operation-research-r36-independent-harsh-20260924  
