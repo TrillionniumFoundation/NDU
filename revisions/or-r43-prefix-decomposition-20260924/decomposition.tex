@@ -1,0 +1,71 @@
+\section{Eligibility-Prefix Decomposition}\label{sec:r43-decomposition}
+The closed-cell formulation establishes exact continuous attainability. We now exploit the ordered interface to avoid enumerating either branch modes or catalog subsets in a price subproblem. The resulting bounds support finite global search and remain valid when that search stops early. This distinction matters: a price relaxation is not, without an additional equality, the original optimum.
+
+\subsection{A reusable ordered-interface allocation class}
+Let $\mathcal A=(a_1<\cdots<a_N)\subset[0,1]$ be a catalog with nonnegative opening charges $\rho_i$. The common reward $f$ is strictly increasing and concave. Branch $j$ has weight $\pi_j$, target cap $b_j$, nondecreasing convex shortfall cost $h_j$ with $h_j(0)=0$, and an eligibility threshold $\tau_j\geq b_j$. Its response is \eqref{eq:prefix-response} with eligible levels $c\cap[0,\tau_j]$. The renewal model has $\tau_j=b_j+\delta$; the theorem below permits distinct thresholds without requiring a common overrun tolerance. This abstract class needs no acceptance or renewal interpretation. It describes any ordered shared interface with a common concave output reward, separable shortfall costs, and these target and support restrictions.
+
+Write $a_* = \min\{B,\min_jb_j\}$. Assume $a_1\leq a_*$, since otherwise no feasible book exists, and replace $m$ by $\min\{m,N\}$. Restrict books to $c_1\leq a_*$; this retains exactly those books that can meet the root promise. At a real price $\lambda$, define
+\begin{align}
+ g_\lambda(x)&=f(x)-\lambda x,\qquad
+ \phi_j(z;\lambda)=\max_{0\leq y\leq z}\{-h_j(y)-\lambda y\},\label{eq:r43-phi}\\
+ D(\lambda)&=\lambda B+
+ \max_{\substack{\emptyset\ne c\subset\mathcal A,\ |c|\leq m\\c_1\leq a_*}}
+ \left[\sum_j\pi_j\max_{c_1\leq t\leq b_j}
+       \{v_{j,c}(t)-\lambda t\}-\sum_{a_i\in c}\rho_i\right].\label{eq:r43-dual}
+\end{align}
+Weak duality gives $\mathcal V_{m,\mathcal A}^\delta(B;\rho)\leq D(\lambda)$ in the renewal specialization. For quadratic shortfall costs, \eqref{eq:r43-phi} is evaluated at $y=0$ if $\lambda\geq0$, and at $y=\min\{z,-\lambda/\gamma_j\}$ otherwise; when $\gamma_j=0$ and $\lambda<0$, use $y=z$.
+
+Call an arc $u<v$ admissible when $g_\lambda(v)\geq g_\lambda(u)$. Define its reward and the reward for stopping at $u$ by
+\begin{align}
+ E_\lambda(u,v)&=\sum_{j:u\leq b_j<v}\pi_j
+ \begin{cases}
+ g_\lambda(u)+\dfrac{b_j-u}{v-u}[g_\lambda(v)-g_\lambda(u)],&v\leq\tau_j,\\
+ g_\lambda(u)+\phi_j(b_j-u;\lambda),&v>\tau_j,
+ \end{cases}\label{eq:r43-edge}\\
+ T_\lambda(u)&=\sum_{j:b_j\geq u}\pi_j
+      [g_\lambda(u)+\phi_j(b_j-u;\lambda)].\label{eq:r43-tail}
+\end{align}
+An edge accounts only for branches whose target caps it crosses. It therefore carries a contractual allocation value, not an ordinary nearest-neighbor quantization error.
+
+\begin{theorem}[Polynomial price decomposition]\label{thm:r43-price}
+For every $\lambda$, some maximizer in \eqref{eq:r43-dual} has nondecreasing $g_\lambda$ along its ordered book. Its priced operating value is the sum of \eqref{eq:r43-edge} over consecutive levels plus \eqref{eq:r43-tail} at the last level. Set
+\begin{align}
+ W_1(i)&=T_\lambda(a_i),\label{eq:r43-dp}\\
+ W_r(i)&=\max\left\{T_\lambda(a_i),\ 
+ \max_{\substack{\ell>i\\g_\lambda(a_\ell)\geq g_\lambda(a_i)}}
+ [E_\lambda(a_i,a_\ell)-\rho_\ell+W_{r-1}(\ell)]\right\}.
+ \nonumber
+\end{align}
+Then $D(\lambda)=\lambda B+\max_{a_i\leq a_*}[W_m(i)-\rho_i]$. With constant-time evaluation of $\phi_j$, computing a maximizing book and this bound takes $O((k+m)N^2)$ arithmetic operations and $O(N^2+mN)$ storage, allowing both $k$ and $m$ to vary. Rational quadratic data and a rational price give an exact rational algorithm with polynomial bit complexity. General costs use at most $O(kN^2)$ calls to the scalar oracle \eqref{eq:r43-phi} instead.
+\end{theorem}
+\begin{proof}
+If $\lambda<0$, strict increase of $f$ makes $g_\lambda$ strictly increasing. If $\lambda\geq0$, intermediate service cannot improve priced payoff, and a branch maximizes the interpolant of $g_\lambda$ on its eligible prefix, truncated at its target cap. Concavity implies that the values along any book increase up to their first maximum and never subsequently increase. All levels after that first maximum may be deleted: for a branch below the maximizing level, either that level is ineligible and all later levels are also ineligible, or later chords cannot improve the concave interpolant before the cap; for a branch above it, no later value beats the maximum. Nonnegative charges make deletion weakly beneficial. The retained book has only admissible arcs.
+
+Consider $b_j\in[u,v)$ on such a book. If $v\leq\tau_j$, the best priced target is $b_j$ on the chord $[u,v]$. For $\lambda\geq0$ its slope is nonnegative and a singleton tail contributes no positive adjustment. For $\lambda<0$, a singleton tail contributes at most $-\lambda(b_j-u)$, whereas the chord contributes this amount plus a strictly positive reward increment when $b_j>u$. If $v>\tau_j$, every later level is ineligible; the optimum is a singleton at $u$ followed by the best shortfall in \eqref{eq:r43-phi}. Branches beyond the final level have the same singleton-tail form. These disjoint cap intervals cover all branches because the first level is at most $\min_j b_j$. This proves the decomposition, including equality cases.
+
+The acyclic recurrence chooses either to stop or to append the next admissible level, paying each selected charge once. It enumerates paths implicitly rather than enumerating books. Computing edges costs $O(kN^2)$; the dynamic-programming layers cost $O(mN^2)$. For rational quadratic data, every scalar oracle value uses a bounded number of rational operations, and each path value sums at most $O(km)$ such terms. Numerator and denominator lengths are polynomial in the input bit length; comparisons and path reconstruction therefore preserve polynomial bit complexity.
+\end{proof}
+
+Pricing and constrained shortest-path bounds are established optimization mechanisms \citep{HandlerZang1980}. The model-specific result here is that one price makes an otherwise nonseparable shared-book allocation decompose into these cap-crossing edges, despite heterogeneous shortfall costs, branch-specific eligibility, and nonsaturated targets. The theorem does not assert a polynomial algorithm for the unrelaxed joint problem or exchange its maximization with minimization over prices.
+
+\subsection{Prefix bounds and checkable global search}
+A node is a mandatory initial segment $p=(i_1,\ldots,i_s)$ of a book; its descendants may append only larger indices. If the priced values along $p$ never decrease, its exact priced completion value is
+\begin{equation}\label{eq:r43-prefix-bound}
+ U_p(\lambda)=\lambda B+\sum_{h=1}^{s-1}E_\lambda(a_{i_h},a_{i_{h+1}})
+ -\sum_{h=1}^s\rho_{i_h}+W_{m-s+1}(i_s).
+\end{equation}
+If a decrease occurs in $p$, concavity places its first priced maximum within $p$ and every larger new level is useless to the priced allocation. In that case, use the fixed-prefix branch-support value, with every mandatory charge retained. This is again the exact priced maximum over completions; additional nonnegative charges cannot help. The empty prefix uses \eqref{eq:r43-dual}.
+
+\begin{theorem}[Finite search and an anytime global interval]\label{thm:r43-search}
+Fix any nonempty finite set of prices. At each prefix use the smallest corresponding $U_p(\lambda)$, evaluate feasible books by the exact inner allocator, and retain the largest feasible net value $L$. Partition an unpruned node into its own book, when nonempty, and all one-index extensions. Prune a node only when its upper bound is at most $L$. This procedure terminates after finitely many prefixes and returns the exact catalog optimum. At any interruption it returns
+\begin{equation}\label{eq:r43-interval}
+ L\ \leq\ \mathcal V_{m,\mathcal A}^\delta(B;\rho)\ \leq\
+ U=\max\{L,\max_{p\text{ unresolved}}\min_\lambda U_p(\lambda)\}.
+\end{equation}
+For a uniform mesh of spacing $h$, Theorem~\ref{thm:mesh} further yields the continuous interval $[L,U+K_mh]$. The optimization gap $U-L$ and discretization error $K_mh$ are separate and observable.
+\end{theorem}
+\begin{proof}
+The preceding completion argument proves each price bound, so their minimum is valid by weak duality. Every feasible book either equals a nonempty node or has a unique next index. Hence the prescribed children and the node's own book are a disjoint exhaustive partition; book size is at most $m$. A pruned subtree cannot improve the incumbent. The maximum of unresolved upper bounds and the incumbent therefore bounds every feasible book at every stage. If all subtrees have been resolved, the two bounds coincide. The mesh transport is a separate one-sided inequality between the continuous optimum and the exact catalog optimum, so substituting the catalog upper bound proves the last claim.
+\end{proof}
+
+A global witness consists of the feasible winning lottery, every split and its complete child list, upper bounds and prices at pruned or unresolved nodes, and a fixed-book supporting price for each explicitly evaluated node book. A checker can rebuild price tables and verify the partition without replaying the search order or trusting the incumbent-selection code. This is a stronger object than an inner multiplier or a source hash. Equality of one root price bound with a feasible payoff already certifies global catalog optimality without any branching. Worst-case search is still exponential in the alphabet budget; neither this result nor the mesh transfer is an FPTAS claim.

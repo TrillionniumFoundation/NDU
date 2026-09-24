@@ -1,0 +1,30 @@
+\section{Independent Global Verification and Experimental Protocol}\label{sec:r43-implementation}
+The implemented scalar oracle uses rational quadratic costs and the renewal specialization $\tau_j=b_j+\delta$; the general-cost and branch-specific-threshold claims are proved structurally rather than inferred from those benchmarks. The rational prefix solver imports the inherited fixed-book allocator but neither the continuous cell generator nor its face search. A separate checker imports neither the prefix solver nor the cell generator. It independently maximizes explicit one- and two-level lotteries at their feasible knots, cap, and tail stationary point; these values reconstruct the priced edge and stopping tables. It then checks the complete prefix partition, every bound witness, and the winning policy's exact expectation and realization constraints. The checker validates a finite global interval, not the correctness of a hash or the feasibility of only the winning book. Certificate files include the model, catalog, charges, budget, promise, tolerance, lottery witness, prices, split records, pruned nodes, and unresolved frontier.
+
+\paragraph{Original-policy nonlinear cross-check.}
+The independent SCIP formulation uses continuous ordered codewords $c_i$, branch probabilities $p_{ji}$, intermediate services $y_j$, and binary support indicators $z_{ji}$. It retains the original policy products rather than using the closed-cell identity:
+\begin{align*}
+ &\sum_i p_{ji}=1,\quad 0\leq p_{ji}\leq z_{ji},\quad
+ y_j+\sum_i p_{ji}c_i\leq b_j,\\
+ &y_j+c_i\leq b_j+\delta+2(1-z_{ji}),\qquad
+ \sum_j\pi_j\left(y_j+\sum_i p_{ji}c_i\right)=B.
+\end{align*}
+Here $0\leq y_j\leq b_j$ and $0\leq c_i\leq1$, so the inactive risk constant 2 is safe. A hypograph variable is maximized subject to being at most
+\[
+ \sum_j\pi_j\left[\sum_i p_{ji}(rc_i-qc_i^2/2)-\gamma_jy_j^2/2\right]
+ -\sum_i(\alpha c_i^2+\beta c_i+\eta).
+\]
+All book sizes up to the budget are solved; their best lower and largest upper bounds give bounds for the union. Nonnegative charges justify retaining collisions in this formulation: duplicate levels may be merged into a smaller size without loss. This program contains the original bilinear promises and cubic reward terms and shares no face-generation or KKT-enumeration code. The use of a linear hypograph objective with nonlinear constraints follows SCIP's documented modeling interface \citep{ZIB2026}.
+
+SCIP's bounds are numerical, not rational proof certificates. We set feasibility tolerance $10^{-8}$, relative gap target $10^{-7}$, a fixed random seed, and a 20-second limit per book size. We report status, lower and upper bounds, nodes, actual time, and package version, including a time limit rather than hiding it. A $2\times10^{-5}$ absolute tolerance is used only in comparing the independently obtained numerical interval with a completed rational face optimum. No numerical agreement upgrades an incomplete face search into a global proof.
+
+\paragraph{Factorial enumeration frontier.}
+For branch counts 1 through 4, book budgets 1 and 2, and risk tolerances 0, $1/8$, and 1, the seeded study reports all 24 cells of this experimental grid, plus one five-branch case. It uses a declared limit of 5,000 linear systems per instance, not an implicit machine-dependent timeout. A record states how many cells were started and completed, how many completed cells were infeasible, and how many systems were nonsingular or feasible. Its infeasible fraction uses completed cells only. We observe every intermediate integer in fraction-free elimination and every candidate rational's numerator and denominator. A system-limit record has no global upper bound from face enumeration and is not described as a completed solution. This budget exposes a reproducible enumeration frontier; it is not a claim that larger inputs are intrinsically unsolvable.
+
+\paragraph{Price and catalog scaling.}
+The study varies branch counts up to 256, catalog sizes through 65, and budgets through 8, with nonidentical caps and heterogeneous shortfall costs. The main experiments use a fixed fee plus a nondecreasing affine surcharge, and separate rows vary the cost scale and surcharge slope. Prices are rational bisection samples supplemented by fixed-book supporting prices; every sampled value gives a valid bound even without an exact dual minimizer. A 40-node expansion limit is declared. The checker runs afterward, with its time recorded separately. Reported intervals retain the optimization gap and the full uniform-mesh error, including its dependence on the alphabet budget and charge Lipschitz constant.
+
+Each timing is a single measured run with Python allocation tracing active, excluding imports and PDF compilation. Peak traced bytes measure the solve; the operating-system resident-set peak is cumulative within that study process and is labeled accordingly. These instrumented exact-arithmetic timings are reproducibility records, not hardware-independent speed claims. All model parameters and outcomes, including stopped runs, are retained in machine-readable form.
+
+\paragraph{Preservation and claim classes.}
+The preceding R42 study and its tables are reproduced below without changing their observations. They remain historical evidence from that declared run, not new timings. New regression tests replay R42 and the earlier suites in disposable copies so that no historical result file is overwritten. Build hashes identify sources and reader outputs. Separate mathematical statements justify exact enumeration, the prefix checker verifies global coverage, and SCIP gives independent numerical corroboration. None of these three types of evidence is substituted for another.

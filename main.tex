@@ -22,20 +22,20 @@
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r42-ec-labels}[electronic_companion.pdf]
-\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Participation, Quantization, and Exact Design},pdfauthor={Anonymous}}
+\externaldocument{r43-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Exact Quadratic Design and Prefix Decomposition},pdfauthor={Anonymous}}
 \begin{document}\hypersetup{pageanchor=false}
 \begin{titlepage}\centering
-{\Large\bfseries Limited-Memory Renewal Contracts:\newline Participation, Quantization, and Exact Design\par}
+{\Large\bfseries Limited-Memory Renewal Contracts:\newline Exact Quadratic Design and Prefix Decomposition\par}
 \vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
-\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must allocate accepted obligations through a limited execution alphabet. We solve the resulting joint design problem with endogenous branch promises, continuously chosen terminal levels, bounded realization exposure, and charges for the actual enabled levels. A branch-specific eligibility prefix gives the exact response to any promise. For quadratic operating costs and nonnegative quadratic level charges, eliminating lottery probabilities yields closed quadratic cells and a finite exact global algorithm. A second theorem rounds codewords and repairs their probabilities while preserving every branch promise and risk ceiling exactly. Its uniform error bound gives certified continuous-value intervals and an additive approximation scheme for a fixed alphabet budget. We retain the sharper saturated structure: cap-anchored nonhighest levels, a continuously optimized off-cap highest level, and contractual tail costs that remain Monge after minimization, permitting classical matrix search. Exact-alphabet thresholds, institutional-gap stability, homogeneous repeated-cap aggregation, and a charged interior pathwise-randomization example clarify the decision implications. Synthetic parameter studies compare continuous and catalog optima and separately measure the new algorithms. Established quantization, facility-opening, and quadratic-optimization principles are distinguished from the contractual reductions.
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must allocate accepted obligations through a limited execution alphabet. We study joint alphabet and promise design with local participation limits, bounded realization exposure, heterogeneous shortfall costs, and charges for enabled levels. An eligibility-prefix reduction gives the exact response to any branch promise. Our main algorithmic result converts the price relaxation into an ordered path problem, solved in polynomial time with variable branch count and alphabet budget. The same decomposition supplies completion bounds for finite global search and independently checkable intervals when search stops early. For rational quadratic primitives, we retain an exact unrestricted continuous reference algorithm. Feasibility-preserving rounding connects catalog bounds to continuous values, and a fixed-input lower bound proves the uniform mesh rate sharp. The sharper saturated theory retains cap anchors, an off-cap highest level, and linear-time dynamic-programming layers after contractual tail minimization. A monotone-charge theorem separates a genuine institutional boundary from a specially shaped randomization example. Synthetic computations compare exact rational methods, report enumeration and arithmetic growth, and cross-check a separate original-policy nonlinear formulation. The decomposition extends to an abstract ordered-interface allocation class without requiring the renewal interpretation.
 \par\vspace{.15in}\textbf{Keywords:} renewal contracts; quantization; dynamic programming.
 \par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: resource allocation.
 \par\vspace{.1in}\textbf{Area of review:} Optimization.
 \par\vspace{.1in}\textbf{Submission category:} Lengthy manuscript.
 \end{minipage}\vfill September 24, 2026\end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r42-certified-joint-design-20260924/introduction.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/introduction.tex}
 \input{revisions/or-r42-certified-joint-design-20260924/positioning.tex}
 \input{revisions/or-r42-certified-joint-design-20260924/institution.tex}
 \input{revisions/or-r39-robust-quantizer-20260924/derived/deterministic.tex}
@@ -43,19 +43,21 @@
 \input{revisions/or-r39-robust-quantizer-20260924/derived/global.tex}
 \input{revisions/or-r39-robust-quantizer-20260924/derived/monge.tex}
 \input{revisions/or-r42-certified-joint-design-20260924/promise_robustness.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/joint_design.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/grid_certificate.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/joint_design.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/monotone_charge.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/decomposition.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/grid_certificate.tex}
 \input{revisions/or-r42-certified-joint-design-20260924/catalog_design.tex}
 \input{revisions/or-r39-robust-quantizer-20260924/figure.tex}
 \input{revisions/or-r39-robust-quantizer-20260924/resources.tex}
 \input{revisions/or-r42-certified-joint-design-20260924/inherited_evidence.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/study.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/conclusion.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/data_statement.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/study.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/conclusion.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/data_statement.tex}
 \clearpage\phantomsection\label{refs-start}
-\input{revisions/or-r42-certified-joint-design-20260924/generated/references.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/generated/references.tex}
 \label{refs-end}
 \clearpage
-\input{revisions/or-r42-certified-joint-design-20260924/novelty_table.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/generated/tables.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/novelty_table.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/generated/main_tables.tex}
 \end{document}
