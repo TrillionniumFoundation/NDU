@@ -1,0 +1,61 @@
+\begin{table}[p]\centering\small
+\caption{Original-budget comparison across six seeds}\label{tab:r45-comparison}
+\begin{tabular}{lrrrrrr}\toprule
+Charges & Cases & Core exact & \shortstack{Safeguarded exact\\in sample} & Core wins & Greedy wins & Max core loss \\
+\midrule
+None & 18 & 18 & 18 & 2 & 0 & 0.000000 \\
+Nonuniform & 18 & 17 & 18 & 8 & 1 & 0.028056 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\footnotesize Exact means equality with the exhaustive joint catalog reference. Core and greedy wins compare their same-budget values; ties are omitted. The safeguarded policy keeps the better feasible candidate. The charged exception remains in the data. These counts are observations, not global guarantees for a finite target portfolio.\end{minipage}
+\end{table}
+\begin{table}[p]\centering\small
+\caption{Completed same-budget target-net comparisons}\label{tab:r45-net}
+\begin{tabular}{rrrrr}\toprule
+Branches & Tolerance & Cases & Profiles & Maximum actual loss \\
+\midrule
+2 & 1/4 & 4 & 28 & 0.000000 \\
+2 & 1/8 & 4 & 50 & 0.000000 \\
+2 & 1/16 & 4 & 96 & 0.000000 \\
+3 & 1/2 & 4 & 47 & 0.049805 \\
+3 & 1/4 & 4 & 164 & 0.034645 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\footnotesize All completed nets meet the requested additive tolerance with the original two-symbol budget and nonuniform charges. Counts aggregate four seeds. An additional interrupted run withholds its global accuracy guarantee.\end{minipage}
+\end{table}
+\begin{table}[p]\centering\small
+\caption{Conditional frontier scaling (targets fixed) with heterogeneous realization ceilings}\label{tab:r45-scaling}
+\begin{tabular}{rrrrlrrr}\toprule
+Seed & Branches & Catalog & Budget & Charges & Selected & Seconds & Gap \\
+\midrule
+104729 & 32 & 17 & 4 & No & 4 & 0.036 & 0.019173 \\
+104729 & 32 & 17 & 4 & Yes & 4 & 0.036 & 0.037009 \\
+104729 & 128 & 33 & 8 & No & 8 & 0.486 & 0.004410 \\
+104729 & 128 & 33 & 8 & Yes & 5 & 0.484 & 0.041534 \\
+104729 & 256 & 65 & 8 & No & 8 & 3.257 & 0.004923 \\
+104729 & 256 & 65 & 8 & Yes & 8 & 3.278 & 0.025671 \\
+205019 & 32 & 17 & 4 & No & 4 & 0.038 & 0.010627 \\
+205019 & 32 & 17 & 4 & Yes & 3 & 0.038 & 0.040935 \\
+205019 & 128 & 33 & 8 & No & 8 & 0.474 & 0.003661 \\
+205019 & 128 & 33 & 8 & Yes & 5 & 0.478 & 0.042000 \\
+205019 & 256 & 65 & 8 & No & 8 & 3.303 & 0.004099 \\
+205019 & 256 & 65 & 8 & Yes & 7 & 3.316 & 0.023976 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\footnotesize Seconds are medians of three repeated executions on the same input. Gap is the valid same-budget Jensen upper bound minus the ideal-target conditional policy value, not an observed error to an unknown global optimum. Full timing arrays, stored-entry bit lengths and cumulative process resident-memory records are archived.\end{minipage}
+\end{table}
+\begin{table}[p]\centering\small
+\caption{Adaptive candidates at an unchanged installed-symbol budget}\label{tab:r45-continuous}
+\begin{tabular}{llrrr}\toprule
+Case & Candidate pool & Candidates & Symbols & Exact-reference loss \\
+\midrule
+interior-ideal & uniform & 9 & 2 & 0.044030 \\
+interior-ideal & uniform & 65 & 2 & 0.002991 \\
+interior-ideal & oracle pool & 4 & 2 & 0.000000 \\
+off-cap-top & uniform & 9 & 2 & 0.000000 \\
+off-cap-top & Adaptive & 5 & 2 & 0.000781 \\
+off-cap-top & Adaptive & 6 & 2 & 0.000000 \\
+Sat. 104729 & uniform & 9 & 3 & 0.006507 \\
+Sat. 104729 & Adaptive & 9 & 3 & 0.000000 \\
+Sat. 205019 & uniform & 9 & 3 & 0.001824 \\
+Sat. 205019 & Adaptive & 9 & 3 & 0.000000 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\footnotesize Every row has an exact continuous reference in the stated Jensen-attaining or saturated expected-participation regime. The interior oracle pool explicitly inserts ideal targets and is a sanity check. Candidate-pool size is not installed memory. Adaptive midpoint selection is a heuristic; catalog optimization at the saturated target is exact. The complete 22-row path is in the companion and JSON.\end{minipage}
+\end{table}

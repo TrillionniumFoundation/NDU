@@ -1,0 +1,58 @@
+\section{Independent Formulation and Numerical Error Bounds}\label{ec:r45-mip}
+The independent optimizer does not import the canonical response, either path recurrence, or the fixed-book allocation code. Let $z_i\in\{0,1\}$ enable level $a_i$, let $w_{ji}\in\{0,1\}$ indicate a permitted branch support, let $p_{ji}\geq0$ be its probability, and let $y_j\in[0,b_j]$ be the intermediate tier chosen before the draw. The original quadratic catalog problem is represented by
+\begin{align}
+ \max\quad&\sum_j\pi_j\left[\sum_i p_{ji}f(a_i)-\frac{\gamma_j}{2}y_j^2\right]-\sum_i\rho_i z_i,\label{eq:r45-mip-obj}\\
+ \text{s.t.}\quad&\sum_i z_i\leq s,\quad 0\leq p_{ji}\leq w_{ji}\leq z_i,\quad\sum_i p_{ji}=1,\label{eq:r45-mip-open}\\
+ &y_j+\sum_i a_i p_{ji}\leq b_j,\qquad
+ \sum_j\pi_j\left(y_j+\sum_i a_i p_{ji}\right)=B,\label{eq:r45-mip-promise}\\
+ &y_j+a_i\leq\tau_j+M_{ji}(1-w_{ji}),\quad
+ M_{ji}=\max\{0,b_j+a_i-\tau_j\}.\label{eq:r45-mip-risk}
+\end{align}
+For $a_i>\tau_j$, set $w_{ji}=p_{ji}=0$. The bound $y_j\leq b_j$ makes the displayed big-$M$ sufficient. No adjacent-support constraint is imposed. A feasible contract gives a feasible point by activating its positive support and installed levels. Conversely every model point defines one pre-draw tier and a lottery obeying both the target cap and every realized ceiling. Thus the model represents the original feasible set, not its canonical reduction. The allowance of activated levels with zero use does not change the optimum under nonnegative charges: redundant activations can be removed.
+
+For the numerical comparison, replace $\gamma_jy^2/2$ by an epigraph of piecewise-affine functions. With nodes $x_r=rb_j/K$, $0\leq r\leq K$, the tangent envelope is
+\[
+ h_j^{\rm tan}(y)=\max_{0\leq r\leq K}\{\gamma_jx_ry-\gamma_jx_r^2/2\}.
+\]
+The secant envelope is the maximum of the $K$ consecutive chord lines. On $[0,b_j]$,
+\[
+ 0\leq h_j-h_j^{\rm tan}\leq\frac{\gamma_jb_j^2}{8K^2},
+ \qquad 0\leq h_j^{\rm sec}-h_j\leq\frac{\gamma_jb_j^2}{8K^2}.
+\]
+The tangent formula follows by completing the square and choosing the nearest node; the secant formula follows from the quadratic chord identity. Consequently, writing $E_K=\sum_j\pi_j\gamma_jb_j^2/(8K^2)$, the exact envelope optima satisfy
+\[
+ V_s\leq V_s^{\rm tan}\leq V_s+E_K,
+ \qquad V_s-E_K\leq V_s^{\rm sec}\leq V_s.
+\]
+A secant-model feasible policy is feasible for the original constraints, and evaluating its actual quadratic cost can only improve its objective. In the implementation, however, the solver and its dual bounds are floating point. We therefore retain status, reported mixed-integer gap, residuals, raw probabilities, intermediate tiers, and both envelope results; we do not promote a numerical dual bound to an exact rational certificate. Comparing against exact catalog values is a separate validation step. The chosen numerical tolerances and segment count are stored with every result.
+
+\section{Independent Rational Policy Checks}\label{ec:r45-checks}
+For a fixed target and proposed book, the independent exhaustive routine enumerates singleton and all two-point supports directly. For a singleton $a\leq t$, service is $y=t-a$. For a pair $u<v$, the terminal mean is $t-y$ and the high probability is $(t-y-u)/(v-u)$. Feasible service lies in
+\[
+ \max\{0,t-v\}\leq y\leq\min\{t-u,\tau-v\}.
+\]
+Its payoff is the pair's affine reward at $t-y$ minus the nondecreasing intermediate cost. Because the chord slope is positive, the smallest feasible $y$ maximizes this payoff. Enumerating singleton and pair supports therefore gives a direct branch optimum without invoking the canonical implementation. Concavity and the standard two-moment extreme-point argument justify that no larger support is required. Catalog-subset enumeration then gives a separate exact check of conditional book selection.
+
+The policy checker verifies that each activated level belongs to the catalog, the book is strictly ordered and within its stated budget, charges are paid once, each probability is nonnegative, and each lottery sums to one. It recomputes each target as $y_j+\sum_i a_i p_{ji}$, the exact root equality, every cap, and every positive-probability realization $y_j+a_i\leq\tau_j$. It separately recomputes the quadratic reward and intermediate cost. Semantic mutation cases change targets, probabilities, support, service, charges, promise, or the declared budget; the test record identifies each rejection. This checker validates a policy and conditional enumeration. It does not infer global target optimality from a feasible policy or from the same price recurrence.
+
+\section{Target Nets, Approximation Errors, and Support Stability}\label{ec:r45-numerics}
+The net implementation fixes a possible lowest installed level, enumerates $k-1$ weighted target coordinates, fills the remaining coordinate subject to its cap, and repairs any positive residual by bounded increases. It chooses a branch of largest probability as the distinguished coordinate, solely to avoid unnecessary enumeration; the theorem does not depend on this choice. The code stores the weighted mesh step, evaluated profile count, anchor count, requested accuracy, and completion status. A profile cap can interrupt execution, but then the global $\varepsilon$ guarantee is explicitly absent. All returned policies still satisfy the resource and contractual constraints.
+
+In floating-point implementations, aggregate equality error alone does not bound all target perturbations. Let $t^U$ be the exact mixed target, and let $\widetilde t$ be its rounded version after clipping to the chosen book's feasible target intervals. Compute or upper-bound
+\[
+ r_{\rm mix}=\sum_j\pi_j|\widetilde t_j-t_j^U|,
+ \qquad r_{\rm eq}=\left|B-\sum_j\pi_j\widetilde t_j\right|.
+\]
+After exact residual repair, the weighted distance from $t^U$ is at most $r_{\rm mix}+r_{\rm eq}$. Hence the safe additional value allowance in the compressed-support theorem is $L(r_{\rm mix}+r_{\rm eq})$, not merely a bound on the equality residual. Clipping is included in $r_{\rm mix}$. Canonical reconstruction is performed after repair, and any desired rational probability representation is generated from the repaired targets and exact installed levels. Independently rounding probabilities and then checking only their sum would not establish root or risk feasibility.
+
+The theory does not require continuity of the selected book. Tied optima or perturbed parameters can change several selected levels while the corresponding certified value interval changes little. In particular, uncertain eligibility thresholds must be replaced by declared safe bounds before optimization; a lottery feasible for an estimated threshold is not automatically safe under downward perturbation. The error theorem concerns certified oracle and target arithmetic at stated model data. It is not an unproved robustness result for unknown customer parameters.
+
+
+\section{Current Reproduction and Preserved Evidence}\label{ec:r45-protocol}\label{ec:r45-preservation}\label{sec:r45-study}
+The exact command budget counts selected, enabled levels. It is not the number of levels receiving positive probability after optimization; zero-charge exact-cardinality frontiers may contain unused selections. The original archival column ``Used'' is a selected-level count. The current code reports the book and the positive-probability support separately through the full lottery record.
+
+The primary protocol, all original inputs, and completed and interrupted outcomes are retained in \texttt{PROTOCOL.json} and \texttt{results/}. Run \texttt{code/tests.py}, \texttt{code/benchmark.py}, \texttt{code/comparators.py}, and \texttt{code/price\_compare.py} to regenerate scientific evidence; \texttt{code/tables.py} generates the displayed values. Benchmarks record actual wall time and platform. A resumed run retains completed records rather than selecting new inputs. The comparator extension covers all primary cases, and the priced-prefix extension covers all 32 cases. They were not part of an external preregistration. The separate \texttt{check\_certificate.py} verifies a supplied rational target-box certificate without importing the search routine.
+
+The complete R45 main paper and electronic companion are preserved in \texttt{predecessor/}, alongside their source entry points. Their historical computational sections, protocols, and complete tables remain available there and in their unchanged source directories, rather than being appended again as new experimental evidence. Every mathematical theorem, proposition, lemma, corollary, and proof from the current R45 readers remains in the current article or this companion. The content map identifies each current, moved, or archived input. All inherited repository paths outside the explicitly replaced root readers and index files are byte-preserved.
+
+In the archived charged portfolio exception, the exact same-budget value, the portfolio value and their difference are recorded together in the new response, so the loss $101/3600$ is not presented without scale. The archive's interior target-adaptive exact example includes the ideal targets in its pool; it is an oracle-pool sanity check. Its 32--256-branch timing table optimizes the book conditional on supplied targets and is not pooled with the present joint intervals.

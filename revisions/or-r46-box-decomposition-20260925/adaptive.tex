@@ -1,0 +1,45 @@
+\section{Adaptive Joint Design and Verifiable Global Intervals}\label{sec:r46-adaptive}
+Let $\Theta=\{t\in[a_1,b]:\sum_j\pi_jt_j=B\}$. A box can be reduced without losing any point of its intersection with $\Theta$. With $s_\ell=\sum_j\pi_j\ell_j$ and $s_u=\sum_j\pi_ju_j$, its exact coordinate projections are
+\begin{equation}\label{eq:r46-project}
+ \ell'_j=\max\left\{\ell_j,\frac{B-s_u+\pi_ju_j}{\pi_j}\right\},\qquad
+ u'_j=\min\left\{u_j,\frac{B-s_\ell+\pi_j\ell_j}{\pi_j}\right\}.
+\end{equation}
+The box is discarded only if $B\notin[s_\ell,s_u]$ or an interval is empty. Formula~\eqref{eq:r46-project} follows by allocating all other coordinates to their upper or lower endpoints; continuous interval filling proves attainability of each projected endpoint.
+
+At each retained box compute $U_X=\min_{\lambda\in\Lambda}U_X(\lambda)$ for any finite price set containing zero. Every recovered book has an anchor in $I_X$ and hence has a feasible allocation satisfying the original equality. Optimize that book's targets exactly, either within $X$ or over the entire original target region, and update the feasible incumbent $L$. The implementation uses global fixed-book allocation and caches repeated books. This changes neither the original budget nor the charge schedule. Root price bisection is a choice of bound-strengthening prices, not an assertion of zero duality gap or a prerequisite for validity.
+
+Retain the leaves of a binary cover of $\Theta$, select a leaf with largest upper bound, and bisect one independent target coordinate at its midpoint. Apply \eqref{eq:r46-project} to both children. Their intersections with $\Theta$ cover their parent's intersection; the common boundary may overlap. A dependent coordinate $j_0$ is recovered through the equality. Use as splitting coordinate the longest weighted side $\pi_j(u_j-\ell_j)$ among $j\ne j_0$. The code chooses a largest-weight coordinate as $j_0$; this choice is not needed for validity.
+
+\begin{theorem}[Adaptive original-budget certificate and finite accuracy]\label{thm:r46-adaptive}
+Assume $f$ and all $h_j$ are Lipschitz on their relevant compact intervals and put $L_v=\max\{L_f,\max_jL_{h,j}\}$. Use the exact oracle in Theorem~\ref{thm:r46-box}, include price zero at every node, and evaluate the returned zero-price book by a feasible exact fixed-book allocation. At every interruption,
+\begin{equation}\label{eq:r46-interval}
+ L\leq P_m(B)\leq U=\max\{L,\max_{X\text{ a leaf}}U_X\}.
+\end{equation}
+For every $\varepsilon>0$, best-upper-bound selection and longest-weighted-side bisection terminate with $U-L\leq\varepsilon$. If $d=1$ the root is a singleton and is exact. For fixed $d>1$, a conservative full-tree bound is $2^{H+1}-1$ nodes, where
+\begin{equation}\label{eq:r46-depth}
+ H=\sum_{j\ne j_0}\max\left\{0,
+ \left\lceil\log_2\frac{2L_v(d-1)w_j^0}{\varepsilon}\right\rceil\right\},
+ \qquad w_j^0=\pi_j(u_j^0-\ell_j^0).
+\end{equation}
+A zero width contributes zero. With $L_v=0$, one root evaluation suffices. The bound is polynomial in numerical $1/\varepsilon$ for fixed $d$, and exponential in $d$ in general; adaptive pruning can finish before this worst-case cover is constructed.
+\end{theorem}
+\begin{proof}
+A feasible policy supplies the lower bound. Weak duality and the complete leaf cover supply the upper bound, irrespective of the search order or the quality of the incumbent. Thus pruning is valid whenever a leaf bound is at most $L+\varepsilon$, and retaining such leaves in a certificate is harmless.
+
+For local tightness, let $c^0$ maximize $S_X(0)$ and let $\hat t$ be its independently maximizing box targets. Condition~\eqref{eq:r46-anchors} gives some equality-feasible $t^0$ for that same book in $X$. The canonical response is continuous and piecewise concave with slopes bounded in absolute value by $L_v$: its chord slopes are bounded by $L_f$ and its shortfall slopes by $L_{h,j}$. Charges cancel for the same book. Therefore
+\begin{equation}\label{eq:r46-tightness}
+ U_X\leq U_X(0)\leq
+ \sum_j\pi_jv_{j,c^0}(t_j^0)-R(c^0)
+       +L_v\sum_j\pi_j(u_j-\ell_j)
+ \leq L+L_v\sum_j\pi_j(u_j-\ell_j).
+\end{equation}
+An exact global fixed-book allocation can only improve the displayed feasible value. The inequality does not require a uniform bound on a recovery-compression penalty and does not mix two books.
+
+After coordinate projection, the dependent weighted width is no larger than the sum of the other weighted widths. To see this, choose equality-feasible points attaining its lower and upper endpoints and subtract their equalities. Thus the last sum in \eqref{eq:r46-tightness} is at most twice the sum of the independent weighted widths. No node needs further splitting once each independent width is at most $\varepsilon/[2L_v(d-1)]$. Before this occurs, a longest-width split halves a width above that threshold; projection cannot increase any width. Along a path, coordinate $j$ can be split at most its summand in \eqref{eq:r46-depth} before falling below the threshold. Hence every path needing refinement has at most $H$ splits. The complete binary tree bound follows. At a singleton box the same calculation gives equality of the box upper bound and the fixed-target optimum. This also proves the one-type case.
+\end{proof}
+The result replaces completion of a full target net by certificate-directed refinement. It does not promise that refinement is inexpensive for every input. It supplies a structural polynomial node oracle and a meaningful interval when it is not. An absolute tolerance is measured in payoff units. Our quadratic experiments normalize target levels to $[0,1]$ and use $r=2$, $q=1$; they report both the absolute gap and its ratio to $r+\max_j\gamma_j/2+\sum_{i=1}^m\rho_{(i)}$, where the charges are sorted decreasingly. This positive declared scale remains meaningful when net value is close to zero. Rescaling all rewards and charges requires rescaling the requested tolerance.
+
+\subsection{Independent checking and physical implementation}
+A certificate contains the original inputs, the exact type partition, an original-space lottery, every binary split, the authoritative leaves, and one upper-bounding price table per node. It need not contain every price tried. The checker verifies anchor bounds, every reachable forward Bellman inequality, every backward stopping and transition inequality, and the final maximum in \eqref{eq:r46-glue}. Upper tables need not equal the optimizer's tables; satisfying these inequalities is enough to dominate every represented path. It separately reconstructs both projected children at every split and verifies that no leaf is missing. Finally, it checks probabilities, selected charges, pre-draw service, the exact root promise, and supportwise realization limits without using the canonical response formula. The certificate therefore certifies all target regions, not just the sampled incumbents. Its storage is $O(TmN+Td)$ rational entries for $T$ recorded nodes, apart from the policy and input data; the checker recomputes edge values and has polynomial work per recorded node.
+
+The terminal alphabet is only one physical resource. A type-reduced implementation additionally stores a history-to-type encoder, a target and lottery table, command constants, and probability representations. Arbitrary rational probabilities may require variable-length random-bit generation or a separate finite-precision error analysis; we do not count them as free writable memory. Offline certificates have the size just stated and are not assumed to fit in the terminal gateway. The total deployment cost is consequently not identified with $\lceil\log_2m\rceil$ bits. This separation is essential to interpreting the repeated-type computation as joint design of a restricted interface, rather than a claim about full-system memory or calibrated field performance.

@@ -1,42 +1,44 @@
-# NDU — Operations Research R45
+# NDU — Operations Research R46
 
-**Limited-Memory Renewal Contracts: Budgeted Compression and Certified Joint Design**
+**Limited-Memory Renewal Contracts: Two-Sided Decomposition and Certified Joint Design**
 
-Read `main.pdf`, `electronic_companion.pdf`, and `revisions/or-r45-budgeted-compression-20260924/RESPONSE_TO_REFEREES.pdf`.
+Revision branch: `revision/ndu-operations-research-r46-box-decomposition-20260925`.
 
-Revision branch: `revision/ndu-operations-research-r45-budgeted-compression-20260924`.
+Start with `main.pdf`, `electronic_companion.pdf`, and `revisions/or-r46-box-decomposition-20260925/RESPONSE_TO_REFEREES.pdf`.
 
-Latest report: `reviews/operation_research_referee_report_r44_independent_harsh_2026-09-24.md`, on review commit `91583abe77208ec4ed25b5fbc5a15f89d54fcd6f`. The reviewed R44 manuscript tip is `fe066aac2862fc89fc8eb2e19fd98b4b96e6d5a3`.
+## Review and scientific change
 
-## New results
+This revision responds to `reviews/operation_research_referee_report_r45_independent_harsh_2026-09-25.md` at `260a5224c55e0326d9da7f0c813b4a3fcab7671f`. The reviewed R45 manuscript tip was `9c52e2d58d69a8d653c3b50e2c860b35db04dc7f`.
 
-Exact conditional memory--charge frontier, global polynomial catalog optimization at saturation, a same-budget additive scheme for fixed branch count, local distortion certificates, and charge-aware compression with inexact price supports and exact target/risk repair. The conditional frontier is not mislabeled as global target optimization. The target net has accuracy exponent k - 1 and does not assert an FPTAS with variable k. All original memory budgets, opening charges, root promises and realized ceilings remain explicit.
+The new core is an exact two-sided price-path decomposition on target boxes, exact catalog-response type aggregation, and an adaptive original-budget joint interval with a finite positive-accuracy theorem. A rising-only price oracle is not valid on general target boxes; the manuscript supplies an exact counterexample and the corrected two-sided recurrence. The method never changes the command budget, charges, root promise, or realized ceilings. Its worst-case accuracy dependence remains exponential in the number of distinct response types. No general hardness classification or uniformly superior runtime is claimed.
 
 ## Executed evidence
 
-The new package records 288 exact conditional budget comparisons on 144 instances; 144 repairs; ten semantic mutation rejections; twenty completed same-budget target-net comparisons; 36 joint comparisons with all budgets through twice the original limit; 24 independently formulated MIP comparisons (48 envelope solves); twelve heterogeneous scaling cases with three timing repeats; 22 exact continuous-reference comparisons; and ten inexact-support error checks. The MIP brackets are numerical, not rational global certificates.
+600 exact all-book price comparisons; 24 additional rational joint interval comparisons; 2,793 finite-lattice coverage checks; genuine clipping tests; one-call single-branch regression; 11 rejected semantic certificate mutations. All 32 primary/scaling joint intervals have independently checked coverage and original-space feasible policies. At absolute tolerance 0.001, 28 box runs complete and four remain unresolved. The inherited priced-prefix baseline completes all 32; its stronger outcomes are retained. The separate 12-case grid comparison retains incomplete nets, and the direct uneliminated MIP comparison includes all 24 primary instances and both envelopes (48 solves), with per-case times, nodes, gaps and numerical widths.
 
-The core target portfolio attains 35 of 36 original-budget optima. Its charged exception is retained. A declared greedy safeguard attains all 36 on these synthetic inputs; this observation is not a theorem about all instances. No customer data, field calibration or deployment is claimed.
+The 128/256-history experiments explicitly use exactly repeated types. All data are synthetic. No field calibration, deployment evidence, general-purpose polynomial joint solver, or guaranteed heuristic exactness is asserted.
 
 ## Reproduction
 
-Use Python 3.12, SciPy 1.17.0 and SymPy. Readers require pdflatex with newtx and pgfplots, and poppler.
+Canonical benchmark timings were measured in the recorded local Python 3.13.5 / SciPy 1.17.0 environment. They are not relabeled as GitHub Actions timings. Publication reconstructs the exact rational witnesses at their recorded node counts and checks their canonical byte hashes; regeneration/verification timings are recorded separately.
 
 ```bash
-R=revisions/or-r45-budgeted-compression-20260924
+R=revisions/or-r46-box-decomposition-20260925
 python "$R/code/tests.py"
-python "$R/code/study.py"
-python "$R/code/extended.py"
+python "$R/code/verify_saved.py"
+python "$R/code/response.py"
 python "$R/code/tables.py"
-python "$R/code/build.py" prepare
-# Scientific sources and prepared evidence are committed before final build.
-python "$R/code/build.py" build
+python "$R/code/assemble.py"
+python "$R/code/build.py"
+python "$R/code/preservation.py"
 ```
 
-`code/target_net.py` returns its requested global accuracy only when its target net is complete. An interrupted run still supplies a feasible incumbent and explicitly withholds that certificate.
+For a fresh timing study, copy the source hierarchy to a separate working directory, remove only that copy's R46 generated benchmark JSON and certificate directory, then run `benchmark.py`, `comparators.py`, and `price_compare.py`. Do not erase the canonical committed evidence. All protocols and code are supplied, and resumed runs retain completed cases.
 
-## Preservation and provenance
+The independent checker accepts an uncompressed certificate JSON via `python code/check_certificate.py certificate.json`. `results/certificates/` contains the gzip-compressed canonical certificates. Their file hashes appear in `results/joint.json`.
 
-The current article and companion retain all 34 mathematical label identifiers from the R44 readers and add seven labeled results. `CONTENT_MAP.json` maps every old root reader input to its current or preserved-reader location. All older source directories and results remain byte-preserved. The complete predecessor main and companion PDFs are in `predecessor/`. No prior branch is updated.
+## Readers and preservation
 
-`PRESERVATION_MANIFEST.json` checks the full inherited Git tree. `BUILD_VALIDATION.json` records the committed scientific source, actual toolchain, complete reader input hashes, PDF hashes, reference/layout checks and executed evidence. Only the exact R45 branch is allowed to publish these readers. The publication workflow commits human-readable sources before building and then pushes the validated PDFs/evidence to this branch.
+The current main article and companion retain all 41 R45 mathematical statement labels. The local validated readers have 36 pages each (34 nonreference main pages); the remote build audit is authoritative. The 182-word abstract, anonymous title page, author-year references, layout checks and complete reader-input hashes are recorded in `BUILD_VALIDATION.json`.
+
+All inherited derivations, source directories and numerical records remain unchanged. Exact former root readers are preserved in the new `predecessor/` directory. `PRESERVATION_MANIFEST.json` checks the full inherited Git tree; `CONTENT_MAP.json` identifies retained and relocated reader inputs. Historical numerical details are retained in complete predecessor readers rather than misrepresented as newly executed evidence. The report, preceding revision, main branch and other branches are not edited.
