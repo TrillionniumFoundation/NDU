@@ -1,0 +1,40 @@
+\section{Pricing Information and Implementation}\label{sec:r37-resources}
+\subsection{A frontier is a resource-allocation primitive}
+The symbol budget is not a synonym for total memory. Let $I$ specify a participation institution, $m$ a declared alphabet capacity, and $t$ a read-only representation from a stated implementation menu. For the fixed rational input, suppose the menu charges $R_{I,t}(m,S)$ read-only bits, $Q_{I,t}(m,S)$ evaluation work per use, and $C_{I,t}(m,S)$ offline work. Here $S$ is the coefficient-height bound, and the same charges apply to every loss-minimizing controller represented in that menu entry. Public-state storage and any branch-record access are specified separately. For nonnegative resource prices and $H>0$ uses, the design objective is
+\begin{align}\label{eq:r37-design}
+ \min_{I,m,t}\ \bigl\{D_m^I
+ &+\lambda_w\lceil\log_2m\rceil
+ +\lambda_R R_{I,t}(m,S)\nonumber\\
+ &+\lambda_T Q_{I,t}(m,S)+C_{I,t}(m,S)/H+\kappa_I\bigr\}.
+\end{align}
+The quantity $\kappa_I$ is a stipulated cost of implementing the participation protocol, not an estimated willingness to accept risk. Restrict the menu to feasible $m\leq k$ and implementations satisfying the interface in Section~\ref{sec:r37-institution}. The exact frontiers and finite enumeration solve \eqref{eq:r37-design}. This follows by minimizing service loss within each menu entry and then comparing entries; no additional convexity claim is needed.
+
+The qualification on the menu is important. When read-only cost depends on the particular codebook rather than the declared capacity and representation, the loss-minimizing codebook need not minimize loss plus storage. Then \eqref{eq:r37-design} is a restricted-menu decision, and a joint controller/representation search is needed for a larger claim. We do not identify a one-dimensional loss frontier with that unrestricted multidimensional optimum.
+
+For example, storing $m$ rational decoder levels requires $O(mS)$ bits, but a direct branch encoder can require $O(kS)$ more. A general compact-response implementation can trade explicit per-vertex tables for a shared post-compilation circuit, as proved in the companion; this changes both read-only storage and evaluation work. Neither a free public vertex nor a linear writable alphabet makes those quantities disappear. Offline compilation and the exact-rational frontier calculation are also distinct costs. Table~\ref{tab:r37-accounting} records what the frontier theorem includes rather than charge a general compiler to every renewal instance.
+
+When writable bits are the only variable implementation cost, the best controller with $w$ bits uses the frontier at capacity $\min(2^w,k)$. It need not physically use every available symbol. The three equal-probability branches in Proposition~\ref{prop:r33-random-gap} give a transparent decision example:
+\[
+ D_1=7/16,\qquad D_2^{\rm ran}=1/96,\qquad
+ D_2^{\rm pw}=1/8,\qquad D_3^{\rm ran}=D_3^{\rm pw}=0.
+\]
+A one-bit controller can use two symbols; a two-bit controller can implement all three distinct terminal actions. With no other variable charges, every bit price strictly between $1/96$ and $1/8$ makes one bit optimal under expected participation and two bits optimal under pathwise participation. Comparing with the zero-bit loss $7/16$ confirms that the zero-bit option does not overturn either choice. The institutional distinction therefore changes an actual capacity decision, not only a reported objective value.
+
+\subsection{An intermediate realization requirement}
+An operator may permit a bounded payment overrun without accepting the full expected-participation lottery. Consider the explicit protocol in which the intermediate tier $Y_j$ is committed before the ticket draw, and impose
+\begin{equation}\label{eq:r37-overrun}
+ \E[Y_j+C_j]=b_j,\qquad Y_j+C_j\leq b_j+\delta
+ \quad\hbox{almost surely},\qquad \delta\geq0.
+\end{equation}
+This is an additional timing restriction for the intermediate institution, not a claim that pre-draw intermediate service is without loss for every bounded-risk model. It is without loss in the original expected-participation optimum. The pathwise endpoint agrees with the stronger theorem allowing draw-specific intermediate actions.
+
+For a fixed codebook, let $u$ be its largest level not exceeding $b_j$. If the next level $v>b_j$ exists and $v-b_j\leq\delta$, the optimal branch uses the adjacent lottery with mean $b_j$ and takes $Y_j=0$. Otherwise it takes $C_j=u$ and $Y_j=b_j-u$. A level equal to $b_j$ is used deterministically. Proposition~\ref{prop:r37-fixed-overrun} proves this rule; in particular, it does not replace an almost-sure bound with an expected one.
+
+The off-cap example in Proposition~\ref{prop:r34-offcap} admits an exact global solution under this intermediate protocol. With at most two symbols, define
+\begin{equation}\label{eq:r37-risk-frontier}
+ z_\delta=\frac12+\min\{\delta,\tfrac18\},\qquad
+ D_2^\delta=\frac{z_\delta^2}{20}-\frac{z_\delta}{16}+\frac3{80}.
+\end{equation}
+The optimal codebook is $(1/4,z_\delta)$. Thus the deterministic endpoint has loss $3/160$, whereas allowing an overrun of $1/8$ attains the expected-participation optimum $23/1280$. Between those endpoints, the optimal highest service level moves continuously with the permitted overrun. The proof in Proposition~\ref{prop:r37-overrun-example} optimizes over all codebooks with at most two levels; the computational checks are not its justification. We do not extend the general cap-anchoring or linear-frontier theorem to arbitrary bounded-overrun instances.
+
+At the unrestricted optimum the middle branch receives $5/8$ with probability $2/3$ and $1/4$ otherwise. Its possible overrun is exactly $1/8$, and its expectation remains $1/2$. The highest branch takes intermediate service $1/8$ and terminal service $5/8$ deterministically. This makes the risk allocation and the timing of service explicit. A hard cap admits the zero-overrun endpoint, not the same lottery described with different terminology.
