@@ -1,0 +1,112 @@
+name: NDU R38 contractual quantization publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r38-contractual-quantization-20260924]
+    paths:
+      - 'revisions/or-r38-contractual-quantization-20260924/BUILD'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r38-publication
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r38-contractual-quantization-20260924
+  R: revisions/or-r38-contractual-quantization-20260924
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r38-contractual-quantization-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify and unpack the reviewed source bundle
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import base64, hashlib, json, os, zlib
+          r=Path(os.environ['R'])
+          parts=sorted((r/'_transport').glob('part-*.b64'))
+          assert len(parts)==5
+          texts=[p.read_text().strip() for p in parts]
+          # Normalize one known transport-byte duplication; full-bundle hashes
+          # below must match the locally executed scientific source exactly.
+          texts[1]=texts[1].replace('pEdrYQQCA6Z','pEdrYQCA6Z')
+          encoded=''.join(texts)
+          assert len(encoded)==45060
+          compressed=base64.b64decode(encoded,validate=True)
+          assert hashlib.sha256(compressed).hexdigest()=='5d49927ad2608179f31578f4db7209bdb5c554ab04ed4d00195bbcc5e1ee287d'
+          raw=zlib.decompress(compressed)
+          assert hashlib.sha256(raw).hexdigest()=='066b7c85d8c51c7c3666682e10409b86d7d6bdc32d6ab65f59fd9dbb867f7b98'
+          data=json.loads(raw); assert len(data)==17
+          for path,text in data.items():
+              p=PurePosixPath(path)
+              assert not p.is_absolute() and '..' not in p.parts
+              assert path.startswith(str(r)+'/') and isinstance(text,str)
+          if not (r/'code/build.py').exists():
+              for path,text in data.items():
+                  p=Path(path); p.parent.mkdir(parents=True,exist_ok=True)
+                  p.write_text(text,encoding='utf-8')
+          for p,text in zip(parts,texts): p.write_text(text,encoding='ascii')
+          (r/'_transport/MANIFEST.json').write_text(json.dumps({
+              'compressed_sha256':hashlib.sha256(compressed).hexdigest(),
+              'source_bundle_sha256':hashlib.sha256(raw).hexdigest(),
+              'files':{p:hashlib.sha256(t.encode()).hexdigest() for p,t in data.items()}
+          },indent=2)+'\n')
+          PY
+      - name: Execute new and inherited exact tests and prepare preserved readers
+        run: python "$R/code/build.py" prepare
+      - name: Commit scientific sources before compiling readers
+        run: |
+          git config user.name 'NDU revision publication'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r38): prove promise robustness and jointly optimize risk-limited charged codebooks'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - name: Install reader compilation dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile and validate layout source identity and complete historical preservation
+        run: python "$R/code/build.py" build
+      - name: Publish main companion response and build evidence
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add -f main.pdf electronic_companion.pdf r38-main-labels.aux r38-ec-labels.aux "$R/RESPONSE_TO_REFEREES.pdf" "$R/BUILD_VALIDATION.json" "$R/PRESERVATION_MANIFEST.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r38): publish validated Operations Research readers and exact execution evidence'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r38-reader-build
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r38-*-labels.aux
+            revisions/or-r38-contractual-quantization-20260924/
+            revisions/or-r37-integrated-frontier-20260924/
+            revisions/or-r33-piecewise-randomized-20260923/
+            revisions/or-r34-global-randomized-frontier-20260923/
+            revisions/or-r35-monge-frontier-20260923/
+            revisions/or-r36-linear-frontier-20260924/
+            .build/ndu-r38/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: warn
