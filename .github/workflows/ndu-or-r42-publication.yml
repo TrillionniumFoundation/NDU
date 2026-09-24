@@ -1,0 +1,86 @@
+name: NDU R42 certified joint design publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r42-certified-joint-design-20260924]
+    paths:
+      - '.github/workflows/ndu-or-r42-publication.yml'
+      - 'revisions/or-r42-certified-joint-design-20260924/BUILD'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r42-publication
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r42-certified-joint-design-20260924
+  R: revisions/or-r42-certified-joint-design-20260924
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r42-certified-joint-design-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assemble hash-verified sources on the isolated revision branch
+        run: python "$R/assemble.py"
+      - name: Install independent verification dependencies
+        run: python -m pip install sympy scipy pypdf
+      - name: Execute exact new and inherited suites and prepare readers
+        run: python "$R/code/build.py" prepare
+      - name: Commit scientific sources before reader compilation
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git config user.name 'NDU revision publication'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r42): solve joint continuous promise-risk-charge design and prove exact-feasible grid certificate'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - name: Install reader compilation dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile committed readers and validate historical preservation
+        run: python "$R/code/build.py" build
+      - name: Publish validated article companion response and build identity
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add -f main.pdf electronic_companion.pdf r42-main-labels.aux r42-ec-labels.aux "$R/RESPONSE_TO_REFEREES.pdf" "$R/BUILD_VALIDATION.json" "$R/PRESERVATION_MANIFEST.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r42): publish validated Operations Research article companion and referee response'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r42-reader-build
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r42-*-labels.aux
+            revisions/or-r42-certified-joint-design-20260924/
+            revisions/or-r39-robust-quantizer-20260924/
+            revisions/or-r38-contractual-quantization-20260924/
+            revisions/or-r37-integrated-frontier-20260924/
+            revisions/or-r33-piecewise-randomized-20260923/
+            revisions/or-r34-global-randomized-frontier-20260923/
+            revisions/or-r35-monge-frontier-20260923/
+            revisions/or-r36-linear-frontier-20260924/
+            reviews/operation_research_referee_report_r39_independent_harsh_2026-09-24.md
+            .build/ndu-r42/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: error
