@@ -1,0 +1,109 @@
+\section{Monge Costs and Classical Linear Matrix Search}\label{sec:r37-search}
+The finite dynamic program still optimizes a continuous highest service level. We first prove the contractual cost inequalities and then verify the classical easy-direction completion with the exact order used by the code. A search routine cannot establish the economic reduction that supplies its entries.
+
+\subsection{The inequality survives continuous terminal minimization}
+Write $I_\ell=[b_\ell,b_{\ell+1}]$, including $I_k=\{b_k\}$, and $Q(i,\ell)=\min_{z\in I_\ell}\Psi_{i\ell}(z)$ for $i\leq\ell$. A partial array is Monge here when
+\begin{equation}\label{eq:r37-monge}
+ A(r,c)+A(s,d)\leq A(r,d)+A(s,c),\qquad r<s,\ c<d,
+\end{equation}
+whenever all four entries are defined. This fixes the inequality convention before any orientation is named.
+
+\begin{lemma}[Contractual finite-cost inequalities]\label{lem:r37-cost}
+The anchored edge costs $E$ and deterministic cell costs $C$ satisfy $A(a,c)+A(b,d)\leq A(a,d)+A(b,c)$ for $a\leq b\leq c\leq d$. The continuously minimized terminal array $Q$ is Monge on its feasible domain. These statements permit arbitrary positive probabilities and heterogeneous nonnegative intermediate curvatures.
+\end{lemma}
+\begin{proof}
+For $E$, expansion of \eqref{eq:r34-edge} gives the right-minus-left difference
+\begin{align*}
+ \frac q2\biggl[&(b_d-b_c)\sum_{h=a}^{b-1}\pi_h(b_h-b_a)
+ +(b_b-b_a)(b_d-b_c)\sum_{h=b}^{c}\pi_h\\
+ &+(b_b-b_a)\sum_{h=c+1}^{d}\pi_h(b_d-b_h)\biggr]\geq0.
+\end{align*}
+Every term is nonnegative, including coincident-index and empty-sum cases. For $C$, all terms through $c$ cancel and the difference is
+\[
+ \sum_{h=c+1}^{d}\pi_h\{f(b_b)-f(b_a)+h_h(b_h-b_a)-h_h(b_h-b_b)\}\geq0.
+\]
+Only monotonicity of $f$ and $h_h$ is needed for the second inequality.
+
+Join the functions $\Psi_{i\ell}$ to a continuous function $\Psi_i$ on $[b_i,b_k]$. For $i<j$ and $z\geq b_j$, cancellation gives
+\begin{align}
+ \Psi_i(z)-\Psi_j(z)=\frac q2\biggl[&\sum_{h=i+1}^{j}\pi_h(b_h-b_i)(z-b_h)\nonumber\\
+ &+(b_j-b_i)\sum_{b_j<b_h\leq z}\pi_h(z-b_h)\biggr].\label{eq:r37-crossing}
+\end{align}
+The expression is continuous and nondecreasing in $z$: between caps its slope is nonnegative, and every entering summand is zero at its entry cap. Intermediate-curvature terms cancel. Thus $\Psi_i(x)+\Psi_j(y)\leq\Psi_i(y)+\Psi_j(x)$ for $b_j\leq x\leq y$.
+
+For feasible columns $\ell<t$ with $j\leq\ell$, let $x$ minimize $\Psi_j$ on $I_\ell$ and $y$ minimize $\Psi_i$ on $I_t$. Compactness ensures attainment and interval order gives $x\leq y$, including a common endpoint. Therefore
+\[
+ Q(i,\ell)+Q(j,t)\leq\Psi_i(x)+\Psi_j(y)
+ \leq\Psi_i(y)+\Psi_j(x)=Q(i,t)+Q(j,\ell).
+\]
+The singleton final interval is evaluated directly. This proves the inequality after continuous optimization; convexity of each separate minimization would not by itself suffice.
+\end{proof}
+
+\begin{lemma}[Previous-layer values are column offsets]\label{lem:r37-offset}
+Adding any finite column term $v_c$ preserves the Monge inequality. For fixed finite predecessor values, the arrays $A(j,i)=P(s,i)+E(i,j)$ and $B(j,i)=D(s-1,i)+C(i+1,j)$ are therefore Monge wherever all four entries are feasible.
+\end{lemma}
+\begin{proof}
+The two column terms occur once on each side of \eqref{eq:r37-monge} and cancel. For rows $j<j'$ and columns $i<i'$ with $i'<j$, apply Lemma~\ref{lem:r37-cost} to $i<i'<j<j'$ for $E$, and $i+1<i'+1\leq j<j'$ for $C$. Transposition of the cost arguments gives the required inequality. Unreachable predecessor values are removed, not treated as finite offsets.
+\end{proof}
+
+\subsection{Completion with the implemented strict and tie orders}
+Give a feasible entry the lexicographic key
+\begin{equation}\label{eq:r37-finite-key}
+ K(r,c)=(0,A(r,c),c).
+\end{equation}
+Finite ties select the smaller column, and distinct columns have distinct keys. The exact total-monotonicity condition used by the implementation is
+\begin{equation}\label{eq:r37-tm}
+ K(r,d)<K(r,c)\ \Longrightarrow\ K(s,d)<K(s,c),\qquad r<s,\ c<d.
+\end{equation}
+A strict preference for the right column cannot reverse in a later row. This applies to arbitrary selected rows and columns. Because keys are distinct, a decrease of row-argmin indices in any submatrix would contradict \eqref{eq:r37-tm}.
+
+\begin{lemma}[Suffix-feasible completion]\label{lem:r37-suffix}
+Let row $r$ have feasible columns $c\geq\ell_r$, with nondecreasing cutoffs $\ell_r$. Suppose the finite entries are Monge. Complete every $c<\ell_r$ with $K(r,c)=(1,0,-c)$. Then \eqref{eq:r37-tm} holds. A completely infeasible row of a selected submatrix selects its largest selected column.
+\end{lemma}
+\begin{proof}
+Fix $r<s$ and $c<d$ satisfying the antecedent. There are three possible upper-row configurations.
+
+If both entries are feasible, the strict preference means $A(r,d)<A(r,c)$; equality would select $c$. If both remain feasible in row $s$, Monge gives $A(s,d)-A(s,c)\leq A(r,d)-A(r,c)<0$. If $c$ becomes infeasible but $d$ remains feasible, $d$ wins by its zero first key coordinate. If both become infeasible, $-d<-c$ makes $d$ win. A feasible $c$ with infeasible $d$ is impossible for a suffix.
+
+If $c$ is infeasible and $d$ feasible in row $r$, the nondecreasing cutoff keeps $c$ infeasible in row $s$. Either $d$ remains feasible and wins by its first coordinate, or both are padded and $-d<-c$ wins. Finally, if both are infeasible in row $r$, both remain infeasible in row $s$ and the same padding order applies. These cases are exhaustive. In an entirely infeasible selected row, all keys are $(1,0,-c)$, uniquely minimized at the largest selected column. Thus rows becoming entirely infeasible after column restriction are included, not excluded by an implicit feasibility assumption.
+\end{proof}
+
+\begin{lemma}[Prefix-feasible completion]\label{lem:r37-prefix}
+Let row $r$ have feasible columns $c\leq u_r$, with nondecreasing cutoffs $u_r$. Suppose the finite entries are Monge. Complete every $c>u_r$ with $K(r,c)=(1,0,c)$. Then \eqref{eq:r37-tm} holds. A completely infeasible selected row selects its smallest selected column.
+\end{lemma}
+\begin{proof}
+If $d>u_r$, either $c$ is feasible and wins by its first key coordinate, or both are padded and $c<d$ wins. The antecedent is false in either case. If the antecedent is true, both upper-row entries are finite. Since $u_s\geq u_r$, both remain finite in row $s$. A finite tie cannot favor $d$ in row $r$, and the strict finite inequality propagates by Monge exactly as above. On a wholly padded selected row, $(1,0,c)$ is uniquely minimized at its smallest column. This covers finite ties, feasible/padded comparisons, and padded/padded comparisons without assigning a numerical infinity.
+\end{proof}
+
+These lemmas specialize the known favorable completion setting in Section~\ref{sec:r37-position}; they are not general partial-matrix search theorems. A helper accepting two bounds does not prove total monotonicity for arbitrary interval rows. For example, two zero-cost rows feasible only at columns $2$ and $1$ have a vacuously Monge finite part but decreasing minima. Uniform infinite padding with ordinary left ties also fails on the required suffix domain: rows with cutoffs $2,3$ restricted to columns $1,2$ select $2,1$. The opposite internal padding orders above are deliberate.
+
+\subsection{Reachability and three search interfaces}
+\begin{lemma}[Contiguous reachable predecessor sets]\label{lem:r37-reach}
+For the anchored program, $P(1,j)$ is finite exactly at $j=1$, and for $s\geq2$, $P(s,j)$ is finite exactly when $s\leq j\leq k$. For the deterministic program, $D(0,j)$ is finite only at $j=0$, and $D(s,j)$ is finite exactly when $s\leq j\leq k$ for $s\geq1$. Each globally reachable predecessor set that can extend to a further endpoint is a contiguous interval or the initial singleton.
+\end{lemma}
+\begin{proof}
+An anchored path with $s$ distinct indices ending at $j$ requires $j\geq s$. Conversely, $1,2,\ldots,s-1,j$ gives a finite path whenever $j\geq s\geq2$. The one-anchor condition fixes $j=1$. A deterministic partition of $j$ branches into $s$ nonempty ordered cells exists exactly when $j\geq s$. These are necessary and sufficient characterizations. Discarding endpoint $k$, which cannot extend to a later endpoint, preserves interval structure.
+\end{proof}
+
+The following pseudocode uses one-based cap indices and zero for the empty deterministic prefix. ``Search'' means ordinary full-matrix SMAWK on the supplied key. All prior-layer values are known before a search.
+\begin{quote}\small
+\textbf{Terminal interface.} Rows and columns are $1,\ldots,k$. At $(i,\ell)$ return $(1,0,-\ell)$ if $\ell<i$; otherwise minimize \eqref{eq:r34-tail} by \eqref{eq:r34-top} and return $(0,Q(i,\ell),\ell)$. Search all rows. Reevaluate each winning cell once to store $T_i$ and its continuous optimizer.
+
+\textbf{Anchored-prefix interface.} To form layer $s+1$, use rows $j=s+1,\ldots,k$. Columns are $\{1\}$ for $s=1$, and $s,\ldots,k-1$ otherwise. At $(j,i)$ return $(1,0,i)$ if $i\geq j$, and $(0,P(s,i)+E(i,j),i)$ otherwise. Search and store values and predecessors. Scan the current reachable endpoints with $T_i$ to update the at-most-budget incumbent; backtrack only its winning codebook.
+
+\textbf{Deterministic-prefix interface.} To form layer $s$, use rows $j=s,\ldots,k$. Columns are $\{0\}$ for $s=1$, and $s-1,\ldots,k-1$ otherwise. Return $(1,0,i)$ if $i\geq j$, and $(0,D(s-1,i)+C(i+1,j),i)$ otherwise. Search, store predecessors, and backtrack the solution ending at $k$.
+\end{quote}
+Lemma~\ref{lem:r37-reach} justifies every discarded column. The terminal interface has shrinking feasible suffixes; the program interfaces have expanding feasible prefixes. The completion lemmas include infeasible rows in submatrices created internally by SMAWK, although every original searched row has a feasible entry. Padded comparisons do not evaluate an undefined economic cost.
+
+\begin{theorem}[Exact complete frontiers with linear work per layer]\label{thm:r37-linear}
+For ordered rational inputs satisfying \eqref{eq:r34-primitives} and $1\leq m\leq k$, both expected-participation and deterministic/pathwise frontiers through budget $m$, including an optimal codebook for every budget, require $O(mk)$ rational operations and comparisons and $O(mk+k)$ stored rational numbers and indices. The highest randomized level remains continuous. With total input length $L$ and $S=O(k[L+\log(k+2)])$, a conservative Turing bound is $O(mkS^3)$. Sorting unordered distinct caps adds $O(k\log k)$ exact comparisons.
+\end{theorem}
+\begin{proof}
+The finite-cost, offset, completion, and reachability lemmas verify all hypotheses of classical SMAWK \citep{AggarwalEtAl1987}. Each interface call uses $O(k)$ key comparisons. A request either compares padded indices or performs constantly many moment operations and exact cost evaluations, including repeated requests without caching. The six moment arrays cost $O(k)$ work and space. The terminal pass and at most $m$ program layers cost $O(mk)$. Winner reevaluation and last-anchor scans add $O(mk)$ rather than an uncounted quadratic search.
+
+There are $O(mk)$ predecessors, two active value rows, and $O(k)$ extra search indices. Backtracking one winner for each budget writes at most $\sum_{s=1}^m s=O(m^2)\subseteq O(mk)$ symbols. Reconstruction and output are thus included.
+
+Search introduces no new algebraic depth. A terminal call forms the same six moments, coefficient ratio, clamped level, and substituted quadratic value as Theorem~\ref{thm:r34-global}. A program call adds one edge or cell to a prior path, and a selected path has at most $k$ such costs. Comparisons evaluate a subset, possibly with repetition, of the candidates of quadratic enumeration. Column offsets change no formula; padding uses indices only. The common-denominator argument of that theorem therefore still bounds evaluated rationals and lottery probabilities by $O(S)$ bits. Reduced-fraction arithmetic and cross multiplication cost conservatively $O(S^3)$ per operation. Table~\ref{tab:r37-accounting} records the full accounting.
+\end{proof}
+
+The retained divide-and-conquer implementation is a valid $O(mk\log(k+1))$ alternative using ordinary row-minimum monotonicity. It is an implementation comparator rather than another headline theorem. Linear rational work does not imply uniform wall-time superiority for a particular Python implementation.
