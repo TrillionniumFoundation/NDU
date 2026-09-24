@@ -1,0 +1,67 @@
+name: NDU R37 exact and practical validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r37-integrated-frontier-20260924]
+    paths:
+      - '.github/workflows/ndu-or-r37-validation.yml'
+      - 'revisions/or-r37-integrated-frontier-20260924/VALIDATE'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r37-validation
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r37-integrated-frontier-20260924
+  R: revisions/or-r37-integrated-frontier-20260924
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r37-integrated-frontier-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the external compiled LP interface
+        run: python -m pip install scipy==1.17.0
+      - name: Snapshot unchanged inherited exact engines into the current code directory
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,shutil
+          from pathlib import Path
+          root=Path(os.environ['R']);target=root/'code'/'snapshots';manifest={}
+          for folder,name in [('or-r34-global-randomized-frontier-20260923','randomized_frontier.py'),('or-r35-monge-frontier-20260923','monge_frontier.py'),('or-r36-linear-frontier-20260924','linear_frontier.py')]:
+              source=Path('revisions')/folder/name;dest=target/folder/name
+              dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
+              manifest[str(dest.relative_to(root))]={'source':str(source),'sha256':hashlib.sha256(source.read_bytes()).hexdigest()}
+          (root/'code'/'ENGINE_PROVENANCE.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          PY
+      - name: New exact tests and unchanged R33 through R36 suites
+        run: python "$R/code/test_revision.py"
+      - name: Independent reduced-network construction and compiled HiGHS comparison
+        run: python "$R/code/external_solver.py"
+      - name: Isolated scale, memory, and profiling study
+        run: python "$R/code/study.py"
+      - name: Publish actual evidence without touching another branch
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git config user.name 'NDU revision validation'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add "$R/code/snapshots" "$R/code/ENGINE_PROVENANCE.json" "$R/results"
+          git commit -m 'evidence(or-r37): record executed exact, HiGHS, PADS, scale, memory, and profile checks'
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r37-validation
+          path: |
+            revisions/or-r37-integrated-frontier-20260924/code/
+            revisions/or-r37-integrated-frontier-20260924/results/
+          retention-days: 30
+          if-no-files-found: warn
