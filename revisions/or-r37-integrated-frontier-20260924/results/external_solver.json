@@ -1,0 +1,737 @@
+{
+  "status": "PASS",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "scipy": "1.17.0",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "records": [
+    {
+      "k": 8,
+      "budget": 2,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 3,
+      "arcs": 3,
+      "construction_seconds": 0.0016279449999956341,
+      "highs_seconds": 0.0023918589999993856,
+      "exact_reprice_replay_and_frontier_seconds": 0.0035136550000061106,
+      "float_objective": 0.043209876543209874,
+      "integrality_deviation": 0.0,
+      "exact_objective": "7/162",
+      "codebook": [
+        "1/9",
+        "8/9"
+      ],
+      "selected_arcs": [
+        1,
+        2
+      ],
+      "exact_sink_potential": "7/162",
+      "solver_iterations": 0
+    },
+    {
+      "k": 8,
+      "budget": 2,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 18,
+      "arcs": 39,
+      "construction_seconds": 0.002350551999995787,
+      "highs_seconds": 0.0018561129999739023,
+      "exact_reprice_replay_and_frontier_seconds": 0.0019703479999861884,
+      "float_objective": 0.31241426611796985,
+      "integrality_deviation": 0.0,
+      "exact_objective": "911/2916",
+      "codebook": [
+        "1/9",
+        "5/9"
+      ],
+      "selected_arcs": [
+        0,
+        4,
+        31,
+        38
+      ],
+      "exact_sink_potential": "911/2916",
+      "solver_iterations": 0
+    },
+    {
+      "k": 8,
+      "budget": 4,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 16,
+      "arcs": 44,
+      "construction_seconds": 0.004129950999981702,
+      "highs_seconds": 0.0018566340000347736,
+      "exact_reprice_replay_and_frontier_seconds": 0.0043066929999895365,
+      "float_objective": 0.0037722908093278463,
+      "integrality_deviation": 0.0,
+      "exact_objective": "11/2916",
+      "codebook": [
+        "1/9",
+        "4/9",
+        "2/3",
+        "8/9"
+      ],
+      "selected_arcs": [
+        1,
+        5,
+        25,
+        41
+      ],
+      "exact_sink_potential": "11/2916",
+      "solver_iterations": 0
+    },
+    {
+      "k": 8,
+      "budget": 4,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 29,
+      "arcs": 77,
+      "construction_seconds": 0.0024086399999987407,
+      "highs_seconds": 0.0019902949999845987,
+      "exact_reprice_replay_and_frontier_seconds": 0.0037905539999769644,
+      "float_objective": 0.08859167809785093,
+      "integrality_deviation": 0.0,
+      "exact_objective": "775/8748",
+      "codebook": [
+        "1/9",
+        "1/3",
+        "5/9",
+        "7/9"
+      ],
+      "selected_arcs": [
+        0,
+        2,
+        18,
+        51,
+        74,
+        76
+      ],
+      "exact_sink_potential": "775/8748",
+      "solver_iterations": 0
+    },
+    {
+      "k": 8,
+      "budget": 8,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 30,
+      "arcs": 92,
+      "construction_seconds": 0.004114310999966619,
+      "highs_seconds": 0.0022150969999756853,
+      "exact_reprice_replay_and_frontier_seconds": 0.005468613000005007,
+      "float_objective": 0.0,
+      "integrality_deviation": 0.0,
+      "exact_objective": "0",
+      "codebook": [
+        "1/9",
+        "2/9",
+        "1/3",
+        "4/9",
+        "5/9",
+        "2/3",
+        "7/9",
+        "8/9"
+      ],
+      "selected_arcs": [
+        1,
+        3,
+        11,
+        39,
+        60,
+        75,
+        85,
+        90
+      ],
+      "exact_sink_potential": "0",
+      "solver_iterations": 0
+    },
+    {
+      "k": 8,
+      "budget": 8,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 39,
+      "arcs": 101,
+      "construction_seconds": 0.0022951679999891894,
+      "highs_seconds": 0.0022013020000031247,
+      "exact_reprice_replay_and_frontier_seconds": 0.005074163000017506,
+      "float_objective": 0.0,
+      "integrality_deviation": 0.0,
+      "exact_objective": "0",
+      "codebook": [
+        "1/9",
+        "2/9",
+        "1/3",
+        "4/9",
+        "5/9",
+        "2/3",
+        "7/9",
+        "8/9"
+      ],
+      "selected_arcs": [
+        0,
+        1,
+        10,
+        39,
+        61,
+        77,
+        88,
+        95,
+        99,
+        100
+      ],
+      "exact_sink_potential": "0",
+      "solver_iterations": 0
+    },
+    {
+      "k": 16,
+      "budget": 2,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 3,
+      "arcs": 3,
+      "construction_seconds": 0.00441726999997627,
+      "highs_seconds": 0.00167845999999372,
+      "exact_reprice_replay_and_frontier_seconds": 0.007162371999982042,
+      "float_objective": 0.053904606825429136,
+      "integrality_deviation": 0.0,
+      "exact_objective": "1589/29478",
+      "codebook": [
+        "1/17",
+        "15/17"
+      ],
+      "selected_arcs": [
+        1,
+        2
+      ],
+      "exact_sink_potential": "1589/29478",
+      "solver_iterations": 0
+    },
+    {
+      "k": 16,
+      "budget": 2,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 34,
+      "arcs": 139,
+      "construction_seconds": 0.014281584000002567,
+      "highs_seconds": 0.0023822509999718022,
+      "exact_reprice_replay_and_frontier_seconds": 0.004911818000039148,
+      "float_objective": 0.3741858335029513,
+      "integrality_deviation": 0.0,
+      "exact_objective": "14707/39304",
+      "codebook": [
+        "1/17",
+        "9/17"
+      ],
+      "selected_arcs": [
+        0,
+        8,
+        109,
+        138
+      ],
+      "exact_sink_potential": "14707/39304",
+      "solver_iterations": 0
+    },
+    {
+      "k": 16,
+      "budget": 4,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 32,
+      "arcs": 152,
+      "construction_seconds": 0.03218443399998705,
+      "highs_seconds": 0.0027686260000336915,
+      "exact_reprice_replay_and_frontier_seconds": 0.009855916999981673,
+      "float_objective": 0.005979035212700998,
+      "integrality_deviation": 0.0,
+      "exact_objective": "235/39304",
+      "codebook": [
+        "1/17",
+        "7/17",
+        "12/17",
+        "16/17"
+      ],
+      "selected_arcs": [
+        1,
+        8,
+        88,
+        147
+      ],
+      "exact_sink_potential": "235/39304",
+      "solver_iterations": 0
+    },
+    {
+      "k": 16,
+      "budget": 4,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 61,
+      "arcs": 337,
+      "construction_seconds": 0.015571545000000242,
+      "highs_seconds": 0.0033376139999745646,
+      "exact_reprice_replay_and_frontier_seconds": 0.012023145000000568,
+      "float_objective": 0.13671636474659069,
+      "integrality_deviation": 0.0,
+      "exact_objective": "10747/78608",
+      "codebook": [
+        "1/17",
+        "6/17",
+        "10/17",
+        "14/17"
+      ],
+      "selected_arcs": [
+        0,
+        5,
+        75,
+        219,
+        332,
+        336
+      ],
+      "exact_sink_potential": "10747/78608",
+      "solver_iterations": 0
+    },
+    {
+      "k": 16,
+      "budget": 8,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 78,
+      "arcs": 488,
+      "construction_seconds": 0.029972181999994518,
+      "highs_seconds": 0.004415316000006442,
+      "exact_reprice_replay_and_frontier_seconds": 0.01648649200001273,
+      "float_objective": 0.0008904946061469572,
+      "integrality_deviation": 0.0,
+      "exact_objective": "35/39304",
+      "codebook": [
+        "1/17",
+        "4/17",
+        "6/17",
+        "8/17",
+        "10/17",
+        "12/17",
+        "14/17",
+        "16/17"
+      ],
+      "selected_arcs": [
+        1,
+        5,
+        49,
+        179,
+        291,
+        386,
+        465,
+        485
+      ],
+      "exact_sink_potential": "35/39304",
+      "solver_iterations": 0
+    },
+    {
+      "k": 16,
+      "budget": 8,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 103,
+      "arcs": 585,
+      "construction_seconds": 0.014633935000006204,
+      "highs_seconds": 0.004736057999991772,
+      "exact_reprice_replay_and_frontier_seconds": 0.02038355600001296,
+      "float_objective": 0.042752221996064856,
+      "integrality_deviation": 0.0,
+      "exact_objective": "5041/117912",
+      "codebook": [
+        "1/17",
+        "4/17",
+        "6/17",
+        "8/17",
+        "10/17",
+        "12/17",
+        "14/17",
+        "16/17"
+      ],
+      "selected_arcs": [
+        0,
+        3,
+        48,
+        179,
+        292,
+        388,
+        468,
+        533,
+        583,
+        584
+      ],
+      "exact_sink_potential": "5041/117912",
+      "solver_iterations": 0
+    },
+    {
+      "k": 32,
+      "budget": 2,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 3,
+      "arcs": 3,
+      "construction_seconds": 0.016557866000027843,
+      "highs_seconds": 0.002041182000027675,
+      "exact_reprice_replay_and_frontier_seconds": 0.014597576999960893,
+      "float_objective": 0.05957764050050551,
+      "integrality_deviation": 0.0,
+      "exact_objective": "51385/862488",
+      "codebook": [
+        "1/33",
+        "29/33"
+      ],
+      "selected_arcs": [
+        1,
+        2
+      ],
+      "exact_sink_potential": "51385/862488",
+      "solver_iterations": 0
+    },
+    {
+      "k": 32,
+      "budget": 2,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 66,
+      "arcs": 531,
+      "construction_seconds": 0.10030782799998406,
+      "highs_seconds": 0.0035371079999890753,
+      "exact_reprice_replay_and_frontier_seconds": 0.012280147000012676,
+      "float_objective": 0.4096787433564293,
+      "integrality_deviation": 0.0,
+      "exact_objective": "117781/287496",
+      "codebook": [
+        "1/33",
+        "6/11"
+      ],
+      "selected_arcs": [
+        0,
+        17,
+        424,
+        530
+      ],
+      "exact_sink_potential": "117781/287496",
+      "solver_iterations": 0
+    },
+    {
+      "k": 32,
+      "budget": 4,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 64,
+      "arcs": 560,
+      "construction_seconds": 0.20388000299999476,
+      "highs_seconds": 0.004358260000003611,
+      "exact_reprice_replay_and_frontier_seconds": 0.021710425999970084,
+      "float_objective": 0.007145316804407713,
+      "integrality_deviation": 0.0,
+      "exact_objective": "83/11616",
+      "codebook": [
+        "1/33",
+        "14/33",
+        "8/11",
+        "32/33"
+      ],
+      "selected_arcs": [
+        1,
+        15,
+        350,
+        551
+      ],
+      "exact_sink_potential": "83/11616",
+      "solver_iterations": 0
+    },
+    {
+      "k": 32,
+      "budget": 4,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 125,
+      "arcs": 1433,
+      "construction_seconds": 0.11376942299995108,
+      "highs_seconds": 0.007374010000035014,
+      "exact_reprice_replay_and_frontier_seconds": 0.030426023000018176,
+      "float_objective": 0.16131702701950637,
+      "integrality_deviation": 0.0,
+      "exact_objective": "23189/143748",
+      "codebook": [
+        "1/33",
+        "1/3",
+        "19/33",
+        "26/33"
+      ],
+      "selected_arcs": [
+        0,
+        10,
+        284,
+        897,
+        1410,
+        1432
+      ],
+      "exact_sink_potential": "23189/143748",
+      "solver_iterations": 0
+    },
+    {
+      "k": 32,
+      "budget": 8,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 174,
+      "arcs": 2240,
+      "construction_seconds": 0.2073606949999771,
+      "highs_seconds": 0.013882203999969533,
+      "exact_reprice_replay_and_frontier_seconds": 0.045260354999982155,
+      "float_objective": 0.00123827809778223,
+      "integrality_deviation": 0.0,
+      "exact_objective": "89/71874",
+      "codebook": [
+        "1/33",
+        "8/33",
+        "13/33",
+        "17/33",
+        "7/11",
+        "25/33",
+        "29/33",
+        "32/33"
+      ],
+      "selected_arcs": [
+        1,
+        9,
+        210,
+        789,
+        1298,
+        1762,
+        2182,
+        2236
+      ],
+      "exact_sink_potential": "89/71874",
+      "solver_iterations": 12
+    },
+    {
+      "k": 32,
+      "budget": 8,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 231,
+      "arcs": 2897,
+      "construction_seconds": 0.1047560470000235,
+      "highs_seconds": 0.016439233000028253,
+      "exact_reprice_replay_and_frontier_seconds": 0.06195837299998175,
+      "float_objective": 0.06342754913691552,
+      "integrality_deviation": 0.0,
+      "exact_objective": "109411/1724976",
+      "codebook": [
+        "1/33",
+        "7/33",
+        "4/11",
+        "16/33",
+        "20/33",
+        "8/11",
+        "9/11",
+        "10/11"
+      ],
+      "selected_arcs": [
+        0,
+        6,
+        183,
+        768,
+        1282,
+        1751,
+        2175,
+        2551,
+        2892,
+        2896
+      ],
+      "exact_sink_potential": "109411/1724976",
+      "solver_iterations": 10
+    },
+    {
+      "k": 64,
+      "budget": 2,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 3,
+      "arcs": 3,
+      "construction_seconds": 0.06410983099999612,
+      "highs_seconds": 0.002173999999968146,
+      "exact_reprice_replay_and_frontier_seconds": 0.02985810800004174,
+      "float_objective": 0.06250563268092854,
+      "integrality_deviation": 0.0,
+      "exact_objective": "1098599/17576000",
+      "codebook": [
+        "1/65",
+        "58/65"
+      ],
+      "selected_arcs": [
+        1,
+        2
+      ],
+      "exact_sink_potential": "1098599/17576000",
+      "solver_iterations": 0
+    },
+    {
+      "k": 64,
+      "budget": 2,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 130,
+      "arcs": 2083,
+      "construction_seconds": 0.7653320139999664,
+      "highs_seconds": 0.006901563000042188,
+      "exact_reprice_replay_and_frontier_seconds": 0.029550659999983964,
+      "float_objective": 0.43501426187225,
+      "integrality_deviation": 0.0,
+      "exact_objective": "2867179/6591000",
+      "codebook": [
+        "1/65",
+        "36/65"
+      ],
+      "selected_arcs": [
+        0,
+        35,
+        1675,
+        2082
+      ],
+      "exact_sink_potential": "2867179/6591000",
+      "solver_iterations": 0
+    },
+    {
+      "k": 64,
+      "budget": 4,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 128,
+      "arcs": 2144,
+      "construction_seconds": 1.5678677259999745,
+      "highs_seconds": 0.010594663999995646,
+      "exact_reprice_replay_and_frontier_seconds": 0.048606284000015876,
+      "float_objective": 0.0077064178425125165,
+      "integrality_deviation": 0.0,
+      "exact_objective": "16931/2197000",
+      "codebook": [
+        "1/65",
+        "27/65",
+        "47/65",
+        "64/65"
+      ],
+      "selected_arcs": [
+        1,
+        28,
+        1361,
+        2126
+      ],
+      "exact_sink_potential": "16931/2197000",
+      "solver_iterations": 0
+    },
+    {
+      "k": 64,
+      "budget": 4,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 253,
+      "arcs": 5929,
+      "construction_seconds": 0.7697893980000003,
+      "highs_seconds": 0.023782084000004033,
+      "exact_reprice_replay_and_frontier_seconds": 0.07912100300001157,
+      "float_objective": 0.1760868419056289,
+      "integrality_deviation": 0.0,
+      "exact_objective": "9284707/52728000",
+      "codebook": [
+        "1/65",
+        "21/65",
+        "37/65",
+        "4/5"
+      ],
+      "selected_arcs": [
+        0,
+        20,
+        1107,
+        3644,
+        5849,
+        5928
+      ],
+      "exact_sink_potential": "9284707/52728000",
+      "solver_iterations": 0
+    },
+    {
+      "k": 64,
+      "budget": 8,
+      "institution": "expected",
+      "status": "PASS",
+      "nodes": 366,
+      "arcs": 9584,
+      "construction_seconds": 1.5880374399999937,
+      "highs_seconds": 0.055893138999977054,
+      "exact_reprice_replay_and_frontier_seconds": 0.13372730699995827,
+      "float_objective": 0.00136094674556213,
+      "integrality_deviation": 0.0,
+      "exact_objective": "23/16900",
+      "codebook": [
+        "1/65",
+        "3/13",
+        "5/13",
+        "34/65",
+        "42/65",
+        "10/13",
+        "57/65",
+        "64/65"
+      ],
+      "selected_arcs": [
+        1,
+        16,
+        817,
+        3224,
+        5438,
+        7488,
+        9413,
+        9576
+      ],
+      "exact_sink_potential": "23/16900",
+      "solver_iterations": 63
+    },
+    {
+      "k": 64,
+      "budget": 8,
+      "institution": "pathwise",
+      "status": "PASS",
+      "nodes": 487,
+      "arcs": 12897,
+      "construction_seconds": 0.778682286999981,
+      "highs_seconds": 0.06747491499999114,
+      "exact_reprice_replay_and_frontier_seconds": 0.1700829690000205,
+      "float_objective": 0.07449487938097406,
+      "integrality_deviation": 0.0,
+      "exact_objective": "654661/8788000",
+      "codebook": [
+        "1/65",
+        "1/5",
+        "22/65",
+        "6/13",
+        "37/65",
+        "44/65",
+        "51/65",
+        "58/65"
+      ],
+      "selected_arcs": [
+        0,
+        12,
+        712,
+        3097,
+        5304,
+        7359,
+        9305,
+        11143,
+        12874,
+        12896
+      ],
+      "exact_sink_potential": "654661/8788000",
+      "solver_iterations": 78
+    }
+  ],
+  "scope": "Compiled floating-point HiGHS on independently assembled exact-cost finite networks; each returned path is repriced and certified with exact rational shortest-path potentials. Not an external continuous-model proof or an optimized native SMAWK benchmark."
+}

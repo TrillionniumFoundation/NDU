@@ -1,0 +1,951 @@
+{
+  "status": "PASS",
+  "k": 512,
+  "budget": 8,
+  "institution": "expected",
+  "engine": "pads",
+  "mode": "profile",
+  "input_seconds": 0.004737220999913916,
+  "frontier_seconds": 2.0279193750000104,
+  "max_resident_kib_before_validation": 23980,
+  "python_heap_current_bytes": null,
+  "python_heap_peak_bytes": null,
+  "work": {
+    "tail_evaluations": 3477,
+    "edge_evaluations": 26745,
+    "cell_evaluations": 0,
+    "key_requests": 0,
+    "padded_requests": 2774,
+    "comparisons": null,
+    "searches": 7,
+    "peak_recursion_depth": null
+  },
+  "frontiers": [
+    {
+      "loss": "42975694531/34561458432",
+      "codebook": [
+        "1/513"
+      ]
+    },
+    {
+      "loss": "419499277/6480273456",
+      "codebook": [
+        "1/513",
+        "457/513"
+      ]
+    },
+    {
+      "loss": "1844657641/103684375296",
+      "codebook": [
+        "1/513",
+        "286/513",
+        "55/57"
+      ]
+    },
+    {
+      "loss": "828120505/103684375296",
+      "codebook": [
+        "1/513",
+        "71/171",
+        "41/57",
+        "505/513"
+      ]
+    },
+    {
+      "loss": "34481287/7680324096",
+      "codebook": [
+        "1/513",
+        "172/513",
+        "11/19",
+        "407/513",
+        "508/513"
+      ]
+    },
+    {
+      "loss": "594584327/207368750592",
+      "codebook": [
+        "1/513",
+        "146/513",
+        "28/57",
+        "115/171",
+        "430/513",
+        "170/171"
+      ]
+    },
+    {
+      "loss": "411998819/207368750592",
+      "codebook": [
+        "1/513",
+        "127/513",
+        "73/171",
+        "100/171",
+        "374/513",
+        "148/171",
+        "170/171"
+      ]
+    },
+    {
+      "loss": "37736477/25921093824",
+      "codebook": [
+        "1/513",
+        "113/513",
+        "65/171",
+        "89/171",
+        "37/57",
+        "395/513",
+        "454/513",
+        "511/513"
+      ]
+    }
+  ],
+  "economic_queries": 30222,
+  "profile_exclusive_categories": {
+    "other": 0.3582504590000001,
+    "moment_and_economic_oracle_own_work": 0.214453786,
+    "rational_arithmetic": 1.357681811,
+    "matrix_search_and_key_bookkeeping_own_work": 0.093955684,
+    "frontier_scans_and_reconstruction_combined": 0.003522032
+  },
+  "profile_functions": [
+    {
+      "file": "fractions.py",
+      "line": 726,
+      "function": "_sub",
+      "primitive_calls": 275117,
+      "total_calls": 275117,
+      "exclusive_seconds": 0.281123143,
+      "inclusive_seconds": 0.549265128,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 613,
+      "function": "forward",
+      "primitive_calls": 563869,
+      "total_calls": 563869,
+      "exclusive_seconds": 0.280513699,
+      "inclusive_seconds": 1.491504189,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 317,
+      "function": "_from_coprime_ints",
+      "primitive_calls": 574762,
+      "total_calls": 574762,
+      "exclusive_seconds": 0.265764493,
+      "inclusive_seconds": 0.36814468300000003,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method math.gcd>",
+      "primitive_calls": 1119277,
+      "total_calls": 1119277,
+      "exclusive_seconds": 0.172116454,
+      "inclusive_seconds": 0.172116454,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 742,
+      "function": "_mul",
+      "primitive_calls": 161991,
+      "total_calls": 161991,
+      "exclusive_seconds": 0.137798005,
+      "inclusive_seconds": 0.28296965100000004,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method __new__ of type object at 0x7f9e09f39280>",
+      "primitive_calls": 626669,
+      "total_calls": 626669,
+      "exclusive_seconds": 0.11178860500000001,
+      "inclusive_seconds": 0.11178860500000001,
+      "category": "other"
+    },
+    {
+      "file": "fractions.py",
+      "line": 710,
+      "function": "_add",
+      "primitive_calls": 81095,
+      "total_calls": 81095,
+      "exclusive_seconds": 0.088483721,
+      "inclusive_seconds": 0.16724286900000002,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.isinstance>",
+      "primitive_calls": 654889,
+      "total_calls": 654889,
+      "exclusive_seconds": 0.08605617700000001,
+      "inclusive_seconds": 0.128769393,
+      "category": "other"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 77,
+      "function": "edge",
+      "primitive_calls": 26745,
+      "total_calls": 26745,
+      "exclusive_seconds": 0.08197255,
+      "inclusive_seconds": 1.163919768,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 75,
+      "function": "<genexpr>",
+      "primitive_calls": 235893,
+      "total_calls": 235893,
+      "exclusive_seconds": 0.072938953,
+      "inclusive_seconds": 0.58390608,
+      "category": "other"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 74,
+      "function": "sums",
+      "primitive_calls": 33699,
+      "total_calls": 33699,
+      "exclusive_seconds": 0.053314271,
+      "inclusive_seconds": 0.6372203510000001,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "fractions.py",
+      "line": 758,
+      "function": "_div",
+      "primitive_calls": 49118,
+      "total_calls": 49118,
+      "exclusive_seconds": 0.045333932,
+      "inclusive_seconds": 0.08863401800000001,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 186,
+      "function": "__new__",
+      "primitive_calls": 51907,
+      "total_calls": 51907,
+      "exclusive_seconds": 0.032299557,
+      "inclusive_seconds": 0.041711167,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "pads_excerpt.py",
+      "line": 35,
+      "function": "ConcaveMinima",
+      "primitive_calls": 7,
+      "total_calls": 71,
+      "exclusive_seconds": 0.031314554,
+      "inclusive_seconds": 1.634910434,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 83,
+      "function": "tail_polynomial",
+      "primitive_calls": 3477,
+      "total_calls": 3477,
+      "exclusive_seconds": 0.027725548000000003,
+      "inclusive_seconds": 0.37672944700000005,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "monge_frontier.py",
+      "line": 86,
+      "function": "edge",
+      "primitive_calls": 26745,
+      "total_calls": 26745,
+      "exclusive_seconds": 0.025848274,
+      "inclusive_seconds": 1.189768042,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _abc._abc_instancecheck>",
+      "primitive_calls": 91016,
+      "total_calls": 91016,
+      "exclusive_seconds": 0.022912582,
+      "inclusive_seconds": 0.022916129,
+      "category": "other"
+    },
+    {
+      "file": "fractions.py",
+      "line": 933,
+      "function": "_richcmp",
+      "primitive_calls": 23191,
+      "total_calls": 23191,
+      "exclusive_seconds": 0.020722166,
+      "inclusive_seconds": 0.04614001,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 96,
+      "function": "staircase_key",
+      "primitive_calls": 28921,
+      "total_calls": 28921,
+      "exclusive_seconds": 0.020398489000000002,
+      "inclusive_seconds": 1.5175263810000001,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "<frozen abc>",
+      "line": 117,
+      "function": "__instancecheck__",
+      "primitive_calls": 91016,
+      "total_calls": 91016,
+      "exclusive_seconds": 0.019797087,
+      "inclusive_seconds": 0.042713216000000005,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.min>",
+      "primitive_calls": 41849,
+      "total_calls": 41849,
+      "exclusive_seconds": 0.018192558,
+      "inclusive_seconds": 0.053252022,
+      "category": "other"
+    },
+    {
+      "file": "monge_frontier.py",
+      "line": 76,
+      "function": "interval",
+      "primitive_calls": 3477,
+      "total_calls": 3477,
+      "exclusive_seconds": 0.017962629,
+      "inclusive_seconds": 0.49031544600000004,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 186,
+      "function": "cost",
+      "primitive_calls": 26745,
+      "total_calls": 26745,
+      "exclusive_seconds": 0.017915366000000002,
+      "inclusive_seconds": 1.2779496730000002,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "fractions.py",
+      "line": 912,
+      "function": "__eq__",
+      "primitive_calls": 18194,
+      "total_calls": 18194,
+      "exclusive_seconds": 0.010959834,
+      "inclusive_seconds": 0.028019985,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 119,
+      "function": "<lambda>",
+      "primitive_calls": 28921,
+      "total_calls": 28921,
+      "exclusive_seconds": 0.009116857,
+      "inclusive_seconds": 1.5266432380000001,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "frontier.py",
+      "line": 37,
+      "function": "<lambda>",
+      "primitive_calls": 28921,
+      "total_calls": 28921,
+      "exclusive_seconds": 0.008933332,
+      "inclusive_seconds": 1.5355765700000001,
+      "category": "other"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 184,
+      "function": "bounds",
+      "primitive_calls": 29515,
+      "total_calls": 29515,
+      "exclusive_seconds": 0.008207842,
+      "inclusive_seconds": 0.017781852,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.len>",
+      "primitive_calls": 51728,
+      "total_calls": 51728,
+      "exclusive_seconds": 0.006344405,
+      "inclusive_seconds": 0.006344405,
+      "category": "other"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 65,
+      "function": "__init__",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 0.006213601,
+      "inclusive_seconds": 0.042236768,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "fractions.py",
+      "line": 955,
+      "function": "__lt__",
+      "primitive_calls": 12240,
+      "total_calls": 12240,
+      "exclusive_seconds": 0.004097113,
+      "inclusive_seconds": 0.028507530000000003,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 397,
+      "function": "numerator",
+      "primitive_calls": 41359,
+      "total_calls": 41359,
+      "exclusive_seconds": 0.003990081,
+      "inclusive_seconds": 0.003990081,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 959,
+      "function": "__gt__",
+      "primitive_calls": 10926,
+      "total_calls": 10926,
+      "exclusive_seconds": 0.00371221,
+      "inclusive_seconds": 0.02538812,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "fractions.py",
+      "line": 627,
+      "function": "reverse",
+      "primitive_calls": 3452,
+      "total_calls": 3452,
+      "exclusive_seconds": 0.0036446430000000004,
+      "inclusive_seconds": 0.015666877000000003,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 144,
+      "function": "randomized_frontiers",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 0.003522032,
+      "inclusive_seconds": 2.027117801,
+      "category": "frontier_scans_and_reconstruction_combined"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 114,
+      "function": "staircase_minima",
+      "primitive_calls": 7,
+      "total_calls": 7,
+      "exclusive_seconds": 0.003291182,
+      "inclusive_seconds": 1.859997686,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "fractions.py",
+      "line": 851,
+      "function": "__neg__",
+      "primitive_calls": 6929,
+      "total_calls": 6929,
+      "exclusive_seconds": 0.003241912,
+      "inclusive_seconds": 0.007803235,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'append' of 'list' objects>",
+      "primitive_calls": 14437,
+      "total_calls": 14437,
+      "exclusive_seconds": 0.002940673,
+      "inclusive_seconds": 0.002940673,
+      "category": "other"
+    },
+    {
+      "file": "fractions.py",
+      "line": 401,
+      "function": "denominator",
+      "primitive_calls": 24492,
+      "total_calls": 24492,
+      "exclusive_seconds": 0.002487668,
+      "inclusive_seconds": 0.002487668,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 117,
+      "function": "codebook_loss",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 0.001906981,
+      "inclusive_seconds": 0.031952156,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.max>",
+      "primitive_calls": 3452,
+      "total_calls": 3452,
+      "exclusive_seconds": 0.0018108500000000001,
+      "inclusive_seconds": 0.009703479000000001,
+      "category": "other"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 133,
+      "function": "<lambda>",
+      "primitive_calls": 2965,
+      "total_calls": 2965,
+      "exclusive_seconds": 0.0018067170000000002,
+      "inclusive_seconds": 0.41994627700000003,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _operator.lt>",
+      "primitive_calls": 12240,
+      "total_calls": 12240,
+      "exclusive_seconds": 0.0016483560000000001,
+      "inclusive_seconds": 0.0016483560000000001,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _operator.gt>",
+      "primitive_calls": 10926,
+      "total_calls": 10926,
+      "exclusive_seconds": 0.001486562,
+      "inclusive_seconds": 0.001486562,
+      "category": "other"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 53,
+      "function": "reward",
+      "primitive_calls": 1024,
+      "total_calls": 1024,
+      "exclusive_seconds": 0.001395664,
+      "inclusive_seconds": 0.015195752000000002,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "fractions.py",
+      "line": 971,
+      "function": "__bool__",
+      "primitive_calls": 3477,
+      "total_calls": 3477,
+      "exclusive_seconds": 0.0009369700000000001,
+      "inclusive_seconds": 0.0009369700000000001,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 129,
+      "function": "terminal_minima",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 0.000916398,
+      "inclusive_seconds": 0.5293595050000001,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "frontier.py",
+      "line": 51,
+      "function": "solve",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 0.000685713,
+      "inclusive_seconds": 2.027868309,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'pop' of 'list' objects>",
+      "primitive_calls": 2417,
+      "total_calls": 2417,
+      "exclusive_seconds": 0.000523233,
+      "inclusive_seconds": 0.000523233,
+      "category": "other"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 132,
+      "function": "<lambda>",
+      "primitive_calls": 2969,
+      "total_calls": 2969,
+      "exclusive_seconds": 0.0005039830000000001,
+      "inclusive_seconds": 0.0005039830000000001,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "frontier.py",
+      "line": 30,
+      "function": "pads_rows",
+      "primitive_calls": 7,
+      "total_calls": 7,
+      "exclusive_seconds": 0.00047380200000000006,
+      "inclusive_seconds": 1.6353889540000002,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "fractions.py",
+      "line": 801,
+      "function": "__pow__",
+      "primitive_calls": 512,
+      "total_calls": 512,
+      "exclusive_seconds": 0.000438107,
+      "inclusive_seconds": 0.001197338,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _bisect.bisect_left>",
+      "primitive_calls": 512,
+      "total_calls": 512,
+      "exclusive_seconds": 0.00017354300000000002,
+      "inclusive_seconds": 0.001341858,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 2.0769e-05,
+      "inclusive_seconds": 2.0769e-05,
+      "category": "other"
+    },
+    {
+      "file": "monge_frontier.py",
+      "line": 72,
+      "function": "__init__",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 1.3095e-05,
+      "inclusive_seconds": 0.042251266,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "dataclasses.py",
+      "line": 1332,
+      "function": "_asdict_inner",
+      "primitive_calls": 1,
+      "total_calls": 9,
+      "exclusive_seconds": 1.2566000000000001e-05,
+      "inclusive_seconds": 2.7752e-05,
+      "category": "other"
+    },
+    {
+      "file": "fractions.py",
+      "line": 967,
+      "function": "__ge__",
+      "primitive_calls": 25,
+      "total_calls": 25,
+      "exclusive_seconds": 1.0820000000000001e-05,
+      "inclusive_seconds": 6.4503e-05,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "linear_frontier.py",
+      "line": 175,
+      "function": "<genexpr>",
+      "primitive_calls": 35,
+      "total_calls": 35,
+      "exclusive_seconds": 1.0494e-05,
+      "inclusive_seconds": 1.0494e-05,
+      "category": "matrix_search_and_key_bookkeeping_own_work"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'items' of 'dict' objects>",
+      "primitive_calls": 20,
+      "total_calls": 20,
+      "exclusive_seconds": 1.0249000000000001e-05,
+      "inclusive_seconds": 1.0249000000000001e-05,
+      "category": "other"
+    },
+    {
+      "file": "dataclasses.py",
+      "line": 1278,
+      "function": "fields",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 7.293e-06,
+      "inclusive_seconds": 1.2664000000000001e-05,
+      "category": "other"
+    },
+    {
+      "file": "contextlib.py",
+      "line": 104,
+      "function": "__init__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 6.752000000000001e-06,
+      "inclusive_seconds": 7.3340000000000004e-06,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "dataclasses.py",
+      "line": 1296,
+      "function": "_is_dataclass_instance",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 5.772e-06,
+      "inclusive_seconds": 7.825e-06,
+      "category": "other"
+    },
+    {
+      "file": "dataclasses.py",
+      "line": 1308,
+      "function": "asdict",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 5.671e-06,
+      "inclusive_seconds": 4.0196e-05,
+      "category": "other"
+    },
+    {
+      "file": "contextlib.py",
+      "line": 141,
+      "function": "__exit__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 4.980000000000001e-06,
+      "inclusive_seconds": 9.238e-06,
+      "category": "other"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 16,
+      "function": "rational",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 4.829000000000001e-06,
+      "inclusive_seconds": 1.4117e-05,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _operator.ge>",
+      "primitive_calls": 25,
+      "total_calls": 25,
+      "exclusive_seconds": 4.655e-06,
+      "inclusive_seconds": 4.655e-06,
+      "category": "other"
+    },
+    {
+      "file": "fractions.py",
+      "line": 24,
+      "function": "_hash_algorithm",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 4.278e-06,
+      "inclusive_seconds": 9.708000000000001e-06,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "dataclasses.py",
+      "line": 1293,
+      "function": "<genexpr>",
+      "primitive_calls": 9,
+      "total_calls": 9,
+      "exclusive_seconds": 4.148e-06,
+      "inclusive_seconds": 4.148e-06,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.pow>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 4.0370000000000005e-06,
+      "inclusive_seconds": 4.0370000000000005e-06,
+      "category": "other"
+    },
+    {
+      "file": "contextlib.py",
+      "line": 299,
+      "function": "helper",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 3.858e-06,
+      "inclusive_seconds": 1.1192e-05,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.next>",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 3.6670000000000002e-06,
+      "inclusive_seconds": 6.121e-06,
+      "category": "other"
+    },
+    {
+      "file": "fractions.py",
+      "line": 908,
+      "function": "__hash__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 3.005e-06,
+      "inclusive_seconds": 1.2713e-05,
+      "category": "rational_arithmetic"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.getattr>",
+      "primitive_calls": 11,
+      "total_calls": 11,
+      "exclusive_seconds": 2.955e-06,
+      "inclusive_seconds": 2.955e-06,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method _abc._abc_subclasscheck>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 2.475e-06,
+      "inclusive_seconds": 2.475e-06,
+      "category": "other"
+    },
+    {
+      "file": "frontier.py",
+      "line": 41,
+      "function": "external_search",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 2.454e-06,
+      "inclusive_seconds": 2.454e-06,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.hasattr>",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 2.053e-06,
+      "inclusive_seconds": 2.053e-06,
+      "category": "other"
+    },
+    {
+      "file": "contextlib.py",
+      "line": 132,
+      "function": "__enter__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 1.794e-06,
+      "inclusive_seconds": 3.6570000000000003e-06,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.sorted>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 1.463e-06,
+      "inclusive_seconds": 1.463e-06,
+      "category": "other"
+    },
+    {
+      "file": "randomized_frontier.py",
+      "line": 111,
+      "function": "_budget",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 1.4230000000000002e-06,
+      "inclusive_seconds": 1.884e-06,
+      "category": "other"
+    },
+    {
+      "file": "<string>",
+      "line": 2,
+      "function": "__init__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 1.402e-06,
+      "inclusive_seconds": 1.402e-06,
+      "category": "moment_and_economic_oracle_own_work"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.abs>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 1.0730000000000001e-06,
+      "inclusive_seconds": 1.0730000000000001e-06,
+      "category": "other"
+    },
+    {
+      "file": "<frozen abc>",
+      "line": 121,
+      "function": "__subclasscheck__",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 1.072e-06,
+      "inclusive_seconds": 3.547e-06,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'values' of 'dict' objects>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 8.32e-07,
+      "inclusive_seconds": 8.32e-07,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'extend' of 'list' objects>",
+      "primitive_calls": 1,
+      "total_calls": 1,
+      "exclusive_seconds": 4.4100000000000004e-07,
+      "inclusive_seconds": 4.4100000000000004e-07,
+      "category": "other"
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.hash>",
+      "primitive_calls": 2,
+      "total_calls": 2,
+      "exclusive_seconds": 3.2e-07,
+      "inclusive_seconds": 3.2e-07,
+      "category": "other"
+    }
+  ]
+}
