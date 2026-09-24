@@ -68,7 +68,7 @@
           ],
           "deterministic_two_symbol_loss": "1/8",
           "randomized_two_symbol_loss": "1/96",
-          "runtime_seconds": 1.2884683720000112,
+          "runtime_seconds": 1.3315106189999995,
           "limitations": [
             "Synthetic exact verification, not service data.",
             "Active-set reference is exponential, not published solver software.",
@@ -76,10 +76,10 @@
           ]
         },
         "source_sha256": {
-          "build_validate.py": "88fb2ef573b2a99bed8a7e9a5718e69b72c9d06dfa19743d6a930ef5d20a7390",
+          "exact_compiler.py": "eded5ff0f3ea22a0a729947b8a9ec83305156a147cfca699d79e40d4cfd22a2d",
           "prepare_reader.py": "9d8f361a7b2e4ad0e8063594b89c3157ab1cba051df5eb621cd1d88266967213",
-          "verify.py": "1da61e188983de45b8c1300f6e423537205579d69007e30ab00a811394aac3e0",
-          "exact_compiler.py": "eded5ff0f3ea22a0a729947b8a9ec83305156a147cfca699d79e40d4cfd22a2d"
+          "build_validate.py": "88fb2ef573b2a99bed8a7e9a5718e69b72c9d06dfa19743d6a930ef5d20a7390",
+          "verify.py": "1da61e188983de45b8c1300f6e423537205579d69007e30ab00a811394aac3e0"
         }
       },
       "R34": {
@@ -89,7 +89,7 @@
           "seed": 340923,
           "python": "3.12.14",
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
-          "elapsed_seconds": 5.067628130000003,
+          "elapsed_seconds": 5.100872163999995,
           "cases": 51,
           "counts": {
             "exhaustive_codebook_candidates": 1932,
@@ -1934,8 +1934,8 @@
             {
               "branches": 16,
               "budgets": 8,
-              "randomized_seconds": 0.013927459000001363,
-              "deterministic_seconds": 0.016298437999992643,
+              "randomized_seconds": 0.013999279999993064,
+              "deterministic_seconds": 0.016184152000008112,
               "max_output_bits": 17,
               "randomized_loss_m8": "35/39304",
               "deterministic_pathwise_loss_m8": "5041/117912"
@@ -1943,8 +1943,8 @@
             {
               "branches": 32,
               "budgets": 8,
-              "randomized_seconds": 0.06109757400000149,
-              "deterministic_seconds": 0.08136243999999238,
+              "randomized_seconds": 0.06154327299999807,
+              "deterministic_seconds": 0.08171542899999906,
               "max_output_bits": 21,
               "randomized_loss_m8": "89/71874",
               "deterministic_pathwise_loss_m8": "109411/1724976"
@@ -1952,8 +1952,8 @@
             {
               "branches": 64,
               "budgets": 8,
-              "randomized_seconds": 0.2539903730000077,
-              "deterministic_seconds": 0.3631828930000012,
+              "randomized_seconds": 0.2569392260000001,
+              "deterministic_seconds": 0.36553309300001047,
               "max_output_bits": 26,
               "randomized_loss_m8": "23/16900",
               "deterministic_pathwise_loss_m8": "654661/8788000"
@@ -1961,8 +1961,8 @@
             {
               "branches": 128,
               "budgets": 8,
-              "randomized_seconds": 1.0322697450000078,
-              "deterministic_seconds": 1.515625970000002,
+              "randomized_seconds": 1.0451232289999979,
+              "deterministic_seconds": 1.5208411979999994,
               "max_output_bits": 29,
               "randomized_loss_m8": "390425/274776192",
               "deterministic_pathwise_loss_m8": "22078357/274776192"
@@ -2078,9 +2078,9 @@
           "scope": "Exact comparator enumerates the theorem-reduced candidates. Grid checks are falsification, not global proofs. Timings are reproducibility data, not published-specialist benchmarks."
         },
         "source_sha256": {
+          "reproduce_inherited.py": "9d2a1abbf42593a8f531285a78ca7e56765f58e3a45c6f46c1f90e1720653c72",
           "build_validate.py": "20ebefcf0164d96031190a2890b77de5ea58765b30125934dc00dd9760cb5aff",
           "randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
-          "reproduce_inherited.py": "9d2a1abbf42593a8f531285a78ca7e56765f58e3a45c6f46c1f90e1720653c72",
           "verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578"
         }
       },
@@ -2106,7 +2106,7 @@
           "independent_exhaustive_candidates": 550,
           "python": "3.12.14",
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
-          "elapsed_seconds": 3.3590557630000006,
+          "elapsed_seconds": 3.311371687999994,
           "case_records": [
             {
               "caps": [
@@ -7966,11 +7966,11 @@
           "scope": "Exact arithmetic; theorem-reduced exhaustive candidates, not enumeration of the continuum. R34 comparators and primitive moment oracles are shared/inherited and explicitly identified. No external published solver benchmark."
         },
         "source_sha256": {
-          "response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
-          "build_validate.py": "2062bf765abfc50f250e3834d26af7fc774c4d871f7c49138b93606f327a4d8b",
           "benchmark.py": "4740b01f34d3bc6bd8f106749c577a23a7b012bea3bb4bcac516b55680b221ec",
           "monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f",
           "reproduce_inherited.py": "3b49cc291f35027962634ab2bfde01eeef5de940264545c817793ccb6bcaef83",
+          "build_validate.py": "2062bf765abfc50f250e3834d26af7fc774c4d871f7c49138b93606f327a4d8b",
+          "response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
           "verify.py": "5eaabca51d8ee519352d66935e0f3d922d84ee53e730250c754d2cc84cfaabaa"
         }
       },
@@ -7994,7 +7994,7 @@
             "primitive_monge_checks": 402
           },
           "independent_exhaustive_candidates": 550,
-          "elapsed_seconds": 5.32525459899999,
+          "elapsed_seconds": 5.422891676000006,
           "python": "3.12.14",
           "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
           "case_records": [
@@ -15700,50 +15700,50 @@
           "scope": "Exact rational tests, not a replacement for proofs. R35/R34 share the inherited economic interface and moment oracle. Exhaustive anchored prefixes use direct branch sums and three-point continuous quadratics, not production DP or moments. Submatrix enumeration includes entirely padded rows. Synthetic inputs only."
         },
         "source_sha256": {
-          "response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
-          "build_validate.py": "90d1c3d847397c5616a34305c910f24f4787ac71154721f545ea9cd3b99a5044",
           "benchmark.py": "c93b25d8d6251fff1495a8d84c9fd86ac5b957d7f82fe6989f0caea81e9af7b9",
           "reproduce_inherited.py": "09df4a6af4c316a28cbe2ecab1b33e890521516b1bcaa3dc7f22eb1778f5404e",
-          "verify.py": "582faabf35ce218c63bc696973cc0bd2923460b366e9081510a3ca08d40113b7",
-          "linear_frontier.py": "9f21a15f45e571bcb7952a7e509ad010ca0facf74274e5c390407bd0bc4c701a"
+          "build_validate.py": "90d1c3d847397c5616a34305c910f24f4787ac71154721f545ea9cd3b99a5044",
+          "linear_frontier.py": "9f21a15f45e571bcb7952a7e509ad010ca0facf74274e5c390407bd0bc4c701a",
+          "response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
+          "verify.py": "582faabf35ce218c63bc696973cc0bd2923460b366e9081510a3ca08d40113b7"
         }
       }
     },
     "scope": "Exact finite regression, independent PADS search substitution, direct economic replay, and unchanged inherited suites. Not a proof by testing."
   },
   "source_hashes": {
-    "revisions/or-r33-piecewise-randomized-20260923/build_validate.py": "88fb2ef573b2a99bed8a7e9a5718e69b72c9d06dfa19743d6a930ef5d20a7390",
-    "revisions/or-r33-piecewise-randomized-20260923/prepare_reader.py": "9d8f361a7b2e4ad0e8063594b89c3157ab1cba051df5eb621cd1d88266967213",
-    "revisions/or-r33-piecewise-randomized-20260923/verify.py": "1da61e188983de45b8c1300f6e423537205579d69007e30ab00a811394aac3e0",
     "revisions/or-r33-piecewise-randomized-20260923/exact_compiler.py": "eded5ff0f3ea22a0a729947b8a9ec83305156a147cfca699d79e40d4cfd22a2d",
+    "revisions/or-r33-piecewise-randomized-20260923/prepare_reader.py": "9d8f361a7b2e4ad0e8063594b89c3157ab1cba051df5eb621cd1d88266967213",
+    "revisions/or-r33-piecewise-randomized-20260923/build_validate.py": "88fb2ef573b2a99bed8a7e9a5718e69b72c9d06dfa19743d6a930ef5d20a7390",
+    "revisions/or-r33-piecewise-randomized-20260923/verify.py": "1da61e188983de45b8c1300f6e423537205579d69007e30ab00a811394aac3e0",
+    "revisions/or-r34-global-randomized-frontier-20260923/reproduce_inherited.py": "9d2a1abbf42593a8f531285a78ca7e56765f58e3a45c6f46c1f90e1720653c72",
     "revisions/or-r34-global-randomized-frontier-20260923/build_validate.py": "20ebefcf0164d96031190a2890b77de5ea58765b30125934dc00dd9760cb5aff",
     "revisions/or-r34-global-randomized-frontier-20260923/randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
-    "revisions/or-r34-global-randomized-frontier-20260923/reproduce_inherited.py": "9d2a1abbf42593a8f531285a78ca7e56765f58e3a45c6f46c1f90e1720653c72",
     "revisions/or-r34-global-randomized-frontier-20260923/verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578",
-    "revisions/or-r35-monge-frontier-20260923/response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
-    "revisions/or-r35-monge-frontier-20260923/build_validate.py": "2062bf765abfc50f250e3834d26af7fc774c4d871f7c49138b93606f327a4d8b",
     "revisions/or-r35-monge-frontier-20260923/benchmark.py": "4740b01f34d3bc6bd8f106749c577a23a7b012bea3bb4bcac516b55680b221ec",
     "revisions/or-r35-monge-frontier-20260923/monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f",
     "revisions/or-r35-monge-frontier-20260923/reproduce_inherited.py": "3b49cc291f35027962634ab2bfde01eeef5de940264545c817793ccb6bcaef83",
+    "revisions/or-r35-monge-frontier-20260923/build_validate.py": "2062bf765abfc50f250e3834d26af7fc774c4d871f7c49138b93606f327a4d8b",
+    "revisions/or-r35-monge-frontier-20260923/response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
     "revisions/or-r35-monge-frontier-20260923/verify.py": "5eaabca51d8ee519352d66935e0f3d922d84ee53e730250c754d2cc84cfaabaa",
-    "revisions/or-r36-linear-frontier-20260924/response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
-    "revisions/or-r36-linear-frontier-20260924/build_validate.py": "90d1c3d847397c5616a34305c910f24f4787ac71154721f545ea9cd3b99a5044",
     "revisions/or-r36-linear-frontier-20260924/benchmark.py": "c93b25d8d6251fff1495a8d84c9fd86ac5b957d7f82fe6989f0caea81e9af7b9",
     "revisions/or-r36-linear-frontier-20260924/reproduce_inherited.py": "09df4a6af4c316a28cbe2ecab1b33e890521516b1bcaa3dc7f22eb1778f5404e",
-    "revisions/or-r36-linear-frontier-20260924/verify.py": "582faabf35ce218c63bc696973cc0bd2923460b366e9081510a3ca08d40113b7",
+    "revisions/or-r36-linear-frontier-20260924/build_validate.py": "90d1c3d847397c5616a34305c910f24f4787ac71154721f545ea9cd3b99a5044",
     "revisions/or-r36-linear-frontier-20260924/linear_frontier.py": "9f21a15f45e571bcb7952a7e509ad010ca0facf74274e5c390407bd0bc4c701a",
+    "revisions/or-r36-linear-frontier-20260924/response_reader.py": "1a51f700b299f52e37b9fccb39fbf15869ec7b222a1f9151ba6e0daa67d6889e",
+    "revisions/or-r36-linear-frontier-20260924/verify.py": "582faabf35ce218c63bc696973cc0bd2923460b366e9081510a3ca08d40113b7",
     "revisions/or-r37-integrated-frontier-20260924/code/reproduce.py": "397c9167473546433e1e5d8481d611624c3c64781502350bb47547b07acc8a53",
+    "revisions/or-r37-integrated-frontier-20260924/code/external_solver.py": "b83b2690ce519fa3f0b04e9294d42b351647af4ea055c6bb01e4e600db85f77f",
     "revisions/or-r37-integrated-frontier-20260924/code/study.py": "52a50a100d740da63debb323c5d7c9e6afb8c27326faf10bc8c3a99b865151cd",
     "revisions/or-r37-integrated-frontier-20260924/code/frontier.py": "22d071429894a10446a4caea8d563296c926de436aaf73689560c9504a6dc2ac",
     "revisions/or-r37-integrated-frontier-20260924/code/prepare.py": "cac50c02cbcd9fde8d0b1d58192df55b284b13539f8819f4f58a35efcab235a0",
+    "revisions/or-r37-integrated-frontier-20260924/code/build.py": "d77940195a9531cd8d3f6a8cfb3639f66c7e04d528ffeee3049789591f070724",
     "revisions/or-r37-integrated-frontier-20260924/code/test_revision.py": "b150dc8aa513059aeadd03d35e1b6288ea279dd5d37308eb125a3b32cfd24818",
     "revisions/or-r37-integrated-frontier-20260924/code/pads_excerpt.py": "6f4707de43f1d4cc39a9749df8c69fa0ddae98c5dda9a2cc3f30d86679b3660a",
-    "revisions/or-r37-integrated-frontier-20260924/code/reporting.py": "345aeaae827ac455d9d709ecad6f616d88eb13b1883f923897d3eae85514c9e0",
-    "revisions/or-r37-integrated-frontier-20260924/code/external_solver.py": "b83b2690ce519fa3f0b04e9294d42b351647af4ea055c6bb01e4e600db85f77f",
-    "revisions/or-r37-integrated-frontier-20260924/code/build.py": "d77940195a9531cd8d3f6a8cfb3639f66c7e04d528ffeee3049789591f070724",
     "revisions/or-r37-integrated-frontier-20260924/code/layout.py": "901eece0f43ad0700010b8cee464207f6e8de0b651112fbe4873aa6406a5c0ec",
+    "revisions/or-r37-integrated-frontier-20260924/code/reporting.py": "345aeaae827ac455d9d709ecad6f616d88eb13b1883f923897d3eae85514c9e0",
     "revisions/or-r37-integrated-frontier-20260924/code/snapshots/or-r34-global-randomized-frontier-20260923/randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
-    "revisions/or-r37-integrated-frontier-20260924/code/snapshots/or-r35-monge-frontier-20260923/monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f",
-    "revisions/or-r37-integrated-frontier-20260924/code/snapshots/or-r36-linear-frontier-20260924/linear_frontier.py": "9f21a15f45e571bcb7952a7e509ad010ca0facf74274e5c390407bd0bc4c701a"
+    "revisions/or-r37-integrated-frontier-20260924/code/snapshots/or-r36-linear-frontier-20260924/linear_frontier.py": "9f21a15f45e571bcb7952a7e509ad010ca0facf74274e5c390407bd0bc4c701a",
+    "revisions/or-r37-integrated-frontier-20260924/code/snapshots/or-r35-monge-frontier-20260923/monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f"
   }
 }
