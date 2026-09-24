@@ -1,0 +1,40 @@
+\section{Proofs for the Bounded-Overrun Institution}\label{ec:r37-overrun}
+The results in this section use the pre-draw intermediate-action protocol of \eqref{eq:r37-overrun}. They do not assert that an arbitrary draw-dependent intermediate-action model reduces to this protocol. All terminal levels and intermediate actions are in $[0,1]$.
+
+\begin{proposition}[Exact fixed-codebook bounded-overrun rule]\label{prop:r37-fixed-overrun}
+Let $f$ be increasing concave and $h_j$ convex nondecreasing, as in Theorem~\ref{thm:frontier}. Fix a sorted codebook with lowest level at most $b_1$. On branch $j$, let $u$ be the largest codeword at most $b_j$. If $u=b_j$, use $u$ deterministically. Otherwise, if there is a next codeword $v>b_j$ and $v-b_j\leq\delta$, an optimal choice is the adjacent-code lottery with mean $b_j$, with $Y_j=0$. In every other case an optimal choice is the deterministic codeword $u$, with $Y_j=b_j-u$.
+\end{proposition}
+\begin{proof}
+Put $\mu=\E C_j$. The committed intermediate action is $Y_j=b_j-\mu\geq0$, and every codeword used with positive probability must satisfy $c\leq\mu+\delta$. The greatest expected terminal payoff at a fixed mean is the concave polygonal interpolation $F_{\boldsymbol c}(\mu)$ through the codebook. The function
+\[
+ G_j(\mu)=F_{\boldsymbol c}(\mu)-h_j(b_j-\mu)
+\]
+is nondecreasing, and strictly increasing when $f$ is strictly increasing. If $u=b_j$, the deterministic action attains the maximal possible mean. If the top codeword is at most $b_j$, it similarly attains the maximal possible mean and is optimal.
+
+For the remaining case, $u<b_j<v$. If $v-b_j\leq\delta$, the adjacent lottery with mean $b_j$ satisfies the support bound: its high realization is at most $b_j+\delta$, and its low realization is smaller. It attains both the largest allowable mean and $F_{\boldsymbol c}(b_j)$, and hence the upper bound $G_j(b_j)$.
+
+If $v-b_j>\delta$, no feasible mean can exceed $u$. Such a mean would require positive mass at a codeword at least $v$, whereas the realization requirement would imply $v\leq\mu+\delta\leq b_j+\delta$, a contradiction. The deterministic action at $u$ is feasible, attains $G_j(u)$, and weakly dominates every feasible smaller mean. The argument does not permit a tiny mass on an inadmissible high codeword: an almost-sure constraint excludes any positive mass there.
+\end{proof}
+
+\begin{proposition}[Global two-code bounded-overrun example]\label{prop:r37-overrun-example}
+For the probabilities, caps, and quadratic rewards in Proposition~\ref{prop:r34-offcap}, the minimum loss over all codebooks with at most two levels under \eqref{eq:r37-overrun} is \eqref{eq:r37-risk-frontier}. In particular, the optimal highest level is continuous in $\delta$ on $[0,1/8]$ and is off-cap for every $\delta>0$.
+\end{proposition}
+\begin{proof}
+We first justify restrictions on the two codewords; they are not imposed by the proposed answer. Feasibility requires the lowest codeword to be at most $b_1=1/4$. If both codewords are below $1/4$, increasing the highest to $1/4$ improves every branch's deterministic maximal mean without violating a realization bound. Otherwise write the two levels as $u\leq1/4\leq z$. Raising $u$ to $1/4$ cannot worsen an optimal branch payoff. For a feasible mean $\mu\geq1/4$, use the new adjacent mixture with the same mean: its high endpoint $z$ and the overrun condition are unchanged, while the concave quadratic interpolation increases as the low endpoint rises. A feasible mean below $1/4$ is dominated by deterministic service $1/4$, which all branch caps permit. Thus an optimum has lowest codeword $1/4$, including a one-code solution as a repeated level.
+
+A highest level above $b_3=3/4$ can be reduced to $3/4$. For any branch mean at most $3/4$, the adjacent interpolation improves as the upper endpoint falls, and the maximum realization decreases. Conversely, if $z<1/2$, both the second and third branches are at the top codeword and improving $z$ to $1/2$ strictly raises their objective with intermediate service adjusted to keep total payment equal to the cap. The first branch remains at $1/4$. Hence it suffices to optimize $z\in[1/2,3/4]$.
+
+If $z>1/2+\delta$, Proposition~\ref{prop:r37-fixed-overrun} forces the middle branch to use the lower codeword deterministically. Its weighted loss alone is
+\[
+ \frac35\{f(1/2)-f(1/4)+\tfrac12(1/2-1/4)^2\}
+ =\frac{21}{80}.
+\]
+This exceeds the total feasible loss $3/160$ achieved by $(1/4,1/2)$. Such a codebook is never optimal. For $z\in[1/2,\min\{3/4,1/2+\delta\}]$, the middle branch instead uses its mean-preserving adjacent lottery, while the highest branch takes deterministic terminal service $z$ and intermediate service $3/4-z$. Direct substitution gives
+\[
+ \Psi(z)=\frac{z^2}{20}-\frac z{16}+\frac3{80},\qquad
+ \Psi'(z)=\frac z{10}-\frac1{16}.
+\]
+The unique unconstrained minimum is $z=5/8$. Clamping it to the proven feasible interval gives $z_\delta=1/2+\min\{\delta,1/8\}$. The one-code loss is $49/160$, larger than the two-code value throughout. The displayed formula is therefore the global at-most-two-code optimum. It reduces to $3/160$ at $\delta=0$ and $23/1280$ for $\delta\geq1/8$.
+\end{proof}
+
+The last statement about being off-cap refers to the level itself, not a discrete number of feasible candidates. In particular $5/8$ remains off-cap for every larger $\delta$ as well. This example demonstrates a continuously moving operational design under a bounded realization policy. It is not a proof that the general bounded-overrun codebook problem has the same Monge structure as the expected-participation problem.

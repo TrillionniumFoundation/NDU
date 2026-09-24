@@ -1,0 +1,63 @@
+\section{Charge-Aware Recovery from Inexact Price Supports}\label{sec:r45-support}
+The polynomial price oracle in Section~\ref{sec:r43-decomposition} remains a useful source of target profiles and upper bounds. We now state exactly what survives an inexact oracle, and how a fixed memory budget enters the recovery guarantee. For a feasible endpoint policy $i\in\{-,+\}$, let $c^i$, $t^i$, $J_i$, and $S_i=\sum_j\pi_jt_j^i$ be its book, targets, net payoff, and aggregate target. It need not satisfy the desired root promise $B$, but satisfies all branch constraints. Its book has at most $m$ levels and its lowest level is at most $a_*$. At prices $\lambda_-\leq\lambda_+$ assume certified bounds $u_i\geq D(\lambda_i)$, and write
+\begin{equation}\label{eq:r45-zeta}
+ \zeta_i=u_i-\{J_i+\lambda_i(B-S_i)\}\geq0.
+\end{equation}
+This defect includes both optimization error and conservatism in the certified upper bound. An approximate feasible solution alone, without an upper bound, does not certify $\zeta_i$.
+
+Suppose $S_->B>S_+$. Define
+\[
+ \theta=\frac{B-S_+}{S_--S_+},\quad
+ t^U=\theta t^-+(1-\theta)t^+,\quad c^U=c^-\cup c^+,
+ \quad R_{\rm mix}=\theta R(c^-)+(1-\theta)R(c^+),
+\]
+and
+\begin{equation}\label{eq:r45-e}
+ e=(\lambda_+-\lambda_-)\frac{(S_--B)(B-S_+)}{S_--S_+},
+ \qquad U=\min\{u_-,u_+\}.
+\end{equation}
+Here $U$ is the minimum of two valid endpoint bounds, not necessarily the minimized Lagrangian dual value. Endpoint equality can be handled by returning that endpoint policy; the strict bracket avoids division by zero.
+
+\begin{theorem}[Budgeted compression with oracle defects]\label{thm:r45-inexact}
+For any feasible sub-book $d\subseteq c^U$ with $|d|\leq s$ at the fixed mixed targets, put
+\[
+ \Delta(d)=\sum_j\pi_j\{v_{j,c^U}(t_j^U)-v_{j,d}(t_j^U)\}\geq0,
+ \qquad \Gamma_s=\min_d\{\Delta(d)+R(d)-R_{\rm mix}\}.
+\]
+Theorem~\ref{thm:r45-frontier} computes the minimizer and its policy. Its net payoff satisfies
+\begin{equation}\label{eq:r45-compressed-bound}
+ J_s\geq U-e-\theta\zeta_--(1-\theta)\zeta_+-\Gamma_s.
+\end{equation}
+The policy has at most $s$ symbols and preserves the mixed branch targets, their aggregate root promise, and every realization ceiling. The original budget is obtained by setting $s=m$. Optimizing over the full catalog instead of the union, or returning a better feasible incumbent at the same budget, preserves the bound. For rounded mixed targets, let $r_{\rm mix}$ bound their weighted distance from $t^U$ after clipping to the selected book	extquotesingle{}s feasible target intervals, and let $r_{\rm eq}$ be their root residual. A further allowance $L(r_{\rm mix}+r_{\rm eq})$ suffices after exact repair.
+\end{theorem}
+\begin{proof}
+The union weakly improves the branch response at each endpoint target because it contains both old books. Its response is concave in the target, so
+\[
+ \sum_j\pi_jv_{j,c^U}(t_j^U)
+ \geq \theta[J_-+R(c^-)]+(1-\theta)[J_++R(c^+)].
+\]
+This compares operating values before subtracting installation charges. Direct expansion of \eqref{eq:r45-zeta} gives
+\[
+ \theta u_-+(1-\theta)u_+
+ =\theta J_-+(1-\theta)J_+ +e+
+   \theta\zeta_-+(1-\theta)\zeta_+.
+\]
+The left side is at least $U$. Subtracting $\Delta(d)+R(d)$ from the union operating value proves \eqref{eq:r45-compressed-bound} for any $d$, and minimizing that subtraction is precisely fixed-target book optimization. A feasible singleton always exists in the union: its smallest level is no higher than either endpoint's targets, hence no higher than each mixed target. Canonical reconstruction proves all feasibility claims. The repair loss follows by first bounding the target perturbation and then applying the previous lemma to the residual; installed-level charges do not change.
+\end{proof}
+
+Unlike the union excess charge, $\Gamma_s$ includes an \emph{optimized} distortion--charge tradeoff at the actual returned budget. It may be positive, zero, or negative, and the bound can still be loose if compression is costly. We do not relabel it as a uniform relative approximation. The independently available net scheme gives the unconditional additive same-budget guarantee at fixed branch count; the compressed-support bound provides a computable instance-specific certificate at large branch counts.
+
+For exact price optimizers, $\zeta_i=0$ when their price bounds are exact. Optimality at two prices gives the explicit tie-safe monotonicity argument
+\[
+ J_1-\lambda_1S_1\geq J_2-\lambda_1S_2,\qquad
+ J_2-\lambda_2S_2\geq J_1-\lambda_2S_1
+ \quad\Longrightarrow\quad
+ (\lambda_2-\lambda_1)(S_1-S_2)\geq0.
+\]
+Arbitrary selections among exact tied optima therefore preserve the ordering of supported totals. Approximate optimizers need not do so. The inexact theorem assumes and checks a feasible bracket rather than extending this monotonicity assertion incorrectly. It establishes a value bound conditional on certified endpoint data, not an oracle-call complexity bound for an unspecified approximate solver.
+
+\subsection{Relation to union augmentation and its strict gap}
+At $s=|c^U|$, choosing the whole union gives $\Delta=0$ and
+$R(c^U)-R_{\rm mix}=\Omega$; \eqref{eq:r45-compressed-bound} recovers the charged union guarantee. For zero charges and exact supports, the usual price-bracket tolerance produces an at-most-$2m$ policy within the requested additive tolerance of the original-budget optimum. The full construction and continuous mesh transfer remain in the companion. They are bicriteria results, distinct from the original-budget net scheme and saturation theorem.
+
+The exact two-branch example has caps $(1/4,3/4)$, equal weights, curvatures $(1,2)$, $f(x)=2x-x^2/2$, catalog $\{i/8:0\leq i\leq8\}$, $m=2$, $B=2/5$, and $\delta=0$. Its original-budget value is $45/64$, whereas the minimum price bound is $453/640$. The gap $3/640$ is $1/150$ of the original value. A three-level book $(1/4,1/2,5/8)$ attains the price value. This is a relaxation-gap example, not evidence that the factor two is necessary. The conditional frontier quantifies every compression budget for its mixed targets; the joint net scheme can instead approximate the two-level optimum. No factor-two necessity claim or same-budget strong-duality claim is used anywhere in these arguments.

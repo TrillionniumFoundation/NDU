@@ -1,0 +1,63 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r44-main-labels}[main.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\theequation}{EC.\arabic{equation}}
+\renewcommand{\thetable}{EC.\arabic{table}}
+\hypersetup{pdftitle={Electronic Companion: Limited-Memory Renewal Contracts},pdfauthor={Anonymous}}
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion}\par
+Limited-Memory Renewal Contracts: Exact Quadratic Design and Resource Augmentation\end{center}
+This companion supplies the detailed proofs and implementation evidence used by the article. It is self-contained together with the article; the broader historical response-compilation program is preserved separately in the repository and is not a hidden premise of the current theorems.
+\input{revisions/or-r39-robust-quantizer-20260924/derived/core_proofs.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/mechanism.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/historical_example.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/oracle_concordance.tex}
+\input{revisions/or-r37-integrated-frontier-20260924/bounded_overrun.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/allocation_companion.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/generated/allocation_evidence.tex}
+\input{revisions/or-r42-certified-joint-design-20260924/implementation_companion.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/methodology.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/legacy_evidence.tex}
+\input{revisions/or-r43-prefix-decomposition-20260924/implementation_companion.tex}
+\input{revisions/or-r42-certified-joint-design-20260924/study.tex}
+\input{revisions/or-r44-resource-augmentation-20260924/augmentation_companion.tex}
+\input{revisions/or-r44-resource-augmentation-20260924/protocol.tex}
+\clearpage
+\input{revisions/or-r44-resource-augmentation-20260924/generated/references.tex}
+\clearpage
+\input{revisions/or-r39-robust-quantizer-20260924/derived/accounting_table.tex}
+\clearpage
+\input{revisions/or-r37-integrated-frontier-20260924/generated/main_tables.tex}
+\clearpage\input{revisions/or-r37-integrated-frontier-20260924/generated/companion_tables.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/generated/catalog_table.tex}
+
+\clearpage
+\input{revisions/or-r42-certified-joint-design-20260924/generated/tables.tex}
+\clearpage
+\input{revisions/or-r43-prefix-decomposition-20260924/generated/companion_tables.tex}
+\clearpage
+\input{revisions/or-r44-resource-augmentation-20260924/generated/companion_tables.tex}
+\end{document}

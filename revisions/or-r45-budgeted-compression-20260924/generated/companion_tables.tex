@@ -1,0 +1,40 @@
+\begin{table}[p]\centering\small
+\caption{Complete continuous-reference comparison path}\label{tab:r45-cont-full}
+\begin{tabular}{llrr}\toprule
+Case & Candidate pool & Candidates & Exact-reference loss \\
+\midrule
+interior-ideal & uniform & 5 & 0.044030 \\
+interior-ideal & uniform & 9 & 0.044030 \\
+interior-ideal & uniform & 17 & 0.035967 \\
+interior-ideal & uniform & 33 & 0.013788 \\
+interior-ideal & uniform & 65 & 0.002991 \\
+interior-ideal & target-adaptive & 4 & 0.000000 \\
+off-cap-top & uniform & 9 & 0.000000 \\
+off-cap-top & uniform & 17 & 0.000000 \\
+off-cap-top & uniform & 33 & 0.000000 \\
+off-cap-top & uniform & 65 & 0.000000 \\
+off-cap-top & Adaptive & 5 & 0.000781 \\
+off-cap-top & Adaptive & 6 & 0.000000 \\
+Sat. 104729 & uniform & 9 & 0.006507 \\
+Sat. 104729 & uniform & 17 & 0.002569 \\
+Sat. 104729 & uniform & 33 & 0.000000 \\
+Sat. 104729 & uniform & 65 & 0.000000 \\
+Sat. 104729 & Adaptive & 9 & 0.000000 \\
+Sat. 205019 & uniform & 9 & 0.001824 \\
+Sat. 205019 & uniform & 17 & 0.001020 \\
+Sat. 205019 & uniform & 33 & 0.000000 \\
+Sat. 205019 & uniform & 65 & 0.000000 \\
+Sat. 205019 & Adaptive & 9 & 0.000000 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\footnotesize All inputs, reference codebooks and returned rational policies are retained. The same installed budget is used along each path.\end{minipage}
+\end{table}
+\begin{table}[p]\centering\small
+\caption{Union overlap and quality at the actual installed size}\label{tab:r45-union}
+\begin{tabular}{lrrrrrr}\toprule
+Charges & Cases & Nested & Max extra & Median overlap & Union loss & Core loss \\
+\midrule
+None & 18 & 9 & 1 & 2.000000 & 0.020139 & 0.000000 \\
+Nonuniform & 18 & 14 & 1 & 1.000000 & 0.079152 & 0.028056 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\footnotesize Loss columns give the maximum difference from the exact joint optimum at the union	extquotesingle s actual size, not the original-budget price bound. Max extra uses the nonnegative expansion beyond the original budget. Per-instance percentage expansion and gain per additional symbol are generated in the expanded JSON accounting.\end{minipage}
+\end{table}

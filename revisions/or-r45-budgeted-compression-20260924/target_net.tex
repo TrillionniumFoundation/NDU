@@ -1,0 +1,44 @@
+\section{Joint Approximation Without Additional Memory}\label{sec:r45-net}
+The exact conditional oracle permits a global approximation of the original catalog problem without enumerating books or increasing their cardinality. The price is dependence on the dimension of the target vector. Let $f$ be $L_f$-Lipschitz and each $h_j$ be $L_{h,j}$-Lipschitz on $[0,b_j]$, and set $L=\max\{L_f,\max_jL_{h,j}\}$. For the quadratic implementation, $L=\max\{r,\max_j\gamma_j\}$ is valid. These assumptions bound value changes, not the sensitivity of a selected alphabet.
+
+\begin{lemma}[Target sensitivity and exact repair]\label{lem:r45-repair}
+For every feasible book $c$, its branch response is $L$-Lipschitz on $[c_1,b_j]$. Given $u_j\in[c_1,b_j]$ and a feasible root promise $B$, bounded transfers produce $t_j\in[c_1,b_j]$ with $\sum_j\pi_jt_j=B$ and
+\begin{equation}\label{eq:r45-repair}
+ \sum_j\pi_j|t_j-u_j|=\left|B-\sum_j\pi_ju_j\right|.
+\end{equation}
+The operating payoff decreases by at most $L$ times the right-hand side. With rational inputs, both transfers and canonical lotteries are rational and satisfy the original constraints exactly.
+\end{lemma}
+\begin{proof}
+Chord slopes of $f$ have absolute value at most $L_f$; the final shortfall tail has slopes bounded by $L_{h,j}$. Their continuous concatenation is therefore $L$-Lipschitz. If the residual is positive, increase targets within their remaining cap capacities; if it is negative, decrease them toward $c_1$. Total available capacity is sufficient because $B\in[c_1,\bar b]$. Stop when the residual is zero. All changes have the same sign, proving \eqref{eq:r45-repair}; the payoff bound follows by the weighted Lipschitz inequality. Reconstruct the lotteries after repairing targets, rather than rounding their probabilities separately. The canonical rule then enforces $y_j+C_j\leq\tau_j$ for each realization.
+\end{proof}
+
+\begin{theorem}[Same-budget additive scheme at fixed branch count]\label{thm:r45-net}
+For a feasible finite catalog and any $\varepsilon>0$, a target-net algorithm returns one feasible book of at most $m$ levels and net value $J$ satisfying
+\begin{equation}\label{eq:r45-net-bound}
+ \mathcal V_{m,\mathcal A}^{\tau}(B;\rho)-\varepsilon\leq J
+ \leq\mathcal V_{m,\mathcal A}^{\tau}(B;\rho).
+\end{equation}
+For $k\geq2$, set $\eta=\varepsilon/[2L(k-1)]$. At most
+\begin{equation}\label{eq:r45-net-size}
+ N(1+1/\eta)^{k-1}
+\end{equation}
+target profiles need be optimized. Thus a safe arithmetic bound is
+$O((k+m)N^3(1+2L(k-1)/\varepsilon)^{k-1})$.
+For $k=1$, apply the conditional oracle once at $t_1=B$.
+The guarantee allows arbitrary nonnegative catalog charges and arbitrary ceilings $\tau_j\geq b_j$; neither is approximated. For rational quadratic data the algorithm is polynomial in input bit length and the displayed numerical accuracy parameter when $k$ is fixed. It is not an FPTAS with variable $k$ and does not claim polynomial dependence on the binary length of $1/\varepsilon$.
+\end{theorem}
+\begin{proof}
+Enumerate a possible lowest level $a\in\mathcal A$ with $a\leq a_*:=\min\{B,\min_jb_j\}$. Restrict the conditional candidate pool to levels at least $a$. In weighted target coordinates, let $x_j=\pi_j(t_j-a)$, $d_j=\pi_j(b_j-a)$, and $C=B-a$. Choose one distinguished branch, numbered $k$ only for this proof. Enumerate multiples of $\eta$ in $[0,d_j]$ for $j<k$, discarding tuples whose sum exceeds $C$. Set
+\[
+ x_k=\min\{d_k,C-\textstyle\sum_{j<k}x_j\}.
+\]
+Any remaining deficit is nonnegative; fill it by bounded increases to the coordinates $j<k$. Their total available capacity is sufficient because $C\leq\sum_jd_j$. This constructs a feasible profile $t_j=a+x_j/\pi_j$. Run Theorem~\ref{thm:r45-frontier} at budget $m$ and retain the best policy over all anchors and profiles.
+
+Let $(c^*,t^*)$ be a global catalog optimum, which exists by compactness of each fixed-book allocation problem and finiteness of the catalog. Its lowest level $a=c^*_1$ is enumerated. For $j<k$, the enumeration includes $x_j=\eta\lfloor x_j^*/\eta\rfloor$. Their aggregate decrease is $D< (k-1)\eta$. The constructed last coordinate is at least $x_k^*$ and increases by at most $D$. If it reaches its cap, the subsequent increases on the other coordinates use only the remaining deficit. Consequently, the final weighted target distance from $t^*$ is at most $2D\leq2(k-1)\eta$. All final targets remain at least $a$, so the \emph{same} book $c^*$ is feasible. Lemma~\ref{lem:r45-repair} bounds its payoff loss by $\varepsilon$; its opening charge is unchanged. The conditional optimizer does no worse. Maximizing over profiles proves \eqref{eq:r45-net-bound}.
+
+Each of the $k-1$ coordinates has at most $1+d_j/\eta\leq1+1/\eta$ possibilities. There are at most $N$ anchors. Applying the conditional-oracle complexity gives the stated bound. The construction uses rational flooring, addition, comparison, and the rational oracle, so the bit-complexity conclusion follows under the stated representation assumptions.
+\end{proof}
+
+The scheme is useful when the number of distinct contract branches is small or repeated homogeneous branches have been aggregated. Its exponential accuracy dependence on $k$ is not concealed by the polynomial dependence on the symbol budget. At a large branch count we use selected target profiles and certified upper bounds rather than declare the net completed. An interrupted enumeration returns a feasible incumbent, but the implementation deliberately withholds the requested $\varepsilon$ guarantee until coverage is complete.
+
+This result addresses the original-budget difficulty differently from union recovery. It pays for accuracy in target-space computation, not extra installed levels. At saturation, Corollary~\ref{cor:r45-saturated} avoids target-space enumeration altogether. For a general interior promise, selected profiles can be polished by alternating exact inner allocation and exact conditional book design. This preserves feasibility and nondecreases value at every step, but a fixed iteration cap or stationary pair has no global-optimality implication. The comparative study records this distinction explicitly.

@@ -1,0 +1,55 @@
+\section{Catalog Approximation Without Promise or Risk Slack}\label{sec:grid}
+Finite catalogs have two different interpretations. An externally certified menu is a restriction of the feasible technology, for which an exact catalog optimum is the relevant answer. Alternatively the operator may choose a numerical catalog to approximate continuous design. The latter interpretation needs a quantitative comparison to the unrestricted optimum; exactness on the catalog alone does not supply it.
+
+Let $\mathcal A\subset[0,1]$ contain zero and one, and let $h$ be its largest consecutive spacing. Assume $f$ is increasing, concave, and $L_f$-Lipschitz, and each $h_j$ is convex, nondecreasing, and $H_j$-Lipschitz on $[0,b_j]$. Let the nonnegative charge $\rho$ be $L_\rho$-Lipschitz on $[0,1]$. Define
+\begin{equation}\label{eq:mesh-constant}
+ K_m=L_f+\sum_j\pi_jH_j+mL_\rho.
+\end{equation}
+For the quadratic model, one can take $L_f=r$ and $H_j=\gamma_jb_j$. Neither the root promise nor the risk tolerance is discretized.
+
+\begin{theorem}[Uniform exactly feasible catalog certificate]\label{thm:mesh}
+For every $B\in[0,\bar b]$, every $\delta\geq0$, and every $m\geq1$,
+\begin{equation}\label{eq:mesh-certificate}
+ 0\leq\mathcal V_m^\delta(B;\rho)-\mathcal V_{m,\mathcal A}^\delta(B;\rho)
+ \leq K_mh.
+\end{equation}
+More strongly, every canonical continuous-book policy has a catalog policy with no more symbols that preserves each branch target exactly, satisfies the same realization ceiling exactly, and loses at most $K_mh$ in net payoff. The conclusion includes the pathwise endpoint $\delta=0$ and requires no strict feasibility margin.
+\end{theorem}
+\begin{proof}
+Round each original level $c$ downward to $a(c)=\max\{a\in\mathcal A:a\leq c\}$ and merge collisions. Fix a branch target $t$ and let $d$ be its old eligible top. Every old eligible level remains eligible after rounding. In particular the new eligible top $d'$ satisfies $d'\geq a(d)\geq d-h$. The old canonical terminal mean is $\mu=\min(t,d)$; coupling its draws to their rounded levels gives a feasible-support lottery of mean $\widetilde\mu\in[\mu-h,\mu]$ and expected terminal reward at least the old reward minus $L_fh$.
+
+Do not retain those coupled probabilities. Recompute the canonical lottery on the rounded eligible prefix at the \emph{same} target $t$. Its terminal mean $\mu'=\min(t,d')$ is at least $\widetilde\mu$: every rounded old draw is at most $d'$ and its mean is at most $t$. The new interpolant is increasing, and at mean $\widetilde\mu$ it dominates the coupled lottery reward. Therefore its reward at $\mu'$ also dominates that reward. Moreover $\mu'\geq\mu-h$, so its intermediate tier $t-\mu'$ exceeds the old tier by at most $h$. The branch operating-payoff loss is at most $(L_f+H_j)h$. Theorem~\ref{thm:eligible} ensures exact mean and risk feasibility for this reoptimized lottery, including when the risk bound is binding. All $t_j$ are unchanged, so the root promise remains exactly $B$.
+
+For each original level, $\rho(a(c))\leq\rho(c)+L_\rho h$. After merging, the total charge is no larger than the sum of these rounded-slot charges because charges are nonnegative. At most $m$ slots were present. Summing the branch bounds and charge bound gives $K_mh$. Apply the construction to an optimizer, or to a sequence approaching the supremum, and use inclusion of catalog policies in continuous policies for the other inequality.
+\end{proof}
+
+One-sided rounding is necessary but not sufficient without the probability repair. For example, let $b=t=1/2$, $\delta=1/8$, and old support $(1/4,5/8)$ with upper probability $2/3$. Rounding the lower level to zero while retaining the probabilities reduces the mean to $5/12$. Compensating by $y=1/12$ produces a maximum obligation $17/24>5/8$, violating the risk limit. Instead, the new canonical lottery on $(0,5/8)$ uses upper probability $4/5$ and $y=0$. It preserves the target and the ceiling exactly. This is the distinction between unconstrained quantizer rounding and the contractual transport in Theorem~\ref{thm:mesh}.
+
+\begin{corollary}[Certified approximation for a fixed alphabet budget]\label{cor:scheme}
+For rational quadratic operating primitives and a nonnegative charge whose rational catalog evaluations and Lipschitz bound are supplied, enumerate every feasible catalog book of size at most $m$ and solve its allocation by \eqref{eq:prefix-dual}. With $N=|\mathcal A|$, this gives an exact catalog optimum in
+\begin{equation}\label{eq:catalog-enumeration}
+ O\!\left(\left[\sum_{s=1}^{\min(m,N)}{N\choose s}\right]
+                (km+k\log(k+1))\right)
+\end{equation}
+rational arithmetic/evaluation operations. A uniform mesh with denominator $\lceil K_m/\varepsilon\rceil$ (or one when that ceiling is zero) gives additive error at most $\varepsilon$. The algorithm is polynomial in $k$, $K_m/\varepsilon$, and the bit complexity of the sampled data for fixed $m$; it is not claimed to be polynomial in a variable $m$, nor is this a multiplicative approximation ratio.
+\end{corollary}
+\begin{proof}
+Increasing subsets exhaust the allowed books and the supporting-price algorithm optimizes every inner problem exactly. Take the largest charge-adjusted value and apply Theorem~\ref{thm:mesh}. The mesh includes zero, so every feasible promise is implementable even when it is smaller than the first positive grid point. The bound counts evaluation work; a black-box charge oracle is not assumed to have unit bit complexity unless that is explicitly part of the input model.
+\end{proof}
+
+The guarantee is uniform in the two contractual constraints. For any institution pair, subtracting their certified value intervals gives a certified interval for the institutional gap. This permits a global accuracy statement away from saturation without presuming that original cap anchors or Monge order survive. When $B=\bar b$, the faster charged path recurrence in Section~\ref{sec:catalog} replaces subset enumeration. When the saturated expected problem is uncharged, the continuous Monge algorithm avoids a mesh entirely. Thus the specialized algorithms are faster members of one feasible-policy hierarchy, while \eqref{eq:mesh-certificate} connects numerical catalogs to continuous risk-and-charge design.
+
+\subsection{The uniform-mesh rate is sharp}\label{sec:r43-sharpness}
+The linear bound in Theorem~\ref{thm:mesh} reflects exact feasibility, not only an insensitive Lipschitz estimate. It cannot be uniformly replaced by a higher-order rate for the declared uniform catalogs.
+\begin{proposition}[A fixed-input lower bound]\label{prop:r43-sharp}
+Take one branch and one symbol, $b=B=1/2$, $f(c)=c-c^2/2$, $h(y)=y^2/2$, and zero charges. For every risk tolerance and every odd integer $N\geq3$, the uniform catalog with spacing $h=1/N$ has loss
+\[
+ \mathcal V_1^\delta(B;0)-\mathcal V_{1,\mathcal A_N}^\delta(B;0)
+ =\frac h4+\frac{h^2}4.
+\]
+Thus the worst-case $O(h)$ rate is order-sharp, even for a single fixed input with no opening charges and no randomization.
+\end{proposition}
+\begin{proof}
+With one level, $c\leq B$ and $y=B-c$. Payoff $f(c)-(B-c)^2/2$ is strictly increasing on $[0,B]$. Its continuous maximizer is $B$, with value $3/8$. For odd $N$, the largest feasible catalog point is $B-h/2$. Substitution gives the displayed loss. All realizations equal total service $B$, so risk tolerance plays no role. The sequence of odd $N$ uses the same primitives throughout.
+\end{proof}
+This is a lower bound for uniform catalogs, not for all adaptive discretizations. Adding the cap $1/2$ removes this particular error. It also does not rule out faster convergence on other fixed instances. The search interval in \eqref{eq:r43-interval} is therefore useful even when its optimization gap has already vanished: refinement addresses a genuinely different source of error.

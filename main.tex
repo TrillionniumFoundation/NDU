@@ -22,45 +22,37 @@
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r44-ec-labels}[electronic_companion.pdf]
-\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Exact Quadratic Design and Resource Augmentation},pdfauthor={Anonymous}}
+\externaldocument{r45-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Budgeted Compression and Certified Joint Design},pdfauthor={Anonymous}}
 \begin{document}\hypersetup{pageanchor=false}
 \begin{titlepage}\centering
-{\Large\bfseries Limited-Memory Renewal Contracts:\newline Exact Quadratic Design and Resource Augmentation\par}
+{\Large\bfseries Limited-Memory Renewal Contracts:\newline Budgeted Compression and Certified Joint Design\par}
 \vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
-\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must allocate accepted obligations through a limited execution alphabet. We study joint alphabet and promise design with local participation limits, bounded realization exposure, heterogeneous shortfall costs, and charges for enabled levels. An eligibility-prefix reduction gives exact branch responses. A polynomial price decomposition converts the shared alphabet problem into an ordered path problem. We use two priced solutions to construct one fixed expanded alphabet that preserves every promise and realization bound exactly. With zero opening charges, at most twice the original number of levels achieves any prescribed additive accuracy relative to the original-budget catalog optimum; the computation is polynomial with variable branch count and alphabet budget. For charged levels, an explicit excess-charge term gives the corresponding net-payoff guarantee. Feasible rounding extends the comparison to continuous design. We also retain exact unrestricted continuous optimization for rational quadratic primitives, independently checkable prefix-search intervals, and the sharper saturated Monge theory. An exact positive price-gap example distinguishes augmentation from an unsupported strong-duality claim. Synthetic computations test recovery against exhaustive optima, report arithmetic and memory growth, and preserve the preceding independent nonlinear comparisons. The method applies to a broader ordered-interface allocation class.
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must select a limited execution alphabet and allocate an accepted obligation under participation caps, realization ceilings, and level-opening charges. We derive an exact target-crossing dynamic program that computes the entire memory--charge frontier conditional on branch targets. At saturation it solves joint catalog design in polynomial time with variable branch count and symbol budget. At an interior promise, a feasible weighted target net gives any prescribed additive accuracy at the original symbol budget when the branch count is fixed; its accuracy exponent is explicit. Local distortion certificates, charge-aware compression of price supports, and an inexact-oracle repair theorem provide complementary feasible policies without assuming zero duality gap. Exact continuous quadratic design and saturated Monge results are retained. Independent support enumeration and a separate uneliminated mixed-integer formulation validate the computation. Across thirty-six synthetic comparisons, the core target portfolio attains thirty-five original-budget optima; a retained charged counterexample motivates an explicit greedy safeguard. Heterogeneous scaling and adaptive-catalog experiments distinguish conditional performance from global guarantees. The resulting theory addresses limited-memory design without making additional symbols a prerequisite for approximation.
 \par\vspace{.15in}\textbf{Keywords:} renewal contracts; quantization; dynamic programming.
 \par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: resource allocation.
 \par\vspace{.1in}\textbf{Area of review:} Optimization.
 \par\vspace{.1in}\textbf{Submission category:} Lengthy manuscript.
 \end{minipage}\vfill September 24, 2026\end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r44-resource-augmentation-20260924/introduction.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/positioning.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/institution.tex}
-\input{revisions/or-r39-robust-quantizer-20260924/derived/deterministic.tex}
-\input{revisions/or-r39-robust-quantizer-20260924/derived/lotteries.tex}
-\input{revisions/or-r39-robust-quantizer-20260924/derived/global.tex}
-\input{revisions/or-r39-robust-quantizer-20260924/derived/monge.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/promise_robustness.tex}
-\input{revisions/or-r43-prefix-decomposition-20260924/joint_design.tex}
-\input{revisions/or-r43-prefix-decomposition-20260924/monotone_charge.tex}
-\input{revisions/or-r43-prefix-decomposition-20260924/decomposition.tex}
-\input{revisions/or-r43-prefix-decomposition-20260924/grid_certificate.tex}
-\input{revisions/or-r44-resource-augmentation-20260924/augmentation.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/catalog_design.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/introduction.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/model.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/compression.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/target_net.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/certificates.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__decomposition.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/support.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/study.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/conclusion.tex}
+\appendix
+\input{revisions/or-r45-budgeted-compression-20260924/continuous_appendix.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__global.tex}
 \input{revisions/or-r39-robust-quantizer-20260924/figure.tex}
-\input{revisions/or-r39-robust-quantizer-20260924/resources.tex}
-\input{revisions/or-r42-certified-joint-design-20260924/inherited_evidence.tex}
-\input{revisions/or-r43-prefix-decomposition-20260924/study.tex}
-\input{revisions/or-r44-resource-augmentation-20260924/study.tex}
-\input{revisions/or-r44-resource-augmentation-20260924/conclusion.tex}
-\input{revisions/or-r44-resource-augmentation-20260924/data_statement.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__monge.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__grid_certificate.tex}
 \clearpage\phantomsection\label{refs-start}
-\input{revisions/or-r44-resource-augmentation-20260924/generated/references.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/generated/references.tex}
 \label{refs-end}
 \clearpage
-\input{revisions/or-r43-prefix-decomposition-20260924/novelty_table.tex}
-\input{revisions/or-r43-prefix-decomposition-20260924/generated/main_tables.tex}
-\input{revisions/or-r44-resource-augmentation-20260924/generated/main_table.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/generated/main_tables.tex}
 \end{document}

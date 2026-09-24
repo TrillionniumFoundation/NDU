@@ -1,0 +1,42 @@
+\section{Exact Nonsaturated Allocation and Supporting-Price Certificates}\label{ec:allocation}
+This section makes Proposition~\ref{prop:allocation} computational: the targets, encoder, and a certificate are recovered with rational arithmetic for each fixed book. It also supplies a small-instance exact reference solver when allowable books come from a finite catalog. This does not discretize the unrestricted continuous problem or assert pathwise--deterministic equality away from saturation.
+
+For quadratic primitives and fixed $c=(c_1,\ldots,c_s)$, define adjacent slopes
+\[
+ \sigma_\ell=\frac{f(c_{\ell+1})-f(c_\ell)}{c_{\ell+1}-c_\ell}
+ =r-\frac q2(c_\ell+c_{\ell+1}),\qquad 1\leq\ell<s.
+\]
+They are strictly decreasing and positive. The branch response in \eqref{eq:promise-response} is affine with these slopes until $c_s$, and thereafter has derivative $-\gamma_j(t-c_s)$. Let $\mathcal T_j=[c_1,b_j]$ and assume $c_1\leq\min_j b_j$ and $c_1\leq B\leq\bar b$.
+
+\begin{proposition}[Exact allocation with a checkable supporting price]\label{prop:allocation-certificate}
+A fixed-book optimizer and a rational multiplier $\lambda$ can be obtained in $O(ks+k\log(k+1))$ exact-rational arithmetic and comparison work. The result obeys
+\begin{align}\label{eq:allocation-certificate}
+ \sum_j\pi_jt_j&=B,\quad t_j\in\mathcal T_j,\nonumber\\
+ \sum_j\pi_jv_{j,c}(t_j)
+ &=\lambda B+\sum_j\pi_j\max_{u\in\mathcal T_j}
+       \{v_{j,c}(u)-\lambda u\}.
+\end{align}
+The right side is an upper bound for every feasible allocation, so equality certifies global fixed-book optimality. This remains valid with repeated caps, zero intermediate curvatures, singleton books, and endpoint promises. Recover terminal means $\min(t_j,c_s)$, adjacent mean-preserving tickets, and intermediate tiers $(t_j-c_s)_+$.
+\end{proposition}
+\begin{proof}
+Initialize every target at $c_1$. Increase the targets through successive chord intervals. At interval $[c_\ell,c_{\ell+1}]$, branch $j$ offers capacity
+$\pi_j[\min(b_j,c_{\ell+1})-c_\ell]_+$, all at the same marginal value $\sigma_\ell$. Fill these capacities until the required aggregate promise is reached, using any fixed order to divide a tied marginal segment. If the promise is reached in this interval, take $\lambda=\sigma_\ell$. Earlier intervals have larger marginal value, later ones have smaller marginal value, and capped coordinates need no further increase. Thus each chosen target maximizes its branch response minus $\lambda$ times its target.
+
+If all chord intervals are filled, $t_j=\min(b_j,c_s)$. Fill zero-curvature tails first at price zero. If additional promise is required, only positive-curvature tails remain. Their increments have the form
+\[
+ x_j=\min\{b_j-c_s,w/\gamma_j\},\qquad b_j>c_s,\ \gamma_j>0,
+\]
+with common water level $w\geq0$ and $\lambda=-w$. Sort the cap events $w_j=\gamma_j(b_j-c_s)$. Between events the weighted total increment is affine in $w$, with positive slope $\sum_{j\text{ uncapped}}\pi_j/\gamma_j$. One rational division gives the required water level in the first interval that covers the remaining promise. Tied events are processed together or sequentially with zero intervening width. At the last event all tails are full, so the procedure covers $B=\bar b$ as well.
+
+In every case the common multiplier supports every branch response on its feasible interval, proving \eqref{eq:allocation-certificate}. The chord scan costs $O(ks)$, and the sorted tail sweep costs $O(k\log(k+1))$. Independently checking the certificate enumerates each branch's feasible codeword kinks, its two domain endpoints, and its clamped quadratic stationary point. There are $O(s)$ such candidates per branch, so checking does not change the bound. These operations preserve rationality. The bound counts exact-rational operations, not constant-time arithmetic on arbitrarily large integers.
+\end{proof}
+
+\paragraph{Finite-catalog optimization at any promise.}
+Enumerate feasible subsets of an input catalog of size $N$, with at most $m$ levels. For each, apply Proposition~\ref{prop:allocation-certificate} and subtract the charges of its actually selected levels. The largest certified value is the exact expected-participation catalog optimum at that promise. The work is at most
+\[
+ O\!\left(\sum_{s=1}^{\min(m,N)}\binom Ns[ks+k\log(k+1)]\right).
+\]
+This exponential reference method provides exact interior-promise comparisons; it is not the polynomial saturated recurrence of Theorem~\ref{thm:catalog}. A maximum over fixed-book concave value functions need not be concave. In particular, this procedure never swaps the outer codebook maximum with the inner supporting-price minimum. With nonnegative charges a redundant level can be deleted, but enumeration need not assume that all selected levels are used.
+
+\paragraph{Independent validation.}
+The implementation's primal chord and water-level sweep is compared with a separately coded dual-event search. That search scans all chord slopes, zero, and all negative tail-cap slopes, interpolating the aggregate target only between consecutive events. Both implementations are then checked by the finite candidate certificate in \eqref{eq:allocation-certificate}. This checks the continuous branch maxima exactly, not only values on a target grid. At saturation, exhaustive charged-book allocation is also compared with the independently structured catalog path recurrence. Pairwise policy-transport tests exercise contractions and partial lifts under expected, pathwise, and deterministic timing, including intermediate tiers conditioned on drawn symbols. The original theorem proofs, not these finite tests, establish the all-input guarantees.

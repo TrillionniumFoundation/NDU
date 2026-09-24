@@ -1,0 +1,70 @@
+\section{Exact Continuous Quadratic Design}\label{app:r45-continuous}
+Fix $s\leq m$ and temporarily allow $0\leq c_1\leq\cdots\leq c_s\leq1$. For each branch select one of $2s-1$ modes. A singleton mode $S_\ell$ and an adjacent-lottery mode $L_\ell$ have the following closed descriptions:
+\begin{align}
+ S_\ell:\quad&c_\ell\leq t_j\leq b_j,
+ &g_j^S&=rc_\ell-\frac q2c_\ell^2-\frac{\gamma_j}{2}(t_j-c_\ell)^2;\label{eq:singleton-cell}\\
+ L_\ell:\quad&c_\ell\leq t_j\leq c_{\ell+1},\quad t_j\leq b_j,\quad
+ c_{\ell+1}\leq b_j+\delta,
+ &g_j^L&=rt_j-\frac q2\bigl[(c_\ell+c_{\ell+1})t_j-c_\ell c_{\ell+1}\bigr].\label{eq:lottery-cell}
+\end{align}
+For $S_\ell$, use $y_j=t_j-c_\ell$ and terminal level $c_\ell$. For $L_\ell$, use $y_j=0$ and the adjacent unbiased lottery. At $c_\ell=c_{\ell+1}$ the constraints force $t_j=c_\ell$, and the formula is the singleton reward. Therefore collisions are not discarded as singular probability formulas. The quadratic interpolation identity eliminates the ratio in the lottery probabilities before codewords become optimization variables.
+
+Each joint mode assignment, the ordered-book inequalities, and $\sum_j\pi_jt_j=B$ define a compact polytope. If $\rho(c)=\alpha c^2+\beta c+\eta$ is nonnegative on $[0,1]$, its objective
+\begin{equation}\label{eq:cell-objective}
+ Q(c,t)=\sum_j\pi_jg_j(c,t)-\sum_{\ell=1}^s\rho(c_\ell)
+\end{equation}
+is a quadratic polynomial, not necessarily concave. Nonnegative charges, rather than signs of their coefficients, are the assumption. For example, a decreasing nonnegative certification charge is allowed.
+
+\begin{lemma}[Finite stationary-face search]\label{lem:faces}
+A quadratic function on a nonempty compact polytope attains its maximum at a point that is either a vertex or the unique stationary point on the affine hull of some face with negative-definite restricted Hessian. With rational input data, some maximizing point and its value are rational and can be found by finitely many rational linear solves and feasibility tests.
+\end{lemma}
+\begin{proof}
+Among all faces whose relative interiors contain a global maximizer, choose one of least dimension and a maximizing point $x$ in its relative interior. The derivative along the face's tangent space vanishes and the restricted Hessian is negative semidefinite. If this restriction has a nonzero null direction $z$, the quadratic is constant along $x+az$ in the affine hull: both its linear and quadratic terms in $a$ vanish. Compactness makes this line reach a proper face while remaining feasible, contradicting the choice of dimension. The restriction is therefore negative definite unless the tangent space is zero dimensional.
+
+Enumerate independent subsets of the defining inequalities, together with the equality constraints, and solve the stationarity equations on each associated affine space. On the face just identified the bordered stationarity matrix is nonsingular; at a vertex, the tangent space is empty and the same conclusion holds. Test feasibility in every original inequality and retain the largest objective among all feasible candidates. Each retained candidate is feasible, and at least one is a global maximizer. Rational elimination gives the rationality claim. Singular bordered systems may be skipped because the argument guarantees a nonsingular maximizing face of smaller dimension; it does not assume nondegeneracy of the original polytope.
+\end{proof}
+
+\begin{theorem}[Exact joint continuous design]\label{thm:continuous}
+For rational quadratic primitives, rational caps and probabilities, rational $B\in[0,\bar b]$ and $\delta\geq0$, and a rational quadratic charge nonnegative on $[0,1]$, the maximum of \eqref{eq:cell-objective} over the closed cells \eqref{eq:singleton-cell}--\eqref{eq:lottery-cell}, for every $1\leq s\leq m$, equals $\mathcal V_m^\delta(B;\rho)$. The optimum is attained by a rational book, rational targets, and rational lottery probabilities. Deleting the lottery modes gives the exact deterministic frontier at every promise, with the same charges.
+
+An exact algorithm enumerates at most $(2s-1)^k$ cells at size $s$. After eliminating one target, each cell has dimension at most $s+k-1$ and at most $s+1+4k$ inequalities. Enumerating its independent active sets and applying Lemma~\ref{lem:faces} gives a finite global algorithm with at most
+\begin{equation}\label{eq:face-complexity}
+ \sum_{s=1}^m (2s-1)^k\,2^{s+1+4k}
+\end{equation}
+linear systems, each of polynomial dimension and rational encoding length in the input size. The sharper rank-limited count replaces $2^{s+1+4k}$ by $\sum_{r=0}^{\min\{s+k-1,s+1+4k\}}\binom{s+1+4k}{r}$. A lottery branch may impose four separate inequalities: its two chord bounds, its target cap, and its realization eligibility bound. Neither of the latter two is redundant at a general positive tolerance. This is an exponential reference algorithm, not a polynomial-time claim or an extension of the saturated Monge complexity.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:eligible} turns every optimal book and target allocation into singleton or adjacent-lottery branch modes represented in these cells. Conversely every cell point implements a feasible policy by the displayed reconstruction; all constraints, including the exact root promise, hold. If ordered slots collide or some slots are unused, deleting redundant slots cannot increase a nonnegative charge. The resulting smaller book and its canonical branch rules appear among the enumerated sizes. Hence overcounting charges at duplicate slots cannot change the maximum across all sizes. These two directions prove equality with the original optimization problem, not merely a relaxation or a fixed-book upper bound.
+
+There are finitely many compact cells and each has a continuous quadratic objective. Lemma~\ref{lem:faces} supplies a rational maximizing candidate on each nonempty cell. Adjacent distinct rational levels reconstruct rational probabilities; coincident levels reconstruct a singleton. The mode count, inequality count, and all-subsets upper bound give \eqref{eq:face-complexity}. Standard determinant bounds for rational linear systems give polynomial encoding length for each candidate. Singleton-only modes exactly represent deterministic terminal assignments and intermediate tiers, proving the deterministic statement.
+\end{proof}
+
+The reduction solves the unrestricted continuous outer problem at an interior promise, rather than relabeling fixed-book allocation as global design. Its contract-specific content is the eligibility-prefix reduction and the closed quadratic elimination of lottery probabilities with no loss at collisions. Rational quadratic optimization and active-set reasoning are classical; polynomial-size witnesses are not a new general complexity principle \citep{DelPiaEtAl2017}. The fast saturated Monge theorem remains valuable precisely because the general finite search is exponential.
+
+\subsection{Pathwise comparison, repeated caps, and small charges}
+Theorem~\ref{thm:continuous} computes $V_m^E(B)$, $V_m^P(B)$, and $V_m^D(B)$ for every rational promise, using respectively all lottery modes at $\delta=1$, all modes at $\delta=0$, and singleton modes. No claim of pathwise--deterministic equality away from saturation is needed for this characterization. The complete predecessor companion retains the earlier exact institutional comparison path; the current study reports the separately executed budgeted-design comparisons. The zero-memory-loss interval $B\leq\min b_j$ in Theorem~\ref{thm:clipped} remains important: a positive institution gap is not expected throughout the feasible promise range.
+
+\begin{proposition}[Pathwise randomization can matter in the interior]\label{prop:pathwise-interior}
+For one branch with $b=9/10$, $B=9/20$, $r=2$, $q=\gamma=1$, two available symbols, and the nonnegative charge $\rho(c)=3c(1-c)$,
+\[
+ \mathcal V_2^0(B;\rho)=\frac{171}{400}
+ \quad>\quad
+ \mathcal V_2^D(B;\rho)=\frac9{160}.
+\]
+The pathwise optimum uses book $(0,9/10)$, equal draw probabilities, and no intermediate tier. The deterministic optimum uses the single level $9/20$.
+\end{proposition}
+\begin{proof}
+A deterministic policy uses only one level $0\leq c\leq B$; deleting unused levels weakly lowers its charge. Its net payoff is $-81/800-(11/20)c+2c^2$, whose maximum over $[0,B]$ is $9/160$ at $B$. Every nonsingleton canonical pathwise mode has $0\leq u\leq B\leq v\leq b$, and net payoff
+$2B-(u+v)B/2+uv/2-3u(1-u)-3v(1-v)$.
+This is convex in $(u,v)$, so its maximum on that rectangle is at a corner. Checking its four corners, together with the singleton case, gives $(u,v)=(0,9/10)$ and value $171/400$. Both realizations meet the hard cap and their mean is exactly $B$.
+\end{proof}
+This example uses a specified nonnegative, nonmonotone level charge; it is not a counterexample asserted for the uncharged problem. It shows why the saturated pathwise collapse cannot simply be imported into the unified interior design model.
+
+\begin{proposition}[Homogeneous repeated-cap aggregation]\label{prop:interior-aggregation}
+For the randomized institutions in \eqref{eq:unified-feasible}, branches with identical caps and identical intermediate-cost functions can be aggregated by adding their probabilities, at every $B$, $\delta$, and codeword charge. This holds for each fixed book and after global book optimization.
+\end{proposition}
+\begin{proof}
+Such branches have identical eligible prefixes and the same concave response \eqref{eq:prefix-response}. Replacing their targets by their probability-weighted mean preserves the root promise and does not lower total reward by Jensen's inequality. Replicating an aggregate target gives the converse inequality. Charges depend only on the common book. This argument does not aggregate heterogeneous costs or establish a corresponding deterministic restriction.
+\end{proof}
+
+The strict off-cap conclusion is also stable under genuinely selected-level charges. In Proposition~\ref{prop:r34-offcap}, the uncharged two-level book $(1/4,5/8)$ beats every book of at most two cap levels by $1/1280$. If $0\leq\rho(c)\leq\eta$ on $[0,1]$ and $\eta<1/2560$, evaluating this same off-cap book incurs less than that gap, while a cap-only book cannot improve its uncharged payoff after a nonnegative charge. Thus no charged optimum is cap-only. This statement preserves the off-cap property, not necessarily the numerical location $5/8$.
