@@ -1,0 +1,94 @@
+name: NDU R46 two-sided joint design publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r46-box-decomposition-20260925]
+    paths:
+      - '.github/workflows/ndu-or-r46-publication.yml'
+      - 'revisions/or-r46-box-decomposition-20260925/BUILD'
+      - 'revisions/or-r46-box-decomposition-20260925/bootstrap.py'
+      - 'revisions/or-r46-box-decomposition-20260925/transport/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r46-publication
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r46-box-decomposition-20260925
+  R: revisions/or-r46-box-decomposition-20260925
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r46-box-decomposition-20260925'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify transport and preserve exact predecessor readers
+        run: python "$R/bootstrap.py"
+      - name: Install independent verification dependencies
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 pymupdf
+          mkdir -p "$R/results"
+          python -m pip freeze > "$R/results/ci_python_environment.txt"
+      - name: Execute theorem regression and independent rational certificate checks
+        run: |
+          python "$R/code/tests.py"
+          python "$R/code/verify_saved.py"
+      - name: Assemble article companion and point-by-point response
+        run: |
+          python "$R/code/response.py"
+          python "$R/code/tables.py"
+          python "$R/code/assemble.py"
+      - name: Commit and push readable scientific sources before compilation
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git config user.name 'NDU revision publication'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf" "$R/results/certificates"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r46): two-sided exact box oracle and certified joint design [skip ci]'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - name: Install Operations Research reader toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile committed readers and audit all inherited files
+        run: |
+          python "$R/code/build.py"
+          python "$R/code/preservation.py"
+      - name: Publish validated readers response and preservation audit
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f main.pdf electronic_companion.pdf r46-main-labels.aux r46-ec-labels.aux "$R/RESPONSE_TO_REFEREES.pdf" "$R/BUILD_VALIDATION.json" "$R/PRESERVATION_MANIFEST.json" "$R/CONTENT_MAP.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r46): validated OR readers and full inherited-tree preservation [skip ci]'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r46-referee-package
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r46-*-labels.aux
+            revisions/or-r46-box-decomposition-20260925/
+            reviews/operation_research_referee_report_r45_independent_harsh_2026-09-25.md
+            .build/r46/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: error
