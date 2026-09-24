@@ -1,0 +1,83 @@
+name: NDU R37 manuscript and companion publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r37-integrated-frontier-20260924]
+    paths:
+      - 'revisions/or-r37-integrated-frontier-20260924/BUILD'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r37-publication
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r37-integrated-frontier-20260924
+  R: revisions/or-r37-integrated-frontier-20260924
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r37-integrated-frontier-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare focused readers from preserved sources and executed evidence
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/code/reproduce.py" prepare
+      - name: Commit scientific sources before reader compilation
+        run: |
+          git config user.name 'NDU revision publication'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f r37-history-main-labels.aux r37-history-ec-labels.aux
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r37): reconstruct the service-memory article and retain complete derivation provenance'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - name: Install reader compilation dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile and validate source identity, layout, exact evidence, and full base preservation
+        env:
+          NDU_REMOTE_BUILD: '1'
+        run: python "$R/code/reproduce.py" build
+      - name: Publish current article, companion, response, and build manifest
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add -f main.pdf electronic_companion.pdf r37-main-labels.aux r37-ec-labels.aux "$R/RESPONSE_TO_REFEREES.pdf" "$R/BUILD_VALIDATION.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r37): publish validated manuscript companion response and immutable build evidence'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r37-reader-build
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r37-*-labels.aux
+            r36-*-labels.aux
+            revisions/or-r37-integrated-frontier-20260924/
+            revisions/or-r31-tightness-minimal-machine-20260923/*.tex
+            revisions/or-r32-priority-complexity-closure-20260923/*.tex
+            revisions/or-r33-piecewise-randomized-20260923/
+            revisions/or-r34-global-randomized-frontier-20260923/
+            revisions/or-r35-monge-frontier-20260923/
+            revisions/or-r36-linear-frontier-20260924/
+            .build/ndu-r37/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: warn
