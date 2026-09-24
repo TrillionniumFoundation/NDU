@@ -1,0 +1,19 @@
+name: NDU R47 isolated revision
+on:
+  push:
+    branches: ['revision/ndu-operations-research-r47-joint-certificates-20260925']
+    paths: ['.github/workflows/ndu-or-r47-publication.yml']
+permissions:
+  contents: read
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export immutable source baseline
+        run: git archive --format=tar.gz 9f260e0d6c4e06cf4227f96865a88f4dab67e58e -o /tmp/ndu-r46-source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r47-source-baseline
+          path: /tmp/ndu-r46-source.tar.gz
+          retention-days: 7
