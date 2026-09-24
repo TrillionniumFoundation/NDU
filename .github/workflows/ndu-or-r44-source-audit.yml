@@ -1,0 +1,26 @@
+name: NDU R44 immutable predecessor source audit
+on:
+  push:
+    branches: [revision/ndu-operations-research-r44-resource-augmentation-20260924]
+    paths: [.github/workflows/ndu-or-r44-source-audit.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Export pinned R43 source and branch identities
+        run: |
+          mkdir -p /tmp/ndu-r44-audit
+          git archive --format=tar 55313f79ad7d6b09c2edf1ceeafe254898a2bcbe | gzip -n > /tmp/ndu-r44-audit/predecessor.tar.gz
+          git ls-remote --heads origin > /tmp/ndu-r44-audit/remote-heads.txt
+          git log -1 --format=fuller 55313f79ad7d6b09c2edf1ceeafe254898a2bcbe > /tmp/ndu-r44-audit/predecessor-commit.txt
+          sha256sum /tmp/ndu-r44-audit/predecessor.tar.gz > /tmp/ndu-r44-audit/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r44-immutable-predecessor
+          path: /tmp/ndu-r44-audit/
+          retention-days: 7
