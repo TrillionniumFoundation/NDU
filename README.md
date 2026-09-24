@@ -1,42 +1,42 @@
-# NDU — Operations Research R43
+# NDU — Operations Research R44
 
-**Current manuscript:** Limited-Memory Renewal Contracts: Exact Quadratic Design and Prefix Decomposition.
+**Current manuscript:** Limited-Memory Renewal Contracts: Exact Quadratic Design and Resource Augmentation.
 
-**Reader entry points:** `main.pdf`, `electronic_companion.pdf`, and `revisions/or-r43-prefix-decomposition-20260924/RESPONSE_TO_REFEREES.pdf`.
+Read `main.pdf`, `electronic_companion.pdf`, and `revisions/or-r44-resource-augmentation-20260924/RESPONSE_TO_REFEREES.pdf`.
 
-**Isolated branch:** `revision/ndu-operations-research-r43-prefix-decomposition-20260924`.
+Isolated branch: `revision/ndu-operations-research-r44-resource-augmentation-20260924`.
 
-**Immutable review baseline:** `a0d1f4e3dfc3f7639f806cab01f1faae877d5361`; report `reviews/operation_research_referee_report_r42_independent_harsh_2026-09-24.md`.
+Review: `a0d1f4e3dfc3f7639f806cab01f1faae877d5361`, report `reviews/operation_research_referee_report_r42_independent_harsh_2026-09-24.md`.
 
-## New mathematical and algorithmic results
+Immediate predecessor: published R43 `55313f79ad7d6b09c2edf1ceeafe254898a2bcbe`.
 
-R43 adds the eligibility-prefix price decomposition, taking O((k+m)N^2) arithmetic work on a catalog with variable branch count k and alphabet budget m. Exact prefix-completion bounds yield finite catalog search and a globally checkable interval at interruption. A uniform-mesh lower bound is sharp on one fixed uncharged input. A monotone-charge theorem identifies the boundary of the one-branch randomization example. The exact rational-quadratic continuous theorem is retained, with the corrected s+1+4k inequality count and a rank-limited active-set bound.
+## New result
 
-The price problem is not asserted to have zero outer duality gap. Full prefix search still has exponential worst-case size. General concave structure and scalar-oracle decomposition are distinguished from exact unrestricted rational-quadratic continuous optimization. A numerical SCIP cross-check is not a rational proof certificate.
+Two exact priced optimizers construct one fixed union alphabet with at most twice the symbol budget, exact promise and realization feasibility, and an explicit additive payoff guarantee. With zero charges the guarantee is within the requested tolerance of the original-budget catalog optimum. For nonnegative charges the actual extra installation charge is reported. Feasible mesh transport gives a continuous-design comparison with variable budget.
+
+This is resource augmentation, not a same-budget FPTAS or a zero-duality-gap claim. An exact example has two-symbol optimum 45/64, minimum price bound 453/640, and gap 3/640; three installed levels attain 453/640. Original-budget intervals and augmented policy values are always separate.
+
+The rational-quadratic exact continuous theorem, corrected face count, polynomial price DP, independently checked prefix partitions, sharp uniform mesh bound, saturated Monge results, and all earlier technical content remain in the reader package.
 
 ## Reproduction
 
-From this branch's repository root, use Python 3.12, the standard library, SymPy, SciPy, PySCIPOpt, pypdf, pdflatex with newtx fonts, and poppler tools. Exact versions and instrumented timings are recorded by the run.
+From the repository root, use Python 3.12 and the standard library for the new recovery work. Inherited tests require SymPy and SciPy. Readers use pdflatex, newtx fonts, and poppler.
 
 ```bash
-R=revisions/or-r43-prefix-decomposition-20260924
+R=revisions/or-r44-resource-augmentation-20260924
 python "$R/code/tests.py"
 python "$R/code/study.py"
 python "$R/code/inherited.py"
 python "$R/code/tables.py"
-python "$R/code/checker.py" "$R/results/certificates/case_07.json"
+python "$R/code/check_augmentation.py" "$R/results/certificates/strict_gap.json"
 ```
 
-`code/build.py prepare` performs the experiment and reader preparation steps. Scientific sources must be committed before `code/build.py build`, which checks page limits, references, provenance, and preservation. The branch-only publication workflow performs this ordering and requires all six independent nonlinear comparisons.
+`code/build.py prepare` runs these steps. Commit scientific sources and executed evidence before `code/build.py build`. The branch-specific publication workflow performs that order and pushes only this revision branch. `bootstrap.py` assembles current reader wrappers from the pinned predecessor without modifying any historical source.
 
-## Evidence
+## Evidence and preservation
 
-`results/verification.json` records seeded exact comparisons against independent exhaustive enumeration and rejection of modified bounds. `results/certificates/` stores complete global prefix partitions and feasible lotteries, which `checker.py` validates without importing the solver or face generator. `results/scaling.json` records exact catalog and continuous intervals, evaluated books, prefixes, bit lengths, memory, and separate checker times. `results/continuous_frontier.json` includes every completed or budget-limited continuous run and the separate original-policy nonlinear program. `results/inherited.json` records isolated replay of R42 and the inherited R39/R33–R37 suites.
+The new suite uses 144 exhaustive comparisons, 16 boundary checks, 14 semantic corruption rejections, and 5 invalid-input rejections. Twelve complete scaling/accuracy cases reach 256 branches, 65 catalog levels, and budget eight. These are synthetic models. Complete inputs, exact fractions, policies and independent certificates are in `results/`; tables derive from executed JSON.
 
-`BUILD_VALIDATION.json` reports the actual committed scientific source, page counts, test identities, and output hashes. `PRESERVATION_MANIFEST.json` verifies every baseline path outside the allowed current reader replacements. These provenance files do not substitute for mathematical or global-search verification.
+The independent checker imports neither the recovery procedure nor the fixed-book allocator. It reconstructs price bounds via the R43 independent support checker and verifies policies and charge accounting directly. Inherited suites execute in disposable copies. Earlier SCIP comparisons remain preceding evidence, not new runs.
 
-## Preservation and reader organization
-
-No prior revision directory or review report is modified. The old main and companion readers, README, and checklist are copied byte for byte into the R43 `predecessor/` directory. The R42 joint-design study and all its tables are retained in the current companion, clearly identified as preceding evidence. Original sources remain available in their original locations and all historical branches remain unchanged.
-
-All experiments are synthetic. The ordered-interface theorem is reusable without the renewal interpretation; no deployed contract or empirically calibrated application is asserted. This branch is ready for further mathematical and editorial review, not a claim of journal acceptance.
+`BUILD_VALIDATION.json` records the committed scientific source and PDF checks. `PRESERVATION_MANIFEST.json` compares every historical path against the pinned predecessor. Existing branches and historical directories are not modified. Old root readers are snapshotted in `predecessor/`.

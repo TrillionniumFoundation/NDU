@@ -1,15 +1,11 @@
-# Operations Research R43 submission and review checklist
+# Operations Research R44 submission and re-review checklist
 
-Manuscript: Limited-Memory Renewal Contracts: Exact Quadratic Design and Prefix Decomposition.
+Manuscript category: Lengthy. The build enforces at most 40 nonreference pages and an electronic companion no longer than the main manuscript.
 
-Category: Lengthy manuscript. Area: Optimization.
+Presentation: 11-point text; one-inch margins; one-and-a-half spacing; anonymous readers; author-year citations; single text-only abstract of at most 200 words; three keywords; accessible introduction.
 
-The current article and companion are anonymous, use 11-point type, 1.5 spacing and one-inch margins. The abstract is 183 words and text-only. The introduction has no equations or mathematical notation. Author-year references, tables after references, code/data availability, and full theorem assumptions are included. The build enforces at most 40 nonreference article pages, companion length no greater than the article, and no undefined references or overfull boxes. Actual final counts are in BUILD_VALIDATION.json.
+Scientific scope: exact unrestricted continuous optimization is rational-quadratic. The new polynomial guarantee uses at most twice the symbol budget, not an unchanged-budget FPTAS. The charge-excess term is explicit and every risk/promise constraint is exact. Original and augmented feasible sets are not conflated.
 
-The newest R42 report is addressed in RESPONSE_TO_REFEREES.md and its rendered PDF. The new results concern price decomposition, exact prefix bounds, globally checkable intervals, a sharp uniform-mesh lower bound, and the monotone-charge boundary. Existing continuous, saturated, and all-promise results are preserved. The face count is corrected to s+1+4k in the current theorem; the old source is preserved as history.
+Required checks: all 144 exhaustive comparisons; 16 boundary cases; 14 corruption rejections; all 12 scaling certificates; isolated inherited exact and general-class audits; compiled main/companion/response; zero unresolved references and overfull boxes; pinned-base preservation audit; committed source identity and output hashes.
 
-Scientific verification includes exact exhaustive comparisons, independent global certificate checking, an original-policy SCIP cross-check, all 25 continuous-frontier records, the variable-size catalog study, and isolated historical regression. Numerical solver bounds, exact-rational certificates, and provenance hashes are distinguished.
-
-The authors must supply their own cover letter, author information, funding and conflict-of-interest declarations in the journal submission system. These declarations have not been invented by the revision process. No journal submission is made by this repository publication.
-
-Official format and disclosure guidance checked September 24, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines .
+The final source commit and actual page counts are in BUILD_VALIDATION.json, not inferred from this checklist. Source provenance and computational tests do not substitute for theorem proofs or for a journal acceptance decision.
