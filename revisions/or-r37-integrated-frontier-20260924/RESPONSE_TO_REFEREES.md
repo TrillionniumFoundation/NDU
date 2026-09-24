@@ -50,7 +50,7 @@ This is a documented stylized mechanism, not invented operational data or an emp
 
 The revision also analyzes a bounded-overrun agreement: the intermediate tier is fixed before the ticket draw, expected total payment equals the branch cap, and every realized total is at most the cap plus a stated tolerance. The pre-draw intermediate-action requirement is explicit; we do not assert that it is without loss for all bounded-risk models.
 
-For any fixed codebook, the companion proves the exact branch rule. A branch uses its adjacent mean-preserving lottery only when the upper codeword's overrun fits the tolerance; otherwise it uses the highest codeword below its cap deterministically. The proof excludes any positive probability on an inadmissible realization rather than replace the hard requirement with an expectation.
+For any fixed codebook, the article appendix proves the exact branch rule. A branch uses its adjacent mean-preserving lottery only when the upper codeword's overrun fits the tolerance; otherwise it uses the highest codeword below its cap deterministically. The proof excludes any positive probability on an inadmissible realization rather than replace the hard requirement with an expectation.
 
 For the existing heterogeneous three-branch off-cap example, the global two-code optimum is `(1/4, z)`, with `z = 1/2 + min(tolerance,1/8)`. Its exact loss is `z^2/20 - z/16 + 3/80`. This connects the deterministic loss `3/160` to the expected-participation loss `23/1280` and identifies the realized high-draw overrun and its probability. The proof optimizes over all two-level codebooks; a nonanchor grid is only a regression check. We do not claim the general bounded-overrun problem inherits the full cap-anchoring or linear-search theorem.
 

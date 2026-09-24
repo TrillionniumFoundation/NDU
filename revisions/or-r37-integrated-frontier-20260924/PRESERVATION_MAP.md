@@ -147,3 +147,7 @@ SHA-256: `ad58dc21cad15800521f0016060055c841c4d81a45cfece0d5e4cb7fdf0738a2`.
 `revisions/or-r37-integrated-frontier-20260924/derived/oracle_concordance.tex` from `revisions/or-r34-global-randomized-frontier-20260923/companion_addendum.tex`: Complete rational implementation and general-convex-tail extension; historical experiment narrative archived.
 
 `revisions/or-r37-integrated-frontier-20260924/derived/divide_conquer.tex` from `revisions/or-r35-monge-frontier-20260923/companion_addendum.tex`: Complete search/storage/arithmetic argument; cost inequalities strengthened in current main; historical evidence archived.
+
+## Current article appendices and tables
+
+The new bounded-overrun proofs and current computational methods appear intact in the main article appendices. Their memory and profile tables follow the main article references. These sections and tables are not deleted or relegated to a missing supplement. The broader inherited theory remains in the electronic companion.
