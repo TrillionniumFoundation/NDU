@@ -1,0 +1,428 @@
+{
+  "status": "passed",
+  "seed": 420924,
+  "arithmetic": "exact rational; no tolerance",
+  "counts": {
+    "fixed_book_dual_equalities": 640,
+    "all_support_branch_equalities": 6799,
+    "exact_target_floor_repairs": 1920,
+    "inherited_unrestricted_allocation_equalities": 160,
+    "inherited_saturated_catalog_equalities": 96,
+    "all_promise_homogeneous_aggregation_equalities": 102,
+    "singular_and_indefinite_face_checks": 3,
+    "independent_symbolic_linear_system_equalities": 72,
+    "analytic_continuous_global_equalities": 6,
+    "continuous_grid_value_enclosures": 24,
+    "invalid_input_rejections": 5
+  },
+  "witnesses": {
+    "off_cap_delta_0": {
+      "net_value": "117/160",
+      "codebook": [
+        "1/4",
+        "1/2"
+      ],
+      "targets": [
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "charge": "0",
+      "modes": [
+        [
+          "S",
+          0
+        ],
+        [
+          "S",
+          1
+        ],
+        [
+          "S",
+          1
+        ]
+      ],
+      "active_set": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "counts": {
+        "cells": 28,
+        "systems": 10939,
+        "nonsingular": 6909,
+        "feasible": 178
+      },
+      "allocation": {
+        "value": "117/160",
+        "targets": [
+          "1/4",
+          "1/2",
+          "3/4"
+        ],
+        "multiplier": "-1/4",
+        "dual_bound": "117/160",
+        "intermediate": [
+          "0",
+          "0",
+          "1/4"
+        ],
+        "lotteries": [
+          [
+            [
+              "1/4",
+              "1"
+            ]
+          ],
+          [
+            [
+              "1/2",
+              "1"
+            ]
+          ],
+          [
+            [
+              "1/2",
+              "1"
+            ]
+          ]
+        ]
+      }
+    },
+    "off_cap_delta_1/16": {
+      "net_value": "3747/5120",
+      "codebook": [
+        "1/4",
+        "9/16"
+      ],
+      "targets": [
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "charge": "0",
+      "modes": [
+        [
+          "S",
+          0
+        ],
+        [
+          "L",
+          0
+        ],
+        [
+          "S",
+          1
+        ]
+      ],
+      "active_set": [
+        3,
+        4,
+        7,
+        8
+      ],
+      "counts": {
+        "cells": 28,
+        "systems": 17384,
+        "nonsingular": 10473,
+        "feasible": 202
+      },
+      "allocation": {
+        "value": "3747/5120",
+        "targets": [
+          "1/4",
+          "1/2",
+          "3/4"
+        ],
+        "multiplier": "-3/16",
+        "dual_bound": "3747/5120",
+        "intermediate": [
+          "0",
+          "0",
+          "3/16"
+        ],
+        "lotteries": [
+          [
+            [
+              "1/4",
+              "1"
+            ]
+          ],
+          [
+            [
+              "1/4",
+              "1/5"
+            ],
+            [
+              "9/16",
+              "4/5"
+            ]
+          ],
+          [
+            [
+              "9/16",
+              "1"
+            ]
+          ]
+        ]
+      }
+    },
+    "off_cap_delta_1/8": {
+      "net_value": "937/1280",
+      "codebook": [
+        "1/4",
+        "5/8"
+      ],
+      "targets": [
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "charge": "0",
+      "modes": [
+        [
+          "S",
+          0
+        ],
+        [
+          "L",
+          0
+        ],
+        [
+          "S",
+          1
+        ]
+      ],
+      "active_set": [
+        3,
+        4,
+        7
+      ],
+      "counts": {
+        "cells": 28,
+        "systems": 17384,
+        "nonsingular": 10473,
+        "feasible": 205
+      },
+      "allocation": {
+        "value": "937/1280",
+        "targets": [
+          "1/4",
+          "1/2",
+          "3/4"
+        ],
+        "multiplier": "-1/8",
+        "dual_bound": "937/1280",
+        "intermediate": [
+          "0",
+          "0",
+          "1/8"
+        ],
+        "lotteries": [
+          [
+            [
+              "1/4",
+              "1"
+            ]
+          ],
+          [
+            [
+              "1/4",
+              "1/3"
+            ],
+            [
+              "5/8",
+              "2/3"
+            ]
+          ],
+          [
+            [
+              "5/8",
+              "1"
+            ]
+          ]
+        ]
+      }
+    },
+    "off_cap_delta_1": {
+      "net_value": "937/1280",
+      "codebook": [
+        "1/4",
+        "5/8"
+      ],
+      "targets": [
+        "1/4",
+        "1/2",
+        "3/4"
+      ],
+      "charge": "0",
+      "modes": [
+        [
+          "S",
+          0
+        ],
+        [
+          "L",
+          0
+        ],
+        [
+          "S",
+          1
+        ]
+      ],
+      "active_set": [
+        3,
+        4,
+        7
+      ],
+      "counts": {
+        "cells": 28,
+        "systems": 10939,
+        "nonsingular": 7749,
+        "feasible": 268
+      },
+      "allocation": {
+        "value": "937/1280",
+        "targets": [
+          "1/4",
+          "1/2",
+          "3/4"
+        ],
+        "multiplier": "-1/8",
+        "dual_bound": "937/1280",
+        "intermediate": [
+          "0",
+          "0",
+          "1/8"
+        ],
+        "lotteries": [
+          [
+            [
+              "1/4",
+              "1"
+            ]
+          ],
+          [
+            [
+              "1/4",
+              "1/3"
+            ],
+            [
+              "5/8",
+              "2/3"
+            ]
+          ],
+          [
+            [
+              "5/8",
+              "1"
+            ]
+          ]
+        ]
+      }
+    },
+    "continuous_interior_pathwise_randomization": {
+      "randomized": {
+        "net_value": "171/400",
+        "codebook": [
+          "0",
+          "9/10"
+        ],
+        "targets": [
+          "9/20"
+        ],
+        "charge": "27/100",
+        "modes": [
+          [
+            "L",
+            0
+          ]
+        ],
+        "active_set": [
+          0,
+          5
+        ],
+        "counts": {
+          "cells": 4,
+          "systems": 59,
+          "nonsingular": 42,
+          "feasible": 25
+        },
+        "allocation": {
+          "value": "279/400",
+          "targets": [
+            "9/20"
+          ],
+          "multiplier": "31/20",
+          "dual_bound": "279/400",
+          "intermediate": [
+            "0"
+          ],
+          "lotteries": [
+            [
+              [
+                "0",
+                "1/2"
+              ],
+              [
+                "9/10",
+                "1/2"
+              ]
+            ]
+          ]
+        }
+      },
+      "deterministic": {
+        "net_value": "9/160",
+        "codebook": [
+          "9/20"
+        ],
+        "targets": [
+          "9/20"
+        ],
+        "charge": "297/400",
+        "modes": [
+          [
+            "S",
+            0
+          ]
+        ],
+        "active_set": [
+          2
+        ],
+        "counts": {
+          "cells": 3,
+          "systems": 37,
+          "nonsingular": 24,
+          "feasible": 17
+        }
+      }
+    },
+    "naive_compensation_counterexample": {
+      "old_law": [
+        [
+          "1/4",
+          "1/3"
+        ],
+        [
+          "5/8",
+          "2/3"
+        ]
+      ],
+      "new_lower": "0",
+      "naive_maximum": "17/24",
+      "risk_limit": "5/8",
+      "repaired_law": [
+        [
+          "0",
+          "1/5"
+        ],
+        [
+          "5/8",
+          "4/5"
+        ]
+      ]
+    }
+  }
+}

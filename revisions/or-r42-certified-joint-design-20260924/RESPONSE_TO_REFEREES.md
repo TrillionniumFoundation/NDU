@@ -1,0 +1,121 @@
+# Response to the R39 Operations Research Referee Report
+
+Manuscript: Limited-Memory Renewal Contracts: Participation, Quantization, and Exact Design
+
+Revision: R42, September 24, 2026
+
+Review basis: `6e48c4858a54317f8189664f5a57fb5cc4ac6e4f`, report `reviews/operation_research_referee_report_r39_independent_harsh_2026-09-24.md`.
+
+## Overview
+
+We thank the referee for distinguishing the strengthened correctness case from the unresolved contribution and integration questions. We retain the saturated structural results and respond by solving the joint nonsaturated continuous design problem, rather than by withdrawing the nonsaturated or implementation extensions. The revised article presents one model with endogenous branch promises, a continuous finite codebook, realization ceilings, and actual selected-level charges.
+
+The principal additions are a canonical eligible-prefix theorem for every root promise, an exact finite quadratic-cell and stationary-face algorithm for the continuous outer optimization, and an additive grid certificate that preserves the original promise and realization constraints exactly. The exact continuous result includes rational quadratic charges that are nonnegative on the action interval. The grid result permits nonnegative Lipschitz charges and gives an approximation scheme for each fixed symbol budget. We do not claim a polynomial algorithm for an arbitrary growing symbol budget, or new generic quadratic-programming machinery. All proofs of these new results are in the article.
+
+The revision also gives an exact nonsaturated example where pathwise randomization is valuable in the presence of a specified nonnegative selected-level charge, a sufficient repeated-cap aggregation condition at every promise, and an explicit small-charge stability guarantee for the off-cap phenomenon. A new computational study directly optimizes continuous books along promise, risk, and price paths, and compares catalog solutions against those continuous optima. Earlier material and its source evidence are retained.
+
+## Major concern 1: the unrestricted nonsaturated frontier
+
+The new section “Joint Continuous Design at Every Promise” closes the distinction between the fixed-book inner problem and the continuous outer problem under the stated quadratic primitives. The canonical allocation theorem first shows that the risk ceiling selects an eligible codebook prefix independently of the target. At every target, optimal intermediate service is either zero with an adjacent lottery, or the shortfall above a singleton terminal level. At risk tolerance zero this also solves the original pathwise institution that allows draw-specific intermediate service, by a Jensen argument; sufficiently large tolerance recovers expected participation.
+
+For the outer problem, each branch chooses one of finitely many singleton or adjacent-lottery modes. The interpolation identity eliminates the probability denominator, leaving a quadratic objective on a compact polytope in codewords and targets. The stationary-face lemma proves that some global maximizer is a vertex or a nonsingular stationary point of a smaller face, including degenerate cases. Enumerating all cells, active faces, and book sizes is therefore an exact rational global algorithm. Colliding or unused codewords are handled by nonnegative charges and enumeration of smaller books, not by a generic-position assumption.
+
+This is a finite global solution, not an inner-allocation certificate relabeled as an outer solution. It is exponential in the general input size. The implementation `code/faces.py` is deliberately a small-instance reference. The complementary grid theorem supplies a value approximation route that is polynomial in the branch count and grid size for a fixed symbol budget. Relevant sources are `joint_design.tex`, `grid_certificate.tex`, `code/faces.py`, and `code/unified.py` in this revision directory.
+
+## Major concern 2: unifying promise, risk, and prices
+
+The same new objective jointly chooses the continuous book, branch targets, realization exposure, and actual codeword charges. Saturation is no longer imposed for the risk-and-price result. Expected and pathwise participation are endpoints of the canonical model, and the earlier saturated finite-catalog recurrence remains a specialized faster algorithm, not a separate substitute for joint design.
+
+A fixed book is evaluated by the eligible-prefix response and a supporting-price certificate at the exact requested root promise. Continuous optimization searches the cells globally. A finite catalog can instead be enumerated, and the new mesh theorem quantifies its gap to unrestricted continuous design. The error constant includes terminal reward, intermediate cost, and selected-level charge sensitivity. The construction leaves every original branch target unchanged and reoptimizes the lottery probabilities after flooring levels. Thus it introduces neither promise slack nor additional realization overrun. The proof includes a counterexample to the tempting but invalid repair that preserves the old draw probabilities and adds intermediate service.
+
+This unification depends on explicit assumptions: quadratic primitives for the finite exact continuous reduction, nonnegative quadratic selected-level charges for that exact algorithm, and nonnegative Lipschitz charges for the uniform grid guarantee. We do not assert the saturated Monge property survives in the joint nonsaturated cells.
+
+## Major concern 3: incremental novelty and close antecedents
+
+The positioning section now directly compares with Jourdain and Pagès (2021), which optimizes one-dimensional dual grids and develops a Lloyd-like algorithm. We do not claim novelty for optimized mean-preserving grids, adjacent interpolation, scalar quantizer dynamic programming, or matrix search. The contractual difference is the coupling of endogenous mean targets, cap-dependent support eligibility, heterogeneous one-sided intermediate costs, and actual selected-level charges in the global feasible cells and in the promise-preserving mesh transfer.
+
+The stationary-face calculation is explicitly identified as classical rational quadratic optimization once the contractual reduction is established; Del Pia, Dey, and Molinaro (2017) is added as an antecedent for rational quadratic witnesses. Fixed-opening-cost facility selection, represented by Aardal and coauthors' primary preprint, is used to position per-enabled-level charges. We distinguish this opening-cost object from per-use charges and probability-weighted or entropy-based code costs. The new result is not the generic act of assigning a cost to a representative.
+
+The earlier Wu, stochastic-rounding, dual-quantization, finite-rate control, Monge, and SMAWK comparisons remain. The theorem-level comparison table has new rows for joint continuous design and feasible grid transfer. No resolved priority objection is silently reintroduced.
+
+## Major concern 4: operational and participation foundations
+
+A new operational-foundation subsection explicitly derives the expected cap from a quasilinear, risk-neutral acceptance calculation. It distinguishes this preference specification from a hard realization-level exposure limit. A pre-draw agreement is assumed enforceable after the draw; a new costless exit option would define a different institution. We do not claim that risk-averse participation or incentive compatibility is represented by the linear expectation cap.
+
+The finite-risk protocol commits the intermediate tier before the draw; the pathwise endpoint is subsequently shown to lose nothing from this restriction. The architecture specifies a downstream allowlisted execution gateway, a read-only symbol-to-level map, and no extra customer lookup or uncharged correlated seed. Per-enabled-level validation, configuration, and regression testing motivate an opening charge, whereas per-execution resource consumption would be a different cost model.
+
+NIST SP 800-82 Revision 3 is cited for documented component-level analogues involving operational-technology allowlisting and least functionality. This citation does not establish deployment of our complete renewal contract or validate an empirical cost schedule. We label the resulting model and numerical instances as stylized rather than invent a service-provider calibration. We also do not describe the 2023 document as the latest revision of the standard.
+
+## Major concerns 5 and 8: catalog significance and the scientific role of computation
+
+The new catalog result is connected to continuous design by an explicit uniform error certificate. The operator may therefore choose a numerical mesh to meet a specified additive value tolerance; a regulatory or hardware catalog remains a distinct declared feasible set. The article states both interpretations. For a fixed symbol budget, exact catalog enumeration plus the mesh theorem gives the stated approximation scheme. Arbitrary growing-budget polynomial complexity is not claimed.
+
+The new studies answer substantive questions rather than equating regression volume with importance. First, the continuous expected/pathwise/deterministic gap is computed at eight promises. At the old certified interval boundary B = 11/24, the actual continuous expected/pathwise gap is 11/192 while the transport lower bound is zero. We do not infer the exact transition point from a finite sample. Second, 32 continuous joint designs vary promise, realization ceiling, and codeword price. Third, five meshes are compared with the exact continuous benchmark at an interior promise and a finite realization ceiling. Finally, eight timing rows measure the new charged all-promise catalog solver separately from inherited saturated-frontier measurements.
+
+The reference continuous face search is exponential and the new continuous benchmarks are small. The main text says so directly. The executable checks establish consistency of implementations and witnesses on their declared instances, not journal significance or a replacement for mathematical proof. Timings have a separately recorded environment and a one-solve scope.
+
+## Specific request 1: state the joint outer problem clearly
+
+The former outstanding outer optimization is now explicitly formulated and solved by the exact continuous-design theorem. Its scope and exponential complexity appear in the introduction, theorem, computational section, and conclusion. The predecessor fixed-book result remains clearly identified as such.
+
+## Specific request 2: distinguish exact allocation from exact design
+
+The fixed-book multiplier is called a conditional allocation certificate. It becomes a global continuous certificate only through complete cell/face enumeration, or an enclosing interval through the mesh theorem. Both the article and implementation companion state this distinction.
+
+## Specific request 3: abstract theorem families
+
+The abstract is rewritten around the common joint problem. It separately identifies the exact quadratic continuous algorithm, the Lipschitz grid guarantee, and the retained saturated Monge specialization, without suggesting identical assumptions or complexity. It contains no mathematical notation and remains below 200 words.
+
+## Specific request 4: sufficient versus maximal robustness interval
+
+The previous interval is explicitly called sufficient, not maximal. The new global continuous computations compare its lower bound with actual gaps. The old derivation is retained rather than deleted.
+
+## Specific request 5: economic meaning of expected participation
+
+The new quasilinear acceptance calculation states the risk-neutral preference and timing assumptions. The hard pathwise cap and intermediate bounded-overrun institution are separately specified. No hidden-type or incentive-compatibility claim is added.
+
+## Specific request 6: optimized dual-grid literature
+
+Jourdain and Pagès (2021) is added to the positioning section, bibliography, and literature audit. The comparison identifies their optimized dual-grid problem rather than claiming that stochastic rounding alone is the closest antecedent.
+
+## Specific request 7: penalized codebook design
+
+Per-selected-level costs are positioned as opening costs, with a facility-selection antecedent, and distinguished from usage/entropy costs. Generic penalization of selected representatives is not claimed as new.
+
+## Specific request 8: origin of the catalog
+
+The retained saturated catalog theorem is exact for an exogenous declared list. The new mesh theorem separately treats a catalog chosen by the operator as a numerical approximation. Only the latter interpretation uses a mesh-to-continuous error bound.
+
+## Specific request 9: new scaling separate from inherited scaling
+
+A dedicated table reports branch count, catalog size, budget, feasible books checked, and measured solve time for the new all-promise charged problem. The old 16,384-branch benchmark remains explicitly historical and is not reused to advertise the new continuous solver.
+
+## Specific request 10: classical matrix-search attribution
+
+The saturated linear-work result remains a contractual corollary of classical matrix search. The new global face search is not assigned that complexity. Existing attribution and proofs are preserved.
+
+## Specific request 11: avoid an unqualified generality claim
+
+Every theorem states its institution, primitives, charge class, and computational scope. The exact continuous result covers nonnegative quadratic charges; the grid result covers nonnegative Lipschitz charges. Neither asserts arbitrary discontinuous price-oracle optimization or an unchanged Monge property away from saturation.
+
+## Specific request 12: stability of the strict off-cap result
+
+The article now proves a small-charge guarantee. In the existing two-symbol example, the off-cap book improves on every cap-only book by 1/1280 before charges. If the nonnegative charge per level is uniformly below 1/2560, this witness still beats every cap-only book after charges. The conclusion is that an optimum is not cap-only, not that its highest level must remain exactly 5/8.
+
+## Specific request 13: pathwise nonsaturation
+
+The canonical theorem gives the pathwise frontier at every promise via the zero-ceiling endpoint, and the finite cell algorithm globally optimizes it. A separate one-branch example with b = 9/10, B = 9/20, two symbols, and charge 3c(1-c) has pathwise randomized net value 171/400, strictly above the deterministic optimum 9/160. The article proves both optima analytically and the rational solver independently reproduces them. This uses a specified nonnegative nonmonotone charge; we do not misstate it as an uncharged counterexample.
+
+## Specific request 14: repeated caps away from saturation
+
+A new proposition shows exact aggregation for identical caps and identical intermediate-cost functions at every promise, realization ceiling, and selected-level charge in the randomized problem. The proof uses the common concave branch response and weighted Jensen inequality. It deliberately does not aggregate heterogeneous costs or assert an identical deterministic result.
+
+## Specific request 15: verification volume and significance
+
+The response emphasizes the new global reduction, feasible approximation theorem, and parameter-path findings. Test counts are retained in machine-readable validation records for auditing and are not presented as a surrogate for theorem importance.
+
+## Preservation, format, and submission status
+
+The revision is prepared as an anonymous lengthy Operations Research manuscript using 11-point type, one-and-a-half spacing, one-inch margins, an equation-free introduction, an abstract below 200 words, author-year citations, alphabetized references, and tables following references. New theorem-critical proofs are in the article; implementation detail is in the companion. The new and inherited scientific content is retained, with immutable preceding root readers in `predecessor/` and all older revision directories unchanged. Build records report the actual page and reference counts rather than an assumed submission category.
+
+This response addresses the repository's independent referee report. It does not claim an external journal decision, acceptance, formal proof-assistant verification, or empirical validation of the stylized architecture. The deliverable is a new, fully specified and reproducible revision for fresh referee assessment.

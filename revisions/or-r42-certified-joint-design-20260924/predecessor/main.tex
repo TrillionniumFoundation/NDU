@@ -1,0 +1,55 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r39-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Participation, Quantization, and Exact Design},pdfauthor={Anonymous}}
+\begin{document}\hypersetup{pageanchor=false}
+\begin{titlepage}\centering
+{\Large\bfseries Limited-Memory Renewal Contracts:\newline Participation, Quantization, and Exact Design\par}
+\vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal agreement can reach one execution state with different accepted obligations while retaining only a finite service symbol. We derive the resulting quantizer design from participation and continuation promises. In the saturated quadratic model, an optimal expected-participation codebook has cap-anchored nonhighest levels and a continuously optimized highest level that can lie strictly between caps. Contractual terminal costs remain Monge after continuous minimization, making classical matrix search applicable. Pathwise participation eliminates the saturated lottery advantage. We then characterize the full-information alphabet for every root promise and prove budget-uniform bounds between every pair of promises, with exact fixed-book allocation certificates. Strict saturated institutional advantages persist on explicit nonsaturated intervals. For arbitrary finite certification catalogs, a second exact dynamic program jointly selects codewords, bounded-overrun lotteries, and additive charges for the actual chosen levels. An example shows why pricing a previously loss-minimizing codebook is insufficient. We distinguish these contractual results from classical scalar quantization, unbiased stochastic rounding, dual quantization, and finite-rate control. Exact tests, independent support enumeration and search substitution, and provenance-preserving computational evidence assess the implementations.
+\par\vspace{.15in}\textbf{Keywords:} renewal contracts; quantization; dynamic programming.
+\par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: resource allocation.
+\par\vspace{.1in}\textbf{Area of review:} Optimization.
+\end{minipage}\vfill September 24, 2026\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r39-robust-quantizer-20260924/introduction.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/positioning.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/institution.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/deterministic.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/lotteries.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/global.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/derived/monge.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/promise_robustness.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/catalog_design.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/figure.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/resources.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/evidence.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/conclusion.tex}
+\input{revisions/or-r39-robust-quantizer-20260924/data_statement.tex}
+\clearpage\phantomsection\label{refs-start}
+\input{revisions/or-r39-robust-quantizer-20260924/generated/references.tex}
+\label{refs-end}
+\clearpage
+\input{revisions/or-r39-robust-quantizer-20260924/novelty_table.tex}
+\end{document}
