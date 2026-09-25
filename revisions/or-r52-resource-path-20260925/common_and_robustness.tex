@@ -1,0 +1,76 @@
+\section{Exact Common Eligibility and Catalog Stability}\label{sec:robust52}
+\subsection{The exact one-class result remains available}
+For the full catalog, define $K_j=|\mathcal A\cap[0,\tau_j]|$. Histories with equal $K_j$ form a catalog-eligibility class $G_g$; let $E$ be their number, $W_g=\sum_{j\in G_g}\pi_j$, and $w_{j|g}=\pi_j/W_g$. These classes are sufficient for a class-mean algorithm, not an intrinsic dimension of every optimal selected book.
+
+Fix one such class and a common eligible selected prefix with last level $d$. At mean $s$, define capped equalization $\theta_j(s)=\min(b_j,z)$, where $\sum_{j\in G_g}w_{j|g}\min(b_j,z)=s$. Let
+\[
+ D_g(d)=\sum_{j\in G_g}w_{j|g}\min(b_j,d),\qquad
+ C_g(y;d)=\min_{\substack{0\leq z_j\leq(b_j-d)_+\\\sum_jw_{j|g}z_j=y}}\sum_{j\in G_g}w_{j|g}h_j(z_j).
+\]
+The common terminal interpolant is $F_{g,c}$.
+\begin{proposition}[Exact class pooling]\label{prop:pool52}
+For $c_1\leq s\leq\sum_jw_{j|g}b_j$, the optimized class value is
+\begin{equation}\label{eq:pool52}
+ V_{g,c}(s)=
+ \begin{cases}
+ \sum_jw_{j|g}F_{g,c}(\theta_j(s)),&s\leq D_g(d),\\
+ \sum_jw_{j|g}F_{g,c}(\min(b_j,d))-C_g(s-D_g(d);d),&s\geq D_g(d).
+ \end{cases}
+\end{equation}
+Both formulas agree at $D_g(d)$ and the value is continuous there. Relative to evaluating the canonical response at $\theta(s)$, the exact correction is
+\begin{equation}\label{eq:delta52}
+ \Delta_g(d;s)=\sum_{j\in G_g}\pi_jh_j((\theta_j(s)-d)_+)-W_gC_g((s-D_g(d))_+;d)\geq0.
+\end{equation}
+It depends on the book only through its last eligible selected level.
+\end{proposition}
+\begin{proof}
+Below $D_g(d)$, Lemma~\ref{lem:terminal52} rules out intermediate service at an optimum. Capped equalization maximizes the sum of the same concave interpolant: among uncapped coordinates, equal levels satisfy the supporting-slope inequalities; capped smaller coordinates have no feasible upward movement, and the same common supporting slope supports their upper-bound constraint. This proves the first formula, also when the interpolant has affine pieces and the maximizing allocation is not unique.
+
+Above $D_g(d)$, all terminal capacities must be filled and the residual is the stated capped-cost problem. At the junction, its resource and cost are zero, and $\theta_j(D_g(d))=\min(b_j,d)$, so both expressions coincide. Continuity follows from continuity of interpolation and the finite capped convex value function. If $s>D_g(d)$, the equalization water level exceeds $d$; otherwise its weighted mean would be at most $D_g(d)$. Thus $\theta_j(s)\geq\min(b_j,d)$ coordinatewise, and
+\[
+ \sum_jw_{j|g}(\theta_j(s)-d)_+=s-D_g(d).
+\]
+The equalized service vector is feasible for $C_g$, which proves \eqref{eq:delta52}. For $s\leq D_g(d)$ both service terms vanish.
+\end{proof}
+
+For completeness, the fixed-target path to which this correction is applied is explicit. For a target vector $t$, put
+\begin{align*}
+ A_t(u,v)&=\sum_{j:u\leq t_j<v}\pi_j
+ \begin{cases}
+ f(u)+(t_j-u)\sigma_{uv},&v\leq\tau_j,\\
+ f(u)-h_j(t_j-u),&v>\tau_j,
+ \end{cases}\\
+ Z_t(u)&=\sum_{j:t_j\geq u}\pi_j\{f(u)-h_j(t_j-u)\}.
+\end{align*}
+Every target is owned by its unique bracketing selected edge, or by the terminal node. Hence its book value is the sum of these terms less the selected charges. A backward longest-path recurrence with a command counter optimizes the book in $O((k+m)N^2)$ operations.
+
+\begin{theorem}[Exact common-prefix joint design]\label{thm:common52}
+If $E=1$, one fixed-target path calculation at $t_j=\theta_j(B)$, corrected by \eqref{eq:delta52}, solves \eqref{eq:original52} exactly. In the rational quadratic case its arithmetic cost is
+\[
+ O((k+m)N^2+kN\log(k+1)).
+\]
+It permits heterogeneous caps, heterogeneous costs including zero curvatures, rational nonnegative opening charges, and any feasible promise.
+\end{theorem}
+\begin{proof}
+The sole class mean is fixed at $B$. For each possible last eligible level, Proposition~\ref{prop:pool52} gives the exact difference between equalized-target evaluation and optimal class allocation. Along a selected path, add this correction once: to the edge that leaves the eligible catalog prefix, or to the terminal node if no selected edge leaves it. Every book is represented and corrected exactly once, without changing its charge or cardinality. Maximizing the corrected path values therefore maximizes the true joint objective. Compute the $N$ candidate capped-cost corrections by rational water-level sweeps in $O(kN\log(k+1))$ operations. The fixed-target path supplies the remaining bound. All input denominators and sorted rational events have polynomial encoding length.
+\end{proof}
+
+For several classes the same construction is exact at \emph{supplied} class means. The resource-path scheme avoids searching these means and therefore strengthens, rather than weakens, the variable-eligibility result. Exact enumeration remains polynomial for each fixed command budget but has an exponent depending on that budget. The new additive scheme is polynomial in the budget itself and inverse normalized accuracy. No claim of an exact unrestricted polynomial algorithm, a parameterized hardness lower bound, or a relative-error approximation follows from these statements.
+
+\subsection{Insertion and threshold perturbation}
+\begin{proposition}[Catalog and selected-book stability]\label{prop:stability52}
+Insert one candidate into a catalog, leaving every original point and charge unchanged. The full-catalog class count changes from $E$ to either $E$ or $E+1$; after $r$ insertions it is at most $\min(k,E+r)$. For every retained selected book, its resource arcs and fixed-book value are unchanged. If no ceiling perturbation crosses a catalog candidate and each perturbed ceiling remains at least its cap, all feasible canonical responses and the global value are unchanged.
+\end{proposition}
+\begin{proof}
+Only the histories in the old catalog gap containing the inserted point can split an old class. They form at most one old class. Other classes retain their members and possibly acquire a new prefix-length integer. Thus there is at most one additional class per insertion. Fixed-book arc invariance is Corollary~\ref{cor:endogenous52}. If no ceiling crosses any candidate, each history has the same eligible prefix for every book; Proposition~\ref{prop:canonical52} then gives identical feasible targets and payoffs.
+\end{proof}
+
+An insertion can therefore increase $E$ without changing the optimum. Given an incumbent value $v_0$, any new command with $\rho(z)>f(1)-v_0$ is dominated: a book using it has net value at most $f(1)-\rho(z)<v_0$, because all service costs and other charges are nonnegative. A dominated point inserted between two ceilings can split their full-catalog class, yet it cannot appear in an optimal book. The resource functions of every retained optimal path stay identical. A previously certified global upper bound must nevertheless be recomputed over the enlarged path set unless this dominance argument certifies exclusion of every added option.
+
+Threshold margins matter. If $\min_{j,i}|\tau_j-a_i|>\delta$ and perturbations have size at most $\delta$, with strict noncrossing at endpoints, the global value is invariant. Without a margin there need not be a vanishing error bound. For one history with $b=B=1/4$, catalog $\{0,1/2\}$, budget two, zero charges, $f(x)=2x-x^2/2$, and $h(y)=y^2/2$, a ceiling just below $1/2$ gives value $-1/32$. At ceiling $1/2$, a half-and-half lottery gives $7/16$. The jump is $15/32$, although the ceiling change can be arbitrarily small.
+
+For uncertain ceilings $\tau^-\leq\tau\leq\tau^+$, with $\tau^-\geq b$, monotonicity of the original feasible set gives
+\begin{equation}\label{eq:robustbracket52}
+ \underline V(\tau^-)\leq V^*(\tau)\leq\overline V(\tau^+).
+\end{equation}
+The lower policy is feasible throughout the uncertainty set. Thus endpoint certificates give robust decisions without incorrectly assuming continuity across a command threshold. Post-optimization pooling may compress a fixed-book allocation certificate, but it must retain the original individual cap and service witnesses; it cannot certify omitted alternative books by itself.

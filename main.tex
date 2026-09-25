@@ -4,59 +4,42 @@
 \usepackage{amsmath,amsthm,booktabs,array,longtable}
 \usepackage{newtxtext,newtxmath}
 \usepackage[round,authoryear]{natbib}
-\usepackage{setspace,xr-hyper}
-\usepackage{xurl}
+\usepackage{setspace,xr-hyper,xurl}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr,graphicx,pgfplots}
-\pgfplotsset{compat=1.18}
+\usepackage{fancyhdr}
 \onehalfspacing\setlength{\emergencystretch}{2em}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
-\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
 \newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\argmax}{\operatorname*{arg\,max}}
 \newcommand{\argmin}{\operatorname*{arg\,min}}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Selected-Boundary Resource Paths}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r49-ec-labels}[electronic_companion.pdf]
-\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Exact Eligibility Pooling and Certified Joint Design},pdfauthor={Anonymous}}
-\externaldocument{r49-cs-labels}[revisions/or-r49-dispersion-certificates-20260925/COMPUTATIONAL_RECORD.pdf]
+\input{revisions/or-r52-resource-path-20260925/generated/metrics.tex}
+\hypersetup{pdftitle={Finite-Catalog Renewal Design by Selected-Boundary Resource Paths},pdfauthor={Anonymous}}
 \begin{document}\hypersetup{pageanchor=false}
 \begin{titlepage}\centering
-{\Large\bfseries Limited-Memory Renewal Contracts:\newline Exact Eligibility Pooling and Certified Joint Design\par}
-\vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
-\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must choose a limited command alphabet and allocate an accepted obligation across heterogeneous histories. We develop exact joint optimization for a finite catalog with opening charges, individual participation caps, and realization ceilings. A terminal-first allocation theorem pools histories that admit the same catalog symbols while retaining their different caps and service costs. The resulting correction depends only on the last eligible selected symbol and enters an ordered path recurrence. With common eligibility and quadratic primitives, one polynomial-time call solves the original joint problem, even at interior promises and with arbitrarily many distinct histories. With several eligibility classes, an exact two-sided price oracle provides globally valid bounds over their means. Certified subdivision and an additive approximation scheme depend exponentially on the number of classes rather than on the history count or cost-dispersion bins. Independent primal-dual and coverage checks validate original-space policies and bounds. A declared synthetic study includes 1,024-history exact solutions, paired comparisons, numerical mixed-integer brackets, and all unresolved multi-class cases. The method retains the original command budget and all individual contractual constraints; earlier continuous-design and harmonic-coarsening results remain available under their original assumptions.
-\par\vspace{.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
-\par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: global optimization.
-\par\vspace{.1in}\textbf{Area of review:} Optimization.
-\par\vspace{.1in}\textbf{Submission category:} Lengthy manuscript.
+{\Large\bfseries Finite-Catalog Renewal Design by Selected-Boundary Resource Paths\par}
+\vspace{0.25in}Anonymous manuscript for Operations Research\par\vspace{0.20in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider chooses a limited menu of terminal commands and allocates an accepted obligation across heterogeneous histories. We give an exact selected-boundary decomposition for finite catalogs with opening charges, individual expected caps, realization ceilings, and convex intermediate-service costs. Each adjacent selected pair owns a terminal-reward increment and the service costs of the histories whose eligibility ends there. The resulting resource path has enough capacity to restore the original obligation after rounding. With rational quadratic primitives, this identity yields a polynomial additive approximation scheme whose degree does not depend on the number of catalog-eligibility classes. The scheme retains the original command budget and admits independently checked rational global intervals. Exact polynomial common-prefix optimization remains available as a stronger special case. We establish catalog-insertion and threshold-stability results and extend the capacity-repair argument to compatible production modules. A fixed synthetic study tests strict interior prefixes through 1,024 histories, controlled eligibility splits, unused splitting commands, difficult historical models, certificate costs, and direct mixed-integer comparisons. Numerical optimization is faster on the small comparison models; the contribution is the structural reduction and its original-obligation certification guarantee.
+\par\vspace{0.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
+\par\vspace{0.10in}\textbf{Subject classifications:} Dynamic programming: finite command design; Programming: global optimization.
+\par\vspace{0.10in}\textbf{Area of review:} Optimization.
 \end{minipage}\vfill September 25, 2026\end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r49-dispersion-certificates-20260925/introduction.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/model.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/compression.tex}
-\input{revisions/or-r49-dispersion-certificates-20260925/pooling.tex}
-\input{revisions/or-r46-box-decomposition-20260925/types.tex}
-\input{revisions/or-r46-box-decomposition-20260925/two_sided.tex}
-\input{revisions/or-r46-box-decomposition-20260925/adaptive.tex}
-\input{revisions/or-r49-dispersion-certificates-20260925/group_boxes.tex}
-\input{revisions/or-r49-dispersion-certificates-20260925/study.tex}
-\input{revisions/or-r49-dispersion-certificates-20260925/conclusion.tex}
-\appendix
-\input{revisions/or-r45-budgeted-compression-20260924/target_net.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__decomposition.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/continuous_appendix.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__global.tex}
-\input{revisions/or-r39-robust-quantizer-20260924/figure.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__monge.tex}
-\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__grid_certificate.tex}
+\input{revisions/or-r52-resource-path-20260925/introduction.tex}
+\input{revisions/or-r52-resource-path-20260925/model.tex}
+\input{revisions/or-r52-resource-path-20260925/selected_boundaries.tex}
+\input{revisions/or-r52-resource-path-20260925/algorithm.tex}
+\input{revisions/or-r52-resource-path-20260925/common_and_robustness.tex}
+\input{revisions/or-r52-resource-path-20260925/production.tex}
+\input{revisions/or-r52-resource-path-20260925/study.tex}
+\input{revisions/or-r52-resource-path-20260925/conclusion.tex}
 \clearpage\phantomsection\label{refs-start}
-\input{revisions/or-r49-dispersion-certificates-20260925/generated/references.tex}
-\label{refs-end}
-\clearpage
-\input{revisions/or-r49-dispersion-certificates-20260925/generated/main_tables.tex}
-\end{document}
+\input{revisions/or-r52-resource-path-20260925/references.tex}
+\label{refs-end}\clearpage
+\input{revisions/or-r52-resource-path-20260925/generated/main_tables.tex}
+\clearpage\end{document}

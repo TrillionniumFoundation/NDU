@@ -1,0 +1,59 @@
+\section{Pooling at Selected Boundaries}\label{sec:boundaries52}
+\subsection{Terminal service precedes intermediate service}
+The first exchange argument does not require common catalog eligibility.
+\begin{lemma}[Global terminal-first allocation]\label{lem:terminal52}
+For a fixed book, an optimal canonical allocation cannot have both $t_i>d_i$ and $t_j<\min(b_j,d_j)$. Therefore terminal capacity is exhausted before positive intermediate service is assigned, even when histories have different eligible prefixes.
+\end{lemma}
+\begin{proof}
+Suppose both inequalities hold. Choose
+\[
+0<\delta\leq\min\left\{t_i-d_i,\frac{\pi_j}{\pi_i}\bigl(\min(b_j,d_j)-t_j\bigr)\right\}.
+\]
+Replace $t_i$ by $t_i-\delta$ and $t_j$ by $t_j+\pi_i\delta/\pi_j$. Weighted conservation is explicit:
+$-\pi_i\delta+\pi_j(\pi_i\delta/\pi_j)=0$.
+The donor's terminal reward is unchanged and its intermediate cost cannot increase. The recipient remains in its terminal-only range and obtains a strictly larger interpolation reward. Both canonical policies satisfy their own ceilings by Proposition~\ref{prop:canonical52}. The objective strictly increases, a contradiction.
+\end{proof}
+
+For selected neighbors $u<v$, define the weighted terminal increment and the exiting histories by
+\begin{align}
+ T_{uv}&=\sum_{j:\tau_j\geq v}\pi_j[\min(b_j,v)-u]_+,\label{eq:terminalarc52}\\
+ J_{uv}&=\{j:u\leq\tau_j<v\},\qquad c_j(u)=(b_j-u)_+,\qquad Q_{uv}=\sum_{j\in J_{uv}}\pi_jc_j(u).\label{eq:exit52}
+\end{align}
+The interval is determined by the two \emph{selected} endpoints, not by the full-catalog classes between them. Let
+\begin{equation}\label{eq:servicearc52}
+ H_{uv}(y)=\min\left\{\sum_{j\in J_{uv}}\pi_jh_j(z_j):0\leq z_j\leq c_j(u),\ \sum_{j\in J_{uv}}\pi_jz_j=y\right\},\quad 0\leq y\leq Q_{uv}.
+\end{equation}
+An empty set has capacity zero and cost zero at zero. Write $\sigma_{uv}=[f(v)-f(u)]/(v-u)$. The arc payoff is
+\begin{equation}\label{eq:arc52}
+ \Phi_{uv}(x)=\sigma_{uv}\min(x,T_{uv})-H_{uv}((x-T_{uv})_+),\qquad 0\leq x\leq T_{uv}+Q_{uv}.
+\end{equation}
+For a terminal edge $(u,\dagger)$, put $T_{u\dagger}=0$, $J_{u\dagger}=\{j:\tau_j\geq u\}$, and $\Phi_{u\dagger}=-H_{u\dagger}$, with the corresponding capacity $Q_{u\dagger}$. Every $\Phi$ is concave. Under \eqref{eq:quadratic52}, every arc is $L$-Lipschitz: terminal slopes are at most $r$, and service marginal costs are at most $\max_j\gamma_jc_j(u)\leq L$.
+
+\begin{theorem}[Exact selected-boundary resource path]\label{thm:path52}
+Fix a feasible book $c=(u_1<\cdots<u_s)$ with anchor $a=u_1$. Let $P(c)$ contain its $s-1$ successive edges and its terminal edge. Then
+\begin{equation}\label{eq:capacityidentity52}
+ \sum_{e\in P(c)}(T_e+Q_e)=\bar b-a,
+\end{equation}
+and its optimized net value is exactly
+\begin{equation}\label{eq:pathidentity52}
+ V_c(B)=f(a)-\sum_{z\in c}\rho(z)+
+ \max_{\substack{0\leq x_e\leq T_e+Q_e\ (e\in P(c))\\\sum_e x_e=B-a}}\sum_{e\in P(c)}\Phi_e(x_e).
+\end{equation}
+Consequently, maximizing \eqref{eq:pathidentity52} over ordered paths with at most $m$ selected vertices solves \eqref{eq:original52} exactly. The reduction introduces no target or eligibility-class grid.
+\end{theorem}
+\begin{proof}
+Every history is eligible for the anchor because $a\leq b_j\leq\tau_j$. It exits at exactly one selected edge: the edge after its last eligible command, or the terminal edge. If its last eligible command is $d_j$, its terminal increments along earlier edges sum to $\min(b_j,d_j)-a$, and its unique exit-service capacity is $(b_j-d_j)_+$. Their sum is $b_j-a$. Multiplying by $\pi_j$ and summing proves \eqref{eq:capacityidentity52}.
+
+By Lemma~\ref{lem:terminal52}, an optimal canonical allocation first uses terminal increments. The chord slopes of successive selected edges decrease by concavity of $f$, and are positive. It therefore fills the aggregate layer $T_{u_1u_2}$, then $T_{u_2u_3}$, and so on, with at most one partially filled layer. Filling an earlier layer never prevents a later one: every history eligible for a later command was eligible for each earlier selected command, and the individual increments telescope. Within the partial layer, distribute its mass among histories with the capacities in \eqref{eq:terminalarc52}. If the obligation exceeds all terminal capacity, each history has terminal mean $\min(b_j,d_j)$ and its remaining service capacity belongs to its unique exit set. These sets are disjoint. Minimizing their total cost at the residual obligation is the infimal convolution of the functions $H_e$. This produces a feasible vector in \eqref{eq:pathidentity52} with the same value as the optimal original allocation.
+
+Conversely, consider any feasible arc-resource vector. Interpret each $x_e$ as terminal mass $\min(x_e,T_e)$ and service mass $(x_e-T_e)_+$. Redistribute mass to positive-slope terminal segments before service and to earlier selected chord layers before later ones. These exchanges weakly increase the sum of arc payoffs: terminal slopes are positive and decreasing, while service marginal returns are nonpositive. Once all terminal layers are full, service can be reallocated across the disjoint exit sets to minimize its cost. If terminal capacity is not exhausted, all service is removed and at most one terminal layer is partial. The preceding construction then implements this rearranged vector by original canonical policies with the same total obligation and at least its objective. Compactness ensures attainment. Both comparisons prove equality; the charges remain attached to exactly the selected commands.
+\end{proof}
+
+\begin{corollary}[Endogenous eligibility]\label{cor:endogenous52}
+A book of $s$ commands induces at most $s$ nonempty eligible-prefix classes. Histories with different full-catalog prefixes but the same last eligible selected command can be pooled for that fixed book without replacing individual caps or costs. Adding unselected candidates leaves every arc function of a retained selected path unchanged.
+\end{corollary}
+\begin{proof}
+The nonempty exit sets in \eqref{eq:exit52}, including the terminal set, are exactly the selected-book classes and partition all histories. Their definitions and the terminal increments involve only selected endpoints and the original primitives.
+\end{proof}
+
+The common terminal reward is substantive. History-dependent chord slopes need not share a common order; the rearrangement in Theorem~\ref{thm:path52} would then require additional structure. Likewise, a second independent aggregate equality is not eliminated by the scalar capacity identity. These assumptions specify the proved model rather than restrictions imposed to obtain a favorable experimental instance.

@@ -1,0 +1,95 @@
+\section*{Response to the Two Independent Referee Reports}
+\noindent\textbf{Manuscript:} Finite-Catalog Renewal Design by Selected-Boundary Resource Paths.
+\par\noindent\textbf{Revision:} R52, September 25, 2026.
+\par\noindent\textbf{Reviewed scientific version:} R49, commit \texttt{2098592a99e47d36cc9fd16311f21d1858fa6e1e}.
+\par\noindent\textbf{Reports addressed:} the first independent R49 report and the second independent R49 report, both dated September 25, 2026.
+
+We thank both referees for identifying the structural promise of terminal-first pooling and for requiring a stronger response than increased search limits. We have rebuilt the paper around a selected-boundary resource-path identity. It retains the original finite catalog, opening charges, individual caps, realization ceilings, accepted obligation, and command budget. It yields a polynomial additive algorithm for arbitrary catalog eligibility, while preserving the exact common-prefix theorem. All previous results and proofs remain in their original source files and in an immutable predecessor archive; the journal-facing article no longer requires readers to traverse the cumulative revision history.
+
+The central changes are substantive. Theorem~\ref{thm:path52} replaces full-catalog class means by the resource owned by adjacent \emph{selected} commands. The capacity identity ensures exact-obligation repair on every chosen path. Theorem~\ref{thm:repair52} isolates that argument in an independent resource-path model. Theorem~\ref{thm:approx52} then gives polynomial dependence on history count, catalog size, budget, binary input length, and inverse normalized accuracy, without a class-dependent exponent. Section~\ref{sec:robust52} proves catalog-insertion and threshold results; the production-module model demonstrates the general repair structure outside renewal contracts.
+
+The experiments were fixed in a remote protocol before the complete run. Development pilots are explicitly disclosed. The study executes 44 prescribed cases, 42 subdivision comparisons, and 12 mixed-integer envelope solves. Eighty certificates are independently checked, including the 36 class-subdivision baselines. The new regression adds 1,583 fixed-book identity comparisons, 100 global interval checks, 2,000 convolution comparisons, 20 dyadic-count checks, and 12 rejected certificate corruptions. Every historical unresolved request remains available. These are synthetic computations, not evidence of field calibration or an assertion of editorial acceptance.
+
+\section{Catalog Dependence and Endogenous Eligibility}
+\textbf{First report Sections 3 and 12.1; second report Sections 4, 13.2, and 13.3.}
+We agree that full-catalog eligibility is a sufficient parameter, not an intrinsic dimension of the installed menu. The revision no longer uses it as the exponent of its general algorithm.
+
+For selected neighbors $u<v$, the new exit set is $J_{uv}=\{j:u\leq\tau_j<v\}$. Its service frontier and the associated terminal increment depend on the selected endpoints alone. A book with $s$ commands has at most $s$ nonempty selected eligibility classes, regardless of how many unused candidates lie between its commands. The exact path identity is proved in Theorem~\ref{thm:path52}; Corollary~\ref{cor:endogenous52} records the selected-partition consequence. The dynamic program considers all possible selected edges rather than guessing a winning book or committing to the full-catalog partition in advance.
+
+Proposition~\ref{prop:stability52} shows that one inserted candidate can split at most one old full-catalog class. After several insertions, that count can grow even when every retained selected path is unchanged. A new command whose charge exceeds terminal reward minus an incumbent is provably dominated. The study inserts four such commands: the full-catalog class count rises from one to five, while the winning book and value remain identical. With free insertions, the first point improves the value and subsequent points split classes without improving it. All cases are retained.
+
+We also distinguish exact within-gap stability from threshold crossings. If no ceiling crosses a candidate, canonical responses and the global value are unchanged. Without a margin, continuity is false: the article gives a one-history example with an arbitrarily small threshold change and value jump $15/32$. Endpoint certificates instead provide robust brackets for interval-valued ceilings, with a policy feasible throughout the uncertainty set. This is a rigorous robustness statement rather than an unjustified Lipschitz claim across eligibility discontinuities.
+
+\section{The Complexity Frontier and the General Algorithm}
+\textbf{First report Sections 5--7 and 12.2--12.3; second report Sections 6--8 and 13.4.}
+We respond with a stronger algorithm, rather than a hardness assertion unsupported by a reduction. The new scalar-resource recurrence replaces the search over $E-1$ class means. For normalized error $\epsilon$, the resource grid size is $O(m/\epsilon)$; the arithmetic bound is
+\[
+ O\bigl(kN^2Q\log(k+1)+mN^3Q\log(Q+1)\bigr).
+\]
+The exact denominator scaling and its polynomial bit bound are included in Theorem~\ref{thm:approx52}. No exponent depends on $E$, and the algorithm does not enumerate books. Every path has total capacity $\bar b-a$, so rounding followed by monotone resource repair returns to the \emph{original} promise without enlarging the book. This property is proved, not assumed as an informal recovery step.
+
+The complexity map is now explicit. Common full-catalog eligibility permits an exact polynomial algorithm. A fixed command budget permits exact enumeration with an exponent depending on that budget. Arbitrary eligibility and variable budget permit the new polynomial additive scheme in inverse normalized accuracy. These statements do not establish exact unrestricted polynomial solvability, an FPT hardness classification, or a relative-error approximation scheme. The maximum over books can be nonconcave; the article supplies a concrete example, so we do not rely on an invalid global supporting-price argument.
+
+The retained class-mean and individual-box methods remain valid alternatives and are compared experimentally. Root-price sensitivity is executed. We have not represented node-local price generation, a memory-matched repaired-net comparison, or a new unrestricted hardness proof as completed work. The stronger algorithm addresses the principal structural request directly and avoids dependence on the success of these possible heuristic improvements.
+
+\section{Dyadic Count: Explicit Step and a Necessary Clarification}
+\textbf{Second report Section 3, Section 13.1, and minor comments 6--7; first report Section 2.4.}
+The revised companion gives the exact dyadic product bound, with initial weighted widths retained, and an explicit stopping scale. We also need to distinguish two different step sizes in the source-level comparison.
+
+The R49 proof defines its step as $\eta=\varepsilon/[2L(E-1)]$. With that step, its displayed coarse leaf bound $[\max\{1,4L(E-1)/\varepsilon\}]^{E-1}$ already allows the dyadic factor of two. The second report's counterexample instead uses $\eta=\varepsilon/[4L(E-1)]$, half the source step. Under that different stopping rule the report is correct that an additional factor is needed; it does not disprove the coarse bound with the step actually stated in R49.
+
+For clarity, the companion now specifies
+\[
+ \eta_{\rm box}=\frac{\varepsilon}{2L(E-1)},\qquad
+ M\leq\prod_{g\ne g_0}2^{\max\{0,\lceil\log_2(w_g^0/\eta_{\rm box})\rceil\}},
+\]
+with zero-width coordinates contributing one. Projection never enlarges widths; counting the maximum number of bisections of each coordinate bounds the depth and then the leaves. A full binary tree has at most $2M-1$ nodes. The coarse bound is derived from this product with the same step, not substituted without proof.
+
+Width one and threshold $1/3$ require four leaves. With the stated stopping rule, the coarse bound in that example is six, not three. Conversely, setting $4L/\varepsilon=3$ makes the stopping threshold $2/3$, and two leaves suffice. If one chooses the report's smaller stopping step, the safe coarse factor becomes $8L(E-1)/\varepsilon$. We include both interpretations to resolve the ambiguity transparently. The new resource-path theorem has an independent rounding proof and does not depend on either class-subdivision bound. The independent certificate checker verifies realized states, not an a priori theorem count; separate combinatorial regressions now test the count itself.
+
+\section{Load-Bearing Details in the Pooling Proofs}
+\textbf{Both reports Section 2; second report minor comment 1.}
+The weighted exchange is now displayed explicitly in Lemma~\ref{lem:terminal52}: decreasing history $i$ by $\delta$ and increasing history $j$ by $\pi_i\delta/\pi_j$ conserves the weighted promise. Capacities restrict the allowed transfer. This argument is extended to differing eligibility prefixes, which is essential for the new reduction.
+
+Proposition~\ref{prop:pool52} proves equality and continuity at the class terminal-capacity threshold. It also explains why a mean above that threshold forces the equalization water level above the last eligible command, giving the coordinatewise capacity inequality and the exact residual-service identity. The companion displays both endpoint identities used to show that the artificial individual service box lies inside the true aggregate service interval. All signs of the supporting price and equality cases are treated explicitly.
+
+Mathematical identities allow real nonnegative charges. Every exact-arithmetic and bit-complexity statement now requires rationally encoded charges together with the other numerical inputs. Zero service curvatures and free capacity have explicit cases in the optimizer and checker. Nothing is excluded simply because it is a boundary case.
+
+\section{Nontrivial Eligibility Experiments and Difficult Requests}
+\textbf{First report Sections 4--5, 8, and 12.4--12.6; second report Sections 5--6 and 13.5--13.6.}
+The new strict-prefix family places heterogeneous ceilings inside the interior catalog gap immediately above $1/2$. A nonempty suffix is ineligible. Twelve cases vary history count through 1,024, catalog size between 13 and 25, budget between two and five, and promise fraction between one half and one. All close with zero rational width under exact common-prefix pooling. The old all-ceilings-equal-one family remains an archived arithmetic check; it is not relabeled as a new structural test.
+
+The controlled eligibility study varies the full-catalog class count from one to twelve while retaining the other primitives. It exercises the generic resource method even in the one-class case. Every interval contains its exact exhaustive reference. The two-class lower policy has a strictly positive error $83/143360$; the other five attain their references. This outcome is stated in the table rather than presenting the additive algorithm as an exact solver.
+
+All six historical difficult models are rerun at accuracies 0.01 and 0.001. The fine intervals all meet the request, with largest width \FineMaxGap. Their returned policies attain the exhaustive references, but the resource certificates still have positive widths. The maximum relative width is \FineMaxRelative. Main tables therefore report absolute and relative widths, and the controlled sweep reports normalized widths. The 24 historical requests, including ten unresolved ones, are retained without modification.
+
+The node-allowance and root-price tables expose all settings, including cases in which a changed price set worsens a finite adaptive interval. The direct mixed-integer model and exhaustive enumeration are faster on these small models. We state this prominently. The comparison is not a claim that the new exact arithmetic implementation dominates numerical optimization; its contribution is the complexity guarantee and original-space proof certificate.
+
+\section{Mixed-Integer Evidence and Certificate Economics}
+\textbf{First report Sections 8.4 and 9; second report Sections 9--10.}
+The main article now includes compact mixed-integer diagnostics: tangent and secant values, global numerical upper values, analytic envelope allowances, wall times, and raw bracket widths. The table notes variable counts, binary counts, branch-and-bound nodes, statuses, and relative solver gaps. The full record retains both formulations' objectives, constraints, selected supports, probabilities, residuals, and every solver message. All twelve solves finish within their assigned allowances. A tiny negative floating-point width is retained and explained as numerical error, never promoted to a rational certificate.
+
+The two mixed-integer envelope solves share the resource optimizer's measured time allowance, subject to a minimum. The node-limited subdivision comparisons are same-machine comparisons, not equal-time or equal-memory experiments. We disclose that scope. There is no new large-history mixed-integer competition in this revision.
+
+The main certificate table reports compressed and uncompressed bytes, rational or common-denominator entry counts, maximum numerator and denominator lengths, and checker-to-optimizer time ratios. Complete timings and state counts are in the companion. The checker reconstructs marginal-price intervals and uses a different matrix-search algorithm from the optimizer. It verifies complete anchor coverage, all Bellman rows, terminal bands, original policy constraints, and the final interval. It imports neither optimizer. We distinguish alphabet size, optimization-state memory, certificate storage, target tables, encoder logic, and probability precision.
+
+\section{Novelty, Broader Structure, and Operational Relevance}
+\textbf{First report Sections 7, 10, and 12.8; second report Sections 8, 11, and 13.8.}
+We explicitly credit capped convex resource allocation, ordered dynamic programming, resource discretization, dual quantization, and totally monotone matrix search. The new claim is not that these tools are new. It is that the exact selected-boundary ownership and capacity identity reduce this joint renewal problem to a scalar-resource path, with recovery at the original promise and budget.
+
+The production-module section states a second optimization model without histories or command lotteries. A compatible path selects a limited set of modules; divisible workload is assigned across their capacities to satisfy an accepted order exactly. Capacity-conservative paths and concave operating returns meet the general repair theorem. This is a mathematical extension of the capacity-repair structure, not a claim that renewal-specific terminal interpolation occurs in every production network. It identifies precisely which part generalizes and which remains model-specific.
+
+We do not have a calibrated field dataset in the repository and have not fabricated one. The paper makes no assertion that real thresholds form few classes, that a numerical tolerance has a particular monetary meaning, or that alphabet size dominates implementation cost. The variable-eligibility theorem reduces reliance on the first assumption; the second model broadens the optimization abstraction. Operational calibration and deployment comparisons remain distinct empirical questions.
+
+\section{Length, Organization, and Preservation}
+\textbf{First report Sections 11 and 12.7; second report Sections 12 and 13.7.}
+The article is organized around canonical response, selected-boundary pooling, capacity-repair approximation, exact common eligibility and stability, a second model, and the structural study. The dyadic audit, retained group-box details, and reproduction diagnostics are in the electronic companion. All crucial new proofs are in the article.
+
+The continuous-design, institutional, Monge, resource-augmentation, harmonic-coarsening, and earlier all-promise derivations are not deleted or weakened. They remain in their original repository sources, with the reviewed article and companion preserved byte for byte. A complete inherited-tree manifest and a content map document this relocation. Their preservation is a reproducibility matter, not a claim that every historical theorem must occupy the current journal manuscript.
+
+The build uses the journal's specified 11-point type, one-and-a-half spacing, and one-inch margins. The abstract is text-only and below 200 words; the introduction contains no mathematical notation. References are author--year and alphabetical, tables follow the references, and the code/data statement follows the main body. The package is anonymous. The build record gives the measured page counts and applicable submission-length category. It does not claim that a successful typesetting audit establishes suitability for publication.
+
+\section{Remaining Minor Comments: Explicit Disposition}
+The revised title identifies finite-catalog design. The abstract separates exact common-prefix optimization from the arbitrary-eligibility additive result and does not infer practical scalability from the class-independent exponent. The phrase ``relevant dimension'' is replaced by a catalog-dependent sufficient parameter where the old method is discussed. Strict-prefix examples, dyadic initial widths, endpoint continuity, rational charges, and complete numerical diagnostics appear at the locations described above.
+
+Candidate insertion invalidates reuse of a global certificate unless every added option is excluded by a valid dominance proof or the expanded path set is checked anew. Post-optimization selected-book pooling can compress that book's explanation, but cannot certify omitted books or discard individual constraints. Structural one-class zero-width closures are separated from accidental price closures and positive-width tolerance completion. Current reader pointers and immutable predecessor hashes distinguish the revision from the reviewed source. No later referee report is invented, and no acceptance or full practical validation is claimed.

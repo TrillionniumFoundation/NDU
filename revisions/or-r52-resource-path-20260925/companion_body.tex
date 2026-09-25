@@ -1,0 +1,80 @@
+\section{Purpose and Reading Guide}
+This companion supplies the retained class-box support details, an explicit dyadic count, the independently implemented certificate arithmetic, and complete computational diagnostics. The principal selected-boundary reduction and capacity-repair proofs are in the article. No empirical calibration is asserted. The historical derivations are preserved in their original files rather than accumulated into this companion as additional prerequisites.
+
+\section{The Retained Class-Box Price Identity}\label{sec:boxec52}
+Fix a catalog-eligibility class, its last eligible selected level $d$, normalized weights $w_j$, and common mean interval $[\ell,u]$. Write $D=\sum_jw_j\min(b_j,d)$ and $c_j=(b_j-d)_+$. Let $\theta_j(s)=\min(b_j,z(s))$ be capped equalization. Set
+\[
+ a_j=(\theta_j(\ell)-d)_+,\quad b'_j=(\theta_j(u)-d)_+,\quad
+ q_-=(\ell-D)_+,\quad q_+=(u-D)_+.
+\]
+When $u\geq D$, the endpoint identities needed for the service correction are
+\begin{equation}\label{eq:endpointec52}
+ \sum_jw_jb'_j=u-D,\qquad \sum_jw_ja_j=(\ell-D)_+.
+\end{equation}
+Indeed, if $s\geq D$, its water level is at least $d$, and $\theta_j(s)=\min(b_j,d)+(\theta_j(s)-d)_+$. Summation proves the identity. If $s<D$, the water level is at most $d$ and all positive parts vanish. Thus every independently bounded service vector in $\prod_j[a_j,b'_j]$ has aggregate service in $[q_-,q_+]$. This feasibility inclusion, not merely concavity, is what proves the correction's sign.
+
+For a price $\lambda$, define
+\begin{align}
+ T(\lambda)&=\max_{\substack{0\leq y_j\leq c_j\\q_-\leq\sum_jw_jy_j\leq q_+}}
+ \sum_jw_j[-h_j(y_j)-\lambda y_j],\label{eq:Tec52}\\
+ J(\lambda)&=\sum_jw_j\max_{a_j\leq y\leq b'_j}[-h_j(y)-\lambda y].\label{eq:Jec52}
+\end{align}
+When $u\geq D$, the true class support minus the support over the artificial individual box $[\theta(\ell),\theta(u)]$ is $T-J$. The difference is nonnegative by \eqref{eq:endpointec52}. If $u<D$, both supports are terminal-only and the difference is zero.
+
+Here is the full price-case argument. If $\lambda\leq0$ and $u\geq D$, positive terminal reward minus price fills all available terminal capacity before service is selected. The true and artificial problems then share terminal reward and its price constant, and their only difference is \eqref{eq:Tec52} minus \eqref{eq:Jec52}. If $\lambda>0$ and $\ell\leq D$, avoidable service strictly lowers the priced objective. Both problems have a terminal-only maximizer. At every attainable terminal mean, capped equalization maximizes the common concave interpolant and lies inside the artificial box; hence their suprema coincide. In this case $q_-=0$, each $a_j=0$, and both $T$ and $J$ are zero. If $\lambda>0$ and $\ell>D$, service is unavoidable and both problems choose their smallest permitted mean. The terminal constants agree, and their service difference is again $T-J$. All equalities include $\lambda=0$, $\ell=D$, $u=D$, zero costs, and zero residual capacities.
+
+For the quadratic service cost, a multiplier $\nu$ gives the upper witness
+\begin{equation}\label{eq:servicewitec52}
+ T(\lambda)\leq
+ \nu\begin{cases}q_+,&\nu\geq0,\\q_-,&\nu<0\end{cases}
+ +\sum_jw_j\max_{0\leq y\leq c_j}\{-\gamma_jy^2/2-(\lambda+\nu)y\}.
+\end{equation}
+For positive curvature the scalar maximizer is the stationary point clipped to $[0,c_j]$; for zero curvature one chooses an endpoint or the entire interval when its slope is zero. Equality of this upper witness with a feasible vector verifies $T$ without trusting the allocation routine. The inherited checker also verifies capped equalization, the sign of the correction, and its ownership by exactly one crossing edge or terminal node. Its original two-sided path tables and complete class-box cover remain in the source archive and are rerun for the matched class-subdivision study. They are not used to justify the new resource-path upper bound.
+
+\input{revisions/or-r52-resource-path-20260925/dyadic.tex}
+
+\section{Independent Resource-Path Verification}\label{sec:checkec52}
+\subsection{Marginal intervals and exact common denominators}
+For one service exit set, all zero-curvature capacity can be used at zero cost. Let that weighted mass be $q_0$. For every remaining history, the marginal saturation threshold is $\gamma_jc_j$. Sort distinct thresholds, including zero. On an interval between consecutive thresholds, let $S$ be the saturated set and $A$ the active set. The mass, reciprocal curvature, and saturated cost are
+\[
+ y_0=q_0+\sum_{j\in S}\pi_jc_j,\qquad R_0=\sum_{j\in A}\frac{\pi_j}{\gamma_j},\qquad c_0=\sum_{j\in S}\frac{\pi_j\gamma_jc_j^2}{2}.
+\]
+At required mass $y$, set $\alpha=(y-y_0)/R_0$. If $\alpha$ lies in the interval, the allocation has $z_j=c_j$ on $S$, $z_j=\alpha/\gamma_j$ on $A$, and the cost is $c_0+R_0\alpha^2/2$. These first-order conditions support the convex objective globally. At an endpoint, adjacent formulas agree. At total capacity the final formula is valid; a set containing only free capacity has cost zero throughout and needs no active interval.
+
+The new optimizer evaluates capped allocation through the antecedent water-filling routine. The new checker instead builds these marginal intervals directly from the model and evaluates the required mass independently. It recomputes every terminal capacity and every exit set. It checks that the supplied common denominator divides every rational sample exactly and that the integer sample sequence has nonincreasing differences. No floating-point operation is used in the acceptance decision.
+
+The denominator is an exact scaling device, not an accuracy parameter. Its bit length can be large because it is the least common multiple across many distinct rational samples. The polynomial bit bound in the article counts that length explicitly. Reporting only the number of grid states would hide this arithmetic cost.
+
+\subsection{Why finite padding preserves the row maxima}
+Let a previous Bellman vector have finite entries $A_0,\ldots,A_R$, and a concave kernel have entries $K_0,\ldots,K_C$. Only rows $0\leq z\leq R+C$ are relevant. Each such row has a feasible column with $0\leq z-t\leq C$. Set
+\[
+ M=\max_t|A_t|+\max_q|K_q|,\qquad P=4M+1.
+\]
+Extend the kernel to negative indices by $K_0+Pq$, and beyond $C$ by $K_C-P(q-C)$. These extensions have slopes larger than every internal forward difference on the left and smaller on the right, so the extended sequence remains concave. An infeasible entry is at most $M-P<-M$, whereas a feasible entry is at least $-M$. Thus no infeasible entry is a row maximizer. The extended matrix $A_t+K_{z-t}$ is finite and anti-Monge; its leftmost row maximizers are totally monotone. The checker applies the standard matrix-search reduction of \citet{Aggarwal1987} to this rectangular matrix and verifies that every returned index lies inside the original feasible band.
+
+The optimizer uses a different divide-and-conquer monotone search. Agreement between the two implementations is tested against direct convolution on two thousand seeded arrays with arbitrary previous values and concave kernels. Concavity of the previous Bellman vector is never assumed.
+
+\subsection{Coverage and original-space feasibility}
+For each feasible anchor, the certificate must supply exactly the expected command-count and terminal-vertex state sets. The checker reconstructs all transitions, compares each complete row, computes all terminal completions, and checks the accepted resource band. Missing anchors or shortened rows fail even if the final displayed bound happens to look plausible. The best score across this complete set determines the upper bound; a purported solver status does not.
+
+The lower witness retains every original history. For each history, the checker verifies nonnegative intermediate service, support inside the selected book, nonnegative probabilities summing to one, every positive-probability realization ceiling, the expected cap, and the reported target. It then checks the exact weighted root promise and subtracts all selected charges once. It validates the interval and requested tolerance using rational arithmetic. Pooling or compressing a display does not remove these individual witnesses.
+
+The corruption suite changes, one at a time, the schema, an anchor, a Bellman row, the upper bound, the lower bound, the best grid score, the common denominator, the promise, the Lipschitz constant, the requested tolerance, service nonnegativity, and a lottery mass. Every mutation is rejected. Assertions implement verification failures; Python must not be invoked with optimization flags that disable assertions. The reproduction scripts enforce ordinary Python execution.
+
+\section{Protocol, Models, and Timing Scope}\label{sec:protocolec52}
+The immutable protocol was committed before the full experiment. Development pilots are disclosed: thirty tiny instances, 1,200 convolution tests, and the first retained difficult instance informed implementation debugging. The new 100-instance regression and 2,000 convolution tests use separate fixed seeds. The difficult-model comparison is deliberately paired with historical cases, not presented as an unseen distribution.
+
+The main study contains 12 difficult-model accuracy requests, 12 strict-prefix cases, 6 controlled eligibility cases, and 14 refinement or perturbation cases. In the strict-prefix family, caps are $j/[2(k+1)]$, costs include zero and positive curvatures, and ceilings differ strictly within the interior gap above $1/2$. Its catalogs are regular grids of 13 and 25 levels. The refinement family supplies nonuniform catalogs. In the eligibility sweep, caps are $j/14$ for twelve histories; grouping their ceilings yields the exact prescribed class counts while keeping probabilities, costs, charges, catalog, budget, and promise fixed. All values are stored as rational strings.
+
+The six difficult models are compared with seven subdivision settings each: four node allowances with the default price setting, two alternative root-price settings at 31 nodes, and individual subdivision at 31 nodes. The original support-indicator mixed-integer formulation is solved with tangent and secant service envelopes. Its total measured time allowance equals the new fine-grid optimization time, except for a minimum of 0.1 seconds per envelope. Every status is retained. This is not a memory-matched comparison; neither a repaired group-net benchmark nor node-local price generation is represented as executed work.
+
+Table~\ref{tab:robustec52} records all perturbation and refinement cases. Tables~\ref{tab:group1ec52}--\ref{tab:group127ec52} expose the gap-per-node behavior. Tables~\ref{tab:price0ec52} and \ref{tab:price8ec52} show the alternative root-price settings. Table~\ref{tab:timeec52} separates optimization, checking, and the exhaustive reference. Complete individual-baseline and mixed-integer records remain in the code-and-data package, including model residuals, probabilities, selected supports, charges, and approximation allowances.
+
+The code uses Python rational arithmetic. The numerical comparison uses SciPy's mixed-integer interface \citep{Virtanen2020}. The publication environment is pinned and recorded together with the operating system, package versions, source hashes, and protocol hash. The new study resumes only completed cases under an unchanged protocol. A fresh timing run requires a separate checkout without the generated result directory; it must not overwrite the committed evidence.
+
+\section{Preservation and Reproduction}\label{sec:preserveec52}
+The revision preserves the reviewed scientific tip, both independent reports, and the exact prior root readers. Every inherited source and result remains at its original repository path. The only replaced inherited entries are the current reader entry points and current submission index; their exact predecessor copies are kept in this revision's archive. A manifest compares Git blob hashes against the immutable parent and reports every replacement and its archive location.
+
+The preserved mathematical material includes continuous-design approximations, institutional comparisons, all-promise frontiers, Monge results, resource augmentation, harmonic coarsening, class-mean bounds, and the earlier certificates. Their assumptions and proofs are not altered or silently withdrawn. The current article supplies its own complete proof chain. The preservation map, rather than the introduction, identifies every historical location and explains whether a result is a prerequisite, a retained alternative, or a distinct extension.
+
+To reproduce from the revision root, run the regression tests, the complete fixed study, the reader generator, and the build-and-audit script in that order. A standalone certificate can be verified by calling \texttt{code/check\_resource.py} on its compressed JSON file. The supplied reproduction archive includes the exact antecedent Python modules imported by the study, along with their paths and hashes. It does not require a network call during verification. Build validation checks page counts, unresolved references and citations, duplicate labels, overfull boxes, the abstract length, and the current mathematical statement inventory. These are production checks, not an editorial acceptance determination.

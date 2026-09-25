@@ -1,0 +1,33 @@
+\section{Finite-Catalog Renewal Design}\label{sec:model52}
+There are $k$ histories. History $j$ has probability $\pi_j>0$, expected-obligation cap $b_j\in[0,1]$, and realization ceiling $\tau_j\geq b_j$, with $\sum_j\pi_j=1$. Write $\bar b=\sum_j\pi_jb_j$. Intermediate service has cost $h_j:[0,b_j]\to\mathbb R_+$, convex and nondecreasing, with $h_j(0)=0$. The common terminal reward $f:[0,1]\to\mathbb R$ is strictly increasing and concave. The catalog is $\mathcal A=\{a_1<\cdots<a_N\}\subset[0,1]$. Opening command $a_i$ costs $\rho_i\geq0$.
+
+A nonempty selected book $c=(c_1<\cdots<c_s)$ has $s\leq m$. After observing $j$, the provider selects deterministic pre-draw service $y_j\geq0$ and a lottery $C_j$ supported on $c$. The problem is
+\begin{align}
+ V^*(B)&=\max_{c,y,C}\left\{\sum_j\pi_j\bigl[\mathbb E f(C_j)-h_j(y_j)\bigr]-\sum_{z\in c}\rho(z)\right\},\label{eq:original52}\\
+ t_j&=y_j+\mathbb E C_j\leq b_j,\qquad y_j+C_j\leq\tau_j\quad\text{almost surely},\qquad \sum_j\pi_jt_j=B.\label{eq:constraints52}
+\end{align}
+Here $B\in[0,\bar b]$ is accepted, rather than optimized away. The common-risk specialization is $\tau_j=b_j+\delta$. Expected and realized obligations are different restrictions. The terminal symbol does not carry a free history index, inherited service tier, or shared random seed. The cardinality $m$ measures the command alphabet, not total implementation storage: targets, encoder logic, probability precision, program constants, and certificates are additional resources. The mathematical results below concern the stated finite catalog; continuous-design results have a separate approximation error.
+
+For a feasible book, let $d_j=\max(c\cap[0,\tau_j])$, and let $F_{j,c}$ interpolate $f$ linearly on this eligible prefix. A singleton prefix has the constant value $f(d_j)$ at its only point.
+\begin{proposition}[Canonical response]\label{prop:canonical52}
+A book is feasible if and only if $c_1\leq\min_jb_j$ and $c_1\leq B\leq\bar b$. At target $c_1\leq t\leq b_j$, its optimal response is
+\begin{equation}\label{eq:canonical52}
+ v_{j,c}(t)=F_{j,c}(\min\{t,d_j\})-h_j((t-d_j)_+).
+\end{equation}
+It is attained by $y_j=(t-d_j)_+$ and an adjacent eligible lottery with mean $\min(t,d_j)$. The response is concave in $t$.
+\end{proposition}
+\begin{proof}
+Every feasible command satisfies $C_j\leq\tau_j$ since $y_j\geq0$. At mean $\mu=\mathbb E C_j$, concavity on the ordered support bounds the reward by $F_{j,c}(\mu)$. The payoff is at most $F_{j,c}(\mu)-h_j(t-\mu)$ for $c_1\leq\mu\leq\min(t,d_j)$. Both terms are nondecreasing in $\mu$, so the upper endpoint maximizes this bound. When $t\leq d_j$, adjacent interpolation has zero intermediate service and support below $\tau_j$. When $t>d_j$, use command $d_j$ surely and service $t-d_j$; the realized sum is $t\leq b_j\leq\tau_j$. Thus the bound is attained without weakening either restriction. Interpolation slopes decrease and are nonnegative; the tail slopes of $-h_j$ are nonpositive and nonincreasing. This proves concavity. Feasible targets fill the entire weighted interval $[c_1,\bar b]$, proving necessity and sufficiency.
+\end{proof}
+
+The algorithmic specialization is
+\begin{equation}\label{eq:quadratic52}
+ f(x)=rx-\tfrac12 qx^2,\quad r\geq q\geq0,\quad r>0,\qquad h_j(y)=\tfrac12\gamma_jy^2,\quad \gamma_j\geq0.
+\end{equation}
+All probabilities, caps, ceilings, catalog points, shape parameters, opening charges, and requested accuracies are rationally encoded in exact-arithmetic claims. Optimization identities allow real nonnegative charges; bit-complexity assertions do not assign a finite encoding to arbitrary real numbers. A common Lipschitz constant for the canonical responses is
+\begin{equation}\label{eq:L52}L=\max\{r,\max_j\gamma_j\}>0.\end{equation}
+A fixed-book allocation can be solved by filling positive chord slopes in decreasing order, then zero-cost service capacity, then quadratic service tails. The service breakpoints are $\gamma_j(b_j-d_j)_+$. This takes $O(ks+k\log(k+1))$ rational operations with sorted marginal events. Alternatively, a direct supporting-price sweep verifies
+\begin{equation}\label{eq:fixeddual52}
+ \sum_j\pi_jv_{j,c}(t_j)=\lambda B+\sum_j\pi_j\max_{c_1\leq t\leq b_j}\{v_{j,c}(t)-\lambda t\}.
+\end{equation}
+Eligible knots, caps, and clipped stationary tail points suffice to check each scalar maximum. This certificate proves optimality for that book, not over all books.

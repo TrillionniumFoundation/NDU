@@ -1,0 +1,86 @@
+\section{Joint Optimization with One Resource Grid}\label{sec:algorithm52}
+\subsection{A capacity-repair principle}
+We first state the approximation argument for a general resource-path problem. It identifies exactly which property is supplied by Theorem~\ref{thm:path52}.
+
+Consider a finite acyclic directed graph with designated source and sink. An admissible path has at most $h$ arcs. Arc $e$ has capacity $C_e\geq0$, opening charge $\kappa_e$, and an $L$-Lipschitz payoff $\psi_e$ on $[0,C_e]$. Choose a path and resources satisfying $\sum_e x_e=R$, to maximize $\sum_e[\psi_e(x_e)-\kappa_e]$. Assume every admissible path has total capacity at least $R\geq0$. This assumption is verifiable by a minimum-capacity path calculation with the same length restriction; it is automatic when $C_{uv}=p_v-p_u$ for a nondecreasing vertex potential and $R\leq p_{\rm sink}-p_{\rm source}$.
+
+For $\eta>0$, restrict resources to $x_e=q_e\eta$, where $q_e$ is a nonnegative integer and $q_e\eta\leq C_e$. Accept a grid path only if
+\begin{equation}\label{eq:band52}
+ 0\leq R-\eta\sum_e q_e\leq h\eta.
+\end{equation}
+Let $S_\eta$ be the largest grid-path score in this band.
+\begin{theorem}[Capacity-repair certificate]\label{thm:repair52}
+A maximizing grid path can be repaired to exact resource $R$ without changing its arcs. If its repaired feasible value is $\underline V$, the optimum $V$ satisfies
+\begin{equation}\label{eq:generalcert52}
+ S_\eta-Lh\eta\leq\underline V\leq V\leq S_\eta+Lh\eta.
+\end{equation}
+Consequently the returned path is within $2Lh\eta$ of optimal. The result permits signed payoffs and arbitrary fixed charges; it does not use a positive lower bound on the optimal value.
+\end{theorem}
+\begin{proof}
+Round each resource on an optimal path down to a multiple of $\eta$. The lost resource $d$ is less than $h\eta$, so the rounded vector satisfies \eqref{eq:band52}. Lipschitz continuity bounds its objective loss by $Ld$, because charges do not change. Hence $V\leq S_\eta+Lh\eta$.
+
+For the maximizing grid path, its unused total capacity is at least $R-\eta\sum_e q_e$. Distribute exactly that residual among its nonnegative remaining capacities. No coordinate decreases and the sum of absolute resource changes equals the residual, which is at most $h\eta$. The payoff loss is at most $Lh\eta$. The repaired vector is feasible for the original resource requirement and uses the same path. This proves all inequalities.
+\end{proof}
+
+Concavity is not needed for this error argument. It will give efficient convolution and reconstruction in the renewal problem. An arbitrary resource-constrained path problem with some accepted grid paths of insufficient total capacity would not satisfy this theorem; its rounded solutions could be infeasible to repair. The identity \eqref{eq:capacityidentity52} rules out precisely that failure here.
+
+\subsection{Renewal recurrence and exact-obligation recovery}
+For each feasible catalog anchor $a_h\leq\min(B,\min_jb_j)$, set $R_h=B-a_h$ and $Q_h=\lfloor R_h/\eta\rfloor$. Let $D^{h}_{\ell,v}(z)$ be the best score of a path that starts at $a_h$, ends at $a_v$, has $\ell$ selected commands, and consumes resource $z\eta$ on its nonterminal edges. The initial condition is
+\[
+ D^h_{1,h}(0)=f(a_h)-\rho_h.
+\]
+Unreachable states have value $-\infty$. For $\ell\geq2$,
+\begin{equation}\label{eq:dp52}
+ D^h_{\ell,v}(z)=\max_{\substack{u<v,\ 0\leq t\leq z\\(z-t)\eta\leq T_{uv}+Q_{uv}}}
+ \left\{D^h_{\ell-1,u}(t)+\Phi_{uv}((z-t)\eta)-\rho_v\right\}.
+\end{equation}
+Complete each state with its terminal edge. Retain totals $z$ in the band
+\begin{equation}\label{eq:renewalband52}
+ \max\left\{0,\left\lceil\frac{R_h-m\eta}{\eta}\right\rceil\right\}\leq z\leq Q_h.
+\end{equation}
+The maximum over all anchors, all $1\leq\ell\leq m$, and all terminal completions is $S_\eta$. The terminal edge counts among the at most $m$ rounded edges. It does not consume another command slot or incur another command charge.
+
+\begin{theorem}[Polynomial additive finite-catalog design]\label{thm:approx52}
+Under \eqref{eq:quadratic52}, let the inputs and charges be rational, and choose $\eta=\varepsilon/(2Lm)$ for $\varepsilon>0$. Recover an optimal fixed-book policy at the original promise $B$ from a maximizing grid path. Its value $\underline V$ and the bound $\overline V=S_\eta+Lm\eta$ satisfy
+\begin{equation}\label{eq:certificate52}
+ \underline V\leq V^*(B)\leq\overline V,\qquad 0\leq\overline V-\underline V\leq\varepsilon.
+\end{equation}
+All original individual caps, realization ceilings, opening charges, and the command budget are respected. With $Q=\lceil2Lm/\varepsilon\rceil+1$, a direct exact implementation uses
+\begin{equation}\label{eq:complexity52}
+ O\!\left(kN^2Q\log(k+1)+mN^3Q\log(Q+1)\right)
+\end{equation}
+arithmetic operations. Its bit complexity is polynomial in $k,N,m,Q$ and the binary input length. Neither count has an exponent depending on the number of eligibility classes.
+\end{theorem}
+\begin{proof}
+For every feasible anchor, Theorem~\ref{thm:path52} gives capacity $\bar b-a_h\geq R_h$ on every path. Its arc functions have Lipschitz constant $L$. Apply Theorem~\ref{thm:repair52} with at most $m$ edges, including the terminal edge. A repaired resource solution can be implemented with no smaller payoff by the rearrangement in Theorem~\ref{thm:path52}. Exact fixed-book optimization at $B$ can only improve this feasible reconstruction. Every optimal original book has an enumerated feasible anchor, so maximizing across anchors gives \eqref{eq:certificate52}.
+
+There are $O(N^2)$ possible edges, including terminal edges. Each has at most $Q$ grid values. Solving its capped quadratic allocation by sorting at most $k$ marginal breakpoints costs $O(k\log(k+1))$ operations per value; this conservative preprocessing bound matches the implemented reference construction. The monotone convolution below evaluates one edge transition in $O(Q\log(Q+1))$ operations. There are at most $N$ anchors and $mN^2$ transitions per anchor. Terminal completions are included in the same bound.
+
+Every grid value is rational with numerator and denominator length polynomial in the input length and $k$ and $\log Q$. The least common multiple of the finitely many grid denominators, anchor rewards, and charges has bit length no greater than the sum of those lengths, hence polynomial in $k,N,Q$ and input length. Scaling by this \emph{exact} denominator converts all Bellman additions and comparisons to integer arithmetic without payoff quantization. Summing at most $m$ terms preserves polynomial bit length. Recovery and the final bound use rational arithmetic as well.
+\end{proof}
+
+For normalized accuracy $\epsilon=\varepsilon/L$, $Q=O(m/\epsilon)$. Thus the theorem is polynomial in inverse normalized accuracy even when $L$ is encoded in binary. For a prescribed absolute error, the dependence is on the numerical ratio $L/\varepsilon$, not on its logarithm. This is an additive scheme, not a relative-error fully polynomial approximation scheme. Large opening charges or an optimum near zero do not invalidate the certificate.
+
+\subsection{Concave kernels, not concave Bellman values}
+The sequence $K_e(q)=\Phi_e(q\eta)$ is concave. For an arbitrary previous-state vector $A(t)$, the transition matrix
+\[
+ M(z,t)=A(t)+K_e(z-t)
+\]
+is anti-Monge on its feasible band: the column terms cancel, and decreasing successive differences of $K_e$ give the quadrangle inequality. Its leftmost row maximizers are nondecreasing. A divide-and-conquer row search therefore evaluates the max-plus convolution in $O(Q\log(Q+1))$ comparisons. The previous vector need not be concave. All reachable resource indices form a prefix, because each edge admits every integer from zero to its capacity index; taking the maximum over paths preserves this contiguous support.
+
+This distinction is necessary. With one history, cap one, zero service cost, $f(x)=x$, catalog $\{0,1/2\}$, budget two, and charges $\rho(0)=0$, $\rho(1/2)=1/10$, the optimized value is
+\[
+ V^*(B)=\max\{0,\min(B,1/2)-1/10\},\qquad 0\leq B\leq1.
+\]
+Its slope increases at $B=1/10$, so it is not concave. A single supporting price need not certify the global menu choice. The resource grid avoids that incorrect concavity inference.
+
+\subsection{Independent global certificates}
+A resource certificate contains the original model, grid step, common denominator, all feasible-anchor Bellman tables, the best band score, and an original-space lottery policy. The checker imports neither the new optimizer nor an antecedent optimizer. It reconstructs service values by enumerating marginal-price intervals. For an interval with saturated cost $c_0$, saturated mass $y_0$ including free service, and active reciprocal curvature $R_0=\sum_{j\in A}\pi_j/\gamma_j$, it uses
+\[
+ \alpha=(y-y_0)/R_0,\qquad H(y)=c_0+\tfrac12R_0\alpha^2,
+\]
+checks that $\alpha$ lies in the stated interval, and evaluates every arc grid value exactly. Free service and zero capacities are handled separately.
+
+It then checks every Bellman row using totally monotone matrix search \citep{Aggarwal1987}, rather than the optimizer's divide-and-conquer recurrence evaluator. For a finite kernel and previous vector, a sufficiently steep concave linear continuation outside the kernel support makes all infeasible entries strictly inferior to a feasible one. This permits ordinary rectangular matrix search without treating equal negative-infinity entries as valid witnesses. The checker verifies the complete anchor and state sets, the terminal band maximum, and $\overline V=S_\eta+Lm\eta$. Finally, it checks nonnegative lottery probabilities, unit mass, all realized ceilings, individual expected caps, exact root equality, the selected-book charge, and the stated interval width. A completion flag is never used as evidence.
+
+Storage is $O(mN^2Q+N^2Q)$ rational or scaled-integer entries when all anchor tables are retained; an optimizer that does not retain certificates can process anchors sequentially. Verification cannot be sublinear in the supplied certificate size. The experiments report both storage and checking costs rather than counting only the command alphabet.

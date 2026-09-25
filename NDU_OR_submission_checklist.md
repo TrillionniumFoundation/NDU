@@ -1,5 +1,9 @@
-# Operations Research R49 submission checks
+# R52 submission preparation
 
-The validated article has 39 nonreference pages (42 total), the mathematical companion 39 pages, the response 5 pages, and the reproduction record 28 pages. The abstract has 186 words. Build status: PASS.
+Current reader entry points are main.pdf, electronic_companion.pdf, and the R52 response.
 
-Anonymous title and PDF metadata; 11-point type; one-and-a-half spacing; one-inch margins; text-only abstract; equation-free introduction; author-year references; tables following references. All four new proofs remain in the article. Historical mathematics is preserved in the article or companion. No calibrated application, universal runtime claim, or unrestricted hardness result is asserted. Exact and numerical evidence are distinguished.
+The measured page counts and length category are in R52 BUILD_VALIDATION.json. The source uses 11-point text, one-and-a-half spacing, one-inch margins, a text-only abstract below 200 words, a notation-free introduction, alphabetical author-year references, tables after references, and a code/data statement after the main body. The electronic companion does not exceed the article length. No author identity is inserted.
+
+This repository revision is not a submission to ScholarOne. The author must separately verify authorship, actual conflicts of interest, funding, prior-submission identifiers, overlapping manuscripts, and exclusive-submission eligibility. No unsupported declarations about those matters have been made.
+
+All code and data are synthetic and included. Historical results remain under their original assumptions in the preservation map. Format checks do not establish editorial suitability.
