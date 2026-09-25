@@ -1,7 +1,5 @@
-# Operations Research R48 submission checks
+# Operations Research R49 submission checks
 
-Anonymous title and PDF metadata; 11-point text; one-and-a-half spacing; one-inch margins; author-year references; equation-free introduction; 180-word abstract; horizontal-rule tables after references.
+The reader build is pending.
 
-Validated article: 39 nonreference pages. Mathematical companion: 37 pages. Full response: 7 pages. See the complete BUILD_VALIDATION.json, not a source-only page estimate.
-
-The repository Computational Reproduction Record is separate from the journal companion. All prior mathematical statements/proofs remain in the main article or mathematical companion. No application calibration, empirical deployment, fully polynomial accuracy dependence, or unrestricted hardness classification is asserted. Exact and numerical certificates are distinguished.
+Anonymous title and PDF metadata; 11-point type; one-and-a-half spacing; one-inch margins; text-only abstract; equation-free introduction; author-year references; tables following references. All four new proofs remain in the article. Historical mathematics is preserved in the article or companion. No calibrated application, universal runtime claim, or unrestricted hardness result is asserted. Exact and numerical evidence are distinguished.

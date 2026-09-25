@@ -1,0 +1,88 @@
+\section{Certified Search in Eligibility Means}\label{sec:r49-boxes}
+For several eligibility classes, the joint search can use their means instead of individual targets. Let $X=[\ell,u]$ be a group-mean box intersecting $\sum_gW_gs_g=B$, with $0\leq\ell_g\leq u_g\leq\bar b_g$. A feasible book anchor $a$ must satisfy
+\begin{equation}\label{eq:r49-anchors}
+ a\leq\min_j b_j,\qquad a\leq\min_g u_g,\qquad
+ \sum_gW_g\max\{\ell_g,a\}\leq B.
+\end{equation}
+These conditions are sufficient as well: all individual caps are at least $a$, and the group-mean intervals fill every total between their lower and upper sums. Define the artificial individual box
+\begin{equation}\label{eq:r49-artificial}
+ l_j=\theta_j^g(\ell_g),\qquad v_j=\theta_j^g(u_g),\qquad j\in G_g.
+\end{equation}
+Its feasible-anchor test is equivalent to \eqref{eq:r49-anchors}. The artificial box is only an algebraic input to the existing two-sided oracle; we correct its priced value before treating it as a group-box bound.
+
+\subsection{The exact service correction at a price}
+Fix a real price $\lambda$ and a possible last eligible level $d$. If $u_g<D_g(d)$, set $\Xi_g(d;X,\lambda)=0$. Otherwise, put
+\[
+ q_-=(\ell_g-D_g(d))_+,\quad q_+=u_g-D_g(d),\quad
+ c_j=(b_j-d)_+,
+\]
+and define
+\begin{align}
+ T_g(d;X,\lambda)
+ &=\max_{\substack{0\leq y_j\leq c_j\\q_-\leq\sum_jw_{j|g}y_j\leq q_+}}
+       \sum_{j\in G_g}w_{j|g}\{-h_j(y_j)-\lambda y_j\},\label{eq:r49-T}\\
+ J_g(d;X,\lambda)
+ &=\sum_{j\in G_g}w_{j|g}
+   \max_{(l_j-d)_+\leq y\leq(v_j-d)_+}\{-h_j(y)-\lambda y\},\label{eq:r49-J}\\
+ \Xi_g(d;X,\lambda)&=W_g[T_g(d;X,\lambda)-J_g(d;X,\lambda)].\label{eq:r49-Xi}
+\end{align}
+Every vector admitted by $J_g$ has mean service in $[q_-,q_+]$. Thus $\Xi_g\geq0$. Quadratic $T_g$ is computed by clipping its unconstrained total to $[q_-,q_+]$ and solving the capped-cost problem at that total.
+
+\begin{theorem}[Exact group-box price decomposition]\label{thm:r49-box}
+For every book with an anchor satisfying \eqref{eq:r49-anchors},
+\begin{multline}\label{eq:r49-box-identity}
+ W_g\max_{\max\{\ell_g,c_1\}\leq s\leq u_g}
+             \{V_{g,c}(s)-\lambda s\}\\
+ =\sum_{j\in G_g}\pi_j
+      \max_{\max\{l_j,c_1\}\leq t\leq v_j}
+             \{v_{j,c}^{\tau}(t)-\lambda t\}
+       +\Xi_g(d_g;X,\lambda).
+\end{multline}
+Apply the two-sided recurrence of Theorem~\ref{thm:r46-box} to \eqref{eq:r49-artificial}. Add $\sum_{g:i\leq K_g<v}\Xi_g(a_i;X,\lambda)$ to both its rising and falling edges, and add $\sum_{g:i\leq K_g}\Xi_g(a_i;X,\lambda)$ to both terminal formulas. Leave its peak term and charges unchanged. The resulting support $S_X^{\rm elig}(\lambda)$ is exact over all original-budget books and group-box targets. Hence
+\begin{equation}\label{eq:r49-upper}
+ U_X^{\rm elig}(\lambda)=\lambda B+S_X^{\rm elig}(\lambda)
+\end{equation}
+is a global upper bound for the joint problem in $X$, with the per-call arithmetic bound \eqref{eq:r49-oracle-cost} for rational quadratic primitives.
+\end{theorem}
+\begin{proof}
+If $u_g<D_g(d_g)$, all useful means lie in the terminal-only range. Capped equalization in Theorem~\ref{thm:r49-pooling} attains the group optimum at every such mean, and its coordinates lie in the artificial box. Conversely every vector in that box has an allowed group mean and is an original feasible allocation. The two priced suprema are equal and no correction is needed.
+
+Suppose $u_g\geq D_g(d_g)$. For $\lambda\leq0$, terminal reward minus price is strictly increasing. Every member's terminal capacity is therefore filled before service is chosen. The true group problem has residual service interval $[q_-,q_+]$, whereas the artificial box has the separate service bounds in $J_g$. Their terminal reward and price constants coincide; their difference is \eqref{eq:r49-Xi}.
+
+For $\lambda>0$ and $\ell_g\leq D_g(d_g)$, neither problem needs service at an optimum. Reducing service strictly improves the priced objective, and an allowed terminal-only allocation exists. The capped-equalization argument again gives equality of the priced suprema; both $T_g$ and $J_g$ are zero. Finally, if $\lambda>0$ and $\ell_g>D_g(d_g)$, service is unavoidable. Each problem chooses its smallest allowed mean. Their terminal parts coincide and their service difference is again $T_g-J_g$. The anchor cannot alter a service interval in these cases because $c_1\leq d_g$ and $c_1\leq\min_jb_j$.
+
+This proves \eqref{eq:r49-box-identity} for every sign and boundary case, including $\lambda=0$. As in Theorem~\ref{thm:r49-frontier}, the last eligible level is assigned to exactly one crossing edge or terminal node. The two-sided recurrence represents every book through the unimodality of the common level scores, so the added correction changes its value without restricting its paths. Weak duality gives \eqref{eq:r49-upper}. Computing all service corrections costs $O(kN\log(k+1))$ operations; the inherited edge and path costs give the stated bound.\end{proof}
+
+\subsection{Accuracy and independent certificates}
+The group response $V_{g,c}$ is $L$-Lipschitz in its mean whenever all individual responses are $L$-Lipschitz. Indeed, increasing or decreasing the mean of a feasible original allocation by $\eta$ can be implemented by bounded transfers in one direction with weighted absolute change $|\eta|$. Applying the individual Lipschitz bounds and reversing the comparison proves the claim. For the quadratic model one may take $L=\max\{r,\max_j\gamma_j\}$.
+
+\begin{theorem}[Eligibility-parameterized joint accuracy]\label{thm:r49-accuracy}
+For $E>1$ and $\varepsilon>0$, exact conditional optimization on a repaired net of group means returns an original-feasible policy with loss at most $\varepsilon$. A sufficient number of oracle calls is
+\begin{equation}\label{eq:r49-net-count}
+ N\left(1+\frac{2L(E-1)}{\varepsilon}\right)^{E-1}.
+\end{equation}
+Alternatively, projected group-box subdivision using \eqref{eq:r49-upper}, with zero included among the tested prices and exact recovery of each returned book, gives a valid rational interval at every interruption. A completed finite subdivision attains any positive tolerance. Its worst-case number of leaves is at most
+\begin{equation}\label{eq:r49-cover-count}
+ \left(\max\left\{1,\frac{4L(E-1)}{\varepsilon}\right\}\right)^{E-1}
+\end{equation}
+when the largest weighted free-coordinate width is bisected; the number of nodes is less than twice the number of leaves. For $E=1$, Theorem~\ref{thm:r49-frontier} gives an exact single-call solution instead of either search.
+\end{theorem}
+\begin{proof}
+For each feasible catalog anchor $a$, discretize $E-1$ weighted group means $W_gs_g$ in their intervals $[W_ga,W_g\bar b_g]$ with step $\eta=\varepsilon/[2L(E-1)]$. Set the final mean to the remaining promise, clip it to its bounds, and repair any residual by bounded transfers. These are operations on group means; Theorem~\ref{thm:r49-frontier} subsequently allocates the original branches exactly.
+
+Consider an optimal book with anchor $a$ and means $s^*$. Rounding down its free weighted coordinates removes less than $(E-1)\eta$ total mass. The dependent coordinate and subsequent upward repair restore precisely that mass without leaving the group caps. The weighted absolute distance from $s^*$ is therefore less than $2(E-1)\eta$. The same optimal book remains feasible. The group Lipschitz bound limits its loss to $\varepsilon$, and the exact conditional oracle cannot do worse. Each free coordinate has weighted range at most one; enumeration of anchors gives \eqref{eq:r49-net-count}.
+
+For subdivision, let $w(X)=\sum_gW_g(u_g-\ell_g)$. An optimal zero-price relaxed book has group targets in $X$. Its anchor satisfies \eqref{eq:r49-anchors}, so bounded transfers can restore the root equality within the same box and book. The loss is at most $Lw(X)$. Exact allocation of that returned book at the root promise does at least as well. Therefore a node cannot retain a certification gap greater than $Lw(X)$.
+
+Project each box onto the root equality and choose one dependent coordinate. Its weighted width is no larger than the sum of the free weighted widths. Consequently $w(X)$ is at most twice that sum. If all free widths are at most $\eta$, the node gap is at most $\varepsilon$. A node needing further subdivision has a free width exceeding $\eta$; bisecting the largest one never requires more than $\max\{0,\lceil\log_2(1/\eta)\rceil\}$ cuts along any coordinate of a root-to-leaf path. This bounds the full binary cover by \eqref{eq:r49-cover-count}. The covering argument and weak duality remain valid before completion.\end{proof}
+
+The exponent is now the number of distinct eligible prefixes minus one, not the number of histories or accuracy-dependent cost bins. At fixed $E$ and bounded primitive scale, this is an additive scheme polynomial in the history count, catalog size, and inverse accuracy. It is not a relative-error approximation assertion, nor a polynomial bound when eligibility complexity varies. The exact common-eligibility result is stronger: it needs no tolerance parameter at all.
+
+For independent checking, a service allocation in \eqref{eq:r49-T} is accompanied by one rational multiplier $\nu$. Its upper witness is
+\begin{equation}\label{eq:r49-service-dual}
+ T_g\leq
+ \nu\begin{cases}q_+,&\nu\geq0,\\q_-,&\nu<0\end{cases}
+ +\sum_{j\in G_g}w_{j|g}\max_{0\leq y\leq c_j}
+        \{-h_j(y)-(\lambda+\nu)y\}.
+\end{equation}
+The checker evaluates each scalar maximum at endpoints and the clipped quadratic stationary point. Equality with the supplied feasible service vector verifies the correction exactly. It then checks both path-table inequalities, every feasible anchor, the complete binary group-box cover, and the original uneliminated policy. It does not import the pooling optimizer or trust a completion flag. This closes the chain from an exact service allocation to an original-space joint-design interval.

@@ -1,0 +1,87 @@
+# Response to the Operations Research Referee
+
+**Manuscript:** Limited-Memory Renewal Contracts: Exact Eligibility Pooling and Certified Joint Design.
+
+**Reviewed report:** the independent R45 report of September 25, 2026, review commit `260a5224c55e0326d9da7f0c813b4a3fcab7671f`. **Scientific parent:** R48, commit `939cce84881a1d1eabf93aa3a2d3f4f4417ce53f`. **Current revision:** R49. The R46–R48 developments and all earlier derivations are retained; we do not present those intervening results as findings of a newly received report.
+
+We thank the referee for separating the validity of the conditional recurrence from the missing strength of the joint optimization contribution. The principal response is a new exact joint algorithm, not another conditional target portfolio. Histories with the same eligible catalog prefix can be pooled without equating their caps or costs. A terminal-first allocation theorem isolates the entire heterogeneous-service correction in the last eligible selected level. That correction can be charged once along the ordered path. With common eligibility, the root promise fixes the only group mean, so one polynomial-time call solves endogenous target allocation and book selection jointly at the original budget. For several eligibility classes, a second identity gives an exact two-sided price oracle over group-mean boxes and independently checkable global intervals.
+
+## 1. Complexity and methodological contribution: report Sections 3–5, 9, and 12.1–12.2
+
+The new Terminal-first pooling theorem and Exact eligibility-mean frontier theorem appear in the main article with complete proofs. They preserve arbitrary individual caps, nonnegative heterogeneous quadratic service costs including zero curvature, nonuniform weights, opening charges, the exact root promise, and the original symbol budget. The common-eligibility result is polynomial in the history count, catalog size, budget, and rational encoding length. It applies to interior promises; it is not the inherited saturated recurrence, nor an identical-type reduction.
+
+The proof first establishes that positive intermediate service cannot be optimal while another member of the same eligibility class has unused terminal capacity. Before terminal capacities are filled, capped equalization maximizes the common concave interpolant. After they are filled, a separable capped-cost allocation is exact. The difference from equalized individual targets depends on the book only through its last eligible level. This is why a path recurrence can optimize individual targets rather than merely accept them as input.
+
+We distinguish this reduction from classical resource allocation and water-filling. The latter are subroutines, with explicit citations to Patriksson and Strömberg and to Schoot Uiterkamp, Gerards, and Hurink. The new element is the book-dependent decomposition, its unique eligibility-boundary placement, and its extension to exact priced support on group boxes. We claim neither a new general resource-allocation solver nor a new generic branch-and-bound principle.
+
+The Exact group-box price decomposition theorem provides the structural outer method requested by the referee. The correction replaces artificial coordinatewise service restrictions by the original group's exact capped service allocation. Its sign, anchor constraints, zero-cost cases, and both price signs are proved. Both sides of the inherited price path receive the correction; the peak and level charges are unchanged. The resulting upper bound is for the original joint problem, not an optimistic model whose error has yet to be bounded.
+
+The Eligibility-parameterized joint accuracy theorem makes the remaining dependence explicit. With E distinct eligible prefixes, the repaired-net call count is at most N times (1 + 2L(E−1)/epsilon) to power E−1; the certified subdivision has a corresponding finite cover bound. For E=1 neither search is required. The exponent is not the raw history count, the count of distinct cap values, or the number of cost bins. The result is an additive fixed-eligibility-complexity scheme, not a relative-error scheme or an FPT runtime assertion in E. We do not assert hardness when both eligibility complexity and budget vary. The retained complexity map also notes that fixed budget permits polynomial book enumeration with a budget-dependent exponent. It would be incorrect to announce hardness for a fixed small budget merely to justify the old grid.
+
+## 2. Nontrivial joint computations and stronger large-history certificates: Sections 6–7 and 12.3, 12.6
+
+The new protocol was committed before executing the study. It fixes every case, seed, tolerance, node allowance, price budget, and numerical comparison. The study contains 64 exact-rational runs: all 24 immutable R48 paired instances, 16 new common-eligibility instances, and 24 multi-class stress requests. Full models, lotteries, service allocations, upper-cover nodes, checking times, and certificate hashes are retained.
+
+All 24 paired intervals meet tolerance 0.001, including the prior failures; 19 have zero rational width. The maximum remaining width is approximately 0.00013796. The retained harmonic comparator finishes 14 of 24 at the same tolerance. Eighteen new upper bounds and gaps are strictly smaller, five are equal, and case 19 has a slightly wider interval that still meets tolerance. The paper reports that reversal rather than claiming that every interrupted exact-model search must dominate every differently partitioned relaxation. The old timings remain identified as historical, not as new matched-machine measurements.
+
+The 16 common-eligibility cases contain up to 1,024 histories, distinct rational caps, heterogeneous costs including zero, nonuniform weights, and positive opening charges. All are solved exactly in one node with tolerance zero. These are actual original-budget joint optima certified by rational equalities, not conditional solutions, heuristic hits, or Jensen intervals. The theorem explains why increasing the number of heterogeneous histories need not enlarge the search dimension.
+
+The stress cases vary eligibility, not just the number of histories. Six 12-history instances have five to eight eligible prefixes, two tolerances, and two node allowances. All twelve requests at tolerance 0.01 finish. Only two of twelve requests at tolerance 0.001 finish; the ten unresolved requests remain in both the raw record and discussion. All exact exhaustive optima lie inside the reported intervals. This identifies an actual boundary of the method without replacing the joint problem by a conditional one or hiding difficult cases.
+
+## 3. Independent comparisons, coverage, and inexact support: Sections 6.4, 8, 12.4–12.5
+
+The direct uneliminated mixed-integer formulation is run on the twelve primary paired instances and all six stress instances, each with tangent and secant quadratic envelopes. Every solve has 32 segments and a three-second limit. All 36 local validation solves terminate successfully. The publication record regenerates the measurements and retains each actual status. For every solve we report wall time, node count, numerical solver gap, envelope error, and original-space bracket width; unreturned fields remain missing rather than becoming inferred zeros. Numerical references and rational semantic certificates are kept distinct.
+
+A separate checker verifies all 64 exact-pooling certificates without importing the pooling optimizer. For every service correction it checks an original feasible allocation against a scalar multiplier upper witness. It then checks the two-sided Bellman inequalities, feasible anchors, the complete binary group-box cover, and the uneliminated original policy. Thus completion is not accepted merely because the optimizer reports it. The exact regression suite makes 564 comparisons with book enumeration, checks 72 recovered mean allocations, ten common-eligibility global optima, eleven boundary optima, and five multi-class intervals. Sixteen deliberate certificate corruptions are rejected. The unchanged R48 regression suite also passes.
+
+The older target-net, portfolio, greedy, prefix, and numerical comparisons remain available under their original computational budgets and are not relabeled as new matched experiments. We do not claim a universal speed advantage over MIP, an out-of-sample statistical ranking of heuristics, or a complete matched-runtime comparison across all historical algorithms. The new experiment's primary comparison is exact original-space certification at a declared budget. The historical inexact-support result remains a conditional certificate-composition theorem; the new global intervals do not assume that an approximate endpoint oracle is monotone or that its compression penalty is uniformly small.
+
+## 4. Operational interpretation, scope, and presentation: Sections 10–11 and 12.7
+
+The new exact reduction handles many distinct histories with common or limited eligibility complexity; it does not require a realistic system to collapse to two or three identical response types. Nevertheless, our instances remain declared synthetic inputs. We have not estimated operational caps, weights, charges, or costs from an independent field dataset, and the manuscript makes no deployment or calibrated welfare claim. The response to this part of the report is a stronger optimization result and a reorganized article, not fabricated application evidence.
+
+The main article now follows one line: contractual response, conditional path structure, exact eligibility pooling, exact priced decomposition, and checked joint search. The new proofs remain in the article. Earlier institutional, continuous, Monge, augmentation, harmonic, and certificate results are preserved in the article's regular appendices or mathematical companion, with their original assumptions. Complete computational narratives and tables are preserved separately as code-and-experiment reproduction documentation. All 53 antecedent mathematical statement labels remain in the two mathematical readers; four new theorems are added. The content map and Git-blob preservation audit make the relocation inspectable.
+
+The title, text-only abstract, equation-free introduction, anonymous presentation, 11-point type, one-and-a-half spacing, one-inch margins, author-year references, and separate tables follow the journal's manuscript guidance. The machine-readable build audit records the actual page counts, citation/reference integrity, and typesetting warnings. These checks establish a reproducible manuscript format, not an editorial acceptance judgment.
+
+## 5. Point-by-point implementation and minor comments
+
+**1. Single history.** The new implementation uses one exact call whenever there is one eligibility class, which includes a single history. Boundary regressions compare that call with exhaustive joint optimization. The general net remains historical rather than being advertised as the implementation of this shortcut.
+
+**2. Clipping.** The R46 repair regression retained in the repository includes genuinely out-of-range coordinates and verifies nonzero clipping. The R49 boundary and mutation tests separately check group caps, invalid service, infeasible promises, and anchor constraints. Clipping is not tested solely through an already feasible zero-distance example.
+
+**3. Coverage.** The new checker reconstructs the group partition, root projection, every split, and every leaf independently. A missing child, missing leaf, inconsistent parent, and invalid cut each cause rejection. Its verification does not trust the optimizer's completion flag.
+
+**4. Runtime and scale.** The current main tables give histories, catalog size, budget, eligibility classes, tolerance or node allowance, interval width, and time. The full record gives every run's objective scale, normalized interval, and exact-reference loss and relative loss where a reference exists. A missing reference is not imputed.
+
+**5. Saturation provenance.** The theorem map attributes the saturated charged-catalog recurrence to R42 and the supplied-target extension to R45. The new polynomial result concerns endogenous targets at arbitrary feasible promises with common eligibility.
+
+**6. Joint-design title.** The single-class algorithm now solves book selection and original target allocation jointly at variable history count. Multi-class intervals also bound the same joint optimum. The text distinguishes exact zero-width solutions from interrupted intervals and does not call a conditional computation a joint optimum.
+
+**7. Exponent.** The abstract explicitly states exponential dependence on the number of eligibility classes. The theorem gives its exponent and scale dependence. The one-class polynomial case is stated separately.
+
+**8. Safeguarded sample.** The historical portfolio evidence retains its sample-qualified wording. It is no longer the current empirical headline and is not used as a universal safeguard theorem.
+
+**9. Charged counterexample.** The computational record retains exact net value 1373/3600, core portfolio value 53/150, and loss 101/3600, approximately 7.36 percent of that positive exact value. Opening charges and scale are not suppressed.
+
+**10. MIP diagnostics.** The record displays every new solve's status, seconds, node count, solver gap, uniform envelope error, and bracket. All time limits are specified in the protocol, and every returned status is preserved.
+
+**11. Inserted ideal targets.** The historical interior continuous example is explicitly identified as an oracle-candidate-pool sanity check. It is not presented as evidence of a general adaptive candidate-generation theorem.
+
+**12. Conditional scaling.** The old targets-fixed scaling table remains marked conditional in the historical record. The new main scaling table concerns one-node exact joint solutions under the new theorem.
+
+**13. Finite catalog.** The title-page abstract and new theorems explicitly specify a finite catalog. Unrestricted continuous design retains its separate assumptions, algorithms, and proofs.
+
+**14. Theorem provenance.** The main regime table distinguishes R42 saturation, R43 priced decomposition, R45 conditional targets, R46 checked individual boxes, R47–R48 approximate coarsening, and the new exact eligibility results. The complete earlier comparison table remains available in the reproduction record.
+
+**15. Cardinality.** Budget and reported book size count selected installed levels, not only positive-probability realizations. An exact-cardinality frontier may include unused zero-charge levels; an at-most-budget optimum can omit them. The certificates expose both the selected book and every branch probability, so positive use can be audited separately.
+
+**16. Additive scale.** The study uses the normalized domain from zero to one and the stated common quadratic reward. Absolute tolerance is not invariant to objective rescaling. The record supplies a primitive-based scale and normalized gaps as diagnostics, not a relative-error theorem.
+
+**17. Aggregation.** Identical response-type aggregation is retained. The new result strictly extends the useful reduction: identical eligible prefixes suffice, while each member's different cap and exact cost frontier are retained. No accuracy-dependent curvature or cap bins are needed.
+
+**18. Numerical versus exact evidence.** Numerical MIP primal/dual brackets remain numerical. Only the rational service, Bellman, coverage, and original-policy checks support the exact certificate claims.
+
+## 6. Materials for re-review
+
+The repository root contains the current article and electronic companion, each as source and PDF. This revision directory contains the response, full computational record, pre-execution protocol, complete raw records, exact certificates, independent checker, tests, reproduction scripts, content map, build audit, and preservation manifest. The unchanged report and all historical derivations remain accessible. We ask the referee to assess the new exact decomposition and joint complexity statements on their proofs and the complete evidence, including the unresolved multi-class cases.
