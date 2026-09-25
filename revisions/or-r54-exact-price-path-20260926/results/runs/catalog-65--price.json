@@ -1,0 +1,66 @@
+{
+  "id": "catalog-65",
+  "method": "price",
+  "instance_sha256": "0c2a90d48c64b2e3c30065cb776b805b6f3599370c6792f1be34217c12bfee0e",
+  "epsilon": "1/1000",
+  "setup_seconds": 0.0059202500000310465,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "TOLERANCE",
+  "lower": "65540331/108032000",
+  "upper": "32798903/54016000",
+  "gap": "2299/4321280",
+  "seconds": 0.6328477349999844,
+  "nodes": 1,
+  "oracle_calls": 3,
+  "trace": [
+    {
+      "seconds": 0.29542635699999664,
+      "lower": "9325105001993/16553332838400",
+      "upper": "69341154093/113973760000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.47378690900001175,
+      "lower": "16065967/27008000",
+      "upper": "69341154093/113973760000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.6319688589999828,
+      "lower": "65540331/108032000",
+      "upper": "32798903/54016000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.632021366999993,
+      "lower": "65540331/108032000",
+      "upper": "32798903/54016000",
+      "nodes": 1,
+      "oracle_calls": 3
+    }
+  ],
+  "algorithm_seconds": 0.6353227820000029,
+  "algorithm_peak_rss_kib": 27740,
+  "certificate": "certificates/catalog-65--price.json.gz",
+  "certificate_bytes": 1171,
+  "uncompressed_certificate_bytes": 5118,
+  "verification": {
+    "status": "PASS",
+    "lower": "65540331/108032000",
+    "upper": "32798903/54016000",
+    "gap": "2299/4321280",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.10968807000000425,
+    "instance_sha256": "0c2a90d48c64b2e3c30065cb776b805b6f3599370c6792f1be34217c12bfee0e"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.10986082299996269,
+  "process_peak_rss_kib": 27740
+}

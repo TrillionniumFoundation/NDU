@@ -1,0 +1,4725 @@
+{
+  "status": "PASS",
+  "cases": 24,
+  "envelope_rate": {
+    "minimum": 0.0,
+    "median": 0.25,
+    "q25": 0.125,
+    "q75": 0.25,
+    "maximum": 0.375
+  },
+  "forced_rate": {
+    "minimum": 0.25,
+    "median": 0.625,
+    "q25": 0.375,
+    "q75": 0.625,
+    "maximum": 0.75
+  },
+  "forced_anchor_removals": 45,
+  "rows": [
+    {
+      "id": "family-0-factor-9/10",
+      "family": 0,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "1/4",
+            "16/25",
+            "41/100",
+            "9/25",
+            "51/100",
+            "12/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "0",
+            "3",
+            "7/3",
+            "7/3",
+            "7/3",
+            "1/3"
+          ],
+          "ceilings": [
+            "27/100",
+            "18/25",
+            "7/10",
+            "47/100",
+            "17/25",
+            "16/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "1/100",
+          "1/25",
+          "1/100",
+          "1/20",
+          "1/20",
+          "265821/400000",
+          "1/20",
+          "1/25"
+        ],
+        "promise": "53/400",
+        "budget": 2
+      },
+      "target": "1/2",
+      "multiplier": "9/10",
+      "exact_value": "3803/20000",
+      "incumbent_seconds": 0.02198189499995351,
+      "envelope_seconds": 0.0002861540000367313,
+      "forced_test_and_check_seconds": 0.03521864300000743,
+      "enumeration_seconds": 0.006565966999914963,
+      "envelope_removed": 2,
+      "forced_removed": 3,
+      "forced_anchor_removed": 0,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1481/8000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "4623/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12611/80000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "2061/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3803/20000",
+          "exact_exclusion_value": "1481/8000",
+          "forced_price_upper": "4803/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "457/2500",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "4111/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/20",
+          "gain_bound": "383/600",
+          "slack": "-353/600",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3803/20000",
+          "exact_exclusion_value": "457/2500",
+          "forced_price_upper": "3803/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "265821/400000",
+          "gain_bound": "88607/120000",
+          "slack": "-88607/1200000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-172661/400000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "-169761/400000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "1/20",
+          "gain_bound": "0",
+          "slack": "1/20",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "83/625",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "83/625",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/25",
+          "gain_bound": "0",
+          "slack": "1/25",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "357/2500",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "357/2500",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-0-factor-1",
+      "family": 0,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "1/4",
+            "16/25",
+            "41/100",
+            "9/25",
+            "51/100",
+            "12/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "0",
+            "3",
+            "7/3",
+            "7/3",
+            "7/3",
+            "1/3"
+          ],
+          "ceilings": [
+            "27/100",
+            "18/25",
+            "7/10",
+            "47/100",
+            "17/25",
+            "16/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "1/100",
+          "1/25",
+          "1/100",
+          "1/20",
+          "1/20",
+          "88607/120000",
+          "1/20",
+          "1/25"
+        ],
+        "promise": "53/400",
+        "budget": 2
+      },
+      "target": "1/2",
+      "multiplier": "1",
+      "exact_value": "3803/20000",
+      "incumbent_seconds": 0.02181495199999972,
+      "envelope_seconds": 0.0002887789999022061,
+      "forced_test_and_check_seconds": 0.03538188799996078,
+      "enumeration_seconds": 0.006374629999982062,
+      "envelope_removed": 3,
+      "forced_removed": 3,
+      "forced_anchor_removed": 0,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1481/8000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "4623/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12611/80000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "2061/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3803/20000",
+          "exact_exclusion_value": "1481/8000",
+          "forced_price_upper": "4803/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "457/2500",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "4111/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/20",
+          "gain_bound": "383/600",
+          "slack": "-353/600",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3803/20000",
+          "exact_exclusion_value": "457/2500",
+          "forced_price_upper": "3803/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "88607/120000",
+          "gain_bound": "88607/120000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-60659/120000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "-59789/120000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "1/20",
+          "gain_bound": "0",
+          "slack": "1/20",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "83/625",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "83/625",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/25",
+          "gain_bound": "0",
+          "slack": "1/25",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "357/2500",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "357/2500",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-0-factor-11/10",
+      "family": 0,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "1/4",
+            "16/25",
+            "41/100",
+            "9/25",
+            "51/100",
+            "12/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "0",
+            "3",
+            "7/3",
+            "7/3",
+            "7/3",
+            "1/3"
+          ],
+          "ceilings": [
+            "27/100",
+            "18/25",
+            "7/10",
+            "47/100",
+            "17/25",
+            "16/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "1/100",
+          "1/25",
+          "1/100",
+          "1/20",
+          "1/20",
+          "974677/1200000",
+          "1/20",
+          "1/25"
+        ],
+        "promise": "53/400",
+        "budget": 2
+      },
+      "target": "1/2",
+      "multiplier": "11/10",
+      "exact_value": "3803/20000",
+      "incumbent_seconds": 0.02178886399997282,
+      "envelope_seconds": 0.0002770370000462208,
+      "forced_test_and_check_seconds": 0.03484877300002154,
+      "enumeration_seconds": 0.006318425000017669,
+      "envelope_removed": 3,
+      "forced_removed": 3,
+      "forced_anchor_removed": 0,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1481/8000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "4623/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12611/80000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "2061/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3803/20000",
+          "exact_exclusion_value": "1481/8000",
+          "forced_price_upper": "4803/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "457/2500",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "4111/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/20",
+          "gain_bound": "383/600",
+          "slack": "-353/600",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3803/20000",
+          "exact_exclusion_value": "457/2500",
+          "forced_price_upper": "3803/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "974677/1200000",
+          "gain_bound": "88607/120000",
+          "slack": "88607/1200000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-695197/1200000",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "-686497/1200000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "1/20",
+          "gain_bound": "0",
+          "slack": "1/20",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "83/625",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "83/625",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/25",
+          "gain_bound": "0",
+          "slack": "1/25",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "357/2500",
+          "exact_exclusion_value": "3803/20000",
+          "forced_price_upper": "357/2500",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-1-factor-9/10",
+      "family": 1,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "11/50",
+            "9/20",
+            "1/4",
+            "37/100",
+            "3/4",
+            "37/50"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "5/3",
+            "4/3",
+            "2/3",
+            "2/3",
+            "2/3",
+            "2/3"
+          ],
+          "ceilings": [
+            "3/10",
+            "13/20",
+            "21/50",
+            "43/100",
+            "1",
+            "17/20"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "3/50",
+          "7/100",
+          "1/50",
+          "1/25",
+          "1/20",
+          "167477/400000",
+          "2/25"
+        ],
+        "promise": "139/500",
+        "budget": 3
+      },
+      "target": "3/4",
+      "multiplier": "9/10",
+      "exact_value": "4743/10000",
+      "incumbent_seconds": 0.02683366200005821,
+      "envelope_seconds": 0.0003104590000475582,
+      "forced_test_and_check_seconds": 0.03637953099996594,
+      "enumeration_seconds": 0.024359983000067587,
+      "envelope_removed": 0,
+      "forced_removed": 5,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4743/10000",
+          "exact_exclusion_value": "22781/50000",
+          "forced_price_upper": "5143/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "41463/100000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "9167/20000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "2531/6250",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "903/2000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "22781/50000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "5051/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/25",
+          "gain_bound": "5329/9000",
+          "slack": "-4969/9000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4743/10000",
+          "exact_exclusion_value": "21491/50000",
+          "forced_price_upper": "4743/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/20",
+          "gain_bound": "1201/2400",
+          "slack": "-1081/2400",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "21491/50000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "4643/10000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "167477/400000",
+          "gain_bound": "167477/360000",
+          "slack": "-167477/3600000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "22243/400000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "38243/400000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "2/25",
+          "gain_bound": "7/32",
+          "slack": "-111/800",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3943/10000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "4343/10000",
+          "forced_screen": true,
+          "envelope_screen": false
+        }
+      ]
+    },
+    {
+      "id": "family-1-factor-1",
+      "family": 1,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "11/50",
+            "9/20",
+            "1/4",
+            "37/100",
+            "3/4",
+            "37/50"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "5/3",
+            "4/3",
+            "2/3",
+            "2/3",
+            "2/3",
+            "2/3"
+          ],
+          "ceilings": [
+            "3/10",
+            "13/20",
+            "21/50",
+            "43/100",
+            "1",
+            "17/20"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "3/50",
+          "7/100",
+          "1/50",
+          "1/25",
+          "1/20",
+          "167477/360000",
+          "2/25"
+        ],
+        "promise": "139/500",
+        "budget": 3
+      },
+      "target": "3/4",
+      "multiplier": "1",
+      "exact_value": "4743/10000",
+      "incumbent_seconds": 0.026772856999969008,
+      "envelope_seconds": 0.0003157300000111718,
+      "forced_test_and_check_seconds": 0.036494295000011334,
+      "enumeration_seconds": 0.024199072999977034,
+      "envelope_removed": 1,
+      "forced_removed": 5,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4743/10000",
+          "exact_exclusion_value": "22781/50000",
+          "forced_price_upper": "5143/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "41463/100000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "9167/20000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "2531/6250",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "903/2000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "22781/50000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "5051/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/25",
+          "gain_bound": "5329/9000",
+          "slack": "-4969/9000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4743/10000",
+          "exact_exclusion_value": "21491/50000",
+          "forced_price_upper": "4743/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/20",
+          "gain_bound": "1201/2400",
+          "slack": "-1081/2400",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "21491/50000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "4643/10000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "167477/360000",
+          "gain_bound": "167477/360000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3271/360000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "17671/360000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "2/25",
+          "gain_bound": "7/32",
+          "slack": "-111/800",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3943/10000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "4343/10000",
+          "forced_screen": true,
+          "envelope_screen": false
+        }
+      ]
+    },
+    {
+      "id": "family-1-factor-11/10",
+      "family": 1,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "11/50",
+            "9/20",
+            "1/4",
+            "37/100",
+            "3/4",
+            "37/50"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "5/3",
+            "4/3",
+            "2/3",
+            "2/3",
+            "2/3",
+            "2/3"
+          ],
+          "ceilings": [
+            "3/10",
+            "13/20",
+            "21/50",
+            "43/100",
+            "1",
+            "17/20"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "3/50",
+          "7/100",
+          "1/50",
+          "1/25",
+          "1/20",
+          "1842247/3600000",
+          "2/25"
+        ],
+        "promise": "139/500",
+        "budget": 3
+      },
+      "target": "3/4",
+      "multiplier": "11/10",
+      "exact_value": "4743/10000",
+      "incumbent_seconds": 0.026682608999976765,
+      "envelope_seconds": 0.0003206790000831461,
+      "forced_test_and_check_seconds": 0.03863211500004127,
+      "enumeration_seconds": 0.024607685999967543,
+      "envelope_removed": 1,
+      "forced_removed": 5,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4743/10000",
+          "exact_exclusion_value": "22781/50000",
+          "forced_price_upper": "5143/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "41463/100000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "9167/20000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "2531/6250",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "903/2000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "22781/50000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "5051/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/25",
+          "gain_bound": "5329/9000",
+          "slack": "-4969/9000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4743/10000",
+          "exact_exclusion_value": "21491/50000",
+          "forced_price_upper": "4743/10000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/20",
+          "gain_bound": "1201/2400",
+          "slack": "-1081/2400",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "21491/50000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "4643/10000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "1842247/3600000",
+          "gain_bound": "167477/360000",
+          "slack": "167477/3600000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-134767/3600000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "9233/3600000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "2/25",
+          "gain_bound": "7/32",
+          "slack": "-111/800",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3943/10000",
+          "exact_exclusion_value": "4743/10000",
+          "forced_price_upper": "4343/10000",
+          "forced_screen": true,
+          "envelope_screen": false
+        }
+      ]
+    },
+    {
+      "id": "family-2-factor-9/10",
+      "family": 2,
+      "m": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "67/100",
+            "23/100",
+            "69/100",
+            "8/25",
+            "43/100",
+            "43/100"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2",
+            "7/3",
+            "2/3",
+            "7/3",
+            "3",
+            "2"
+          ],
+          "ceilings": [
+            "47/50",
+            "19/50",
+            "93/100",
+            "41/100",
+            "67/100",
+            "67/100"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "3/100",
+          "0",
+          "3/50",
+          "2/25",
+          "51407/80000",
+          "2/25",
+          "3/100"
+        ],
+        "promise": "831/2000",
+        "budget": 4
+      },
+      "target": "1/2",
+      "multiplier": "9/10",
+      "exact_value": "59423537/106000000",
+      "incumbent_seconds": 0.00681024300001809,
+      "envelope_seconds": 0.0003230730000041149,
+      "forced_test_and_check_seconds": 0.042276146999938646,
+      "enumeration_seconds": 0.05926226700000825,
+      "envelope_removed": 1,
+      "forced_removed": 4,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 4,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "56243537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "56243537/106000000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "59386437/106000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "53100637/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "53100637/106000000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "253273/360000",
+          "slack": "-224473/360000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "346406363/954000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "51407/80000",
+          "gain_bound": "51407/72000",
+          "slack": "-51407/720000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-896571/68000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "-2477/240000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "2/25",
+          "gain_bound": "587/1250",
+          "slack": "-487/1250",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "39370439/90000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "3/100",
+          "gain_bound": "0",
+          "slack": "3/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "56243537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "56243537/106000000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-2-factor-1",
+      "family": 2,
+      "m": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "67/100",
+            "23/100",
+            "69/100",
+            "8/25",
+            "43/100",
+            "43/100"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2",
+            "7/3",
+            "2/3",
+            "7/3",
+            "3",
+            "2"
+          ],
+          "ceilings": [
+            "47/50",
+            "19/50",
+            "93/100",
+            "41/100",
+            "67/100",
+            "67/100"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "3/100",
+          "0",
+          "3/50",
+          "2/25",
+          "51407/72000",
+          "2/25",
+          "3/100"
+        ],
+        "promise": "831/2000",
+        "budget": 4
+      },
+      "target": "1/2",
+      "multiplier": "1",
+      "exact_value": "59423537/106000000",
+      "incumbent_seconds": 0.006844677000003685,
+      "envelope_seconds": 0.000337318999982017,
+      "forced_test_and_check_seconds": 0.04238646400006019,
+      "enumeration_seconds": 0.059490922999998475,
+      "envelope_removed": 2,
+      "forced_removed": 4,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 4,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "56243537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "56243537/106000000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "59386437/106000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "53100637/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "53100637/106000000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "253273/360000",
+          "slack": "-224473/360000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "346406363/954000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "51407/72000",
+          "gain_bound": "51407/72000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-51765089/612000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "-29419/360000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "2/25",
+          "gain_bound": "587/1250",
+          "slack": "-487/1250",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "39370439/90000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "3/100",
+          "gain_bound": "0",
+          "slack": "3/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "56243537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "56243537/106000000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-2-factor-11/10",
+      "family": 2,
+      "m": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "67/100",
+            "23/100",
+            "69/100",
+            "8/25",
+            "43/100",
+            "43/100"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2",
+            "7/3",
+            "2/3",
+            "7/3",
+            "3",
+            "2"
+          ],
+          "ceilings": [
+            "47/50",
+            "19/50",
+            "93/100",
+            "41/100",
+            "67/100",
+            "67/100"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "3/100",
+          "0",
+          "3/50",
+          "2/25",
+          "565477/720000",
+          "2/25",
+          "3/100"
+        ],
+        "promise": "831/2000",
+        "budget": 4
+      },
+      "target": "1/2",
+      "multiplier": "11/10",
+      "exact_value": "59423537/106000000",
+      "incumbent_seconds": 0.006802417999892896,
+      "envelope_seconds": 0.00033182000004217116,
+      "forced_test_and_check_seconds": 0.042353122000008625,
+      "enumeration_seconds": 0.05934434899995722,
+      "envelope_removed": 2,
+      "forced_removed": 4,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 4,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "56243537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "56243537/106000000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "59386437/106000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "53100637/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "53100637/106000000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "253273/360000",
+          "slack": "-224473/360000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "346406363/954000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "565477/720000",
+          "gain_bound": "51407/72000",
+          "slack": "51407/720000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-95461039/612000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "-22049/144000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "2/25",
+          "gain_bound": "587/1250",
+          "slack": "-487/1250",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "59423537/106000000",
+          "exact_exclusion_value": "39370439/90000000",
+          "forced_price_upper": "59423537/106000000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "3/100",
+          "gain_bound": "0",
+          "slack": "3/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "56243537/106000000",
+          "exact_exclusion_value": "59423537/106000000",
+          "forced_price_upper": "56243537/106000000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-3-factor-9/10",
+      "family": 3,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "13/50",
+            "3/5",
+            "13/25",
+            "7/10",
+            "31/100",
+            "14/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "0",
+            "4/3",
+            "2",
+            "1/3",
+            "5/3",
+            "7/3"
+          ],
+          "ceilings": [
+            "51/100",
+            "77/100",
+            "3/4",
+            "3/4",
+            "21/50",
+            "61/100"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "0",
+          "7/100",
+          "1/100",
+          "2/25",
+          "1/100",
+          "106487/200000",
+          "1/100"
+        ],
+        "promise": "59/400",
+        "budget": 2
+      },
+      "target": "3/4",
+      "multiplier": "9/10",
+      "exact_value": "10371/40000",
+      "incumbent_seconds": 0.08397380599990356,
+      "envelope_seconds": 0.00033980399996380584,
+      "forced_test_and_check_seconds": 0.03625304399997731,
+      "enumeration_seconds": 0.0067683339999575765,
+      "envelope_removed": 1,
+      "forced_removed": 5,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "301/1600",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "8371/40000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "20273/80000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "10771/40000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1887/10000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "7971/40000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "10371/40000",
+          "exact_exclusion_value": "20273/80000",
+          "forced_price_upper": "10771/40000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "17/25",
+          "slack": "-3/5",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "15613/80000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "25957/120000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/100",
+          "gain_bound": "979/1200",
+          "slack": "-967/1200",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "10371/40000",
+          "exact_exclusion_value": "19757029/88680000",
+          "forced_price_upper": "5279/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "106487/200000",
+          "gain_bound": "106487/180000",
+          "slack": "-106487/1800000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-106639/400000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "-6579/25000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "1/100",
+          "gain_bound": "0",
+          "slack": "1/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "18870229/88680000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "133/625",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-3-factor-1",
+      "family": 3,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "13/50",
+            "3/5",
+            "13/25",
+            "7/10",
+            "31/100",
+            "14/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "0",
+            "4/3",
+            "2",
+            "1/3",
+            "5/3",
+            "7/3"
+          ],
+          "ceilings": [
+            "51/100",
+            "77/100",
+            "3/4",
+            "3/4",
+            "21/50",
+            "61/100"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "0",
+          "7/100",
+          "1/100",
+          "2/25",
+          "1/100",
+          "106487/180000",
+          "1/100"
+        ],
+        "promise": "59/400",
+        "budget": 2
+      },
+      "target": "3/4",
+      "multiplier": "1",
+      "exact_value": "10371/40000",
+      "incumbent_seconds": 0.08305542100004004,
+      "envelope_seconds": 0.00034618599988789356,
+      "forced_test_and_check_seconds": 0.035820386999944276,
+      "enumeration_seconds": 0.006832013999996889,
+      "envelope_removed": 2,
+      "forced_removed": 5,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "301/1600",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "8371/40000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "20273/80000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "10771/40000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1887/10000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "7971/40000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "10371/40000",
+          "exact_exclusion_value": "20273/80000",
+          "forced_price_upper": "10771/40000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "17/25",
+          "slack": "-3/5",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "15613/80000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "25957/120000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/100",
+          "gain_bound": "979/1200",
+          "slack": "-967/1200",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "10371/40000",
+          "exact_exclusion_value": "19757029/88680000",
+          "forced_price_upper": "5279/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "106487/180000",
+          "gain_bound": "106487/180000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-46909/144000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "-23207/72000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/100",
+          "gain_bound": "0",
+          "slack": "1/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "18870229/88680000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "133/625",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-3-factor-11/10",
+      "family": 3,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "13/50",
+            "3/5",
+            "13/25",
+            "7/10",
+            "31/100",
+            "14/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "0",
+            "4/3",
+            "2",
+            "1/3",
+            "5/3",
+            "7/3"
+          ],
+          "ceilings": [
+            "51/100",
+            "77/100",
+            "3/4",
+            "3/4",
+            "21/50",
+            "61/100"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "0",
+          "7/100",
+          "1/100",
+          "2/25",
+          "1/100",
+          "1171357/1800000",
+          "1/100"
+        ],
+        "promise": "59/400",
+        "budget": 2
+      },
+      "target": "3/4",
+      "multiplier": "11/10",
+      "exact_value": "10371/40000",
+      "incumbent_seconds": 0.08324860200002604,
+      "envelope_seconds": 0.0003463269999883778,
+      "forced_test_and_check_seconds": 0.03585135499997705,
+      "enumeration_seconds": 0.0067109980000168434,
+      "envelope_removed": 2,
+      "forced_removed": 5,
+      "forced_anchor_removed": 2,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "301/1600",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "8371/40000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "20273/80000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "10771/40000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1887/10000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "7971/40000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "10371/40000",
+          "exact_exclusion_value": "20273/80000",
+          "forced_price_upper": "10771/40000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "17/25",
+          "slack": "-3/5",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "15613/80000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "25957/120000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/100",
+          "gain_bound": "979/1200",
+          "slack": "-967/1200",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "10371/40000",
+          "exact_exclusion_value": "19757029/88680000",
+          "forced_price_upper": "5279/20000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "1171357/1800000",
+          "gain_bound": "106487/180000",
+          "slack": "106487/1800000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-1385699/3600000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "-343331/900000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/100",
+          "gain_bound": "0",
+          "slack": "1/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "18870229/88680000",
+          "exact_exclusion_value": "10371/40000",
+          "forced_price_upper": "133/625",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-4-factor-9/10",
+      "family": 4,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "73/100",
+            "49/100",
+            "11/25",
+            "9/25",
+            "53/100",
+            "1/5"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2/3",
+            "8/3",
+            "4/3",
+            "0",
+            "4/3",
+            "1"
+          ],
+          "ceilings": [
+            "43/50",
+            "77/100",
+            "51/100",
+            "53/100",
+            "11/20",
+            "7/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "1/20",
+          "7/100",
+          "0",
+          "2/25",
+          "144101/200000",
+          "1/100",
+          "7/100"
+        ],
+        "promise": "11/40",
+        "budget": 3
+      },
+      "target": "1/2",
+      "multiplier": "9/10",
+      "exact_value": "3723/8000",
+      "incumbent_seconds": 0.021425585999963914,
+      "envelope_seconds": 0.0003224920000093334,
+      "forced_test_and_check_seconds": 0.03695045600011326,
+      "enumeration_seconds": 0.023722774000020763,
+      "envelope_removed": 1,
+      "forced_removed": 6,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3243/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3323/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3323/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3403/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3163/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3243/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3723/8000",
+          "exact_exclusion_value": "14477/40000",
+          "forced_price_upper": "3803/8000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "3431/6000",
+          "slack": "-2951/6000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4213/10000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3433/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "144101/200000",
+          "gain_bound": "144101/180000",
+          "slack": "-144101/1800000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-45151/200000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "-125953/600000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "1/100",
+          "gain_bound": "9301/22500",
+          "slack": "-2269/5625",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3723/8000",
+          "exact_exclusion_value": "4213/10000",
+          "forced_price_upper": "3723/8000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "7/100",
+          "gain_bound": "0",
+          "slack": "7/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "3163/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3243/8000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-4-factor-1",
+      "family": 4,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "73/100",
+            "49/100",
+            "11/25",
+            "9/25",
+            "53/100",
+            "1/5"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2/3",
+            "8/3",
+            "4/3",
+            "0",
+            "4/3",
+            "1"
+          ],
+          "ceilings": [
+            "43/50",
+            "77/100",
+            "51/100",
+            "53/100",
+            "11/20",
+            "7/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "1/20",
+          "7/100",
+          "0",
+          "2/25",
+          "144101/180000",
+          "1/100",
+          "7/100"
+        ],
+        "promise": "11/40",
+        "budget": 3
+      },
+      "target": "1/2",
+      "multiplier": "1",
+      "exact_value": "3723/8000",
+      "incumbent_seconds": 0.021291966000035245,
+      "envelope_seconds": 0.0003231229999300922,
+      "forced_test_and_check_seconds": 0.03689323899993724,
+      "enumeration_seconds": 0.023673411999993732,
+      "envelope_removed": 2,
+      "forced_removed": 6,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3243/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3323/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3323/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3403/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3163/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3243/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3723/8000",
+          "exact_exclusion_value": "14477/40000",
+          "forced_price_upper": "3803/8000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "3431/6000",
+          "slack": "-2951/6000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4213/10000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3433/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "144101/180000",
+          "gain_bound": "144101/180000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-27523/90000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "-13049/45000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "1/100",
+          "gain_bound": "9301/22500",
+          "slack": "-2269/5625",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3723/8000",
+          "exact_exclusion_value": "4213/10000",
+          "forced_price_upper": "3723/8000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "7/100",
+          "gain_bound": "0",
+          "slack": "7/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "3163/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3243/8000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-4-factor-11/10",
+      "family": 4,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "73/100",
+            "49/100",
+            "11/25",
+            "9/25",
+            "53/100",
+            "1/5"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2/3",
+            "8/3",
+            "4/3",
+            "0",
+            "4/3",
+            "1"
+          ],
+          "ceilings": [
+            "43/50",
+            "77/100",
+            "51/100",
+            "53/100",
+            "11/20",
+            "7/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "1/20",
+          "7/100",
+          "0",
+          "2/25",
+          "1585111/1800000",
+          "1/100",
+          "7/100"
+        ],
+        "promise": "11/40",
+        "budget": 3
+      },
+      "target": "1/2",
+      "multiplier": "11/10",
+      "exact_value": "3723/8000",
+      "incumbent_seconds": 0.021240080000097805,
+      "envelope_seconds": 0.00032479599997259356,
+      "forced_test_and_check_seconds": 0.03673769900001389,
+      "enumeration_seconds": 0.02391227800001161,
+      "envelope_removed": 2,
+      "forced_removed": 6,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3243/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3323/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3323/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3403/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3163/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3243/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3723/8000",
+          "exact_exclusion_value": "14477/40000",
+          "forced_price_upper": "3803/8000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "3431/6000",
+          "slack": "-2951/6000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "4213/10000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3433/8000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1585111/1800000",
+          "gain_bound": "144101/180000",
+          "slack": "144101/1800000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-694561/1800000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "-666061/1800000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "1/100",
+          "gain_bound": "9301/22500",
+          "slack": "-2269/5625",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3723/8000",
+          "exact_exclusion_value": "4213/10000",
+          "forced_price_upper": "3723/8000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "7/100",
+          "gain_bound": "0",
+          "slack": "7/100",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "3163/8000",
+          "exact_exclusion_value": "3723/8000",
+          "forced_price_upper": "3243/8000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-5-factor-9/10",
+      "family": 5,
+      "m": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "7/25",
+            "27/100",
+            "13/50",
+            "3/4",
+            "37/50",
+            "3/10"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2/3",
+            "3",
+            "7/3",
+            "4/3",
+            "5/3",
+            "2"
+          ],
+          "ceilings": [
+            "29/50",
+            "12/25",
+            "39/100",
+            "19/25",
+            "79/100",
+            "29/50"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "1/20",
+          "1/100",
+          "3/50",
+          "1/25",
+          "2/25",
+          "0",
+          "39031/80000",
+          "1/50"
+        ],
+        "promise": "39/100",
+        "budget": 4
+      },
+      "target": "3/4",
+      "multiplier": "9/10",
+      "exact_value": "1752439/3240000",
+      "incumbent_seconds": 0.006755150000003596,
+      "envelope_seconds": 0.00031670099997427315,
+      "forced_test_and_check_seconds": 0.039222907999942436,
+      "enumeration_seconds": 0.056331556000031924,
+      "envelope_removed": 1,
+      "forced_removed": 5,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 5,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "162211/324000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "162211/324000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "828713/1620000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "24862/50625",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "24862/50625",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "828713/1620000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "828713/1620000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "80057/120000",
+          "slack": "-70457/120000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "13091153/26610000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "0",
+          "gain_bound": "3019/5000",
+          "slack": "-3019/5000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "16519/40000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "39031/80000",
+          "gain_bound": "39031/72000",
+          "slack": "-39031/720000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "81241/640000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "40451/240000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "1/50",
+          "gain_bound": "0",
+          "slack": "1/50",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "1687639/3240000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "1687639/3240000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-5-factor-1",
+      "family": 5,
+      "m": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "7/25",
+            "27/100",
+            "13/50",
+            "3/4",
+            "37/50",
+            "3/10"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2/3",
+            "3",
+            "7/3",
+            "4/3",
+            "5/3",
+            "2"
+          ],
+          "ceilings": [
+            "29/50",
+            "12/25",
+            "39/100",
+            "19/25",
+            "79/100",
+            "29/50"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "1/20",
+          "1/100",
+          "3/50",
+          "1/25",
+          "2/25",
+          "0",
+          "39031/72000",
+          "1/50"
+        ],
+        "promise": "39/100",
+        "budget": 4
+      },
+      "target": "3/4",
+      "multiplier": "1",
+      "exact_value": "1752439/3240000",
+      "incumbent_seconds": 0.006787499999973079,
+      "envelope_seconds": 0.0003419380000195815,
+      "forced_test_and_check_seconds": 0.03948394500002905,
+      "enumeration_seconds": 0.05616541500000949,
+      "envelope_removed": 2,
+      "forced_removed": 5,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 5,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "162211/324000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "162211/324000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "828713/1620000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "24862/50625",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "24862/50625",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "828713/1620000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "828713/1620000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "80057/120000",
+          "slack": "-70457/120000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "13091153/26610000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "0",
+          "gain_bound": "3019/5000",
+          "slack": "-3019/5000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "16519/40000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "39031/72000",
+          "gain_bound": "39031/72000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "418921/5760000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "41161/360000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/50",
+          "gain_bound": "0",
+          "slack": "1/50",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "1687639/3240000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "1687639/3240000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-5-factor-11/10",
+      "family": 5,
+      "m": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "7/25",
+            "27/100",
+            "13/50",
+            "3/4",
+            "37/50",
+            "3/10"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "2/3",
+            "3",
+            "7/3",
+            "4/3",
+            "5/3",
+            "2"
+          ],
+          "ceilings": [
+            "29/50",
+            "12/25",
+            "39/100",
+            "19/25",
+            "79/100",
+            "29/50"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "1/20",
+          "1/100",
+          "3/50",
+          "1/25",
+          "2/25",
+          "0",
+          "429341/720000",
+          "1/50"
+        ],
+        "promise": "39/100",
+        "budget": 4
+      },
+      "target": "3/4",
+      "multiplier": "11/10",
+      "exact_value": "1752439/3240000",
+      "incumbent_seconds": 0.006775769000000764,
+      "envelope_seconds": 0.00032067899996945926,
+      "forced_test_and_check_seconds": 0.03970306500002607,
+      "enumeration_seconds": 0.055638432000023386,
+      "envelope_removed": 2,
+      "forced_removed": 5,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 5,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "1/20",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "162211/324000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "162211/324000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "1/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "828713/1620000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "24862/50625",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "24862/50625",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "828713/1620000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "828713/1620000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "2/25",
+          "gain_bound": "80057/120000",
+          "slack": "-70457/120000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "13091153/26610000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "0",
+          "gain_bound": "3019/5000",
+          "slack": "-3019/5000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "1752439/3240000",
+          "exact_exclusion_value": "16519/40000",
+          "forced_price_upper": "1752439/3240000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "429341/720000",
+          "gain_bound": "39031/72000",
+          "slack": "39031/720000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "106673/5760000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "43291/720000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "1/50",
+          "gain_bound": "0",
+          "slack": "1/50",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "1687639/3240000",
+          "exact_exclusion_value": "1752439/3240000",
+          "forced_price_upper": "1687639/3240000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-6-factor-9/10",
+      "family": 6,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "11/25",
+            "7/10",
+            "2/5",
+            "13/50",
+            "21/50",
+            "16/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "5/3",
+            "5/3",
+            "10/3",
+            "4/3",
+            "3",
+            "7/3"
+          ],
+          "ceilings": [
+            "29/50",
+            "4/5",
+            "31/50",
+            "29/100",
+            "9/20",
+            "37/50"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "3/100",
+          "0",
+          "7/100",
+          "1/100",
+          "6717/10000",
+          "1/100",
+          "1/25"
+        ],
+        "promise": "143/1000",
+        "budget": 2
+      },
+      "target": "1/2",
+      "multiplier": "9/10",
+      "exact_value": "12963/50000",
+      "incumbent_seconds": 0.02423199499992279,
+      "envelope_seconds": 0.0002850419999731457,
+      "forced_test_and_check_seconds": 0.03562128499993378,
+      "enumeration_seconds": 0.00662527700001192,
+      "envelope_removed": 1,
+      "forced_removed": 5,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3891/20000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "10463/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "45381/200000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "11963/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12963/50000",
+          "exact_exclusion_value": "45381/200000",
+          "forced_price_upper": "13463/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "19397/100000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "10233/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/100",
+          "gain_bound": "4031/6000",
+          "slack": "-3971/6000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12963/50000",
+          "exact_exclusion_value": "48117/200000",
+          "forced_price_upper": "12963/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "6717/10000",
+          "gain_bound": "2239/3000",
+          "slack": "-2239/30000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-20537/50000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "-10061/25000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "1/100",
+          "gain_bound": "371/1440",
+          "slack": "-1783/7200",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "48117/200000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "12963/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "1/25",
+          "gain_bound": "0",
+          "slack": "1/25",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "336251/2750000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "307/2500",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-6-factor-1",
+      "family": 6,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "11/25",
+            "7/10",
+            "2/5",
+            "13/50",
+            "21/50",
+            "16/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "5/3",
+            "5/3",
+            "10/3",
+            "4/3",
+            "3",
+            "7/3"
+          ],
+          "ceilings": [
+            "29/50",
+            "4/5",
+            "31/50",
+            "29/100",
+            "9/20",
+            "37/50"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "3/100",
+          "0",
+          "7/100",
+          "1/100",
+          "2239/3000",
+          "1/100",
+          "1/25"
+        ],
+        "promise": "143/1000",
+        "budget": 2
+      },
+      "target": "1/2",
+      "multiplier": "1",
+      "exact_value": "12963/50000",
+      "incumbent_seconds": 0.023187875999951757,
+      "envelope_seconds": 0.00028300799999669835,
+      "forced_test_and_check_seconds": 0.03570314800003871,
+      "enumeration_seconds": 0.006575945999998112,
+      "envelope_removed": 2,
+      "forced_removed": 5,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3891/20000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "10463/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "45381/200000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "11963/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12963/50000",
+          "exact_exclusion_value": "45381/200000",
+          "forced_price_upper": "13463/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "19397/100000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "10233/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/100",
+          "gain_bound": "4031/6000",
+          "slack": "-3971/6000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12963/50000",
+          "exact_exclusion_value": "48117/200000",
+          "forced_price_upper": "12963/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "2239/3000",
+          "gain_bound": "2239/3000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-36403/75000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "-71561/150000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "1/100",
+          "gain_bound": "371/1440",
+          "slack": "-1783/7200",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "48117/200000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "12963/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "1/25",
+          "gain_bound": "0",
+          "slack": "1/25",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "336251/2750000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "307/2500",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-6-factor-11/10",
+      "family": 6,
+      "m": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "11/25",
+            "7/10",
+            "2/5",
+            "13/50",
+            "21/50",
+            "16/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "5/3",
+            "5/3",
+            "10/3",
+            "4/3",
+            "3",
+            "7/3"
+          ],
+          "ceilings": [
+            "29/50",
+            "4/5",
+            "31/50",
+            "29/100",
+            "9/20",
+            "37/50"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "3/50",
+          "3/100",
+          "0",
+          "7/100",
+          "1/100",
+          "24629/30000",
+          "1/100",
+          "1/25"
+        ],
+        "promise": "143/1000",
+        "budget": 2
+      },
+      "target": "1/2",
+      "multiplier": "11/10",
+      "exact_value": "12963/50000",
+      "incumbent_seconds": 0.023208664999970097,
+      "envelope_seconds": 0.00029499000004307163,
+      "forced_test_and_check_seconds": 0.03669722400002229,
+      "enumeration_seconds": 0.006505474000050526,
+      "envelope_removed": 2,
+      "forced_removed": 5,
+      "forced_anchor_removed": 3,
+      "strictly_irrelevant": 6,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "3/50",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "3891/20000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "10463/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "3/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "45381/200000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "11963/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12963/50000",
+          "exact_exclusion_value": "45381/200000",
+          "forced_price_upper": "13463/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "7/100",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "19397/100000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "10233/50000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "1/100",
+          "gain_bound": "4031/6000",
+          "slack": "-3971/6000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "12963/50000",
+          "exact_exclusion_value": "48117/200000",
+          "forced_price_upper": "12963/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "24629/30000",
+          "gain_bound": "2239/3000",
+          "slack": "2239/30000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-84001/150000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "-20689/37500",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "3/4",
+          "charge": "1/100",
+          "gain_bound": "371/1440",
+          "slack": "-1783/7200",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "48117/200000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "12963/50000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "1/25",
+          "gain_bound": "0",
+          "slack": "1/25",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "336251/2750000",
+          "exact_exclusion_value": "12963/50000",
+          "forced_price_upper": "307/2500",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-7-factor-9/10",
+      "family": 7,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "73/100",
+            "37/50",
+            "17/25",
+            "2/5",
+            "11/25",
+            "6/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "3",
+            "8/3",
+            "1/3",
+            "8/3",
+            "10/3",
+            "1"
+          ],
+          "ceilings": [
+            "41/50",
+            "83/100",
+            "47/50",
+            "23/50",
+            "29/50",
+            "8/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "0",
+          "0",
+          "1/25",
+          "3/100",
+          "1/20",
+          "153009/200000",
+          "3/50"
+        ],
+        "promise": "323/1000",
+        "budget": 3
+      },
+      "target": "3/4",
+      "multiplier": "9/10",
+      "exact_value": "6507/12500",
+      "incumbent_seconds": 0.07015790599996308,
+      "envelope_seconds": 0.0003410770000300545,
+      "forced_test_and_check_seconds": 0.03708571899994695,
+      "enumeration_seconds": 0.02456029799998305,
+      "envelope_removed": 1,
+      "forced_removed": 2,
+      "forced_anchor_removed": 0,
+      "strictly_irrelevant": 4,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "103581/200000",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "48587/100000",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "13549/25000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "3/100",
+          "gain_bound": "5981/7500",
+          "slack": "-1439/1875",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "637/1250",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "14089/25000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/20",
+          "gain_bound": "968/1125",
+          "slack": "-3647/4500",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6654619/13150000",
+          "forced_price_upper": "6507/12500",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "153009/200000",
+          "gain_bound": "17001/20000",
+          "slack": "-17001/200000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-20957/100000",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "-38897/200000",
+          "forced_screen": true,
+          "envelope_screen": false
+        },
+        {
+          "command": "1",
+          "charge": "3/50",
+          "gain_bound": "0",
+          "slack": "3/50",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "5757/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "7433/15000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-7-factor-1",
+      "family": 7,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "73/100",
+            "37/50",
+            "17/25",
+            "2/5",
+            "11/25",
+            "6/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "3",
+            "8/3",
+            "1/3",
+            "8/3",
+            "10/3",
+            "1"
+          ],
+          "ceilings": [
+            "41/50",
+            "83/100",
+            "47/50",
+            "23/50",
+            "29/50",
+            "8/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "0",
+          "0",
+          "1/25",
+          "3/100",
+          "1/20",
+          "17001/20000",
+          "3/50"
+        ],
+        "promise": "323/1000",
+        "budget": 3
+      },
+      "target": "3/4",
+      "multiplier": "1",
+      "exact_value": "6507/12500",
+      "incumbent_seconds": 0.06983607500001199,
+      "envelope_seconds": 0.00033410399998956564,
+      "forced_test_and_check_seconds": 0.03760789400007525,
+      "enumeration_seconds": 0.024439322000034736,
+      "envelope_removed": 2,
+      "forced_removed": 2,
+      "forced_anchor_removed": 0,
+      "strictly_irrelevant": 4,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "103581/200000",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "48587/100000",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "13549/25000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "3/100",
+          "gain_bound": "5981/7500",
+          "slack": "-1439/1875",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "637/1250",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "14089/25000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/20",
+          "gain_bound": "968/1125",
+          "slack": "-3647/4500",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6654619/13150000",
+          "forced_price_upper": "6507/12500",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "17001/20000",
+          "gain_bound": "17001/20000",
+          "slack": "0",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-11783/40000",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "-27949/100000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "3/50",
+          "gain_bound": "0",
+          "slack": "3/50",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "5757/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "7433/15000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    },
+    {
+      "id": "family-7-factor-11/10",
+      "family": 7,
+      "m": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "73/100",
+            "37/50",
+            "17/25",
+            "2/5",
+            "11/25",
+            "6/25"
+          ],
+          "weights": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "gamma": [
+            "3",
+            "8/3",
+            "1/3",
+            "8/3",
+            "10/3",
+            "1"
+          ],
+          "ceilings": [
+            "41/50",
+            "83/100",
+            "47/50",
+            "23/50",
+            "29/50",
+            "8/25"
+          ],
+          "reward_r": [
+            "2",
+            "2",
+            "2",
+            "2",
+            "2",
+            "2"
+          ],
+          "reward_q": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ]
+        },
+        "catalog": [
+          "0",
+          "3/100",
+          "3/50",
+          "3/25",
+          "3/10",
+          "1/2",
+          "3/4",
+          "1"
+        ],
+        "charges": [
+          "0",
+          "0",
+          "0",
+          "1/25",
+          "3/100",
+          "1/20",
+          "187011/200000",
+          "3/50"
+        ],
+        "promise": "323/1000",
+        "budget": 3
+      },
+      "target": "3/4",
+      "multiplier": "11/10",
+      "exact_value": "6507/12500",
+      "incumbent_seconds": 0.07027842799993778,
+      "envelope_seconds": 0.0003367289999687273,
+      "forced_test_and_check_seconds": 0.037364409000019805,
+      "enumeration_seconds": 0.024540670999954273,
+      "envelope_removed": 2,
+      "forced_removed": 2,
+      "forced_anchor_removed": 0,
+      "strictly_irrelevant": 4,
+      "entries": [
+        {
+          "command": "0",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/100",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/50",
+          "charge": "0",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "103581/200000",
+          "forced_price_upper": "1783/3125",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/25",
+          "charge": "1/25",
+          "gain_bound": null,
+          "slack": null,
+          "possible_anchor": true,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "48587/100000",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "13549/25000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/10",
+          "charge": "3/100",
+          "gain_bound": "5981/7500",
+          "slack": "-1439/1875",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "637/1250",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "14089/25000",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "1/2",
+          "charge": "1/20",
+          "gain_bound": "968/1125",
+          "slack": "-3647/4500",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "6507/12500",
+          "exact_exclusion_value": "6654619/13150000",
+          "forced_price_upper": "6507/12500",
+          "forced_screen": false,
+          "envelope_screen": false
+        },
+        {
+          "command": "3/4",
+          "charge": "187011/200000",
+          "gain_bound": "17001/20000",
+          "slack": "17001/200000",
+          "possible_anchor": false,
+          "wholly_ineligible": false,
+          "exact_inclusion_value": "-18979/50000",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "-72899/200000",
+          "forced_screen": true,
+          "envelope_screen": true
+        },
+        {
+          "command": "1",
+          "charge": "3/50",
+          "gain_bound": "0",
+          "slack": "3/50",
+          "possible_anchor": false,
+          "wholly_ineligible": true,
+          "exact_inclusion_value": "5757/12500",
+          "exact_exclusion_value": "6507/12500",
+          "forced_price_upper": "7433/15000",
+          "forced_screen": true,
+          "envelope_screen": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-09-25T23:06:55.050107+00:00",
+  "timed_runs": 172,
+  "initial_study_runs": 142,
+  "anytime_runs": 10,
+  "challenge_runs": 20,
+  "checked_price_certificates": 44,
+  "initial_method_outcomes": {
+    "price": {
+      "TOLERANCE": 19,
+      "EXACT": 10,
+      "TIME_LIMIT": 1
+    },
+    "uniform": {
+      "TIME_LIMIT": 25,
+      "TOLERANCE": 1
+    },
+    "enumeration": {
+      "TIME_LIMIT": 18,
+      "EXACT": 12
+    },
+    "classbox": {
+      "COMPLETE": 3,
+      "TIME_LIMIT": 23
+    },
+    "mip": {
+      "TIME_LIMIT": 14,
+      "NUMERICAL": 16
+    }
+  },
+  "anytime_outcomes": {
+    "EXACT": 10
+  },
+  "challenge_outcomes": {
+    "price": {
+      "EXACT": 1,
+      "TIME_LIMIT": 3
+    },
+    "uniform": {
+      "TIME_LIMIT": 4
+    },
+    "enumeration": {
+      "EXACT": 1,
+      "TIME_LIMIT": 3
+    },
+    "classbox": {
+      "TIME_LIMIT": 4
+    },
+    "mip": {
+      "NUMERICAL": 3,
+      "TIME_LIMIT": 1
+    }
+  },
+  "regression": {
+    "status": "PASS",
+    "common_cap_certificates": 60,
+    "oversized_budget_binding": "PASS",
+    "models": 130,
+    "fixed_books": 2644,
+    "oracle_comparisons": 390,
+    "global_certificates": 130,
+    "nested_allocations": 2035,
+    "rearrangement_inequalities": 2035,
+    "heterogeneous_packing_checks": 2644,
+    "optimal_component_equalities": 2644,
+    "common_cap_models": 60,
+    "common_cap_mixed_eligibility": 40,
+    "heterogeneous_models": 30,
+    "rejected_corruptions": [
+      "wrong instance",
+      "wrong global bound",
+      "wrong lower",
+      "missing branch",
+      "invalid split",
+      "bad lottery",
+      "wrong root target",
+      "negative service",
+      "false leaf price bound"
+    ],
+    "unsupported_optimum": "PASS",
+    "interrupted_cover": "PASS"
+  },
+  "hardness_regression": {
+    "status": "PASS",
+    "models": 60,
+    "optional_subsets": 1692,
+    "full_catalog_books": 3004,
+    "yes_cases": 34,
+    "no_cases": 26
+  },
+  "screening_cases": 24,
+  "forced_anchor_removals": 45,
+  "protocol_sha256": {
+    "PROTOCOL_HARDNESS_ADDENDUM.json": "f9bc540aaa218e7e174b1167ae875cf3ee61775dc5f385be15b2fbe84a009b61",
+    "PROTOCOL.json": "e4e0ff086487004e9d447e6af4e8bcd36c0b33f40830d05f9b77bfc123a69c51"
+  },
+  "result_sha256": {
+    "REGRESSION.json": "389aba5355e6f5e503c459f7823be957058570388805bd48f85edee9dc47309e",
+    "DISPLAY_METRICS.json": "03d112d450e8094a9ba32786f813deec09b0c43727b1cc705ff1dbc2d9154672",
+    "COMMON_CAP.json": "b35d23bffbb9f282cc538e6eed3fafb60bfe1cd60a1b24e669429c85f818e488",
+    "SHARP_SCREENING.json": "670b24d9e425bfaeb11bba3c5d5201981492fb053ba7f3a6866b7219ee74c894",
+    "ANYTIME.json": "6d52f0d71d7dd6d25d6bc807ad9b550f20cf1bcf0b16b40a74be6539844ebc9a",
+    "CHALLENGE.json": "03c77b8e320c9a3e004a0b283b915054f38bebe8cb95358585198aeaeb8aa9c9",
+    "SCREENING.json": "01bc6f93ba4083df07dfaa48a6fadb1f0ed3b315371342db10a10ebb73f88a38",
+    "STUDY.json": "1cf9f640e41db727edb72518e66659f0548ba32de4f25c4863806bdc30023fa9",
+    "HARDNESS_REGRESSION.json": "5786c8e0e451a24702162061aa9674f61853ff479b3fc27523049e401a41e5de",
+    "GAP_EXAMPLE.json": "5bf9da931bc4c231a1867531e82525a007a4ee8aa2daaae07cf1dd60364913e3",
+    "SOURCE_MANIFEST.json": "e802232b78717a477c1cf95e2b2b6d44cce5dfaacbdcd54e2b521d85f0acab91",
+    "CASES.json": "e0b799573b1908965172c414c496388c3908492c50257025adc37c74f532d384",
+    "PRODUCTION.json": "98049597d31482abe0a2b91550b7248be2e1902141ddb2571dd8cf8493df1fd2"
+  },
+  "interpretation": "PASS means complete protocol accounting and checked proof records, not that every solver meets every requested tolerance. Numerical MIP, exact proofs and fallback intervals remain distinct."
+}

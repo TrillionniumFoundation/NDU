@@ -1,0 +1,3144 @@
+{
+  "status": "PASS",
+  "cases": 10,
+  "records": [
+    {
+      "id": "anytime-catalog-33",
+      "method": "price",
+      "instance_sha256": "021399ad42a2d6b1091eb8e1c2ee59ddc6d02d34d059c6cefaf374d269582547",
+      "epsilon": "0",
+      "setup_seconds": 0.005791064000050028,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "32391489/54016000",
+      "upper": "32391489/54016000",
+      "gap": "0",
+      "seconds": 1.1079737309999018,
+      "nodes": 3,
+      "oracle_calls": 26,
+      "trace": [
+        {
+          "seconds": 0.08849493599996094,
+          "lower": "40797980863991/86159706240000",
+          "upper": "34345321287/56986880000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.14731250599993473,
+          "lower": "15995503/27008000",
+          "upper": "34345321287/56986880000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.1974894109999923,
+          "lower": "32391489/54016000",
+          "upper": "32450069/54016000",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.2476987759999929,
+          "lower": "32391489/54016000",
+          "upper": "32402191/54016000",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.29965802899994287,
+          "lower": "32391489/54016000",
+          "upper": "32402191/54016000",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.34947123500001,
+          "lower": "32391489/54016000",
+          "upper": "32402191/54016000",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.3991813689999617,
+          "lower": "32391489/54016000",
+          "upper": "64797623/108032000",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.4497791489999372,
+          "lower": "32391489/54016000",
+          "upper": "64797623/108032000",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.5004900409999209,
+          "lower": "32391489/54016000",
+          "upper": "518359111/864256000",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.5503139069999179,
+          "lower": "32391489/54016000",
+          "upper": "518359111/864256000",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.6001600639999651,
+          "lower": "32391489/54016000",
+          "upper": "1036718033/1728512000",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.6503645709999546,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.6536534919999895,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.6567534710000018,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 2,
+          "oracle_calls": 13
+        },
+        {
+          "seconds": 0.6624198920000026,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 2,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.6692931860000044,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 2,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.675334907999968,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 2,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.6790550039999061,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.7390977420000127,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.7906868839999106,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.8416819560000022,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 20
+        },
+        {
+          "seconds": 0.8930910619999395,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 21
+        },
+        {
+          "seconds": 0.9007608739999569,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 22
+        },
+        {
+          "seconds": 0.951969925999947,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 23
+        },
+        {
+          "seconds": 1.0037949489999392,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 24
+        },
+        {
+          "seconds": 1.0556161739999652,
+          "lower": "32391489/54016000",
+          "upper": "4146847573/6914048000",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 1.1071172009999373,
+          "lower": "32391489/54016000",
+          "upper": "32391489/54016000",
+          "nodes": 3,
+          "oracle_calls": 26
+        },
+        {
+          "seconds": 1.1071943359999068,
+          "lower": "32391489/54016000",
+          "upper": "32391489/54016000",
+          "nodes": 3,
+          "oracle_calls": 26
+        }
+      ],
+      "algorithm_seconds": 1.1105061590000105,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-catalog-33--price.json.gz",
+      "certificate_bytes": 1147,
+      "uncompressed_certificate_bytes": 4710,
+      "verification": {
+        "status": "PASS",
+        "lower": "32391489/54016000",
+        "upper": "32391489/54016000",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 2,
+        "splits": 1,
+        "prices": 2,
+        "seconds": 0.09380302800002482,
+        "instance_sha256": "021399ad42a2d6b1091eb8e1c2ee59ddc6d02d34d059c6cefaf374d269582547"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.09391730100003315,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-catalog-65",
+      "method": "price",
+      "instance_sha256": "0c2a90d48c64b2e3c30065cb776b805b6f3599370c6792f1be34217c12bfee0e",
+      "epsilon": "0",
+      "setup_seconds": 0.006037213000013253,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "65540331/108032000",
+      "upper": "65540331/108032000",
+      "gap": "0",
+      "seconds": 0.7908730560000095,
+      "nodes": 1,
+      "oracle_calls": 4,
+      "trace": [
+        {
+          "seconds": 0.2949672060000239,
+          "lower": "9325105001993/16553332838400",
+          "upper": "69341154093/113973760000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.4740390940000907,
+          "lower": "16065967/27008000",
+          "upper": "69341154093/113973760000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.6324632080001038,
+          "lower": "65540331/108032000",
+          "upper": "32798903/54016000",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.790005777000033,
+          "lower": "65540331/108032000",
+          "upper": "65540331/108032000",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.7900747050000518,
+          "lower": "65540331/108032000",
+          "upper": "65540331/108032000",
+          "nodes": 1,
+          "oracle_calls": 4
+        }
+      ],
+      "algorithm_seconds": 0.7934219049999456,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-catalog-65--price.json.gz",
+      "certificate_bytes": 1157,
+      "uncompressed_certificate_bytes": 5115,
+      "verification": {
+        "status": "PASS",
+        "lower": "65540331/108032000",
+        "upper": "65540331/108032000",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 1,
+        "splits": 0,
+        "prices": 1,
+        "seconds": 0.10884305000001859,
+        "instance_sha256": "0c2a90d48c64b2e3c30065cb776b805b6f3599370c6792f1be34217c12bfee0e"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.1089916580000363,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-budget-8",
+      "method": "price",
+      "instance_sha256": "163fe8b7cd78da679b079ab568cbae370124c5098ee018a7497b3bf80141ea6e",
+      "epsilon": "0",
+      "setup_seconds": 0.005760974000054375,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "1011783/1688000",
+      "upper": "1011783/1688000",
+      "gap": "0",
+      "seconds": 0.7947437169999603,
+      "nodes": 7,
+      "oracle_calls": 44,
+      "trace": [
+        {
+          "seconds": 0.05624675699993986,
+          "lower": "18857826333/43226515000",
+          "upper": "535823207/890420000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.09714826899994478,
+          "lower": "200491/337600",
+          "upper": "535823207/890420000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.13230256199994983,
+          "lower": "200491/337600",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.16734104900001512,
+          "lower": "200491/337600",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.2030963239999437,
+          "lower": "200491/337600",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.23803103799991732,
+          "lower": "3007567/5064000",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.27262578699992446,
+          "lower": "1011783/1688000",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.30618655599994327,
+          "lower": "1011783/1688000",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.3394699959999343,
+          "lower": "1011783/1688000",
+          "upper": "2430007/4051200",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.3751786349999975,
+          "lower": "1011783/1688000",
+          "upper": "1012383/1688000",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.4088971379999293,
+          "lower": "1011783/1688000",
+          "upper": "1012283/1688000",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.44227724899997156,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.44563877399991725,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.44893709199993737,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 2,
+          "oracle_calls": 13
+        },
+        {
+          "seconds": 0.4520558030000075,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.4590434769999092,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.4671627839999246,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.4746831619999057,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.4836357639999278,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.4917284409999638,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.49903413899994575,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 20
+        },
+        {
+          "seconds": 0.5057505559999527,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 21
+        },
+        {
+          "seconds": 0.5120699429999149,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 22
+        },
+        {
+          "seconds": 0.5186198299999205,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 23
+        },
+        {
+          "seconds": 0.5251149639999539,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 24
+        },
+        {
+          "seconds": 0.5314677939999228,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.5347052569999278,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.5377696780000178,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 26
+        },
+        {
+          "seconds": 0.5445926439999766,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 27
+        },
+        {
+          "seconds": 0.5526532210000141,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 28
+        },
+        {
+          "seconds": 0.5601236359999575,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 29
+        },
+        {
+          "seconds": 0.5689104289999705,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 30
+        },
+        {
+          "seconds": 0.5774556100000154,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 31
+        },
+        {
+          "seconds": 0.5852533259999291,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 32
+        },
+        {
+          "seconds": 0.5919224959999383,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 33
+        },
+        {
+          "seconds": 0.5983836969999174,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 34
+        },
+        {
+          "seconds": 0.6312873389999822,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 35
+        },
+        {
+          "seconds": 0.6642136629999413,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 36
+        },
+        {
+          "seconds": 0.6972115610000174,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.7003895340000099,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.703661340999929,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 5,
+          "oracle_calls": 38
+        },
+        {
+          "seconds": 0.7067207629999075,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 39
+        },
+        {
+          "seconds": 0.7132006790000105,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 40
+        },
+        {
+          "seconds": 0.7486434410000129,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 41
+        },
+        {
+          "seconds": 0.7834050509999315,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 42
+        },
+        {
+          "seconds": 0.7906818449999946,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 43
+        },
+        {
+          "seconds": 0.793850851000002,
+          "lower": "1011783/1688000",
+          "upper": "1011783/1688000",
+          "nodes": 7,
+          "oracle_calls": 44
+        },
+        {
+          "seconds": 0.7939627999999175,
+          "lower": "1011783/1688000",
+          "upper": "1011783/1688000",
+          "nodes": 7,
+          "oracle_calls": 44
+        }
+      ],
+      "algorithm_seconds": 0.7970886959999461,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-budget-8--price.json.gz",
+      "certificate_bytes": 1097,
+      "uncompressed_certificate_bytes": 4812,
+      "verification": {
+        "status": "PASS",
+        "lower": "1011783/1688000",
+        "upper": "1011783/1688000",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 4,
+        "splits": 3,
+        "prices": 2,
+        "seconds": 0.08299506900004872,
+        "instance_sha256": "163fe8b7cd78da679b079ab568cbae370124c5098ee018a7497b3bf80141ea6e"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.08307325500004481,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-budget-12",
+      "method": "price",
+      "instance_sha256": "09524919ca6a946da8e234bd33fc84e639923103ddc193bc259d02292ec98f6b",
+      "epsilon": "0",
+      "setup_seconds": 0.005737780999993447,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "1011783/1688000",
+      "upper": "1011783/1688000",
+      "gap": "0",
+      "seconds": 0.8006930130000001,
+      "nodes": 7,
+      "oracle_calls": 44,
+      "trace": [
+        {
+          "seconds": 0.056885749999992186,
+          "lower": "18857826333/43226515000",
+          "upper": "535823207/890420000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.09824954399994112,
+          "lower": "200491/337600",
+          "upper": "535823207/890420000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.13340343699996993,
+          "lower": "200491/337600",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.1677701699999261,
+          "lower": "200491/337600",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.20360417199992753,
+          "lower": "200491/337600",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.23862364399997205,
+          "lower": "3007567/5064000",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.27310784600001625,
+          "lower": "1011783/1688000",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.3070587429999705,
+          "lower": "1011783/1688000",
+          "upper": "1012583/1688000",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.3404201800000237,
+          "lower": "1011783/1688000",
+          "upper": "2430007/4051200",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.37617467400002624,
+          "lower": "1011783/1688000",
+          "upper": "1012383/1688000",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.4097804670000187,
+          "lower": "1011783/1688000",
+          "upper": "1012283/1688000",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.44301360399992973,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.4462521689999903,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.44973700399998506,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 2,
+          "oracle_calls": 13
+        },
+        {
+          "seconds": 0.4530715490000148,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.4603047919999881,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.4686236709999321,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.47630667299995366,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.48530954900002143,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.4935797470000125,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.5011655270000119,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 20
+        },
+        {
+          "seconds": 0.5081383140000071,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 21
+        },
+        {
+          "seconds": 0.5147857429999476,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 22
+        },
+        {
+          "seconds": 0.521527127000013,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 23
+        },
+        {
+          "seconds": 0.5282426429999987,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 24
+        },
+        {
+          "seconds": 0.5348435649999601,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.5381697139999915,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.5414408499999581,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 26
+        },
+        {
+          "seconds": 0.5485070710000173,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 27
+        },
+        {
+          "seconds": 0.5567362629999479,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 28
+        },
+        {
+          "seconds": 0.5643608550000181,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 29
+        },
+        {
+          "seconds": 0.573345136999933,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 30
+        },
+        {
+          "seconds": 0.5820613370000274,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 31
+        },
+        {
+          "seconds": 0.5900001369999472,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 32
+        },
+        {
+          "seconds": 0.5968759720000207,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 33
+        },
+        {
+          "seconds": 0.6034295559999237,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 34
+        },
+        {
+          "seconds": 0.6365802689999782,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 35
+        },
+        {
+          "seconds": 0.6693954559999611,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 36
+        },
+        {
+          "seconds": 0.702321680999944,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.7054642269999931,
+          "lower": "1011783/1688000",
+          "upper": "19435733/32409600",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.7089414779999288,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 5,
+          "oracle_calls": 38
+        },
+        {
+          "seconds": 0.7121531230000073,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 39
+        },
+        {
+          "seconds": 0.7188290650000226,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 40
+        },
+        {
+          "seconds": 0.7541991509999662,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 41
+        },
+        {
+          "seconds": 0.7890716289999773,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 42
+        },
+        {
+          "seconds": 0.7964822619999268,
+          "lower": "1011783/1688000",
+          "upper": "1011983/1688000",
+          "nodes": 6,
+          "oracle_calls": 43
+        },
+        {
+          "seconds": 0.7997970399999303,
+          "lower": "1011783/1688000",
+          "upper": "1011783/1688000",
+          "nodes": 7,
+          "oracle_calls": 44
+        },
+        {
+          "seconds": 0.7999114839999493,
+          "lower": "1011783/1688000",
+          "upper": "1011783/1688000",
+          "nodes": 7,
+          "oracle_calls": 44
+        }
+      ],
+      "algorithm_seconds": 0.8030289939999875,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-budget-12--price.json.gz",
+      "certificate_bytes": 1097,
+      "uncompressed_certificate_bytes": 4813,
+      "verification": {
+        "status": "PASS",
+        "lower": "1011783/1688000",
+        "upper": "1011783/1688000",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 4,
+        "splits": 3,
+        "prices": 2,
+        "seconds": 0.09084597500009295,
+        "instance_sha256": "09524919ca6a946da8e234bd33fc84e639923103ddc193bc259d02292ec98f6b"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.09092691600005764,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-historical-49500",
+      "method": "price",
+      "instance_sha256": "08a2714064f9cf6d1878f43ccd72f01e61002220548fd607167ac9ca1cc51651",
+      "epsilon": "0",
+      "setup_seconds": 0.004557106999982352,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "29/96",
+      "upper": "29/96",
+      "gap": "0",
+      "seconds": 0.0484632169999486,
+      "nodes": 3,
+      "oracle_calls": 19,
+      "trace": [
+        {
+          "seconds": 0.004494860999898265,
+          "lower": "-7575701/47224000",
+          "upper": "111239/360000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.007735188999959064,
+          "lower": "29/96",
+          "upper": "111239/360000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.010768270999960805,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.014093307999928584,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.017066718999899422,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.019926115999965077,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.022689444999969055,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.02540603599993574,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.028101516999981868,
+          "lower": "29/96",
+          "upper": "733/2400",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.030814962999897944,
+          "lower": "29/96",
+          "upper": "105741137/346961920",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.033698875999903066,
+          "lower": "29/96",
+          "upper": "105741137/346961920",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.03660633399999824,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.03726500299990221,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.037855956999919727,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 2,
+          "oracle_calls": 13
+        },
+        {
+          "seconds": 0.0388959579998982,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 2,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.04011141699993459,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 2,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.04085489499993855,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 3,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.042088637999995626,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.045140644999946744,
+          "lower": "29/96",
+          "upper": "6343624207/20817715200",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.04810728299992206,
+          "lower": "29/96",
+          "upper": "29/96",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.048177493999901344,
+          "lower": "29/96",
+          "upper": "29/96",
+          "nodes": 3,
+          "oracle_calls": 19
+        }
+      ],
+      "algorithm_seconds": 0.04914838599995619,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-historical-49500--price.json.gz",
+      "certificate_bytes": 577,
+      "uncompressed_certificate_bytes": 1520,
+      "verification": {
+        "status": "PASS",
+        "lower": "29/96",
+        "upper": "29/96",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 2,
+        "splits": 1,
+        "prices": 2,
+        "seconds": 0.007705313000087699,
+        "instance_sha256": "08a2714064f9cf6d1878f43ccd72f01e61002220548fd607167ac9ca1cc51651"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.007724389000031806,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-historical-49501",
+      "method": "price",
+      "instance_sha256": "c61de54f827b3e0cd5ed19f71275ee47ee96abc890f6644f5101c2f7cd58bc5e",
+      "epsilon": "0",
+      "setup_seconds": 0.004601029000014023,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "17569/32800",
+      "upper": "17569/32800",
+      "gap": "0",
+      "seconds": 0.14644328899998982,
+      "nodes": 9,
+      "oracle_calls": 67,
+      "trace": [
+        {
+          "seconds": 0.004811921999930746,
+          "lower": "178710917/1052224000",
+          "upper": "9722231/16810000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.00859655700003259,
+          "lower": "4227/8200",
+          "upper": "9722231/16810000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.01179914599993026,
+          "lower": "17569/32800",
+          "upper": "357/656",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.014838680000025306,
+          "lower": "17569/32800",
+          "upper": "357/656",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.01776416099994549,
+          "lower": "17569/32800",
+          "upper": "357/656",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.020686365999949885,
+          "lower": "17569/32800",
+          "upper": "357/656",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.02362015199992129,
+          "lower": "17569/32800",
+          "upper": "357/656",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.02656296600002861,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.02964056099995105,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.032605725999928836,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.035570170000028156,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.038511760999995204,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.0391981619999342,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.03994823200002884,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 2,
+          "oracle_calls": 13
+        },
+        {
+          "seconds": 0.04358932899992851,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 2,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.045212959999958,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 2,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.04597709699999086,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.04732760699994287,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.04886922499997581,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.05182456199997887,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.054906945999960044,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 20
+        },
+        {
+          "seconds": 0.058007262999922204,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 21
+        },
+        {
+          "seconds": 0.06108481900002971,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 22
+        },
+        {
+          "seconds": 0.0641368459999967,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 23
+        },
+        {
+          "seconds": 0.0671885020000218,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 24
+        },
+        {
+          "seconds": 0.07012995299999147,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.0730766039999935,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 26
+        },
+        {
+          "seconds": 0.07614543299996512,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 27
+        },
+        {
+          "seconds": 0.07682519100001173,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 3,
+          "oracle_calls": 27
+        },
+        {
+          "seconds": 0.07769020599994292,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 29
+        },
+        {
+          "seconds": 0.07906835899996167,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 30
+        },
+        {
+          "seconds": 0.08060089999992215,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 31
+        },
+        {
+          "seconds": 0.08194594999997662,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 32
+        },
+        {
+          "seconds": 0.0834268249999468,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 33
+        },
+        {
+          "seconds": 0.08488857399993321,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 34
+        },
+        {
+          "seconds": 0.0863678749999508,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 35
+        },
+        {
+          "seconds": 0.0878297440000324,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 36
+        },
+        {
+          "seconds": 0.08929426800000329,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.09075378199997886,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 38
+        },
+        {
+          "seconds": 0.09213198499992359,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 39
+        },
+        {
+          "seconds": 0.09357379599998694,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 40
+        },
+        {
+          "seconds": 0.09425740300002872,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 5,
+          "oracle_calls": 40
+        },
+        {
+          "seconds": 0.09502047699993454,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 41
+        },
+        {
+          "seconds": 0.09637424400000327,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 42
+        },
+        {
+          "seconds": 0.09791237499996441,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 43
+        },
+        {
+          "seconds": 0.09927507899999455,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 44
+        },
+        {
+          "seconds": 0.10075605399993037,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 45
+        },
+        {
+          "seconds": 0.10236826300001667,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 46
+        },
+        {
+          "seconds": 0.10387731999992411,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 47
+        },
+        {
+          "seconds": 0.1053526939999756,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 48
+        },
+        {
+          "seconds": 0.1068430459999945,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 49
+        },
+        {
+          "seconds": 0.10818692499992721,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 50
+        },
+        {
+          "seconds": 0.1095166169999402,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 51
+        },
+        {
+          "seconds": 0.11099945499995556,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 52
+        },
+        {
+          "seconds": 0.11166794299992944,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 6,
+          "oracle_calls": 52
+        },
+        {
+          "seconds": 0.11243742999999995,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 53
+        },
+        {
+          "seconds": 0.11377335399993171,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 54
+        },
+        {
+          "seconds": 0.11532106300001033,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 55
+        },
+        {
+          "seconds": 0.11826949599992531,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 56
+        },
+        {
+          "seconds": 0.12134841399995366,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 57
+        },
+        {
+          "seconds": 0.12444187899995995,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 58
+        },
+        {
+          "seconds": 0.1275451819999489,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 59
+        },
+        {
+          "seconds": 0.1306454189999613,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 60
+        },
+        {
+          "seconds": 0.1337227139999868,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 61
+        },
+        {
+          "seconds": 0.13668209799993747,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 62
+        },
+        {
+          "seconds": 0.1398094859999901,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 63
+        },
+        {
+          "seconds": 0.14291694600001392,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 7,
+          "oracle_calls": 64
+        },
+        {
+          "seconds": 0.14371644899995317,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 8,
+          "oracle_calls": 65
+        },
+        {
+          "seconds": 0.14517910899996878,
+          "lower": "17569/32800",
+          "upper": "6959/12800",
+          "nodes": 8,
+          "oracle_calls": 66
+        },
+        {
+          "seconds": 0.14598919200000182,
+          "lower": "17569/32800",
+          "upper": "17569/32800",
+          "nodes": 9,
+          "oracle_calls": 67
+        },
+        {
+          "seconds": 0.14610827399997106,
+          "lower": "17569/32800",
+          "upper": "17569/32800",
+          "nodes": 9,
+          "oracle_calls": 67
+        }
+      ],
+      "algorithm_seconds": 0.14735679499995058,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-historical-49501--price.json.gz",
+      "certificate_bytes": 668,
+      "uncompressed_certificate_bytes": 2098,
+      "verification": {
+        "status": "PASS",
+        "lower": "17569/32800",
+        "upper": "17569/32800",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 5,
+        "splits": 4,
+        "prices": 5,
+        "seconds": 0.01909915299995646,
+        "instance_sha256": "c61de54f827b3e0cd5ed19f71275ee47ee96abc890f6644f5101c2f7cd58bc5e"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.019130311000026268,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-historical-49502",
+      "method": "price",
+      "instance_sha256": "47a2889058b09ec3ae235a83fe800a7ae5c855c9073da9e0bf61954ed511a93e",
+      "epsilon": "0",
+      "setup_seconds": 0.004788759000007303,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "7347/16000",
+      "upper": "7347/16000",
+      "gap": "0",
+      "seconds": 0.00788831600004869,
+      "nodes": 1,
+      "oracle_calls": 2,
+      "trace": [
+        {
+          "seconds": 0.0047842510000464245,
+          "lower": "7347/16000",
+          "upper": "7355319/16000000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.007530959000064286,
+          "lower": "7347/16000",
+          "upper": "7347/16000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.007578136999995877,
+          "lower": "7347/16000",
+          "upper": "7347/16000",
+          "nodes": 1,
+          "oracle_calls": 2
+        }
+      ],
+      "algorithm_seconds": 0.008536916000025485,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-historical-49502--price.json.gz",
+      "certificate_bytes": 526,
+      "uncompressed_certificate_bytes": 1405,
+      "verification": {
+        "status": "PASS",
+        "lower": "7347/16000",
+        "upper": "7347/16000",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 1,
+        "splits": 0,
+        "prices": 1,
+        "seconds": 0.0047797219999665685,
+        "instance_sha256": "47a2889058b09ec3ae235a83fe800a7ae5c855c9073da9e0bf61954ed511a93e"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.004795952999984365,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-historical-49503",
+      "method": "price",
+      "instance_sha256": "8caa1316810b851eb2529b0dede0284df302136d75e1342576dede132c5bc63e",
+      "epsilon": "0",
+      "setup_seconds": 0.004733525999995436,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "199/6600",
+      "upper": "199/6600",
+      "gap": "0",
+      "seconds": 0.1543244819999927,
+      "nodes": 15,
+      "oracle_calls": 97,
+      "trace": [
+        {
+          "seconds": 0.004610166000020399,
+          "lower": "-127679/2127400",
+          "upper": "4397/108900",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.0077221559999998135,
+          "lower": "199/6600",
+          "upper": "4397/108900",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.010586112000055437,
+          "lower": "199/6600",
+          "upper": "953/26400",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.01324112800000421,
+          "lower": "199/6600",
+          "upper": "953/26400",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.015727418999972542,
+          "lower": "199/6600",
+          "upper": "881/26400",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.018232324999985394,
+          "lower": "199/6600",
+          "upper": "559/17600",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.020697296999969694,
+          "lower": "199/6600",
+          "upper": "559/17600",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.02332734599997366,
+          "lower": "199/6600",
+          "upper": "559/17600",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.02598529800002325,
+          "lower": "199/6600",
+          "upper": "559/17600",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.0286578059999556,
+          "lower": "199/6600",
+          "upper": "26747/844800",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.031163654000010865,
+          "lower": "199/6600",
+          "upper": "26747/844800",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.03389399100001356,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.03439523700001246,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.03504369699999188,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.03596354399996926,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.037162092000016855,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.03820889600001465,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.03910783399999218,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.0400138050000578,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.04090208299999176,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 20
+        },
+        {
+          "seconds": 0.04193229700001666,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 21
+        },
+        {
+          "seconds": 0.04297071500002403,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 22
+        },
+        {
+          "seconds": 0.04402564400004394,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 23
+        },
+        {
+          "seconds": 0.04491721800002324,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 24
+        },
+        {
+          "seconds": 0.045973200000048564,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.046426906999954554,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.04696981999995842,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 26
+        },
+        {
+          "seconds": 0.04788536900002782,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 27
+        },
+        {
+          "seconds": 0.04908214299996416,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 28
+        },
+        {
+          "seconds": 0.0501242990000037,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 29
+        },
+        {
+          "seconds": 0.0510185079999701,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 30
+        },
+        {
+          "seconds": 0.05190397100000155,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 31
+        },
+        {
+          "seconds": 0.05276825400005691,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 32
+        },
+        {
+          "seconds": 0.053784911999969154,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 33
+        },
+        {
+          "seconds": 0.05480005699996582,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 34
+        },
+        {
+          "seconds": 0.055839026000057856,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 35
+        },
+        {
+          "seconds": 0.056712847999961014,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 36
+        },
+        {
+          "seconds": 0.05775447200005601,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.05821828800003459,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.05874949899998683,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 38
+        },
+        {
+          "seconds": 0.05966242399995281,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 39
+        },
+        {
+          "seconds": 0.06094335500006309,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 40
+        },
+        {
+          "seconds": 0.06349509799997577,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 41
+        },
+        {
+          "seconds": 0.06621297200001663,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 42
+        },
+        {
+          "seconds": 0.06889180300004227,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 43
+        },
+        {
+          "seconds": 0.07155288000001292,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 44
+        },
+        {
+          "seconds": 0.07421392699995977,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 45
+        },
+        {
+          "seconds": 0.07692020900003627,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 46
+        },
+        {
+          "seconds": 0.0794027440000491,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 47
+        },
+        {
+          "seconds": 0.08206933099995695,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 48
+        },
+        {
+          "seconds": 0.08473754199997074,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 49
+        },
+        {
+          "seconds": 0.08521280900004058,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 5,
+          "oracle_calls": 49
+        },
+        {
+          "seconds": 0.08575900899995759,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 50
+        },
+        {
+          "seconds": 0.0866663320000498,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 51
+        },
+        {
+          "seconds": 0.08792293800001971,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 52
+        },
+        {
+          "seconds": 0.08881054500000118,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 53
+        },
+        {
+          "seconds": 0.08991436600001634,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 54
+        },
+        {
+          "seconds": 0.09097406399996544,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 55
+        },
+        {
+          "seconds": 0.09202042699996582,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 56
+        },
+        {
+          "seconds": 0.09305270400000154,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 57
+        },
+        {
+          "seconds": 0.09410016900005758,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 58
+        },
+        {
+          "seconds": 0.09497574399995301,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 59
+        },
+        {
+          "seconds": 0.09601538499998696,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 60
+        },
+        {
+          "seconds": 0.09705159899999671,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 61
+        },
+        {
+          "seconds": 0.097507008999969,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 6,
+          "oracle_calls": 61
+        },
+        {
+          "seconds": 0.09806186499997693,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 62
+        },
+        {
+          "seconds": 0.09898949600005835,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 63
+        },
+        {
+          "seconds": 0.10030054399999244,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 64
+        },
+        {
+          "seconds": 0.10281736199999614,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 65
+        },
+        {
+          "seconds": 0.1055044080000016,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 66
+        },
+        {
+          "seconds": 0.10817012400002568,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 67
+        },
+        {
+          "seconds": 0.11081054299995685,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 68
+        },
+        {
+          "seconds": 0.11348785100005898,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 69
+        },
+        {
+          "seconds": 0.11600180400000681,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 70
+        },
+        {
+          "seconds": 0.11850026800004798,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 71
+        },
+        {
+          "seconds": 0.12118813500001124,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 72
+        },
+        {
+          "seconds": 0.12368318300002556,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 73
+        },
+        {
+          "seconds": 0.12432425999998031,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 7,
+          "oracle_calls": 73
+        },
+        {
+          "seconds": 0.12489861200003816,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 8,
+          "oracle_calls": 74
+        },
+        {
+          "seconds": 0.1259244770000123,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 8,
+          "oracle_calls": 75
+        },
+        {
+          "seconds": 0.12888851000002433,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 8,
+          "oracle_calls": 76
+        },
+        {
+          "seconds": 0.13147513800004162,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 8,
+          "oracle_calls": 77
+        },
+        {
+          "seconds": 0.1342394890000378,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 8,
+          "oracle_calls": 78
+        },
+        {
+          "seconds": 0.1347988830000304,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 9,
+          "oracle_calls": 79
+        },
+        {
+          "seconds": 0.13540508400001272,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 10,
+          "oracle_calls": 80
+        },
+        {
+          "seconds": 0.1359375680000312,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 11,
+          "oracle_calls": 81
+        },
+        {
+          "seconds": 0.13646856000002572,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 82
+        },
+        {
+          "seconds": 0.13756003699995745,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 83
+        },
+        {
+          "seconds": 0.13866950800002087,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 84
+        },
+        {
+          "seconds": 0.13963525099995877,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 85
+        },
+        {
+          "seconds": 0.140610641999956,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 86
+        },
+        {
+          "seconds": 0.14170302100001209,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 87
+        },
+        {
+          "seconds": 0.14296518699995886,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 88
+        },
+        {
+          "seconds": 0.14420468100001926,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 89
+        },
+        {
+          "seconds": 0.14534457900003872,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 90
+        },
+        {
+          "seconds": 0.14644291900003736,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 91
+        },
+        {
+          "seconds": 0.14758121399995616,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 92
+        },
+        {
+          "seconds": 0.15031085900000107,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 93
+        },
+        {
+          "seconds": 0.15106910500003323,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 12,
+          "oracle_calls": 93
+        },
+        {
+          "seconds": 0.15160436400003618,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 13,
+          "oracle_calls": 94
+        },
+        {
+          "seconds": 0.1525930899999821,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 13,
+          "oracle_calls": 95
+        },
+        {
+          "seconds": 0.1532597440000245,
+          "lower": "199/6600",
+          "upper": "106903/3379200",
+          "nodes": 14,
+          "oracle_calls": 96
+        },
+        {
+          "seconds": 0.15379704700001184,
+          "lower": "199/6600",
+          "upper": "199/6600",
+          "nodes": 15,
+          "oracle_calls": 97
+        },
+        {
+          "seconds": 0.15398261300003924,
+          "lower": "199/6600",
+          "upper": "199/6600",
+          "nodes": 15,
+          "oracle_calls": 97
+        }
+      ],
+      "algorithm_seconds": 0.1553071659999432,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-historical-49503--price.json.gz",
+      "certificate_bytes": 624,
+      "uncompressed_certificate_bytes": 2534,
+      "verification": {
+        "status": "PASS",
+        "lower": "199/6600",
+        "upper": "199/6600",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 8,
+        "splits": 7,
+        "prices": 4,
+        "seconds": 0.016007772000079967,
+        "instance_sha256": "8caa1316810b851eb2529b0dede0284df302136d75e1342576dede132c5bc63e"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.016037758000038593,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-historical-49504",
+      "method": "price",
+      "instance_sha256": "2ca7de787ba8d93d9e1eb097208ce7ee84f53be6f0bc4fa22bb3e0bb104d7c2e",
+      "epsilon": "0",
+      "setup_seconds": 0.00457709399995565,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "19313/41600",
+      "upper": "19313/41600",
+      "gap": "0",
+      "seconds": 0.008344587000010506,
+      "nodes": 1,
+      "oracle_calls": 2,
+      "trace": [
+        {
+          "seconds": 0.004867106000006061,
+          "lower": "19313/41600",
+          "upper": "6277163/13520000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.008027525000102287,
+          "lower": "19313/41600",
+          "upper": "19313/41600",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.008075906000044597,
+          "lower": "19313/41600",
+          "upper": "19313/41600",
+          "nodes": 1,
+          "oracle_calls": 2
+        }
+      ],
+      "algorithm_seconds": 0.008940370000004805,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-historical-49504--price.json.gz",
+      "certificate_bytes": 525,
+      "uncompressed_certificate_bytes": 1465,
+      "verification": {
+        "status": "PASS",
+        "lower": "19313/41600",
+        "upper": "19313/41600",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 1,
+        "splits": 0,
+        "prices": 1,
+        "seconds": 0.00454279099994892,
+        "instance_sha256": "2ca7de787ba8d93d9e1eb097208ce7ee84f53be6f0bc4fa22bb3e0bb104d7c2e"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.004558138999982475,
+      "process_peak_rss_kib": 26192
+    },
+    {
+      "id": "anytime-historical-49505",
+      "method": "price",
+      "instance_sha256": "f37da8588b246dc53e9e537c58abc201520c43cbe8d707baa1f9f373e0163127",
+      "epsilon": "0",
+      "setup_seconds": 0.004559862000064641,
+      "algorithm_limit_seconds": 4.0,
+      "address_space_limit_mib": 2048,
+      "status": "EXACT",
+      "lower": "11181/25600",
+      "upper": "11181/25600",
+      "gap": "0",
+      "seconds": 0.10616985000001478,
+      "nodes": 9,
+      "oracle_calls": 59,
+      "trace": [
+        {
+          "seconds": 0.0045496330000105445,
+          "lower": "-62610119/434752000",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 1
+        },
+        {
+          "seconds": 0.00790237100000013,
+          "lower": "557/1280",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 2
+        },
+        {
+          "seconds": 0.010856005000050573,
+          "lower": "557/1280",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 3
+        },
+        {
+          "seconds": 0.01370960200006266,
+          "lower": "557/1280",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 4
+        },
+        {
+          "seconds": 0.01659592999999404,
+          "lower": "557/1280",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 5
+        },
+        {
+          "seconds": 0.019413087999964773,
+          "lower": "557/1280",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 6
+        },
+        {
+          "seconds": 0.0221325050000587,
+          "lower": "557/1280",
+          "upper": "1131759/2560000",
+          "nodes": 1,
+          "oracle_calls": 7
+        },
+        {
+          "seconds": 0.0248888099999931,
+          "lower": "557/1280",
+          "upper": "246005518803/556482560000",
+          "nodes": 1,
+          "oracle_calls": 8
+        },
+        {
+          "seconds": 0.02762268399999357,
+          "lower": "557/1280",
+          "upper": "490230498067/1112965120000",
+          "nodes": 1,
+          "oracle_calls": 9
+        },
+        {
+          "seconds": 0.03038239500006057,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 1,
+          "oracle_calls": 10
+        },
+        {
+          "seconds": 0.03310889500005487,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 1,
+          "oracle_calls": 11
+        },
+        {
+          "seconds": 0.0356818379999595,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.036165299999993294,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 1,
+          "oracle_calls": 12
+        },
+        {
+          "seconds": 0.03685208199999579,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 14
+        },
+        {
+          "seconds": 0.03786623500002406,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 15
+        },
+        {
+          "seconds": 0.039134462999982134,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 16
+        },
+        {
+          "seconds": 0.04036218500004907,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 17
+        },
+        {
+          "seconds": 0.04163469000002351,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 18
+        },
+        {
+          "seconds": 0.04282878900005471,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 19
+        },
+        {
+          "seconds": 0.043935465000004115,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 20
+        },
+        {
+          "seconds": 0.045037171999979364,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 21
+        },
+        {
+          "seconds": 0.04614021099996535,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 22
+        },
+        {
+          "seconds": 0.04725220700004229,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 23
+        },
+        {
+          "seconds": 0.04831519100002879,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 24
+        },
+        {
+          "seconds": 0.04924485599997297,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.04969323299997086,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 3,
+          "oracle_calls": 25
+        },
+        {
+          "seconds": 0.05027688300003774,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 26
+        },
+        {
+          "seconds": 0.05128248000005442,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 27
+        },
+        {
+          "seconds": 0.052535317999968356,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 28
+        },
+        {
+          "seconds": 0.053722614999969664,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 29
+        },
+        {
+          "seconds": 0.05487594800001716,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 30
+        },
+        {
+          "seconds": 0.055983244999993076,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 31
+        },
+        {
+          "seconds": 0.0570937979999826,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 32
+        },
+        {
+          "seconds": 0.05819772899997133,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 33
+        },
+        {
+          "seconds": 0.05930710999996336,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 34
+        },
+        {
+          "seconds": 0.060424556000043594,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 35
+        },
+        {
+          "seconds": 0.061497398000028625,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 36
+        },
+        {
+          "seconds": 0.062430319999975836,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.06296510799995758,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 4,
+          "oracle_calls": 37
+        },
+        {
+          "seconds": 0.0635601689999703,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 5,
+          "oracle_calls": 38
+        },
+        {
+          "seconds": 0.06460472900005243,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 5,
+          "oracle_calls": 39
+        },
+        {
+          "seconds": 0.06596736300002704,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 5,
+          "oracle_calls": 40
+        },
+        {
+          "seconds": 0.0672392870000067,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 5,
+          "oracle_calls": 41
+        },
+        {
+          "seconds": 0.06787217800001599,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 6,
+          "oracle_calls": 42
+        },
+        {
+          "seconds": 0.07053839499997139,
+          "lower": "557/1280",
+          "upper": "195736091319/445186048000",
+          "nodes": 6,
+          "oracle_calls": 43
+        },
+        {
+          "seconds": 0.07112408900002265,
+          "lower": "11181/25600",
+          "upper": "195736091319/445186048000",
+          "nodes": 7,
+          "oracle_calls": 44
+        },
+        {
+          "seconds": 0.07388400100001036,
+          "lower": "11181/25600",
+          "upper": "195736091319/445186048000",
+          "nodes": 7,
+          "oracle_calls": 45
+        },
+        {
+          "seconds": 0.07672864100004517,
+          "lower": "11181/25600",
+          "upper": "1125457/2560000",
+          "nodes": 7,
+          "oracle_calls": 46
+        },
+        {
+          "seconds": 0.07947885500004759,
+          "lower": "11181/25600",
+          "upper": "1125457/2560000",
+          "nodes": 7,
+          "oracle_calls": 47
+        },
+        {
+          "seconds": 0.08212158800006364,
+          "lower": "11181/25600",
+          "upper": "1125457/2560000",
+          "nodes": 7,
+          "oracle_calls": 48
+        },
+        {
+          "seconds": 0.08473760100002892,
+          "lower": "11181/25600",
+          "upper": "1125457/2560000",
+          "nodes": 7,
+          "oracle_calls": 49
+        },
+        {
+          "seconds": 0.08735106000005999,
+          "lower": "11181/25600",
+          "upper": "36011403/81920000",
+          "nodes": 7,
+          "oracle_calls": 50
+        },
+        {
+          "seconds": 0.09010576200000742,
+          "lower": "11181/25600",
+          "upper": "36011403/81920000",
+          "nodes": 7,
+          "oracle_calls": 51
+        },
+        {
+          "seconds": 0.0929523260000451,
+          "lower": "11181/25600",
+          "upper": "36011403/81920000",
+          "nodes": 7,
+          "oracle_calls": 52
+        },
+        {
+          "seconds": 0.09582363599997734,
+          "lower": "11181/25600",
+          "upper": "28808979/65536000",
+          "nodes": 7,
+          "oracle_calls": 53
+        },
+        {
+          "seconds": 0.0986790160000055,
+          "lower": "11181/25600",
+          "upper": "288087847/655360000",
+          "nodes": 7,
+          "oracle_calls": 54
+        },
+        {
+          "seconds": 0.10148704799996722,
+          "lower": "11181/25600",
+          "upper": "1152351237/2621440000",
+          "nodes": 7,
+          "oracle_calls": 55
+        },
+        {
+          "seconds": 0.10210041300001649,
+          "lower": "11181/25600",
+          "upper": "1152351237/2621440000",
+          "nodes": 7,
+          "oracle_calls": 55
+        },
+        {
+          "seconds": 0.10267271099996833,
+          "lower": "11181/25600",
+          "upper": "1152351237/2621440000",
+          "nodes": 8,
+          "oracle_calls": 56
+        },
+        {
+          "seconds": 0.10371500700000524,
+          "lower": "11181/25600",
+          "upper": "1152351237/2621440000",
+          "nodes": 8,
+          "oracle_calls": 57
+        },
+        {
+          "seconds": 0.10444287600000735,
+          "lower": "11181/25600",
+          "upper": "561757/1280000",
+          "nodes": 9,
+          "oracle_calls": 58
+        },
+        {
+          "seconds": 0.10572247400000379,
+          "lower": "11181/25600",
+          "upper": "11181/25600",
+          "nodes": 9,
+          "oracle_calls": 59
+        },
+        {
+          "seconds": 0.10585249700000077,
+          "lower": "11181/25600",
+          "upper": "11181/25600",
+          "nodes": 9,
+          "oracle_calls": 59
+        }
+      ],
+      "algorithm_seconds": 0.1070230929999525,
+      "algorithm_peak_rss_kib": 26192,
+      "certificate": "certificates/anytime-historical-49505--price.json.gz",
+      "certificate_bytes": 677,
+      "uncompressed_certificate_bytes": 2147,
+      "verification": {
+        "status": "PASS",
+        "lower": "11181/25600",
+        "upper": "11181/25600",
+        "gap": "0",
+        "tolerance_met": true,
+        "leaves": 5,
+        "splits": 4,
+        "prices": 4,
+        "seconds": 0.01521530200000143,
+        "instance_sha256": "f37da8588b246dc53e9e537c58abc201520c43cbe8d707baa1f9f373e0163127"
+      },
+      "verification_status": "PASS",
+      "verification_seconds": 0.015242983999996795,
+      "process_peak_rss_kib": 26192
+    }
+  ]
+}

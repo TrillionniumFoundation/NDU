@@ -1,0 +1,400 @@
+{
+  "macros": {
+    "PriceExact": 10,
+    "PriceTolerance": 19,
+    "PriceLimited": 1,
+    "PriceChecked": 30,
+    "PriceMinBytes": 541,
+    "PriceMaxBytes": 5895,
+    "AnytimeExact": 10,
+    "ForcedAnchors": 45,
+    "HardnessSubsets": 1692,
+    "HardnessBooks": 3004
+  },
+  "screening_diagnostics": [
+    {
+      "case": "family-0-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 2,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-0-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 3,
+      "ineligible_removed": 2,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-0-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 3,
+      "ineligible_removed": 2,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-0-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 3,
+      "ineligible_removed": 2,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-0-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 3,
+      "ineligible_removed": 2,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-0-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 3,
+      "ineligible_removed": 2,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-1-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 0,
+      "ineligible_removed": 0,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 6
+    },
+    {
+      "case": "family-1-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 0,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-1-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 0,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 5
+    },
+    {
+      "case": "family-1-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 0,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-1-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 0,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 5
+    },
+    {
+      "case": "family-1-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 0,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-2-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-2-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 4,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-2-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    },
+    {
+      "case": "family-2-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 4,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-2-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    },
+    {
+      "case": "family-2-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 4,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-3-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 5
+    },
+    {
+      "case": "family-3-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-3-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-3-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-3-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-3-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-4-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 5
+    },
+    {
+      "case": "family-4-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 6,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-4-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-4-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 6,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-4-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-4-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 6,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-5-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 5,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-5-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 5,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-5-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 5,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-5-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 5,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-5-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 5,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-5-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 5,
+      "missed_strictly_irrelevant": 0
+    },
+    {
+      "case": "family-6-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 5
+    },
+    {
+      "case": "family-6-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-6-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-6-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-6-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 4
+    },
+    {
+      "case": "family-6-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 5,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 6,
+      "missed_strictly_irrelevant": 1
+    },
+    {
+      "case": "family-7-factor-9/10",
+      "rule": "envelope_screen",
+      "total_removed": 1,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 3
+    },
+    {
+      "case": "family-7-factor-9/10",
+      "rule": "forced_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    },
+    {
+      "case": "family-7-factor-1",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    },
+    {
+      "case": "family-7-factor-1",
+      "rule": "forced_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    },
+    {
+      "case": "family-7-factor-11/10",
+      "rule": "envelope_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    },
+    {
+      "case": "family-7-factor-11/10",
+      "rule": "forced_screen",
+      "total_removed": 2,
+      "ineligible_removed": 1,
+      "strictly_irrelevant": 4,
+      "missed_strictly_irrelevant": 2
+    }
+  ]
+}

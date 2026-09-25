@@ -1,0 +1,185 @@
+{
+  "id": "anytime-historical-49500",
+  "method": "price",
+  "instance_sha256": "08a2714064f9cf6d1878f43ccd72f01e61002220548fd607167ac9ca1cc51651",
+  "epsilon": "0",
+  "setup_seconds": 0.004557106999982352,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "EXACT",
+  "lower": "29/96",
+  "upper": "29/96",
+  "gap": "0",
+  "seconds": 0.0484632169999486,
+  "nodes": 3,
+  "oracle_calls": 19,
+  "trace": [
+    {
+      "seconds": 0.004494860999898265,
+      "lower": "-7575701/47224000",
+      "upper": "111239/360000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.007735188999959064,
+      "lower": "29/96",
+      "upper": "111239/360000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.010768270999960805,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.014093307999928584,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.017066718999899422,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.019926115999965077,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 6
+    },
+    {
+      "seconds": 0.022689444999969055,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 7
+    },
+    {
+      "seconds": 0.02540603599993574,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 8
+    },
+    {
+      "seconds": 0.028101516999981868,
+      "lower": "29/96",
+      "upper": "733/2400",
+      "nodes": 1,
+      "oracle_calls": 9
+    },
+    {
+      "seconds": 0.030814962999897944,
+      "lower": "29/96",
+      "upper": "105741137/346961920",
+      "nodes": 1,
+      "oracle_calls": 10
+    },
+    {
+      "seconds": 0.033698875999903066,
+      "lower": "29/96",
+      "upper": "105741137/346961920",
+      "nodes": 1,
+      "oracle_calls": 11
+    },
+    {
+      "seconds": 0.03660633399999824,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 1,
+      "oracle_calls": 12
+    },
+    {
+      "seconds": 0.03726500299990221,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 1,
+      "oracle_calls": 12
+    },
+    {
+      "seconds": 0.037855956999919727,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 2,
+      "oracle_calls": 13
+    },
+    {
+      "seconds": 0.0388959579998982,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 2,
+      "oracle_calls": 14
+    },
+    {
+      "seconds": 0.04011141699993459,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 2,
+      "oracle_calls": 15
+    },
+    {
+      "seconds": 0.04085489499993855,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 3,
+      "oracle_calls": 16
+    },
+    {
+      "seconds": 0.042088637999995626,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 3,
+      "oracle_calls": 17
+    },
+    {
+      "seconds": 0.045140644999946744,
+      "lower": "29/96",
+      "upper": "6343624207/20817715200",
+      "nodes": 3,
+      "oracle_calls": 18
+    },
+    {
+      "seconds": 0.04810728299992206,
+      "lower": "29/96",
+      "upper": "29/96",
+      "nodes": 3,
+      "oracle_calls": 19
+    },
+    {
+      "seconds": 0.048177493999901344,
+      "lower": "29/96",
+      "upper": "29/96",
+      "nodes": 3,
+      "oracle_calls": 19
+    }
+  ],
+  "algorithm_seconds": 0.04914838599995619,
+  "algorithm_peak_rss_kib": 26192,
+  "certificate": "certificates/anytime-historical-49500--price.json.gz",
+  "certificate_bytes": 577,
+  "uncompressed_certificate_bytes": 1520,
+  "verification": {
+    "status": "PASS",
+    "lower": "29/96",
+    "upper": "29/96",
+    "gap": "0",
+    "tolerance_met": true,
+    "leaves": 2,
+    "splits": 1,
+    "prices": 2,
+    "seconds": 0.007705313000087699,
+    "instance_sha256": "08a2714064f9cf6d1878f43ccd72f01e61002220548fd607167ac9ca1cc51651"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.007724389000031806,
+  "process_peak_rss_kib": 26192
+}

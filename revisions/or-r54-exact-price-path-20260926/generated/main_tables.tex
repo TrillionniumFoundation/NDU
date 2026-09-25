@@ -1,0 +1,89 @@
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Arbitrary-eligibility scaling under the common four-second algorithm budget.}\label{tab:scale54}
+\begin{tabular}{lrrrrrrrrr}\toprule
+Case & $k$ & $N$ & $m$ & $E$ & Seconds & Width & Bytes & Check (ms) & Memory\\\midrule
+Histories 12 & 12 & 25 & 4 & 9 & 0.043 & 1.3e-04 & 657 & 14.40 & 27.0\\
+Histories 48 & 48 & 25 & 4 & 16 & 0.268 & 9.5e-04 & 994 & 37.47 & 27.0\\
+Histories 192 & 192 & 25 & 4 & 21 & 0.877 & 7.0e-04 & 2106 & 132.43 & 27.0\\
+Histories 768 & 768 & 25 & 4 & 21 & 4.011$^{*}$ & 0.00252 & 5895 & 508.52 & 27.0\\
+Catalog 9 & 48 & 9 & 4 & 7 & 1.403 & 0.00100 & 1297 & 111.13 & 27.0\\
+Catalog 17 & 48 & 17 & 4 & 12 & 2.412 & 1.8e-04 & 1288 & 126.55 & 27.0\\
+Catalog 33 & 48 & 33 & 4 & 21 & 0.252 & 2.0e-04 & 1056 & 49.40 & 27.1\\
+Catalog 65 & 48 & 65 & 4 & 28 & 0.635 & 5.3e-04 & 1171 & 109.86 & 27.1\\
+Budget 2 & 48 & 25 & 2 & 16 & 0.856 & 4.3e-04 & 1190 & 131.34 & 27.1\\
+Budget 4 & 48 & 25 & 4 & 16 & 0.264 & 9.5e-04 & 994 & 36.96 & 27.1\\
+Budget 8 & 48 & 25 & 8 & 16 & 0.269 & 4.7e-04 & 995 & 39.83 & 27.1\\
+Budget 12 & 48 & 25 & 12 & 16 & 0.274 & 4.7e-04 & 997 & 43.50 & 27.1\\
+Accuracy 1/100 & 48 & 25 & 4 & 16 & 0.164 & 0.00839 & 992 & 37.11 & 27.1\\
+Accuracy 1/1000 & 48 & 25 & 4 & 16 & 0.273 & 9.5e-04 & 994 & 39.90 & 27.1\\
+Accuracy 1/10000 & 48 & 25 & 4 & 16 & 0.582 & 0 & 1076 & 101.05 & 27.1\\
+Accuracy 1/1000000 & 48 & 25 & 4 & 16 & 0.576 & 0 & 1076 & 99.71 & 27.1\\
+Charges 0 & 48 & 25 & 4 & 16 & 0.368 & 4.9e-04 & 989 & 36.64 & 27.1\\
+Charges 1/1000 & 48 & 25 & 4 & 16 & 0.262 & 9.5e-04 & 994 & 36.43 & 27.1\\
+Charges 1/100 & 48 & 25 & 4 & 16 & 0.130 & 0 & 951 & 37.15 & 27.1\\
+Charges 1/10 & 48 & 25 & 4 & 16 & 0.127 & 0 & 969 & 36.77 & 27.1\\
+Different rewards & 12 & 9 & 4 & 7 & 0.011 & 0 & 604 & 8.38 & 27.1\\
+Different rewards & 12 & 17 & 4 & 9 & 0.026 & 0 & 650 & 22.34 & 27.1\\
+Different rewards & 24 & 9 & 4 & 7 & 0.021 & 0 & 733 & 15.86 & 27.1\\
+Different rewards & 24 & 17 & 4 & 11 & 0.051 & 4.2e-04 & 791 & 43.38 & 27.1\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Widths and bytes refer to independently checked rational certificates. Zero width denotes exact closure. An asterisk marks a time or node limit; it does not invalidate the interval. Memory is peak resident process memory in MiB under a common 2-GiB address-space cap. Check is additional verification time. Except in the named accuracy sweep, requested width is $10^{-3}$. Charges and accuracy vary on the same base model; these repeated anchors of the one-factor sweeps are not independent samples. Heterogeneous rows correspond to $(k,N)=(12,9),(12,17),(24,9),(24,17)$.\end{minipage}\end{table}\clearpage
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Paired reruns of the six historical fine-accuracy cases.}\label{tab:fine54}
+\begin{tabular}{rrrrrrr}\toprule
+Seed & Price seconds & Price width & Enumeration & Uniform grid & Class boxes & Mixed integer\\\midrule
+49500 & 0.049 & 0 & 0.021 & 4.004 limit & 4.003 limit & 0.044\\
+49501 & 0.138 & 2.7e-04 & 0.023 & 4.004 limit & 4.003 limit & 0.038\\
+49502 & 0.006 & 5.2e-04 & 0.023 & 4.003 limit & 4.003 limit & 0.020\\
+49503 & 0.154 & 0 & 0.017 & 3.562 & 4.002 limit & 0.041\\
+49504 & 0.006 & 3.2e-05 & 0.023 & 4.003 limit & 2.117 & 0.020\\
+49505 & 0.109 & 0 & 0.022 & 4.003 limit & 4.003 limit & 0.026\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Times are measured seconds under the same four-second algorithm allowance and 2-GiB address-space cap. The mixed-integer column includes construction and both envelopes, each with a two-second solver limit; it is not an envelope-error allowance. Numerical mixed-integer bounds are not rational certificates. Complete primal/dual values, solver nodes, model sizes, residuals, envelope errors, and actual per-envelope solver times appear in the companion and raw records. Interrupted old solvers retain only their separately valid fallback interval, not an uncertified intermediate result.\end{minipage}\end{table}\clearpage
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{All matched-limit outcomes, including unsuccessful runs.}\label{tab:outcomes54}
+\begin{tabular}{lrrrrr}\toprule
+Method & Runs & Exact & Tolerance & Numerical & Resource limit\\\midrule
+Price paths & 30 & 10 & 19 & 0 & 1\\
+Uniform grid & 26 & 0 & 1 & 0 & 25\\
+Book enumeration & 30 & 12 & 0 & 0 & 18\\
+Class boxes & 26 & 0 & 3 & 0 & 23\\
+Mixed integer & 30 & 0 & 0 & 16 & 14\\
+\bottomrule\end{tabular}\par\medskip
+\begin{tabular}{rrrrrrr}\toprule Histories & Commands & Price & Uniform & Enumeration & Class boxes & Mixed integer\\\midrule
+6 & 12 & Exact & Time limit & Exact & Time limit & Numerical\\
+10 & 20 & Time limit & Time limit & Time limit & Time limit & Numerical\\
+14 & 28 & Time limit & Time limit & Time limit & Time limit & Time limit\\
+18 & 36 & Time limit & Time limit & Time limit & Time limit & Numerical\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Top panel: the original 30-case study, 142 method runs. The inherited grid and class-box implementations do not accept heterogeneous rewards, so each has 26 applicable cases. Bottom panel: all four separately preregistered SUBSET SUM reduction challenges, not an operational sample. Price and enumeration request exact closure; grid and class-box width is $1/(8K)$. Constructed-case integer subset-sum dynamic programming provides exact reference values independently of these methods. Resource limits remain outcomes, not discarded cases. A numerical outcome only means that both numerical envelope calls returned; individual solver statuses and widths remain reported.\end{minipage}\end{table}\clearpage
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Time-to-gap records for the separately requested zero-width runs.}\label{tab:anytime54}
+\begin{tabular}{lrrrrrr}\toprule
+Case & Width at 0.1 s & Width at 0.5 s & Width at 1 s & Width at 4 s & Final width & Seconds\\\midrule
+catalog-33 & 0.12917 & 1.4e-04 & 1.1e-04 & 0 & 0 & 1.111\\
+catalog-65 & -- & 0.01354 & 0 & 0 & 0 & 0.793\\
+budget-8 & 0.00789 & 2.9e-04 & 0 & 0 & 0 & 0.797\\
+budget-12 & 0.00789 & 2.9e-04 & 0 & 0 & 0 & 0.803\\
+historical-49500 & 0 & 0 & 0 & 0 & 0 & 0.049\\
+historical-49501 & 0.00803 & 0 & 0 & 0 & 0 & 0.147\\
+historical-49502 & 0 & 0 & 0 & 0 & 0 & 0.009\\
+historical-49503 & 0.00148 & 0 & 0 & 0 & 0 & 0.155\\
+historical-49504 & 0 & 0 & 0 & 0 & 0 & 0.009\\
+historical-49505 & 0.00283 & 0 & 0 & 0 & 0 & 0.107\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Each entry uses the latest completed price or node calculation at or before the indicated time. A dash means that no completed price calculation had yet been recorded; the initialized universal bound still exists. Final bounds are independently checked. Once a run terminates its final trace continues to describe the incumbent interval. These zero-width reruns are separate from the fixed-tolerance study and use the same resource caps. Full per-oracle traces, not just these checkpoints, are retained.\end{minipage}\end{table}\clearpage
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Screening rates and costs on all 24 near-threshold, mixed-catalog cases.}\label{tab:screen54}
+\begin{tabular}{lrrrrrr}\toprule
+Rule & Minimum & Lower quartile & Median & Upper quartile & Maximum & Anchors\\\midrule
+Target-box envelope & 0 & 0.125 & 0.250 & 0.250 & 0.375 & 0\\
+Forced price paths & 0.250 & 0.375 & 0.625 & 0.625 & 0.750 & 45\\
+\bottomrule\end{tabular}\par\medskip
+\begin{tabular}{lrrrr}\toprule Calculation & Median seconds & Minimum seconds & Maximum seconds & Description\\\midrule
+Envelope & 3.2e-04 & 2.8e-04 & 3.5e-04 & Bound evaluation\\
+Incumbent & 0.0226 & 0.0068 & 0.0840 & Price search\\
+Forced paths & 0.0368 & 0.0348 & 0.0424 & Bounds and checks\\
+Exact reference & 0.0241 & 0.0063 & 0.0595 & All feasible books\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Rates are fractions of eight catalog commands removed. Anchor counts aggregate all cases, not distinct physical commands. Forced tests include all possible anchors and use feasible-incumbent price information, not an exact-reference value supplied for free. The exact reference is only used for evaluation. A stronger forced test costs more and can miss truly irrelevant commands; it is not advertised as universally preferable preprocessing. The companion reports wholly ineligible removals, charge slacks, missed exclusions, all target-command triples, and sharpness neighbors in which the same command is useful, tied, or excluded.\end{minipage}\end{table}\clearpage

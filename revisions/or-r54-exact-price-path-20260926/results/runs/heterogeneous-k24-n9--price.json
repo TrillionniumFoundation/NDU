@@ -1,0 +1,59 @@
+{
+  "id": "heterogeneous-k24-n9",
+  "method": "price",
+  "instance_sha256": "2b338388ab7b858613531aa5a611bcc6d76231faa98a07fbe11b708dc3ea202f",
+  "epsilon": "1/1000",
+  "setup_seconds": 0.0048598160000210555,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "EXACT",
+  "lower": "5199493/8960000",
+  "upper": "5199493/8960000",
+  "gap": "0",
+  "seconds": 0.019686904999957733,
+  "nodes": 1,
+  "oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.012400187000025653,
+      "lower": "741069/1280000",
+      "upper": "7347400399/12544000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.01919614799999181,
+      "lower": "5199493/8960000",
+      "upper": "5199493/8960000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.01924620199997662,
+      "lower": "5199493/8960000",
+      "upper": "5199493/8960000",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "algorithm_seconds": 0.02112205499997799,
+  "algorithm_peak_rss_kib": 27740,
+  "certificate": "certificates/heterogeneous-k24-n9--price.json.gz",
+  "certificate_bytes": 733,
+  "uncompressed_certificate_bytes": 2360,
+  "verification": {
+    "status": "PASS",
+    "lower": "5199493/8960000",
+    "upper": "5199493/8960000",
+    "gap": "0",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.015837787000009484,
+    "instance_sha256": "2b338388ab7b858613531aa5a611bcc6d76231faa98a07fbe11b708dc3ea202f"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.015857432999951016,
+  "process_peak_rss_kib": 27740
+}

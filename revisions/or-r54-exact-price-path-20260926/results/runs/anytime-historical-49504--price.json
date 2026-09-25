@@ -1,0 +1,59 @@
+{
+  "id": "anytime-historical-49504",
+  "method": "price",
+  "instance_sha256": "2ca7de787ba8d93d9e1eb097208ce7ee84f53be6f0bc4fa22bb3e0bb104d7c2e",
+  "epsilon": "0",
+  "setup_seconds": 0.00457709399995565,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "EXACT",
+  "lower": "19313/41600",
+  "upper": "19313/41600",
+  "gap": "0",
+  "seconds": 0.008344587000010506,
+  "nodes": 1,
+  "oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.004867106000006061,
+      "lower": "19313/41600",
+      "upper": "6277163/13520000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.008027525000102287,
+      "lower": "19313/41600",
+      "upper": "19313/41600",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.008075906000044597,
+      "lower": "19313/41600",
+      "upper": "19313/41600",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "algorithm_seconds": 0.008940370000004805,
+  "algorithm_peak_rss_kib": 26192,
+  "certificate": "certificates/anytime-historical-49504--price.json.gz",
+  "certificate_bytes": 525,
+  "uncompressed_certificate_bytes": 1465,
+  "verification": {
+    "status": "PASS",
+    "lower": "19313/41600",
+    "upper": "19313/41600",
+    "gap": "0",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.00454279099994892,
+    "instance_sha256": "2ca7de787ba8d93d9e1eb097208ce7ee84f53be6f0bc4fa22bb3e0bb104d7c2e"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.004558138999982475,
+  "process_peak_rss_kib": 26192
+}
