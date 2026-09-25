@@ -1,0 +1,660 @@
+{
+  "interpretation": "Synthetic stochastic capacity reservation; independent uniform-demand integration, no calibration",
+  "certificate": {
+    "schema": "ndu-r51-selected-prefix-v1",
+    "model": {
+      "caps": [
+        "3/10",
+        "11/20",
+        "4/5"
+      ],
+      "weights": [
+        "1/4",
+        "1/2",
+        "1/4"
+      ],
+      "gamma": [
+        "0",
+        "2",
+        "7"
+      ],
+      "ceilings": [
+        "2/5",
+        "13/20",
+        "19/20"
+      ],
+      "r": "2",
+      "curvature": "2"
+    },
+    "catalog": [
+      "0",
+      "1/5",
+      "2/5",
+      "3/5",
+      "4/5",
+      "1"
+    ],
+    "charges": [
+      "0",
+      "1/100",
+      "1/50",
+      "3/100",
+      "1/25",
+      "1/20"
+    ],
+    "promise": "99/200",
+    "budget": 3,
+    "screening": {
+      "price": "1",
+      "gross_upper": "29/40",
+      "lower": "67/100",
+      "removed": []
+    },
+    "active": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "policy": {
+      "book": [
+        "0",
+        "2/5",
+        "3/5"
+      ],
+      "targets": [
+        "3/10",
+        "11/20",
+        "29/50"
+      ],
+      "intermediate": [
+        "0",
+        "0",
+        "0"
+      ],
+      "lotteries": [
+        [
+          [
+            "0",
+            "1/4"
+          ],
+          [
+            "2/5",
+            "3/4"
+          ]
+        ],
+        [
+          [
+            "2/5",
+            "1/4"
+          ],
+          [
+            "3/5",
+            "3/4"
+          ]
+        ],
+        [
+          [
+            "2/5",
+            "1/10"
+          ],
+          [
+            "3/5",
+            "9/10"
+          ]
+        ]
+      ],
+      "branch_values": [
+        "12/25",
+        "79/100",
+        "41/50"
+      ],
+      "charge": "1/20",
+      "gross": "18/25",
+      "value": "67/100",
+      "promise": "99/200",
+      "allocation_price": "1"
+    },
+    "nodes": [
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "price",
+          "price": "1",
+          "upper": "7/10",
+          "alpha": [
+            [
+              "0",
+              "-1/100",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "-1/100",
+              "1/40",
+              "23/200",
+              "7/100",
+              "-1/20"
+            ],
+            [
+              null,
+              null,
+              "1/50",
+              "23/200",
+              "7/100",
+              null
+            ]
+          ],
+          "beta": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "children": [
+          1,
+          2
+        ]
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "price",
+          "price": "1",
+          "upper": "139/200",
+          "alpha": [
+            [
+              "-1/100",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "1/50",
+              "23/200",
+              "7/100",
+              null
+            ],
+            [
+              null,
+              null,
+              "11/100",
+              null,
+              null
+            ]
+          ],
+          "beta": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "children": [
+          9,
+          10
+        ]
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "price",
+          "price": "1",
+          "upper": "7/10",
+          "alpha": [
+            [
+              "0",
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "-1/100",
+              "1/40",
+              "2/25",
+              "-1/25",
+              "-1/20"
+            ],
+            [
+              null,
+              null,
+              "1/50",
+              "23/200",
+              "7/100",
+              null
+            ]
+          ],
+          "beta": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "children": [
+          3,
+          4
+        ]
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "price",
+          "price": "1",
+          "upper": "7/10",
+          "alpha": [
+            [
+              "0",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "1/40",
+              "2/25",
+              "-1/25",
+              "-1/20"
+            ],
+            [
+              null,
+              null,
+              "23/200",
+              null,
+              null
+            ]
+          ],
+          "beta": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "children": [
+          5,
+          6
+        ]
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "price",
+          "price": "-5/4",
+          "upper": "613/896",
+          "alpha": [
+            [
+              "0",
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "-1/100",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              "151/800",
+              "351/400",
+              "477/800",
+              "17173/22400"
+            ]
+          ],
+          "beta": null
+        },
+        "children": [
+          15,
+          16
+        ]
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "free",
+          "price": "0",
+          "upper": "5/8"
+        }
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "free",
+          "price": "1",
+          "upper": "7/10"
+        },
+        "children": [
+          7,
+          8
+        ]
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "free",
+          "price": "-2/25",
+          "upper": "412/625"
+        }
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "free",
+          "price": "1",
+          "upper": "67/100"
+        }
+      },
+      {
+        "state": "INFEASIBLE"
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "price",
+          "price": "1",
+          "upper": "139/200",
+          "alpha": [
+            [
+              "-1/100",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "1/50",
+              "23/200",
+              "7/100",
+              null
+            ],
+            [
+              null,
+              null,
+              "11/100",
+              null,
+              null
+            ]
+          ],
+          "beta": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "children": [
+          11,
+          12
+        ]
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "price",
+          "price": "3/5",
+          "upper": "331/500",
+          "alpha": [
+            [
+              "-1/100",
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "49/200",
+              "13/100",
+              "9/50"
+            ],
+            [
+              null,
+              null,
+              "41/200",
+              null
+            ]
+          ],
+          "beta": [
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        }
+      },
+      {
+        "state": "SPLIT",
+        "bound": {
+          "kind": "free",
+          "price": "1",
+          "upper": "139/200"
+        },
+        "children": [
+          13,
+          14
+        ]
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "free",
+          "price": "-2/25",
+          "upper": "3271/5000"
+        }
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "free",
+          "price": "1",
+          "upper": "133/200"
+        }
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "price",
+          "price": "3/5",
+          "upper": "331/500",
+          "alpha": [
+            [
+              "0",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              "-1/100",
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              "49/200",
+              "13/100",
+              "9/50"
+            ]
+          ],
+          "beta": [
+            [
+              null,
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              null,
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              null,
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        }
+      },
+      {
+        "state": "CLOSED",
+        "bound": {
+          "kind": "free",
+          "price": "-63/50",
+          "upper": "2677/5000"
+        }
+      }
+    ],
+    "lower_bound": "67/100",
+    "upper_bound": "67/100",
+    "gap": "0",
+    "status": "EXACT",
+    "evaluated_nodes": 17,
+    "allocation_calls": 64,
+    "price_calls": 26,
+    "price_steps": 3,
+    "node_limit": 100000,
+    "time_limit": null,
+    "seconds": 0.0321006559999546
+  },
+  "verified": {
+    "status": "PASS",
+    "nodes": 17,
+    "path_witnesses": 8,
+    "removed": 0,
+    "exact": true,
+    "problem_sha256": "259c27d1fc57e96c206543a54adda4a1fa2a76b2391133cdfe10a2b78f4d0d08"
+  }
+}

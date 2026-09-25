@@ -1,0 +1,53 @@
+\section{Scope and Reading Map}\label{sec:r51-map}
+This companion provides the prerequisites, reproducible experiment definitions, and complete new execution records for the current article. The main article contains the complete proofs of terminal-first pooling, the group-box identity and explicit cover count, the mandatory-prefix recurrence, the completion-tree theorem, and catalog and threshold robustness. The two antecedent results below document the exact response-type reduction, the already established fixed-budget enumeration implication, and the individual-box convergence argument on which the group-box construction builds.
+
+No historical mathematical source or recorded failed experiment has been deleted. The directory \path{revisions/or-r51-selected-book-frontier-20260925/predecessor/} contains byte-identical copies of the reviewed main article and mathematical companion. All original revision directories, including continuous-design, institutional, Monge, resource-augmentation, and harmonic-coarsening derivations, remain unchanged. The machine-readable content map identifies current and archival locations. Those archival readers are not additional required appendices to this journal-facing article. References to a retained result explicitly use its preserved label; cross-document links lead to the relevant archived reader when it is not reproduced here.
+
+\input{revisions/or-r46-box-decomposition-20260925/types.tex}
+\input{revisions/or-r46-box-decomposition-20260925/adaptive.tex}
+
+\section{Frozen Experiment Definitions}\label{sec:r51-protocol}
+The immutable protocol is \path{PROTOCOL.json} in the current revision directory. It was frozen before the local run, with SHA-256
+\begin{center}\small\path{095b295a4dfc865b4164c96eb69b3f801f773b496716b5ee06a07a90c44f3cc2}.\end{center}
+It is not described as a remotely preregistered protocol. Local execution and any publication rerun have separately identified environment records. The inputs are exact rational model primitives; displayed decimals are generated only after verification. Runtime measurements belong to the environment that produced each record, not to an earlier revision's machine.
+
+The stress population uses exactly the six seeds 49500--49505 from the preceding stress fixture, with 12 histories, nine candidates, and budget three. The node ladder is $(1,7,31,127)$, the local price-trial ladder is $(0,2,5)$, and each timed request has a three-second allowance. Each of the six completion requests uses at most 10,000 nodes and a 30-second allowance. These produce 72 interruption requests and six completion requests without selecting new favorable instances.
+
+The strict-prefix catalog is $a_i=(i/(N-1))^2$ for $i=0,\ldots,N-1$. Its common eligible index is $\lfloor2(N-1)/3\rfloor$. Distinct ceilings are placed strictly inside the following catalog gap, and heterogeneous caps remain below the smallest ceiling; some may exceed the last eligible catalog level. We use $k\in\{16,64,256,1024\}$, $N\in\{9,17\}$, budget three, and promise fractions $1/3$ and $9/10$ of the mean cap. Four additional cases use $N=33$, $k\in\{16,64\}$, budgets two and four, and promise fraction $9/10$. Every case uses the exact one-class pooled oracle; it is not counted as a new completion-tree timing.
+
+The matched population has 16 histories, 17 candidates, budget three, and fixed costs, weights, caps, charges, and promise. Only ceilings change to produce $E=1,\ldots,8$. Node allowances are 1, 15, and 127, and price-trial allowances are zero and three. The 48 resulting requests therefore isolate this eligibility change rather than comparing different history or catalog scales.
+
+The refinement population begins at $\{0,1/4,3/4,1\}$ and inserts $1/2$, $23/50$, $27/50$, $12/25$, and $13/25$ in that order. Each of six stages is evaluated with inserted-level charge three and $1/200$, with screening both off and on, for 24 requests. The eight histories, their primitive caps and costs, and their promise do not change. The boundary population uses eight histories and catalog $\{0,1/4,1/2,3/4,1\}$; it moves zero, one, four, or eight ceilings above $1/2$, using perturbations $1/100$, $1/10000$, and $1/1000000$. All twelve requests remain in the population.
+
+\section{Checker and Execution Instructions}\label{sec:r51-checker}
+The selected-prefix checker imports only the Python standard library. It does not call the optimizer, an optimization solver, or the optimizer's support routine. It reconstructs each candidate union from the include/exclude decisions; verifies the anchor and mandatory levels; evaluates scalar supports at knots, bounds, and stationary points; and verifies the supplied forward and backward upper potentials. At every branching node it requires both include and exclude children. Every pruned or open leaf needs its own upper witness, and the final endpoint must dominate all surviving leaves. It independently evaluates the final policy in the uneliminated model, including every positive-probability support point and every opening charge. The experiment driver also verifies that each certificate's model equals its declared instance.
+
+Compressed bytes mean deterministic gzip bytes for the saved certificate in that execution. Uncompressed bytes, counts of rational entries, maximum numerator and denominator bit lengths, checker times, and checker-to-search time ratios are all computed from the saved objects. Changing the problem requires revalidation; a winning book's smaller partition is not a substitute for coverage of competing books. Numerical mixed-integer solutions have a different evidence status and are never passed off as exact certificates.
+
+From the repository root, the following commands reproduce the current experiment and readers. To measure fresh timings, use a separate clean checkout and keep the protocol unchanged; do not overwrite the committed record in the archival checkout.
+\begin{quote}\small\ttfamily
+R=revisions/or-r51-selected-book-frontier-20260925\\
+python "\$R/code/tests.py"\\
+python "\$R/code/study.py"\\
+python "\$R/code/additional\_checks.py"\\
+python "\$R/code/tables.py"\\
+python "\$R/code/build.py"
+\end{quote}
+A single selected-prefix certificate can be checked independently with
+\begin{quote}\small\ttfamily
+python "\$R/code/check\_completion.py" path/to/certificate.json.gz.
+\end{quote}
+The publication workflow pins the Python and scientific-library versions and records the actual environment. The old pooling suite is executed with its output directory redirected into this revision, so inherited evidence remains untouched.
+
+\section{Capacity-Reservation Calculation}\label{sec:r51-capacity-data}
+The demand-derived model in the main article is evaluated on three site states with probabilities $(1/4,1/2,1/4)$, caps $(3/10,11/20,4/5)$, engineering ceilings $(2/5,13/20,19/20)$, and backup curvatures $(0,2,7)$. The certified batch catalog is $\{0,1/5,2/5,3/5,4/5,1\}$, budget three, and the opening charge of index $i=0,\ldots,5$ is $i/100$. The contract promises nine tenths of the weighted cap. Uniform independent demand and unit revenue two imply $f(x)=2x-x^2$, so these data have $(r,q)=(2,2)$.
+
+The exact optimum is $67/100$. The saved policy, selected book, supporting bounds, and original-space verification appear in \path{results/application.json}. For each used batch $x$, the check computes
+\[
+ 2\int_0^1\min\{u,x\}\,du
+ =2\left(\int_0^x u\,du+\int_x^1 x\,du\right)
+ =2x-x^2
+\]
+using exact rational arithmetic, then averages over the implemented lotteries and subtracts backup and certification costs. This agrees with the canonical response, exhaustive fixed-book reference, and selected-prefix certificate. It is an independently formulated demand integral, not a fitted or observed application outcome.
+
+\input{revisions/or-r51-selected-book-frontier-20260925/generated/detailed_tables.tex}

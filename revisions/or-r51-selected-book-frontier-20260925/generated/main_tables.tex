@@ -1,0 +1,137 @@
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Complementary proved regimes for the same finite-catalog problem}\label{tab:r51-regimes}
+\begin{tabular}{lrrr}
+\toprule
+Regime & Budget & Guarantee & Reference \\
+\midrule
+Saturated promise & Variable & Exact polynomial & Corollary~\ref{cor:r45-saturated} \\
+Common eligibility & Variable & Exact polynomial & Theorem~\ref{thm:r49-frontier} \\
+Fixed symbol budget & Fixed & Exact; arbitrary classes & Theorem~\ref{thm:r51-tree} \\
+Fixed class count & Variable & Additive accuracy & Theorem~\ref{thm:r49-accuracy} \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize The fixed-budget enumeration implication is inherited; the selected-prefix recurrence supplies new bounds and pruning certificates. Fixed-budget polynomial time is an XP statement, not an FPT or variable-budget polynomial-time assertion.\end{minipage}
+\end{table}
+
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Exact closure of the six unchanged historical difficult instances}\label{tab:r51-hard}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Seed & $E$ & Exact value & Old gap & Old \% & Nodes & Solve (s) & Check (ms) & Bytes \\
+\midrule
+49500 & 6 & $29/96$ & 0.001771 & 0.59 & 11 & 0.053 & 21.09 & 909 \\
+49501 & 7 & $17569/32800$ & 0.001286 & 0.24 & 21 & 0.096 & 32.12 & 1145 \\
+49502 & 6 & $7347/16000$ & 0.0009966 & 0.22 & 1 & 0.013 & 4.73 & 716 \\
+49503 & 8 & $199/6600$ & 0.001509 & 5.01 & 7 & 0.031 & 10.12 & 774 \\
+49504 & 5 & $19313/41600$ & 0.0009165 & 0.20 & 1 & 0.012 & 3.83 & 677 \\
+49505 & 6 & $11181/25600$ & 0.005906 & 1.35 & 11 & 0.057 & 20.53 & 914 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Old gaps are the retained 127-node, $10^{-3}$ group-box runs, not rerun timings. Their percentages use the known exact value as denominator. New widths are exactly zero in all six cases. The exact values agree with the previously available exhaustive references; the new evidence is certified completion without full enumeration. Bytes are deterministic gzip sizes.\end{minipage}
+\end{table}
+
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Strict common-prefix scaling with distinct interior-gap ceilings}\label{tab:r51-strict}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Histories & Catalog & Budget & Cases & Solve range (s) & Check max (s) & Bytes max & Gap \\
+\midrule
+16 & 9 & 3 & 2 & 0.017--0.021 & 0.020 & 1512 & 0 \\
+16 & 17 & 3 & 2 & 0.041--0.052 & 0.060 & 2249 & 0 \\
+64 & 9 & 3 & 2 & 0.060--0.077 & 0.079 & 3207 & 0 \\
+64 & 17 & 3 & 2 & 0.143--0.186 & 0.218 & 4647 & 0 \\
+256 & 9 & 3 & 2 & 0.234--0.300 & 0.309 & 9768 & 0 \\
+256 & 17 & 3 & 2 & 0.553--0.731 & 0.854 & 14421 & 0 \\
+1024 & 9 & 3 & 2 & 0.967--1.204 & 1.248 & 34761 & 0 \\
+1024 & 17 & 3 & 2 & 2.255--2.894 & 3.424 & 54454 & 0 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Each pair uses promise fractions $1/3$ and $9/10$. Catalog levels are squared equally spaced points; every ceiling lies strictly inside the same interior catalog gap and the suffix is ineligible. All caps, weights, and service curvatures remain individual. Four additional 33-level cases cover budgets two and four with 16 or 64 histories; they are also exact and appear in the companion. The old all-ceilings-equal-one family is retained only as an arithmetic scaling check.\end{minipage}
+\end{table}
+
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Matched primitives while varying catalog eligibility classes}\label{tab:r51-matched}
+\begin{tabular}{lrrrrrrr}
+\toprule
+$E$ & Free nodes & Price nodes & Free (s) & Price (s) & Free bytes & Price bytes & Gap \\
+\midrule
+1 & 11 & 9 & 0.041 & 0.100 & 1019 & 1196 & 0 \\
+2 & 41 & 25 & 0.086 & 0.373 & 1365 & 1730 & 0 \\
+3 & 11 & 9 & 0.041 & 0.109 & 1023 & 1196 & 0 \\
+4 & 45 & 23 & 0.091 & 0.392 & 1478 & 1970 & 0 \\
+5 & 39 & 23 & 0.086 & 0.360 & 1371 & 1841 & 0 \\
+6 & 37 & 5 & 0.079 & 0.154 & 1379 & 1348 & 0 \\
+7 & 43 & 23 & 0.088 & 0.375 & 1481 & 1940 & 0 \\
+8 & 29 & 15 & 0.068 & 0.224 & 1287 & 1639 & 0 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Every row has 16 histories, 17 candidate levels, budget three, and the same caps, costs, weights, charges, and promise. Only ceilings change. Price uses at most three local price trials per node; free uses none. Both receive a 127-node, three-second allowance. Prices reduce nodes in every row but increase elapsed time in every row; these data do not support a universal pricing speedup.\end{minipage}
+\end{table}
+
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Harmless class splitting and value-improving catalog refinement}\label{tab:r51-refine}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Inserted & Raw $E$ & Active $E$ & Removed & Raw nodes & Screened nodes & High-charge value & Low-charge value \\
+\midrule
+0 & 1 & 1 & 0 & 1 & 1 & 0.4407723 & 0.4407723 \\
+1 & 2 & 1 & 1 & 7 & 1 & 0.4407723 & 0.4931528 \\
+2 & 2 & 1 & 2 & 9 & 1 & 0.4407723 & 0.4938506 \\
+3 & 2 & 1 & 3 & 9 & 1 & 0.4407723 & 0.4938506 \\
+4 & 3 & 1 & 4 & 11 & 1 & 0.4407723 & 0.4938506 \\
+5 & 4 & 1 & 5 & 13 & 1 & 0.4407723 & 0.4938506 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Inserted candidates have charge three in the high-charge path and $1/200$ in the low-charge path. The high-charge candidates are never selected; exact screening preserves one active class and the unchanged value. Low-charge candidates can improve the value. All remaining inputs are identical; every displayed value is a zero-width rational optimum.\end{minipage}
+\end{table}
+
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Direct uneliminated mixed-integer diagnostics: tangent envelopes}\label{tab:r51-mip}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Case & \shortstack{Variables/\\binaries} & Nodes & Solve (s) & Policy value & Solver upper & Solver gap & Envelope error \\
+\midrule
+S49500 & 249/117 & 1 & 0.023 & 0.3020833 & 0.3020833 & 1.8e-16 & 0.00011 \\
+S49501 & 249/117 & 1 & 0.016 & 0.5356402 & 0.5356402 & 0 & 0.00013 \\
+S49502 & 249/117 & 1 & 0.007 & 0.4591875 & 0.4591875 & 0 & 4.3e-05 \\
+S49503 & 249/117 & 1 & 0.021 & 0.03015152 & 0.03015152 & 0 & 5.9e-05 \\
+S49504 & 249/117 & 1 & 0.007 & 0.4642548 & 0.4642548 & 1.2e-16 & 2.8e-05 \\
+S49505 & 249/117 & 1 & 0.010 & 0.4367578 & 0.4367578 & 0 & 8.8e-05 \\
+E1 & 593/289 & 1 & 0.053 & 0.6183621 & 0.6183621 & 0 & 3e-05 \\
+E4 & 593/289 & 1 & 0.066 & 0.6091582 & 0.6091582 & 0 & 3e-05 \\
+E8 & 593/289 & 1 & 0.042 & 0.6032692 & 0.6032733 & 0 & 3e-05 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Every tangent solve and every compared timed tree has a separate three-second allowance. Secant solves have a further separate three-second allowance, not free shared time. All 18 envelope solves return status zero. These are floating-point HiGHS bounds and numerical feasible policies; they are not exact rational certificates. Solver gap concerns the envelope model. Full wall times, secant bounds, residuals, and bracket widths appear in the electronic companion and raw records.\end{minipage}
+\end{table}
+
+\begin{table}[p]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\caption{Measured certificate economics across all declared runs}\label{tab:r51-certificates}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Family & Runs & Exact & Median bytes & Max bytes & \shortstack{Numerator\\bits} & \shortstack{Denominator\\bits} & Check/solve \\
+\midrule
+stress & 72 & 50 & 740 & 1252 & 30 & 30 & 0.34 \\
+closure & 6 & 6 & 842 & 1145 & 27 & 28 & 0.34 \\
+strict & 20 & 20 & 4663 & 54454 & 96 & 103 & 1.07 \\
+matched & 48 & 22 & 1090 & 1970 & 42 & 43 & 0.35 \\
+refinement & 24 & 24 & 845 & 1231 & 30 & 31 & 0.34 \\
+boundary & 12 & 12 & 734 & 774 & 35 & 36 & 0.44 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Bytes are gzip sizes; numerator and denominator columns are maximum bit lengths over all rational entries. Check/solve is the median ratio of independent verification time to optimization time. The raw records additionally report uncompressed bytes and rational-entry counts. The 48 nonzero-width cases remain open, not exact. The strict family uses the one-class pooled certificate; the other families use selected-prefix certificates.\end{minipage}
+\end{table}

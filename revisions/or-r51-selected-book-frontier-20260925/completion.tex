@@ -1,0 +1,83 @@
+\section{Selected-Prefix Search at the Original Symbol Budget}\label{sec:r51-search}
+The preceding algorithm fixes catalog eligibility classes before selecting a book. A complementary approach fixes selected levels and leaves all remaining distinctions endogenous. This distinction matters when a small installed alphabet is selected from a refined catalog. We develop exact upper bounds for this search, including the opening charges, rather than applying a target grid after selecting the book.
+
+\subsection{A fixed-book prerequisite and endogenous pooling}
+For a selected book $c$, write $F_c$ for the interpolant on the entire book, $d_j(c)=\max(c\cap[0,\tau_j])$, and $e_j(c)=\min\{b_j,d_j(c)\}$. Although two histories may have different eligible prefixes, their terminal interpolants agree wherever both are defined: they are restrictions of $F_c$. The inherited canonical allocation therefore has the following useful representation. Put $D(c)=\sum_j\pi_je_j(c)$. If $B\leq D(c)$, choose $t_j=\min\{e_j(c),z\}$ with $\sum_j\pi_jt_j=B$. If $B>D(c)$, choose
+\begin{equation}\label{eq:r51-fixed-service}
+ t_j=e_j(c)+y_j,\qquad
+ y\in\argmin\left\{\sum_j\pi_jh_j(y_j):
+ 0\leq y_j\leq b_j-e_j(c),\ \sum_j\pi_jy_j=B-D(c)\right\}.
+\end{equation}
+The terminal-first exchange and supporting-slope argument in Theorem~\ref{thm:r49-pooling}, now applied to the common restricted interpolant and effective caps $e_j(c)$, prove this representation. It is a restatement and implementation of the fixed-book sweep following Theorem~\ref{thm:eligible}, not a new claim of novelty for resource allocation. For rational quadratic data it costs $O(k|c|+k\log(k+1))$ operations. The supporting multiplier in \eqref{eq:prefix-dual} certifies the result.
+
+The number of distinct eligible prefixes \emph{on this book} is at most $|c|$, whatever the full-catalog count. This observation does not authorize replacing the whole problem by the winning book's partition before optimization. Different competing books induce different partitions. The following search handles that dependence explicitly.
+
+\subsection{Mandatory prefixes in the price graph}
+Order the catalog as $a_1<\cdots<a_N$. A binary search state has already accepted a prefix of selected indices $P$, rejected the other processed indices, and leaves an undecided suffix $R$. Write $S=P\cup R$ in increasing order. In the local order on $S$, its first $p=|P|$ candidates are mandatory. A completion contains all these candidates and at most $m$ levels altogether. Its anchor must still satisfy $c_1\leq\min_jb_j$ and $c_1\leq B$.
+
+Apply the two-sided oracle in Section~\ref{sec:r46-box} on the original target box $[0,b]$, making only the following restrictions. If $p>0$, the forward table starts at the first local candidate. An edge from local index $i$ to $v$ is admissible only when
+\begin{equation}\label{eq:r51-required-edge}
+ i\geq p\quad\hbox{or}\quad v=i+1.
+\end{equation}
+A tail is admissible only at $i\geq p$. In particular, a backward stopping value before the final mandatory candidate is infeasible, not zero. The rising and falling score tests and all level charges are unchanged. Denote the resulting priced support by $S_{P,R}^{m}(\lambda)$.
+
+\begin{theorem}[Mandatory-prefix price decomposition]\label{thm:r51-prefix-price}
+The restricted recurrence computes exactly
+\begin{equation}\label{eq:r51-prefix-support}
+ S_{P,R}^{m}(\lambda)=
+ \max_{\substack{P\subseteq c\subseteq S,\ 1\leq|c|\leq m\\
+ c_1\leq\min_jb_j,\ c_1\leq B}}
+ \left\{\sum_j\pi_j\max_{c_1\leq t\leq b_j}
+ [v_{j,c}^{\tau}(t)-\lambda t]-\sum_{x\in c}\rho(x)\right\}.
+\end{equation}
+Thus $U_{P,R}(\lambda)=\lambda B+S_{P,R}^{m}(\lambda)$ is an upper bound on every completion at the original promise and symbol budget. A call takes $O((k+m)|S|^2)$ rational operations for rational quadratic data and a rational price. It requires no full-catalog eligibility partition.
+\end{theorem}
+\begin{proof}
+A path beginning at the first mandatory candidate cannot skip a subsequent mandatory candidate: an edge before index $p$ must advance by exactly one. Conversely, every completion containing all mandatory candidates obeys this rule, because these candidates precede every undecided candidate. Stopping is permissible exactly after all mandatory candidates have been visited. These statements also apply when the score peak occurs inside the mandatory prefix: its remaining mandatory levels belong to the decreasing side and their charges must still be paid.
+
+The ownership proof of Theorem~\ref{thm:r46-box} decomposes the priced response of \emph{each} feasible book into upper crossings, a peak, and lower crossings. Restricting its path family as above therefore preserves equality book by book. Every feasible completion has a represented path, and every represented path is a feasible completion. Taking maxima proves \eqref{eq:r51-prefix-support}; adding $\lambda B$ proves weak duality without presuming zero duality gap. The restrictions remove edges and stopping options but add no state coordinate. The same edge construction and two tables give the stated operation count. All table entries sum a polynomial number of rational primitive terms.
+\end{proof}
+
+Prices can be generated locally. A maximizing book gives a smallest and largest supported total target at that price. If both exceed $B$, $U_{P,R}$ has a nonpositive supported slope and the next trial moves upward in price; if both lie below $B$, it moves downward. If $B$ lies between them, bounded transfers among tied maximizers implement the promise and close that node's primal--dual gap. Otherwise a finite number of bisections supplies valid upper bounds even without convergence. For the implemented quadratic primitives, $[-\max_j\gamma_j-1,r+1]$ is a sufficient initial bracket. Ties between books do not invalidate this rule: a supporting slope of any maximizing book is a subgradient of the maximum. Our correctness argument uses only the evaluated bounds, not an assumption that the sampled prices attain their minimum.
+
+\subsection{Free completions, screening, and finite coverage}
+Let $G(S)$ be the gross fixed-book value when all symbols in $S$ are available without an opening charge. Equation~\eqref{eq:prefix-dual} certifies $G(S)$. Every completion is feasible in this enlarged command set, so
+\begin{equation}\label{eq:r51-free-upper}
+ \overline U(P,R)=G(S)-\sum_{x\in P}\rho(x)
+\end{equation}
+is an additional upper bound. At a state with $|P|=m$, use $S=P$: optional symbols cannot appear in any completion. A nonempty selected prefix itself gives a feasible lower policy whenever its anchor is feasible. We retain the smaller of the free-completion bound and the evaluated mandatory-prefix price bounds.
+
+\begin{proposition}[Certified elimination of irrelevant candidates]\label{prop:r51-screen}
+Let $L$ be the value of an original-feasible policy and let $G\geq G(\mathcal A)$ be a certified free-catalog upper bound. A candidate $a_i$ satisfying
+\begin{equation}\label{eq:r51-screen}
+ G-\rho_i<L
+\end{equation}
+belongs to no optimal book. Deleting any collection of such candidates preserves the optimum, the promise, and the symbol budget. Within a search state the corresponding sufficient test is $G(S)-\sum_{x\in P}\rho(x)-\rho_i<L$ for an undecided candidate.
+\end{proposition}
+\begin{proof}
+A book using $a_i$ has gross value at most $G$ and pays at least $\rho_i$, since every other charge is nonnegative. Its net value is strictly smaller than an available feasible value $L$. The same argument subtracts the mandatory charges in a state. Simultaneous deletions are safe because each excluded book is dominated by the retained feasible value, not by another deleted candidate.
+\end{proof}
+
+Start with the original catalog or a certified screened catalog. At an unresolved state, decide whether to reject or accept its next undecided level. The children partition its completions. An infeasible anchor eliminates a state; a state whose upper bound is no greater than the incumbent is closed; a fully specified feasible book is evaluated exactly. Best-bound processing is useful but not required. A run stopped by a node or time allowance returns the best feasible value and the largest upper bound among its open leaves. Time is checked between atomic oracle calls; measured elapsed times, including any overshoot, are reported.
+
+\begin{theorem}[Exact budget-parameterized design and interruption certificate]\label{thm:r51-tree}
+For rational quadratic primitives and nonnegative rational charges, the selected-prefix algorithm returns a valid original-space rational interval at every interruption. With no interruption it returns the exact global finite-catalog optimum. Write
+\begin{equation}\label{eq:r51-book-count}
+ Q_m(N)=\sum_{s=0}^{\min(m,N)}\binom Ns.
+\end{equation}
+The unpruned binary cover has at most $Q_m(N)$ leaves and $2Q_m(N)-1$ nodes. With a fixed number $q_0$ of price calls per node, a sufficient arithmetic bound, including fixed-book allocation, is
+\begin{equation}\label{eq:r51-tree-cost}
+ O\!\left((Q_m(N)+mN)
+ [kN+k\log(k+1)+q_0(k+m)N^2]\right).
+\end{equation}
+Consequently the problem is exactly polynomial-time solvable for every fixed $m$, with arbitrary $E$; this is an XP bound in $m$, not an FPT bound. The free-completion variant $q_0=0$ already establishes this statement. Its rational certificate has $O(k+N+T)$ entries for $T$ visited nodes. If $T_p$ nodes retain priced path witnesses, a sufficient certificate-size bound becomes $O(k+N+T+T_pmN)$ rational entries, with polynomial bit lengths for a fixed or polynomially bounded $q_0$.
+\end{theorem}
+\begin{proof}
+Weak duality proves both upper bounds. A selected prefix is an admissible installed book, and its recovered targets and adjacent lotteries meet every original constraint. Include and exclude children are disjoint and exhaustive. Induction down the tree therefore covers every admissible book either by an infeasibility proof, a pruned upper bound, or an open upper bound. No book is omitted merely because its eligibility partition differs from the incumbent's. Taking the maximum with the feasible lower value gives the claimed interruption interval. At termination every remaining feasible leaf is a fixed book with a supporting allocation multiplier, so its gap is zero or its value is dominated by the incumbent. The global interval consequently has zero width.
+
+For the size bound, a binary path stops after $m$ acceptances or after all candidates have been decided. It identifies a unique subset with size at most $m$, including the empty infeasible subset. Conversely each such subset identifies one leaf, so a full cover has $Q_m(N)$ leaves. A finite full binary tree has twice as many nodes minus one. Pruning, screening, and infeasibility removal cannot increase this bound. Each free evaluation uses the fixed-book sweep; each priced evaluation uses Theorem~\ref{thm:r51-prefix-price}. The greedy initialization tests at most $mN$ additional books. This proves \eqref{eq:r51-tree-cost}. In particular, for fixed $m$, $Q_m(N)=O(N^m)$; no accuracy grid or enumeration of class means occurs. The elementary enumeration implication was already proved in antecedent Proposition~\ref{prop:r46-complexity}, reproduced in the companion, using fixed-book separable allocation. The new search supplies budget-respecting completion bounds and checkable pruning, rather than claiming that enumeration itself is novel.
+
+A free-bound node needs only its price and upper endpoint. The checker reconstructs its candidate union and evaluates each scalar support at the eligible knots, the cap, and the clipped quadratic stationary point. A priced node additionally supplies two $m$-by-$N$ arrays. The checker verifies anchor, transition, stopping, and peak inequalities, including all mandatory-level restrictions. These are upper potentials, not trusted optimizer outputs. The accepted and rejected index sets follow from the binary cover and need not be stored. The final policy uses at most two lottery atoms per history; the checker evaluates its probabilities, service, expectation caps, pointwise ceilings, opening charges, and root equality directly. These observations prove the entry counts. Rational sums, breakpoint divisions, and finitely many bisections have polynomial encoding length in the rational input and the number of price trials. Finally the checker validates the realized cover; it does not purport to prove an a priori tree-count theorem.
+\end{proof}
+
+This result and Theorem~\ref{thm:r49-frontier} give complementary exact regimes. Common catalog eligibility permits variable symbol budget without enumerating books. A fixed symbol budget permits arbitrary catalog eligibility without searching an $E$-dimensional mean space. When both vary, the present bounds are not a full complexity classification: no hardness or FPT claim is needed for either positive result. In particular, a hardness assertion for a fixed budget of two or three would conflict with \eqref{eq:r51-tree-cost} under these rational quadratic primitives. A hybrid implementation should use the one-class oracle when applicable and the completion tree when a small alphabet is the more useful parameter.

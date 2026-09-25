@@ -1,0 +1,60 @@
+\section{Catalog Refinement and Threshold Robustness}\label{sec:r51-robust}
+Eligibility complexity is a property of a catalog and its thresholds together. It need not measure the distinctions that a selected book actually uses. The following statements separate changes in the partition, changes in the feasible design problem, and changes in a particular algorithm's work.
+
+\begin{theorem}[Catalog-dependent and selected-book partitions]\label{thm:r51-partitions}
+Let $E(\mathcal A,\tau)$ count distinct eligible catalog prefixes in a feasible catalog, and let $T$ count distinct primitive thresholds. If $\mathcal A\subseteq\mathcal A'$ and $r_0=|\mathcal A'\setminus\mathcal A|$, then
+\begin{equation}\label{eq:r51-refinement}
+ E(\mathcal A,\tau)\leq E(\mathcal A',\tau)
+ \leq\min\{T,|\mathcal A'|,E(\mathcal A,\tau)+r_0\}.
+\end{equation}
+A single insertion splits at most one existing class. For every selected book $c\subseteq\mathcal A$,
+\begin{equation}\label{eq:r51-endogenous}
+ E(c,\tau)\leq\min\{|c|,E(\mathcal A,\tau)\}.
+\end{equation}
+If a threshold perturbation leaves every catalog signature unchanged and maintains $\tau_j\geq b_j$, the canonical response, optimal value, and optimal canonical policies are unchanged. In contrast, inserting an unused candidate can increase $E(\mathcal A,\tau)$ without changing the optimal value.
+\end{theorem}
+\begin{proof}
+Two thresholds separated by an old candidate remain separated after insertion, proving refinement of the partition. A new candidate $x$ divides only the old catalog gap containing $x$: histories below $x$ stay on one side and histories at or above $x$ stay on the other. Thus at most one class splits per insertion. Identical primitive thresholds cannot be separated. Feasibility gives at least one eligible level for every history, so the possible signature values are $1,\ldots,|\mathcal A'|$. These observations prove \eqref{eq:r51-refinement}. Restricting a signature to a subset of candidate levels can only merge classes; a book of $|c|$ levels has at most $|c|$ nonempty eligible prefixes. This proves \eqref{eq:r51-endogenous}.
+
+For unchanged signatures, every fixed book has the same eligible prefix on each history. Formula~\eqref{eq:prefix-response} is therefore unchanged. Its canonical lotteries remain feasible, because drawn terminal levels stay eligible and service cases have total $t_j\leq b_j\leq\tau_j$. Taking maxima proves the stability statement.
+
+For a concrete insertion example, take two equally weighted histories with caps $3/10$ and $2/5$, thresholds $9/20$ and $11/20$, promise $B=1/4$, and catalog $\{0,1/4,3/4,1\}$ with zero charges. Both histories see exactly the first two candidates. Insert $1/2$ with charge $2$. With $f(x)=2x-x^2/2$ and nonnegative service costs, gross payoff is at most $f(1)=3/2$, whereas the singleton $\{1/4\}$ earns $f(1/4)=15/32$. Every book containing the new level earns at most $-1/2$. Hence the optimum is unchanged but the catalog partition splits into two classes. Proposition~\ref{prop:r51-screen} removes this candidate with a certificate.
+\end{proof}
+
+For a threshold in the half-open gap $[a_i,a_{i+1})$, stability means remaining in that same gap, including its left endpoint and excluding its right endpoint. A convenient sufficient condition away from endpoints is a perturbation smaller than the distance to every catalog level. The value is thus constant on each such signature cell, but a small numerical perturbation can cross a cell boundary. Constancy of the \emph{number} of classes alone does not imply constancy of the value.
+
+\begin{theorem}[Robust design and affected-history bound]\label{thm:r51-uncertainty}
+Suppose each threshold lies in $[\tau_j^-,\tau_j^+]$, with $\tau_j^-\geq b_j$. Requiring every realization constraint for every threshold vector in this rectangle is exactly the original model evaluated at $\tau^-$. It is therefore solved by either exact regime above when its hypotheses hold. Let
+\[
+ J=\{j:\mathcal A\cap[0,\tau_j^-]\ne\mathcal A\cap[0,\tau_j^+]\},
+ \qquad M_j=f(1)-f(0)+h_j(b_j).
+\]
+For the same catalog, charges, promise, and symbol budget,
+\begin{equation}\label{eq:r51-affected}
+ 0\leq\mathcal V_{m,\mathcal A}^{\tau^+}(B;\rho)
+       -\mathcal V_{m,\mathcal A}^{\tau^-}(B;\rho)
+ \leq\sum_{j\in J}\pi_j M_j.
+\end{equation}
+The bound is in affected probability mass, not in the numerical width of the threshold intervals.
+\end{theorem}
+\begin{proof}
+The intersection of the pointwise ceiling constraints over the rectangle is $y_j+C_j\leq\tau_j^-$ on every history. No objective coefficient depends on the threshold, so the robust problem is exactly the lower-ceiling problem. Increasing thresholds enlarges the feasible set, proving the lower inequality.
+
+Take an optimal upper-ceiling book and its targets. Its anchor is no greater than every cap, so the same book and targets admit the lower-ceiling canonical policy. On $j\notin J$ the two responses coincide. On a changed history the upper response is at most $f(1)$, whereas the lower response is at least $f(0)-h_j(b_j)$: the lowest selected level followed by the necessary service is feasible, and $h_j$ is nondecreasing. Thus the loss on that history is at most $M_j$. The root equality, branch caps, alphabet size, and all charges are unchanged by this reconstruction. Weighted summation and optimization at the lower ceilings prove \eqref{eq:r51-affected}.
+\end{proof}
+
+A uniform Lipschitz bound in the threshold width would be false without a boundary margin. With one history, $b=B=1/4$, catalog $\{0,1/2\}$, zero charges, budget two, $f(x)=2x-x^2/2$, and $h(y)=\gamma y^2/2$, the value is $-\gamma/32$ just below threshold $1/2$. At or above $1/2$, an equal-probability lottery on the two levels earns $7/16$. The jump $7/16+\gamma/32$ does not vanish with the perturbation width. The robust lower-ceiling problem and affected-history bound treat this discontinuity directly rather than pooling across a safety boundary.
+
+These results also delimit certificate reuse. A changed catalog or threshold vector is a changed problem input. An old tree is not automatically a certificate for it. Within a signature cell its canonical terms can be reused after the new input is checked; across cells, the relevant supports and coverage must be rebuilt or independently revalidated. Merging histories according to the winning book compresses that policy's representation, but does not prove upper bounds for competing books with different selected prefixes.
+
+\subsection{A derived stochastic capacity-reservation model}\label{sec:r51-capacity}
+The same correction arises in a capacity-reservation problem with two explicitly different services. At an observed site state $j$, a provider reserves a market-facing capacity $X_j$ from one certified batch catalog and purchases a non-market backup service $y_j$ before the batch draw. Both count toward a contractual availability obligation; only market-facing capacity is sold to arriving demand. Backup has a separable provisioning cost and is remunerated through the fixed availability contract, not through the market revenue term. The interface can communicate only the installed batch command, with at most $m$ possible commands.
+
+Let demand $D$ be independent of the batch draw, with a common distribution on $[0,1]$, and let $p$ be revenue per served unit. Then
+\begin{equation}\label{eq:r51-demand}
+ f(x)=p\,\mathbb E\min\{D,x\}
+     =p\int_0^x\mathbb P(D\geq u)\,du.
+\end{equation}
+The survival function is nonincreasing, so $f$ is concave; it is strictly increasing whenever demand has positive survival below the largest capacity. Uniform demand gives $f(x)=p(x-x^2/2)$. Local reservation limits impose $\mathbb E(y_j+X_j)\leq b_j$, engineering limits impose $y_j+X_j\leq\tau_j$ on every implemented batch, and a pooled availability contract requires $\sum_j\pi_j\mathbb E(y_j+X_j)=B$. Certifying a batch level incurs its opening charge once. Maximizing expected market revenue less backup and certification costs gives exactly \eqref{eq:unified-allocation}, now derived by integrating a stochastic demand model.
+
+Therefore histories with the same eligible certified batches obey the terminal-first identity, and the backup-cost improvement localizes at the last safe selected batch. More generally the mandatory-prefix tree handles different engineering thresholds without averaging safety limits. This is a mathematical application with specified primitives, not calibrated operational evidence. In particular, a model in which backup also earns the same demand-dependent revenue would have a different objective and is not covered by this identification. The companion gives a direct demand-integral check and a numerical capacity instance; no observed demand or estimated engineering thresholds are invented.

@@ -1,0 +1,71 @@
+\section{Exact Pooling by Eligibility}\label{sec:r49-pooling}
+Define the catalog signature $K_j(\mathcal A)=|\mathcal A\cap[0,\tau_j]|$. Two histories have the same \emph{eligibility class} when their signatures coincide. This partition depends on the candidate catalog, not only on the primitive contracts. Let $G_1,\ldots,G_E$ be these classes, and write
+\[
+ W_g=\sum_{j\in G_g}\pi_j,\qquad
+ w_{j|g}=\pi_j/W_g,\qquad
+ \bar b_g=\sum_{j\in G_g}w_{j|g}b_j.
+\]
+This partition does not require identical caps or costs. In particular, an arbitrarily large collection with common catalog eligibility has $E=1$, even if every cap and every curvature differs. We retain each original branch when evaluating a class; we do not replace it by an artificial branch with an average cost. The group mean $s_g$ satisfies $\sum_gW_gs_g=B$.
+
+For $0\leq s\leq\bar b_g$, define the capped equalization
+\begin{equation}\label{eq:r49-theta}
+ \theta_j^g(s)=\min\{b_j,z_g(s)\},\qquad
+ \sum_{j\in G_g}w_{j|g}\min\{b_j,z_g(s)\}=s.
+\end{equation}
+At $s=\bar b_g$, use $\theta_j^g(s)=b_j$. Although the water level is then not unique, the allocation is unique. Each coordinate is nondecreasing in $s$. For a book $c$ with a feasible anchor, let $d_g$ be its last level eligible for this class and let $F_{g,c}$ be its common reward interpolant. Define
+\begin{align}
+ D_g(d)&=\sum_{j\in G_g}w_{j|g}\min\{b_j,d\},\label{eq:r49-D}\\
+ C_g(q;d)&=\min\left\{\sum_{j\in G_g}w_{j|g}h_j(y_j):
+ 0\leq y_j\leq(b_j-d)_+,\ \sum_{j\in G_g}w_{j|g}y_j=q\right\}.
+ \label{eq:r49-C}
+\end{align}
+The second problem is ordinary separable resource allocation, not a new water-filling algorithm. Breakpoint and multiplier methods for such problems are established; see \citet{PatrikssonStromberg2015} and \citet{SchootUiterkamp2022}. What matters here is that its only book-dependent argument is the last eligible level.
+
+\begin{theorem}[Terminal-first pooling]\label{thm:r49-pooling}
+For continuous convex nondecreasing costs that vanish at zero, the maximum normalized payoff of class $g$ at mean $s\in[c_1,\bar b_g]$ equals
+\begin{equation}\label{eq:r49-value}
+ V_{g,c}(s)=
+ \begin{cases}
+ \displaystyle\sum_{j\in G_g}w_{j|g}F_{g,c}(\theta_j^g(s)),&s\leq D_g(d_g),\\[1mm]
+ \displaystyle\sum_{j\in G_g}w_{j|g}F_{g,c}(\min\{b_j,d_g\})
+       -C_g(s-D_g(d_g);d_g),&s\geq D_g(d_g).
+ \end{cases}
+\end{equation}
+Consequently,
+\begin{align}
+ W_gV_{g,c}(s)
+ &=\sum_{j\in G_g}\pi_jv_{j,c}^{\tau}(\theta_j^g(s))
+       +\Delta_g(d_g;s),\label{eq:r49-correction}\\
+ \Delta_g(d;s)
+ &=\sum_{j\in G_g}\pi_jh_j((\theta_j^g(s)-d)_+)
+   -W_g C_g((s-D_g(d))_+;d)\ \geq0.\label{eq:r49-delta}
+\end{align}
+Below $D_g(d_g)$ an optimal allocation is $t_j=\theta_j^g(s)$; above it an optimal allocation is $t_j=\min\{b_j,d_g\}+y_j$, where $y$ solves \eqref{eq:r49-C}. These policies satisfy the individual caps and realization ceilings, not merely their group averages.
+\end{theorem}
+\begin{proof}
+Use the canonical response in Theorem~\ref{thm:eligible}. Suppose a feasible allocation gives positive intermediate service to one member while another has unused terminal capacity below $\min\{b_j,d_g\}$. If member $i$ has positive service and member $j$ has spare terminal capacity, choose $\delta>0$ small enough that both capacity inequalities remain valid and set $t_i^{\prime}=t_i-\delta$, $t_j^{\prime}=t_j+(\pi_i/\pi_j)\delta$. The conservation equation $\pi_i(t_i^{\prime}-t_i)+\pi_j(t_j^{\prime}-t_j)=0$ keeps the class mean unchanged. Intermediate cost cannot increase, and the strictly increasing common interpolant raises terminal reward. Thus no optimum mixes positive service with unfinished terminal capacity.
+
+If $s\leq D_g(d_g)$, an optimum therefore uses no service. Maximizing the same concave interpolant over capped targets gives \eqref{eq:r49-theta}. To verify this without assuming differentiability, take a supporting slope at the common unsaturated level. On an unsaturated member its supporting-line inequality bounds any change in reward. On a capped member, decreasing its target loses at least that slope per unit, by concavity. The weighted linear terms sum to zero. At the endpoint where all terminal capacities are full, the assertion follows directly by monotonicity. This proves the first case of \eqref{eq:r49-value}.
+
+If $s\geq D_g(d_g)$, every terminal capacity is full and only service remains to be allocated. Its capacities and total are precisely those in \eqref{eq:r49-C}, proving the second case. At $s=D_g(d_g)$, both formulas equal $\sum_jw_{j|g}F_{g,c}(\min\{b_j,d_g\})$, because $C_g(0;d_g)=0$; continuity of the finite capped convex allocation value gives continuity at this boundary. If $s>D_g(d_g)$ and the equalization level were at most $d_g$, its weighted mean would be at most $D_g(d_g)$, a contradiction. Hence $\theta_j^g(s)\geq\min\{b_j,d_g\}$, so the equalized allocation has the same terminal rewards as the optimal allocation. Their difference is exactly the reduction in service cost in \eqref{eq:r49-delta}. Below $D_g(d_g)$ both cost terms are zero. Feasibility follows from the original cap constraints and the canonical adjacent lottery or singleton, including its supportwise ceiling.\end{proof}
+
+\subsection{Joint book selection at fixed group means}
+Let $K_g$ be the number of catalog levels eligible for class $g$. For supplied group means, form the individual targets $t_j=\theta_j^g(s_g)$ and the target-crossing edges and tails in Section~\ref{sec:r45-compression}. Add
+\begin{equation}\label{eq:r49-edge-delta}
+ \sum_{g:i\leq K_g<v}\Delta_g(a_i;s_g)
+\end{equation}
+to the edge from catalog index $i$ to $v$, and add $\sum_{g:i\leq K_g}\Delta_g(a_i;s_g)$ to a path ending at $i$. Indices in this formula are one-based. The correction is paid at the unique edge that leaves a class's eligible prefix, or at the terminal node if no such edge occurs. All original level-opening charges remain in the path objective.
+
+\begin{theorem}[Exact eligibility-mean frontier]\label{thm:r49-frontier}
+The corrected path recurrence returns the globally best book and individual targets for supplied feasible group means, at every budget up to $m$. For rationally encoded nonnegative opening charges and rational quadratic primitives $f(x)=rx-qx^2/2$ and $h_j(y)=\gamma_jy^2/2$, including zero service curvatures, one call takes
+\begin{equation}\label{eq:r49-oracle-cost}
+ O\bigl((k+m)N^2+kN\log(k+1)\bigr)
+\end{equation}
+rational arithmetic operations, with polynomial bit complexity in the instance and supplied means. When $E=1$, set $s_1=B$: a single call solves the original joint finite-catalog problem globally, for variable $k,N,m$, nonnegative opening charges, and heterogeneous caps and curvatures. Optimization identities also permit real charges; the bit-complexity assertion requires the rational encoding just specified. It does not enumerate books or expand the command budget.
+\end{theorem}
+\begin{proof}
+For any book, the uncorrected path sums its responses at the equalized targets. Every class has exactly one last eligible selected symbol. Formula~\eqref{eq:r49-edge-delta} adds its correction exactly once, so Theorem~\ref{thm:r49-pooling} makes the path value equal to that book's optimal value at the group means. Conversely every path defines a legal book and the theorem constructs its optimal individual allocation. Maximizing paths therefore proves both inequalities needed for exactness.
+
+For each possible last level, solve \eqref{eq:r49-C} by first filling zero-cost capacity and then sorting the positive breakpoints $\gamma_j(b_j-d)_+$. The remaining water level solves a linear equation between consecutive breakpoints. This requires $O(|G_g|\log(|G_g|+1))$ arithmetic operations per class and level. Compute equalized targets once, construct the original $O(kN^2)$ crossing terms, and add all class corrections in $O(EN^2)$ operations. Since $E\leq k$, the path recurrence and these costs give \eqref{eq:r49-oracle-cost}. All sums, comparisons, divisions, and reconstructed probabilities are rational with polynomial encoding length. For $E=1$ the root promise already fixes the only group mean. Thus there is no outer target search, including at interior promises.\end{proof}
+
+This result differs from aggregation of identical response types in Proposition~\ref{prop:r46-types}. It retains arbitrary within-class heterogeneity and evaluates its exact service frontier. It also differs from harmonic coarsening: no cap guard or dispersion allowance is needed. The earlier harmonic and minimum-curvature results remain useful simpler upper models under their stated assumptions and remain available in the preserved mathematical archive.

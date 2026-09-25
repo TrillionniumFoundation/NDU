@@ -1,0 +1,56 @@
+\section{Model and Canonical Allocation}\label{sec:joint}
+There are $k$ public histories, indexed by $j=1,\ldots,k$. History $j$ is observed with probability $\pi_j>0$, with $\sum_j\pi_j=1$. It has a continuation cap $b_j\in[0,1]$ and a convex nondecreasing intermediate-service cost $h_j$, with $h_j(0)=0$. The common terminal reward $f$ is strictly increasing and concave on $[0,1]$. Caps may repeat; write $\bar b=\sum_j\pi_jb_j$. An encoder selects a terminal command from one installed alphabet, and only its symbol reaches the common terminal gateway. The gateway cannot recover the observed branch, an inherited intermediate tier, or an uncharged shared random seed. Thus $m$ distinct commands require $\lceil\log_2m\rceil$ writable bits; read-only program constants and public-state storage are separate resources. The full institutional mechanism and saturated benchmarks remain in the preserved antecedent article and mathematical archive (the companion gives the reading map).
+
+The provider selects a pre-draw tier $y_j$ and a lottery $C_j$ on the installed book, with operating payoff $\E f(C_j)-h_j(y_j)$. The accepted root obligation is $B\in[0,\bar b]$. Expected participation restricts the mean obligation, while a realization ceiling restricts every positive-probability draw. With a common risk tolerance $\delta\geq0$,
+\begin{equation}\label{eq:unified-feasible}
+ t_j=y_j+\E C_j\leq b_j,\qquad
+ y_j+C_j\leq b_j+\delta\ \text{almost surely},\qquad
+ \sum_j\pi_jt_j=B.
+\end{equation}
+A book $c$ has at most $m$ distinct levels in $[0,1]$ and incurs $\sum_{z\in c}\rho(z)$, once per selected level. Let $\mathcal V_m^\delta(B;\rho)$ denote maximum operating payoff less this charge. A finite catalog restriction is denoted $\mathcal V_{m,\mathcal A}^\delta(B;\rho)$. The expectation cap is not replaced by the weaker realization ceiling. We write $V_m^P(B)$ and $V_m^E(B)$ for the same zero-charge objective under, respectively, pathwise participation and expectation-only participation, with their encoder restrictions unchanged. Taking $\delta\geq1$ makes the realization restriction redundant at the canonical optimum below. Taking $\delta=0$ gives the full pathwise value, even though that institution initially permits draw-specific intermediate service. Thus these are endpoints of one design problem, not three unrelated extensions.
+
+\subsection{Eligibility prefixes replace saturated targets}
+For a strictly ordered book $c=(c_1,\ldots,c_s)$ and branch $j$, define
+\[
+ c^{j,\delta}=\{z\in c:z\leq b_j+\delta\},\qquad
+ d_j=\max c^{j,\delta},
+\]
+and let $F_{j,c}^\delta$ be the piecewise-affine interpolant of $f$ on this prefix, including the singleton interpretation. The prefix depends on the cap and risk ceiling, not on the endogenous target.
+\begin{theorem}[Canonical allocation under a realization ceiling]\label{thm:eligible}
+Suppose $f$ is strictly increasing and concave and $h_j$ is convex, nondecreasing, and zero at zero. A fixed book is feasible exactly when $c_1\leq\min_jb_j$ and $c_1\leq B\leq\bar b$. Its optimal branch response at target $c_1\leq t\leq b_j$ is
+\begin{equation}\label{eq:prefix-response}
+ v_{j,c}^\delta(t)=F_{j,c}^\delta(\min\{t,d_j\})-h_j((t-d_j)_+).
+\end{equation}
+It is attained by $y=(t-d_j)_+$ and an adjacent lottery of mean $\min(t,d_j)$ in the eligible prefix. Consequently
+\begin{equation}\label{eq:unified-allocation}
+ \mathcal V_m^\delta(B;\rho)=
+ \max_{\substack{|c|\leq m,\ c_1\leq t_j\leq b_j\\\sum_j\pi_jt_j=B}}
+ \left\{\sum_j\pi_jv_{j,c}^\delta(t_j)-\sum_{z\in c}\rho(z)\right\}.
+\end{equation}
+The fixed-book inner problem is concave. With zero charges, $\mathcal V_m^0(B;0)=V_m^P(B)$ and $\mathcal V_m^\delta(B;0)=V_m^E(B)$ for $\delta\geq1$, at every feasible $B$.
+\end{theorem}
+\begin{proof}
+Every used terminal level satisfies $C\leq b_j+\delta$ because $y\geq0$. Writing $\mu=\E C$, the payoff is at most $F_{j,c}^\delta(\mu)-h_j(t-\mu)$. Both terms are nondecreasing as $\mu$ increases on $[c_1,\min(t,d_j)]$, so this upper bound is maximized at its right endpoint. If $t\leq d_j$, the adjacent lottery has $y=0$ and all its support lies below $b_j+\delta$. If $t>d_j$, it is the singleton $d_j$ and $y+d_j=t\leq b_j$. Thus the upper bound is attained without relaxing either constraint. The response is concave: its nonnegative interpolation slopes decrease, and its tail has the nonpositive slopes of $-h_j(t-d_j)$. The feasibility conditions follow by using the lowest level and allocating intermediate service; weighted targets fill the entire interval $[c_1,\bar b]$.
+
+For pathwise participation with possibly draw-specific $Y$, all used $C$ satisfy $C\leq b_j$. At fixed $t=\E(Y+C)$, concavity of $f$ on the discrete support and Jensen's inequality for $h_j$ give the same upper bound with $\delta=0$ and $\E Y=t-\mu$. The canonical policy attains it and is pathwise feasible. Fresh decoder randomization can first be replaced by its conditional mean for each symbol: this increases terminal reward and preserves all the ceilings under the stipulated absence of an uncharged shared seed. Under expected participation the same mean argument has no eligibility truncation; $\delta\geq1$ includes every level in $[0,1]$. These observations establish the two endpoint identities and both directions of \eqref{eq:unified-allocation}.
+\end{proof}
+
+For every exact-arithmetic and bit-complexity statement we assume rationally encoded probabilities, caps, ceilings, catalog levels, promise, and nonnegative charges, with
+\begin{equation}\label{eq:r34-primitives}
+ f(x)=rx-\frac q2 x^2,\quad r>0,\quad 0\leq q\leq r,\qquad
+ h_j(y)=\frac{\gamma_j}{2}y^2,\quad\gamma_j\geq0.
+\end{equation}
+The structural identities apply more generally under their stated concavity assumptions; exact bit complexity does not refer to arbitrary real inputs. For these quadratic primitives, chord $[u,v]$ has slope $r-q(u+v)/2$. On branch $j$ its target capacity is
+\[
+ \bigl[\min\{b_j,v\}-u\bigr]_+\,\mathbf 1\{v\leq b_j+\delta\}.
+\]
+Starting at $t_j=c_1$, fill these positive slopes in their common decreasing order, followed by zero-cost intermediate capacity and the quadratic tails. A water-level sweep over events $\gamma_j(b_j-d_j)_+$ fills the remaining targets. It uses $O(ks+k\log(k+1))$ rational arithmetic operations, including the certificate
+\begin{equation}\label{eq:prefix-dual}
+ \sum_j\pi_jv_{j,c}^\delta(t_j)
+ =\lambda B+\sum_j\pi_j\max_{c_1\leq t\leq b_j}
+       \{v_{j,c}^\delta(t)-\lambda t\}.
+\end{equation}
+The right-hand branch maxima are independently checked at eligible knots, the cap, and the clipped tail stationary point. This multiplier certifies the allocation for that book; it is not by itself a global codebook certificate. The outer problem is solved next.
+
+
+All canonical arguments continue to hold for branch-specific ceilings $\tau_j\geq b_j$ in place of $b_j+\delta$: the eligibility prefix is then $c\cap[0,\tau_j]$. We write $\mathcal V_{m,\mathcal A}^{\tau}(B;\rho)$ for this generalized catalog value. The new budgeted algorithms and numerical formulation use these heterogeneous ceilings. The retained continuous and institutional results use their stated common-$\delta$ specialization.
