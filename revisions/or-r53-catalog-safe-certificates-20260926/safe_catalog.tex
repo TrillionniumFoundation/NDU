@@ -1,0 +1,54 @@
+\subsection{Safe command deletion and certificate transfer}\label{sec:safe53}
+An unchanged incumbent after catalog refinement does not prove that the enlarged problem has the same optimum. We give a sufficient exclusion test that controls every feasible allocation, rather than only the winning book. It is sharper than the gross bound $f(1)-\rho(z)$ and needs no globally optimal incumbent.
+
+Assume the catalog is feasible, write $a=a_1$ and $\alpha=\min(B,\min_jb_j)$, and consider $z\in\mathcal A$ with $z>\alpha$. Such a command cannot be the anchor of a feasible book. Define
+\begin{align}
+ s_{az}&=\frac{f(z)-f(a)}{z-a},\label{eq:anchorslope53}\\
+ G(z)&=\sum_{j:\tau_j\geq z}\pi_j\left\{
+ s_{az}\min(b_j-a,z-a)+h_j(b_j-a)-h_j((b_j-z)_+)\right\}.\label{eq:anchorgain53}
+\end{align}
+All arguments are nonnegative because $a\leq\min_jb_j$. The expression depends on the candidate, the smallest catalog command, and the original histories, but not on other catalog entries.
+
+\begin{theorem}[Anchor-envelope screening]\label{thm:screen53}
+For any feasible book containing a non-anchor command $z$, deleting $z$ and reoptimizing its canonical responses at the \emph{same individual targets} loses at most $G(z)$ in gross payoff. Consequently, every set
+\begin{equation}\label{eq:screenset53}
+ S\subseteq\{z\in\mathcal A:z>\alpha,\ \rho(z)\geq G(z)\}
+\end{equation}
+can be deleted simultaneously without changing $V^*(B)$. At least one optimal book avoids $S$. If $\rho(z)>G(z)$, no optimal book contains $z$.
+
+The minimum catalog command is retained. Hence the bound for any remaining command is unchanged after screening or after insertion of other non-anchor commands that leave the minimum and the original primitives unchanged. In the rational quadratic specialization, computing all $G(z)$ takes $O(kN)$ arithmetic operations and polynomial bit complexity. This preprocessing does not change the command budget or the accuracy guarantee of Theorem~\ref{thm:approx52}.
+\end{theorem}
+\begin{proof}
+First fix the immediate selected predecessor $u<z$. If the book has a selected successor, denote it by $v>z$; otherwise write $v=\dagger$. Histories with $\tau_j<z$ are unaffected by the deletion. For a remaining history, put $x_j=(b_j-u)_+$.
+
+If $z\leq\tau_j<v$, or $v=\dagger$, deleting $z$ changes the last eligible selected level from $z$ to $u$. Below $u$ the canonical response is unchanged. Between $u$ and $z$, the gain from retaining $z$ is $s_{uz}(t-u)+h_j(t-u)$, which is nondecreasing. Above $z$ the gain is $f(z)-f(u)+h_j(t-u)-h_j(t-z)$. Convexity makes the last cost increment nondecreasing in $t$. The largest gain over the target interval therefore occurs at $b_j$ and equals
+\begin{equation}\label{eq:exitgain53}
+ s_{uz}\min(x_j,z-u)+h_j(x_j)-h_j((b_j-z)_+).
+\end{equation}
+This formula also gives zero when $b_j\leq u$.
+
+If $\tau_j\geq v$ for a finite successor, the two canonical responses differ only on $[u,v]$. Their difference is the triangular interpolation gain, with height
+\[
+ d_f(u,z,v)=f(z)-\frac{v-z}{v-u}f(u)-\frac{z-u}{v-u}f(v)\geq0
+\]
+at $z$. Its maximum under the individual cap is
+\begin{equation}\label{eq:trianglegain53}
+ d_f(u,z,v)\min\{1,x_j/(z-u)\}.
+\end{equation}
+Because $f$ is increasing, $d_f(u,z,v)\leq f(z)-f(u)$. Thus \eqref{eq:trianglegain53} is no larger than \eqref{eq:exitgain53}; the additional cost difference in the latter is nonnegative. A terminal successor therefore bounds every successor context.
+
+For fixed $z$, concavity of $f$ makes $s_{uz}$ nonincreasing as $u$ increases. Both $\min((b_j-u)_+,z-u)$ and $h_j((b_j-u)_+)$ are also nonincreasing. The subtracted term $h_j((b_j-z)_+)$ is independent of $u$. Therefore \eqref{eq:exitgain53} is largest at the smallest catalog predecessor $a$. Summing the resulting inequalities proves \eqref{eq:anchorgain53} as a uniform loss bound.
+
+Deletion keeps the old anchor, and hence the old target vector remains feasible by Proposition~\ref{prop:canonical52}. Canonical reconstruction satisfies every realization ceiling and expected cap, and preserves the weighted equality exactly. The opening charge saved is at least the gross loss whenever \eqref{eq:screenset53} holds. Apply this argument successively to each selected element of $S$. The minimum $a$ is never deleted, so the same bounds remain valid after every deletion. Every original feasible value is weakly improved by a retained-catalog policy, whereas every retained-catalog policy was already feasible in the original catalog. The optima are equal. Strict inequality gives a strict improvement for any book containing that command, proving the final exclusion claim. Evaluating the rational formula once for each history and candidate gives the stated complexity.
+\end{proof}
+
+The envelope is sharp as a bound over the individual target box: at $B=\bar b$, the books $\{a,z\}$ and $\{a\}$ attain exactly the gross difference $G(z)$. At smaller promises it can be conservative. Equality of a charge and its bound certifies existence of a retained optimum, not that every optimum avoids the command. For example, one history with $b=B=1/4$, zero service cost, catalog $\{0,1/2\}$, reward $2x-x^2/2$, and charge $\rho(1/2)=7/16$ has both books optimal at value zero. Screening preserves the singleton optimum. The non-anchor condition is essential and is not replaced by an empirical claim that a command happened to be unused.
+
+\begin{corollary}[Refinement-safe global intervals]\label{cor:transfer53}
+Let a reduced catalog be obtained by the certified deletions in Theorem~\ref{thm:screen53}. An original-space feasible lower policy and a valid global upper bound for the reduced problem certify the same interval for the original problem. In particular, a previously checked catalog certificate remains valid after non-anchor insertions when every inserted option is excluded by the theorem, all retained charges and original primitives are unchanged, and the same promise and budget are used.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:screen53} gives equality of the two optimal values. The lower policy uses only retained commands and remains feasible in the enlarged catalog with the same payoff. The upper bound applies to the identical optimum. These comparisons preserve the interval width and therefore its requested accuracy.
+\end{proof}
+
+The transfer certificate records the original instance, deleted candidates and their rational bounds, the reduced-catalog global certificate, and the original lower policy. The independent checker evaluates the possible predecessor--successor contexts at canonical breakpoints, rather than importing the screening formula. It checks their maximum against the declared bound, binds the reduced problem to unchanged original primitives, and invokes the separate resource-path checker. An externally supplied instance digest identifies the problem that the verifier intended to certify; a self-reported hash alone does not establish that identity. Neither a selected-book explanation nor a solver completion status can replace this global argument.

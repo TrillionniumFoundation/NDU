@@ -1,0 +1,83 @@
+name: NDU R53 catalog-safe referee revision
+on:
+  push:
+    branches: [revision/ndu-operations-research-r53-catalog-safe-certificates-20260926]
+    paths:
+      - .github/workflows/ndu-or-r53-publication.yml
+      - revisions/or-r53-catalog-safe-certificates-20260926/**
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r53-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r53-catalog-safe-certificates-20260926'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      R: revisions/or-r53-catalog-safe-certificates-20260926
+      BRANCH: revision/ndu-operations-research-r53-catalog-safe-certificates-20260926
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Preserve parent readers and assemble the full revision
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/code/assemble.py"
+      - name: Install pinned dependencies and rerun all R53 tests
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7
+          python -m pip freeze > "$R/results/ci_environment.txt"
+          python "$R/code/run.py"
+      - name: Install LaTeX and PDF rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Build readers and audit the entire inherited tree
+        run: |
+          python "$R/code/build.py"
+          python "$R/code/preservation.py"
+          python "$R/code/package.py"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          r=Path(os.environ['R'])
+          for name in ['BUILD_VALIDATION.json','PRESERVATION_MANIFEST.json','results/REGRESSION.json','results/SUMMARY.json','results/BASELINE_REGRESSION.json']:
+              if json.loads((r/name).read_text()).get('status')!='PASS':
+                  raise RuntimeError('Failed publication check: '+name)
+          PY
+      - name: Push validated manuscripts, proofs, data and certificates
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R" main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md
+          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip" "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r53): publish validated readers, safe catalog proofs and exact evidence [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$RUNNER_TEMP/R53_PUBLISHED_COMMIT.txt"
+      - name: Preserve referee package and complete diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r53-referee-package
+          retention-days: 30
+          include-hidden-files: true
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r53-catalog-safe-certificates-20260926/
+            .build/r53/*.log
+            ${{ runner.temp }}/R53_PUBLISHED_COMMIT.txt
