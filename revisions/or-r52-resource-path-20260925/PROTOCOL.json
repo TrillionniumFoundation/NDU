@@ -1,0 +1,17 @@
+{
+  "revision": "R52",
+  "parent_commit": "4f0b662bd4184fc77fb57bd09c339bffb6213a69",
+  "reviewed_scientific_commit": "2098592a99e47d36cc9fd16311f21d1858fa6e1e",
+  "date": "2026-09-25",
+  "scope": "Synthetic structural study; exact rational certificates; no calibrated field observations or universal timing ranking.",
+  "pilot_disclosure": "Before this protocol: 30 tiny random instances (seed 52000), 1200 convolution checks (seed 52222), and the first historical stress instance 49500 were used to debug the new algorithm. They are not an unseen validation set.",
+  "regression": {"seed": 52520, "instances": 100, "convolution_seed": 52521, "convolutions": 2000, "corruptions": 12},
+  "historical_stress": {"seeds": [49500,49501,49502,49503,49504,49505], "accuracies": ["1/100","1/1000"], "preserve_all_original_requests": true},
+  "matched_baselines": {"group_nodes": [1,7,31,127], "price_steps": 4, "price_sensitivity_at_nodes": 31, "alternative_price_steps": [0,8], "individual_nodes": 31, "individual_price_steps": 4},
+  "mip": {"envelopes": ["tangent","secant"], "segments": 32, "seconds_per_envelope": "max(0.1, new resource-grid optimization seconds at accuracy 1/1000 divided by 2)", "retain_every_status": true},
+  "strict_prefix": {"histories": [16,64,256,1024], "configurations": [[13,2,"1/2"],[25,3,"9/10"],[25,5,"1"]], "seed": 52600, "ceilings": "heterogeneous strictly inside the catalog gap immediately above 1/2", "caps": "j/[2(k+1)] for j=1,...,k", "costs": "(j mod 7)^2/3 including zero curvatures"},
+  "eligibility_sweep": {"histories": 12, "catalog_size": 17, "budget": 3, "requested_classes": [1,2,3,4,6,12], "accuracy": "1/100", "seed": 52700, "promise_fraction": "17/20", "caps": "j/14 for j=1,...,12", "ceiling_by_group": "smallest multiple of 1/16 not below the largest group cap, plus 1/64"},
+  "robustness": {"histories": 8, "seed": 52800, "budget": 3, "accuracy": "1/100", "families": ["within-gap perturbation", "just-below and just-above 1/2", "successive catalog insertion", "dominated unused splitting commands"], "base_catalog": ["0","1/4","3/4","1"], "insertions": ["9/20","1/2","11/20","3/5"], "dominated_opening_charge": "3"},
+  "certificate_diagnostics": ["compressed_bytes","uncompressed_bytes","rational_entry_count","maximum_numerator_bits","maximum_denominator_bits","checker_seconds","optimization_seconds","checker_to_optimization_ratio","complete_anchor_and_Bellman_state_counts"],
+  "reporting": "Report absolute, normalized-by-L, and positive-reference relative gaps. Record environment and hashes. Preserve every prescribed failure and historical failure. Historical timings are not matched-machine measurements. Journal tables are generated from execution records, not entered manually."
+}
