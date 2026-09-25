@@ -1,0 +1,29 @@
+name: NDU R50 immutable reviewed source
+on:
+  push:
+    branches: [revision/ndu-operations-research-r50-referee-revision-20260925]
+    paths: [.github/workflows/ndu-or-r50-source-snapshot.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: 4f0b662bd4184fc77fb57bd09c339bffb6213a69
+      - name: Preserve reviewed source and sibling report
+        run: |
+          mkdir -p /tmp/ndu-r50-source
+          git rev-parse HEAD > /tmp/ndu-r50-source/PARENT_COMMIT.txt
+          git ls-tree -r HEAD > /tmp/ndu-r50-source/PARENT_TREE.txt
+          git archive --format=tar HEAD | gzip -n > /tmp/ndu-r50-source/NDU-reviewed-source.tar.gz
+          git fetch origin 2ac1490e5a4149f8c7e154407fbe6fa6208979db
+          git show FETCH_HEAD:reviews/operation_research_referee_report_r49_independent_harsh_2026-09-25.md > /tmp/ndu-r50-source/first-r49-report.md
+          sha256sum /tmp/ndu-r50-source/NDU-reviewed-source.tar.gz > /tmp/ndu-r50-source/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r50-immutable-reviewed-source
+          path: /tmp/ndu-r50-source/
+          retention-days: 14
