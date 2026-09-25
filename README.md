@@ -38,4 +38,6 @@ python "$R/code/preservation.py"
 
 ## Readers and preservation
 
+The validated build has 39 nonreference article pages, 37 companion pages, an abstract of 180 words, and zero undefined references, citations, duplicate labels, or overfull boxes. All 49 antecedent mathematical labels remain in the article or companion, with four new statements.
+
 Historical derivations, proofs, reports, measurements, and earlier revision branches are preserved. The current reader entry points and index files have exact predecessor copies. `CONTENT_MAP.json` identifies the intact relocation of mathematical and computational sections. `PRESERVATION_MANIFEST.json` audits every inherited Git blob against the immutable R47 base. Neither review, earlier revision, nor main branches are modified. Format validation is not an editorial acceptance claim.
