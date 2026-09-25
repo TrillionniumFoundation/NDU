@@ -1,0 +1,45 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Selected-Boundary Resource Paths}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\input{revisions/or-r52-resource-path-20260925/generated/metrics.tex}
+\hypersetup{pdftitle={Finite-Catalog Renewal Design by Selected-Boundary Resource Paths},pdfauthor={Anonymous}}
+\begin{document}\hypersetup{pageanchor=false}
+\begin{titlepage}\centering
+{\Large\bfseries Finite-Catalog Renewal Design by Selected-Boundary Resource Paths\par}
+\vspace{0.25in}Anonymous manuscript for Operations Research\par\vspace{0.20in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider chooses a limited menu of terminal commands and allocates an accepted obligation across heterogeneous histories. We give an exact selected-boundary decomposition for finite catalogs with opening charges, individual expected caps, realization ceilings, and convex intermediate-service costs. Each adjacent selected pair owns a terminal-reward increment and the service costs of the histories whose eligibility ends there. The resulting resource path has enough capacity to restore the original obligation after rounding. With rational quadratic primitives, this identity yields a polynomial additive approximation scheme whose degree does not depend on the number of catalog-eligibility classes. The scheme retains the original command budget and admits independently checked rational global intervals. Exact polynomial common-prefix optimization remains available as a stronger special case. We establish catalog-insertion and threshold-stability results and extend the capacity-repair argument to compatible production modules. A fixed synthetic study tests strict interior prefixes through 1,024 histories, controlled eligibility splits, unused splitting commands, difficult historical models, certificate costs, and direct mixed-integer comparisons. Numerical optimization is faster on the small comparison models; the contribution is the structural reduction and its original-obligation certification guarantee.
+\par\vspace{0.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
+\par\vspace{0.10in}\textbf{Subject classifications:} Dynamic programming: finite command design; Programming: global optimization.
+\par\vspace{0.10in}\textbf{Area of review:} Optimization.
+\end{minipage}\vfill September 25, 2026\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r52-resource-path-20260925/introduction.tex}
+\input{revisions/or-r52-resource-path-20260925/model.tex}
+\input{revisions/or-r52-resource-path-20260925/selected_boundaries.tex}
+\input{revisions/or-r52-resource-path-20260925/algorithm.tex}
+\input{revisions/or-r52-resource-path-20260925/common_and_robustness.tex}
+\input{revisions/or-r52-resource-path-20260925/production.tex}
+\input{revisions/or-r52-resource-path-20260925/study.tex}
+\input{revisions/or-r52-resource-path-20260925/conclusion.tex}
+\clearpage\phantomsection\label{refs-start}
+\input{revisions/or-r52-resource-path-20260925/references.tex}
+\label{refs-end}\clearpage
+\input{revisions/or-r52-resource-path-20260925/generated/main_tables.tex}
+\clearpage\end{document}

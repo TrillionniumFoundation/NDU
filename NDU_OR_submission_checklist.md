@@ -1,9 +1,5 @@
-# R52 submission preparation
+# Operations Research R53 reader checks
 
-Current reader entry points are main.pdf, electronic_companion.pdf, and the R52 response.
+Anonymous readers, a 182-word text-only abstract, equation-free introduction, 11-point text, one-inch margins, one-and-one-half spacing, author-year references, and numbered tables after references. The code/data statement follows the body. BUILD_VALIDATION.json supplies measured page counts and layout diagnostics; PRESERVATION_MANIFEST.json supplies the full inherited-blob audit. Synthetic inputs, comparison scope, and certificate costs are stated explicitly. No editorial acceptance or field calibration is inferred from compilation.
 
-The measured page counts and length category are in R52 BUILD_VALIDATION.json. The source uses 11-point text, one-and-a-half spacing, one-inch margins, a text-only abstract below 200 words, a notation-free introduction, alphabetical author-year references, tables after references, and a code/data statement after the main body. The electronic companion does not exceed the article length. No author identity is inserted.
-
-This repository revision is not a submission to ScholarOne. The author must separately verify authorship, actual conflicts of interest, funding, prior-submission identifiers, overlapping manuscripts, and exclusive-submission eligibility. No unsupported declarations about those matters have been made.
-
-All code and data are synthetic and included. Historical results remain under their original assumptions in the preservation map. Format checks do not establish editorial suitability.
+Guideline source checked September 26, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
