@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "protocol": "Fixed seeds 0..71; all feasible books with cardinalities 1..m",
+  "counts": {
+    "exhaustive_joint_pairs": 72,
+    "fixed_book_lifts": 602,
+    "cap_deviation_bounds": 441,
+    "accuracy_partitions": 216,
+    "certificates_checked": 27,
+    "refinement_comparisons": 56,
+    "mutations_rejected": 18
+  },
+  "mutations": [
+    "overstate_lower",
+    "understate_upper",
+    "zero_reported_gap",
+    "change_original_promise",
+    "change_charge",
+    "drop_original_branch",
+    "duplicate_group",
+    "reduce_reported_defect",
+    "change_representative_cap",
+    "change_representative_cost",
+    "change_group_bound",
+    "change_lift_distance",
+    "change_posterior",
+    "remove_coverage_leaf",
+    "misstate_history_count",
+    "misstate_exact_types",
+    "unknown_completion_flag",
+    "decrease_node_bound"
+  ],
+  "examples": [
+    {
+      "name": "saturation_clips_and_restores_individual_caps",
+      "distance": "3/20",
+      "gap": "27/640"
+    }
+  ],
+  "elapsed_seconds": 2.9813269150001815,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]"
+}

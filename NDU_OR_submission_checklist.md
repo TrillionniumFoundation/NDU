@@ -1,17 +1,17 @@
-# Operations Research R46 review package
+# Operations Research R47 submission checks
 
-- [x] Latest R45 review pinned by commit and addressed point by point.
-- [x] New two-sided box-price theorem, adaptive interval theorem, and exact response-type reduction implemented.
-- [x] Original alphabet budget, opening charges, exact promise, and realization ceilings retained.
-- [x] All 41 preceding mathematical statement labels and proofs retained in current readers.
-- [x] Completed and interrupted joint cases reported; stronger inherited baseline outcomes retained.
-- [x] Numerical MIP bounds distinguished from exact rational certificates.
-- [x] Anonymous readers, 11-point type, one-inch margins, 1.5 spacing, abstract under 200 words, author-year references, no text footnotes.
-- [x] Main and companion page limits checked by the build.
-- [x] Old sources and data preserved; full Git-tree and reader-input hashes recorded.
-- [ ] Authors must verify authorship, affiliations, conflicts of interest, related-paper disclosures and sole-submission requirements before any journal submission.
-- [ ] Authors must prepare journal cover letter and suggested reviewers/associate editors.
+The validated reader and evidence audit, not this checklist alone, determines completion.
 
-This workflow prepares a revision for further review. It does not submit to ScholarOne or make author-only ethical declarations.
+- Anonymous main and companion; 11-point type, one-and-a-half spacing, one-inch margins.
+- Abstract below 200 words; equation-free introduction; author-year references; no footnotes; tables without vertical rules.
+- Lengthy main: at most 40 nonreference pages. Companion no longer than main. Actual counts appear in the build audit.
+- Four new proved mathematical statements, with the quadratic finite-catalog and bounded-parameter scope explicit.
+- Original command budget, charges, exact promise, individual caps and realization ceilings unchanged.
+- Exact semantic certificates independently checked in the original history space; local experimental timings kept separate from replay times.
+- Complete case-level outcomes, soft limits, coarse failures, refinements and numerical MIP statuses retained.
+- Synthetic-only study; no fabricated calibration, deployment, general hardness or fully polynomial approximation claim.
+- Pointwise response to seven required-change groups and all 18 minor comments.
+- All 45 antecedent mathematical labels retained; entire inherited Git tree checked against immutable R46 baseline, with exact copies of replaced root readers/indexes.
+- Publish only on `revision/ndu-operations-research-r47-joint-certificates-20260925`; do not merge into main or mutate review/other revision branches.
 
-Official format reference, checked September 25, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
+Current sources checked: official Operations Research submission guidelines, recorded in `revisions/or-r47-joint-certificates-20260925/SOURCES.json`.

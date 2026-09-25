@@ -1,0 +1,328 @@
+{
+  "cases": [
+    {
+      "id": "stress-0",
+      "gamma2": "5/2",
+      "budget": 2,
+      "charge": "0",
+      "reference_value": "2777/3200",
+      "stages": [
+        {
+          "groups": 2,
+          "lower": "2777/3200",
+          "upper": "91/100",
+          "gap": "27/640",
+          "carried_lower": "2777/3200",
+          "carried_upper": "91/100",
+          "carried_gap": "27/640",
+          "uniform_defect": "19/50",
+          "posterior_defect": "961/3200",
+          "status": "UNRESOLVED",
+          "seconds": 0.0015930030001527484,
+          "certificate": {
+            "path": "results/certificates/stress-0-stage-0.json.gz",
+            "sha256": "621de8c9ed6056c03f18c94e78746f4a0fd199191a6fa38b19b6cd37cdc526f3",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 2,
+              "lower": "2777/3200",
+              "upper": "91/100",
+              "gap": "27/640",
+              "uniform_defect": "19/50",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "91/100",
+                "upper": "91/100",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.001083206999965114,
+            "uncompressed_bytes": 3390
+          }
+        },
+        {
+          "groups": 3,
+          "lower": "2777/3200",
+          "upper": "2777/3200",
+          "gap": "0",
+          "carried_lower": "2777/3200",
+          "carried_upper": "2777/3200",
+          "carried_gap": "0",
+          "uniform_defect": "0",
+          "posterior_defect": "0",
+          "status": "COMPLETE",
+          "seconds": 0.002699358999961987,
+          "certificate": {
+            "path": "results/certificates/stress-0-stage-1.json.gz",
+            "sha256": "47ac8c85960104cae1b4922a76227933b30aa9fc220ca71bdaeac36834a789d7",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 3,
+              "lower": "2777/3200",
+              "upper": "2777/3200",
+              "gap": "0",
+              "uniform_defect": "0",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "2777/3200",
+                "upper": "2777/3200",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0017478419999861217,
+            "uncompressed_bytes": 3669
+          }
+        }
+      ]
+    },
+    {
+      "id": "stress-1",
+      "gamma2": "6",
+      "budget": 2,
+      "charge": "0",
+      "reference_value": "277/320",
+      "stages": [
+        {
+          "groups": 2,
+          "lower": "277/320",
+          "upper": "91/100",
+          "gap": "71/1600",
+          "carried_lower": "277/320",
+          "carried_upper": "91/100",
+          "carried_gap": "71/1600",
+          "uniform_defect": "47/50",
+          "posterior_defect": "121/400",
+          "status": "UNRESOLVED",
+          "seconds": 0.0015237549998801114,
+          "certificate": {
+            "path": "results/certificates/stress-1-stage-0.json.gz",
+            "sha256": "ed5cdedb8d739418fa02799cd22df5892f491f123644c08ea540cc813630271f",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 2,
+              "lower": "277/320",
+              "upper": "91/100",
+              "gap": "71/1600",
+              "uniform_defect": "47/50",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "91/100",
+                "upper": "91/100",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0010180719998515997,
+            "uncompressed_bytes": 3379
+          }
+        },
+        {
+          "groups": 3,
+          "lower": "277/320",
+          "upper": "277/320",
+          "gap": "0",
+          "carried_lower": "277/320",
+          "carried_upper": "277/320",
+          "carried_gap": "0",
+          "uniform_defect": "0",
+          "posterior_defect": "0",
+          "status": "COMPLETE",
+          "seconds": 0.002774204999923313,
+          "certificate": {
+            "path": "results/certificates/stress-1-stage-1.json.gz",
+            "sha256": "6e5a8bb370280191025f1263d90a5c64304cc5e889970ef319105188efe488ef",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 3,
+              "lower": "277/320",
+              "upper": "277/320",
+              "gap": "0",
+              "uniform_defect": "0",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "277/320",
+                "upper": "277/320",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0011374640000667569,
+            "uncompressed_bytes": 3633
+          }
+        }
+      ]
+    },
+    {
+      "id": "stress-2",
+      "gamma2": "5/2",
+      "budget": 1,
+      "charge": "0",
+      "reference_value": "-113/250",
+      "stages": [
+        {
+          "groups": 2,
+          "lower": "-113/250",
+          "upper": "-171/500",
+          "gap": "11/100",
+          "carried_lower": "-113/250",
+          "carried_upper": "-171/500",
+          "carried_gap": "11/100",
+          "uniform_defect": "19/50",
+          "posterior_defect": "19/50",
+          "status": "UNRESOLVED",
+          "seconds": 0.0013247609999780252,
+          "certificate": {
+            "path": "results/certificates/stress-2-stage-0.json.gz",
+            "sha256": "29b8ceea9a0dc44141edc6b9d345fd40cd60e61ab787ba7f364da34e2d7396dc",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 2,
+              "lower": "-113/250",
+              "upper": "-171/500",
+              "gap": "11/100",
+              "uniform_defect": "19/50",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "-171/500",
+                "upper": "-171/500",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0008144569999330997,
+            "uncompressed_bytes": 3195
+          }
+        },
+        {
+          "groups": 3,
+          "lower": "-113/250",
+          "upper": "-113/250",
+          "gap": "0",
+          "carried_lower": "-113/250",
+          "carried_upper": "-113/250",
+          "carried_gap": "0",
+          "uniform_defect": "0",
+          "posterior_defect": "0",
+          "status": "COMPLETE",
+          "seconds": 0.002136917999905563,
+          "certificate": {
+            "path": "results/certificates/stress-2-stage-1.json.gz",
+            "sha256": "f716b7f9d371ab033a8e701347d37ebf679964c7d5faebe2b203ba5c106181a1",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 3,
+              "lower": "-113/250",
+              "upper": "-113/250",
+              "gap": "0",
+              "uniform_defect": "0",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "-113/250",
+                "upper": "-113/250",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0010244019999845477,
+            "uncompressed_bytes": 3429
+          }
+        }
+      ]
+    },
+    {
+      "id": "stress-3",
+      "gamma2": "6",
+      "budget": 1,
+      "charge": "1/20",
+      "reference_value": "-531/500",
+      "stages": [
+        {
+          "groups": 2,
+          "lower": "-531/500",
+          "upper": "-49/125",
+          "gap": "67/100",
+          "carried_lower": "-531/500",
+          "carried_upper": "-49/125",
+          "carried_gap": "67/100",
+          "uniform_defect": "47/50",
+          "posterior_defect": "47/50",
+          "status": "UNRESOLVED",
+          "seconds": 0.0016668779999235994,
+          "certificate": {
+            "path": "results/certificates/stress-3-stage-0.json.gz",
+            "sha256": "8b06b979c4a79dd1c915eb2a1f36b6031049485492bc218b375b66135fe42ab6",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 2,
+              "lower": "-531/500",
+              "upper": "-49/125",
+              "gap": "67/100",
+              "uniform_defect": "47/50",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "-49/125",
+                "upper": "-49/125",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0010336590000861179,
+            "uncompressed_bytes": 3236
+          }
+        },
+        {
+          "groups": 3,
+          "lower": "-531/500",
+          "upper": "-531/500",
+          "gap": "0",
+          "carried_lower": "-531/500",
+          "carried_upper": "-531/500",
+          "carried_gap": "0",
+          "uniform_defect": "0",
+          "posterior_defect": "0",
+          "status": "COMPLETE",
+          "seconds": 0.002233656000043993,
+          "certificate": {
+            "path": "results/certificates/stress-3-stage-1.json.gz",
+            "sha256": "e8a8ef621c0ef8628224e7646626b37f910f6f5544fff6f4c86ac74ad955a38e",
+            "checked": {
+              "status": "PASS",
+              "branches": 3,
+              "groups": 3,
+              "lower": "-531/500",
+              "upper": "-531/500",
+              "gap": "0",
+              "uniform_defect": "0",
+              "inner": {
+                "status": "PASS",
+                "checked_nodes": 1,
+                "checked_leaves": 1,
+                "lower": "-531/500",
+                "upper": "-531/500",
+                "gap": "0"
+              }
+            },
+            "check_seconds": 0.0010017790000347304,
+            "uncompressed_bytes": 3474
+          }
+        }
+      ]
+    }
+  ]
+}

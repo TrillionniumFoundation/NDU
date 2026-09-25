@@ -1,44 +1,48 @@
-# NDU — Operations Research R46
+# NDU — Operations Research R47
 
-**Limited-Memory Renewal Contracts: Two-Sided Decomposition and Certified Joint Design**
+**Limited-Memory Renewal Contracts: Joint Design with Certified Response Coarsening**
 
-Revision branch: `revision/ndu-operations-research-r46-box-decomposition-20260925`.
+Revision branch: `revision/ndu-operations-research-r47-joint-certificates-20260925`.
 
-Start with `main.pdf`, `electronic_companion.pdf`, and `revisions/or-r46-box-decomposition-20260925/RESPONSE_TO_REFEREES.pdf`.
+Read `main.pdf`, `electronic_companion.pdf`, and `revisions/or-r47-joint-certificates-20260925/RESPONSE_TO_REFEREES.pdf`.
 
-## Review and scientific change
+## Review lineage and new mathematics
 
-This revision responds to `reviews/operation_research_referee_report_r45_independent_harsh_2026-09-25.md` at `260a5224c55e0326d9da7f0c813b4a3fcab7671f`. The reviewed R45 manuscript tip was `9c52e2d58d69a8d653c3b50e2c860b35db04dc7f`.
+This revision responds to the independent R45 report at `260a5224c55e0326d9da7f0c813b4a3fcab7671f`, retaining the subsequent R46 development at `9f260e0d6c4e06cf4227f96865a88f4dab67e58e`. Neither review nor preceding revision branches are edited.
 
-The new core is an exact two-sided price-path decomposition on target boxes, exact catalog-response type aggregation, and an adaptive original-budget joint interval with a finite positive-accuracy theorem. A rising-only price oracle is not valid on general target boxes; the manuscript supplies an exact counterexample and the corrected two-sided recurrence. The method never changes the command budget, charges, root promise, or realized ceilings. Its worst-case accuracy dependence remains exponential in the number of distinct response types. No general hardness classification or uniformly superior runtime is claimed.
+R47 adds four proved statements: optimistic response coarsening with an exact original-contract lift; a dispersion bound; a variable-history additive scheme for rational quadratic finite-catalog inputs with bounded eligibility complexity and primitive scales; and monotone refinement. Weighted average caps preserve total capacity, minimum curvatures give an upper relaxation, and a minimum-cap guard prevents infeasible anchors. Recovery restores every individual cap, exact promise, original ceiling, selected-command budget and charge. The complexity exponent no longer depends on raw history count under the theorem's bounded-parameter conditions. Accuracy dependence can still be very large; this is not a fully polynomial or multiplicative approximation scheme.
 
-## Executed evidence
+## Executed evidence and limitations
 
-600 exact all-book price comparisons; 24 additional rational joint interval comparisons; 2,793 finite-lattice coverage checks; genuine clipping tests; one-call single-branch regression; 11 rejected semantic certificate mutations. All 32 primary/scaling joint intervals have independently checked coverage and original-space feasible policies. At absolute tolerance 0.001, 28 box runs complete and four remain unresolved. The inherited priced-prefix baseline completes all 32; its stronger outcomes are retained. The separate 12-case grid comparison retains incomplete nets, and the direct uneliminated MIP comparison includes all 24 primary instances and both envelopes (48 solves), with per-case times, nodes, gaps and numerical widths.
+All 24 new joint instances achieve an independently checked original-space gap at most 0.001; the largest is approximately 0.000783098. Inputs include up to 256 distinct histories (256 exact response types), not replicated branches. Under the matched nominal limits, uncoarsened boxes complete 19/24 and priced-prefix completes 21/24. These are clustered synthetic inputs, not calibrated operational evidence or a universal runtime comparison.
 
-The 128/256-history experiments explicitly use exactly repeated types. All data are synthetic. No field calibration, deployment evidence, general-purpose polynomial joint solver, or guaranteed heuristic exactness is asserted.
+Four separate stress cases deliberately fail the requested tolerance under coarse grouping, with gaps 0.0421875, 0.044375, 0.11 and 0.67. Refinement yields exact solutions in these four cases; no universal one-split claim is made. All eight stages remain in the record.
 
-## Reproduction
+The package contains 56 exact semantic certificates, 72 exhaustive original/reduced comparisons, 602 fixed-book lifts, 441 dispersion checks, 216 accuracy partitions, 56 refinement comparisons and 18 rejected semantic certificate mutations. All 12 primary instances also have exact all-book joint references and separate uneliminated MIP envelope comparisons (24 numerical solves). Numerical solver bounds are explicitly not rational certificates. The four unresolved R46 box cases and its stronger prefix outcomes remain intact in the companion.
 
-Canonical benchmark timings were measured in the recorded local Python 3.13.5 / SciPy 1.17.0 environment. They are not relabeled as GitHub Actions timings. Publication reconstructs the exact rational witnesses at their recorded node counts and checks their canonical byte hashes; regeneration/verification timings are recorded separately.
+## Reproduction and timing provenance
+
+Canonical benchmark times describe the recorded local Python 3.13.5 / SciPy 1.17.0 runs. Publication replays deterministic searches at the recorded node counts, checks semantic certificate hashes, and records replay/verification time separately. Semantic witnesses omit timing fields; the original measured times remain in case records. Protocols are locally frozen, not externally preregistered.
 
 ```bash
-R=revisions/or-r46-box-decomposition-20260925
+R=revisions/or-r47-joint-certificates-20260925
 python "$R/code/tests.py"
-python "$R/code/verify_saved.py"
+python "$R/code/evidence.py"
 python "$R/code/response.py"
-python "$R/code/tables.py"
-python "$R/code/assemble.py"
 python "$R/code/build.py"
 python "$R/code/preservation.py"
 ```
 
-For a fresh timing study, copy the source hierarchy to a separate working directory, remove only that copy's R46 generated benchmark JSON and certificate directory, then run `benchmark.py`, `comparators.py`, and `price_compare.py`. Do not erase the canonical committed evidence. All protocols and code are supplied, and resumed runs retain completed cases.
+The independent checker accepts a certificate JSON or gzip file:
 
-The independent checker accepts an uncompressed certificate JSON via `python code/check_certificate.py certificate.json`. `results/certificates/` contains the gzip-compressed canonical certificates. Their file hashes appear in `results/joint.json`.
+```bash
+python "$R/code/check_coarsening.py" "$R/results/certificates/primary-00-coarse.json.gz"
+```
 
-## Readers and preservation
+For fresh timings, copy the repository to a separate working directory and remove only that copy's generated R47 case records/certificates before running `benchmark.py`, `stress.py`, and `mip_compare.py`. Do not overwrite committed canonical evidence. `PROTOCOL.json`, `MIP_PROTOCOL.json`, and `STRESS_PROTOCOL.json` identify all requested cases, limits, and supplementary-study timing. `REPLAY_MANIFEST.json` and `results/REPLAY_VALIDATION.json` connect all semantic witnesses to their reconstructions.
 
-The current main article and companion retain all 41 R45 mathematical statement labels. The local validated readers have 36 pages each (34 nonreference main pages); the remote build audit is authoritative. The 182-word abstract, anonymous title page, author-year references, layout checks and complete reader-input hashes are recorded in `BUILD_VALIDATION.json`.
+## Readers, style, and preservation
 
-All inherited derivations, source directories and numerical records remain unchanged. Exact former root readers are preserved in the new `predecessor/` directory. `PRESERVATION_MANIFEST.json` checks the full inherited Git tree; `CONTENT_MAP.json` identifies retained and relocated reader inputs. Historical numerical details are retained in complete predecessor readers rather than misrepresented as newly executed evidence. The report, preceding revision, main branch and other branches are not edited.
+The anonymous article uses 11-point type, one-and-a-half spacing, one-inch margins, an equation-free introduction, an abstract below 200 words, author-year references and horizontal-rule tables. `BUILD_VALIDATION.json` records actual page counts, references, layout warnings, all reader-input hashes, and 45 retained antecedent mathematical labels plus four new statements. The main has 39 nonreference pages and the companion 39 pages in the validated build. These are format checks, not an editorial acceptance claim.
+
+All 2,308 inherited files are audited. Outside six explicitly replaced current readers/indexes, 2,302 inherited files remain byte-identical; the six original versions remain in `predecessor/`. `CONTENT_MAP.json` records the intact relocation of the R46 computational discussion to the companion. No historical derivation, theorem, numerical result, review or prior branch is deleted. The scope and original contributions are preserved.

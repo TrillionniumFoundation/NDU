@@ -1,0 +1,1081 @@
+{
+  "status": "PASS",
+  "semantic_certificates": 56,
+  "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "timing_scope": "Publication deterministic replay and verification, not the original benchmark timing study",
+  "certificates": [
+    {
+      "path": "results/certificates/primary-00-coarse.json.gz",
+      "sha256": "612a19c50f3f216df541069ddf288fd00e8fdcc1c05f2ace8d8508a07a2107a7",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.03651381000000242,
+      "checker": {
+        "status": "PASS",
+        "branches": 4,
+        "groups": 4,
+        "lower": "108798666307031/119000000000000",
+        "upper": "108798666307031/119000000000000",
+        "gap": "0",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "108798666307031/119000000000000",
+          "upper": "108798666307031/119000000000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-00-raw.json.gz",
+      "sha256": "86eaff60f3522c702121e7d90d99417e48eef9bacfa39f86a95bd2ad835456fb",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.026233455999999933,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "108798666307031/119000000000000",
+        "upper": "108798666307031/119000000000000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/primary-01-coarse.json.gz",
+      "sha256": "8b5ce19e095d875eb93acf040b97ae132fe5fc935074a89f52d7047835ae4bea",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.037486936999997056,
+      "checker": {
+        "status": "PASS",
+        "branches": 8,
+        "groups": 5,
+        "lower": "12199/15000",
+        "upper": "6441085877/7920000000",
+        "gap": "13877/7920000000",
+        "uniform_defect": "30271625387/39694050000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "12199/15000",
+          "upper": "6441085877/7920000000",
+          "gap": "13877/7920000000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-01-raw.json.gz",
+      "sha256": "a6cce62305a156919ab61edc9b1459f2c9e52294ec8b0a006c0d14477086eb97",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.3259954209999876,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 17,
+        "checked_leaves": 9,
+        "lower": "12199/15000",
+        "upper": "1288228277/1584000000",
+        "gap": "13877/1584000000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-02-coarse.json.gz",
+      "sha256": "f9b4032782f6ec763269c64d0a6282d4ab90d40d4ed9e015d6bd741db7c0980f",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.01995082499999512,
+      "checker": {
+        "status": "PASS",
+        "branches": 12,
+        "groups": 5,
+        "lower": "42318447406187/53826500000000",
+        "upper": "3850999640092951/4898211500000000",
+        "gap": "10463064967/2449105750000000",
+        "uniform_defect": "24309820921/37678550000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "3850999640092951/4898211500000000",
+          "upper": "3850999640092951/4898211500000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-02-raw.json.gz",
+      "sha256": "86f9a7a8cb8f54ed2613183ce1f6c93d1a693d16f4e1b2019cc0372d4633aa3e",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.03565592799999706,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "42318447406187/53826500000000",
+        "upper": "42318447406187/53826500000000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/primary-03-coarse.json.gz",
+      "sha256": "ca725e56204e63563d2bb68cc0d6959e5851311ad0be8525ed10a40107b233fd",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.036308293999994135,
+      "checker": {
+        "status": "PASS",
+        "branches": 4,
+        "groups": 4,
+        "lower": "847067/880000",
+        "upper": "30813318049/32000000000",
+        "gap": "119698539/352000000000",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "847067/880000",
+          "upper": "30813318049/32000000000",
+          "gap": "119698539/352000000000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-03-raw.json.gz",
+      "sha256": "56c11f71ed3c1c0e0337bf5d9436f4180ab40e8019a602063c9f35fb1224ae44",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.03410491200000365,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "847067/880000",
+        "upper": "30813318049/32000000000",
+        "gap": "119698539/352000000000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-04-coarse.json.gz",
+      "sha256": "8bf3c88f16c271273292a2466ee56f9dfa66c0cb15c693cf7f660e29c18ee5eb",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.0430130040000023,
+      "checker": {
+        "status": "PASS",
+        "branches": 8,
+        "groups": 5,
+        "lower": "23022040993821998192111490737237742591383/28835427266285248873903526552025000000000",
+        "upper": "1980438168517164009318905932733/2480445589955041988444160000000",
+        "gap": "1722878483226060316382788882823346108969729084589200131159/66226581849191312758399289334921881227791418313932800000000000",
+        "uniform_defect": "11256997021/17496000000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "192927058275949659126118033/241643829249222975000000000",
+          "upper": "1980438168517164009318905932733/2480445589955041988444160000000",
+          "gap": "14436803913645803919164583353396668001806609/554985528334337327034857644165378867200000000000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-04-raw.json.gz",
+      "sha256": "f3134638d5f4e0c4bb0c6a4a88258c9b761b45443ae4d02ea5cf005ab0e0a346",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.059671259000012356,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "50026606096912725492090504688746631/62659021494800995002791145000000000",
+        "upper": "102713039856372125301096274525510923431/128645238243110534415649471463424000000",
+        "gap": "990334838836686898164551391844272994056016805834066295827641/37318447908698416510803772214846083110240135420869345280000000000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-05-coarse.json.gz",
+      "sha256": "dd23b05b60400c365409406131c599f2044ade3eaa752850633c5deb485d6bb5",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.018051752000005195,
+      "checker": {
+        "status": "PASS",
+        "branches": 12,
+        "groups": 5,
+        "lower": "4915433/4992000",
+        "upper": "4915433/4992000",
+        "gap": "0",
+        "uniform_defect": "10691104850819/13050180000000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "4915433/4992000",
+          "upper": "4915433/4992000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-05-raw.json.gz",
+      "sha256": "5cea5935982b404ee4ec9b06a03022df487324cce2f141c90afe22f67498e5f2",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.027823913000005973,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "4915433/4992000",
+        "upper": "4915433/4992000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/primary-06-coarse.json.gz",
+      "sha256": "8c39051f20a163482a5b72a40d8c3fd1cd08f43cebe75efe18aefb5cb435f38e",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.033449009999998225,
+      "checker": {
+        "status": "PASS",
+        "branches": 4,
+        "groups": 4,
+        "lower": "333524992846233/451100000000000",
+        "upper": "763173047423083151/1032204288000000000",
+        "gap": "358480375445542249/116406838579200000000000",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "333524992846233/451100000000000",
+          "upper": "763173047423083151/1032204288000000000",
+          "gap": "358480375445542249/116406838579200000000000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-06-raw.json.gz",
+      "sha256": "4c1c0d13830690f9904fc80b5a1980e786ad008217d59296726263a9b8f53682",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.031446431000006214,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "333524992846233/451100000000000",
+        "upper": "763173047423083151/1032204288000000000",
+        "gap": "358480375445542249/116406838579200000000000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-07-coarse.json.gz",
+      "sha256": "dc123b5747b167ae7b42c457874e09dfa22383e5d90ae520cba3297d3a8e7df1",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.6675989680000072,
+      "checker": {
+        "status": "PASS",
+        "branches": 8,
+        "groups": 5,
+        "lower": "593041/702000",
+        "upper": "474679441/561600000",
+        "gap": "246641/561600000",
+        "uniform_defect": "659653598/43979203125",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 55,
+          "checked_leaves": 28,
+          "lower": "593041/702000",
+          "upper": "474679441/561600000",
+          "gap": "246641/561600000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-07-raw.json.gz",
+      "sha256": "1d2e6ac1f3f3cb46d45f2b15b7a08949a05139c88b98b4266f4b512cc27cea4c",
+      "status": "PASS",
+      "replay_and_check_seconds": 1.700464141999987,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 101,
+        "checked_leaves": 51,
+        "lower": "593041/702000",
+        "upper": "2282980667/2695680000",
+        "gap": "5703227/2695680000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-08-coarse.json.gz",
+      "sha256": "38694af77c7acde35bcdf92cf3b9e81bc5a9773bc5ca888c05b2f034819aa1de",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.02035148999999592,
+      "checker": {
+        "status": "PASS",
+        "branches": 12,
+        "groups": 5,
+        "lower": "5743427771/7605000000",
+        "upper": "1120115554021/1482975000000",
+        "gap": "36784669/370743750000",
+        "uniform_defect": "75574313/6179062500",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "1120115554021/1482975000000",
+          "upper": "1120115554021/1482975000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-08-raw.json.gz",
+      "sha256": "54115b322216166d88e9b63826676ccc563a03ae7d65af8ade01d5d22578afba",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.03627969100000428,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "5743427771/7605000000",
+        "upper": "5743427771/7605000000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/primary-09-coarse.json.gz",
+      "sha256": "cd89f79e4746ba4a379a2e0965b8d8d6cdc1b42bff2c36d3e5ea1f81597ad31d",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.03389747800000009,
+      "checker": {
+        "status": "PASS",
+        "branches": 4,
+        "groups": 4,
+        "lower": "65/64",
+        "upper": "33805547/33280000",
+        "gap": "5547/33280000",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "65/64",
+          "upper": "33805547/33280000",
+          "gap": "5547/33280000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-09-raw.json.gz",
+      "sha256": "0daaad9f606a958ea2a513435dfb7aa70fd240501956de8128013f72d56e9c5e",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.031154329000003145,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "65/64",
+        "upper": "33805547/33280000",
+        "gap": "5547/33280000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-10-coarse.json.gz",
+      "sha256": "a41da5ace81ab03146bec157f5cf0301ddce76c212429f55656c5eaa780f4bf0",
+      "status": "PASS",
+      "replay_and_check_seconds": 1.3235297189999926,
+      "checker": {
+        "status": "PASS",
+        "branches": 8,
+        "groups": 5,
+        "lower": "393803/468000",
+        "upper": "12105131887/14376960000",
+        "gap": "7503727/14376960000",
+        "uniform_defect": "77441906/4886578125",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 101,
+          "checked_leaves": 51,
+          "lower": "393803/468000",
+          "upper": "12105131887/14376960000",
+          "gap": "7503727/14376960000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-10-raw.json.gz",
+      "sha256": "d99f6549107697abc910918d221558a63ed0f86c0990d7e4b092bc67fafe8e2d",
+      "status": "PASS",
+      "replay_and_check_seconds": 1.9254903069999898,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 101,
+        "checked_leaves": 51,
+        "lower": "393803/468000",
+        "upper": "30667959611/36391680000",
+        "gap": "45838331/36391680000"
+      }
+    },
+    {
+      "path": "results/certificates/primary-11-coarse.json.gz",
+      "sha256": "d94e8ad72525cbd71fa0730ca00794022cfaadbe1bd937190a026b67efe33190",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.01874584200000129,
+      "checker": {
+        "status": "PASS",
+        "branches": 12,
+        "groups": 5,
+        "lower": "193103/208000",
+        "upper": "193103/208000",
+        "gap": "0",
+        "uniform_defect": "106360447547/8482617000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "193103/208000",
+          "upper": "193103/208000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/primary-11-raw.json.gz",
+      "sha256": "f934a89765a2f5e6c246cd713156951a420d61e07ba65a255cd8ef96fecfee65",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.02714535600000545,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "193103/208000",
+        "upper": "193103/208000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-1-1-1000-coarse.json.gz",
+      "sha256": "a60323450518cbb0277b6601ab4ed328858ac4f7ebc72119953525e9e6c95d37",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.06723054299999376,
+      "checker": {
+        "status": "PASS",
+        "branches": 128,
+        "groups": 5,
+        "lower": "341293187/346064000",
+        "upper": "341293187/346064000",
+        "gap": "0",
+        "uniform_defect": "63003529688190823/65900601854718750000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "341293187/346064000",
+          "upper": "341293187/346064000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-1-1-1000-raw.json.gz",
+      "sha256": "ad12e7cc44cd8c98615e1e0cb2ad89a17955a6584664b7cde9f7ff4aa3a5ab75",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.6059577859999905,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "341293187/346064000",
+        "upper": "341293187/346064000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-1-1-50-coarse.json.gz",
+      "sha256": "b8c7be0b9b8e8417c4935415986560260f9221b35ff4bf23c453eaad05d4367f",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.11340043299999536,
+      "checker": {
+        "status": "PASS",
+        "branches": 128,
+        "groups": 5,
+        "lower": "13446276540218387259/14844885541760000000",
+        "upper": "27717691685013523267/30596328979200000000",
+        "gap": "522944877806988047/4008119096275200000000",
+        "uniform_defect": "4898601981289743719/265286107837674000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "27717691685013523267/30596328979200000000",
+          "upper": "27717691685013523267/30596328979200000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-1-1-50-raw.json.gz",
+      "sha256": "ee5b060bfbc704b936f415b599445744d2ce4a3753ad50f03b206797ecb4df9e",
+      "status": "PASS",
+      "replay_and_check_seconds": 7.630192657000009,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 13,
+        "checked_leaves": 7,
+        "lower": "4153251042980221223782456478695923195421906651665029457939204359889719430407041167138808579384651190540052228717316577671178087631896962151595849/4585249762355519529862462852164410864916081822672610701261509694212295573897335127348717789800861963520644209349353688638702619208946709324800000",
+        "upper": "4714456141/5149982720",
+        "gap": "176923154402858321473060767345510124648139427566391225783974328231899662624814646034916099589490650954667768090283589928339410082904744206079729/18340999049422078119449851408657643459664327290690442805046038776849182295589340509394871159203447854082576837397414754554810476835786837299200000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-4-1-1000-coarse.json.gz",
+      "sha256": "874244aff6ea7daf0f04a88a1e73b45f5d335780d53886d06dbe0117289c6727",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.16585791699999675,
+      "checker": {
+        "status": "PASS",
+        "branches": 128,
+        "groups": 5,
+        "lower": "9056122884931355332466081101722409/10905769295688714616708012500000000",
+        "upper": "354527777563181/426897120000000",
+        "gap": "2282348958835769066184353761701/29082051455169905644554700000000000",
+        "uniform_defect": "785862451298975309/800361061651125000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "51924821658797953818907547/62530084112647368750000000",
+          "upper": "354527777563181/426897120000000",
+          "gap": "78517414825394232577373/1000481345802357900000000000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-4-1-1000-raw.json.gz",
+      "sha256": "e6cb0d2a138613761dad5d1a71f2ad1449e1eaba8a2782f0f5c674ec3eae248c",
+      "status": "PASS",
+      "replay_and_check_seconds": 2.0858277579999935,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "45185579196431933336113821408331992643176266554046022036519402325258218782665602563926738514022972234066863652574758987251709340373683673261719248725212013716626229589975667788094887358979190170955860704906710515230532054238916418718313960828943401116772647829212240939801758865682183715657315087173959259847/54414401004684834517319634482341100789846904069650046893885569620632323195045589884662807549037251243256461196740673739623898029442482629350452198259817676031282319099095444261347542504016587408011304751967110393513593605008144030825696402732280402533483165320535979241113028948190783359723347409994800000000",
+        "upper": "2836222192909/3415176960000",
+        "gap": "2846655307189157459493488169084823929688154648525784311036672986554712577395502626856932908327848087760022049367652947863701935757507267380985490599835562984082076410749466345834703284605411789766119355972986092872568399114393053310786807188099144699595306656374008583063831986680385744353978769053299477/36276267336456556344879756321560733859897936046433364595923713080421548796697059923108538366024834162170974131160449159749265352961655086233634798839878450687521546066063629507565028336011058272007536501311406929009062403338762687217130935154853601688988776880357319494075352632127188906482231606663200000000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-4-1-50-coarse.json.gz",
+      "sha256": "920239a628594c12237a37183fb7e2efa9024413149ca93eccd2f4e705cc8f95",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.07980341500000065,
+      "checker": {
+        "status": "PASS",
+        "branches": 128,
+        "groups": 5,
+        "lower": "7545046185313/8586756000000",
+        "upper": "241990350884801311/275386281013800000",
+        "gap": "255948466376447/5507725620276000000",
+        "uniform_defect": "1733213731298527/85234689249187500",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "241990350884801311/275386281013800000",
+          "upper": "241990350884801311/275386281013800000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-128-4-1-50-raw.json.gz",
+      "sha256": "92afaab3243acc8a8111e9ca63c09b87ac11a7c6ba94a083babe2b4ced3f9201",
+      "status": "PASS",
+      "replay_and_check_seconds": 1.4943678679999977,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "7545046185313/8586756000000",
+        "upper": "7545046185313/8586756000000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-1-1-1000-coarse.json.gz",
+      "sha256": "7f1590f89cd8681d8f26812cc51fe52271b59aca826ac7c57e7e1d5c74a6af47",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.16936498200000472,
+      "checker": {
+        "status": "PASS",
+        "branches": 256,
+        "groups": 5,
+        "lower": "149866728557/158065280000",
+        "upper": "616291540062783951/649964431360000000",
+        "gap": "39552236399951/649964431360000000",
+        "uniform_defect": "752806309295121669/774847733967500000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "149866728557/158065280000",
+          "upper": "616291540062783951/649964431360000000",
+          "gap": "39552236399951/649964431360000000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-1-1-1000-raw.json.gz",
+      "sha256": "4d075e34595eabeb8861badd9a3eebe902e606cfa03f4897e23bf95c036f59b1",
+      "status": "PASS",
+      "replay_and_check_seconds": 7.710314679999996,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 5,
+        "checked_leaves": 3,
+        "lower": "149866728557/158065280000",
+        "upper": "7717201616552693/8124555392000000",
+        "gap": "14051768722893/8124555392000000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-1-1-50-coarse.json.gz",
+      "sha256": "d072ce178b7cd2c46fe67413880825e0c2239ceda90744b5b5c4e12ca6c5f68a",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.16259612899999354,
+      "checker": {
+        "status": "PASS",
+        "branches": 256,
+        "groups": 5,
+        "lower": "1771953061/2142352000",
+        "upper": "45541164914443/55058446400000",
+        "gap": "3783583/105678400000",
+        "uniform_defect": "83215692816942765217/4110728048113493625000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "1771953061/2142352000",
+          "upper": "45541164914443/55058446400000",
+          "gap": "3783583/105678400000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-1-1-50-raw.json.gz",
+      "sha256": "f7220abac37c538ce17dd01c2d528856f679764e41ca96651770ea81d7d6a620",
+      "status": "PASS",
+      "replay_and_check_seconds": 4.766649028999993,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "1771953061/2142352000",
+        "upper": "45541216452979/55058446400000",
+        "gap": "2022785279/55058446400000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-4-1-1000-coarse.json.gz",
+      "sha256": "3aeaea477bccbacdbccb73ae3bb9c2fb0cb16dbf7ca9c7fb1416e548845025e3",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.11579446700000062,
+      "checker": {
+        "status": "PASS",
+        "branches": 256,
+        "groups": 5,
+        "lower": "61877581085228638417/68781050836000000000",
+        "upper": "4078047867230540415310859/4533015155346580000000000",
+        "gap": "2942904273500219237/2266507577673290000000000",
+        "uniform_defect": "65913664058046127871477/69978421460662828750000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "4078047867230540415310859/4533015155346580000000000",
+          "upper": "4078047867230540415310859/4533015155346580000000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-4-1-1000-raw.json.gz",
+      "sha256": "b2c656167be3645d783c9f9290ae296f97f0ac293530c748ea54766e4a73ffca",
+      "status": "PASS",
+      "replay_and_check_seconds": 4.353890471,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "61877581085228638417/68781050836000000000",
+        "upper": "61877581085228638417/68781050836000000000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-4-1-50-coarse.json.gz",
+      "sha256": "c59aeab814224b2ded1a6e63a9b365e0d55cdb39ba92d678f26c521b22f05dfb",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.16163544699999477,
+      "checker": {
+        "status": "PASS",
+        "branches": 256,
+        "groups": 5,
+        "lower": "35516287922804457959/39916551123546875000",
+        "upper": "18401618036637590277319/20681258487741500000000",
+        "gap": "16936564386369275983/1840632005408993500000000",
+        "uniform_defect": "1702881875090281433/85378221717485468750",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "18401618036637590277319/20681258487741500000000",
+          "upper": "18401618036637590277319/20681258487741500000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-256-4-1-50-raw.json.gz",
+      "sha256": "5444e3ad006d8d200792829f0c24d008b1d57feb047f0a1fe8533850608d46a9",
+      "status": "PASS",
+      "replay_and_check_seconds": 8.892878042999996,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "54944059314186119988713606549850164206144823717624192191000807917024268385778066289860161945587491996735731782985227935080460600715822598803095606759041146136571807848381855347735369402281014908472113484162437095389018279991362304565711/61751311266677488552979910060182997021909505922155010876153504641057711508579691004088399690195495531514432170173057988361933099678871602438171052309967371360003975082718678578455121838039576535943811329177439666165271638658837804375000",
+        "upper": "11326134257580696375571452456118643773468914888929840913646288598696312175676517442366782916667710744503779933320458814169229346409575271587455483061494904420330944510700292014244198089708981741909484143354689529302450336161395672929859811/12729315425216399658600950753856451720096633728173579611304307152593189475765335754028954601863300143102691471003316182462514270116453692967565612088443099218967522239628891594145215424896463887681865051001801473841904541628650447749120000",
+        "gap": "2096158138754250948139538240395900358810157025197255865025685735027618090344563821591038455806549175866721810492225024377218748665166260141884183142299377990929457425902392041688167188667323303451763616103682884758538850256092785636106071613803289759570189962673837969351738610788470871182633201107820401527877103248809357288424722167846636756788836203532819148839905230660715839089807264226502282563908884779216226141121458516817487082152401682269067589883/487447959823036083344944226642412982519938584987636202281053145791365621008435023349588310442868419545496656263910840313827855502276708915695840867463078525723170503821795453840296833693212415937538066476009120614736681056142319524084980553511214473159108388167921430309870044139874081976524205953496595514372829403328462485772241924537109804754290218672112576946399800299944942634521094722747237224605446660817585502468151806552937886627903180024977111040000000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-1-1-1000-coarse.json.gz",
+      "sha256": "fca6996b6d7e621c3dbcbef6a99a6c2443debe4b2c60bd7988e1d0685cf512d5",
+      "status": "PASS",
+      "replay_and_check_seconds": 1.8665957310000039,
+      "checker": {
+        "status": "PASS",
+        "branches": 32,
+        "groups": 5,
+        "lower": "28343123/32560000",
+        "upper": "1916491223113/2200535040000",
+        "gap": "949598281/2200535040000",
+        "uniform_defect": "3377497348121/3767395500000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 51,
+          "checked_leaves": 26,
+          "lower": "28343123/32560000",
+          "upper": "1916491223113/2200535040000",
+          "gap": "949598281/2200535040000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-1-1-1000-raw.json.gz",
+      "sha256": "b16430c202839a82dbc15160cc190c3dba65263eed931715d87ae269f47d6dbc",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.438912001999995,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "28343123/32560000",
+        "upper": "67397199605723/77362560000000",
+        "gap": "1457820479/2090880000000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-1-1-50-coarse.json.gz",
+      "sha256": "f3867d835bde2083fec41ea9f1f3f83ff9554c91eb00549dce14acde2e32d6fd",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.0441387839999976,
+      "checker": {
+        "status": "PASS",
+        "branches": 32,
+        "groups": 5,
+        "lower": "2010061294721/2060388000000",
+        "upper": "66333792909749/67992804000000",
+        "gap": "442545989/16998201000000",
+        "uniform_defect": "338287120871/19760408662500",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "66333792909749/67992804000000",
+          "upper": "66333792909749/67992804000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-1-1-50-raw.json.gz",
+      "sha256": "638b23939d5a9282fe48dec513eb188779b80313adb92584aefb74edcf4f9a5f",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.1710565049999957,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "2010061294721/2060388000000",
+        "upper": "2010061294721/2060388000000",
+        "gap": "0"
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-4-1-1000-coarse.json.gz",
+      "sha256": "177c6bd5be61ba064748310f2418a08656ae16530be33232ea16e7c9e6d99e74",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.09391975799999841,
+      "checker": {
+        "status": "PASS",
+        "branches": 32,
+        "groups": 5,
+        "lower": "154576025469774730499/164174590800000000000",
+        "upper": "1408359577861747332823/1495812938400000000000",
+        "gap": "2112234198094489/13462316445600000000000",
+        "uniform_defect": "3046906137954659/3178602494100000000",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "1408359577861747332823/1495812938400000000000",
+          "upper": "1408359577861747332823/1495812938400000000000",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-4-1-1000-raw.json.gz",
+      "sha256": "c2eca3019dc42c274960c8433ef8cdcd0e2eb960e45912e1595f3a5619961af4",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.6128479879999986,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 1,
+        "checked_leaves": 1,
+        "lower": "78003060752149647845195176308753140943413244434730017/82846745096426119084489664490143203257650764800000000",
+        "upper": "187750468759512711536844766485403707742235330303645530721/199408899915699674130132989731730175374952878592000000000",
+        "gap": "247283972723445212741646775710539311728925142334301278761601485349186206297050553040277/382067718621975987737622233258261617181087905688324529427575606514285580063661249024000000000"
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-4-1-50-coarse.json.gz",
+      "sha256": "f745aed9f31948a7213d95d9d4db6501c0980c6144445f1d303b20adaf13ab76",
+      "status": "PASS",
+      "replay_and_check_seconds": 5.103029266999982,
+      "checker": {
+        "status": "PASS",
+        "branches": 32,
+        "groups": 5,
+        "lower": "13776269/17028000",
+        "upper": "40449503851/49948800000",
+        "gap": "117344353/149846400000",
+        "uniform_defect": "7488961330783/471555206718750",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 101,
+          "checked_leaves": 51,
+          "lower": "13776269/17028000",
+          "upper": "40449503851/49948800000",
+          "gap": "117344353/149846400000"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/scale-32-4-1-50-raw.json.gz",
+      "sha256": "09ead7d395b7867a1e77311e12998dde6d2694d7078b9b52358f977baca5691d",
+      "status": "PASS",
+      "replay_and_check_seconds": 7.541978822999994,
+      "checker": {
+        "status": "PASS",
+        "checked_nodes": 35,
+        "checked_leaves": 18,
+        "lower": "13776269/17028000",
+        "upper": "729737834957/899078400000",
+        "gap": "2350831757/899078400000"
+      }
+    },
+    {
+      "path": "results/certificates/stress-0-stage-0.json.gz",
+      "sha256": "621de8c9ed6056c03f18c94e78746f4a0fd199191a6fa38b19b6cd37cdc526f3",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.0053554759999769885,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 2,
+        "lower": "2777/3200",
+        "upper": "91/100",
+        "gap": "27/640",
+        "uniform_defect": "19/50",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "91/100",
+          "upper": "91/100",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-0-stage-1.json.gz",
+      "sha256": "47ac8c85960104cae1b4922a76227933b30aa9fc220ca71bdaeac36834a789d7",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.006159420999978238,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 3,
+        "lower": "2777/3200",
+        "upper": "2777/3200",
+        "gap": "0",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "2777/3200",
+          "upper": "2777/3200",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-1-stage-0.json.gz",
+      "sha256": "ed5cdedb8d739418fa02799cd22df5892f491f123644c08ea540cc813630271f",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.0044425859999819295,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 2,
+        "lower": "277/320",
+        "upper": "91/100",
+        "gap": "71/1600",
+        "uniform_defect": "47/50",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "91/100",
+          "upper": "91/100",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-1-stage-1.json.gz",
+      "sha256": "6e5a8bb370280191025f1263d90a5c64304cc5e889970ef319105188efe488ef",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.0062544639999941865,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 3,
+        "lower": "277/320",
+        "upper": "277/320",
+        "gap": "0",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "277/320",
+          "upper": "277/320",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-2-stage-0.json.gz",
+      "sha256": "29b8ceea9a0dc44141edc6b9d345fd40cd60e61ab787ba7f364da34e2d7396dc",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.004049041000001807,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 2,
+        "lower": "-113/250",
+        "upper": "-171/500",
+        "gap": "11/100",
+        "uniform_defect": "19/50",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "-171/500",
+          "upper": "-171/500",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-2-stage-1.json.gz",
+      "sha256": "f716b7f9d371ab033a8e701347d37ebf679964c7d5faebe2b203ba5c106181a1",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.005410338000018555,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 3,
+        "lower": "-113/250",
+        "upper": "-113/250",
+        "gap": "0",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "-113/250",
+          "upper": "-113/250",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-3-stage-0.json.gz",
+      "sha256": "8b06b979c4a79dd1c915eb2a1f36b6031049485492bc218b375b66135fe42ab6",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.004079867000001514,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 2,
+        "lower": "-531/500",
+        "upper": "-49/125",
+        "gap": "67/100",
+        "uniform_defect": "47/50",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "-49/125",
+          "upper": "-49/125",
+          "gap": "0"
+        }
+      }
+    },
+    {
+      "path": "results/certificates/stress-3-stage-1.json.gz",
+      "sha256": "e8a8ef621c0ef8628224e7646626b37f910f6f5544fff6f4c86ac74ad955a38e",
+      "status": "PASS",
+      "replay_and_check_seconds": 0.00554020500001684,
+      "checker": {
+        "status": "PASS",
+        "branches": 3,
+        "groups": 3,
+        "lower": "-531/500",
+        "upper": "-531/500",
+        "gap": "0",
+        "uniform_defect": "0",
+        "inner": {
+          "status": "PASS",
+          "checked_nodes": 1,
+          "checked_leaves": 1,
+          "lower": "-531/500",
+          "upper": "-531/500",
+          "gap": "0"
+        }
+      }
+    }
+  ]
+}

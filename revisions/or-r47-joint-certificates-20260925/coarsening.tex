@@ -1,0 +1,122 @@
+\section{Certified Response Coarsening for Distinct Histories}\label{sec:r47-coarsening}
+Exact type aggregation can leave one type per history. We now construct a controlled relaxation that also combines different caps and costs, and then recover a contract satisfying every original constraint. In this section the primitives are quadratic,
+\[
+ f(x)=rx-qx^2/2,\qquad h_j(y)=\gamma_jy^2/2,
+ \qquad r\geq q\geq0,\quad r>0,\quad\gamma_j\geq0,
+\]
+with normalized levels in $[0,1]$. The general canonical and continuous-design results retain their preceding assumptions. Write $P$ for $\mathcal V_{m,\mathcal A}^{\tau}(B;\rho)$ in this section. The catalog, charges, promise, and command budget are fixed throughout.
+
+Partition the histories into groups $G_1,\ldots,G_d$. A group must have the same \emph{catalog eligibility prefix}: $\mathcal A\cap[0,\tau_j]$ is identical for its members. Caps and shortfall curvatures need not agree. Define
+\begin{equation}\label{eq:r47-representative}
+ W_g=\sum_{j\in G_g}\pi_j,\quad
+ \bar b_g=W_g^{-1}\sum_{j\in G_g}\pi_jb_j,\quad
+ \underline\gamma_g=\min_{j\in G_g}\gamma_j,\quad
+ \bar\tau_g=\max_{j\in G_g}\tau_j.
+\end{equation}
+The reduced model uses weight $W_g$, cap $\bar b_g$, cost curvature $\underline\gamma_g$, and ceiling $\bar\tau_g$. It preserves total participation capacity exactly. Require the \emph{anchor guard}
+\begin{equation}\label{eq:r47-guard}
+ \min_g\bar b_g=\min_jb_j.
+\end{equation}
+Isolating one minimum-cap history suffices and adds at most one group. This restriction is essential: averaging caps $1/5$ and $4/5$ with equal weights would otherwise admit the one-command book $\{1/2\}$ at promise $1/2$, although it violates the first original cap. Let $\bar P_G$ denote the reduced joint optimum. The reduced model is an optimistic bound, not a replacement of the contract's participation constraints.
+
+For a feasible book $c$, let $d_g(c)$ be its largest command in the common eligible prefix of group $g$. Define the representative response $\bar v_{g,c}$ by the canonical formula with curvature $\underline\gamma_g$. We use its mathematical extension to targets up to $\max_{j\in G_g}b_j$ when comparing individual histories. This extension is concave and has Lipschitz constant
+\begin{equation}\label{eq:r47-L}
+ L_g=\max\{r,\underline\gamma_g\max_{j\in G_g}b_j\}.
+\end{equation}
+The extension does not enlarge the reduced optimization's cap. With $a_1$ the lowest catalog level, define an explicit, book-independent error budget
+\begin{equation}\label{eq:r47-Delta}
+ \Delta_G=\sum_g\left[2L_g\sum_{j\in G_g}\pi_j(\bar b_g-b_j)_+
+       +\frac12\sum_{j\in G_g}\pi_j(\gamma_j-\underline\gamma_g)(b_j-a_1)^2\right].
+\end{equation}
+
+\begin{theorem}[Optimistic coarsening and original-contract recovery]\label{thm:r47-coarsening}
+Under \eqref{eq:r47-guard} and common catalog eligibility within each group,
+\begin{equation}\label{eq:r47-optgap}
+ P\leq\bar P_G\leq P+\Delta_G.
+\end{equation}
+More specifically, consider any feasible reduced policy with book $c$, targets $s_g$, and net value $\bar V$. There exists a constructive lift with the \emph{same book}, original targets $t_j\leq b_j$, the exact original promise, and every original realization ceiling. Its value $V$ satisfies
+\begin{align}
+ \bar V-V&\leq\Delta_G(s,t,c)\leq\Delta_G,\label{eq:r47-post}\\
+ \Delta_G(s,t,c)&=\sum_g\left[L_g\sum_{j\in G_g}\pi_j|t_j-s_g|
+  +\frac12\sum_{j\in G_g}\pi_j(\gamma_j-\underline\gamma_g)(t_j-d_g(c))_+^2\right].\nonumber
+\end{align}
+If a reduced solver supplies a feasible $\bar V$ and certified upper bound $\bar U$, then
+\begin{equation}\label{eq:r47-certificate}
+ V\leq P\leq\bar U,\qquad
+ \bar U-V\leq(\bar U-\bar V)+\Delta_G(s,t,c)
+              \leq(\bar U-\bar V)+\Delta_G.
+\end{equation}
+No command augmentation or extra opening charge is required.
+\end{theorem}
+\begin{proof}
+The feasible anchors of the two models coincide by \eqref{eq:r47-guard}; both have the same total cap. For any original feasible $(c,t)$, set $s_g=W_g^{-1}\sum_{j\in G_g}\pi_jt_j$. These means satisfy the reduced caps and root equality. Because lowering the cost curvature increases each response, concavity gives
+\[
+ \sum_{j\in G_g}\pi_jv_{j,c}(t_j)
+ \leq\sum_{j\in G_g}\pi_j\bar v_{g,c}(t_j)
+ \leq W_g\bar v_{g,c}(s_g).
+\]
+Summing and subtracting the unchanged charge proves $P\leq\bar P_G$.
+
+To lift a reduced policy, first set $z_j=\min\{s_g,b_j\}$ for $j\in G_g$. The group deficit is
+$D_g=W_gs_g-\sum_{j\in G_g}\pi_jz_j=\sum_{j\in G_g}\pi_j(s_g-b_j)_+$.
+Fill this deficit in any fixed order by increasing $z_j$ up to $b_j$. Sufficient capacity exists because $s_g\leq\bar b_g$. The resulting $t$ preserves each group mean and therefore the root equality. Every target remains at least $\min c$: the anchor guard makes all original caps at least this anchor. A clipped history is already at its cap; only histories initially at $s_g$ can be increased. Consequently
+\begin{equation}\label{eq:r47-lift-distance}
+ \sum_{j\in G_g}\pi_j|t_j-s_g|
+   =2D_g\leq2\sum_{j\in G_g}\pi_j(\bar b_g-b_j)_+.
+\end{equation}
+Apply the canonical original policy at these targets. Below $d_g(c)$ it uses a lottery entirely in the common eligible prefix and has zero intermediate service. Above $d_g(c)$ it uses that singleton command and intermediate service $t_j-d_g(c)$, so realized total equals $t_j\leq b_j\leq\tau_j$. Thus equal eligibility, rather than equality of numerical ceilings, is exactly what the lift requires.
+
+On the shared target domain,
+$\bar v_{g,c}(t)-v_{j,c}(t)=(\gamma_j-\underline\gamma_g)(t-d_g(c))_+^2/2$.
+The chord slopes of $f$ lie between zero and $r$, and the magnitude of each representative tail slope is at most $\underline\gamma_g\max_{j\in G_g}b_j$. Using \eqref{eq:r47-L} and \eqref{eq:r47-lift-distance} therefore proves \eqref{eq:r47-post}; the cost term is bounded by $(b_j-a_1)^2$. Charges cancel. Apply the lift to a reduced optimum to prove the second inequality in \eqref{eq:r47-optgap}. Weak duality for the reduced model and the same loss calculation prove \eqref{eq:r47-certificate}.
+\end{proof}
+
+The reported certificate uses the measured interval $[V,\bar U]$, not just the worst-case sum in \eqref{eq:r47-certificate}. It may be informative even when $\Delta_G$ is large. Exact reallocation for the recovered book on the original histories can improve $V$ without affecting the upper bound. The checker independently recomputes the representative model, anchor guard, error budgets, and group mass identities, verifies the inner price-path and cover certificate, and checks original lottery probabilities, intermediate service, charges, and all realized ceilings. It never treats a successful reduced solve as a successful original solve merely because the reduced stopping tolerance was met.
+
+\subsection{A variable-history additive approximation scheme}\label{sec:r47-scheme}
+Let $E$ be the number of distinct eligible catalog prefixes and $\Gamma=\max_j\gamma_j$. Set $L=\max\{r,\Gamma\}$. Partition first by eligibility, then by intervals of width $\beta>0$ for caps and $\eta>0$ for cost curvatures; isolate a minimum-cap history as the anchor guard. The remaining groups can contain arbitrarily many distinct caps and curvatures.
+
+\begin{lemma}[Dispersion bound]\label{lem:r47-dispersion}
+For this partition,
+\begin{equation}\label{eq:r47-binned}
+ \Delta_G\leq L\beta/2+\eta/2,\qquad
+ d\leq1+E(1+\lceil1/\beta\rceil)(1+\lceil\Gamma/\eta\rceil).
+\end{equation}
+\end{lemma}
+\begin{proof}
+For a random variable $X$ in an interval $[a,a+\beta]$ with mean $\mu$, convexity of $(\mu-X)_+$ bounds its expectation by the chord between the endpoints. This gives
+$\E(\mu-X)_+\leq(\mu-a)(a+\beta-\mu)/\beta\leq\beta/4$.
+Apply this inequality to each group's weighted empirical caps. Its first contribution to \eqref{eq:r47-Delta} is at most $L W_g\beta/2$. Cost spread is at most $\eta$, and $0\leq b_j-a_1\leq1$, so its second contribution is at most $W_g\eta/2$. Sum the group weights. The bin counts on the bounded cap and curvature intervals, multiplied by the eligibility count and augmented by the singleton guard, prove the dimension bound.
+\end{proof}
+
+\begin{theorem}[Additive scheme with variable history count]\label{thm:r47-variable}
+For rational quadratic input and any $\varepsilon>0$, use
+$\beta=\varepsilon/(2L)$ and $\eta=\varepsilon/2$ and solve the reduced joint problem to additive tolerance $\varepsilon/2$ by Theorem~\ref{thm:r46-adaptive}. The lifted policy is feasible for the original problem and has value at least $P-\varepsilon$. The reduced dimension is bounded by
+\begin{equation}\label{eq:r47-dimension}
+ d_\varepsilon=1+E(1+\lceil2L/\varepsilon\rceil)
+                    (1+\lceil2\Gamma/\varepsilon\rceil),
+\end{equation}
+independently of the number $k$ of histories. For fixed $E$, bounded $r$ and $\Gamma$, and fixed positive accuracy, this is a polynomial-time additive scheme in the variable history count, catalog size, command budget, and rational input length. Its accuracy dependence is not asserted to be polynomial.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:r47-dispersion} gives $\Delta_G\leq\varepsilon/2$. Theorem~\ref{thm:r47-coarsening} then yields a global original-space gap at most $\varepsilon$. To make the complexity claim explicit, for $d>1$ a conservative reduced full-tree bound is $2^{H+1}-1$, with
+\[
+ H=(d-1)\max\{0,\lceil\log_2(4L(d-1)/\varepsilon)\rceil\}.
+\]
+Indeed, every initial weighted side is at most one, the reduced Lipschitz constant is at most $L$, and the inner tolerance is $\varepsilon/2$ in \eqref{eq:r46-depth}. One price-zero oracle per node already ensures this bound; finitely many additional root prices can strengthen it. Each quadratic price oracle takes $O((d+m)N^2)$ rational arithmetic operations, and exact fixed-book allocation is polynomial. Group construction and original-space policy recovery are polynomial in $k$ and $N$. The constructed rational means, quadratic stationary points, and dyadic subdivisions have bit length polynomial in the input length for fixed $d$ and $H$. Substitution of \eqref{eq:r47-dimension} proves the stated parameterized dependence. The single-group case requires only the root.
+\end{proof}
+
+Common realization ceilings give $E=1$ even as both the catalog and the number of distinct histories grow. More generally, a bounded number of distinct ceilings bounds $E$ independently of catalog size. When eligibility complexity or curvature scale grows without restriction, \eqref{eq:r47-dimension} exposes that cost rather than hiding it in $k$. The conservative bins can still leave every history separate at a tight requested tolerance; the dimension bound is not a claim of a small constant in practice. Coarser partitions are accepted only through the measured original-space interval. The result is neither a multiplicative approximation for potentially negative net payoffs nor a fully polynomial approximation scheme. Additive tolerances must be rescaled together with rewards, costs, and opening charges. The finite-catalog restriction remains explicit; the separate continuous-design results do not inherit this accuracy claim automatically.
+
+\subsection{Refinement and the distinction between bounds and decisions}
+\begin{proposition}[Monotone optimistic refinement]\label{prop:r47-refinement}
+If $G'$ refines $G$, both partitions respect eligibility, and both satisfy the anchor guard, then
+\begin{equation}\label{eq:r47-refinement}
+ P\leq\bar P_{G'}\leq\bar P_G.
+\end{equation}
+The largest original-space feasible value and the smallest certified upper bound obtained across any sequence of such reduced solves form a nested valid interval. Repeated splitting reaches exact response groups or singletons after finitely many splits. At that point the coarsening error is zero, and a completed positive-accuracy inner solve gives the same original-space tolerance.
+\end{proposition}
+\begin{proof}
+Apply the first part of Theorem~\ref{thm:r47-coarsening} to the refined model, grouping its subgroups into the coarse groups. Weights and weighted caps compose, minima of subgroup costs equal coarse minima, and eligibility is unchanged. Every original policy is a lower witness and every reduced upper bound is an upper witness, so taking their extrema is valid. A nontrivial split increases the number of groups; at most $k-d$ such splits are needed to reach singletons. Exact response groups have constant caps and curvatures, making both terms in \eqref{eq:r47-Delta} zero.
+\end{proof}
+This proposition concerns reduced \emph{optima}, not a false monotonicity claim for separately interrupted upper bounds. Our implementation carries the minimum upper and maximum lower from all stages. It splits a positive-error group, favoring the cap or curvature coordinate with the larger error contribution. That choice affects speed, not validity. Offline grouping also does not make the history encoder, individual cap table, lifted probabilities, or certificates free memory. The final policy and its implementation requirements remain indexed by the original histories.

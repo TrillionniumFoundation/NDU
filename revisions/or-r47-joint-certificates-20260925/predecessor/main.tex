@@ -22,29 +22,28 @@
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r47-ec-labels}[electronic_companion.pdf]
-\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Joint Design with Certified Response Coarsening},pdfauthor={Anonymous}}
+\externaldocument{r46-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Two-Sided Decomposition and Certified Joint Design},pdfauthor={Anonymous}}
 \begin{document}\hypersetup{pageanchor=false}
 \begin{titlepage}\centering
-{\Large\bfseries Limited-Memory Renewal Contracts:\newline Joint Design with Certified Response Coarsening\par}
+{\Large\bfseries Limited-Memory Renewal Contracts:\newline Two-Sided Decomposition and Certified Joint Design\par}
 \vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
-\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must jointly choose a limited command alphabet from a finite catalog and allocate an accepted service obligation across heterogeneous histories. We construct a certified reduction that groups different participation caps and quadratic service costs without changing the original contract. Weighted average caps preserve aggregate capacity, minimum cost curvatures give an optimistic model, and a minimum-cap guard preserves feasible commands. A groupwise recovery procedure restores every individual cap, the exact obligation, and every realization ceiling. Explicit dispersion bounds combine with an exact two-sided price-path oracle and adaptive target-box certificates. For bounded eligibility complexity and primitive scales, the resulting additive approximation scheme is polynomial in the history count and catalog size at any fixed positive accuracy; its accuracy dependence remains explicit and potentially large. Independent checkers verify both the reduced global bound and the original recovered policy. Twenty-four synthetic joint-design cases include up to 256 distinct histories, with exhaustive and uneliminated mixed-integer comparisons. Separate stress cases retain unresolved coarse relaxations and certify their refinement. Canonical contractual allocation, continuous quadratic design, Monge acceleration, budgeted compression, and their proofs remain available under their original assumptions.
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must jointly choose a limited command alphabet and allocate an accepted service obligation under participation caps, realization ceilings, and command-opening charges. We derive an exact price oracle on arbitrary target boxes. Concavity orders the command scores into an increasing prefix and a decreasing suffix: upper-target crossings determine the first side, lower-target crossings determine the second, and a shared peak joins them without exceeding the original budget. The resulting polynomial node oracle yields an adaptive global interval and finite termination at any positive additive tolerance. An exact response-type reduction replaces the number of histories by the number of distinct catalog responses in the search dimension. A separate checker verifies path inequalities, the complete target cover, and the original contract. The worst-case accuracy dependence remains exponential in the number of distinct types; it is not an asserted hardness barrier. Thirty-two synthetic joint-design cases and independent mixed-integer comparisons expose both completed certificates and unresolved gaps. Inherited price-prefix search is stronger on several cases. Canonical contractual allocation, continuous quadratic design, Monge acceleration, budgeted compression, and their proofs remain available under their original assumptions.
 \par\vspace{.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
 \par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: global optimization.
 \par\vspace{.1in}\textbf{Area of review:} Optimization.
 \par\vspace{.1in}\textbf{Submission category:} Lengthy manuscript.
 \end{minipage}\vfill September 25, 2026\end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r47-joint-certificates-20260925/introduction.tex}
+\input{revisions/or-r46-box-decomposition-20260925/introduction.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/model.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/compression.tex}
 \input{revisions/or-r46-box-decomposition-20260925/types.tex}
 \input{revisions/or-r46-box-decomposition-20260925/two_sided.tex}
 \input{revisions/or-r46-box-decomposition-20260925/adaptive.tex}
-\input{revisions/or-r47-joint-certificates-20260925/coarsening.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/certificates.tex}
-\input{revisions/or-r47-joint-certificates-20260925/study.tex}
-\input{revisions/or-r47-joint-certificates-20260925/conclusion.tex}
+\input{revisions/or-r46-box-decomposition-20260925/study.tex}
+\input{revisions/or-r46-box-decomposition-20260925/conclusion.tex}
 \appendix
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__decomposition.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__resources.tex}
@@ -54,10 +53,9 @@
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__monge.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__grid_certificate.tex}
 \clearpage\phantomsection\label{refs-start}
-\input{revisions/or-r47-joint-certificates-20260925/generated/references.tex}
+\input{revisions/or-r46-box-decomposition-20260925/generated/references.tex}
 \label{refs-end}
 \clearpage
-\input{revisions/or-r47-joint-certificates-20260925/generated/antecedent_main_tables.tex}
-\input{revisions/or-r47-joint-certificates-20260925/generated/main_tables.tex}
+\input{revisions/or-r46-box-decomposition-20260925/generated/main_tables.tex}
 \input{revisions/or-r46-box-decomposition-20260925/generated/historical_main_tables.tex}
 \end{document}

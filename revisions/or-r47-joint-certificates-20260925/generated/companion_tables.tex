@@ -1,0 +1,32 @@
+\begin{table}[p]\centering
+\caption{Coarse-relaxation stress cases. The root obligation equals total original capacity. Each initial two-group solve is exact for its reduced model but does not certify the original tolerance.}\label{tab:r47-stress}
+\begin{tabular}{rrrrrrr}\toprule
+Case & Commands & Final & Original & Initial & Initial & Refined \\
+ & & curvature & optimum & lower & gap & gap \\\midrule
+0 & 2 & 2.5 & 0.86781 & 0.86781 & 0.04219 & 0.00000 \\
+1 & 2 & 6.0 & 0.86562 & 0.86562 & 0.04437 & 0.00000 \\
+2 & 1 & 2.5 & -0.45200 & -0.45200 & 0.11000 & 0.00000 \\
+3 & 1 & 6.0 & -1.06200 & -1.06200 & 0.67000 & 0.00000 \\
+\bottomrule\end{tabular}
+\par\smallskip\raggedright Caps are $(1/5,2/5,4/5)$, weights $(1/5,3/10,1/2)$, and ceilings are all one. The first two curvatures are one and two; the third is shown. The catalog is $\{0,1/4,1/2,3/4,1\}$. All charges are zero except case 3, which charges $1/20$ per installed level. The initial groups are $\{1\}$ and $\{2,3\}$, with the smallest-cap guard intact. Splitting the latter group gives three singleton histories and zero global gap. Every stage has a checked original-space policy and upper certificate.
+\end{table}
+\begin{table}[p]\centering
+\caption{Independent original-model mixed-integer comparisons on every primary case. Times and node counts are tangent/secant pairs. All widths are numerical, not rational certificates.}\label{tab:r47-mip}
+\begin{tabular}{rrrrrrr}\toprule
+Case & Seconds & Nodes & Max solver & Envelope & Signed & Status \\
+ & & & gap & error & width & pair \\\midrule
+00 & 0.02/0.01 & 1/1 & 0.0e+00 & 1.0e-04 & 1.9e-05 & 0/0 \\
+01 & 0.28/0.23 & 1/1 & 0.0e+00 & 7.7e-05 & -6.7e-16 & 0/0 \\
+02 & 0.02/0.02 & 1/1 & 0.0e+00 & 7.1e-05 & 1.7e-05 & 0/0 \\
+03 & 0.02/0.05 & 1/1 & 0.0e+00 & 7.4e-05 & 1.8e-15 & 0/0 \\
+04 & 0.02/0.02 & 1/1 & 0.0e+00 & 7.2e-05 & 2.7e-05 & 0/0 \\
+05 & 0.07/0.07 & 1/1 & 0.0e+00 & 7.9e-05 & -2.2e-16 & 0/0 \\
+06 & 0.01/0.03 & 1/1 & 0.0e+00 & 7.3e-05 & 4.3e-06 & 0/0 \\
+07 & 0.26/0.14 & 1/1 & 0.0e+00 & 7.7e-05 & 2.2e-16 & 0/0 \\
+08 & 0.02/0.02 & 1/1 & 5.6e-08 & 5.6e-05 & 1.3e-05 & 0/0 \\
+09 & 0.04/0.03 & 1/1 & 0.0e+00 & 8.5e-05 & 0.0e+00 & 0/0 \\
+10 & 0.01/0.01 & 1/1 & 0.0e+00 & 8.0e-05 & 1.1e-16 & 0/0 \\
+11 & 0.18/0.22 & 1/1 & 0.0e+00 & 6.7e-05 & 0.0e+00 & 0/0 \\
+\bottomrule\end{tabular}
+\par\smallskip\raggedright Each envelope has 64 segments and a separate two-second solver limit. Status 0 means the numerical solver reported optimal termination; nonzero statuses would remain in the table. All 24 solves report status 0 here. Signed negative widths at floating roundoff scale are deliberately retained. The full formulation, global numerical bounds, primal values, residuals, probabilities, and individual runtimes are in \texttt{results/mip.json}. Exhaustive book references agree with these numerical brackets up to the declared $10^{-6}$ comparison allowance, which is not an exact upper-bound guarantee.
+\end{table}

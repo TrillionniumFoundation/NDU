@@ -1,0 +1,28 @@
+\begin{table}[p]\centering
+\caption{Distinct-history joint design at original-space tolerance $0.001$. Every declared case is included. Histories in these rows have distinct cap--cost pairs.}\label{tab:r47-joint}
+\begin{tabular}{rrrrrrr}\toprule
+Histories & Catalog & Cases & Coarsened & Raw boxes & Priced prefix & Groups \\
+ & & & completed & completed & completed & \\\midrule
+4 & 9 & 4 & 4 & 4 & 4 & 4 \\
+8 & 9 & 4 & 4 & 2 & 4 & 5 \\
+12 & 9 & 4 & 4 & 4 & 4 & 5 \\
+32 & 17 & 4 & 4 & 3 & 4 & 5 \\
+128 & 17 & 4 & 4 & 3 & 3 & 5 \\
+256 & 17 & 4 & 4 & 3 & 2 & 5 \\
+\bottomrule\end{tabular}
+\par\smallskip\raggedright The twelve primary cases use four, eight, or twelve histories, nine catalog levels, and two or three commands. The twelve scaling cases use seventeen catalog levels and three commands. The reduced solve uses tolerance $0.0005$; completion above refers only to the checked original interval. Both box methods use at most 101 nodes and a four-second soft limit checked after full nodes. The priced-prefix comparator has the same requested original tolerance, node limit, and soft limit. All raw intervals and all lifted intervals pass their independent checkers.
+\end{table}
+\begin{table}[p]\centering
+\caption{Optimization time and original-space gaps on all distinct-history cases. Seconds are local medians; maximum gaps are exact certificate widths rounded for display.}\label{tab:r47-times}
+\begin{tabular}{rrrrrrr}\toprule
+Histories & Coarsened & Raw box & Prefix & Coarsened & Raw box & Prefix \\
+ & seconds & seconds & seconds & max gap & max gap & max gap \\\midrule
+4 & 0.027 & 0.023 & 0.037 & 0.00034 & 0.00034 & 0.00081 \\
+8 & 0.246 & 0.684 & 0.069 & 0.00052 & 0.00212 & 0.00092 \\
+12 & 0.010 & 0.019 & 0.017 & 0.00010 & 0.00000 & 0.00000 \\
+32 & 0.618 & 0.372 & 0.315 & 0.00078 & 0.00261 & 0.00070 \\
+128 & 0.049 & 1.308 & 1.123 & 0.00013 & 0.00965 & 0.00965 \\
+256 & 0.095 & 3.981 & 3.503 & 0.00006 & 0.00173 & 0.00173 \\
+\bottomrule\end{tabular}
+\par\smallskip\raggedright Timing excludes independent checking; coarsened timing includes reduction and original-space lifting. It is not uniformly faster: per-case outcomes, actual times above the soft limit, node counts, objective scales, and normalized gaps are retained in \texttt{results/joint.json}. The current code uses exact rational arithmetic. The data are a declared four-cluster perturbation family, not arbitrary-population or field evidence.
+\end{table}
