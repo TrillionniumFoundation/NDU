@@ -1,0 +1,229 @@
+{
+  "cases": [
+    {
+      "id": "case-00",
+      "seed": 48000,
+      "k": 4,
+      "n": 7,
+      "m": 1,
+      "family": 0,
+      "reference_required": true
+    },
+    {
+      "id": "case-01",
+      "seed": 48001,
+      "k": 6,
+      "n": 7,
+      "m": 3,
+      "family": 1,
+      "reference_required": true
+    },
+    {
+      "id": "case-02",
+      "seed": 48002,
+      "k": 8,
+      "n": 7,
+      "m": 2,
+      "family": 2,
+      "reference_required": true
+    },
+    {
+      "id": "case-03",
+      "seed": 48003,
+      "k": 4,
+      "n": 7,
+      "m": 3,
+      "family": 3,
+      "reference_required": true
+    },
+    {
+      "id": "case-04",
+      "seed": 48004,
+      "k": 6,
+      "n": 7,
+      "m": 1,
+      "family": 0,
+      "reference_required": true
+    },
+    {
+      "id": "case-05",
+      "seed": 48005,
+      "k": 8,
+      "n": 7,
+      "m": 3,
+      "family": 1,
+      "reference_required": true
+    },
+    {
+      "id": "case-06",
+      "seed": 48006,
+      "k": 4,
+      "n": 7,
+      "m": 2,
+      "family": 2,
+      "reference_required": true
+    },
+    {
+      "id": "case-07",
+      "seed": 48007,
+      "k": 6,
+      "n": 7,
+      "m": 3,
+      "family": 3,
+      "reference_required": true
+    },
+    {
+      "id": "case-08",
+      "seed": 48008,
+      "k": 8,
+      "n": 7,
+      "m": 1,
+      "family": 0,
+      "reference_required": true
+    },
+    {
+      "id": "case-09",
+      "seed": 48009,
+      "k": 4,
+      "n": 7,
+      "m": 3,
+      "family": 1,
+      "reference_required": true
+    },
+    {
+      "id": "case-10",
+      "seed": 48010,
+      "k": 6,
+      "n": 7,
+      "m": 2,
+      "family": 2,
+      "reference_required": true
+    },
+    {
+      "id": "case-11",
+      "seed": 48011,
+      "k": 8,
+      "n": 7,
+      "m": 3,
+      "family": 3,
+      "reference_required": true
+    },
+    {
+      "id": "case-12",
+      "seed": 48012,
+      "k": 32,
+      "n": 9,
+      "m": 1,
+      "family": 0,
+      "reference_required": false
+    },
+    {
+      "id": "case-13",
+      "seed": 48013,
+      "k": 32,
+      "n": 9,
+      "m": 3,
+      "family": 1,
+      "reference_required": false
+    },
+    {
+      "id": "case-14",
+      "seed": 48014,
+      "k": 32,
+      "n": 9,
+      "m": 2,
+      "family": 2,
+      "reference_required": false
+    },
+    {
+      "id": "case-15",
+      "seed": 48015,
+      "k": 32,
+      "n": 9,
+      "m": 3,
+      "family": 3,
+      "reference_required": false
+    },
+    {
+      "id": "case-16",
+      "seed": 48016,
+      "k": 128,
+      "n": 9,
+      "m": 1,
+      "family": 0,
+      "reference_required": false
+    },
+    {
+      "id": "case-17",
+      "seed": 48017,
+      "k": 128,
+      "n": 9,
+      "m": 3,
+      "family": 1,
+      "reference_required": false
+    },
+    {
+      "id": "case-18",
+      "seed": 48018,
+      "k": 128,
+      "n": 9,
+      "m": 2,
+      "family": 2,
+      "reference_required": false
+    },
+    {
+      "id": "case-19",
+      "seed": 48019,
+      "k": 128,
+      "n": 9,
+      "m": 3,
+      "family": 3,
+      "reference_required": false
+    },
+    {
+      "id": "case-20",
+      "seed": 48020,
+      "k": 256,
+      "n": 9,
+      "m": 1,
+      "family": 0,
+      "reference_required": false
+    },
+    {
+      "id": "case-21",
+      "seed": 48021,
+      "k": 256,
+      "n": 9,
+      "m": 3,
+      "family": 1,
+      "reference_required": false
+    },
+    {
+      "id": "case-22",
+      "seed": 48022,
+      "k": 256,
+      "n": 9,
+      "m": 2,
+      "family": 2,
+      "reference_required": false
+    },
+    {
+      "id": "case-23",
+      "seed": 48023,
+      "k": 256,
+      "n": 9,
+      "m": 3,
+      "family": 3,
+      "reference_required": false
+    }
+  ],
+  "epsilon": "1/1000",
+  "inner_epsilon": "1/2000",
+  "node_limit": 31,
+  "price_steps": 4,
+  "partition": "same eligibility, cap bins width 1/3, all costs in one bin, minimum-cap guard",
+  "mip": "all 12 primary cases, both envelopes, 32 segments, 3 seconds per solve",
+  "scope": "Targeted, locally frozen synthetic cost-heterogeneity ablation, not independent application data",
+  "generator_sha256": "105007c42827b5bf57f580c9afd3c8fc3f9e9c187b40e4a9120b781b2d505921",
+  "instrumentation_note": "Final MIP pass uses retained R46 node-accounting wrapper; same 24 cases and solver limits as initial authoring execution."
+}

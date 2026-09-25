@@ -1,0 +1,47 @@
+\begin{table}[p]\centering
+\caption{Theorem-level contribution map. Antecedent statements and proofs remain in the current readers.}\label{tab:r46-contributions}
+\begin{tabular}{p{.29\textwidth}p{.38\textwidth}p{.23\textwidth}}\toprule
+Component & Scope & Provenance \\\midrule
+Canonical and continuous design & Exact response, institutional endpoints, continuous and Monge results & Antecedent, Theorems~\ref{thm:eligible}, \ref{thm:r37-linear} \\
+Saturated charged path & Globally exact forced targets & R42; Corollary~\ref{cor:r45-saturated} \\
+Unrestricted price path and prefix search & Polynomial oracle and finite joint search & R43; Theorems~\ref{thm:r43-price}--\ref{thm:r43-search} \\
+Conditional compression and full net & Fixed targets; fixed-history additive scheme & R45; Theorems~\ref{thm:r45-frontier}, \ref{thm:r45-net} \\
+Exact types, two-sided paths and box covers & Exact repeated-type reduction; polynomial box oracle; finite accuracy & R46; Proposition~\ref{prop:r46-types}, Theorems~\ref{thm:r46-box}, \ref{thm:r46-adaptive} \\
+Guarded response coarsening & Different caps and costs; explicit original-contract loss and lift & R47, Theorem~\ref{thm:r47-coarsening} \\
+Variable-history additive scheme & Bounded eligibility and primitive scales; explicit accuracy dependence & R47, Theorem~\ref{thm:r47-variable} \\
+Certified refinement and checking & Nested valid intervals; original policy, grouping, Bellman and cover checks & R47 refinement, Proposition~\ref{prop:r47-refinement}; extended checker \\
+Harmonic pooling and square-root bins & Dominating upper model; optimal original lift; smaller accuracy-dependent dimension & R48, Theorems~\ref{thm:r48-harmonic}--\ref{thm:r48-scheme} \\
+\bottomrule\end{tabular}\end{table}
+\begin{table}[p]\centering
+\caption{Joint design at absolute tolerance $0.001$. Counts include every frozen holdout case. Both methods optimize targets and books; neither column is conditional optimization.}\label{tab:r46-joint}
+\begin{tabular}{rrrrrrr}\toprule
+Branches & Catalog & Cases & Box completed & Prefix completed & Box seconds & Box max gap \\\midrule
+2 & 9 & 4 & 4 & 4 & 0.018 & 0.00057 \\
+2 & 17 & 4 & 4 & 4 & 0.057 & 0.00010 \\
+4 & 9 & 4 & 4 & 4 & 0.028 & 0.00023 \\
+4 & 17 & 4 & 4 & 4 & 0.093 & 0.00094 \\
+8 & 9 & 4 & 3 & 4 & 0.106 & 0.01248 \\
+8 & 17 & 4 & 2 & 4 & 4.103 & 0.00673 \\
+128 & 33 & 4 & 3 & 4 & 0.398 & 0.00229 \\
+256 & 33 & 2 & 2 & 2 & 0.306 & 0.00078 \\
+16 & 33 & 2 & 2 & 2 & 0.850 & 0.00075 \\
+\bottomrule\end{tabular}
+\par\smallskip\raggedright Seconds are medians for box optimization, excluding independent verification. The price-prefix baseline uses the inherited R43 completion bound, not merely an unpriced catalog relaxation. The 128- and 256-branch rows use exactly repeated types; the 128-branch row contains both four- and eight-type cases. Node and time limits, and all individual outcomes, are reported in the companion and machine-readable records.
+\end{table}
+\begin{table}[p]\centering
+\caption{Completed and interrupted target grids versus adaptive joint design on identical finite catalogs. All have $N=5$ and $m=2$. A dash means that the grid does not certify the requested accuracy.}\label{tab:r46-grid}
+\begin{tabular}{rrrrrrr}\toprule
+Branches & Tolerance & Grid profiles & Grid seconds & Grid certified & Box nodes & Box gap \\\midrule
+2 & 0.100 & 7 & 0.005 & Yes & 1 & 0.00000 \\
+2 & 0.010 & 54 & 0.033 & Yes & 1 & 0.00000 \\
+2 & 0.001 & 527 & 0.311 & Yes & 1 & 0.00000 \\
+3 & 0.100 & 1000 & 0.826 & -- & 1 & 0.00003 \\
+3 & 0.010 & 1000 & 0.904 & -- & 1 & 0.00003 \\
+3 & 0.001 & 1000 & 0.908 & -- & 1 & 0.00003 \\
+4 & 0.100 & 1000 & 1.006 & -- & 1 & 0.01354 \\
+4 & 0.010 & 1000 & 1.063 & -- & 3 & 0.00903 \\
+4 & 0.001 & 1000 & 1.086 & -- & 1001 & 0.00128 \\
+5 & 0.100 & 1000 & 1.192 & -- & 1 & 0.00001 \\
+5 & 0.010 & 1000 & 1.163 & -- & 1 & 0.00001 \\
+5 & 0.001 & 1000 & 1.172 & -- & 1 & 0.00001 \\
+\bottomrule\end{tabular}\par\smallskip\raggedright The grid has a declared cap of 1,000 evaluated profiles; these are profile-limited comparisons, not claims of time-matched speedup. Adaptive runs use at most 1,001 nodes and an eight-second soft limit. Exact values, objective scales, losses, and runtimes for both algorithms appear in the archived records.\end{table}

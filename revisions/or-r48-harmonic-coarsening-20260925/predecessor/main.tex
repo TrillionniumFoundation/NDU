@@ -22,43 +22,42 @@
 \newcommand{\argmin}{\operatorname*{arg\,min}}
 \pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
 \fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
-\externaldocument{r48-ec-labels}[electronic_companion.pdf]
-\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Harmonic Coarsening and Certified Joint Design},pdfauthor={Anonymous}}
-\externaldocument{r48-cs-labels}[revisions/or-r48-harmonic-coarsening-20260925/COMPUTATIONAL_RECORD.pdf]
+\externaldocument{r47-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Joint Design with Certified Response Coarsening},pdfauthor={Anonymous}}
 \begin{document}\hypersetup{pageanchor=false}
 \begin{titlepage}\centering
-{\Large\bfseries Limited-Memory Renewal Contracts:\newline Harmonic Coarsening and Certified Joint Design\par}
+{\Large\bfseries Limited-Memory Renewal Contracts:\newline Joint Design with Certified Response Coarsening\par}
 \vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
-\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must select a limited command alphabet and allocate an accepted obligation across heterogeneous histories. We develop contract-preserving joint optimization for a finite catalog with opening charges, participation caps, and realization ceilings. An eligibility-aware two-sided price-path oracle supplies globally valid bounds on target boxes. Guarded aggregation reduces the history dimension, and weighted harmonic service curvatures tighten the reduced model without adding target coordinates. We prove dominance over minimum-curvature aggregation and construct an optimal within-group lift satisfying every original constraint. A square-root curvature partition gives a second-order cost-dispersion bound and improves the accuracy-dependent dimension of the variable-history additive scheme. For bounded eligibility complexity and primitive scales, fixed-accuracy complexity is polynomial in the history count and catalog size; accuracy dependence remains potentially large. Independent checkers verify reduced upper bounds and original policy feasibility. A paired 24-case cost-heterogeneity study includes up to 256 histories, exact joint references, numerical mixed-integer comparisons, and retained unresolved cases. Canonical contractual allocation, continuous quadratic design, Monge acceleration, and budgeted compression remain under their original assumptions. The method strengthens joint-design certificates without expanding the installed command budget.
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must jointly choose a limited command alphabet from a finite catalog and allocate an accepted service obligation across heterogeneous histories. We construct a certified reduction that groups different participation caps and quadratic service costs without changing the original contract. Weighted average caps preserve aggregate capacity, minimum cost curvatures give an optimistic model, and a minimum-cap guard preserves feasible commands. A groupwise recovery procedure restores every individual cap, the exact obligation, and every realization ceiling. Explicit dispersion bounds combine with an exact two-sided price-path oracle and adaptive target-box certificates. For bounded eligibility complexity and primitive scales, the resulting additive approximation scheme is polynomial in the history count and catalog size at any fixed positive accuracy; its accuracy dependence remains explicit and potentially large. Independent checkers verify both the reduced global bound and the original recovered policy. Twenty-four synthetic joint-design cases include up to 256 distinct histories, with exhaustive and uneliminated mixed-integer comparisons. Separate stress cases retain unresolved coarse relaxations and certify their refinement. Canonical contractual allocation, continuous quadratic design, Monge acceleration, budgeted compression, and their proofs remain available under their original assumptions.
 \par\vspace{.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
 \par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: global optimization.
 \par\vspace{.1in}\textbf{Area of review:} Optimization.
 \par\vspace{.1in}\textbf{Submission category:} Lengthy manuscript.
 \end{minipage}\vfill September 25, 2026\end{titlepage}
 \hypersetup{pageanchor=true}
-\input{revisions/or-r48-harmonic-coarsening-20260925/introduction.tex}
+\input{revisions/or-r47-joint-certificates-20260925/introduction.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/model.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/compression.tex}
 \input{revisions/or-r46-box-decomposition-20260925/types.tex}
 \input{revisions/or-r46-box-decomposition-20260925/two_sided.tex}
 \input{revisions/or-r46-box-decomposition-20260925/adaptive.tex}
 \input{revisions/or-r47-joint-certificates-20260925/coarsening.tex}
-\input{revisions/or-r48-harmonic-coarsening-20260925/harmonic.tex}
-\input{revisions/or-r48-harmonic-coarsening-20260925/study.tex}
-\input{revisions/or-r48-harmonic-coarsening-20260925/conclusion.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/certificates.tex}
+\input{revisions/or-r47-joint-certificates-20260925/study.tex}
+\input{revisions/or-r47-joint-certificates-20260925/conclusion.tex}
 \appendix
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__decomposition.tex}
+\input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__resources.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/continuous_appendix.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__global.tex}
 \input{revisions/or-r39-robust-quantizer-20260924/figure.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r39-robust-quantizer-20260924__derived__monge.tex}
 \input{revisions/or-r45-budgeted-compression-20260924/derived/revisions__or-r43-prefix-decomposition-20260924__grid_certificate.tex}
 \clearpage\phantomsection\label{refs-start}
-\input{revisions/or-r48-harmonic-coarsening-20260925/generated/references.tex}
+\input{revisions/or-r47-joint-certificates-20260925/generated/references.tex}
 \label{refs-end}
 \clearpage
-\input{revisions/or-r48-harmonic-coarsening-20260925/generated/antecedent_main_tables.tex}
+\input{revisions/or-r47-joint-certificates-20260925/generated/antecedent_main_tables.tex}
 \input{revisions/or-r47-joint-certificates-20260925/generated/main_tables.tex}
 \input{revisions/or-r46-box-decomposition-20260925/generated/historical_main_tables.tex}
-\input{revisions/or-r48-harmonic-coarsening-20260925/generated/main_table.tex}
 \end{document}

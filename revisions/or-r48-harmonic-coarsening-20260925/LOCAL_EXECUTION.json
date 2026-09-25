@@ -1,0 +1,816 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "summary": {
+    "cases": 24,
+    "max_histories": 256,
+    "certificates": 48,
+    "harmonic_complete": 14,
+    "minimum_complete": 11,
+    "combined_complete": 14,
+    "strict_harmonic_reference_improvements": 5,
+    "reference_cases": 12,
+    "mip_solves": 24,
+    "mip_time_limits": 0,
+    "max_harmonic_gap": 0.031595482115320386,
+    "max_combined_gap": 0.031595482115320386,
+    "statement": "Unresolved paired coarsening cases are retained. Successes are original-space intervals, not reduced solver statuses."
+  },
+  "paired": [
+    {
+      "id": "case-00",
+      "k": 4,
+      "n": 7,
+      "m": 1,
+      "family": 0,
+      "harmonic": {
+        "gap": 7.273461537265875e-05,
+        "status": "COMPLETE",
+        "seconds": 0.00995831900002031,
+        "lift_seconds": 0.001632120999943254,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.005222998222110785,
+        "status": "UNRESOLVED",
+        "seconds": 0.027545164000002842,
+        "lift_seconds": 0.0003072890000339612,
+        "nodes": 7
+      }
+    },
+    {
+      "id": "case-01",
+      "k": 6,
+      "n": 7,
+      "m": 3,
+      "family": 1,
+      "harmonic": {
+        "gap": 0.01756582299956954,
+        "status": "UNRESOLVED",
+        "seconds": 0.13316861099997368,
+        "lift_seconds": 0.003533191999963492,
+        "nodes": 23
+      },
+      "minimum": {
+        "gap": 0.017976658163265307,
+        "status": "UNRESOLVED",
+        "seconds": 0.16738058499993258,
+        "lift_seconds": 0.0004413179999573913,
+        "nodes": 31
+      }
+    },
+    {
+      "id": "case-02",
+      "k": 8,
+      "n": 7,
+      "m": 2,
+      "family": 2,
+      "harmonic": {
+        "gap": 0.00100304390411855,
+        "status": "UNRESOLVED",
+        "seconds": 0.012175457000012102,
+        "lift_seconds": 0.003932340000005752,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.008414365387088478,
+        "status": "UNRESOLVED",
+        "seconds": 0.008357768999985637,
+        "lift_seconds": 0.0006075250000776578,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-03",
+      "k": 4,
+      "n": 7,
+      "m": 3,
+      "family": 3,
+      "harmonic": {
+        "gap": 2.1955555555555555e-05,
+        "status": "COMPLETE",
+        "seconds": 0.021708695000029365,
+        "lift_seconds": 0.002413680000017848,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 2.1955555555555555e-05,
+        "status": "COMPLETE",
+        "seconds": 0.019605524999974477,
+        "lift_seconds": 0.0003528059999098332,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-04",
+      "k": 6,
+      "n": 7,
+      "m": 1,
+      "family": 0,
+      "harmonic": {
+        "gap": 0.0,
+        "status": "COMPLETE",
+        "seconds": 0.008068450999985544,
+        "lift_seconds": 0.002254345999972429,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.005835558097692538,
+        "status": "UNRESOLVED",
+        "seconds": 0.008628266000073381,
+        "lift_seconds": 0.0003270839999913733,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-05",
+      "k": 8,
+      "n": 7,
+      "m": 3,
+      "family": 1,
+      "harmonic": {
+        "gap": 0.02528716416429581,
+        "status": "UNRESOLVED",
+        "seconds": 0.1730702579999388,
+        "lift_seconds": 0.003933710000069368,
+        "nodes": 31
+      },
+      "minimum": {
+        "gap": 0.02522049939735599,
+        "status": "UNRESOLVED",
+        "seconds": 0.1356725919999917,
+        "lift_seconds": 0.0005571020000161298,
+        "nodes": 25
+      }
+    },
+    {
+      "id": "case-06",
+      "k": 4,
+      "n": 7,
+      "m": 2,
+      "family": 2,
+      "harmonic": {
+        "gap": 0.0,
+        "status": "COMPLETE",
+        "seconds": 0.009727126999905522,
+        "lift_seconds": 0.001987127999996119,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.0,
+        "status": "COMPLETE",
+        "seconds": 0.008426403000044047,
+        "lift_seconds": 0.0003880069999695479,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-07",
+      "k": 6,
+      "n": 7,
+      "m": 3,
+      "family": 3,
+      "harmonic": {
+        "gap": 7.877551020408163e-06,
+        "status": "COMPLETE",
+        "seconds": 0.022796204000087528,
+        "lift_seconds": 0.003374936999989586,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 7.877551020408163e-06,
+        "status": "COMPLETE",
+        "seconds": 0.02006306400005542,
+        "lift_seconds": 0.0004991529999642808,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-08",
+      "k": 8,
+      "n": 7,
+      "m": 1,
+      "family": 0,
+      "harmonic": {
+        "gap": 0.0005122917210586788,
+        "status": "COMPLETE",
+        "seconds": 0.01327645100002428,
+        "lift_seconds": 0.003886164000050485,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.009994657024102583,
+        "status": "UNRESOLVED",
+        "seconds": 0.03282383900000241,
+        "lift_seconds": 0.00044369299996560585,
+        "nodes": 9
+      }
+    },
+    {
+      "id": "case-09",
+      "k": 4,
+      "n": 7,
+      "m": 3,
+      "family": 1,
+      "harmonic": {
+        "gap": 0.0008874027777777778,
+        "status": "COMPLETE",
+        "seconds": 0.18251964500007034,
+        "lift_seconds": 0.0017122909999898184,
+        "nodes": 31
+      },
+      "minimum": {
+        "gap": 0.0008874027777777778,
+        "status": "COMPLETE",
+        "seconds": 0.1724329610000268,
+        "lift_seconds": 0.00035426099998403515,
+        "nodes": 31
+      }
+    },
+    {
+      "id": "case-10",
+      "k": 6,
+      "n": 7,
+      "m": 2,
+      "family": 2,
+      "harmonic": {
+        "gap": 0.003184366897487549,
+        "status": "UNRESOLVED",
+        "seconds": 0.011609653000050457,
+        "lift_seconds": 0.003571915999941666,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.00910596349177426,
+        "status": "UNRESOLVED",
+        "seconds": 0.008622836999961692,
+        "lift_seconds": 0.00043726299998070317,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-11",
+      "k": 8,
+      "n": 7,
+      "m": 3,
+      "family": 3,
+      "harmonic": {
+        "gap": 0.000543404243906925,
+        "status": "COMPLETE",
+        "seconds": 0.25296083900002486,
+        "lift_seconds": 0.003904429999920467,
+        "nodes": 31
+      },
+      "minimum": {
+        "gap": 0.0004810700301485962,
+        "status": "COMPLETE",
+        "seconds": 0.24258482299990192,
+        "lift_seconds": 0.0006640529999231148,
+        "nodes": 31
+      }
+    },
+    {
+      "id": "case-12",
+      "k": 32,
+      "n": 9,
+      "m": 1,
+      "family": 0,
+      "harmonic": {
+        "gap": 1.241632045499878e-05,
+        "status": "COMPLETE",
+        "seconds": 0.02828649899993252,
+        "lift_seconds": 0.013748265999993237,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.0001592742257503312,
+        "status": "COMPLETE",
+        "seconds": 0.01262197300002299,
+        "lift_seconds": 0.001431002999993325,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-13",
+      "k": 32,
+      "n": 9,
+      "m": 3,
+      "family": 1,
+      "harmonic": {
+        "gap": 0.026469622669549633,
+        "status": "UNRESOLVED",
+        "seconds": 0.37793435399999,
+        "lift_seconds": 0.026980170000001635,
+        "nodes": 31
+      },
+      "minimum": {
+        "gap": 0.026507533591310573,
+        "status": "UNRESOLVED",
+        "seconds": 0.2776795020000691,
+        "lift_seconds": 0.0020337849999805258,
+        "nodes": 31
+      }
+    },
+    {
+      "id": "case-14",
+      "k": 32,
+      "n": 9,
+      "m": 2,
+      "family": 2,
+      "harmonic": {
+        "gap": 0.0027257840275974766,
+        "status": "UNRESOLVED",
+        "seconds": 0.04040712099993016,
+        "lift_seconds": 0.025053526999954556,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.004004956678528339,
+        "status": "UNRESOLVED",
+        "seconds": 0.01466720799999166,
+        "lift_seconds": 0.0018222310000055586,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-15",
+      "k": 32,
+      "n": 9,
+      "m": 3,
+      "family": 3,
+      "harmonic": {
+        "gap": 0.0004471420593629519,
+        "status": "COMPLETE",
+        "seconds": 0.04555436099997223,
+        "lift_seconds": 0.011408684000002722,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 3.401964937939146e-05,
+        "status": "COMPLETE",
+        "seconds": 0.03231976000006398,
+        "lift_seconds": 0.0017864149999695655,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-16",
+      "k": 128,
+      "n": 9,
+      "m": 1,
+      "family": 0,
+      "harmonic": {
+        "gap": 1.1520198726552322e-05,
+        "status": "COMPLETE",
+        "seconds": 0.13477951300001223,
+        "lift_seconds": 0.10594903100002284,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.00015337646839395195,
+        "status": "COMPLETE",
+        "seconds": 0.01973941099993226,
+        "lift_seconds": 0.005920542000012574,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-17",
+      "k": 128,
+      "n": 9,
+      "m": 3,
+      "family": 1,
+      "harmonic": {
+        "gap": 0.029057264279406213,
+        "status": "UNRESOLVED",
+        "seconds": 0.6165133509999805,
+        "lift_seconds": 0.13222816600000442,
+        "nodes": 31
+      },
+      "minimum": {
+        "gap": 0.029029052518322943,
+        "status": "UNRESOLVED",
+        "seconds": 0.18506692800008295,
+        "lift_seconds": 0.007194400999992467,
+        "nodes": 19
+      }
+    },
+    {
+      "id": "case-18",
+      "k": 128,
+      "n": 9,
+      "m": 2,
+      "family": 2,
+      "harmonic": {
+        "gap": 0.00318387208050573,
+        "status": "UNRESOLVED",
+        "seconds": 0.3282966829999623,
+        "lift_seconds": 0.30531656400000884,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.004611676355387649,
+        "status": "UNRESOLVED",
+        "seconds": 0.022271093999961522,
+        "lift_seconds": 0.00660791000007066,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-19",
+      "k": 128,
+      "n": 9,
+      "m": 3,
+      "family": 3,
+      "harmonic": {
+        "gap": 4.9553571756015544e-05,
+        "status": "COMPLETE",
+        "seconds": 0.09153526900001907,
+        "lift_seconds": 0.045310289999974884,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 5.621434352653086e-05,
+        "status": "COMPLETE",
+        "seconds": 0.036710103000018535,
+        "lift_seconds": 0.006639972000016314,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-20",
+      "k": 256,
+      "n": 9,
+      "m": 1,
+      "family": 0,
+      "harmonic": {
+        "gap": 4.110500626876162e-06,
+        "status": "COMPLETE",
+        "seconds": 0.5983258239999714,
+        "lift_seconds": 0.5361249590000625,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.00015079775798726525,
+        "status": "COMPLETE",
+        "seconds": 0.031153004000088913,
+        "lift_seconds": 0.01231620099997599,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-21",
+      "k": 256,
+      "n": 9,
+      "m": 3,
+      "family": 1,
+      "harmonic": {
+        "gap": 0.031595482115320386,
+        "status": "UNRESOLVED",
+        "seconds": 1.63122566800007,
+        "lift_seconds": 0.8812038039999379,
+        "nodes": 29
+      },
+      "minimum": {
+        "gap": 0.031646619834080875,
+        "status": "UNRESOLVED",
+        "seconds": 0.2482844030000706,
+        "lift_seconds": 0.013704146000009132,
+        "nodes": 25
+      }
+    },
+    {
+      "id": "case-22",
+      "k": 256,
+      "n": 9,
+      "m": 2,
+      "family": 2,
+      "harmonic": {
+        "gap": 0.0035516182920240606,
+        "status": "UNRESOLVED",
+        "seconds": 1.1999800170000299,
+        "lift_seconds": 1.166110462000006,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 0.004934556223845768,
+        "status": "UNRESOLVED",
+        "seconds": 0.034742782999956034,
+        "lift_seconds": 0.01292595799998253,
+        "nodes": 1
+      }
+    },
+    {
+      "id": "case-23",
+      "k": 256,
+      "n": 9,
+      "m": 3,
+      "family": 3,
+      "harmonic": {
+        "gap": 0.0,
+        "status": "COMPLETE",
+        "seconds": 0.22897324200005187,
+        "lift_seconds": 0.16803265299995473,
+        "nodes": 1
+      },
+      "minimum": {
+        "gap": 7.392233068475154e-07,
+        "status": "COMPLETE",
+        "seconds": 0.04415430699998524,
+        "lift_seconds": 0.015026795000039783,
+        "nodes": 1
+      }
+    }
+  ],
+  "mip": [
+    {
+      "id": "case-00",
+      "bracket_width": 5.225568181810303e-05,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.015264278000017839,
+          "approximation_error": 0.00011544744318181818,
+          "numerical_upper": 0.8669038920454545,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.734723475976807e-17
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.004371743999968203,
+          "approximation_error": 0.00011544744318181818,
+          "numerical_upper": 0.8668414772727272,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 2.3418766925686896e-17
+        }
+      }
+    },
+    {
+      "id": "case-01",
+      "bracket_width": 0.0,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.019790085999943585,
+          "approximation_error": 6.078437234268707e-05,
+          "numerical_upper": 0.7263333333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.013042434999988473,
+          "approximation_error": 6.078437234268707e-05,
+          "numerical_upper": 0.7263333333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        }
+      }
+    },
+    {
+      "id": "case-02",
+      "bracket_width": 6.544906201788603e-05,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.04988573200000701,
+          "approximation_error": 0.000139969729189356,
+          "numerical_upper": 0.7208950796518672,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 8.881784197001252e-16
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.041093159000070045,
+          "approximation_error": 0.000139969729189356,
+          "numerical_upper": 0.7207250383026836,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.1102230246251565e-16
+        }
+      }
+    },
+    {
+      "id": "case-03",
+      "bracket_width": 0.0,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.009096054999986336,
+          "approximation_error": 0.00011618428458658855,
+          "numerical_upper": 0.7429158333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.008577440000067327,
+          "approximation_error": 0.00011618428458658855,
+          "numerical_upper": 0.7429158333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        }
+      }
+    },
+    {
+      "id": "case-04",
+      "bracket_width": 4.0479461015263674e-05,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.004337036000038097,
+          "approximation_error": 9.626116071428572e-05,
+          "numerical_upper": 0.8688116292189954,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.214306433183765e-17
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.0038547030000017912,
+          "approximation_error": 9.626116071428572e-05,
+          "numerical_upper": 0.868764925922292,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.0408340855860843e-17
+        }
+      }
+    },
+    {
+      "id": "case-05",
+      "bracket_width": 0.0,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.008997980000003736,
+          "approximation_error": 9.1808862780791e-05,
+          "numerical_upper": 0.8218518518518518,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.008851390000018,
+          "approximation_error": 9.1808862780791e-05,
+          "numerical_upper": 0.8218518518518518,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        }
+      }
+    },
+    {
+      "id": "case-06",
+      "bracket_width": 1.759152061120428e-05,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.015528950999964763,
+          "approximation_error": 0.0001127022017501028,
+          "numerical_upper": 0.6947944638890323,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.3322676295501878e-15
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.015488697000023421,
+          "approximation_error": 0.0001127022017501028,
+          "numerical_upper": 0.6947174016904811,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.1102230246251565e-16
+        }
+      }
+    },
+    {
+      "id": "case-07",
+      "bracket_width": -3.108624468950438e-14,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.04707255699997859,
+          "approximation_error": 8.267954415932109e-05,
+          "numerical_upper": 0.8276105820105515,
+          "node_count": 2,
+          "mip_gap": 0.0,
+          "max_model_residual": 3.516076318987871e-13
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.04404238600000099,
+          "approximation_error": 8.267954415932109e-05,
+          "numerical_upper": 0.8276105820105826,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.329070518200751e-15
+        }
+      }
+    },
+    {
+      "id": "case-08",
+      "bracket_width": 9.468950045732338e-05,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.0050729339999406875,
+          "approximation_error": 0.00011981310013717421,
+          "numerical_upper": 0.8682746770690445,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 2.220446049250313e-16
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.004823865999924237,
+          "approximation_error": 0.00011981310013717421,
+          "numerical_upper": 0.8681490054869684,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.1102230246251565e-16
+        }
+      }
+    },
+    {
+      "id": "case-09",
+      "bracket_width": 0.0,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.012746334999974351,
+          "approximation_error": 7.959993489583332e-05,
+          "numerical_upper": 0.7717111111111111,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 4.440892098500626e-16
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.013264074999938202,
+          "approximation_error": 7.959993489583332e-05,
+          "numerical_upper": 0.7717111111111111,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 2.220446049250313e-16
+        }
+      }
+    },
+    {
+      "id": "case-10",
+      "bracket_width": 1.5146766913276544e-05,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.042158703999916725,
+          "approximation_error": 9.435988785991167e-05,
+          "numerical_upper": 0.7346089280559599,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 5.551115123125783e-17
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.04539579999993748,
+          "approximation_error": 9.435988785991167e-05,
+          "numerical_upper": 0.7345424194167401,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 4.440892098500626e-16
+        }
+      }
+    },
+    {
+      "id": "case-11",
+      "bracket_width": 1.1102230246251565e-16,
+      "metrics": {
+        "tangent": {
+          "status": 0,
+          "seconds": 0.018659835000107705,
+          "approximation_error": 9.175250148937773e-05,
+          "numerical_upper": 0.7291154420549583,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 1.7763568394002505e-15
+        },
+        "secant": {
+          "status": 0,
+          "seconds": 0.020904823000023498,
+          "approximation_error": 9.175250148937773e-05,
+          "numerical_upper": 0.7291154420549582,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "max_model_residual": 0.0
+        }
+      }
+    }
+  ],
+  "metric_precision": "Displayed local objective and bound metrics are floating summaries of exact verified local certificates; publication retains complete rational certificates."
+}
