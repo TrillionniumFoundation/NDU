@@ -39,6 +39,6 @@ The study resumes complete saved cases without selecting new inputs. For fresh t
 
 ## Formatting and preservation
 
-The reader build is pending. The build checks undefined citations/references, duplicate labels, overfull boxes and the presence of all 53 antecedent mathematical statements plus four new theorems. The complete new proofs remain in the article. Format validation is not an editorial acceptance claim.
+The validated article has 39 nonreference pages (42 total), the mathematical companion 39 pages, the response 5 pages, and the reproduction record 28 pages. The abstract has 186 words. Build status: PASS. The build checks undefined citations/references, duplicate labels, overfull boxes and the presence of all 53 antecedent mathematical statements plus four new theorems. The complete new proofs remain in the article. Format validation is not an editorial acceptance claim.
 
 `CONTENT_MAP.json` records intact relocation of earlier mathematics and tables. `PRESERVATION_MANIFEST.json` compares every inherited Git blob with the immutable R48 parent. Exact predecessor copies preserve replaced reader entry points and indexes. The review branch, main branch, and all earlier revision branches are unchanged.
