@@ -1,0 +1,24 @@
+\section{A Polynomial Additive Fallback}\label{sec:uniform54}
+For the common-reward model, or the heterogeneous kernels of Theorem~\ref{thm:packing54}, the selected-boundary representation yields a complementary worst-case guarantee. An arc has concave $L$-Lipschitz payoff and capacity $T_e+Q_e$. Every book with feasible anchor $a$ has capacity $\bar b-a\geq B-a$. Round each of its at most $m$ arc resources down to multiples of $\eta$, including the terminal edge. Accept total resource in $[B-a-m\eta,B-a]$. Every accepted path has enough spare capacity to restore its missing resource without changing its selected commands.
+
+\begin{theorem}[Original-promise additive fallback]\label{thm:uniform54}
+For rational increasing concave quadratic rewards and quadratic service costs, let $L=\max_j\{r_j,\gamma_j\}$ and set $\eta=\varepsilon/(2Lm)$ and let $S_\eta$ be the best accepted grid-path value over all feasible anchors. Exact fixed-book recovery at $B$ yields
+\[
+ \underline V\leq V^*(B)\leq S_\eta+Lm\eta,
+ \qquad S_\eta+Lm\eta-\underline V\leq\varepsilon.
+\]
+With $Q=\lceil2Lm/\varepsilon\rceil+1$, direct kernel construction and resource convolution have arithmetic bound
+\begin{equation}\label{eq:fallback54}
+ O\bigl(kN^2Q\log(k+1)+mN^3Q\log(Q+1)\bigr),
+\end{equation}
+and bit complexity polynomial in the numerical grid size and binary input length.
+\end{theorem}
+\begin{proof}
+Rounding the resources of an optimal path loses at most $Lm\eta$ in payoff. Conversely, repairing a maximizing accepted path changes its coordinates upward by total at most $m\eta$ and loses at most $Lm\eta$. The constructive identity implements the repaired vector with no smaller payoff; exact fixed-book recovery can improve it further. This proves the interval. Precompute each of $O(N^2Q)$ arc values by sorted terminal components and capped quadratic service allocation. At a fixed edge, a concave grid kernel gives an anti-Monge max-plus convolution even if the previous Bellman values are not concave. Monotone row search costs $O(Q\log(Q+1))$ per transition. Counting anchors and command lengths gives \eqref{eq:fallback54}. The full recurrence, rational scaling argument, and independent checker are retained in the electronic companion.
+\end{proof}
+Writing normalized accuracy as $\delta=\varepsilon/L$ exposes the effective terms
+\[
+ O\left(\frac{kmN^2}{\delta}\log(k+1)
+       +\frac{m^2N^3}{\delta}\log(m/\delta+2)\right).
+\]
+Thus polynomial arithmetic does not by itself imply practical scalability. At a prescribed absolute error the dependence is on $L/\varepsilon$, not its binary encoding length. Signed net payoffs and values close to zero preclude a general multiplicative interpretation. The price-tree method instead stops at its observed original-instance width, sometimes at exact equality, but has an exponential worst-case discrete tree. These are complementary guarantees, not a claim that the uniform $1/\varepsilon$ dependence is necessary. The broader heterogeneous-reward guarantee uses the newly derived within-edge profiles, not an unchanged common-reward kernel. The inherited software used as the uniform baseline remains restricted to common rewards.

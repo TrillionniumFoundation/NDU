@@ -1,0 +1,33 @@
+\subsection{NP-completeness with linear reward and free service}\label{sec:hard54}
+The exact common-cap theorem has a genuine boundary. Heterogeneous caps and paid command activation can encode a discrete target even when the reward and service primitives are linear and zero, respectively.
+\begin{theorem}[Complexity of exact finite-catalog design]\label{thm:hard54}
+The rational quadratic joint-design decision problem, given a rational threshold $\zeta$ and asking whether $V^*(B)\geq\zeta$, is NP-complete. NP-hardness persists with the fixed common reward $f(x)=x$, zero intermediate-service costs, uniform probabilities, $\tau_j=b_j$, and a nonbinding command budget $m=N$.
+\end{theorem}
+\begin{proof}
+Membership in NP follows by supplying a selected book. Exact rational fixed-book allocation is computable in polynomial time and bit complexity, as in Proposition~\ref{prop:oracle54}; its rational value can be compared with $\zeta$. This argument applies to the full rational quadratic model, not to arbitrary unencoded convex functions.
+
+For hardness, start with positive integer SUBSET SUM weights $w_1,\ldots,w_n$, $n\geq2$, total $A=\sum_iw_i$, and target $1\leq W\leq A$. The NP-completeness of this binary-encoded problem is classical \citep{Karp1972}. Put
+\begin{equation}\label{eq:reduction54}
+ K=n^2A,\quad \ell_i=\frac{i-1}{n},\quad z_i=\ell_i+\frac{w_i}{nA},\quad
+ \pi_i=\frac1n,\quad b_i=\tau_i=z_i.
+\end{equation}
+The catalog consists of the $2n$ distinct commands $\ell_i,z_i$. Their order is $\ell_i<z_i<\ell_{i+1}$ for $i<n$, since positive weights and $n\geq2$ imply $w_i<A$; also $z_n<1$. Set $m=2n$, charge zero for every $\ell_i$, and charge $w_i/(2K)$ for $z_i$. Use $f(x)=x$ and $h_i=0$. Define
+\begin{equation}\label{eq:targetreduction54}
+ D_0=\frac1n\sum_i\ell_i,\qquad B=D_0+\frac WK,
+ \qquad \zeta=D_0+\frac W{2K}.
+\end{equation}
+These rational inputs have polynomial binary length. The root promise is feasible because $\bar b=D_0+A/K$ and the minimum catalog command is zero.
+
+Every feasible book can be augmented by all free commands $\ell_i$ without increasing its charge or exceeding the nonbinding budget. Enlarging its lottery support cannot reduce its attainable value. Hence an optimal book contains all those commands. For an optional subset $S$ of commands $z_i$, history $i$ has last eligible command $z_i$ when $i\in S$ and $\ell_i$ otherwise; higher free commands are above its realization ceiling. Its aggregate terminal capacity is
+\[
+ D(S)=D_0+\frac{\sum_{i\in S}w_i}{K}.
+\]
+Let $s=\sum_{i\in S}w_i$. With linear unit reward and free service, the optimized gross payoff is $\min\{B,D(S)\}$. For $B\leq D(S)$, lotteries between zero and each last eligible command provide every aggregate terminal mean up to $D(S)$. For $B>D(S)$, fill those terminal commands and use the remaining feasible service capacity $\bar b-D(S)$. Thus both parts of this gross-value formula are attained in the original constraints. Subtracting the optional charges gives the exact identity
+\begin{equation}\label{eq:distance54}
+ V_S(B)=\min\{B,D_0+s/K\}-\frac{s}{2K}
+       =\zeta-\frac{|s-W|}{2K}.
+\end{equation}
+Consequently $V^*(B)\geq\zeta$ holds if and only if a subset sums exactly to $W$. This is a polynomial reduction and proves NP-hardness under all the stated restrictions.
+\end{proof}
+
+The reduction does not prove strong NP-hardness, hardness at a fixed small command budget, or a parameterized lower bound. It does establish that unrestricted exact polynomial-time optimization would imply $\mathrm P=\mathrm{NP}$. It is consistent with the additive scheme: a no-instance can be only $1/(2K)$ below the threshold, even though $f(x)=x$ has Lipschitz constant one. Resolving that distinction may require an inverse accuracy proportional to the numerical integer total. This identifies an encoding-sensitive barrier, not a proof that every instance requires the uniform grid or that its exact $1/\varepsilon$ dependence is optimal. The common-cap and common-prefix algorithms remain exact polynomial exceptions.
