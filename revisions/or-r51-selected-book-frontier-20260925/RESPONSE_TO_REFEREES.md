@@ -1,0 +1,92 @@
+# Response to the two independent R49 reports
+
+We thank both referees for distinguishing the terminal-first identity from its standard resource-allocation and path-optimization ingredients. This revision develops that identity into a more robust algorithmic treatment, rather than replacing the original-budget joint problem by a weaker objective. Every individual expectation cap, every realization ceiling, every opening charge, and the original symbol budget remain in the optimization and in the checked policy.
+
+The scientific baseline is R49 commit `2098592a99e47d36cc9fd16311f21d1858fa6e1e`. We address the first independent report at `2ac1490e5a4149f8c7e154407fbe6fa6208979db` and the second at `4f0b662bd4184fc77fb57bd09c339bffb6213a69`. The new R51 branch starts from the latter. The preexisting R50 source-snapshot branch contains no intervening scientific revision and is left unchanged. A complete copy of the first report accompanies this response because the two review branches were independent.
+
+
+## Explicit subdivision steps and exact dyadic counts
+
+**Comments:** The second report gives the ratio-three bisection counterexample; the first asks for explicit rounding and constants. Both request a theorem-level audit rather than reliance on realized certificates.
+
+**Revision:** Theorem (6.2), equations (37)--(38), now distinguishes the net spacing from the subdivision stopping width. For each initial free weighted width $w_g^0$, the number of required halvings is
+\[
+ q_g=0\quad(w_g^0\leq\eta_{\rm sub}),\qquad
+ q_g=\left\lceil\log_2(w_g^0/\eta_{\rm sub})\right\rceil
+ \quad(w_g^0>\eta_{\rm sub}).
+\]
+The exact safe leaf bound is $\prod_{g\ne g_0}2^{q_g}$ and the node bound is twice that product minus one. Zero widths never enter a logarithm. Projection cannot enlarge a width, so the proof bounds the depth of every root-to-leaf path, including anisotropic and degenerate boxes.
+
+The ratio-three observation is correct: a stopping width of one third of an initial interval needs four dyadic leaves, not three. There is, however, an important distinction between that observation and the claim that the original coarse constant is necessarily false. The inherited proof uses $\eta=\varepsilon/[2L(E-1)]$, as does the earlier explicit-width argument in Theorem (EC.3.1). With that stopping rule, dyadic rounding gives the coarse factor $4L(E-1)/\varepsilon$. The second report's calculation instead sets $\eta=\varepsilon/[4L(E-1)]$; under that stricter rule the coarse factor is eight, not four. We now state both implications explicitly, rather than leaving readers to infer which spacing is inherited. The displayed product bound is authoritative under either convention.
+
+Twenty direct combinatorial regressions include the ratio-three example and verify the count independently of the policy checker. This is distinct from checking an already realized tree. No computed R49 interval is changed or discarded on account of this clarification.
+
+
+## Endogenous eligibility and a stronger completion algorithm
+
+**Comments:** Full-catalog classes can be split by unused levels; the algorithm should incorporate selected threshold crossings or otherwise quantify this conservatism. Small multi-class instances remain difficult for group-mean subdivision.
+
+**Revision:** Section (7) introduces a binary include/exclude search over selected symbols. Its state records a mandatory selected prefix and an undecided catalog suffix, not an outer coordinate for every catalog class. Theorem (7.1) proves an exact mandatory-prefix extension of the two-sided support recurrence. Before the final mandatory candidate, transitions must go to the next mandatory level; tails and backward stopping are forbidden. After that candidate, the ordinary transitions apply. The restrictions preserve the representation of every completion, including books whose score peak occurs inside the mandatory prefix.
+
+The resulting upper bound respects the original symbol budget and opening charges. A second bound optimizes over the free union of all remaining candidates but subtracts every already mandatory charge. Proposition (7.2) turns this bound into certified candidate deletion. Theorem (7.3) combines these bounds with a complete include/exclude cover and a checked original-space policy. Every interruption has an explicit valid interval. There is no assertion that optimizing the scalar price alone eliminates a nonconvex duality gap.
+
+The standard-library checker is separate from the optimizer. It reconstructs the state, checks complete coverage, evaluates scalar supports independently, verifies all Bellman upper inequalities and mandatory-level restrictions, and directly checks the uneliminated lottery, intermediate service, promise, caps, ceilings, and charges. It therefore does not merely replay optimizer outputs or verify source hashes.
+
+
+## What is inherited and what is new in the complexity map
+
+**Comments:** Establish a positive parameterized boundary or hardness result, distinguish fixed-parameter tractability from an accuracy exponent, and consider fixed budgets two or three.
+
+**Revision:** We explicitly foreground two complementary exact regimes. Common catalog eligibility gives polynomial optimization with a variable symbol budget. A fixed symbol budget permits arbitrary catalog eligibility through selected-book completion. The elementary fixed-budget enumeration implication is *not new*: it was already proved in antecedent Proposition (EC.2.2), now reproduced in the companion. We do not present it as a fresh complexity theorem.
+
+The new contribution is the mandatory-prefix support oracle, the charge-aware completion bounds, and their independently checkable pruning certificates. The full binary cover has at most
+\[
+ Q_m(N)=\sum_{s=0}^{\min\{m,N\}}\binom Ns
+\]
+leaves and $2Q_m(N)-1$ nodes. The proof provides the per-node rational operation count and certificate-size bound, not only a label such as “parameterized.” This is an XP bound in the symbol budget, not an FPT bound with a uniform polynomial exponent. Fixed budgets two or three already give polynomial instances under these primitives; a hardness claim for those fixed budgets would require a different model or contradict this result unless P equals NP.
+
+We do not supply an unproved NP-hardness claim for simultaneous variable budget and variable eligibility complexity. Nor do we claim that the group-box exponent is a lower bound on every algorithm. The positive algorithmic result here is that class-induced mean subdivision can be avoided altogether when the selected alphabet is small, with much stronger checked closure on the retained difficult instances. Table (1) makes these guarantees and their assumptions visible together.
+
+
+## Catalog and threshold robustness
+
+**Comments:** Prove refinement sensitivity, analyze threshold perturbations, exhibit unused class-splitting candidates, and explain certificate reuse or post-optimization merging.
+
+**Revision:** Theorem (8.1) shows that inserting one candidate splits at most one old eligibility class, that the full partition refines monotonically, and that the selected-book partition has at most as many classes as selected symbols. It gives an explicit high-charge insertion whose class split leaves the optimum unchanged. This candidate is removed by the new screening inequality rather than assumed irrelevant.
+
+The same theorem proves exact stability inside each half-open catalog-signature cell. Equal class counts alone do not imply equal values. Theorem (8.2) reduces rectangular threshold-robust design exactly to the lower-ceiling model, retaining all original contractual restrictions. It bounds value change by the probability mass of histories whose eligible sets change. A one-history example proves that numerical threshold width alone cannot give a uniform Lipschitz bound across a catalog boundary. We treat that discontinuity directly instead of averaging away a safety threshold.
+
+Changed candidates or thresholds define changed inputs. An old certificate is not automatically reusable. Within a signature cell one can revalidate the canonical terms against the new input; across cells the affected supports and coverage require rebuilding or checking. Merging histories for the winning book may compress that policy, but it does not prove upper bounds for competing books with different eligible sets.
+
+
+## Nontrivial geometry and all retained computational outcomes
+
+**Comments:** The all-ceilings-equal-one experiment is too favorable. Add strict prefixes, varying ceilings in a gap, boundary perturbations, refinement paths, class-count ladders, price and node sensitivity, relative gaps, and matched direct optimization.
+
+**Revision:** The frozen population contains 182 requests: 72 stress interruptions, six stress completion runs, 20 strict-prefix cases, 48 matched-class requests, 24 refinement cases, and 12 threshold-boundary cases. The protocol was frozen before local execution, but is not claimed to have been preregistered remotely. Its unchanged hash and generators are supplied.
+
+All 20 strict-prefix cases are exact. They use nonuniform catalogs and genuinely interior common eligibility, with distinct ceilings, heterogeneous caps and costs, two interior promise fractions, and additional budgets two and four. The largest has 1,024 histories. We identify the solver as the inherited exact one-class pooled method, not as a new completion-tree performance result. The old all-ceilings-equal-one experiment remains only an arithmetic scale check.
+
+All six unchanged difficult instances receive zero-width rational completion certificates in at most 21 visited nodes. Their exact values agree with the already available exhaustive references; they are not claimed as previously unknown optima. Table (2) reports the old group-box gaps, their relative size, and new search and checking costs. Figure (1) retains every requested node allowance. Across all 182 requests, 134 intervals are exact and 48 remain open. None of the 48 open results is suppressed or renamed an exact solution.
+
+The matched-class study changes only ceilings on otherwise fixed primitives. At the 127-node allowance all one-through-eight-class pairs close exactly. Prices reduce visited nodes in each pair but increase wall time in every pair. We report this unfavorable timing comparison explicitly; it argues for a hybrid bound-selection policy, not a blanket pricing speed claim. The refinement study distinguishes high-charge unused insertions from low-charge value-improving insertions and shows the screening effect in both raw and active class counts.
+
+The direct uneliminated formulation uses tangent and secant envelopes on nine instances, yielding 18 recorded solves. All return successful status in this execution. Each envelope has its own three-second allowance, as does each timed tree; two envelopes together do not receive a free shared three-second budget. Main Table (6) shows variables, binaries, nodes, time, actual-policy value, numerical upper bound, solver gap, and envelope error. The companion gives both envelopes, formulation-inclusive wall times, residuals, and bracket widths. These numerical bounds remain distinct from exact rational certificates. The unpruned fixed-book baseline is rerun on the same nine inputs.
+
+
+## Certificate economics, proof details, and a derived second model
+
+**Comments:** Report certificate storage and verification cost; expand weighted transfers, endpoint identities and rational-input conditions; strengthen external relevance.
+
+**Revision:** Table (7) reports measured compressed bytes, numerator and denominator bit lengths, and checker-to-search time ratios. The raw record also includes uncompressed bytes and rational-entry counts for every case. Theorem (7.3) separately gives entry-count bounds. Verification is not assumed cheaper than optimization. Fifteen intentional corruptions are rejected; boundary and all inherited certificate checks are retained.
+
+The pooling proof now displays the weighted transfer and conservation equation, equality and continuity at the terminal-capacity threshold, and why a strictly larger mean forces the equalization level above the last eligible level. The group-box proof explicitly gives both aggregate service endpoint identities, including saturation and nonunique-water-level cases. Every exact-bit-complexity claim now specifies rationally encoded charges and primitives; the mathematical optimization identity can still permit real charges.
+
+Section (8.1) derives a stochastic capacity-reservation model by integrating expected served demand. Market-facing batch capacity earns demand revenue; a separately provisioned non-market backup service counts toward the availability contract and incurs a convex cost. This distinction produces the same last-safe-batch correction, rather than merely renaming a gateway. Uniform demand yields the quadratic model exactly. Companion Section (EC.6) gives a three-state instance with exact optimum $67/100$, checked independently by integrating demand and by exhaustive allocation. This is a mathematical application, not an empirically calibrated deployment. We explicitly exclude a different objective in which backup earns the same market revenue.
+
+
+## Editorial focus and preservation
+
+The current article follows one chain: canonical allocation, conditional path optimization, exact eligibility pooling, two-sided support, the explicit group-mean accuracy result, selected-prefix completion, robustness, and targeted computation. Its new structural proofs are in the article. The companion contains the retained prerequisites, detailed protocol, and complete new execution tables. The complete earlier main article and mathematical companion are preserved byte for byte, along with every historical source, theorem, experiment, and failed request. Their presence in the repository is not presented as a requirement to review the old cumulative 106-page package.
+
+The content and preservation maps identify the locations of every antecedent statement and every replaced reader. The build checks font size, spacing, margins, abstract length, equation-free introduction, reference resolution, duplicate labels, overfull boxes, and page counts. Author names are omitted. The submission checklist does not invent conflict-of-interest, authorship, originality, or journal-submission certifications that only the authors can supply. The new branch is for re-review; the review branches, main branch, and other revision branches are unchanged.

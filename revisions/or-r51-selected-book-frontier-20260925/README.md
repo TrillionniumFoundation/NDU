@@ -1,14 +1,6 @@
-# NDU — Operations Research R51
+# R51 revision package
 
-**Current paper:** Limited-Memory Renewal Contracts: Exact Pooling and Selected-Book Design.  
-**Revision branch:** `revision/ndu-operations-research-r51-selected-book-frontier-20260925`.  
-**Review base:** `4f0b662bd4184fc77fb57bd09c339bffb6213a69`; scientific baseline `2098592a99e47d36cc9fd16311f21d1858fa6e1e`. Both independent R49 reports are addressed; the parallel R50 snapshot branch is unchanged.
-
-## Readers
-
-[Main manuscript](main.pdf) · [Electronic companion](electronic_companion.pdf) · [Point-by-point response](revisions/or-r51-selected-book-frontier-20260925/RESPONSE_TO_REFEREES.pdf) · [Revision source and records](revisions/or-r51-selected-book-frontier-20260925/) · [Preservation map](revisions/or-r51-selected-book-frontier-20260925/CONTENT_MAP.md).
-
-The current readers have 30 total main pages (29 excluding references), 13 companion pages, 5 response pages. The abstract contains 179 words. The anonymous article uses 11-point text, 1.5 spacing and one-inch margins, an equation-free introduction, author–year references, figures near the text, and tables after references. The build reports no undefined references or citations, duplicate labels, missing characters or overfull boxes. The current category is Regular Manuscript; this is a repository revision for re-review, not a claim of journal submission or acceptance.
+See the [root README](../../README.md) for readers, exact guarantees and complete reproduction commands.
 
 ## Substantive changes
 

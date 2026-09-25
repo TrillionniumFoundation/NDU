@@ -1,0 +1,39 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Finite-Catalog Renewal Contracts}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r51-archive-labels}[revisions/or-r51-selected-book-frontier-20260925/predecessor/main.pdf]
+\externaldocument{r51-archive-ec-labels}[revisions/or-r51-selected-book-frontier-20260925/predecessor/electronic_companion.pdf]
+\externaldocument{r51-archive-cs-labels}[revisions/or-r49-dispersion-certificates-20260925/COMPUTATIONAL_RECORD.pdf]
+\externaldocument{r51-main-labels}[main.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Exact Pooling and Selected-Book Design},pdfauthor={Anonymous}}
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\theequation}{EC.\arabic{equation}}
+\renewcommand{\thetable}{EC.\arabic{table}}
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion}\par
+Limited-Memory Renewal Contracts: Exact Pooling and Selected-Book Design\end{center}
+\input{revisions/or-r51-selected-book-frontier-20260925/companion.tex}
+\clearpage
+\input{revisions/or-r51-selected-book-frontier-20260925/generated/references.tex}
+\end{document}

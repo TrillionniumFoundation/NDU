@@ -1,0 +1,59 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Finite-Catalog Renewal Contracts}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r51-archive-labels}[revisions/or-r51-selected-book-frontier-20260925/predecessor/main.pdf]
+\externaldocument{r51-archive-ec-labels}[revisions/or-r51-selected-book-frontier-20260925/predecessor/electronic_companion.pdf]
+\externaldocument{r51-archive-cs-labels}[revisions/or-r49-dispersion-certificates-20260925/COMPUTATIONAL_RECORD.pdf]
+\externaldocument{r51-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Exact Pooling and Selected-Book Design},pdfauthor={Anonymous}}
+\input{revisions/or-r51-selected-book-frontier-20260925/generated/metrics.tex}
+\begin{document}\hypersetup{pageanchor=false}
+\begin{titlepage}\centering
+{\Large\bfseries Limited-Memory Renewal Contracts:\newline Exact Pooling and Selected-Book Design\par}
+\vspace{.3in}Anonymous manuscript for Operations Research\par\vspace{.2in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider must choose a limited command alphabet and allocate an accepted obligation across heterogeneous histories. We develop finite-catalog joint design with opening charges, expectation caps, and realization ceilings. Terminal-first pooling retains individual caps and service costs while assigning an exact correction to the last eligible selected command. Common catalog eligibility therefore permits exact polynomial optimization with a variable symbol budget. Because unused catalog insertions can split eligibility classes, we also develop a mandatory-selected-prefix price recurrence and a certified completion search. This search turns the inherited fixed-budget enumeration regime into a prunable original-budget algorithm without an outer search over all eligibility-class means. We characterize catalog refinement, exact screening, signature-cell stability, and robust design under uncertain ceilings. Explicit dyadic counts support the complementary group-mean accuracy scheme. Independent checks certify original-space policies and complete search covers. Synthetic experiments include strict interior prefixes with 1,024 histories, matched class counts, refinement paths, and direct mixed-integer diagnostics. All six previously difficult instances receive zero-width rational certificates; all interrupted requests are retained. A stochastic capacity-reservation model derives the same correction from expected served demand.
+\par\vspace{.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
+\par\vspace{.1in}\textbf{Subject classifications:} Dynamic programming: service design; Programming: global optimization.
+\par\vspace{.1in}\textbf{Area of review:} Optimization.
+\par\vspace{.1in}\textbf{Submission category:} Regular manuscript.
+\end{minipage}\vfill September 25, 2026\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r51-selected-book-frontier-20260925/introduction.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/model.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/compression.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/pooling.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/two_sided.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/group_boxes.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/completion.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/robustness.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/study.tex}
+\input{revisions/or-r51-selected-book-frontier-20260925/conclusion.tex}
+\paragraph{Code and data availability.}
+The complete code, synthetic inputs, immutable protocol, all successful and interrupted requests, independent certificate checkers, and reproduction instructions are provided in the accompanying code-and-data package under \path{revisions/or-r51-selected-book-frontier-20260925/}. The root README identifies the current article, companion, and preserved antecedent readers.
+\clearpage\phantomsection\label{refs-start}
+\input{revisions/or-r51-selected-book-frontier-20260925/generated/references.tex}
+\label{refs-end}
+\clearpage
+\input{revisions/or-r51-selected-book-frontier-20260925/generated/main_tables.tex}
+\end{document}

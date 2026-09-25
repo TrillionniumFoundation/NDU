@@ -1,5 +1,9 @@
-# Operations Research R49 submission checks
+# Operations Research R51 submission and audit checklist
 
-The validated article has 39 nonreference pages (42 total), the mathematical companion 39 pages, the response 5 pages, and the reproduction record 28 pages. The abstract has 186 words. Build status: PASS.
+Current category: Regular Manuscript. Current readers: 30 total main pages (29 excluding references), 13 companion pages, 5 response pages; abstract 179 words. Format validated against the official Operations Research submission guidelines on 2026-09-25: 11-point type, 1.5 spacing, one-inch margins, anonymous reader, equation-free introduction, author–year alphabetical references, tables after references and code/data instructions after the final section. The electronic companion is shorter than the article. No unresolved references, citations, duplicated labels, missing characters or overfull boxes are reported.
 
-Anonymous title and PDF metadata; 11-point type; one-and-a-half spacing; one-inch margins; text-only abstract; equation-free introduction; author-year references; tables following references. All four new proofs remain in the article. Historical mathematics is preserved in the article or companion. No calibrated application, universal runtime claim, or unrestricted hardness result is asserted. Exact and numerical evidence are distinguished.
+The exact rational and numerical mixed-integer evidence are explicitly separated. Every frozen request and every nonzero-width interval remains in the raw record. Inherited proofs, readers, source files and failed experiments are preserved. The current response addresses both independent R49 reports and documents the spacing clarification, new prefix bounds, catalog robustness, hard-instance closure, strict-prefix tests, numerical baselines, certificate costs and derived demand model.
+
+Author completion is still required before an external journal submission: authorship and ORCID information; financial and other conflict disclosures; funding and assistance disclosures, including applicable AI-assistance policies; related/overlapping work disclosure; prior journal submission identifiers, if any; copyright/originality and exclusive-submission certifications; editor/reviewer nominations; and approval of the final submission PDF. None of those declarations is invented or submitted on the authors' behalf. This repository push is not a ScholarOne submission.
+
+Official source: https://pubsonline.informs.org/page/opre/submission-guidelines (checked 2026-09-25).
