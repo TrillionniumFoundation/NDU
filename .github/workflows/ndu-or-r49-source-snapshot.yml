@@ -1,0 +1,27 @@
+name: NDU R49 immutable source snapshot
+on:
+  push:
+    branches: [revision/ndu-operations-research-r49-dispersion-certificates-20260925]
+    paths: [.github/workflows/ndu-or-r49-source-snapshot.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          ref: 939cce84881a1d1eabf93aa3a2d3f4f4417ce53f
+      - name: Archive verified scientific parent
+        run: |
+          mkdir -p /tmp/ndu-r49-source
+          git rev-parse HEAD > /tmp/ndu-r49-source/PARENT_COMMIT.txt
+          git ls-tree -r HEAD > /tmp/ndu-r49-source/PARENT_TREE.txt
+          git archive --format=tar HEAD | gzip -n > /tmp/ndu-r49-source/NDU-R48-source.tar.gz
+          sha256sum /tmp/ndu-r49-source/NDU-R48-source.tar.gz > /tmp/ndu-r49-source/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r49-immutable-parent-source
+          path: /tmp/ndu-r49-source/
+          retention-days: 14
