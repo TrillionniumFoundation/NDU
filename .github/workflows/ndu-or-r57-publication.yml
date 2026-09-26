@@ -1,0 +1,124 @@
+name: NDU R57 substantive OR revision and complete publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r57-deficit-publication-20260926]
+    paths:
+      - .github/workflows/ndu-or-r57-publication.yml
+      - revisions/or-r57-deficit-publication-20260926/**
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r57-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r57-deficit-publication-20260926'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      R: revisions/or-r57-deficit-publication-20260926
+      BRANCH: revision/ndu-operations-research-r57-deficit-publication-20260926
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Verify source transport and exact scientific predecessors
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/bootstrap57.py"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r57): publish readable joint-type, deficit and lattice proofs with frozen protocol [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned scientific dependencies
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7 matplotlib==3.10.8
+          mkdir -p "$R/results"
+          python -m pip freeze > "$R/results/ci_environment.txt"
+          python - <<'PY'
+          import datetime,json,os,subprocess
+          from pathlib import Path
+          r=Path(os.environ['R'])
+          (r/'SOURCE_FREEZE.json').write_text(json.dumps(dict(source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),scientific_parent='eee0d39e08eaedc3a26cad792b71c9c5b5a8abd9',run_id=os.environ['GITHUB_RUN_ID'],created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),timed_execution_started=False,note='Committed before any R57 timed experiment. The inherited design has been inspected; this is a fresh execution, not a held-out study.'),indent=2)+'\n')
+          PY
+      - name: Run exact regression and independent-checker isolation tests
+        run: |
+          python "$R/code/tests56.py"
+          python "$R/code/revision57.py" joint_type_tests checker_import_test
+      - name: Execute all 186 primary and 39 disclosed extension runs
+        run: |
+          python "$R/code/publication56.py"
+          python "$R/code/extension56.py"
+      - name: Verify unchanged certificates and expose exact search mechanics
+        run: |
+          python "$R/code/verify_replay56.py"
+          python "$R/code/mechanics56.py"
+      - name: Generate evidence-bound tables, plots and actual outcome text
+        run: |
+          python "$R/code/tables56.py"
+          python "$R/code/plot56.py"
+          python "$R/code/finalize_generated56.py"
+          python "$R/code/revision57.py" outcomes
+      - name: Install Operations Research typesetting dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Build full readers and verify nondeletion and journal format
+        run: |
+          python "$R/code/build56.py"
+          cp "$R/ROOT_README.md" README.md
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          r=Path(os.environ['R']);b=json.loads((r/'BUILD_VALIDATION.json').read_text())
+          Path('NDU_OR_submission_checklist.md').write_text('# Operations Research R57 submission checklist\n\nScientific parent: `eee0d39e08eaedc3a26cad792b71c9c5b5a8abd9`.\n\n- Anonymous complete manuscript, electronic companion, and response.\n- 11-point type, 1.5 line spacing, one-inch margins.\n- Category: '+b['submission_category']+'.\n- Main nonreference pages: '+str(b['main_nonreference_pages'])+'.\n- Abstract words: '+str(b['abstract_words'])+'.\n- Text-only abstract and equation-free introduction checked.\n- Full proofs, original feasibility, historical content and unfavorable outcomes retained.\n- Complete 225-run execution, independent checks, code/data and preservation manifests supplied.\n\nThe build record checks presentation and artifact integrity, not editorial acceptance. See `'+str(r)+'/BUILD_VALIDATION.json`.\n')
+          PY
+          python "$R/code/revision57.py" preservation package
+          python - <<'PY'
+          import datetime,hashlib,json,os
+          from pathlib import Path
+          r=Path(os.environ['R'])
+          checks=['BUILD_VALIDATION.json','PRESERVATION_MANIFEST.json','results/PUBLICATION_AUDIT.json','results/REGRESSION.json','results/JOINT_TYPE_REGRESSION.json','results/CHECKER_DEPENDENCIES.json']
+          for name in checks:
+              assert json.loads((r/name).read_text())['status']=='PASS',name
+          readers=['main.pdf','electronic_companion.pdf','RESPONSE_TO_REFEREES.pdf','CODE_AND_DATA.zip']
+          (r/'PUBLICATION_STATUS.json').write_text(json.dumps(dict(stage='COMPLETE',complete=True,created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),checks=checks,reader_sha256={name:hashlib.sha256((r/name).read_bytes()).hexdigest() for name in readers},note='All scientific, integrity and reader checks passed. This is not an editorial acceptance decision.'),indent=2)+'\n')
+          PY
+      - name: Push the actual revised manuscripts and complete evidence
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add "$R" README.md main.tex electronic_companion.tex NDU_OR_submission_checklist.md
+          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip" "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git add -f "$R/generated/"*.pdf "$R/generated/"*.png 2>/dev/null || true
+          git diff --cached --quiet || git commit -m 'revision(or-r57): publish validated OR readers, all declared results and independent certificates [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$RUNNER_TEMP/R57_PUBLISHED_COMMIT.txt"
+      - name: Preserve publication diagnostics even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r57-referee-package
+          retention-days: 30
+          include-hidden-files: true
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r57-deficit-publication-20260926/
+            .build/r57/*.log
+            ${{ runner.temp }}/R57_PUBLISHED_COMMIT.txt
