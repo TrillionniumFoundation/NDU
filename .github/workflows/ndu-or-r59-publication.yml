@@ -104,7 +104,6 @@ jobs:
       statuses: write
     env:
       FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
-      R59_VERIFY_OUTPUT: ${{ runner.temp }}/EXACT_HEAD_VERIFICATION.json
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -120,6 +119,7 @@ jobs:
         id: check
         run: |
           test "$(git rev-parse HEAD)" = "$FINAL_SHA"
+          export R59_VERIFY_OUTPUT="$RUNNER_TEMP/EXACT_HEAD_VERIFICATION.json"
           python "$R/code/release59.py" verify
           test -z "$(git status --porcelain --untracked-files=no)"
       - name: Bind verification status to final paper commit
