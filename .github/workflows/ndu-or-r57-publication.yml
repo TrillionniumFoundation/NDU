@@ -10,7 +10,7 @@ permissions:
   contents: write
 concurrency:
   group: ndu-or-r57-publication
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   publish:
     if: github.ref == 'refs/heads/revision/ndu-operations-research-r57-deficit-publication-20260926'
