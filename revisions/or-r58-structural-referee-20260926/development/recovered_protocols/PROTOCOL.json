@@ -1,0 +1,154 @@
+{
+  "revision": "R56",
+  "created_utc": "2026-09-26T12:20:17.320564+00:00",
+  "status": "local prospective execution plan, frozen before R56 tests; not remotely preregistered",
+  "review_parent": "b5235c54d2a466227b6546d7eff2f307a6c46c79",
+  "scientific_parent": "eee0d39e08eaedc3a26cad792b71c9c5b5a8abd9",
+  "relation_to_R55": "A new independent implementation and study. The absent 269-run R55 development archive is not reproduced, relabeled, or claimed as recovered. R55 protocols remain historical development records.",
+  "seeds": [
+    5601,
+    5602,
+    5603
+  ],
+  "regression": {
+    "small_random_models": 36,
+    "lattice_random_models": 36,
+    "cap_compression_models": 36,
+    "tight_cap_counts": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "convolution_hole_tests": 200,
+    "hex_stress_bits": 20000
+  },
+  "comparison": {
+    "families": [
+      "common-small",
+      "heterogeneous-small",
+      "heterogeneous-medium",
+      "heterogeneous-large"
+    ],
+    "dimensions": [
+      [
+        6,
+        7,
+        3
+      ],
+      [
+        8,
+        9,
+        3
+      ],
+      [
+        24,
+        17,
+        4
+      ],
+      [
+        96,
+        25,
+        4
+      ]
+    ],
+    "seeds": [
+      5601,
+      5602,
+      5603
+    ],
+    "algorithm_seconds": [
+      0.5,
+      2.0
+    ],
+    "epsilon": "1/20",
+    "methods": [
+      "price",
+      "deficit",
+      "enumeration",
+      "direct-mip"
+    ]
+  },
+  "additional_accuracy": {
+    "seeds": [
+      5601,
+      5602,
+      5603
+    ],
+    "dimension": [
+      8,
+      9,
+      3
+    ],
+    "epsilon": [
+      "1/50",
+      "1/100"
+    ],
+    "methods": [
+      "price",
+      "deficit",
+      "enumeration"
+    ],
+    "seconds": 2.0
+  },
+  "lattice": {
+    "denominator_grids": [
+      8,
+      16,
+      32
+    ],
+    "histories": 6,
+    "catalog_size": 7,
+    "budgets": [
+      2,
+      4
+    ],
+    "seeds": [
+      5601,
+      5602,
+      5603
+    ]
+  },
+  "screening": {
+    "seeds": [
+      5601,
+      5602,
+      5603
+    ],
+    "dimensions": [
+      [
+        8,
+        9,
+        3
+      ],
+      [
+        24,
+        17,
+        4
+      ]
+    ],
+    "charges": [
+      "0",
+      "1/100",
+      "1/10"
+    ],
+    "algorithm_total_seconds": 2.0,
+    "epsilon": "1/100",
+    "price_candidates": [
+      "incumbent support price",
+      "zero"
+    ],
+    "same_total_budget": true
+  },
+  "evidence_rules": {
+    "retain_every_failure": true,
+    "exact_means_zero_rational_width": true,
+    "checker_time_separate": true,
+    "grid_max_states": 600000,
+    "proof_encoding": "hexadecimal rationals without changing Python integer-string limits",
+    "numerical_mip": "separate floating-point evidence; do not identify with rational certificate",
+    "algorithm_limits": "POSIX real-time alarms; record actual wall time and any native routine overrun",
+    "state_limit": "explicit result, never presented as a completed DP",
+    "raw_protocol_scope": "new R56 computations only; R54 records remain unchanged"
+  }
+}

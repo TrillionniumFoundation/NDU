@@ -1,0 +1,112 @@
+\section{Merged-Origin Resource-Deficit Paths}\label{sec:deficit56}
+The capacity potential does more than guarantee repair after rounding. It identifies a resource coordinate in which every feasible anchor has the same initial state and every feasible book has the same terminal state. This removes the extra anchor loop in the resource algorithm. The construction applies to the heterogeneous kernels of Theorem~\ref{thm:packing54}.
+
+\subsection{An exact source-independent coordinate}
+Write
+\[
+ p(u)=\sum_j\pi_j\min\{b_j,u\},\qquad p(\dagger)=\bar b,
+ \qquad C_{uv}=T_{uv}+Q_{uv}=p(v)-p(u).
+\]
+For the terminal edge, $C_{u\dagger}=\bar b-p(u)$. Every feasible anchor $a\leq\min\{B,\min_jb_j\}$ satisfies $p(a)=a$. If edge $e$ is assigned resource $x_e$, define its unused capacity $w_e=C_e-x_e$ and its deficit payoff $\Psi_e(w)=\Phi_e(C_e-w)$. Opening charges are kept separate from $\Phi_e$ throughout. Let $R=\bar b-B$.
+
+\begin{theorem}[Merged-origin identity]\label{thm:deficit56}
+Under the common ordered catalog, prefix eligibility, and increasing concave history-specific rewards of Theorem~\ref{thm:packing54}, the original value equals
+\begin{equation}\label{eq:deficit56}
+ \max_{\substack{c:\,1\leq |c|\leq m\\a=\min c\leq\min(B,\min_j b_j)}}
+ \left\{\sum_j\pi_j f_j(a)-\sum_{z\in c}\rho(z)
+ +\max_{\substack{0\leq w_e\leq C_e\\\sum_{e\in P(c)}w_e=R}}
+           \sum_{e\in P(c)}\Psi_e(w_e)\right\}.
+\end{equation}
+All anchors start at cumulative deficit zero and end at cumulative deficit $R$. Every feasible deficit vector on a chosen book yields a policy at the original promise, within the original command budget, with at least its displayed value. No anchor identifier is needed in a Bellman state once the current command and number of selected commands are known.
+\end{theorem}
+\begin{proof}
+For a fixed book with anchor $a$, capacity conservation gives $\sum_e C_e=\bar b-a$. Hence
+\[
+ \sum_e x_e=B-a\quad\Longleftrightarrow\quad
+ \sum_e(C_e-x_e)=\bar b-B=R.
+\]
+The transformation is a bijection between the two resource boxes intersected with their equalities. Apply the exact component-packing identity to obtain \eqref{eq:deficit56} and its recovery claim. Along a prefix ending at $u$, the cumulative deficit is
+\[
+ d=p(u)-a-\sum_{e\text{ in the prefix}}x_e.
+\]
+At the anchor it is zero; traversing $u\to v$ adds $C_{uv}-x_{uv}$. Continuation payoffs and transitions depend only on $u$, the remaining command allowance, and $d$, not on the earlier anchor. A Bellman merge retains the best accumulated value among such prefixes. The recovered full path retains its own anchor through predecessor pointers. Partial paths need not themselves encode a canonical history policy: the full-path packing theorem supplies implementation after the equality is restored.
+\end{proof}
+
+The same argument gives an abstract reuse principle. On an acyclic graph, suppose every resource capacity has the form $C_{uv}=p(v)-p(u)\geq0$, all paths share a sink, and a source $a$ requires resource $B-p(a)$ with $p(a)\leq B$. Complementing edge resources makes the total unused capacity $p(\dagger)-B$ independent of the source. Any additive path objective and edge-count bound then admit the same source merge. Concavity is needed for the approximation and fast convolution below, not for this algebraic identity. The renewal-specific content is the exact derivation of those capacities and payoffs from individual expected and realized constraints; an arbitrary constrained path need not have this potential structure.
+
+\subsection{Centered approximation and exact repair}
+For rational quadratic primitives put
+\[
+ r_{\max}=\max_jr_j,\qquad G=\max_j\gamma_j,
+ \qquad \lambda_0=(r_{\max}-G)/2,\qquad K=(r_{\max}+G)/2>0.
+\]
+Every supergradient of $\Phi_e$ lies between $-G$ and $r_{\max}$ on its interval. Consequently
+$g_e(w)=\Psi_e(w)+\lambda_0w$ is concave and $K$-Lipschitz. Adding this common linear term changes every exactly feasible path value by the same constant $\lambda_0R$; it does not change the optimizer.
+
+For $\varepsilon>0$ and $R>0$, set
+\begin{equation}\label{eq:mesh56}
+ \eta=\frac{\varepsilon}{2Km},\qquad
+ Q=\left\lfloor\frac{R}{\eta}\right\rfloor+1,\qquad
+ \mathcal I=\{s\in\{0,\ldots,Q-1\}:R-m\eta\leq s\eta\leq R\}.
+\end{equation}
+Let $D_{\ell,v}(s)$ denote the best accumulated centered value at command $a_v$, with exactly $\ell$ selected commands and cumulative deficit $s\eta$. Unreachable entries are $-\infty$. All feasible anchors are initialized simultaneously:
+\begin{align}
+ D_{1,i}(0)&=\sum_j\pi_jf_j(a_i)-\rho_i,
+       &&a_i\leq\min\{B,\min_jb_j\},\label{eq:init56}\\
+ D_{\ell,v}(s)&=\max_{\substack{u<v,\ 0\leq t\leq s\\t\eta\leq C_{uv}}}
+ \{D_{\ell-1,u}(s-t)+g_{uv}(t\eta)-\rho_v\},\label{eq:DP56}\\
+ S_\eta&=\max_{\substack{1\leq\ell\leq m,\ u,\ s\in\mathcal I\\0\leq t\leq s,\ t\eta\leq C_{u\dagger}}}
+ \{D_{\ell,u}(s-t)+g_{u\dagger}(t\eta)\}.\label{eq:terminal56}
+\end{align}
+The tail does not install a new command. A book with $s$ selected commands has $s$ resource edges including that tail.
+
+\begin{theorem}[Centered deficit approximation]\label{thm:approx56}
+Equations~\eqref{eq:init56}--\eqref{eq:terminal56} and exact fixed-book recovery produce an original-instance interval
+\begin{equation}\label{eq:interval56}
+ \underline V\leq V^*(B)\leq S_\eta-\lambda_0R+Km\eta,
+ \qquad S_\eta-\lambda_0R+Km\eta-\underline V\leq\varepsilon.
+\end{equation}
+The guarantee allows heterogeneous rewards, arbitrary full-catalog eligibility classes, arbitrary nonnegative charges, and the original budget. For $R=0$ the same recurrence uses only deficit zero and is exact, including with nonzero service costs.
+\end{theorem}
+\begin{proof}
+Round each deficit on an optimal continuous path down to a multiple of $\eta$. Its cumulative rounded deficit is no greater than $R$ and differs from $R$ by less than $m\eta$. Every prefix stays in the grid. Lipschitz continuity loses at most $Km\eta$ from the centered optimal value $V^*(B)+\lambda_0R$. Thus $S_\eta\geq V^*(B)+\lambda_0R-Km\eta$, proving the upper bound.
+
+Conversely, recover a maximizing grid path. Increase its deficits, without exceeding their individual capacities, until their sum is $R$. This is always possible because the path's total capacity is $\bar b-a\geq\bar b-B=R$. The total increase is at most $m\eta$. The centered payoff decreases by at most $Km\eta$; after subtracting $\lambda_0R$, the uncentered path is worth at least $S_\eta-\lambda_0R-Km\eta$. Component packing gives an original feasible policy with no smaller value. Exact fixed-book allocation may improve it further, so the resulting feasible lower value satisfies the same bound. This proves \eqref{eq:interval56}. When $R=0$, nonnegative deficits must all be zero, so there is no rounding, repair, or approximation error.
+\end{proof}
+
+\subsection{Convolution with holes and bit complexity}
+The merge can create unreachable gaps in a Bellman row. Concavity of the row itself is neither assumed nor generally true.
+
+\begin{lemma}[Concave convolution with arbitrary finite support]\label{lem:holes56}
+Let $A(z)\in\mathbb R\cup\{-\infty\}$ be arbitrary on $0,\ldots,Q-1$, and let $g(t)$ be a finite concave sequence on $0,\ldots,L$. The smallest maximizing input index in
+\[
+ M(s)=\max_{\max(0,s-L)\leq z\leq s}\{A(z)+g(s-z)\}
+\]
+is nondecreasing across rows having at least one finite feasible column. All values and predecessors can be computed in $O(Q\log(Q+1))$ comparisons and additions, including arbitrary holes in the support of $A$.
+\end{lemma}
+\begin{proof}
+Delete columns with $A(z)=-\infty$ and rows whose feasible interval contains no remaining column. Concavity gives the anti-Monge inequality
+\[
+ [A(z)+g(s-z)]+[A(z')+g(s'-z')]
+ \geq[A(z')+g(s-z')]+[A(z)+g(s'-z)]
+\]
+whenever $s<s'$, $z<z'$, and the four entries are feasible. If two maximizing indices crossed in the wrong order, their crossed rectangle would be feasible because $0\leq s-z\leq L$ is a staircase band. The inequality and the smallest-index tie rule would contradict that crossing. The maximizing indices are therefore monotone. Sorted finite columns permit feasible-row detection by interval searches. Divide-and-conquer row maximization scans a total $O(Q)$ candidate positions at each of $O(\log(Q+1))$ levels, with shared endpoint candidates included. Empty rows are discarded before recursion; they are not allowed to impose an artificial predecessor bound on another row.
+\end{proof}
+
+\begin{proposition}[Arithmetic, storage, and verification]\label{prop:cost56}
+For rational quadratic inputs the centered deficit algorithm has arithmetic bound
+\begin{equation}\label{eq:cost56}
+ O\bigl(kN^2Q\log(k+1)+mN^2Q\log(Q+1)\bigr).
+\end{equation}
+Its cached implementation stores $O((N^2+mN)Q+kN^2)$ rational entries and has bit complexity polynomial in binary input length and numerical $Q$. The extra factor $N$ for separately enumerated anchors in \eqref{eq:fallback54} is absent. An independent checker can reconstruct all kernels and verify Bellman upper-potential inequalities in
+$O(k^2N^2Q+mN^2Q^2)$ rational operations, without using the optimizer's monotone search.
+\end{proposition}
+\begin{proof}
+There are $O(N^2)$ ordinary and terminal edges. Sorted weighted terminal segments and sorted service saturation thresholds give piecewise-linear terminal profiles and piecewise-quadratic service profiles. Their endpoints and cumulative values are rational. Direct evaluation by capped allocation already gives the first term in \eqref{eq:cost56}; caching endpoints and binary searching them can reduce its constant and history dependence. For each selected count and edge, Lemma~\ref{lem:holes56} gives the second term. The predecessor table has $mNQ$ entries. Caching every edge grid adds $N^2Q$ entries; retaining all component descriptions adds at most $kN^2$. Thus the storage claim includes the edge cache rather than counting Bellman states alone.
+
+A kernel value involves finite sums and products of input rationals, a grid rational, and at most one capped-service water-level division. Sums of at most $k$ rational reciprocals have encoding length polynomial in the total input encoding. A path combines at most $m$ such values. Therefore all represented integers have bit length polynomial in the input length and $\log(Q+1)$; multiplying arithmetic counts by polynomial integer-arithmetic costs gives the stated bit bound. A common denominator may have exponentially large numerical value, which is not a polynomial-time claim in its binary encoding.
+
+For independent verification, supplied Bellman values must dominate every feasible anchor and every predecessor-plus-edge transition. No transition into a claimed unreachable entry may be omitted. Every accepted terminal combination must be covered by the reported terminal bound. These inequalities inductively bound every grid path; an attaining path certifies the grid optimum used in the repair calculation. A separately checked original lottery supplies the lower value. Direct service-threshold testing costs at most quadratic time in histories per kernel value; explicitly examining every predecessor deficit gives the stated conservative checker bound. The checker uses neither the forward optimizer nor its divide-and-conquer routine.
+\end{proof}
+
+With $\delta=\varepsilon/K$ and $R\leq1$, substitution gives a budget-quadratic, catalog-quadratic term of order $m^2N^2\delta^{-1}\log(m/\delta+2)$ rather than its catalog-cubic predecessor. The guarantee is additive in signed net value. It is not polynomial in $\log(1/\varepsilon)$, and a successful optimization need not imply a cheap independent verification; both costs are measured separately.

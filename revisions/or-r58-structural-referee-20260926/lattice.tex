@@ -1,0 +1,25 @@
+\subsection{Exact lattice optimization at arbitrary command budgets}\label{sec:lattice56}
+Zero service cost is a substantive subclass of the original model, not a relaxation of its obligation or realization constraints. It includes the weak SUBSET SUM construction. The deficit representation yields an exact pseudo-polynomial algorithm for that subclass even with heterogeneous terminal rewards.
+
+\begin{theorem}[Exact zero-service lattice algorithm]\label{thm:lattice56}
+Suppose $h_j\equiv0$ and the catalog, probabilities, caps, promise, charges, and terminal reward values at catalog commands are rational. Rewards are increasing and concave, with a common catalog and ceiling-induced prefix eligibility. Let $D$ be a positive integer such that
+\begin{equation}\label{eq:latticeassumption56}
+ DB\in\mathbb Z,\qquad D\pi_jb_j\in\mathbb Z,\qquad
+ D\pi_ja_i\in\mathbb Z\quad\text{for every }j,i.
+\end{equation}
+Set $R=\bar b-B$. The merged-origin recurrence with mesh $1/D$, terminal index exactly $DR$, and no approximation allowance solves the original problem exactly for every $1\leq m\leq N$. For rational quadratic rewards its arithmetic bound is \eqref{eq:cost56} with $Q=DR+1$. The algorithm is pseudo-polynomial in numerical $DR$ and polynomial in the other parameters and their encoding lengths. It is not asserted to be FPT in $m$ alone or polynomial in $\log D$.
+\end{theorem}
+\begin{proof}
+Condition~\eqref{eq:latticeassumption56} implies that every weighted terminal component capacity
+$\pi_j[\min(b_j,v)-u]_+$ and every service capacity $\pi_j(b_j-u)_+$ belongs to $D^{-1}\mathbb Z$. It also implies that every arc capacity, every potential, every anchor, and $R$ belong to that lattice. In the zero-cost case each $\Phi_e$ is concave piecewise linear: its marginal segments are the sorted positive terminal chord slopes followed by a zero-slope service segment. Every segment length is a sum of weighted component capacities, hence a lattice multiple. The deficit kernel, obtained by reversing the resource coordinate, has the same breakpoint property. Centering adds a common linear term without changing these breakpoints.
+
+Fix a feasible path. Maximizing its separable concave piecewise-linear deficit payoffs subject to one exact sum can be done by filling marginal segments in decreasing order. Ties may be ordered to respect the segment order within each edge. Every full segment length and the total $R$ are integer multiples of $1/D$. Therefore the possibly partial final segment also receives a lattice amount. Some optimum on that path has every deficit on the common lattice. Maximizing over the finite path set proves that the exact lattice recurrence contains a global optimum. Its selected book is allocated at the original promise by the canonical history-level construction; the resulting lower and upper values are equal as rational numbers.
+
+The arithmetic count follows from Proposition~\ref{prop:cost56}; no independent anchor loop is introduced. A sufficient $D$ is the least common multiple of the denominators in \eqref{eq:latticeassumption56}. Its bit length is at most the sum of those denominator bit lengths, but its numerical value can be exponential in that sum. Hence enumerating $DR+1$ grid positions is pseudo-polynomial, not a binary-input polynomial algorithm. This distinction explains compatibility with the weak hardness result.
+\end{proof}
+
+For equal probabilities $1/k$, commands and caps on a grid of step $1/H$, and a promise on a grid of step $1/(kH)$, one can take $D=kH$. This gives an explicit operationally interpretable scaling parameter: history frequency and commanded-quantity granularity. Arbitrary rational probabilities can instead generate a much larger least common multiple. Nonzero quadratic service costs introduce interior stationary allocations that need not lie on this input lattice, so their exactness is not inferred from Theorem~\ref{thm:lattice56}; the centered additive theorem and exact price search continue to cover them.
+
+Hexadecimal proof serialization changes neither the lattice nor this complexity classification. A fraction with a twenty-thousand-bit denominator still requires those bits to be stored and processed. The implementation records numerator and denominator bit lengths, uncompressed and compressed certificate bytes, and explicit state-limit failures. It does not disable Python's decimal-integer conversion limit, and it does not interpret successful serialization as numerical tractability.
+
+For fully arbitrary rational inputs, ``pseudo-polynomial'' here refers to the scaled integral encoding in \eqref{eq:latticeassumption56}, not to the largest individual denominator before scaling. A least common multiple of many small denominators can itself be large. Under the common-grid normalization just specified, the conventional numerical parameter is $H$ and $D=kH$ suffices. That subclass contains the SUBSET SUM construction and has a genuine pseudo-polynomial algorithm in its explicit granularity. No strong-hardness classification of the unrestricted quadratic-service model is inferred from this result.

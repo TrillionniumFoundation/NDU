@@ -1,0 +1,31 @@
+\section{Operational Architecture and Calibration Interface}\label{sec:operations56}
+\subsection{A service-credit implementation}
+Consider a provider that commits in advance to an aggregate expected amount of service credit over a renewal cohort. After account histories are observed, it allocates a deterministic, pre-draw service component and a terminal promotional command. A centrally approved command catalog limits the distinct terminal credit levels that can be installed. The same approved levels are offered across account classes; account-specific realization ceilings remove an upper suffix of levels. The provider pays a one-time configuration charge for each installed level, rather than a charge for each account receiving it. These are architectural requirements of the model, not claims about an observed commercial deployment.
+
+An account's conditional expected credit cap and its transaction-level hard ceiling are different controls. The former constrains the expected combination of service and terminal credit. The latter constrains every positive-probability realization after the deterministic component has been chosen. The aggregate obligation is an equality, not a discretionary spend ceiling. An adjacent terminal lottery can be implemented by a logged uniform draw after the deterministic component is locked. The application must record both the selected support and the actual draw; replacing pre-draw service by a draw-contingent correction changes the feasible set and falls outside the stated representation.
+
+The empirical interface has identifiable inputs. Cohort frequencies provide history weights; the approved quantity catalog is taken from the operating system; expected caps, hard ceilings, and the accepted total are contractual or policy inputs rather than fitted preference parameters. The response curve for terminal credit is estimated separately within each history class, using outcome differences across experimentally or otherwise credibly identified command levels. Concavity and monotonicity are model restrictions that must be checked, not guaranteed by an unconstrained fit. The deterministic-service cost curve is obtained from incremental fulfillment costs, with a convex nondecreasing fit on its feasible interval. Configuration charges require an accounting audit of which costs are truly additive by installed level. Shared bundle setup costs require a different charge model.
+
+A deployment record should therefore carry units, the effective date and population of each input, its source identifier, the admissible catalog, and uncertainty bounds for fitted payoff values. Histories may be pooled for estimation only when the resulting caps, ceilings, and payoff restrictions remain justified. This architecture gives a concrete route from system data to the optimization model; the experiments in this paper remain synthetic and do not supply those deployment data.
+
+\subsection{What estimated payoffs do and do not certify}
+Let hatted functions and charges denote the optimization input. Suppose the catalog, probabilities, caps, ceilings, promise and command budget are fixed and audited. Assume uniform errors
+\[
+ \max_{z\in\mathcal A}|f_j(z)-\widehat f_j(z)|\leq e_j,
+ \qquad \sup_{0\leq y\leq b_j}|h_j(y)-\widehat h_j(y)|\leq d_j,
+ \qquad |\rho_i-\widehat\rho_i|\leq c_i.
+\]
+Let $c_{(1)}\geq\cdots\geq c_{(N)}$ be the sorted charge-error bounds and define
+\[
+ \Delta=\sum_j\pi_j(e_j+d_j)+\sum_{i=1}^{\min(m,N)}c_{(i)}.
+\]
+\begin{proposition}[Payoff-calibration transfer]\label{prop:calibration56}
+A nominally verified interval $[\widehat L,\widehat U]$ and its feasible incumbent yield the true-value interval
+$[\widehat L-\Delta,\widehat U+\Delta]$.
+The true regret of that incumbent is at most
+$\widehat U-\widehat L+2\Delta$.
+\end{proposition}
+\begin{proof}
+For any feasible policy, averaging its terminal-value errors against lottery probabilities contributes at most $\sum_j\pi_je_j$. The corresponding service and selected-charge errors contribute at most the remaining terms in $\Delta$. Thus the true and nominal values differ by at most $\Delta$, uniformly over the common feasible policy set. Taking suprema bounds the two optima; applying the same inequality to the incumbent gives both conclusions.
+\end{proof}
+This is a deterministic error-transfer statement, not an automatic statistical confidence claim. Statistical coverage for the supplied uniform error bounds must be established by the calibration procedure. Errors in probabilities, caps, ceilings, or the accepted promise change feasibility and are not covered by this payoff-only argument. In particular, a nominal root equality is not automatically valid under reestimated cohort weights. The retained perturbation results and the present transfer statement should not be used to erase that distinction.

@@ -1,0 +1,49 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Exact Renewal Path Representations}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\input{revisions/or-r52-resource-path-20260925/generated/metrics.tex}
+\input{revisions/or-r54-exact-price-path-20260926/generated/metrics.tex}
+\externaldocument{.build/r54/electronic_companion}[electronic_companion.pdf]
+\hypersetup{pdftitle={Exact Path Representations for Finite-Catalog Renewal Design},pdfauthor={Anonymous}}
+\begin{document}\hypersetup{pageanchor=false}
+\begin{titlepage}\centering{\Large\bfseries Exact Path Representations for Finite-Catalog Renewal Design\par}
+\vspace{0.25in}Anonymous manuscript for Operations Research\par\vspace{0.2in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider chooses a paid, limited catalog of terminal commands and allocates an accepted obligation across heterogeneous histories. We derive exact selected-boundary resource and price representations that preserve individual expected caps, realization ceilings, and the original promise. History-level component packing extends the representations to heterogeneous increasing concave terminal rewards. The rational decision problem is NP-complete even with unit linear reward, zero service costs, uniform probabilities, and a nonbinding command budget. In contrast, common expected caps admit an exact two-command reduction under a common reward. For rational quadratic primitives, a price oracle is quadratic in catalog size and linear in history count and command budget. It supports grid-free finite exact branching and independently verified intervals, including interrupted runs. A polynomial additive resource scheme remains available, with cubic catalog and quadratic budget dependence after substituting inverse normalized accuracy. Forced-command price bounds also permit safe exclusion of possible anchors. Matched-limit synthetic experiments vary history count, catalog size, budget, accuracy, and charges; exact reduction challenges expose unsuccessful cases as well as favorable performance. The contribution is the structural reduction, complexity boundary, and original-instance certification, not an empirical claim of universal solver superiority.
+\par\vspace{0.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
+\par\vspace{0.1in}\textbf{Subject classifications:} Dynamic programming: finite command design; Programming: global optimization.
+\par\vspace{0.1in}\textbf{Area of review:} Optimization.\end{minipage}\vfill September 26, 2026\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r54-exact-price-path-20260926/introduction.tex}
+\input{revisions/or-r54-exact-price-path-20260926/model.tex}
+\input{revisions/or-r54-exact-price-path-20260926/constructive.tex}
+\input{revisions/or-r53-catalog-safe-certificates-20260926/capacity_potential.tex}
+\input{revisions/or-r54-exact-price-path-20260926/exact_caps.tex}
+\input{revisions/or-r54-exact-price-path-20260926/hardness.tex}
+\input{revisions/or-r54-exact-price-path-20260926/price_duality.tex}
+\input{revisions/or-r54-exact-price-path-20260926/packing.tex}
+\input{revisions/or-r54-exact-price-path-20260926/branching.tex}
+\input{revisions/or-r54-exact-price-path-20260926/uniform_summary.tex}
+\input{revisions/or-r54-exact-price-path-20260926/study.tex}
+\input{revisions/or-r54-exact-price-path-20260926/conclusion.tex}
+\clearpage\phantomsection\label{refs-start}
+\input{revisions/or-r54-exact-price-path-20260926/references.tex}
+\label{refs-end}\clearpage
+\input{revisions/or-r54-exact-price-path-20260926/generated/main_tables.tex}
+\end{document}

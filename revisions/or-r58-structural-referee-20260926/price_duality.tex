@@ -1,0 +1,72 @@
+\section{Exact Price Paths with Heterogeneous Rewards}\label{sec:price54}
+We now replace the common reward by a strictly increasing concave function $f_j$ for each history. All other constraints and the common ordered catalog are unchanged. Proposition~\ref{prop:canonical52} holds history by history with interpolant $F_{j,c}$ of $f_j$. In particular,
+\[
+ v_{j,c}(t)=F_{j,c}(\min(t,d_j))-h_j((t-d_j)_+)
+\]
+is concave on the feasible target interval. The primal rearrangement in Section~\ref{sec:boundaries52} need not hold across histories with differently ordered rewards. The following priced identity does not use that rearrangement.
+
+For price $\lambda\in\mathbb R$, let
+\begin{align}
+ \sigma^j_{uv}&=\frac{f_j(v)-f_j(u)}{v-u},&
+ K_j(u;\lambda)&=\max_{0\leq y\leq(b_j-u)_+}\{-h_j(y)-\lambda y\},\label{eq:pricedpieces54}\\
+ A_{uv}(\lambda)&=\sum_{j:\tau_j\geq v}\pi_j[\min(b_j,v)-u]_+(\sigma^j_{uv}-\lambda)_+\notag\\
+ &\quad+\sum_{j:u\leq\tau_j<v}\pi_jK_j(u;\lambda),\label{eq:pricedarc54}\\
+ A_{u\dagger}(\lambda)&=\sum_{j:\tau_j\geq u}\pi_jK_j(u;\lambda).\label{eq:pricedtail54}
+\end{align}
+These supports are finite. At a feasible anchor $a$, define
+\[
+ Z_a(\lambda)=\sum_j\pi_jf_j(a)-\lambda a-\rho(a).
+\]
+
+\begin{theorem}[Exact priced selected-boundary identity]\label{thm:price54}
+For every fixed feasible book $c=(a=u_1<\cdots<u_s)$,
+\begin{equation}\label{eq:pricedequality54}
+ \begin{split}
+ &\sum_j\pi_j\max_{a\leq t\leq b_j}\{v_{j,c}(t)-\lambda t\}-\sum_{z\in c}\rho(z)\\
+ &\qquad=Z_a(\lambda)+\sum_{i=1}^{s-1}[A_{u_i u_{i+1}}(\lambda)-\rho(u_{i+1})]+A_{u_s\dagger}(\lambda).
+\end{split}
+\end{equation}
+Consequently, a longest ordered path with at most $m$ selected vertices computes the exact maximum of the left side over all feasible books. Adding $\lambda B$ gives an upper bound on the original joint optimum, including under heterogeneous terminal rewards.
+\end{theorem}
+\begin{proof}
+Fix a history and its eligible selected prefix. Beginning at $a$, its terminal interpolation consists of successive segments of lengths $[\min(b_j,v)-u]_+$, followed, when $b_j>d_j$, by its convex service-cost tail. The terminal chord slopes are positive and nonincreasing \emph{within this history}. Subtracting $\lambda t$ therefore selects exactly all positive marginal terminal segments, with arbitrary selection on zero-slope ties. Their gain is the sum of segment length times $(\sigma^j_{uv}-\lambda)_+$.
+
+For $\lambda\geq0$, $h_j\geq0$ and the feasible choice $y=0$ show explicitly that $K_j(u;\lambda)=0$. For $\lambda<0$, every positive terminal chord exceeds the price and is fully traversed before a service tail is selected. Maximizing the remaining concave tail gives $K_j(d_j;\lambda)$. Thus the complete scalar support is
+\[
+ f_j(a)-\lambda a+
+ \sum_{\substack{(u,v)\text{ selected}\\v\leq\tau_j}}
+ [\min(b_j,v)-u]_+(\sigma^j_{uv}-\lambda)_+ +K_j(d_j;\lambda).
+\]
+The terminal terms are owned by their selected edges, and the last term by the unique exit edge or terminal edge of that history. Weighted summation gives \eqref{eq:pricedequality54}, with each command charge subtracted once. The identity needs no comparison between chord slopes of different histories.
+
+For an original feasible target vector, $\sum_j\pi_jt_j=B$ cancels the subtracted price when $\lambda B$ is added. Taking each scalar maximum and then maximizing the book proves weak duality. Every feasible book has a feasible anchor, so the ordered-path maximization omits none.
+\end{proof}
+
+\subsection{One recurrence for all anchors and restricted books}
+Let $\alpha=\min(B,\min_jb_j)$. At a fixed price, initialize
+\[
+ D_1(v)=Z_{a_v}(\lambda)\quad\text{when }a_v\leq\alpha,
+ \qquad D_1(v)=-\infty\quad\text{otherwise}.
+\]
+For $\ell=2,\ldots,m$,
+\begin{equation}\label{eq:pricedDP54}
+ D_\ell(v)=\max_{u<v}\{D_{\ell-1}(u)+A_{a_u a_v}(\lambda)-\rho_v\},
+ \quad
+ U(\lambda)=\lambda B+\max_{\ell,v}\{D_\ell(v)+A_{a_v\dagger}(\lambda)\}.
+\end{equation}
+This recurrence handles every anchor simultaneously. The separate-origin resource baseline does not, whereas the deficit recurrence in Section~\ref{sec:deficit56} achieves the same source merge in primal coordinates. A predecessor pointer supplies a maximizing book. Its targets are recovered at the original promise by exact fixed-book allocation, not by adopting its generally infeasible priced target mean.
+
+The same oracle permits a mandatory vertex set $M$ and a forbidden set $F$. Remove $F$, disallow starting after the first mandatory vertex, crossing over a mandatory vertex, or terminating before the last mandatory vertex. If $|M|>m$ or $M\cap F\ne\varnothing$, the family is empty. Otherwise the allowed paths are exactly the books that contain $M$ and avoid $F$: each mandatory vertex is either visited or would have to be skipped at the start, at an edge, or at the end. Prefix counts test these conditions in constant time per edge. Denote the resulting upper bound by $U_{M,F}(\lambda)$.
+
+\begin{proposition}[Rational quadratic price oracle]\label{prop:oracle54}
+Suppose $f_j(x)=r_jx-q_jx^2/2$ with rational $r_j\geq q_j\geq0$, $r_j>0$, and $h_j(y)=\gamma_jy^2/2$ with rational $\gamma_j\geq0$. For a rational price, a restricted price path and its upper bound are computed in $O(kN^2+mN^2)$ arithmetic operations after the input is read, with polynomial bit complexity. Exact fixed-book recovery costs $O(ks\log(ks+1)+k\log(k+1))$ operations for $s$ selected commands.
+\end{proposition}
+\begin{proof}
+For $\gamma_j>0$, the maximizing service is $\min\{(b_j-u)_+,\max(0,-\lambda/\gamma_j)\}$. When $\gamma_j=0$, use zero service for nonnegative price and the full cap for negative price. Every support is a rational quadratic evaluation. Computing all edge sums directly costs $O(kN^2)$; the recurrence uses $mN^2$ comparisons and additions. It is unaffected by the number of distinct full-catalog eligibility prefixes.
+
+For recovery, sort the at most $ks$ history-level terminal marginal segments by decreasing slope, preserving each history's internal order on ties. Fill them until the promise is met or all terminal capacity is used. Fill zero-cost service next and then solve the remaining capped quadratic water-level equation. This constructs an original feasible policy. Concavity of the individual responses supplies its supporting price, proving fixed-book optimality. All sorting keys and values are rational combinations of polynomially many input numbers. Exact common-denominator scaling for path comparisons and the resulting sums have polynomial bit lengths. The number of chosen search prices is not part of this single-oracle bound.
+\end{proof}
+
+For a common quadratic reward, event-prefix sums accelerate repeated evaluations: $T_{uv}=p(v)-p(u)-Q_{uv}$ and the terminal term is $T_{uv}(\sigma_{uv}-\lambda)_+$. After sorting exit events for each predecessor, one price sweep accumulates service supports in $O(kN+N^2)$ operations before the $O(mN^2)$ path calculation. The reference implementation uses this optimization, exact integer-scaled comparisons, and a bounded cache of price kernels. Heterogeneous rewards use the direct edge sums. Arithmetic counts, rational bit complexity, and measured interpreter time are distinct quantities.
+
+A small price gap does not imply strong duality over books. For one history, cap and ceiling one, $f(x)=x$, zero service cost, catalog $\{0,1/2\}$, charges $0,1/10$, and budget two, the optimized value is $\max\{0,\min(B,1/2)-1/10\}$. Its slope increases at $B=1/10$. At $B=1/20$ the true optimum is zero but its concave dual majorant is positive. The next section closes such gaps by a complete discrete partition rather than silently treating a single price as a global optimality certificate.
