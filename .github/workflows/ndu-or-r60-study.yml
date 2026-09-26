@@ -1,0 +1,81 @@
+name: NDU Operations Research R60 prospective study
+on:
+  push:
+    branches: [revision/ndu-operations-research-r60-tariff-frontier-20260927]
+    paths: ['.r60-transport/study_source.part*', '.github/workflows/ndu-or-r60-study.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r60-study
+  cancel-in-progress: false
+env:
+  R: revisions/or-r60-tariff-frontier-20260927
+  BRANCH: revision/ndu-operations-research-r60-tariff-frontier-20260927
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUNBUFFERED: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+jobs:
+  study:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Materialize byte-verified ordinary scientific sources
+        run: |
+          python - <<'PY'
+          import base64,hashlib,io,os,zipfile
+          from pathlib import Path
+          parts=sorted(Path('.r60-transport').glob('study_source.part*'))
+          assert len(parts)==5
+          raw=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='3fb9812af99df2f9d9ceede9c7d92a720ed0af51401029c9144563adeca30c45'
+          dest=Path(os.environ['R']);dest.mkdir(parents=True,exist_ok=True)
+          with zipfile.ZipFile(io.BytesIO(raw)) as z:
+              for name in z.namelist():
+                  p=Path(name);assert not p.is_absolute() and '..' not in p.parts
+                  target=dest/p;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(z.read(name))
+          (dest/'generated').mkdir(exist_ok=True);(dest/'results').mkdir(exist_ok=True)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R/code" "$R/requirements.txt"
+          git diff --cached --quiet || git commit -m 'revision(or-r60): publish tariff FPT algorithm, independent checker and bounded-path tests [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned experiment environment
+        run: python -m pip install -r "$R/requirements.txt"
+      - name: Exact regressions and prospective source/input freeze
+        run: |
+          python "$R/code/tests60.py" --output "$R/results/STRUCTURAL60.json"
+          python "$R/code/study60.py" freeze
+          git add "$R/results"
+          git diff --cached --quiet || git commit -m 'evidence(or-r60): freeze 90 distinct specifications and 1260 requests before execution [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          if [ ! -f "$R/results/SOURCE_FREEZE_COMMIT.txt" ]; then git rev-parse HEAD > "$R/results/SOURCE_FREEZE_COMMIT.txt"; fi
+      - name: Execute every declared request without overwriting completed evidence
+        run: python "$R/code/study60.py" run
+      - name: Independently recheck all completed certificates
+        run: python "$R/code/study60.py" verify
+      - name: Publish complete evidence including failed and interrupted requests
+        if: always()
+        run: |
+          git add "$R"
+          git add -f "$R/results" "$R/generated" || true
+          git diff --cached --quiet || git commit -m 'evidence(or-r60): retain prospective multi-budget study, certificates and all failures [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Export current study payload
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r60-study
+          include-hidden-files: true
+          retention-days: 30
+          path: revisions/or-r60-tariff-frontier-20260927/
