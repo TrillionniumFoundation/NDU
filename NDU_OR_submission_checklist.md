@@ -1,5 +1,5 @@
-# Operations Research R59 submission checklist
+# Operations Research R60 checklist
 
-Anonymous article, companion and point-by-point R58 response. 11-point type, 1.5 spacing, one-inch margins. Text-only abstract: 165 words. Main nonreference pages: 22; category: Regular manuscript. Companion pages: 23. All new central proofs retained in the main article. Prior readers and scientific files preserved. Full frozen 288-request record set includes numerical/exact distinctions and failures. No field calibration, editorial acceptance or branch-protection administration is asserted.
+Reader category: Regular manuscript. Main: 28 nonreference pages; companion: 28 pages, no longer than main (30). Abstract: 169 words, text only. Introduction: equation-free. Anonymous 11-point type; 1.5 spacing; one-inch margins; author-year alphabetized references; no footnotes; tables after references.
 
-See `revisions/or-r59-parameterized-deficit-20260927/BUILD_VALIDATION.json`, `CONTENT_MAP.md`, `results/SUMMARY.json` and the exact-head verification artifact.
+All original-model constraints and previous mathematical results preserved. Complete English R59 response provided. Positive tariff theorem, bounded-path extension, price support, exact tests and all 1,260 prospective requests included. Rational and numerical evidence separated. Current flat source/code/data package and independently verified original policies included. Financial-interest, author identity, ORCID and duplicate-submission declarations must be supplied by the authors at submission; no declarations are invented here. No journal submission or acceptance is claimed.
