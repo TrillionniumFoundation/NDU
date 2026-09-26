@@ -25,8 +25,16 @@ for name,rec in records.items():
     assert hashlib.sha256(b).hexdigest()==rec['output_sha256'],'Output mismatch: '+name
     path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b)
     outputs[name]=rec['output_sha256']
+# The finite bit-work claim requires both rewards and service costs to have
+# the stated rational quadratic representation, not an arbitrary cost oracle.
+p=R/'small_menus.tex';text=p.read_text()
+old='For rational quadratic rewards, enumerating books'
+assert text.count(old)==1
+text=text.replace(old,'For rational quadratic primitives, enumerating books')
+p.write_text(text)
+patches={'small_menus.tex':{'reason':'Make the reward-and-cost representation assumption explicit in the joint-type theorem.','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}}
 for name in ['README.md','main.tex','main.pdf','electronic_companion.tex','electronic_companion.pdf','NDU_OR_submission_checklist.md']:
     path=R/'predecessor'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(baseline(name))
-(R/'TRANSPORT_VERIFICATION.json').write_text(json.dumps(dict(status='PASS',scientific_parent=BASE,transport_sha256=EXPECTED,decoded_files=outputs),indent=2)+'\n')
+(R/'TRANSPORT_VERIFICATION.json').write_text(json.dumps(dict(status='PASS',scientific_parent=BASE,transport_sha256=EXPECTED,decoded_files=outputs,pre_freeze_readable_source_clarifications=patches),indent=2)+'\n')
 (R/'PUBLICATION_STATUS.json').write_text(json.dumps(dict(stage='SOURCE_ONLY',complete=False,note='Scientific source is decoded. The actual execution, reader build and remote publication must pass before this becomes a completed revision.'),indent=2)+'\n')
 print('Verified',len(outputs),'R57 scientific source files against the immutable parent.')
