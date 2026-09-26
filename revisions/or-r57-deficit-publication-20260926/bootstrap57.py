@@ -25,14 +25,15 @@ for name,rec in records.items():
     assert hashlib.sha256(b).hexdigest()==rec['output_sha256'],'Output mismatch: '+name
     path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b)
     outputs[name]=rec['output_sha256']
-# The finite bit-work claim requires both rewards and service costs to have
-# the stated rational quadratic representation, not an arbitrary cost oracle.
-p=R/'small_menus.tex';text=p.read_text()
-old='For rational quadratic rewards, enumerating books'
-assert text.count(old)==1
-text=text.replace(old,'For rational quadratic primitives, enumerating books')
-p.write_text(text)
-patches={'small_menus.tex':{'reason':'Make the reward-and-cost representation assumption explicit in the joint-type theorem.','sha256':hashlib.sha256(p.read_bytes()).hexdigest()}}
+patches={}
+def clarify(name,old,new,reason):
+    p=R/name;text=p.read_text();assert text.count(old)==1,(name,old)
+    p.write_text(text.replace(old,new))
+    patches[name]=dict(reason=reason,sha256=hashlib.sha256(p.read_bytes()).hexdigest())
+clarify('small_menus.tex','For rational quadratic rewards, enumerating books','For rational quadratic primitives, enumerating books','The finite bit-work claim requires both rewards and service costs to have the stated rational quadratic representation.')
+clarify('code/revision57.py','if not p.is_file() or p==dest:continue',"if not p.is_file() or p==dest or p in (R/'PUBLICATION_STATUS.json',R/'PACKAGE_MANIFEST.json'):continue",'Exclude external archive-hash and publication-state manifests from the archive to avoid self-reference and a stale SOURCE_ONLY record.')
+p=R/'ROOT_README.md';p.write_text(p.read_text()+'\nThe ZIP deliberately omits its own hash and final publication-state manifests. Those are supplied in the Git tree and bind the completed archive without a circular self-hash. The ZIP retains its source-freeze, execution, build and preservation audits.\n')
+patches['ROOT_README.md']=dict(reason='Document the non-self-referential package manifest boundary.',sha256=hashlib.sha256(p.read_bytes()).hexdigest())
 for name in ['README.md','main.tex','main.pdf','electronic_companion.tex','electronic_companion.pdf','NDU_OR_submission_checklist.md']:
     path=R/'predecessor'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(baseline(name))
 (R/'TRANSPORT_VERIFICATION.json').write_text(json.dumps(dict(status='PASS',scientific_parent=BASE,transport_sha256=EXPECTED,decoded_files=outputs,pre_freeze_readable_source_clarifications=patches),indent=2)+'\n')
