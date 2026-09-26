@@ -35,6 +35,29 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
           python-version: '3.13.5'
+      - name: Recover omitted evidence only from its existing hash-bound archive
+        id: retained
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,os,zipfile
+          root=Path.cwd();r=root/os.environ['R'];reusable=False
+          manifest=r/'RELEASE_MANIFEST.json';archive=r/'CODE_AND_DATA.zip'
+          if manifest.exists() and archive.exists():
+              status=json.loads((r/'PUBLICATION_STATUS.json').read_text())
+              assert hashlib.sha256(archive.read_bytes()).hexdigest()==status['archive_sha256'],'Existing archive digest mismatch'
+              files=json.loads(manifest.read_text())['files'];restored=[]
+              with zipfile.ZipFile(archive) as z:
+                  for rel,h in files.items():
+                      p=Path(rel);assert not p.is_absolute() and '..' not in p.parts
+                      dest=root/p
+                      if not dest.exists():
+                          raw=z.read(rel);assert hashlib.sha256(raw).hexdigest()==h,('Archive evidence mismatch',rel)
+                          dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(raw);restored.append(rel)
+              reusable=all(hashlib.sha256((root/p).read_bytes()).hexdigest()==h for p,h in files.items())
+              print('Restored original recorded bytes:',len(restored),'Unchanged complete reader/evidence payload:',reusable)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('reuse='+str(reusable).lower()+'\n')
+          PY
       - name: Commit ordinary readable sources before any scientific execution
         run: |
           test "$(git branch --show-current)" = "$BRANCH"
@@ -51,28 +74,35 @@ jobs:
         run: |
           python "$R/code/structural59.py"
           python "$R/code/feasibility59.py"
-      - name: Commit frozen execution source and inputs before timing
+      - name: Preserve original execution freeze and commit new inputs only before timing
         run: |
           python "$R/code/study59.py" freeze
           git add "$R/results"
           git diff --cached --quiet || git commit -m 'evidence(or-r59): freeze all 72 inputs and execution hashes before 288 timed requests [skip ci]'
           git push origin "HEAD:refs/heads/$BRANCH"
-          git rev-parse HEAD > "$R/results/SOURCE_FREEZE_COMMIT.txt"
-      - name: Run all frozen requests including failed and limited records
-        run: python "$R/code/study59.py" run
+          if [ ! -f "$R/results/SOURCE_FREEZE_COMMIT.txt" ]; then git rev-parse HEAD > "$R/results/SOURCE_FREEZE_COMMIT.txt"; fi
+      - name: Execute new records or verify completed records without relabeling their environment
+        run: |
+          if [ -f "$R/results/SUMMARY.json" ]; then
+            python "$R/code/study59.py" verify tables
+          else
+            python "$R/code/study59.py" run
+          fi
       - name: Install journal reader build dependencies
+        if: steps.retained.outputs.reuse != 'true'
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
       - name: Compile actual readers and close archive dependencies
+        if: steps.retained.outputs.reuse != 'true'
         run: |
           python "$R/code/build59.py"
           python "$R/code/release59.py" prepare finish
-      - name: Commit and push completed reader and evidence payload
+      - name: Commit and push completed reader and evidence payload including recorded logs
         id: publish
         run: |
           git add README.md main.tex electronic_companion.tex NDU_OR_submission_checklist.md "$R"
-          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip"
+          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip" "$R/results/records"
           git diff --cached --quiet || git commit -m 'revision(or-r59): publish complete current readers, response, 288-request evidence and flat code/data [skip ci]'
           git push origin "HEAD:refs/heads/$BRANCH"
           SHA=$(git rev-parse HEAD)
