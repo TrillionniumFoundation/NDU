@@ -1,0 +1,89 @@
+{
+  "id": "screen-k8-c0-5601",
+  "family": "screening",
+  "method": "price",
+  "instance_sha256": "8d803b84850d2065f715d466a2ac4f794ac594c8d5055355f56c8e29a0d1f0ef",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.0012653459999683037,
+  "status": "TOLERANCE",
+  "lower": "hex:b7f/1000",
+  "upper": "hex:5c287/80000",
+  "gap": "hex:307/80000",
+  "seconds": 0.004849574000047596,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.004416976000015893,
+      "lower": "hex:b7f/1000",
+      "upper": "hex:5c287/80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.004489752000040426,
+      "lower": "hex:b7f/1000",
+      "upper": "hex:5c287/80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1543/34000",
+        "upper": "hex:81/40",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:307/80000"
+  },
+  "algorithm_seconds": 0.004931027999987236,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 19,
+    "denominator_bits": 20,
+    "rational_count": 114
+  },
+  "certificate": "certificates/screen-k8-c0-5601--price.json.gz",
+  "certificate_sha256": "6452aae9c60df3e78d436baa612ab103e236e6d9a8b117c423e6fcf75986c807",
+  "proof_bytes": 1641,
+  "compressed_proof_bytes": 501,
+  "serialization_seconds": 0.00043475199998965763,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 0,
+  "price_bits": {
+    "numerator_bits": 14,
+    "denominator_bits": 13,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:b7f/1000",
+    "upper": "hex:5c287/80000",
+    "gap": "hex:307/80000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.005893745999969724,
+    "instance_sha256": "8d803b84850d2065f715d466a2ac4f794ac594c8d5055355f56c8e29a0d1f0ef"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.010427150999987589,
+  "total_measured_seconds": 0.015792930999964483
+}

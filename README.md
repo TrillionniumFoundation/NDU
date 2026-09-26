@@ -1,73 +1,72 @@
-# NDU — Operations Research R54
+# NDU — Operations Research R58
 
-## Current paper and review target
+## Current scientific review object
 
-**Exact Path Representations for Finite-Catalog Renewal Design**
+**Finite-Catalog Renewal Design: Small Menus and Resource-Deficit Paths**
 
-Revision branch: `revision/ndu-operations-research-r54-exact-price-path-20260926`.
-This revision starts from the latest R53 review, commit `fcd7b7ab1719f00e547cd29e94cbb421fab59b0a`, which reviews scientific R53 commit `2e07a4cfb41d8fbc16cd64c3048877d3c8c2a288`.
+Current branch: `revision/ndu-operations-research-r58-structural-referee-20260926`.
+Source parent: `debd4dfa4053cf5f3d6fcf06633b749ef6144ed6` (R57 readable source).
+Last complete scientific predecessor: `eee0d39e08eaedc3a26cad792b71c9c5b5a8abd9` (R54).
+Governing report: `review/operation-research-r56-independent-harsh-20260926`, commit `1bf0400f3540605d2ac68d2a40e8bcfb377d5446`, file `reviews/operation_research_referee_report_r56_independent_harsh_2026-09-26.md`.
+The intervening R55/R56 branch names did not contain a scientific revision. Their referee reports are not merged into this author-revision delta. Existing branches remain unchanged.
 
-Read `main.pdf`, `electronic_companion.pdf`, and the R54 `RESPONSE_TO_REFEREES.pdf`.
-The current reader sources and duplicate PDFs are also in this revision directory.
-`BUILD_VALIDATION.json` contains the measured page counts, mathematical-label checks, source hashes, and PDF hashes. A successful build is not an editorial acceptance decision.
+Read **`main.pdf`**, **`electronic_companion.pdf`**, and **`revisions/or-r58-structural-referee-20260926/RESPONSE_TO_REFEREES.pdf`**.
+The measured `BUILD_VALIDATION.json`, `PRESERVATION_MANIFEST.json`, `SOURCE_FREEZE.json`, `results/PUBLICATION_AUDIT.json` and `PUBLICATION_STATUS.json` identify what was actually assembled, executed, checked and published. A protocol, transport payload, empty branch, local PDF, or build alone is not a completed scientific revision.
 
 ## Scientific changes
 
-The paper gives a direct SUBSET SUM reduction proving NP-completeness of the rational decision problem even with common unit linear reward, zero service costs, uniform probabilities, realization ceilings equal to caps, and a nonbinding command budget. It does not claim strong NP-hardness or a fixed-budget hardness classification.
+The paper retains the original paid finite catalog, promise equality, expected caps, realization ceilings, pre-draw service, nonnegative opening charges and command budget. The selected-boundary construction, heterogeneous component packing, exact price-path oracle, weak hardness, common-cap tractability, safe screening, robustness and historical evidence are retained.
 
-A separate exact theorem proves that common expected caps admit an optimal singleton or pair under a common reward, even with different full-catalog eligibility prefixes. General heterogeneous caps are not subjected to that restriction.
+The additions are a constructive tight `2q` cap-count bound; a joint cap/reward-type extension allowing heterogeneous rewards; the source-independent resource-deficit representation; a centered heterogeneous additive algorithm with a catalog-quadratic rather than catalog-cubic path term; and an exact zero-service lattice algorithm for arbitrary command budgets. The paper separately states arithmetic, memory, certificate-checking and binary-encoding costs. Exact book enumeration is XP in the stated menu/type parameters. No unproved FPT classification, strong NP-hardness, or universal solver superiority is claimed.
 
-The selected-boundary proof now includes explicit nested-layer reconstruction and a converse implementation lemma. History-level component packing further extends the primal resource identity to heterogeneous increasing concave terminal rewards. Exact priced paths also support heterogeneous rewards and yield a rational original-instance bound in O((k+m)N^2) arithmetic per oracle. Complete discrete branching gives finite exact termination with potentially exponential worst-case size. It retains valid intervals on controlled interruptions. The polynomial additive resource guarantee and exact common-prefix result remain available. The historical uniform implementation is benchmarked only with its original common-reward kernels.
+## Evidence and reproducibility
 
-Forced-command price bounds provide complementary safe fixing for possible anchors. The original non-anchor envelope remains intact and is treated as a sufficient, potentially conservative preprocessing rule, not a general compression guarantee.
+A complete unpublished local R56 package was recovered as development input. Its content hash is in the R58 protocol. It was not in the tree audited by the latest referee. The R58 tables do **not** relabel its old timings: all 186 primary and 39 extension method runs are freshly executed from the current source snapshot. The design was already inspected during development; it is not an unseen confirmatory sample. All limits, failures and original checking statuses are retained. Nine deterministic mechanical replays and extended checks of unchanged certificate bytes are separate records, not replacement benchmark timings.
 
-## Reproduce
-
-The scientific scripts use exact `fractions.Fraction` arithmetic for proofs. Numerical MIP comparisons use SciPy/HiGHS and have a separate evidence status.
+The recovered source corrections retain completed enumeration incumbents under outer interruption and handle very large rational integers without decimal conversion. R58 also places enumeration and screening verification in separate checker modules. The complete checker import graph is tested: no public checker imports an optimizer.
 
 ```bash
-python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7
-R=revisions/or-r54-exact-price-path-20260926
-python "$R/code/publication.py"
-python "$R/code/build.py"
-python "$R/code/preservation.py"  # full Git checkout with the reviewed parent
-python "$R/code/package.py"
+python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7 matplotlib==3.10.8
+R=revisions/or-r58-structural-referee-20260926
+python "$R/code/tests56.py"
+python "$R/code/structural58.py"
+python "$R/code/revision57.py" joint_type_tests checker_import_test
+python "$R/code/publication56.py"
+python "$R/code/extension56.py"
+python "$R/code/verify_replay56.py"
+python "$R/code/mechanics56.py"
+python "$R/code/tables56.py"
+python "$R/code/plot56.py"
+python "$R/code/finalize_generated56.py"
+python "$R/code/revision57.py" outcomes
+python "$R/code/build56.py"
+python "$R/code/release58.py" preservation package extracted_check finalize
 ```
 
-`publication.py` runs every R54 regression, the 142-method comparison, ten anytime runs, 24 screening cases, three sharp screening neighbors, 60 reduction checks, twenty reduction-challenge method runs, and nine production configurations. It generates all journal table values from the actual records. Every method receives the same declared four-second algorithm alarm and 2-GiB process address-space cap. The numerical solver additionally receives two seconds per envelope. Verification has a separate allowance. Actual wall times, native-process overruns, resident memory, and unsuccessful runs are retained. These are controlled synthetic studies, not calibrated operational evidence.
+The `56` suffixes of inherited script filenames document source continuity; their current directory, source hashes, reader graph and R58 protocol determine the revision. Execute the complete timed sequence only in a separate working copy: move its existing `results/` to an explicitly named archive before a fresh rerun, and do not overwrite published evidence in place. Primary execution can resume unchanged inputs only with matching source hashes. Full preservation requires the Git parent; an unpacked source subset is not a substitute for that audit.
 
-The initial protocol was committed at `310f7d42ad45ff529f40c4cd0c3ac1c1b12cfe14`; the separately disclosed reduction/packing addendum was committed at `97f4fd9b356cfbaadddc96a135952d10c9ef6f6b`. The latter followed the initial study but preceded its reduction checks and challenge executions. Development examples are not described as an unseen test set.
-
-Existing complete run records are resumed only for the unchanged instance. For new timings, make a separate working copy and remove its R54 `results/` directory before running `publication.py`; never overwrite the published evidence in place. The run archive is tied to code hashes by `results/SOURCE_MANIFEST.json` and `results/EXECUTION_AUDIT.json`. Table generation and compilation do not invent completion counts. Local execution summaries are retained separately from the publication run.
-
-For a quick mathematical regression without the full timed comparisons:
+Independent single-certificate verification:
 
 ```bash
-python "$R/code/tests.py"
+python "$R/code/check_certificate56.py" path/to/certificate.json.gz --expected-sha256 EXPECTED_ORIGINAL_MODEL_HASH
 ```
 
-To verify one global certificate independently:
+Supply the expected hash from the input record, not from trusting the certificate's own declaration. Price, deficit, enumeration and screening schemas dispatch to independent verification modules. Optimizer regressions use assertions and require ordinary Python without `-O`. Linux signal and address-space limits are part of the timed protocol; other operating systems require a documented adaptation.
 
-```bash
-python "$R/code/check_price.py" path/to/certificate.json.gz --expected-sha256 EXPECTED_MODEL_HASH
-```
+## Preservation and journal-facing package
 
-The expected hash comes from the requested input record, not from trusting the certificate's own declaration. The checker imports neither the new optimizer nor any historical optimizer. It verifies original lotteries and all bounds using a backward at-most-budget recurrence. The optimizer uses a forward exact-count recurrence. The same command dispatches the independently checked singleton/pair certificate format. A valid interval need not meet the requested tolerance; `tolerance_met` states that separately.
+All scientific-parent Git blobs are retained unchanged except the six current root entry points; those six have exact predecessor copies. Earlier complete readers remain in the repository. Complete retained proofs and tables are assembled in the current main/companion or remain in explicitly identified historical sources. `CONTENT_MAP.md` maps the scientific claims, response, implementations and evidence.
 
-Inherited assertion-based checkers require ordinary Python without `-O`. The new checker uses explicit exceptions, but regression assertions are still intended to run enabled. Linux process resource limits are part of the timed protocol; a different operating system requires an explicitly documented protocol adaptation rather than silently omitting the limits.
+`CODE_AND_DATA.zip` contains the self-contained current study, compiled-reader dependencies, and original R52--R54 evidence used in retained tables and the current readers, inputs, certificates and records. The source transfer is only a publication mechanism. The final branch contains ordinary readable scientific files and requires no transport decoding to read the paper.
 
-PDF building needs `pdflatex`, `newtx`, standard mathematical packages, and the retained LaTeX dependencies. `build.py` assembles readers from immutable parent entry points. A source archive without Git already contains the exact predecessor copies and can build directly. The full inherited-file audit requires the Git parent and is not represented as a complete audit of an unpacked subset.
+The journal format uses eleven-point type, one-and-one-half spacing, one-inch margins, an anonymous title page, a text-only abstract of at most 200 words, and an equation-free introduction. The actual nonreference page count selects the regular or lengthy category; it is not guessed. Synthetic data support implementation and method comparisons, not field calibration or journal acceptance.
 
-## What the records establish
+The ZIP deliberately omits its own hash and final publication-state manifests. Those are supplied in the Git tree and bind the completed archive without a circular self-hash. The ZIP retains its source-freeze, execution, build and preservation audits.
 
-`results/EXECUTION_AUDIT.json` reports actual completion and limit counts for all 172 timed method runs: the initial 142, ten separate anytime runs, and twenty structural challenge runs. Exact closure, positive-width rational certification, numerical MIP brackets, and fallback bounds have different meanings. All planned results or explicit failures are retained. The reduction challenge is intentionally difficult and includes cases where the new method also fails to meet exact closure within its allowance.
+## Additional R58 results and exact reproduction
 
-The fixed rational regression verifies 130 models, 2,644 fixed books, 390 restricted price supports, 2,035 nested reconstructions, and 2,644 heterogeneous component packings and optimal-component equalities. Sixty common-cap certificates include forty models with multiple eligibility classes. Thirty models have heterogeneous rewards. The corruption suite includes incomplete binary covers, invalid bounds, wrong instance binding, and invalid original lotteries. The NP reduction is separately checked on sixty integer instances. These finite checks support implementation consistency; the universal statements rely on the manuscript's proofs.
+Approximate reward groups carry an oscillation loss certificate while all feasibility inputs remain fixed. A one-pass saturated-promise algorithm computes the exact frontier at every budget, including positive service costs. `STRUCTURAL_R58.json` contains 24 prototype pairs, 168 independent budget checks and 48 expected rejection tests. These theorem regressions are separate from the 225 timed method runs.
 
-The screening record includes every candidate's charge, envelope slack, exact inclusion/exclusion values, forced-price bound, anchor eligibility, and wholly-ineligible status. Removal rates are reported with quantiles, and the stronger rule's cost includes incumbent search and bound checking. It is not compared to undisclosed internal MIP presolve statistics.
+The preceding R57 Actions run `36248623200` built PDFs but failed in ZIP metadata before pushing the readers. This revision does not reuse its timings. `SOURCE_LINEAGE.json` records that distinction. Older branches and files are preserved. The current ZIP intentionally excludes unrelated earlier benchmark archives; those remain in Git.
 
-## Preservation and code/data package
-
-Every file inherited from the latest review is retained unchanged unless it is one of the six current root reader entry points. Those six have exact predecessor copies. `PRESERVATION_MANIFEST.json` checks every inherited Git blob and both immutable protocol files. Old main, review, and revision branches are not changed. The original R52/R53 results are not overwritten or described as a full historical rerun.
-
-`CODE_AND_DATA.zip` retains the earlier runnable code/data dependencies at their original relative paths, overlays all R54 source, inputs, results, and certificates, and includes the exact current root-reader predecessors. Complete older reader PDFs also remain in the Git repository. The source transport is only a publication mechanism; readable scientific files are committed before the completed artifact is reported. No transport decoding is needed to read or reproduce the final manuscript.
+To validate existing evidence without rerunning benchmarks, use `python "$R/code/release58.py" verify`. To rebuild the readers use `python "$R/code/build56.py"`. Full timing reruns belong in a separate copy with the old `results/` archived first. The additional structural test uses exact arithmetic and can be rerun independently; timings and machine-dependent outcomes must never be relabeled as the committed study.

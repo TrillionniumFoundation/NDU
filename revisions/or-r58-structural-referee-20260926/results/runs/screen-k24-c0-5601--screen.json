@@ -1,0 +1,97 @@
+{
+  "id": "screen-k24-c0-5601",
+  "family": "screening",
+  "method": "screen",
+  "instance_sha256": "5e0c709e56a87a035e3740d2a2c66349bb3cc515e75392b6952a91ef2409667e",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.008332023999969351,
+  "status": "TOLERANCE",
+  "lower": "hex:1720f/18000",
+  "upper": "hex:1721b/18000",
+  "gap": "hex:1/2000",
+  "seconds": 0.11454215099996645,
+  "screen_seconds": 0.10199913600001764,
+  "seed_seconds": 0.0540212459999907,
+  "reduced_seconds": 0.012305470999990575,
+  "commands_removed": 12,
+  "removal_categories": {
+    "1": "possible_anchor",
+    "2": "possible_anchor",
+    "3": "ordinary",
+    "4": "ordinary",
+    "7": "ordinary",
+    "9": "ordinary",
+    "10": "ordinary",
+    "11": "ordinary",
+    "12": "ordinary",
+    "13": "ordinary",
+    "15": "ordinary",
+    "16": "ordinary"
+  },
+  "forced_oracle_calls": 22,
+  "downstream_nodes": 1,
+  "downstream_oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.006693952000034642,
+      "lower": "hex:1720d/18000",
+      "upper": "hex:1772e25/1800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.011473195000007763,
+      "lower": "hex:1720f/18000",
+      "upper": "hex:1721b/18000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.011523930000009841,
+      "lower": "hex:1720f/18000",
+      "upper": "hex:1721b/18000",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "algorithm_seconds": 0.11485447500001555,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-screen-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 17,
+    "denominator_bits": 17,
+    "rational_count": 714
+  },
+  "certificate": "certificates/screen-k24-c0-5601--screen.json.gz",
+  "certificate_sha256": "5475ca04d1d472602d6b27424facd1b13d009ee34eb72154be280b153ac66785",
+  "proof_bytes": 9075,
+  "compressed_proof_bytes": 1039,
+  "serialization_seconds": 0.0010915309999859346,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:1720f/18000",
+    "upper": "hex:1721b/18000",
+    "gap": "hex:1/2000",
+    "seconds": 0.07605921999999055,
+    "fixings_checked": 12,
+    "reduced_check": {
+      "status": "PASS",
+      "lower": "hex:1720f/18000",
+      "upper": "hex:1721b/18000",
+      "gap": "hex:1/2000",
+      "tolerance_met": true,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.008513393000043834,
+      "instance_sha256": "13c902cc5415e54494ecf466f6b8d96ce60bcc3a6ca980970897355d05e17ace"
+    },
+    "instance_sha256": "5e0c709e56a87a035e3740d2a2c66349bb3cc515e75392b6952a91ef2409667e"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.0763629470000069,
+  "total_measured_seconds": 0.1923089530000084
+}

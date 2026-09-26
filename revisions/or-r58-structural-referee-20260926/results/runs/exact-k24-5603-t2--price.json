@@ -1,0 +1,96 @@
+{
+  "id": "exact-k24-5603-t2",
+  "family": "exact_extension",
+  "method": "price",
+  "instance_sha256": "c71fe1e15dcc816bb2e1804d3c35c99998a8bb0ab364bc998295f9af6cf53f46",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.0020090760000357477,
+  "status": "EXACT",
+  "lower": "hex:155771/190000",
+  "upper": "hex:155771/190000",
+  "gap": "hex:0/1",
+  "seconds": 0.05455469800000401,
+  "nodes": 1,
+  "oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.03809861400003456,
+      "lower": "hex:155771/190000",
+      "upper": "hex:aec5e67/c800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.053707513999995626,
+      "lower": "hex:155771/190000",
+      "upper": "hex:155771/190000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.05375986199999261,
+      "lower": "hex:155771/190000",
+      "upper": "hex:155771/190000",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-ff04d/12c0000",
+        "upper": "hex:18d/c0",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:0/1"
+  },
+  "algorithm_seconds": 0.054901746000041385,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25116,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 21,
+    "denominator_bits": 21,
+    "rational_count": 306
+  },
+  "certificate": "certificates/exact-k24-5603-t2--price.json.gz",
+  "certificate_sha256": "620dcacdfcee4039889e709e51fde3a00019d53a29815c00c993b123323c4384",
+  "proof_bytes": 3739,
+  "compressed_proof_bytes": 718,
+  "serialization_seconds": 0.0006572880000135228,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 0,
+  "price_bits": {
+    "numerator_bits": 8,
+    "denominator_bits": 8,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:155771/190000",
+    "upper": "hex:155771/190000",
+    "gap": "hex:0/1",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.053295334000040384,
+    "instance_sha256": "c71fe1e15dcc816bb2e1804d3c35c99998a8bb0ab364bc998295f9af6cf53f46"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.05773540399997046,
+  "total_measured_seconds": 0.11329443800002537
+}

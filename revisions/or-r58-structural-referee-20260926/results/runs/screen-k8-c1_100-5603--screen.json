@@ -1,0 +1,118 @@
+{
+  "id": "screen-k8-c1_100-5603",
+  "family": "screening",
+  "method": "screen",
+  "instance_sha256": "b93d5e24c755afe0075876ed522a4a6e592240c1ebb6020fce4c75118f586895",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.007182295999996313,
+  "status": "TOLERANCE",
+  "lower": "hex:116ef/19000",
+  "upper": "hex:4647a7/640000",
+  "gap": "hex:1bfb/140000",
+  "seconds": 0.03096244400001069,
+  "screen_seconds": 0.02240985800000317,
+  "seed_seconds": 0.016503639000006842,
+  "reduced_seconds": 0.008414668999989772,
+  "commands_removed": 5,
+  "removal_categories": {
+    "1": "possible_anchor",
+    "5": "ordinary",
+    "6": "ordinary",
+    "7": "ordinary",
+    "8": "ordinary"
+  },
+  "forced_oracle_calls": 13,
+  "downstream_nodes": 1,
+  "downstream_oracle_calls": 6,
+  "trace": [
+    {
+      "seconds": 0.0020197559999814985,
+      "lower": "hex:c707b/190000",
+      "upper": "hex:974251d/c800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.0034593569999969986,
+      "lower": "hex:116ef/19000",
+      "upper": "hex:3b895/50000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.004645042999982252,
+      "lower": "hex:116ef/19000",
+      "upper": "hex:11d43/19000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.005726113999969584,
+      "lower": "hex:116ef/19000",
+      "upper": "hex:11d43/19000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.0068923439999935,
+      "lower": "hex:116ef/19000",
+      "upper": "hex:2369c7/320000",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.008044166999980007,
+      "lower": "hex:116ef/19000",
+      "upper": "hex:4647a7/640000",
+      "nodes": 1,
+      "oracle_calls": 6
+    },
+    {
+      "seconds": 0.008091545000013411,
+      "lower": "hex:116ef/19000",
+      "upper": "hex:4647a7/640000",
+      "nodes": 1,
+      "oracle_calls": 6
+    }
+  ],
+  "algorithm_seconds": 0.031061088999990716,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-screen-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 23,
+    "denominator_bits": 23,
+    "rational_count": 258
+  },
+  "certificate": "certificates/screen-k8-c1_100-5603--screen.json.gz",
+  "certificate_sha256": "3cb2a1e728f786f3b089a5068aa4d2c16f7c8c54684a8e60d50cd8ff84d84417",
+  "proof_bytes": 3911,
+  "compressed_proof_bytes": 708,
+  "serialization_seconds": 0.0005978180000170141,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:116ef/19000",
+    "upper": "hex:4647a7/640000",
+    "gap": "hex:1bfb/140000",
+    "seconds": 0.010218409999993128,
+    "fixings_checked": 5,
+    "reduced_check": {
+      "status": "PASS",
+      "lower": "hex:116ef/19000",
+      "upper": "hex:4647a7/640000",
+      "gap": "hex:1bfb/140000",
+      "tolerance_met": true,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.002508648999992147,
+      "instance_sha256": "2e40df2a659fe6ae675f924223b3b4b0c5ad1579a163ff0254d72ce9907cbfbf"
+    },
+    "instance_sha256": "b93d5e24c755afe0075876ed522a4a6e592240c1ebb6020fce4c75118f586895"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.010379451000005702,
+  "total_measured_seconds": 0.04203835800001343
+}

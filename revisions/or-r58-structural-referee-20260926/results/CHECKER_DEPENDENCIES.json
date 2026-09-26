@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "forbidden": [
+    "compression",
+    "deficit",
+    "enumeration",
+    "price_path",
+    "saturation",
+    "screening56"
+  ],
+  "import_graph": {
+    "check_price": [
+      "argparse",
+      "gzip",
+      "hashlib",
+      "itertools",
+      "json",
+      "rational",
+      "sys",
+      "time"
+    ],
+    "check_deficit": [
+      "check_price",
+      "gzip",
+      "json",
+      "pathlib",
+      "rational",
+      "sys",
+      "time"
+    ],
+    "check_enumeration": [
+      "check_price",
+      "itertools",
+      "rational",
+      "time"
+    ],
+    "check_screen": [
+      "check_price",
+      "rational",
+      "time"
+    ],
+    "check_certificate56": [
+      "argparse",
+      "check_deficit",
+      "check_enumeration",
+      "check_price",
+      "check_screen",
+      "gzip",
+      "json",
+      "pathlib"
+    ],
+    "rational": [
+      "fractions",
+      "hashlib",
+      "json"
+    ]
+  }
+}

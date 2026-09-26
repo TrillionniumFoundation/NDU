@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "archive_sha256": "2270054b9e49caaedcb6161bad5ec17bbbefdd7ab024d27312ec0891eded0a95",
+  "all_entry_hashes_match": true,
+  "clean_copy_tests_and_build": true,
+  "runs": [
+    {
+      "command": [
+        "tests56.py"
+      ],
+      "returncode": 0,
+      "output": "{\n  \"convolution_holes\": 200,\n  \"general_models\": 36,\n  \"lattice_models\": 36,\n  \"cap_compression_models\": 36,\n  \"tight_constructions\": 4,\n  \"hex_bits\": {\n    \"numerator_bits\": 20010,\n    \"denominator_bits\": 20010,\n    \"rational_count\": 39\n  },\n  \"oversized_resource_state_bits\": 20000,\n  \"rejected_corruptions\": [\n    \"upper\",\n    \"target\",\n    \"promise\",\n    \"eta\",\n    \"missing_anchor\",\n    \"path\",\n    \"hash\"\n  ]\n}\nseconds 3.980380193999963\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "structural58.py"
+      ],
+      "returncode": 0,
+      "output": "R58 PASS: 24 approximate-type models; 168 exact budget certificates; 48 rejections\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "revision57.py",
+        "joint_type_tests",
+        "checker_import_test"
+      ],
+      "returncode": 0,
+      "output": "Joint type regression PASS: 36\nIndependent checker import graph PASS\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "build56.py"
+      ],
+      "returncode": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"created_utc\": \"2026-09-26T15:38:11.998429+00:00\",\n  \"python\": \"3.13.5 (main, Jun 12 2025, 03:51:15) [GCC 11.4.0]\",\n  \"platform\": \"Linux-6.8.0-1064-azure-x86_64-with-glibc2.35\",\n  \"pages\": {\n    \"main\": 38,\n    \"electronic_companion\": 30,\n    \"RESPONSE_TO_REFEREES\": 6\n  },\n  \"main_nonreference_pages\": 37,\n  \"reference_page_range\": [\n    33,\n    33\n  ],\n  \"abstract_words\": 188,\n  \"text_only_abstract\": true,\n  \"equation_free_introduction\": true,\n  \"submission_category\": \"Lengthy manuscript\",\n  \"missing_required_labels\": [],\n  \"blank_pages\": {\n    \"main\": [],\n    \"electronic_companion\": [],\n    \"RESPONSE_TO_REFEREES\": []\n  },\n  \"undefined_references\": 0,\n  \"undefined_citations\": 0,\n  \"duplicate_labels\": 0,\n  \"overfull_boxes\": 0,\n  \"undefined_control_sequences\": 0\n}\n",
+      "stderr": ""
+    }
+  ],
+  "note": "Timings were not rerun or overwritten. PDF byte identity is not claimed across build timestamps."
+}

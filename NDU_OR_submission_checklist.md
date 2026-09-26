@@ -1,9 +1,13 @@
-# Operations Research R54 submission-format checks
+# Operations Research R58 submission checklist
 
-Guideline verified September 26, 2026: https://pubsonline.informs.org/page/opre/submission-guidelines
+- Anonymous current article, companion and response.
+- 11-point type, 1.5 spacing, one-inch margins.
+- Submission category: Lengthy manuscript.
+- Nonreference pages: 37.
+- Abstract words: 188.
+- Text-only abstract; equation-free introduction; author-year references.
+- All 225 timed records, 24 additional prototype comparisons and 168 independently checked budget certificates.
+- Original feasibility and prior scientific material preserved.
+- No claim of editorial acceptance or empirical field calibration.
 
-Current readers use anonymous author information, 11-point text, one-inch margins and one-and-one-half spacing. The single text-only abstract has 189 words. The introduction contains no mathematical notation. References are alphabetical author–year; numbered tables follow the reference list, and the code/data statement follows the last body section. Full new structural and complexity proofs are in the article; retained additional proofs and diagnostics are in the electronic companion.
-
-`BUILD_VALIDATION.json` records actual page counts, missing-label checks, blank pages, unresolved citations/references and overfull boxes. The build rejects a main manuscript longer than 30 nonreference pages or a companion longer than the article. Format validation is not a journal suitability or acceptance decision.
-
-All operational input data are synthetic. No field calibration, conflicts-of-interest statement on behalf of the authors, publication acceptance, or submission to ScholarOne is implied. The author's eventual cover letter and formal submission declarations remain separate from this repository revision.
+See `revisions/or-r58-structural-referee-20260926/BUILD_VALIDATION.json` and `PUBLICATION_STATUS.json`.

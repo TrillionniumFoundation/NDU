@@ -1,0 +1,106 @@
+{
+  "id": "screen-k24-c1_10-5601",
+  "family": "screening",
+  "method": "screen",
+  "instance_sha256": "eba084bfb20ae9606162d2109753a7239440b3bbce95c2ee11502f675b17cd20",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.008051779999959763,
+  "status": "EXACT",
+  "lower": "hex:190ed/1e000",
+  "upper": "hex:190ed/1e000",
+  "gap": "hex:0/1",
+  "seconds": 0.1588697210000305,
+  "screen_seconds": 0.14560578800001167,
+  "seed_seconds": 0.09898848000000271,
+  "reduced_seconds": 0.013032729999963522,
+  "commands_removed": 14,
+  "removal_categories": {
+    "1": "possible_anchor",
+    "2": "possible_anchor",
+    "4": "ordinary",
+    "5": "ordinary",
+    "6": "ordinary",
+    "7": "ordinary",
+    "8": "ordinary",
+    "9": "ordinary",
+    "11": "ordinary",
+    "12": "ordinary",
+    "13": "ordinary",
+    "14": "ordinary",
+    "15": "ordinary",
+    "16": "ordinary"
+  },
+  "forced_oracle_calls": 20,
+  "downstream_nodes": 1,
+  "downstream_oracle_calls": 3,
+  "trace": [
+    {
+      "seconds": 0.0044164749999708874,
+      "lower": "hex:21a337/4c0000",
+      "upper": "hex:1633775/1800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.008356069000001298,
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:63d11977/70d00000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.012230790999979035,
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:190ed/1e000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.012277970000013738,
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:190ed/1e000",
+      "nodes": 1,
+      "oracle_calls": 3
+    }
+  ],
+  "algorithm_seconds": 0.15916957199999615,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-screen-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 18,
+    "denominator_bits": 18,
+    "rational_count": 713
+  },
+  "certificate": "certificates/screen-k24-c1_10-5601--screen.json.gz",
+  "certificate_sha256": "a347715861e61a585b35e392d4fce0802a294ccc31794975a382004e2b0abebd",
+  "proof_bytes": 9169,
+  "compressed_proof_bytes": 974,
+  "serialization_seconds": 0.0010896969999976136,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:190ed/1e000",
+    "upper": "hex:190ed/1e000",
+    "gap": "hex:0/1",
+    "seconds": 0.0758244219999824,
+    "fixings_checked": 14,
+    "reduced_check": {
+      "status": "PASS",
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:190ed/1e000",
+      "gap": "hex:0/1",
+      "tolerance_met": true,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.005670828999996047,
+      "instance_sha256": "ea6785e7d8ba0aa4b1516b3e446b3de9d35744f1b0570f8f15a38dc6d1e6772e"
+    },
+    "instance_sha256": "eba084bfb20ae9606162d2109753a7239440b3bbce95c2ee11502f675b17cd20"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.07610536700002513,
+  "total_measured_seconds": 0.2363646360000189
+}

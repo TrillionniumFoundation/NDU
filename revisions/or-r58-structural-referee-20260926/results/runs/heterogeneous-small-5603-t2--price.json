@@ -1,0 +1,103 @@
+{
+  "id": "heterogeneous-small-5603-t2",
+  "family": "heterogeneous-small",
+  "method": "price",
+  "instance_sha256": "b93d5e24c755afe0075876ed522a4a6e592240c1ebb6020fce4c75118f586895",
+  "epsilon": "hex:1/14",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.0012902520000039885,
+  "status": "TOLERANCE",
+  "lower": "hex:3563/5000",
+  "upper": "hex:11d43/19000",
+  "gap": "hex:495/6400",
+  "seconds": 0.010059392999991701,
+  "nodes": 1,
+  "oracle_calls": 3,
+  "trace": [
+    {
+      "seconds": 0.004684115999992855,
+      "lower": "hex:c707b/190000",
+      "upper": "hex:974251d/c800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.0074505569999985255,
+      "lower": "hex:3563/5000",
+      "upper": "hex:974251d/c800000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.00965882500000248,
+      "lower": "hex:3563/5000",
+      "upper": "hex:11d43/19000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.009709899999990057,
+      "lower": "hex:3563/5000",
+      "upper": "hex:11d43/19000",
+      "nodes": 1,
+      "oracle_calls": 3
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-2641/60000",
+        "upper": "hex:77/40",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 2,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:495/6400"
+  },
+  "algorithm_seconds": 0.010153880000004278,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25096,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 17,
+    "denominator_bits": 17,
+    "rational_count": 112
+  },
+  "certificate": "certificates/heterogeneous-small-5603-t2--price.json.gz",
+  "certificate_sha256": "5faff58947113128f500ea53a0b79ebf0e20f3a189b53a7464203a2efff90d7a",
+  "proof_bytes": 1626,
+  "compressed_proof_bytes": 517,
+  "serialization_seconds": 0.00043272899999635683,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 0,
+  "price_bits": {
+    "numerator_bits": 4,
+    "denominator_bits": 4,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:3563/5000",
+    "upper": "hex:11d43/19000",
+    "gap": "hex:495/6400",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.005884961000006683,
+    "instance_sha256": "b93d5e24c755afe0075876ed522a4a6e592240c1ebb6020fce4c75118f586895"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.010261601999999925,
+  "total_measured_seconds": 0.02084821100000056
+}

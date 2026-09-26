@@ -1,4 +1,26 @@
 {
-  "stage": "SOURCE_PREPARED",
-  "complete": false
+  "stage": "COMPLETE",
+  "complete": true,
+  "revision": "R58",
+  "created_utc": "2026-09-26T15:38:12.426672+00:00",
+  "source_commit": "ac25ed15515ba4b757539e3321f3a2dfed4f1015",
+  "run_id": "36251828767",
+  "checks": [
+    "BUILD_VALIDATION.json",
+    "PRESERVATION_MANIFEST.json",
+    "results/PUBLICATION_AUDIT.json",
+    "results/REGRESSION.json",
+    "results/JOINT_TYPE_REGRESSION.json",
+    "results/CHECKER_DEPENDENCIES.json",
+    "results/STRUCTURAL_R58.json",
+    "PACKAGE_MANIFEST.json",
+    "EXTRACTED_PACKAGE_VALIDATION.json"
+  ],
+  "reader_sha256": {
+    "main.pdf": "cb87bbcd4b78dfdfe3b8dae13b8f55e3aa4d4055a0edfd64ebafb82bee825caf",
+    "electronic_companion.pdf": "edc9c6ffc7b3f443f8f6a0eb5deb2d158a8d7787c285a542eabd60b230b54149",
+    "RESPONSE_TO_REFEREES.pdf": "144f55acf3f7b2b4f4f4cdb6230a67a19947ee7652d0000b1a51c5bc5a6555a5",
+    "CODE_AND_DATA.zip": "2270054b9e49caaedcb6161bad5ec17bbbefdd7ab024d27312ec0891eded0a95"
+  },
+  "scope": "Completed finite tests, source/result integrity, original-policy certificates, reader builds and repository publication package. Mathematical proofs await referee assessment; no editorial acceptance claim."
 }

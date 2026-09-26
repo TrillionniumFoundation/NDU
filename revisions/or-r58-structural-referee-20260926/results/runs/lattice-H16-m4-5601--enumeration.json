@@ -1,0 +1,42 @@
+{
+  "id": "lattice-H16-m4-5601",
+  "family": "lattice",
+  "method": "enumeration",
+  "instance_sha256": "eefc65dedda514ee26e390b91962238efd1040630454e80b11597db076c86e76",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.006511690999985831,
+  "status": "EXACT",
+  "lower": "hex:10ac9/15180",
+  "upper": "hex:10ac9/15180",
+  "gap": "hex:0/1",
+  "books_evaluated": 68,
+  "seconds": 0.021840551999986246,
+  "algorithm_seconds": 0.02189046499998426,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-enumeration-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 19,
+    "denominator_bits": 19,
+    "rational_count": 222
+  },
+  "certificate": "certificates/lattice-H16-m4-5601--enumeration.json.gz",
+  "certificate_sha256": "4cfe8db9d77ac171e17e84cabccdb00cf9a6606c11d2a49d9a9b47fb05a65f0f",
+  "proof_bytes": 5603,
+  "compressed_proof_bytes": 1010,
+  "serialization_seconds": 0.0008283079999955589,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:10ac9/15180",
+    "upper": "hex:10ac9/15180",
+    "gap": "hex:0/1",
+    "seconds": 0.03048438000001852,
+    "books_checked": 68,
+    "instance_sha256": "eefc65dedda514ee26e390b91962238efd1040630454e80b11597db076c86e76"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.030640039999980218,
+  "total_measured_seconds": 0.05335881299996004
+}

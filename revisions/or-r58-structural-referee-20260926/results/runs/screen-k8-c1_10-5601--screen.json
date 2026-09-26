@@ -1,0 +1,112 @@
+{
+  "id": "screen-k8-c1_10-5601",
+  "family": "screening",
+  "method": "screen",
+  "instance_sha256": "39d91aa8dc92b97372fa49c01f25792c4cee3cb0c2db4fe90563290bec3b35c2",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.007420680999985052,
+  "status": "TOLERANCE",
+  "lower": "hex:c1d1/23000",
+  "upper": "hex:4659/c800",
+  "gap": "hex:fc9/af000",
+  "seconds": 0.026438478000045507,
+  "screen_seconds": 0.020204636000016762,
+  "seed_seconds": 0.014128228000004128,
+  "reduced_seconds": 0.006113678000019718,
+  "commands_removed": 6,
+  "removal_categories": {
+    "0": "possible_anchor",
+    "2": "ordinary",
+    "4": "ordinary",
+    "6": "ordinary",
+    "7": "ordinary",
+    "8": "ordinary"
+  },
+  "forced_oracle_calls": 12,
+  "downstream_nodes": 1,
+  "downstream_oracle_calls": 5,
+  "trace": [
+    {
+      "seconds": 0.0014919479999662144,
+      "lower": "hex:dadf/32000",
+      "upper": "hex:556ed/80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.002651475999982722,
+      "lower": "hex:17d7/5000",
+      "upper": "hex:1240b/32000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.0037204039999778615,
+      "lower": "hex:17d7/5000",
+      "upper": "hex:1240b/32000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.004664789000003111,
+      "lower": "hex:17d7/5000",
+      "upper": "hex:1240b/32000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.005741612000008445,
+      "lower": "hex:c1d1/23000",
+      "upper": "hex:4659/c800",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.005790813999965394,
+      "lower": "hex:c1d1/23000",
+      "upper": "hex:4659/c800",
+      "nodes": 1,
+      "oracle_calls": 5
+    }
+  ],
+  "algorithm_seconds": 0.026537964999988617,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-screen-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 22,
+    "denominator_bits": 24,
+    "rational_count": 270
+  },
+  "certificate": "certificates/screen-k8-c1_10-5601--screen.json.gz",
+  "certificate_sha256": "db06ce28e4ec00fe515621d22ef6ee04fbe7742b23b1220550b3b7b9a607c756",
+  "proof_bytes": 4092,
+  "compressed_proof_bytes": 751,
+  "serialization_seconds": 0.0006499549999716692,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:c1d1/23000",
+    "upper": "hex:4659/c800",
+    "gap": "hex:fc9/af000",
+    "seconds": 0.01015455099997098,
+    "fixings_checked": 6,
+    "reduced_check": {
+      "status": "PASS",
+      "lower": "hex:c1d1/23000",
+      "upper": "hex:4659/c800",
+      "gap": "hex:fc9/af000",
+      "tolerance_met": true,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.0018451689999778864,
+      "instance_sha256": "29ee9abf751f0e2ab92e5f48221a2f7a89bb7c3494d684b7a2d482ad76a26952"
+    },
+    "instance_sha256": "39d91aa8dc92b97372fa49c01f25792c4cee3cb0c2db4fe90563290bec3b35c2"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.010302017000014985,
+  "total_measured_seconds": 0.03748993699997527
+}

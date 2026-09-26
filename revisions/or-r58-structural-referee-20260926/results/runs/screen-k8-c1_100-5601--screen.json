@@ -1,0 +1,92 @@
+{
+  "id": "screen-k8-c1_100-5601",
+  "family": "screening",
+  "method": "screen",
+  "instance_sha256": "d3c4162b4c299497f534a726808dfb74ab12c0440c26c4a9eabc7a247218935c",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.0072684759999788184,
+  "status": "TOLERANCE",
+  "lower": "hex:10733/19000",
+  "upper": "hex:556ed/80000",
+  "gap": "hex:1e3a5/c80000",
+  "seconds": 0.01835418699999991,
+  "screen_seconds": 0.015609987999994246,
+  "seed_seconds": 0.009771053999998003,
+  "reduced_seconds": 0.0026057209999521547,
+  "commands_removed": 7,
+  "removal_categories": {
+    "0": "possible_anchor",
+    "2": "ordinary",
+    "3": "ordinary",
+    "4": "ordinary",
+    "6": "ordinary",
+    "7": "ordinary",
+    "8": "ordinary"
+  },
+  "forced_oracle_calls": 11,
+  "downstream_nodes": 1,
+  "downstream_oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.0012588029999847095,
+      "lower": "hex:dadf/32000",
+      "upper": "hex:556ed/80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.002246668999987378,
+      "lower": "hex:10733/19000",
+      "upper": "hex:556ed/80000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.002294427999970594,
+      "lower": "hex:10733/19000",
+      "upper": "hex:556ed/80000",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "algorithm_seconds": 0.018439708000016708,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-screen-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 19,
+    "denominator_bits": 20,
+    "rational_count": 270
+  },
+  "certificate": "certificates/screen-k8-c1_100-5601--screen.json.gz",
+  "certificate_sha256": "e8b71aa4fffc36a2d01d28dd4f427140a25e37dda143abfda86038cdce2b9ce3",
+  "proof_bytes": 4111,
+  "compressed_proof_bytes": 724,
+  "serialization_seconds": 0.0005859149999878355,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:10733/19000",
+    "upper": "hex:556ed/80000",
+    "gap": "hex:1e3a5/c80000",
+    "seconds": 0.00974649799996996,
+    "fixings_checked": 7,
+    "reduced_check": {
+      "status": "PASS",
+      "lower": "hex:10733/19000",
+      "upper": "hex:556ed/80000",
+      "gap": "hex:1e3a5/c80000",
+      "tolerance_met": true,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.0013996959999644787,
+      "instance_sha256": "68ed18faabca90df58a191c7c31fab58be5144b81b5b8eb6a4a7bb9e5f3d4d18"
+    },
+    "instance_sha256": "d3c4162b4c299497f534a726808dfb74ab12c0440c26c4a9eabc7a247218935c"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.009892781000019113,
+  "total_measured_seconds": 0.028918404000023656
+}

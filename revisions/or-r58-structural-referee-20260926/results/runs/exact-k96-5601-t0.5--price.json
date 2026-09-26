@@ -1,0 +1,96 @@
+{
+  "id": "exact-k96-5601-t0.5",
+  "family": "exact_extension",
+  "method": "price",
+  "instance_sha256": "6ac38311aca2ff92fa2213fdd11badffa35a3e886894513467fb4ae2ba9b7ba1",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 0.5,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.00563303100000212,
+  "status": "TIME_LIMIT",
+  "lower": "hex:13f5167/1518000",
+  "upper": "hex:4fda23/546000",
+  "gap": "hex:4f/48000",
+  "seconds": 0.502807238999992,
+  "nodes": 1,
+  "oracle_calls": 3,
+  "trace": [
+    {
+      "seconds": 0.2985555679999834,
+      "lower": "hex:6a53e3/708000",
+      "upper": "hex:50d492a879/5460000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.41378518599998415,
+      "lower": "hex:13f5167/1518000",
+      "upper": "hex:4fda23/546000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.5001213379999854,
+      "lower": "hex:13f5167/1518000",
+      "upper": "hex:4fda23/546000",
+      "nodes": 1,
+      "oracle_calls": 3
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-2e146f7/25800000",
+        "upper": "hex:229/100",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 2,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null
+  },
+  "algorithm_seconds": 0.5052629310000043,
+  "algorithm_limit_overrun_seconds": 0.005262931000004301,
+  "peak_rss_kib": 25616,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 25,
+    "denominator_bits": 25,
+    "rational_count": 1093
+  },
+  "certificate": "certificates/exact-k96-5601-t0.5--price.json.gz",
+  "certificate_sha256": "a7b83ba8d5926a186a5007c490cb5d5e54f2be32362009a977b7aa9078197afd",
+  "proof_bytes": 12078,
+  "compressed_proof_bytes": 1325,
+  "serialization_seconds": 0.0015426639999986946,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 1,
+  "price_bits": {
+    "numerator_bits": 5,
+    "denominator_bits": 4,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:13f5167/1518000",
+    "upper": "hex:4fda23/546000",
+    "gap": "hex:4f/48000",
+    "tolerance_met": false,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.38587084100004176,
+    "instance_sha256": "6ac38311aca2ff92fa2213fdd11badffa35a3e886894513467fb4ae2ba9b7ba1"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.3905732819999912,
+  "total_measured_seconds": 0.8973788769999942
+}

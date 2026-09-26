@@ -1,0 +1,110 @@
+{
+  "id": "exact-k8-5601-t0.5",
+  "family": "exact_extension",
+  "method": "price",
+  "instance_sha256": "d3c4162b4c299497f534a726808dfb74ab12c0440c26c4a9eabc7a247218935c",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 0.5,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.0012806039999873065,
+  "status": "EXACT",
+  "lower": "hex:10733/19000",
+  "upper": "hex:10733/19000",
+  "gap": "hex:0/1",
+  "seconds": 0.012081382000019403,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.004427546000044913,
+      "lower": "hex:2e3d6f/514000",
+      "upper": "hex:867281/c80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.0070937899999989895,
+      "lower": "hex:10303/19000",
+      "upper": "hex:867281/c80000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.009440947000030064,
+      "lower": "hex:10733/19000",
+      "upper": "hex:1085f/19000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.011673690999998598,
+      "lower": "hex:10733/19000",
+      "upper": "hex:10733/19000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.011724355000012565,
+      "lower": "hex:10733/19000",
+      "upper": "hex:10733/19000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-3b38b/514000",
+        "upper": "hex:81/40",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 3,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:0/1"
+  },
+  "algorithm_seconds": 0.012176721000002999,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25112,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 17,
+    "denominator_bits": 17,
+    "rational_count": 115
+  },
+  "certificate": "certificates/exact-k8-5601-t0.5--price.json.gz",
+  "certificate_sha256": "bdb005f6b8900a57da79fa9856171f2ccfa4d172056f8feb17befe0e7cdc2f36",
+  "proof_bytes": 1662,
+  "compressed_proof_bytes": 512,
+  "serialization_seconds": 0.00039210199997796735,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 0,
+  "price_bits": {
+    "numerator_bits": 5,
+    "denominator_bits": 5,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:10733/19000",
+    "upper": "hex:10733/19000",
+    "gap": "hex:0/1",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.005685196999991149,
+    "instance_sha256": "d3c4162b4c299497f534a726808dfb74ab12c0440c26c4a9eabc7a247218935c"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.009866301999977622,
+  "total_measured_seconds": 0.02243512499995859
+}

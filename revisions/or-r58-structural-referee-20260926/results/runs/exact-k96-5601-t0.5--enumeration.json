@@ -1,0 +1,42 @@
+{
+  "id": "exact-k96-5601-t0.5",
+  "family": "exact_extension",
+  "method": "enumeration",
+  "instance_sha256": "6ac38311aca2ff92fa2213fdd11badffa35a3e886894513467fb4ae2ba9b7ba1",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 0.5,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.011113235999971494,
+  "status": "TIME_LIMIT",
+  "lower": "hex:220c33/258000",
+  "upper": "hex:229/100",
+  "gap": "hex:2ef54d/258000",
+  "books_evaluated": 109,
+  "seconds": 0.4976514820000375,
+  "algorithm_seconds": 0.49775160900003357,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25112,
+  "certificate_schema": "NDU-enumeration-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 36,
+    "denominator_bits": 36,
+    "rational_count": 1288
+  },
+  "certificate": "certificates/exact-k96-5601-t0.5--enumeration.json.gz",
+  "certificate_sha256": "a39b1b4930b26bbeab634a62972e4323f4d584fb278b0ee9d1739f27f2e66aef",
+  "proof_bytes": 19694,
+  "compressed_proof_bytes": 2739,
+  "serialization_seconds": 0.002178602000014962,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:220c33/258000",
+    "upper": "hex:229/100",
+    "gap": "hex:2ef54d/258000",
+    "seconds": 0.007157999999947151,
+    "books_checked": 0,
+    "instance_sha256": "6ac38311aca2ff92fa2213fdd11badffa35a3e886894513467fb4ae2ba9b7ba1"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.007915265000008276,
+  "total_measured_seconds": 0.5078454760000568
+}
