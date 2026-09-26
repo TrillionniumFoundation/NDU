@@ -25,6 +25,9 @@ for name,rec in records.items():
     assert hashlib.sha256(b).hexdigest()==rec['output_sha256'],'Output mismatch: '+name
     path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b)
     outputs[name]=rec['output_sha256']
+# Empty output directories do not survive Git transport.
+(R/'generated').mkdir(exist_ok=True)
+(R/'results').mkdir(exist_ok=True)
 patches={}
 def clarify(name,old,new,reason):
     p=R/name;text=p.read_text();assert text.count(old)==1,(name,old)
