@@ -14,7 +14,7 @@ concurrency:
 jobs:
   publish:
     if: github.ref == 'refs/heads/revision/ndu-operations-research-r57-deficit-publication-20260926'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
     env:
       R: revisions/or-r57-deficit-publication-20260926
