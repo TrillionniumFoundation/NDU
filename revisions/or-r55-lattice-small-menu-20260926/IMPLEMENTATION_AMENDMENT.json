@@ -1,0 +1,10 @@
+{
+  "revision": "R55",
+  "date": "2026-09-26",
+  "development_event": "The initial local 269-run study found one implementation error on budget-c6-t12--merged: arithmetic completed, but Python rejected conversion of the common scaled-integer denominator to a decimal string beyond the default 4300-digit limit.",
+  "change": "Optimization remains exact scaled-integer arithmetic. Certificate schema NDU-merged-grid-v2 stores the common denominator in hexadecimal and each table entry as a reduced hexadecimal numerator/denominator pair. The independent checker reconstructs the exact scaled entries. Legacy v1 decimal certificates remain readable. No global Python integer-conversion security limit is disabled.",
+  "unchanged": ["mathematical assumptions", "recurrence", "proof bounds", "model generator", "random seeds", "time and memory allowances", "command budgets", "requested tolerances", "original protocol", "large-replay addendum"],
+  "verification_before_rerun": "The complete new regression passed after this serialization change: 100 quadratic models, 80 exact lattice models, 60 cap-count models, 2000 arbitrary-support convolution cases, 14 rejected grid corruptions, and 12 rejected transfer-envelope corruptions.",
+  "reporting": "The official publication study reruns every prescribed case under the revised encoding. Initial local status/timing summaries, the failing record and source snapshot are retained separately and are not substituted for publication results.",
+  "local_full_development_archive": {"filename":"NDU_R55_Initial_Decimal_Study.zip","bytes":85292076,"sha256":"f17b8112ec12c83b8b17509d901b76f0b1156abc7ae52f880a54beab5eb0dee5","location":"retained in conversation artifacts; repository includes summaries, failing record and code snapshot"}
+}
