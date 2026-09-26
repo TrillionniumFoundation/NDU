@@ -1,0 +1,33 @@
+\section{A Recognizable Class of Resource Paths}\label{sec:class59}
+The renewal reduction is an instance of a more general allocation problem. Let $G=(V,E)$ be a finite directed acyclic graph with a common sink $t$, a set of possible starting vertices $S$, capacities $C_e\geq0$, continuous edge payoffs $\phi_e$ on $[0,C_e]$, and source payoffs $A_s$. A decision selects a source-to-sink path $P$ of at most $h\geq1$ edges and allocations $0\leq x_e\leq C_e$ satisfying $\sum_{e\in P}x_e=B_s$. Its value is $A_s+\sum_{e\in P}\phi_e(x_e)$, with any fixed edge or vertex charge included once in the corresponding path payoff. Retain only vertices reachable from a source and able to reach the sink. No ordered catalog, history, or eligibility prefix is required for this abstract problem.
+
+\begin{theorem}[Recognition and source-independent deficits]\label{thm:recognition59}
+The following are equivalent on the retained graph: (i) for every source, every source-to-sink path has the same total capacity; (ii) every vertex has a well-defined suffix capacity $H_v$, with $H_t=0$ and $C_{uv}=H_u-H_v$ on every edge. The condition can be recognized in $O(|V|+|E|)$ arithmetic operations. When it fails, two paths from a common source with different total capacities form a directly checkable witness.
+
+Under these equivalent conditions, replacing $x_e$ by $w_e=C_e-x_e$ yields a single terminal resource level independent of source and path if and only if $H_s-B_s=R$ is the same constant for every admissible source. In that case the exact optimum is
+\[
+ \max_{s,P}\left\{A_s+\max_{0\leq w_e\leq C_e,\;\sum_{e\in P}w_e=R}
+                  \sum_{e\in P}\phi_e(C_e-w_e)\right\}.
+\]
+All sources can be initialized at deficit zero. Infeasible sources with $B_s\notin[0,H_s]$, or with no path within the edge limit, are excluded explicitly; if none remain, the problem is infeasible.
+\end{theorem}
+\begin{proof}
+Condition (ii) telescopes, proving (i). Conversely fix a vertex $v$ and a source-to-$v$ prefix. Concatenating that prefix with any two $v$-to-sink suffixes gives valid paths, because the graph is acyclic. Condition (i) makes their suffix capacities equal. Define their common sum as $H_v$. Appending any edge $uv$ to a suffix from $v$ yields $H_u=C_{uv}+H_v$.
+
+In reverse topological order set $H_t=0$. At $u$, compute $C_{uv}+H_v$ for each successor and require all results to agree. This examines each edge once. Store a representative suffix at every vertex by successor pointers. If two values disagree, their edges followed by the stored suffixes have different capacities; prepend any retained source prefix. The resulting witness has two explicit paths, whose capacity sums can be checked independently. Reachability and the minimum number of edges to the sink are also computed by topological passes.
+
+On any path starting at $s$, $\sum C_e=H_s$, so $\sum x_e=B_s$ is equivalent to $\sum w_e=H_s-B_s$. This proves necessity and sufficiency for this particular complement coordinate, and is a bijection between the constrained allocation boxes. Continuations at a vertex depend only on that vertex, elapsed edge count, and accumulated deficit. Keeping the best prefix at each such state therefore loses no feasible complete path or value. The predecessor chain retains the actual source. The statement is not a claim that no other algorithm can merge states when capacity conservation fails.
+\end{proof}
+
+\begin{theorem}[Additive approximation on conservative paths]\label{thm:abstractapprox59}
+Suppose the recognized instance has $R\geq0$, every admissible source has $H_s\geq R$, and the centered deficit payoffs
+$g_e(w)=\phi_e(C_e-w)+\lambda_0w$ are concave and $K$-Lipschitz for one common $K>0$. With $\eta=\varepsilon/(2Kh)$, a layered path dynamic program on deficit multiples of $\eta$, accepting totals in $[R-h\eta,R]$, returns a feasible policy and a value interval of width at most $\varepsilon$. Apart from kernel evaluation, its arithmetic count is
+$O(h|E|Q\log(Q+1)+h|V|Q)$, where $Q=\lfloor R/\eta\rfloor+1$. The result preserves the source, path, edge limit, and the exact original equality. Without concavity, the same guarantee holds for Lipschitz kernels using the direct $O(h|E|Q^2)$ convolution.
+\end{theorem}
+\begin{proof}
+Round the deficits of an optimal path down. At most $h$ coordinates change, their total change is less than $h\eta$, and their centered payoff loss is at most $Kh\eta$. The best accepted grid value $Z_\eta$ consequently gives upper bound $Z_\eta-\lambda_0R+Kh\eta$. For a maximizing grid path, increase deficits to total $R$. Its total available capacity is $H_s\geq R$, so a greedy fill within residual edge capacities always completes this repair. Its total change is at most $h\eta$, giving a feasible lower value at least $Z_\eta-\lambda_0R-Kh\eta$. Source payoffs and path charges do not change. Their difference is at most $2Kh\eta=\varepsilon$.
+
+Initialize every feasible source at layer zero and deficit zero, and process edges between consecutive layers. Arbitrary holes in the finite support of a preceding row are permitted by Lemma~\ref{lem:holes56}, yielding the stated concave convolution count. Direct enumeration of both deficits proves the nonconcave count. At $R=0$ there is one resource state and the method is exact. Numerical grid size, not its logarithm, appears in both bounds; rational bit complexity additionally depends on the encoding and exact evaluation of the supplied kernels.
+\end{proof}
+
+For renewal design, $H_u=\bar b-p(u)$ and $B_u=B-u$ at a feasible anchor, for which $p(u)=u$. The common deficit is therefore $\bar b-B$, and $h=m$ including the terminal edge. Prefix eligibility and concave rewards are needed to derive and implement the renewal arc functions; they are not needed for the recognition identity. A separate class of examples is modular resource allocation along a precedence-compatible configuration path, with $C_{uv}=p(v)-p(u)$ and separable concave returns on installed modules. These examples instantiate the abstract theorem without interpreting vertices as renewal commands. They are structural examples, not field-calibrated applications. Multiple independent resource equalities require a multidimensional state and componentwise repair; the scalar complexity bound must not be carried over unchanged.

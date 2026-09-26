@@ -1,0 +1,32 @@
+\section{Exact Convex Formulation and Experimental Protocol}\label{sec:form59}
+The direct comparator models the original pre-draw semantics, not a relaxation in which service depends on the terminal draw. Let $x_i$ indicate an installed command, $z_{ji}$ indicate that command $i$ may be used after history $j$, and $p_{ji}$ be its probability. Variables with $a_i>\tau_j$ are omitted. With $M_{ji}=\max\{0,b_j+a_i-\tau_j\}$, the formulation is
+\begin{align}
+ \min\quad &\sum_i\rho_i x_i+\sum_j\pi_jH_j-\sum_{ji}\pi_j f_j(a_i)p_{ji},\label{eq:micp59}\\
+ &\sum_i x_i\leq m,\quad x_i,z_{ji}\in\{0,1\},\quad 0\leq p_{ji}\leq z_{ji}\leq x_i,\\
+ &\sum_i p_{ji}=1,\quad 0\leq y_j\leq b_j,\quad H_j\geq\gamma_j y_j^2/2,\\
+ &y_j+M_{ji}z_{ji}\leq\tau_j-a_i+M_{ji},\\
+ &y_j+\sum_i a_i p_{ji}\leq b_j,\qquad
+ \sum_j\pi_j\left(y_j+\sum_i a_i p_{ji}\right)=B.\nonumber
+\end{align}
+All sums over $ji$ use only eligible variables. Because $\pi_j>0$, the cost epigraph is tight at an optimum. These are linear constraints except for convex quadratic epigraphs. The formulation therefore uses no service discretization.
+
+\begin{proposition}[Equivalence to the original model]\label{prop:micp59}
+For rational quadratic primitives, the minimum in \eqref{eq:micp59} is the negative of the original maximum. The claim concerns the mathematical formulation, not a floating-point optimality status.
+\end{proposition}
+\begin{proof}
+An original feasible policy sets $x_i$ on its book, $p_{ji}$ to its lottery probabilities, and $z_{ji}=1$ on every positive probability. When $z_{ji}=1$, the big-$M$ constraint gives $y_j+a_i\leq\tau_j$. When it is zero, $y_j\leq b_j\leq\tau_j-a_i+M_{ji}$ makes the constraint redundant. Set $H_j=\gamma_jy_j^2/2$ to obtain its negative payoff. Conversely, every positive $p_{ji}$ forces $z_{ji}=x_i=1$, so the same inequalities give all original realized ceilings, the expected caps, the accepted promise and the actual command count. The probabilities define a lottery and $y_j$ is common to all its draws. Reducing any slack $H_j$ to the quadratic cost cannot worsen the minimum. Both mappings preserve the objective at optimum.
+\end{proof}
+
+We implement this formulation through PySCIPOpt \citep{Maher2016} with SCIP's mixed-integer nonlinear optimization machinery \citep{Bolusani2024}. The exact versions and executable environment are recorded in the study archive. One solver thread, zero relative-gap target and the requested absolute gap are used. No assertion of numerical exactness follows from a zero requested gap. After optimization, the selected book is evaluated by rational fixed-book allocation and its complete policy is checked without importing the optimizer. The solver's upper value bound, raw gap and nodes are retained separately. An invalid or absent numerical incumbent is replaced only by the explicitly recorded feasible singleton, never by an invented successful solve.
+
+\subsection{Input freezing and accounting}
+The generator, all inherited optimizer and checker sources, 72 complete inputs, method order rule and limits are hashed before timed execution. The frozen design is the development team's deterministic panel, not a blind external validation set. No original timing file is overwritten. A resumed request is accepted only with the same source and input hashes. Each method runs in a fresh child process. The parent enforces the same total allowance, kills an overrun, and records its last durable output and the fact that the request did not finish within budget. Internal timeouts may return a feasible singleton and a universal upper bound; those wide fallback intervals are not relabeled as completed internal search.
+
+Memory is the Linux resident-set high-water mark, with a three-gibibyte address-space cap. The checker runs in the same process and its high-water measure includes retained optimizer allocations. It is an end-to-end upper measure, not an isolated incremental checker footprint. Checker time is reported only when that phase finishes; failures and interrupted checks remain in the denominators of target-completion rates. Serialization time and compressed and uncompressed proof bytes are stored per request. Complete data, including cap counts and denominator sizes, are in the row-level CSV and input records.
+
+\subsection{An exact reference for the grouped challenge family}
+In the construction of Theorem~\ref{thm:wone59}, consider general positive group weights without imposing the clique encoding. A book can remove every optional command except the largest selected option of each group without reducing the last eligible command of any history. For this linear-reward, free-service family, the gross value depends only on those last commands and the zero anchor. Removing positive charges cannot decrease value. Adding all free baselines afterwards uses at most $2g+1$ slots and cannot decrease value. An optimum consequently has this restricted form. Its exact value is
+\[
+ \max_{w_i\in A_i\cup\{0\}}\left\{\zeta-\frac{|\sum_iw_i-W|}{2K}\right\}.
+\]
+For the small challenge panel this product enumeration is an independent exact reference. It is not a polynomial algorithm for binary-encoded grouped sum. It is also not used to initialize or improve any timed competing solver. Unlike equal-book-count lexicographic comparisons, every timed method receives the same total allowance; the reference only identifies true value loss after execution.
