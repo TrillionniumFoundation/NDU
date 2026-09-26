@@ -1,0 +1,17 @@
+\begin{table}[p]\centering\caption{Matched three-second end-to-end panel (72 instances per method)}\label{tab:study59}
+\begin{tabular}{lrrrrr}\toprule
+Method & Checked & Rational target & Numerical target & Time (s) & RSS (MiB)\\\midrule
+Price & 72 & 71 & 0 & 0.339 & 26.7\\
+Deficit & 55 & 5 & 0 & 1.852 & 32.4\\
+Enumeration & 72 & 12 & 0 & 1.827 & 26.7\\
+Scip & 72 & 0 & 72 & 0.527 & 68.6\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\small Checked counts completed independent checks within the total allowance. SCIP checks only its rationally reconstructed feasible policy; its global bound remains numerical. Numerical targets use the same additive target with a stated $10^{-8}$ reporting tolerance, and are not exact proofs. Time includes process startup, construction, optimization, serialization and checking. RSS is a process high-water mark. No unfinished output counts as a certified target.\end{minipage}\end{table}
+\begin{table}[p]\centering\caption{Independent-checking cost and retained resource limits}\label{tab:checking59}
+\begin{tabular}{lrrrrr}\toprule
+Method & Check time (s) & Check RSS (MiB) & Deadline & State limit & Error\\\midrule
+Price & 0.0521 & 26.7 & 0 & 0 & 0\\
+Deficit & 0.0022 & 34.8 & 17 & 0 & 0\\
+Enumeration & 0.0025 & 26.7 & 0 & 0 & 0\\
+Scip & 0.0062 & 68.6 & 0 & 0 & 0\\
+\bottomrule\end{tabular}\par\smallskip\begin{minipage}{\textwidth}\small Checking medians are conditional on a recorded completed checking phase, not on all requests. The checker runs in the same process; its RSS includes inherited optimizer allocations and is a conservative end-to-end memory measure, not incremental checker memory. Deadline includes killed jobs; internal optimization interruption may instead return a checked fallback interval.\end{minipage}\end{table}

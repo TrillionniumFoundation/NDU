@@ -1,13 +1,5 @@
-# Operations Research R58 submission checklist
+# Operations Research R59 submission checklist
 
-- Anonymous current article, companion and response.
-- 11-point type, 1.5 spacing, one-inch margins.
-- Submission category: Lengthy manuscript.
-- Nonreference pages: 37.
-- Abstract words: 188.
-- Text-only abstract; equation-free introduction; author-year references.
-- All 225 timed records, 24 additional prototype comparisons and 168 independently checked budget certificates.
-- Original feasibility and prior scientific material preserved.
-- No claim of editorial acceptance or empirical field calibration.
+Anonymous article, companion and point-by-point R58 response. 11-point type, 1.5 spacing, one-inch margins. Text-only abstract: 165 words. Main nonreference pages: 22; category: Regular manuscript. Companion pages: 23. All new central proofs retained in the main article. Prior readers and scientific files preserved. Full frozen 288-request record set includes numerical/exact distinctions and failures. No field calibration, editorial acceptance or branch-protection administration is asserted.
 
-See `revisions/or-r58-structural-referee-20260926/BUILD_VALIDATION.json` and `PUBLICATION_STATUS.json`.
+See `revisions/or-r59-parameterized-deficit-20260927/BUILD_VALIDATION.json`, `CONTENT_MAP.md`, `results/SUMMARY.json` and the exact-head verification artifact.
