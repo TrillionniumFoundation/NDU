@@ -1,0 +1,140 @@
+name: NDU Operations Research R59 publication and exact-head verification
+on:
+  push:
+    branches: [revision/ndu-operations-research-r59-parameterized-deficit-20260927]
+    paths:
+      - 'revisions/or-r59-parameterized-deficit-20260927/**'
+      - '.github/workflows/ndu-or-r59-publication.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+concurrency:
+  group: ndu-or-r59-publication
+  cancel-in-progress: false
+env:
+  R: revisions/or-r59-parameterized-deficit-20260927
+  BRANCH: revision/ndu-operations-research-r59-parameterized-deficit-20260927
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUNBUFFERED: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r59-parameterized-deficit-20260927'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Commit ordinary readable sources before any scientific execution
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/prepare59.py"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R"
+          git add -f "$R/retained_r58/main.pdf" "$R/retained_r58/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r59): materialize complete manuscript proofs and matched-study source [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned scientific and exact convex comparator dependencies
+        run: python -m pip install -r "$R/requirements.txt"
+      - name: Exact structural and feasibility regressions
+        run: |
+          python "$R/code/structural59.py"
+          python "$R/code/feasibility59.py"
+      - name: Commit frozen execution source and inputs before timing
+        run: |
+          python "$R/code/study59.py" freeze
+          git add "$R/results"
+          git diff --cached --quiet || git commit -m 'evidence(or-r59): freeze all 72 inputs and execution hashes before 288 timed requests [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$R/results/SOURCE_FREEZE_COMMIT.txt"
+      - name: Run all frozen requests including failed and limited records
+        run: python "$R/code/study59.py" run
+      - name: Install journal reader build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile actual readers and close archive dependencies
+        run: |
+          python "$R/code/build59.py"
+          python "$R/code/release59.py" prepare finish
+      - name: Commit and push completed reader and evidence payload
+        id: publish
+        run: |
+          git add README.md main.tex electronic_companion.tex NDU_OR_submission_checklist.md "$R"
+          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip"
+          git diff --cached --quiet || git commit -m 'revision(or-r59): publish complete current readers, response, 288-request evidence and flat code/data [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          SHA=$(git rev-parse HEAD)
+          echo "final_sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "$SHA" > "$RUNNER_TEMP/R59_PUBLISHED_COMMIT.txt"
+      - name: Retain all completed or failed evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r59-referee-package
+          include-hidden-files: true
+          retention-days: 30
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r59-parameterized-deficit-20260927/
+            .build/r59/*.log
+            ${{ runner.temp }}/R59_PUBLISHED_COMMIT.txt
+  exact-head-verification:
+    needs: publish
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      statuses: write
+    env:
+      FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+      R59_VERIFY_OUTPUT: ${{ runner.temp }}/EXACT_HEAD_VERIFICATION.json
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Install read-only verifier dependencies
+        run: python -m pip install -r "$R/requirements.txt"
+      - name: Independently verify exact final checkout and every published proof
+        id: check
+        run: |
+          test "$(git rev-parse HEAD)" = "$FINAL_SHA"
+          python "$R/code/release59.py" verify
+          test -z "$(git status --porcelain --untracked-files=no)"
+      - name: Bind verification status to final paper commit
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECK_OUTCOME: ${{ steps.check.outcome }}
+        run: |
+          STATE=failure
+          if [ "$CHECK_OUTCOME" = success ]; then STATE=success; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state="$STATE" -f context='ndu-r59/exact-head-verification' -f description='Read-only payload, frozen records and independent rational proof verification' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Retain exact-head verification receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r59-exact-head-verification
+          retention-days: 30
+          path: ${{ runner.temp }}/EXACT_HEAD_VERIFICATION.json
