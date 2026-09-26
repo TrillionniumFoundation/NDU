@@ -1,0 +1,12 @@
+{
+  "revision": "R55",
+  "date": "2026-09-26",
+  "relation": "Addendum to the unchanged initial protocol committed at ded848c9cfdd93fefe7994f19b60d691c9d6455c.",
+  "disclosure": "This addendum is committed after inspecting R55 development regressions and partial initial study outcomes, and before any runs in this addendum. It explicitly replays the two original R54 large instances so that the new multi-seed cases at tolerance 1/100 do not substitute for the previous difficult cases at 1/1000. The initial 269-run study remains separately reported and unchanged.",
+  "inherited_cases": {"source":"revisions/or-r54-exact-price-path-20260926/results/CASES.json at eee0d39e08eaedc3a26cad792b71c9c5b5a8abd9","ids":["histories-768","catalog-65"],"epsilon":"1/1000","algorithm_seconds":[4,12,30],"rule":"Copy the mathematical instance byte-for-byte at the parsed JSON record level, preserving its stored instance digest. Change only the run identifier and declared time allowance."},
+  "fine_heterogeneous": {"source":"R55 initial input generator","seed":550927,"configurations":[4,5],"epsilon":"1/1000","algorithm_seconds":12,"rule":"Retain every mathematical parameter from the corresponding initial case; change only tolerance and time allowance."},
+  "methods":["instrumented exact price branching","centered merged-origin heterogeneous grid","exact book enumeration","numerical MIP envelopes"],
+  "planned_runs":32,
+  "limits":{"address_space_mebibytes":2048,"single_thread":true,"verification_seconds":90,"price_steps_per_node":12,"price_node_limit":1023,"rule":"Fresh processes and the same total algorithm allowance for all methods in each row. Both numerical envelopes remain inside the total alarm and each receives at most half that allowance."},
+  "reporting":"Keep every run, failure and resource limit. Report the addendum separately from initial study counts. Expose complete price trajectories, nodes, oracle calls, widths, proof sizes, verification costs, and numerical solver objectives. Do not overwrite any antecedent result or substitute a changed instance for an inherited one."
+}
