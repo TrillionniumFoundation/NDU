@@ -1,0 +1,121 @@
+name: NDU Operations Research R58 publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r58-structural-referee-20260926]
+    paths:
+      - 'revisions/or-r58-structural-referee-20260926/**'
+      - '.github/workflows/ndu-or-r58-publication.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r58-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r58-structural-referee-20260926'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    env:
+      R: revisions/or-r58-structural-referee-20260926
+      BRANCH: revision/ndu-operations-research-r58-structural-referee-20260926
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Materialize and commit readable scientific source
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/prepare58.py"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r58): publish full oscillation and saturated-frontier source before execution [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          python - <<'PY'
+          import datetime,hashlib,json,os,subprocess
+          from pathlib import Path
+          r=Path(os.environ['R'])
+          data=dict(source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                    created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                    source_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (r/'code').glob('*.py')},
+                    protocol_sha256=hashlib.sha256((r/'PROTOCOL.json').read_bytes()).hexdigest(),
+                    timed_execution_started=False,run_id=os.environ['GITHUB_RUN_ID'])
+          (r/'SOURCE_FREEZE.json').write_text(json.dumps(data,indent=2)+'\n')
+          PY
+          git add "$R/SOURCE_FREEZE.json"
+          git commit -m 'evidence(or-r58): freeze exact source and protocol before timed execution [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install exact execution dependencies
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7 matplotlib==3.10.8
+          mkdir -p "$R/results" "$R/generated"
+          python -m pip freeze > "$R/results/ci_environment.txt"
+      - name: Exact structural regressions and checker isolation
+        run: |
+          python "$R/code/tests56.py"
+          python "$R/code/revision57.py" joint_type_tests checker_import_test
+          python "$R/code/structural58.py"
+      - name: All 225 declared timed runs
+        run: |
+          python "$R/code/publication56.py"
+          python "$R/code/extension56.py"
+      - name: Independent extended checks and mechanical replays
+        run: |
+          python "$R/code/verify_replay56.py"
+          python "$R/code/mechanics56.py"
+      - name: Data-derived article evidence
+        run: |
+          python "$R/code/tables56.py"
+          python "$R/code/plot56.py"
+          python "$R/code/finalize_generated56.py"
+          python "$R/code/revision57.py" outcomes
+      - name: Install journal reader build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Build current readers and complete package checks
+        run: |
+          python "$R/code/build56.py"
+          cp "$R/ROOT_README.md" README.md
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          r=Path(os.environ['R']);b=json.loads((r/'BUILD_VALIDATION.json').read_text())
+          Path('NDU_OR_submission_checklist.md').write_text('# Operations Research R58 submission checklist\n\n- Anonymous current article, companion and response.\n- 11-point type, 1.5 spacing, one-inch margins.\n- Submission category: '+b['submission_category']+'.\n- Nonreference pages: '+str(b['main_nonreference_pages'])+'.\n- Abstract words: '+str(b['abstract_words'])+'.\n- Text-only abstract; equation-free introduction; author-year references.\n- All 225 timed records, 24 additional prototype comparisons and 168 independently checked budget certificates.\n- Original feasibility and prior scientific material preserved.\n- No claim of editorial acceptance or empirical field calibration.\n\nSee `'+str(r)+'/BUILD_VALIDATION.json` and `PUBLICATION_STATUS.json`.\n')
+          PY
+          python "$R/code/release58.py" preservation package extracted_check finalize
+      - name: Publish all actual readers and evidence to the new branch
+        run: |
+          git add README.md main.tex electronic_companion.tex NDU_OR_submission_checklist.md "$R"
+          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip"
+          git diff --cached --quiet || git commit -m 'revision(or-r58): publish verified manuscript, full companion, response, 225-run evidence and complete code/data [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$RUNNER_TEMP/R58_PUBLISHED_COMMIT.txt"
+      - name: Retain completed or failed evidence for inspection
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r58-referee-package
+          include-hidden-files: true
+          retention-days: 30
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r58-structural-referee-20260926/
+            .build/r58/*.log
+            ${{ runner.temp }}/R58_PUBLISHED_COMMIT.txt
