@@ -1,0 +1,644 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable,graphicx}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Finite-Catalog Resource Allocation}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+
+% BEGIN retained/current source: revisions/or-r52-resource-path-20260925/generated/metrics.tex
+\newcommand{\FineMaxGap}{0.000500}
+\newcommand{\FineMinTime}{3.523}
+\newcommand{\FineMaxTime}{19.762}
+\newcommand{\FineMaxRelative}{1.63\%}
+\newcommand{\FineMinPacked}{0.216}
+\newcommand{\FineMaxPacked}{6.628}
+\newcommand{\FineMaxDenBits}{553}
+\newcommand{\AllResourceExact}{31}
+\newcommand{\GroupNOneComplete}{2}
+\newcommand{\MIPMaxSeconds}{0.038}
+\newcommand{\MIPMaxGap}{$5.55\,10^{-17}$}
+
+% END source
+
+
+% BEGIN retained/current source: revisions/or-r54-exact-price-path-20260926/generated/metrics.tex
+\newcommand{\PriceExact}{10}
+\newcommand{\PriceTolerance}{19}
+\newcommand{\PriceLimited}{1}
+\newcommand{\PriceChecked}{30}
+\newcommand{\PriceMinBytes}{541}
+\newcommand{\PriceMaxBytes}{5895}
+\newcommand{\AnytimeExact}{10}
+\newcommand{\ForcedAnchors}{45}
+\newcommand{\HardnessSubsets}{1692}
+\newcommand{\HardnessBooks}{3004}
+
+% END source
+
+\hypersetup{pdftitle={Finite-Catalog Resource Allocation: A Tariff-Sensitive Complexity Frontier},pdfauthor={Anonymous}}
+\externaldocument{.build/r64/main_refs}[main.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\thetable}{EC.\arabic{table}}\renewcommand{\thefigure}{EC.\arabic{figure}}
+\begin{document}\begin{center}{\Large\bfseries Electronic Companion}\par Finite-Catalog Resource Allocation: A Tariff-Sensitive Complexity Frontier\par Anonymous --- R64\end{center}
+This companion retains the supporting structural theory, exact recovery and approximation proofs, heterogeneous rewards and prototypes, and a nonrenewal application. The current main text concentrates on the tariff-sensitive frontier. Byte-identical earlier readers and all execution evidence are retained in the accompanying archive, with an explicit section map.
+\section{Menu Structure and Encoding Complexity}\label{sec:caps54}
+Equal expected caps do not require equal realization ceilings. A dense catalog may therefore give a different full-catalog prefix to every history even in the following exact regime.
+\begin{theorem}[Two commands suffice under common caps]\label{thm:twocommand54}
+Assume $b_j=b$ for every history, the common increasing concave reward $f$, convex nondecreasing service costs, and nonnegative command charges. For any feasible $B\leq b$ and command budget $m\geq1$, an optimal book exists with at most $\min(m,2)$ commands. With rational quadratic primitives, enumerating feasible singletons and pairs and solving their fixed-book allocations uses
+\[
+ O\bigl(N^2k\log(k+1)\bigr)
+\]
+rational arithmetic operations and polynomial bit complexity, independently of the number of eligibility classes and of any accuracy parameter.
+\end{theorem}
+\begin{proof}
+The assertion is immediate for $m=1$. Consider any feasible book with at least two commands and an optimal fixed-book allocation in the form of Lemma~\ref{lem:nested54}.
+
+If the book contains $B$, the singleton $\{B\}$ is feasible. For any feasible policy, monotonicity and Jensen's inequality give
+\[
+ \sum_j\pi_j\{\mathbb E f(C_j)-h_j(y_j)\}
+ \leq\sum_j\pi_jf(t_j)\leq f(B).
+\]
+The singleton attains this upper bound at every target $B$ and costs no more than a book containing it. It weakly improves that book.
+
+If the largest selected command is $u<B$, all selected commands are below $b$ and hence eligible for every history. All terminal layers can be filled up to $u$ before service is used; the residual $B-u$ is service. The resulting targets are at least $u$. Deleting all other commands leaves the same terminal command, service allocation, targets, and gross value, while weakly reducing charges.
+
+In the remaining case, let $u<B<v$ be the selected neighbors bracketing $B$. Every selected command through $u$ is below $b$ and eligible for every history. Completing the preceding layers puts every target at $u$. If $v\leq b$, the $(u,v)$ layer has aggregate capacity $v-u$; the residual $B-u$ is smaller. The two-command book therefore implements the unique partial-layer pattern of the larger book, with no later terminal layer or service needed.
+
+If $v>b$, histories admitting $v$ have their cap below that command. They have no terminal increment beyond the $(u,v)$ layer and no positive service capacity after it. Histories not admitting $v$ admit no later selected command, so their last eligible selected command is $u$. For targets at least $u$, both groups have exactly the same canonical responses under the full book and under $\{u,v\}$. Later commands have zero useful capacity, and earlier commands have already been fully traversed. Deleting them preserves the optimized gross value. In all cases a singleton or pair weakly improves the original book after charges, proving the reduction.
+
+There are at most $N+\binom N2$ retained possibilities. A two-command fixed-book response is computed by its history-level marginal events followed by capped convex quadratic service allocation, costing $O(k\log(k+1))$ rational operations. The finite sums, sorted marginal ratios, and water-level equations have polynomial rational encoding lengths. Comparing the resulting rational values proves the arithmetic and bit claims.
+\end{proof}
+
+The result is not a claim that every optimal book is small: additional zero-charge commands can remain in an equally good book. It also cannot be extended to arbitrary cap heterogeneity by the same argument. With caps $1/4,1/2,3/4$, positive probabilities, $B=\bar b$, strictly concave common reward, zero service costs and charges, and a catalog containing these three caps, the gross Jensen upper bound $\sum_j\pi_jf(b_j)$ is attained by all three deterministic commands. Attaining it requires the respective commands; two cannot suffice. Conversely, even under a common cap, two commands can be necessary. With one history, $b=B=1/4$, $\tau=1/2$, catalog $\{0,1/2\}$, zero costs and charges, and $f(x)=2x-x^2/2$, the pair yields $7/16$ whereas the only feasible singleton yields zero.
+
+The common-cap theorem and the retained common-prefix theorem in the electronic companion are different polynomial subclasses. Common caps allow many eligibility prefixes; common eligibility allows heterogeneous caps. Neither restriction is imposed on the price-path algorithm below. The next result shows why exact polynomial optimization cannot simply be extended to unrestricted heterogeneous caps unless $\mathrm P=\mathrm{NP}$.
+\subsection{NP-completeness with linear reward and free service}\label{sec:hard54}
+The exact common-cap theorem has a genuine boundary. Heterogeneous caps and paid command activation can encode a discrete target even when the reward and service primitives are linear and zero, respectively.
+\begin{theorem}[Complexity of exact finite-catalog design]\label{thm:hard54}
+The rational quadratic joint-design decision problem, given a rational threshold $\zeta$ and asking whether $V^*(B)\geq\zeta$, is NP-complete. NP-hardness persists with the fixed common reward $f(x)=x$, zero intermediate-service costs, uniform probabilities, $\tau_j=b_j$, and a nonbinding command budget $m=N$.
+\end{theorem}
+\begin{proof}
+Membership in NP follows by supplying a selected book. Exact rational fixed-book allocation is computable in polynomial time and bit complexity, as in Proposition~\ref{prop:oracle54}; its rational value can be compared with $\zeta$. This argument applies to the full rational quadratic model, not to arbitrary unencoded convex functions.
+
+For hardness, start with positive integer SUBSET SUM weights $w_1,\ldots,w_n$, $n\geq2$, total $A=\sum_iw_i$, and target $1\leq W\leq A$. The NP-completeness of this binary-encoded problem is classical \citep{Karp1972}. Put
+\begin{equation}\label{eq:reduction54}
+ K=n^2A,\quad \ell_i=\frac{i-1}{n},\quad z_i=\ell_i+\frac{w_i}{nA},\quad
+ \pi_i=\frac1n,\quad b_i=\tau_i=z_i.
+\end{equation}
+The catalog consists of the $2n$ distinct commands $\ell_i,z_i$. Their order is $\ell_i<z_i<\ell_{i+1}$ for $i<n$, since positive weights and $n\geq2$ imply $w_i<A$; also $z_n<1$. Set $m=2n$, charge zero for every $\ell_i$, and charge $w_i/(2K)$ for $z_i$. Use $f(x)=x$ and $h_i=0$. Define
+\begin{equation}\label{eq:targetreduction54}
+ D_0=\frac1n\sum_i\ell_i,\qquad B=D_0+\frac WK,
+ \qquad \zeta=D_0+\frac W{2K}.
+\end{equation}
+These rational inputs have polynomial binary length. The root promise is feasible because $\bar b=D_0+A/K$ and the minimum catalog command is zero.
+
+Every feasible book can be augmented by all free commands $\ell_i$ without increasing its charge or exceeding the nonbinding budget. Enlarging its lottery support cannot reduce its attainable value. Hence an optimal book contains all those commands. For an optional subset $S$ of commands $z_i$, history $i$ has last eligible command $z_i$ when $i\in S$ and $\ell_i$ otherwise; higher free commands are above its realization ceiling. Its aggregate terminal capacity is
+\[
+ D(S)=D_0+\frac{\sum_{i\in S}w_i}{K}.
+\]
+Let $s=\sum_{i\in S}w_i$. With linear unit reward and free service, the optimized gross payoff is $\min\{B,D(S)\}$. For $B\leq D(S)$, lotteries between zero and each last eligible command provide every aggregate terminal mean up to $D(S)$. For $B>D(S)$, fill those terminal commands and use the remaining feasible service capacity $\bar b-D(S)$. Thus both parts of this gross-value formula are attained in the original constraints. Subtracting the optional charges gives the exact identity
+\begin{equation}\label{eq:distance54}
+ V_S(B)=\min\{B,D_0+s/K\}-\frac{s}{2K}
+       =\zeta-\frac{|s-W|}{2K}.
+\end{equation}
+Consequently $V^*(B)\geq\zeta$ holds if and only if a subset sums exactly to $W$. This is a polynomial reduction and proves NP-hardness under all the stated restrictions.
+\end{proof}
+
+The reduction does not prove strong NP-hardness, hardness at a fixed small command budget, or a parameterized lower bound. It does establish that unrestricted exact polynomial-time optimization would imply $\mathrm P=\mathrm{NP}$. It is consistent with the additive scheme: a no-instance can be only $1/(2K)$ below the threshold, even though $f(x)=x$ has Lipschitz constant one. Resolving that distinction may require an inverse accuracy proportional to the numerical integer total. This identifies an encoding-sensitive barrier, not a proof that every instance requires the uniform grid or that its exact $1/\varepsilon$ dependence is optimal. The common-cap and common-prefix algorithms remain exact polynomial exceptions.
+\subsection{A tight cap-count bound for the command book}\label{sec:smallmenus56}
+The common-cap result extends to a structural parameter without requiring common realization ceilings. Let $q=|\{b_j:1\leq j\leq k\}|$ be the number of distinct expected caps. The next result concerns a common terminal reward; heterogeneous rewards remain allowed in the resource and price algorithms below.
+
+\begin{theorem}[Cap-count compression]\label{thm:capcount56}
+Suppose the catalog is common and ordered, eligibility is induced by the realization ceilings, the terminal reward is common, strictly increasing and concave, service costs are continuous, convex and nondecreasing, and opening charges are nonnegative. Every feasible book and policy is dominated in value by a policy on a subset of that book containing at most $2q$ commands. Consequently some optimum uses at most $\min\{m,2q\}$ commands. Given the original policy, the smaller book and a dominating policy can be constructed by solving at most $q$ common-cap fixed-book allocation problems. For rational quadratic primitives this construction has polynomial arithmetic and bit complexity.
+\end{theorem}
+\begin{proof}
+Let $I_h$ be a cap class, $W_h=\sum_{j\in I_h}\pi_j$, and let
+\[
+ B_h=\frac{1}{W_h}\sum_{j\in I_h}\pi_jt_j
+\]
+be its conditional promise under the supplied policy. Every target is at least the original anchor, and $B_h$ does not exceed the class cap. Treat the supplied book as the available catalog for class $h$, normalize its probabilities by $W_h$, and temporarily set opening charges to zero. Theorem~\ref{thm:twocommand54} gives a singleton or pair $c_h$ from that book whose optimized conditional gross payoff is no smaller than the supplied conditional payoff at $B_h$. This use of the theorem does not require the supplied class allocation to have been optimal.
+
+For completeness, the book extraction is explicit. If $B_h$ is selected, retain its singleton. If the largest selected command is below $B_h$, retain that command. Otherwise retain the two selected neighbors bracketing $B_h$. The common-cap proof verifies the original expected and realized constraints in each case, including a successor above the class cap.
+
+Install $\widetilde c=\bigcup_h c_h$ and retain each class's conditional policy. An enlarged available support does not invalidate a lottery that uses only its subgroup book. Every class keeps its exact conditional promise, so $\sum_hW_hB_h=B$ remains unchanged. Summing conditional gross payoffs proves gross dominance. Since $\widetilde c\subseteq c$, nonnegative opening charges cannot increase. Also $|\widetilde c|\leq\min\{|c|,2q\}$. The fixed-book rational allocation and its encoding bound follow from Proposition~\ref{prop:oracle54} and the history-level marginal construction. An optimal supplied policy gives the existence claim. Existence itself follows from the finite book set and compact feasible allocations.
+\end{proof}
+
+\begin{proposition}[Tightness and exact enumeration]\label{prop:tight56}
+The coefficient two in Theorem~\ref{thm:capcount56} is sharp for every positive integer $q$. For rational quadratic inputs, exhaustive evaluation through size $s=\min\{m,2q\}$ is an exact algorithm with arithmetic count $O(N^s\operatorname{poly}(k,s))$ and polynomial bit cost per book. This is an XP bound in the cap count or command budget, not an FPT bound in either parameter alone.
+\end{proposition}
+\begin{proof}
+For tightness, take $q$ histories of probability $1/q$. For $h=1,\ldots,q$, put
+\[
+ u_h=\frac{3h-2}{3q},\qquad v_h=\frac{3h-1}{3q},\qquad
+ b_h=\frac{u_h+v_h}{2},\qquad \tau_h=v_h.
+\]
+Use catalog $\{u_h,v_h:1\leq h\leq q\}$, zero service costs and charges, common reward $f(x)=2x-x^2/2$, budget $2q$, and promise $B=\bar b$. The root equality and individual caps force every target to equal $b_h$. The full book attains the upper concave envelope of the eligible catalog at that target, with zero service. Strict increase rules out positive service at an optimum, since the eligible pair can attain terminal mean $b_h$. Strict concavity makes the two adjacent points $u_h,v_h$ the unique supporting pair at this interior mean. Omitting either strictly decreases history $h$'s maximum payoff. All other histories are already at their individual maxima, so they cannot offset that decrease. Every optimum therefore uses all $2q$ commands.
+
+For enumeration, evaluate every nonempty subset through size $s$ whose anchor is feasible. Theorem~\ref{thm:capcount56} guarantees that this list contains an optimum, even if some original optimum contains extra zero-charge commands. There are $O(N^s)$ such books. The fixed-book marginal and capped-service calculation is polynomial in its rational input length. The unknown optimal allocation is not assumed available to this enumeration algorithm: the compression theorem justifies its search range.
+\end{proof}
+
+These results distinguish three resources. A fixed small command budget gives exact polynomial enumeration with a budget-dependent exponent. A small cap count bounds the useful book, but does not make that exponent independent of the cap count. Numerical lattice size gives a different exact algorithm, developed in Section~\ref{sec:lattice56}, whose exponent does not grow with either parameter. Thus the nonbinding-budget hardness construction and the limited-menu results address different, explicitly stated input regimes.
+
+\subsection{Finite heterogeneous reward types}\label{sec:types57}
+The compression argument is conditional, rather than intrinsically global. It therefore also covers finite heterogeneity in terminal rewards. Two histories have the same catalog reward type when their terminal reward values agree at every catalog command; behavior between commands does not affect a terminal lottery. Let $g$ be the number of nonempty classes formed jointly by expected cap and catalog reward type. Service costs and prefix realization ceilings may vary within a class.
+
+\begin{theorem}[Joint cap--reward compression]\label{thm:types57}
+Suppose every terminal reward is strictly increasing and concave, service costs are continuous, convex and nondecreasing, and opening charges are nonnegative. Every feasible book and policy is weakly dominated by an original-feasible policy on a subset of that book containing at most $2g$ commands. In particular, an optimum exists with at most $\min\{m,2g\}$ commands. Given the original policy, its compression uses at most $g$ fixed-book allocation problems. For rational quadratic primitives, enumerating books of cardinality at most $\min\{m,2g\}$ is exact with polynomial bit work per book. The exponent still depends on $g$ or $m$; this is an XP guarantee, not an FPT claim.
+\end{theorem}
+\begin{proof}
+Partition histories by their joint type. For class $I$, write $w_I=\sum_{j\in I}\pi_j$ and retain its conditional promise $B_I=w_I^{-1}\sum_{j\in I}\pi_j t_j$ from the given policy. The conditional policy is feasible under the class's common cap, normalized positive probabilities, original ceilings and costs. At catalog commands its rewards equal one common strictly increasing concave reward. Its terminal-lottery objective consequently equals the common-reward objective, even if the rewards differ between commands. Apply Theorem~\ref{thm:twocommand54} with the given book as the available catalog and zero charges for this conditional problem. It yields a singleton or adjacent pair with no smaller conditional gross payoff and the same $B_I$. The explicit bracketing construction in the proof of Theorem~\ref{thm:capcount56} supplies those commands before the fixed-book allocation is solved.
+Take the union of these conditional singleton/pair books. It is a subset of the original book, has at most $2g$ members, and does not exceed the original cardinality. Execute each class's conditional policy without changing it. A union command assigned zero lottery probability in a class cannot violate that class's ceiling. Conditional promises sum to $\sum_I w_I B_I=B$, so the original aggregate equality is unchanged. All history-level caps, pre-draw service requirements and realization ceilings remain satisfied. The gross payoff weakly increases and nonnegative opening charges cannot increase upon deletion. This proves dominance. There are at most $g$ conditional allocations, followed, if desired, by reoptimization of the union book at $B$. Finite enumeration and the rational fixed-book allocation bound give the final assertion.
+\end{proof}
+
+The common-reward cap-count theorem is recovered when the number of joint classes equals the number of distinct caps. Its strict $2q$ examples also show that the coefficient two cannot be improved uniformly over this larger model class. The bound does not promise compression when nearly every history has a different joint type. It identifies a useful finite-type regime without imposing common rewards on the heterogeneous resource algorithm.
+\subsection{Approximate reward types without changing feasibility}\label{sec:robusttypes58}
+Exact reward classes are useful when service products share a tariff. Estimated reward curves need not coincide exactly. The following result gives a quantitative menu guarantee without rounding a cap, changing a probability, or relaxing a realization ceiling.
+
+Partition histories into $g$ groups, each with one common expected cap. For group $h$, choose a strictly increasing concave prototype $\widehat f_h$ on the catalog. The prototypes may differ across groups. Put
+\begin{equation}\label{eq:oscillation58}
+ e_j(a)=f_j(a)-\widehat f_{h(j)}(a),\qquad
+ \Delta=\sum_j\pi_j\left[\max_{a\in\mathcal A}e_j(a)-\min_{a\in\mathcal A}e_j(a)\right].
+\end{equation}
+Only rewards are replaced in the prototype problem; probabilities, caps, ceilings, service costs, charges, promise and command budget remain original.
+\begin{theorem}[Oscillation-certified menu compression]\label{thm:robusttypes58}
+Every feasible original policy has a dominating prototype-policy compression on a subset of its book with at most $2g$ commands whose original value is at least the supplied original value minus $\Delta$. In particular, some book of at most $\min\{m,2g\}$ commands attains original value at least $V^*(B)-\Delta$. An optimal prototype book can be found by enumeration through that size; reoptimizing its allocation under the original rewards has the same guarantee. A prototype policy within $\xi$ of the prototype optimum gives original regret at most $\Delta+\xi$.
+\end{theorem}
+\begin{proof}
+Write $J(P)$ and $\widehat J(P)$ for the original and prototype net values of the same feasible policy. Their difference is
+$E(P)=\sum_j\pi_j\mathbb E[e_j(C_j)]$; service costs and opening charges cancel. For any two feasible policies $P,P'$, each expectation lies between the catalog minimum and maximum of $e_j$, and hence
+$E(P)-E(P')\leq\Delta$.
+Apply Theorem~\ref{thm:types57} to the supplied policy in the prototype problem. Its construction keeps each group's conditional promise and returns a subset policy $\widetilde P$ with $\widehat J(\widetilde P)\geq\widehat J(P)$. It is feasible for the unchanged original constraints. Therefore
+$J(P)-J(\widetilde P)\leq E(P)-E(\widetilde P)\leq\Delta$.
+Apply this to an original optimum for existence. For the algorithmic statement, compare an original optimum $P^*$ with a prototype $\xi$-optimal policy $\widehat P$; the inequality $\widehat J(P^*)-\widehat J(\widehat P)\leq\xi$ gives $J(P^*)-J(\widehat P)\leq\xi+\Delta$. Optimizing the original allocation on the recovered book can only improve it. Exact enumeration is justified by the prototype compression theorem, not by knowledge of $P^*$.
+\end{proof}
+
+The bound is invariant to arbitrary history-specific additive reward constants. Thus exact equality of reward \emph{increments} on the catalog suffices for zero-loss compression. If $|e_j(a)|\leq\epsilon_j$ for every command, then $\Delta\leq2\sum_j\pi_j\epsilon_j$; the oscillation can be strictly smaller. Choosing more prototype groups trades a larger guaranteed menu against a smaller certified reward loss. This does not assert tractable optimal clustering, nor does it merge distinct expected caps. With rational catalog values the certificate $\Delta$ takes $O(kN)$ rational operations; the enumeration exponent remains $\min\{m,2g\}$. The additional regression compares original and prototype exact enumeration on identical feasibility inputs, including positive and zero reward dispersion.
+\section{Exact Price Paths with Heterogeneous Rewards}\label{sec:price54}
+We now replace the common reward by a strictly increasing concave function $f_j$ for each history. All other constraints and the common ordered catalog are unchanged. Proposition~\ref{prop:canonical52} holds history by history with interpolant $F_{j,c}$ of $f_j$. In particular,
+\[
+ v_{j,c}(t)=F_{j,c}(\min(t,d_j))-h_j((t-d_j)_+)
+\]
+is concave on the feasible target interval. The primal rearrangement in Section~\ref{sec:boundaries52} need not hold across histories with differently ordered rewards. The following priced identity does not use that rearrangement.
+
+For price $\lambda\in\mathbb R$, let
+\begin{align}
+ \sigma^j_{uv}&=\frac{f_j(v)-f_j(u)}{v-u},&
+ K_j(u;\lambda)&=\max_{0\leq y\leq(b_j-u)_+}\{-h_j(y)-\lambda y\},\label{eq:pricedpieces54}\\
+ A_{uv}(\lambda)&=\sum_{j:\tau_j\geq v}\pi_j[\min(b_j,v)-u]_+(\sigma^j_{uv}-\lambda)_+\notag\\
+ &\quad+\sum_{j:u\leq\tau_j<v}\pi_jK_j(u;\lambda),\label{eq:pricedarc54}\\
+ A_{u\dagger}(\lambda)&=\sum_{j:\tau_j\geq u}\pi_jK_j(u;\lambda).\label{eq:pricedtail54}
+\end{align}
+These supports are finite. At a feasible anchor $a$, define
+\[
+ Z_a(\lambda)=\sum_j\pi_jf_j(a)-\lambda a-\rho(a).
+\]
+
+\begin{theorem}[Exact priced selected-boundary identity]\label{thm:price54}
+For every fixed feasible book $c=(a=u_1<\cdots<u_s)$,
+\begin{equation}\label{eq:pricedequality54}
+ \begin{split}
+ &\sum_j\pi_j\max_{a\leq t\leq b_j}\{v_{j,c}(t)-\lambda t\}-\sum_{z\in c}\rho(z)\\
+ &\qquad=Z_a(\lambda)+\sum_{i=1}^{s-1}[A_{u_i u_{i+1}}(\lambda)-\rho(u_{i+1})]+A_{u_s\dagger}(\lambda).
+\end{split}
+\end{equation}
+Consequently, a longest ordered path with at most $m$ selected vertices computes the exact maximum of the left side over all feasible books. Adding $\lambda B$ gives an upper bound on the original joint optimum, including under heterogeneous terminal rewards.
+\end{theorem}
+\begin{proof}
+Fix a history and its eligible selected prefix. Beginning at $a$, its terminal interpolation consists of successive segments of lengths $[\min(b_j,v)-u]_+$, followed, when $b_j>d_j$, by its convex service-cost tail. The terminal chord slopes are positive and nonincreasing \emph{within this history}. Subtracting $\lambda t$ therefore selects exactly all positive marginal terminal segments, with arbitrary selection on zero-slope ties. Their gain is the sum of segment length times $(\sigma^j_{uv}-\lambda)_+$.
+
+For $\lambda\geq0$, $h_j\geq0$ and the feasible choice $y=0$ show explicitly that $K_j(u;\lambda)=0$. For $\lambda<0$, every positive terminal chord exceeds the price and is fully traversed before a service tail is selected. Maximizing the remaining concave tail gives $K_j(d_j;\lambda)$. Thus the complete scalar support is
+\[
+ f_j(a)-\lambda a+
+ \sum_{\substack{(u,v)\text{ selected}\\v\leq\tau_j}}
+ [\min(b_j,v)-u]_+(\sigma^j_{uv}-\lambda)_+ +K_j(d_j;\lambda).
+\]
+The terminal terms are owned by their selected edges, and the last term by the unique exit edge or terminal edge of that history. Weighted summation gives \eqref{eq:pricedequality54}, with each command charge subtracted once. The identity needs no comparison between chord slopes of different histories.
+
+For an original feasible target vector, $\sum_j\pi_jt_j=B$ cancels the subtracted price when $\lambda B$ is added. Taking each scalar maximum and then maximizing the book proves weak duality. Every feasible book has a feasible anchor, so the ordered-path maximization omits none.
+\end{proof}
+
+\subsection{One recurrence for all anchors and restricted books}
+Let $\alpha=\min(B,\min_jb_j)$. At a fixed price, initialize
+\[
+ D_1(v)=Z_{a_v}(\lambda)\quad\text{when }a_v\leq\alpha,
+ \qquad D_1(v)=-\infty\quad\text{otherwise}.
+\]
+For $\ell=2,\ldots,m$,
+\begin{equation}\label{eq:pricedDP54}
+ D_\ell(v)=\max_{u<v}\{D_{\ell-1}(u)+A_{a_u a_v}(\lambda)-\rho_v\},
+ \quad
+ U(\lambda)=\lambda B+\max_{\ell,v}\{D_\ell(v)+A_{a_v\dagger}(\lambda)\}.
+\end{equation}
+This recurrence handles every anchor simultaneously. The separate-origin resource baseline does not, whereas the deficit recurrence in Section~\ref{sec:deficit56} achieves the same source merge in primal coordinates. A predecessor pointer supplies a maximizing book. Its targets are recovered at the original promise by exact fixed-book allocation, not by adopting its generally infeasible priced target mean.
+
+The same oracle permits a mandatory vertex set $M$ and a forbidden set $F$. Remove $F$, disallow starting after the first mandatory vertex, crossing over a mandatory vertex, or terminating before the last mandatory vertex. If $|M|>m$ or $M\cap F\ne\varnothing$, the family is empty. Otherwise the allowed paths are exactly the books that contain $M$ and avoid $F$: each mandatory vertex is either visited or would have to be skipped at the start, at an edge, or at the end. Prefix counts test these conditions in constant time per edge. Denote the resulting upper bound by $U_{M,F}(\lambda)$.
+
+\begin{proposition}[Rational quadratic price oracle]\label{prop:oracle54}
+Suppose $f_j(x)=r_jx-q_jx^2/2$ with rational $r_j\geq q_j\geq0$, $r_j>0$, and $h_j(y)=\gamma_jy^2/2$ with rational $\gamma_j\geq0$. For a rational price, a restricted price path and its upper bound are computed in $O(kN^2+mN^2)$ arithmetic operations after the input is read, with polynomial bit complexity. Exact fixed-book recovery costs $O(ks\log(ks+1)+k\log(k+1))$ operations for $s$ selected commands.
+\end{proposition}
+\begin{proof}
+For $\gamma_j>0$, the maximizing service is $\min\{(b_j-u)_+,\max(0,-\lambda/\gamma_j)\}$. When $\gamma_j=0$, use zero service for nonnegative price and the full cap for negative price. Every support is a rational quadratic evaluation. Computing all edge sums directly costs $O(kN^2)$; the recurrence uses $mN^2$ comparisons and additions. It is unaffected by the number of distinct full-catalog eligibility prefixes.
+
+For recovery, sort the at most $ks$ history-level terminal marginal segments by decreasing slope, preserving each history's internal order on ties. Fill them until the promise is met or all terminal capacity is used. Fill zero-cost service next and then solve the remaining capped quadratic water-level equation. This constructs an original feasible policy. Concavity of the individual responses supplies its supporting price, proving fixed-book optimality. All sorting keys and values are rational combinations of polynomially many input numbers. Exact common-denominator scaling for path comparisons and the resulting sums have polynomial bit lengths. The number of chosen search prices is not part of this single-oracle bound.
+\end{proof}
+
+For a common quadratic reward, event-prefix sums accelerate repeated evaluations: $T_{uv}=p(v)-p(u)-Q_{uv}$ and the terminal term is $T_{uv}(\sigma_{uv}-\lambda)_+$. After sorting exit events for each predecessor, one price sweep accumulates service supports in $O(kN+N^2)$ operations before the $O(mN^2)$ path calculation. The reference implementation uses this optimization, exact integer-scaled comparisons, and a bounded cache of price kernels. Heterogeneous rewards use the direct edge sums. Arithmetic counts, rational bit complexity, and measured interpreter time are distinct quantities.
+
+A small price gap does not imply strong duality over books. For one history, cap and ceiling one, $f(x)=x$, zero service cost, catalog $\{0,1/2\}$, charges $0,1/10$, and budget two, the optimized value is $\max\{0,\min(B,1/2)-1/10\}$. Its slope increases at $B=1/10$. At $B=1/20$ the true optimum is zero but its concave dual majorant is positive. The next section closes such gaps by a complete discrete partition rather than silently treating a single price as a global optimality certificate.
+\section{Finite Exact Search and Original-Instance Certificates}\label{sec:branch54}
+\subsection{Price bounds, feasible policies, and discrete coverage}
+For a restricted family $(M,F)$, every evaluated price yields an upper bound $U_{M,F}(\lambda)$. Recovering the price-maximizing book at $B$ gives a feasible lower value. Neither the priced mean nor a solver's completion status is a feasible-policy witness. Maintain a global incumbent $\underline V$ and, for each live leaf, its best completed price bound. The gross terminal-reward bound $\sum_j\pi_jf_j(1)$, dropping nonnegative service costs and opening charges, initializes a leaf before its first price evaluation.
+
+The reference search evaluates a bounded number of prices at each node. The target range of a maximizing book gives a valid subgradient direction for the convex price bound. A bracket starts at $-\max_j\gamma_j$ and $\max_jr_j$; candidate prices also include the exact supporting price of the recovered fixed-book policy. Bisection supplies a distinct rational price when a candidate repeats. Bracketing is a search heuristic, not a premise for validity: every completed price produces a valid upper bound independently of how it was chosen.
+
+If a node bound is at most $\underline V+\varepsilon$, it need not be split. Otherwise select an undecided candidate and create the two children in which it is respectively required and forbidden. Both inherit the parent's bound until a sharper completed calculation is available. Mandatory and forbidden vertices are enforced by the recurrence in Section~\ref{sec:price54}. A family with one possible book is evaluated at that book's exact supporting price. Every feasible original book remains in exactly one leaf family.
+
+\begin{theorem}[Grid-free finite exact algorithm]\label{thm:branch54}
+Under the rational quadratic assumptions of Proposition~\ref{prop:oracle54}, the preceding algorithm returns, after every completed node or price calculation, an original feasible policy and a rational interval
+\begin{equation}\label{eq:anytime54}
+ \underline V\leq V^*(B)\leq\overline V,
+ \qquad
+ \overline V=\max\{\underline V,\ U_{M,F}: (M,F)\text{ is a current leaf}\}.
+\end{equation}
+An empty leaf is omitted. With no resource limit and zero requested width, finite binary branching and exact singleton-family evaluation terminate at $\underline V=\overline V$. The full binary cover has at most $2^{N+1}-1$ nodes. A node may use multiple prices, so total nodes and completed price calls are different counts. Each completed price oracle has the polynomial complexity of Proposition~\ref{prop:oracle54}. At positive tolerance, or under interruption, the actual width $\overline V-\underline V$ is a valid instance-dependent additive error bound; it has no mandatory inverse-tolerance resource grid.
+\end{theorem}
+\begin{proof}
+The initial incumbent is an original feasible singleton at the minimum command. Every subsequent incumbent is recovered at $B$ and respects the same constraints. Theorem~\ref{thm:price54} bounds every book in a leaf. Requiring or forbidding a previously undecided candidate partitions its family exactly, so inherited bounds remain valid on both children. A node with no allowed path is empty; all nonempty leaf families have feasible target allocations by Proposition~\ref{prop:canonical52}. These facts prove \eqref{eq:anytime54}, including leaves not yet processed or calculations interrupted before completion.
+
+Along a root-to-leaf chain, a candidate is decided at most once. After at most $N$ splits the family is empty or fixes one book. Concave fixed-book allocation has a supporting price at $B$ (at a boundary promise, a one-sided supergradient extended to the feasible interval suffices, and the quadratic model has finite marginal bounds), and its scalar maximizers attain the price bound at that same promise. Consequently the restricted priced optimum at that price equals the recovered value. A fixed finite number of price attempts per nonterminal node followed by an undecided split cannot prevent this finite termination. The elementary depth-$N$ binary-tree count supplies the worst-case bound. Rational formulas, finite supports, and original-space policies establish exact arithmetic throughout.
+\end{proof}
+
+The worst-case exponential bound is deliberate. Theorem~\ref{thm:hard54} proves NP-completeness of the unrestricted decision problem. The present algorithm supplies a finite exact method with a polynomial node relaxation and a data-dependent certified stopping rule; it does not assert a polynomial worst-case exact running time. The exact common-cap and common-prefix theorems give polynomial subcases. For either reward model with the appropriate arc kernels, the uniform-resource scheme in Section~\ref{sec:uniform54} retains a separate worst-case polynomial additive guarantee. A valid combined interval can take the maximum of the feasible lower values and the minimum of the price-tree and resource-grid upper bounds. No assumption of strong duality across books is required.
+
+\subsection{Independent verification and proof economics}
+A price certificate contains the original model, its catalog and charges, a feasible lottery policy, and the complete binary coverage tree. A priced leaf records its rational price and upper bound; a still-unprocessed leaf may retain the universal bound. The independent checker reconstructs arc supports by direct endpoint and stationary-point maximization, then uses a backward at-most-budget recurrence rather than the optimizer's forward exact-length recurrence. It checks every branch, every mandatory or forbidden restriction, and every leaf bound. A parent price bound may be looser than a child's recomputed bound; the required comparison is dominance, not equality.
+
+The lower witness retains nonnegative service, lottery masses, command support, every positive-probability realization ceiling, all expected caps, and the exact weighted promise. The checker subtracts the original selected charges and recomputes the global interval. A separately supplied instance digest can bind the proof to the requested input; a self-reported digest alone is not authentication. The new checker raises explicit errors and does not rely on assertions being enabled. The inherited grid checker continues to require ordinary Python execution, as documented in its retained source.
+
+The proof record stores $O(k+s+N+P)$ rational fields and tree entries up to the history-level lottery representation, where $P$ is the number of retained nodes. It need not serialize the scalar-resource tables. Verification recomputes polynomial price paths at the leaf prices; it is not free, and a large branching tree can still be expensive. Input and price bit lengths contribute to actual byte counts. The study reports compressed and uncompressed size, checking time, peak process memory, and resource-limit outcomes separately from the command alphabet.
+
+\subsection{Incumbent-based exclusion, including anchors}\label{sec:anchor54}
+The uniform anchor-envelope rule retained in the electronic companion cannot delete a possible anchor. The priced oracle provides a complementary test.
+\begin{proposition}[Forced-command price exclusion]\label{prop:fix54}
+Let $v_0$ be the value of an original feasible incumbent. For any candidate $z$, including a possible anchor, let $U_z(\lambda)$ be the price-path upper bound with $z$ mandatory. If $U_z(\lambda)<v_0$, no optimal book contains $z$. All commands certified by such strict inequalities may be removed simultaneously without changing the optimal value. Under a weak inequality, simultaneous deletion is safe only with an independently retained incumbent avoiding all deleted commands.
+\end{proposition}
+\begin{proof}
+Every book containing $z$ lies in its forced family and has value at most $U_z(\lambda)$. A strict comparison excludes it from optimality and also implies that the incumbent does not contain it. Therefore every optimal book and the incumbent avoid the union of strictly excluded candidates. The reduced problem retains an optimal policy and introduces no new one. For weak inequalities, any book lost by a deletion has value at most $v_0$, while an incumbent avoiding the entire deletion set attains $v_0$ in the retained problem. This proves that qualified version as well.
+\end{proof}
+
+This is the familiar incumbent-based Lagrangian reduction principle \citep{BeasleyChristofides1989,Fisher1981}, applied through an exact original-instance price oracle. Its benefit here is that the bound incorporates the accepted promise, command budget, and other selected alternatives. No uniform removal fraction follows. Reusing the arc supports for one price, evaluating every forced candidate costs $O(mN^3)$ additional arithmetic operations. The cheap $O(kN)$ non-anchor envelope remains a different option with an order-independent target-box guarantee. The screening study reports both costs and compares their exclusions with exact inclusion relevance rather than declaring one rule universally preferable.
+\section{A Polynomial Additive Fallback}\label{sec:uniform54}
+For the common-reward model, or the heterogeneous kernels of Theorem~\ref{thm:packing54}, the selected-boundary representation yields a complementary worst-case guarantee. An arc has concave $L$-Lipschitz payoff and capacity $T_e+Q_e$. Every book with feasible anchor $a$ has capacity $\bar b-a\geq B-a$. Round each of its at most $m$ arc resources down to multiples of $\eta$, including the terminal edge. Accept total resource in $[B-a-m\eta,B-a]$. Every accepted path has enough spare capacity to restore its missing resource without changing its selected commands.
+
+\begin{theorem}[Original-promise additive fallback]\label{thm:uniform54}
+For rational increasing concave quadratic rewards and quadratic service costs, let $L=\max_j\{r_j,\gamma_j\}$ and set $\eta=\varepsilon/(2Lm)$ and let $S_\eta$ be the best accepted grid-path value over all feasible anchors. Exact fixed-book recovery at $B$ yields
+\[
+ \underline V\leq V^*(B)\leq S_\eta+Lm\eta,
+ \qquad S_\eta+Lm\eta-\underline V\leq\varepsilon.
+\]
+With $Q=\lceil2Lm/\varepsilon\rceil+1$, direct kernel construction and resource convolution have arithmetic bound
+\begin{equation}\label{eq:fallback54}
+ O\bigl(kN^2Q\log(k+1)+mN^3Q\log(Q+1)\bigr),
+\end{equation}
+and bit complexity polynomial in the numerical grid size and binary input length.
+\end{theorem}
+\begin{proof}
+Rounding the resources of an optimal path loses at most $Lm\eta$ in payoff. Conversely, repairing a maximizing accepted path changes its coordinates upward by total at most $m\eta$ and loses at most $Lm\eta$. The constructive identity implements the repaired vector with no smaller payoff; exact fixed-book recovery can improve it further. This proves the interval. Precompute each of $O(N^2Q)$ arc values by sorted terminal components and capped quadratic service allocation. At a fixed edge, a concave grid kernel gives an anti-Monge max-plus convolution even if the previous Bellman values are not concave. Monotone row search costs $O(Q\log(Q+1))$ per transition. Counting anchors and command lengths gives \eqref{eq:fallback54}. The full recurrence, rational scaling argument, and independent checker are retained in the electronic companion.
+\end{proof}
+Writing normalized accuracy as $\delta=\varepsilon/L$ exposes the effective terms
+\[
+ O\left(\frac{kmN^2}{\delta}\log(k+1)
+       +\frac{m^2N^3}{\delta}\log(m/\delta+2)\right).
+\]
+Thus polynomial arithmetic does not by itself imply practical scalability. At a prescribed absolute error the dependence is on $L/\varepsilon$, not its binary encoding length. Signed net payoffs and values close to zero preclude a general multiplicative interpretation. The price-tree method instead stops at its observed original-instance width, sometimes at exact equality, but has an exponential worst-case discrete tree. These are complementary guarantees, not a claim that the uniform $1/\varepsilon$ dependence is necessary. The broader heterogeneous-reward guarantee uses the newly derived within-edge profiles, not an unchanged common-reward kernel. The inherited software used as the uniform baseline remains restricted to common rewards.
+\subsection{An exact all-budget frontier at a saturated promise}\label{sec:saturation58}
+The zero-deficit case is a second exact regime, distinct from zero service cost. It permits fully heterogeneous caps, rewards and strictly positive service costs.
+\begin{corollary}[Saturated-promise menu frontier]\label{cor:saturation58}
+For rational quadratic primitives and $B=\bar b$, all optimum values for command budgets $1,\ldots,N$ and an attaining book for each budget can be computed together in $O(kN^2+N^3)$ rational operations with polynomial bit complexity. Storing edge weights, Bellman values and predecessors requires $O(N^2)$ rational or integer entries. No common lattice or reward-type assumption is needed. The original policy is recovered at the unchanged targets $t_j=b_j$.
+\end{corollary}
+\begin{proof}
+Since probabilities are positive and $t_j\leq b_j$, the equality of weighted sums forces $t_j=b_j$ for every history. In the deficit representation $R=0$, all nonnegative edge deficits are zero. The full-capacity edge weight is
+\[
+ w_{uv}=\sum_{j:\tau_j\geq v}\pi_j\sigma^j_{uv}\delta_j(u,v)
+        -\sum_{j\in J_{uv}}\pi_jh_j((b_j-u)_+)-\rho(v),
+\]
+with the first sum and opening charge omitted on the sink edge. Computing each weight directly costs $O(k)$ operations: all terminal components and all service components are full, so no sorting or water-level search is required. Initialize every feasible anchor $a_i$ with value $\sum_j\pi_jf_j(a_i)-\rho_i$. For each exact selected count, propagate these weights along the ordered graph. All $N$ layers cost $O(N^3)$ operations. Adding the sink weights and taking cumulative maxima over the layers gives the value for every at-most budget. Predecessors recover the attaining books. The graph and layer tables each have $O(N^2)$ entries. Each entry is a sum of at most $N$ rational edge weights of polynomial input encoding length, proving the bit claim. Theorem~\ref{thm:packing54} and the canonical response reconstruct original lotteries and service at $t_j=b_j$.
+\end{proof}
+
+The implementation forms this frontier in one count-indexed pass. It then exports each budget's state table and original policy in the existing deficit-certificate format. The independent checker reconstructs full-capacity kernels and checks all Bellman inequalities without importing the frontier solver. For positive deficit, the approximate state count is $\lfloor2Km(\bar b-B)/\varepsilon\rfloor+1$; it depends on the unused obligation capacity, not on the number of distinct caps. The exact saturated frontier and the positive-deficit guarantee thus describe adjacent but different computational regimes.
+\subsection{Exact lattice optimization at arbitrary command budgets}\label{sec:lattice56}
+Zero service cost is a substantive subclass of the original model, not a relaxation of its obligation or realization constraints. It includes the weak SUBSET SUM construction. The deficit representation yields an exact pseudo-polynomial algorithm for that subclass even with heterogeneous terminal rewards.
+
+\begin{theorem}[Exact zero-service lattice algorithm]\label{thm:lattice56}
+Suppose $h_j\equiv0$ and the catalog, probabilities, caps, promise, charges, and terminal reward values at catalog commands are rational. Rewards are increasing and concave, with a common catalog and ceiling-induced prefix eligibility. Let $D$ be a positive integer such that
+\begin{equation}\label{eq:latticeassumption56}
+ DB\in\mathbb Z,\qquad D\pi_jb_j\in\mathbb Z,\qquad
+ D\pi_ja_i\in\mathbb Z\quad\text{for every }j,i.
+\end{equation}
+Set $R=\bar b-B$. The merged-origin recurrence with mesh $1/D$, terminal index exactly $DR$, and no approximation allowance solves the original problem exactly for every $1\leq m\leq N$. For rational quadratic rewards its arithmetic bound is \eqref{eq:cost56} with $Q=DR+1$. The algorithm is pseudo-polynomial in numerical $DR$ and polynomial in the other parameters and their encoding lengths. It is not asserted to be FPT in $m$ alone or polynomial in $\log D$.
+\end{theorem}
+\begin{proof}
+Condition~\eqref{eq:latticeassumption56} implies that every weighted terminal component capacity
+$\pi_j[\min(b_j,v)-u]_+$ and every service capacity $\pi_j(b_j-u)_+$ belongs to $D^{-1}\mathbb Z$. It also implies that every arc capacity, every potential, every anchor, and $R$ belong to that lattice. In the zero-cost case each $\Phi_e$ is concave piecewise linear: its marginal segments are the sorted positive terminal chord slopes followed by a zero-slope service segment. Every segment length is a sum of weighted component capacities, hence a lattice multiple. The deficit kernel, obtained by reversing the resource coordinate, has the same breakpoint property. Centering adds a common linear term without changing these breakpoints.
+
+Fix a feasible path. Maximizing its separable concave piecewise-linear deficit payoffs subject to one exact sum can be done by filling marginal segments in decreasing order. Ties may be ordered to respect the segment order within each edge. Every full segment length and the total $R$ are integer multiples of $1/D$. Therefore the possibly partial final segment also receives a lattice amount. Some optimum on that path has every deficit on the common lattice. Maximizing over the finite path set proves that the exact lattice recurrence contains a global optimum. Its selected book is allocated at the original promise by the canonical history-level construction; the resulting lower and upper values are equal as rational numbers.
+
+The arithmetic count follows from Proposition~\ref{prop:cost56}; no independent anchor loop is introduced. A sufficient $D$ is the least common multiple of the denominators in \eqref{eq:latticeassumption56}. Its bit length is at most the sum of those denominator bit lengths, but its numerical value can be exponential in that sum. Hence enumerating $DR+1$ grid positions is pseudo-polynomial, not a binary-input polynomial algorithm. This distinction explains compatibility with the weak hardness result.
+\end{proof}
+
+For equal probabilities $1/k$, commands and caps on a grid of step $1/H$, and a promise on a grid of step $1/(kH)$, one can take $D=kH$. This gives an explicit operationally interpretable scaling parameter: history frequency and commanded-quantity granularity. Arbitrary rational probabilities can instead generate a much larger least common multiple. Nonzero quadratic service costs introduce interior stationary allocations that need not lie on this input lattice, so their exactness is not inferred from Theorem~\ref{thm:lattice56}; the centered additive theorem and exact price search continue to cover them.
+
+Hexadecimal proof serialization changes neither the lattice nor this complexity classification. A fraction with a twenty-thousand-bit denominator still requires those bits to be stored and processed. The implementation records numerator and denominator bit lengths, uncompressed and compressed certificate bytes, and explicit state-limit failures. It does not disable Python's decimal-integer conversion limit, and it does not interpret successful serialization as numerical tractability.
+
+For fully arbitrary rational inputs, ``pseudo-polynomial'' here refers to the scaled integral encoding in \eqref{eq:latticeassumption56}, not to the largest individual denominator before scaling. A least common multiple of many small denominators can itself be large. Under the common-grid normalization just specified, the conventional numerical parameter is $H$ and $D=kH$ suffices. That subclass contains the SUBSET SUM construction and has a genuine pseudo-polynomial algorithm in its explicit granularity. No strong-hardness classification of the unrestricted quadratic-service model is inferred from this result.
+\section{Exact Convex Formulation and Experimental Protocol}\label{sec:form59}
+The direct comparator models the original pre-draw semantics, not a relaxation in which service depends on the terminal draw. Let $x_i$ indicate an installed command, $z_{ji}$ indicate that command $i$ may be used after history $j$, and $p_{ji}$ be its probability. Variables with $a_i>\tau_j$ are omitted. With $M_{ji}=\max\{0,b_j+a_i-\tau_j\}$, the formulation is
+\begin{align}
+ \min\quad &\sum_i\rho_i x_i+\sum_j\pi_jH_j-\sum_{ji}\pi_j f_j(a_i)p_{ji},\label{eq:micp59}\\
+ &\sum_i x_i\leq m,\quad x_i,z_{ji}\in\{0,1\},\quad 0\leq p_{ji}\leq z_{ji}\leq x_i,\\
+ &\sum_i p_{ji}=1,\quad 0\leq y_j\leq b_j,\quad H_j\geq\gamma_j y_j^2/2,\\
+ &y_j+M_{ji}z_{ji}\leq\tau_j-a_i+M_{ji},\\
+ &y_j+\sum_i a_i p_{ji}\leq b_j,\qquad
+ \sum_j\pi_j\left(y_j+\sum_i a_i p_{ji}\right)=B.\nonumber
+\end{align}
+All sums over $ji$ use only eligible variables. Because $\pi_j>0$, the cost epigraph is tight at an optimum. These are linear constraints except for convex quadratic epigraphs. The formulation therefore uses no service discretization.
+
+\begin{proposition}[Equivalence to the original model]\label{prop:micp59}
+For rational quadratic primitives, the minimum in \eqref{eq:micp59} is the negative of the original maximum. The claim concerns the mathematical formulation, not a floating-point optimality status.
+\end{proposition}
+\begin{proof}
+An original feasible policy sets $x_i$ on its book, $p_{ji}$ to its lottery probabilities, and $z_{ji}=1$ on every positive probability. When $z_{ji}=1$, the big-$M$ constraint gives $y_j+a_i\leq\tau_j$. When it is zero, $y_j\leq b_j\leq\tau_j-a_i+M_{ji}$ makes the constraint redundant. Set $H_j=\gamma_jy_j^2/2$ to obtain its negative payoff. Conversely, every positive $p_{ji}$ forces $z_{ji}=x_i=1$, so the same inequalities give all original realized ceilings, the expected caps, the accepted promise and the actual command count. The probabilities define a lottery and $y_j$ is common to all its draws. Reducing any slack $H_j$ to the quadratic cost cannot worsen the minimum. Both mappings preserve the objective at optimum.
+\end{proof}
+
+We implement this formulation through PySCIPOpt \citep{Maher2016} with SCIP's mixed-integer nonlinear optimization machinery \citep{Bolusani2024}. The exact versions and executable environment are recorded in the study archive. One solver thread, zero relative-gap target and the requested absolute gap are used. No assertion of numerical exactness follows from a zero requested gap. After optimization, the selected book is evaluated by rational fixed-book allocation and its complete policy is checked without importing the optimizer. The solver's upper value bound, raw gap and nodes are retained separately. An invalid or absent numerical incumbent is replaced only by the explicitly recorded feasible singleton, never by an invented successful solve.
+
+\subsection{An exact reference for the grouped challenge family}
+In the construction of Theorem~\ref{thm:wone59}, consider general positive group weights without imposing the clique encoding. A book can remove every optional command except the largest selected option of each group without reducing the last eligible command of any history. For this linear-reward, free-service family, the gross value depends only on those last commands and the zero anchor. Removing positive charges cannot decrease value. Adding all free baselines afterwards uses at most $2g+1$ slots and cannot decrease value. An optimum consequently has this restricted form. Its exact value is
+\[
+ \max_{w_i\in A_i\cup\{0\}}\left\{\zeta-\frac{|\sum_iw_i-W|}{2K}\right\}.
+\]
+For the small challenge panel this product enumeration is an independent exact reference. It is not a polynomial algorithm for binary-encoded grouped sum. It is also not used to initialize or improve any timed competing solver. Unlike equal-book-count lexicographic comparisons, every timed method receives the same total allowance; the reference only identifies true value loss after execution.
+\section{Selected-Boundary Extensions}
+\subsection{An eligibility-independent capacity potential}
+The path-capacity identity has a stronger local form. It explains why eligibility affects returns, but does not create a hidden resource state.
+\begin{proposition}[Capacity potential]\label{prop:potential53}
+Define $p(u)=\sum_j\pi_j\min(b_j,u)$ for catalog vertices and $p(\dagger)=\bar b$. Every selected-boundary arc satisfies
+\begin{equation}\label{eq:potential53}
+ T_{uv}+Q_{uv}=p(v)-p(u),\qquad Q_{u\dagger}=p(\dagger)-p(u).
+\end{equation}
+Thus its capacity is independent of the realization ceilings as long as $\tau_j\geq b_j$. For a feasible anchor $a$, $p(a)=a$.
+\end{proposition}
+\begin{proof}
+Fix one history and an ordinary edge $u<v$. If $\tau_j<u$, then $b_j<u$, so both its contribution to the arc and $\min(b_j,v)-\min(b_j,u)$ are zero. If $u\leq\tau_j<v$, then $b_j<v$ and its exit-service capacity is $(b_j-u)_+=\min(b_j,v)-\min(b_j,u)$. If $\tau_j\geq v$, its terminal increment is $[\min(b_j,v)-u]_+$, which equals the same difference. These cases partition the histories. Multiplication by the probabilities and summation prove the first identity. For the terminal edge, $\tau_j<u$ again implies $(b_j-u)_+=0$, giving $Q_{u\dagger}=\sum_j\pi_j(b_j-u)_+=\bar b-p(u)$. Finally, feasibility implies $a\leq b_j$ for every history.
+\end{proof}
+Changing a ceiling can still change an arc's payoff through its exit set. Proposition~\ref{prop:potential53} asserts capacity invariance, not value continuity across a threshold. It also identifies the renewal reduction as a capacity-conservative configuration of the type used in the production model below.
+\subsection{A heterogeneous-reward primal extension}\label{sec:packing54}
+For heterogeneous rewards define the history-specific chord slope $\sigma^j_{uv}=[f_j(v)-f_j(u)]/(v-u)$. This gives the appropriate primal arc payoff. Simply replacing the common reward by different rewards in \eqref{eq:arc52} would be incorrect, because one chord slope no longer describes all histories. Instead, define the within-edge terminal allocation value
+\begin{equation}\label{eq:terminalprofile54}
+ R_{uv}(x)=\max\left\{\sum_{j:\tau_j\geq v}\pi_j\sigma^j_{uv}e_j:
+ 0\leq e_j\leq\delta_j(u,v),\ \sum_j\pi_je_j=x\right\},\quad 0\leq x\leq T_{uv}.
+\end{equation}
+The feasible within-edge polytope is nonempty and compact at each stated total, so its linear objective attains a maximum. Its value is continuous, increasing and concave, with marginal slopes drawn from the history-specific chord slopes. Set
+\begin{equation}\label{eq:heteroarc54}
+ \widetilde\Phi_{uv}(x)=R_{uv}(\min(x,T_{uv}))-H_{uv}((x-T_{uv})_+).
+\end{equation}
+The terminal edge still has payoff $-H_{u\dagger}$. All terminal slopes are positive and all service marginal returns are nonpositive, so this joined payoff is concave.
+
+\begin{theorem}[History-level component packing]\label{thm:packing54}
+For a common ordered catalog with ceiling-induced prefix eligibility and heterogeneous increasing concave terminal rewards, replace $f(a)$ in \eqref{eq:pathidentity52} by $\sum_j\pi_jf_j(a)$ and every $\Phi$ by $\widetilde\Phi$. The resulting scalar-resource path identity is exact. Its capacities remain those in \eqref{eq:capacityidentity52}. For any feasible arc-resource vector, within-edge optimizers followed by history-level packing produce a feasible original policy with the same individual component totals and no smaller payoff.
+\end{theorem}
+\begin{proof}
+For a fixed book, introduce a component $e_{j,uv}\in[0,\delta_j(u,v)]$ for every eligible terminal segment, and service $z_j\in[0,(b_j-d_j)_+]$. Temporarily drop the requirement that a history's earlier components must be filled before its later ones. The relaxed objective, apart from charges, is
+\[
+ \sum_j\pi_j\left[f_j(a)+\sum_{(u,v)}\sigma^j_{uv}e_{j,uv}-h_j(z_j)\right],
+ \qquad \sum_j\pi_j\left[\sum_{(u,v)}e_{j,uv}+z_j\right]=B-a.
+\]
+Every original canonical policy embeds in this relaxation by filling its eligible segments in order and then its service tail. Conversely, fix any relaxed component allocation and define
+$t_j=a+\sum_{(u,v)}e_{j,uv}+z_j$.
+The sum of that history's component capacities is exactly $b_j-a$, so $a\leq t_j\leq b_j$. Its components can be packed in their original order while preserving $t_j$: move service into any unfinished positive terminal segment, then move mass from a later positive segment into any unfinished earlier segment. Each move weakly improves payoff, because the history's terminal slopes are decreasing and positive and service cost is nondecreasing. This comparison is entirely within a history; it needs no common ordering across histories. At termination the components implement its canonical response at $t_j$. Proposition~\ref{prop:canonical52} supplies the adjacent lottery or sure-command service policy, with every realization constraint intact. The weighted promise is unchanged by packing. Thus relaxation and original problem have the same optimum.
+
+Now regroup the relaxed components by selected edge, assigning $z_j$ to the unique exit edge of history $j$. Groups share only the scalar total-resource equality; their individual component bounds are otherwise disjoint. For a fixed group resource $x$, optimal allocation fills positive terminal returns first, whose optimum is $R_{uv}$, and then minimizes the exit-set service cost $H_{uv}$. This is exactly \eqref{eq:heteroarc54}. Maximizing over group resources is therefore the same relaxation already proved exact. The component-capacity telescoping is unchanged. Within-edge optimizers followed by the preceding history-level packing provide the asserted constructive recovery.
+\end{proof}
+
+In the quadratic specialization, $R_{uv}$ is evaluated by sorting the eligible history slopes and filling weighted segment capacities. Its Lipschitz constant is at most $\max_j r_j$. The service part is bounded by $\max_j\gamma_j$. Hence the polynomial additive resource construction also extends to heterogeneous rewards with these new kernels. The heterogeneous merged-origin implementation in Section~\ref{sec:deficit56} evaluates these primal kernels directly. The predecessor readers retain the earlier common-reward comparison and its separate scope.
+\section{A Recognizable Class of Resource Paths}\label{sec:class59}
+The renewal reduction is an instance of a more general allocation problem. Let $G=(V,E)$ be a finite directed acyclic graph with a common sink $t$, a set of possible starting vertices $S$, capacities $C_e\geq0$, continuous edge payoffs $\phi_e$ on $[0,C_e]$, and source payoffs $A_s$. A decision selects a source-to-sink path $P$ of at most $h\geq1$ edges and allocations $0\leq x_e\leq C_e$ satisfying $\sum_{e\in P}x_e=B_s$. Its value is $A_s+\sum_{e\in P}\phi_e(x_e)$, with any fixed edge or vertex charge included once in the corresponding path payoff. Retain only vertices reachable from a source and able to reach the sink. No ordered catalog, history, or eligibility prefix is required for this abstract problem.
+
+\begin{theorem}[Recognition and source-independent deficits]\label{thm:recognition59}
+The following are equivalent on the retained graph: (i) for every source, every source-to-sink path has the same total capacity; (ii) every vertex has a well-defined suffix capacity $H_v$, with $H_t=0$ and $C_{uv}=H_u-H_v$ on every edge. The condition can be recognized in $O(|V|+|E|)$ arithmetic operations. When it fails, two paths from a common source with different total capacities form a directly checkable witness.
+
+Under these equivalent conditions, replacing $x_e$ by $w_e=C_e-x_e$ yields a single terminal resource level independent of source and path if and only if $H_s-B_s=R$ is the same constant for every admissible source. In that case the exact optimum is
+\[
+ \max_{s,P}\left\{A_s+\max_{0\leq w_e\leq C_e,\;\sum_{e\in P}w_e=R}
+                  \sum_{e\in P}\phi_e(C_e-w_e)\right\}.
+\]
+All sources can be initialized at deficit zero. Infeasible sources with $B_s\notin[0,H_s]$, or with no path within the edge limit, are excluded explicitly; if none remain, the problem is infeasible.
+\end{theorem}
+\begin{proof}
+Condition (ii) telescopes, proving (i). Conversely fix a vertex $v$ and a source-to-$v$ prefix. Concatenating that prefix with any two $v$-to-sink suffixes gives valid paths, because the graph is acyclic. Condition (i) makes their suffix capacities equal. Define their common sum as $H_v$. Appending any edge $uv$ to a suffix from $v$ yields $H_u=C_{uv}+H_v$.
+
+In reverse topological order set $H_t=0$. At $u$, compute $C_{uv}+H_v$ for each successor and require all results to agree. This examines each edge once. Store a representative suffix at every vertex by successor pointers. If two values disagree, their edges followed by the stored suffixes have different capacities; prepend any retained source prefix. The resulting witness has two explicit paths, whose capacity sums can be checked independently. Reachability and the minimum number of edges to the sink are also computed by topological passes.
+
+On any path starting at $s$, $\sum C_e=H_s$, so $\sum x_e=B_s$ is equivalent to $\sum w_e=H_s-B_s$. This proves necessity and sufficiency for this particular complement coordinate, and is a bijection between the constrained allocation boxes. Continuations at a vertex depend only on that vertex, elapsed edge count, and accumulated deficit. Keeping the best prefix at each such state therefore loses no feasible complete path or value. The predecessor chain retains the actual source. The statement is not a claim that no other algorithm can merge states when capacity conservation fails.
+\end{proof}
+
+\begin{theorem}[Additive approximation on conservative paths]\label{thm:abstractapprox59}
+Suppose the recognized instance has $R\geq0$, every admissible source has $H_s\geq R$, and the centered deficit payoffs
+$g_e(w)=\phi_e(C_e-w)+\lambda_0w$ are concave and $K$-Lipschitz for one common $K>0$. With $\eta=\varepsilon/(2Kh)$, a layered path dynamic program on deficit multiples of $\eta$, accepting totals in $[R-h\eta,R]$, returns a feasible policy and a value interval of width at most $\varepsilon$. Apart from kernel evaluation, its arithmetic count is
+$O(h|E|Q\log(Q+1)+h|V|Q)$, where $Q=\lfloor R/\eta\rfloor+1$. The result preserves the source, path, edge limit, and the exact original equality. Without concavity, the same guarantee holds for Lipschitz kernels using the direct $O(h|E|Q^2)$ convolution.
+\end{theorem}
+\begin{proof}
+Round the deficits of an optimal path down. At most $h$ coordinates change, their total change is less than $h\eta$, and their centered payoff loss is at most $Kh\eta$. The best accepted grid value $Z_\eta$ consequently gives upper bound $Z_\eta-\lambda_0R+Kh\eta$. For a maximizing grid path, increase deficits to total $R$. Its total available capacity is $H_s\geq R$, so a greedy fill within residual edge capacities always completes this repair. Its total change is at most $h\eta$, giving a feasible lower value at least $Z_\eta-\lambda_0R-Kh\eta$. Source payoffs and path charges do not change. Their difference is at most $2Kh\eta=\varepsilon$.
+
+Initialize every feasible source at layer zero and deficit zero, and process edges between consecutive layers. Arbitrary holes in the finite support of a preceding row are permitted by Lemma~\ref{lem:holes56}, yielding the stated concave convolution count. Direct enumeration of both deficits proves the nonconcave count. At $R=0$ there is one resource state and the method is exact. Numerical grid size, not its logarithm, appears in both bounds; rational bit complexity additionally depends on the encoding and exact evaluation of the supplied kernels.
+\end{proof}
+
+For renewal design, $H_u=\bar b-p(u)$ and $B_u=B-u$ at a feasible anchor, for which $p(u)=u$. The common deficit is therefore $\bar b-B$, and $h=m$ including the terminal edge. Prefix eligibility and concave rewards are needed to derive and implement the renewal arc functions; they are not needed for the recognition identity. A separate class of examples is modular resource allocation along a precedence-compatible configuration path, with $C_{uv}=p(v)-p(u)$ and separable concave returns on installed modules. These examples instantiate the abstract theorem without interpreting vertices as renewal commands. They are structural examples, not field-calibrated applications. Multiple independent resource equalities require a multidimensional state and componentwise repair; the scalar complexity bound must not be carried over unchanged.
+\paragraph{The path quantifier.} The preceding recognition theorem concerns all source-to-sink paths in the retained graph. Under an edge allowance it is sufficient, but need not be necessary. The exact bounded-path recognition, witness and oracle-cost statements are in Theorem~\ref{thm:bounded60}; its layered construction does not add a second edge-count factor to the approximation recurrence.
+\section{Capacity Repair for the Original Equality}\label{sec:algorithm52}
+\subsection{A capacity-repair principle}
+We first state the approximation argument for a general resource-path problem. It identifies exactly which property is supplied by Theorem~\ref{thm:path52}.
+
+Consider a finite acyclic directed graph with designated source and sink. An admissible path has at most $h$ arcs. Arc $e$ has capacity $C_e\geq0$, opening charge $\kappa_e$, and an $L$-Lipschitz payoff $\psi_e$ on $[0,C_e]$. Choose a path and resources satisfying $\sum_e x_e=R$, to maximize $\sum_e[\psi_e(x_e)-\kappa_e]$. Assume every admissible path has total capacity at least $R\geq0$. This assumption is verifiable by a minimum-capacity path calculation with the same length restriction; it is automatic when $C_{uv}=p_v-p_u$ for a nondecreasing vertex potential and $R\leq p_{\rm sink}-p_{\rm source}$.
+
+For $\eta>0$, restrict resources to $x_e=q_e\eta$, where $q_e$ is a nonnegative integer and $q_e\eta\leq C_e$. Accept a grid path only if
+\begin{equation}\label{eq:band52}
+ 0\leq R-\eta\sum_e q_e\leq h\eta.
+\end{equation}
+Let $S_\eta$ be the largest grid-path score in this band.
+\begin{theorem}[Capacity-repair certificate]\label{thm:repair52}
+A maximizing grid path can be repaired to exact resource $R$ without changing its arcs. If its repaired feasible value is $\underline V$, the optimum $V$ satisfies
+\begin{equation}\label{eq:generalcert52}
+ S_\eta-Lh\eta\leq\underline V\leq V\leq S_\eta+Lh\eta.
+\end{equation}
+Consequently the returned path is within $2Lh\eta$ of optimal. The result permits signed payoffs and arbitrary fixed charges; it does not use a positive lower bound on the optimal value.
+\end{theorem}
+\begin{proof}
+Round each resource on an optimal path down to a multiple of $\eta$. The lost resource $d$ is less than $h\eta$, so the rounded vector satisfies \eqref{eq:band52}. Lipschitz continuity bounds its objective loss by $Ld$, because charges do not change. Hence $V\leq S_\eta+Lh\eta$.
+
+For the maximizing grid path, its unused total capacity is at least $R-\eta\sum_e q_e$. Distribute exactly that residual among its nonnegative remaining capacities. No coordinate decreases and the sum of absolute resource changes equals the residual, which is at most $h\eta$. The payoff loss is at most $Lh\eta$. The repaired vector is feasible for the original resource requirement and uses the same path. This proves all inequalities.
+\end{proof}
+
+Concavity is not needed for this error argument. It will give efficient convolution and reconstruction in the renewal problem. An arbitrary resource-constrained path problem with some accepted grid paths of insufficient total capacity would not satisfy this theorem; its rounded solutions could be infeasible to repair. The identity \eqref{eq:capacityidentity52} rules out precisely that failure here.
+
+\section{Selecting Reward Prototypes}\label{sec:grouping59}
+The oscillation guarantee becomes an optimization tool only after groups and prototypes are chosen. For catalog reward vectors define
+\[
+ d(f,h)=\max_{a\in\mathcal A}[f(a)-h(a)]-\min_{a\in\mathcal A}[f(a)-h(a)].
+\]
+This is a pseudometric: symmetry follows by negating the difference, and the triangle inequality follows from subadditivity of maximum minus minimum. It is a metric after identifying vectors differing by a constant. Only histories with the same expected cap may share a prototype; ceilings, costs, probabilities, and promise remain unchanged.
+
+For prototypes restricted to observed rewards, the minimum loss certificate with at most $G$ groups is the cap-restricted weighted medoid problem
+\[
+ \min\sum_{j,r:\,b_j=b_r}\pi_jd(f_j,f_r)x_{jr},\quad
+ \sum_{r:b_r=b_j}x_{jr}=1,\quad 0\leq x_{jr}\leq z_r,\quad
+ \sum_r z_r\leq G,\quad z_r\in\{0,1\}.
+\]
+For fixed selected centers a nearest-center assignment is optimal, so fractional assignment variables do not change the optimum. This is a standard facility-location model, not a new general clustering method. Its feasible upper bound supplies a valid loss certificate immediately, even if clustering is interrupted; a lower bound quantifies how much better this declared prototype family could be. Combined with Theorem~\ref{thm:robusttypes58}, a clustering solution of cost $\Delta$ and a prototype-policy solution of error $\xi$ give original regret at most $\Delta+\xi$ and an existence bound of $\min\{m,2G\}$ commands.
+
+\begin{theorem}[Exact cap-preserving grouping frontier]\label{thm:grouping59}
+Suppose that within cap class $b$, rewards are $f_j(x)=\alpha_j+r_jx-\kappa_b x^2/2$, with $r_j\geq\kappa_b\geq0$ and strict increase on the catalog. Among prototypes of this same class-specific curvature, the minimum oscillation loss for every group allowance through $G$ can be computed by weighted-median dynamic programming in
+$O(k\log(k+1)+k^2G+q_bG^2)$ rational operations and $O(k^2+kG+q_bG)$ stored entries. This optimizes prototype selection, not the subsequent command-book search. Different expected caps are never merged.
+\end{theorem}
+\begin{proof}
+Additive constants and common curvature cancel in each difference. Thus $d(f_j,f_r)=(a_N-a_1)|r_j-r_r|$. For a fixed cap class, sort the slopes. For any chosen ordered center slopes, nearest-center regions on a line can be chosen as contiguous intervals; weights multiply their distances but do not affect the nearest-center choice for an individual point. Conversely, each interval is optimally represented by a weighted median, which can be chosen among its observed slopes. The allowed median preserves increasing concavity. Therefore an optimum has contiguous groups with observed medians.
+
+For sorted indices $1,\ldots,n_b$, let
+$C_b(i,j)=(a_N-a_1)\min_r\sum_{v=i}^j\pi_v|r_v-r|$.
+Prefix sums of weights and weighted slopes, with a median pointer that moves only forward as $j$ increases for fixed $i$, compute all interval costs in $O(n_b^2)$ operations. Define
+\[
+ F_b(t,j)=\min_{t-1\leq i<j}\{F_b(t-1,i)+C_b(i+1,j)\},
+ \quad F_b(0,0)=0,
+\]
+with other infeasible states infinite. This yields every cap-class frontier in $O(Gn_b^2)$ operations. Convolve these frontiers over cap classes, allocating at least one group to each nonempty class and at most $G$ in total. This takes $O(q_bG^2)$ operations. Backtracking yields centers and assignments. The storage bound includes interval costs and backpointers. Summing over classes gives the result. With $G<q_b$ the declared cap-preserving grouping problem is infeasible; with $G\geq k$ its loss is zero.
+\end{proof}
+
+For arbitrary reward curves the medoid formulation remains valid, but the one-dimensional dynamic program is not asserted. No statistical estimation guarantee is implicit in this calculation. The tests compare the computed frontier with exhaustive medoid choices, and the resulting loss remains in the same reward-minus-cost units as the original objective.
+\section{Length-Aware Conservation and a Nonrenewal Application}\label{sec:bounded60}
+The full-graph recognition theorem quantifies over all source-to-sink paths. Its condition is sufficient, but need not be necessary, when only paths with at most $h$ edges are permitted. For example, edges $s\to t$, $s\to u$, $u\to t$ of capacities $1,1,1$ fail full-graph conservation; when $h=1$, only the first path is allowed and its capacity is unambiguous. The following extension makes the path quantifier explicit.
+
+\begin{theorem}[Recognition under an edge allowance]\label{thm:bounded60}
+Let $G$ be an acyclic graph with nonnegative rational edge capacities, a sink $t$, sources $S$, and an edge allowance $h$. After replacing $h$ by $\min\{h,|V|-1\}$, construct vertices $(v,\ell)$ for $0\leq\ell\leq h$, edges $(u,\ell)\to(v,\ell+1)$ of capacity $C_{uv}$, and zero-capacity edges from $(t,\ell)$ to one artificial sink. Prune vertices not on a path from some $(s,0)$ to the artificial sink. Then the following are equivalent: every original source has a common capacity across all its admissible paths of at most $h$ edges; the retained layered graph has a suffix-capacity potential.
+
+Recognition requires $O(h(|V|+|E|))$ arithmetic operations and, upon failure, returns two original paths of at most $h$ edges from the same source with different capacities. Denote the source potentials by $H_{s,0}$. A complement resource with one source-independent terminal level exists exactly when $H_{s,0}-B_s=R$ is constant across admissible sources. Under the kernel assumptions of Theorem~\ref{thm:abstractapprox59}, the same feasible additive approximation holds with arithmetic count
+$O(h|E|Q\log(Q+1)+h|V|Q)$, apart from kernel evaluation, where $Q=\lfloor2KhR/\varepsilon\rfloor+1$. The artificial edges are not counted or rounded.
+\end{theorem}
+\begin{proof}
+A path to the artificial sink is in bijection with an original admissible path and its elapsed edge counts. The artificial edge adds no capacity. Apply Theorem~\ref{thm:recognition59} to the retained layered graph. A disagreement has two explicit layered suffixes and a source prefix. Erasing layer labels and the artificial edge gives the promised witness. Storing parent and successor pointers, and materializing paths only when a disagreement occurs, gives the linear bound in the lifted graph size; storing a separate full suffix at every vertex would not.
+
+For any source, the capacity sum telescopes to $H_{s,0}$. Thus $w_e=C_e-x_e$ transforms its equality into $\sum w_e=H_{s,0}-B_s$. Constancy of this quantity is necessary and sufficient for the stated complement coordinate. Rounding an optimal admissible path down changes at most $h$ real edges. The same-path greedy repair is possible because its total capacity is at least $R$. The proof of Theorem~\ref{thm:abstractapprox59} therefore applies without change to the error bound. Each pair consisting of an original edge and elapsed edge count is processed once; the layer coordinate already used by the dynamic program is not duplicated. This proves the stated, rather than an extra factor-$h$, count.
+\end{proof}
+
+\paragraph{Oracle and bit model.} For general continuous kernels, the arithmetic counts are oracle counts: every requested rational grid value must be supplied exactly, and the theorem does not presume a polynomial-time implementation for an arbitrary continuous function. For rational piecewise-linear or piecewise-quadratic kernels supplied explicitly with rational breakpoints and polynomially encoded coefficients, exact evaluation at a grid point has polynomial bit cost in the input description and $\log(Q+1)$. The sum of at most $h$ such values has polynomially bounded encoding length. Multiplying the stated arithmetic count by this evaluation and integer-arithmetic cost gives a bound polynomial in the numerical $Q$ and the binary input length. An exponentially large grid is not made polynomial by encoding its size in binary. The renewal kernels have the separate constructive bound of Proposition~\ref{prop:cost56}.
+
+\subsection{Corridor rehabilitation with endogenous contract boundaries}\label{sec:corridor60}
+Consider an ordered set of admissible mileposts, with position $p(v)$, first post $s$, and final post $t$. An admissible edge $u\to v$ is a rehabilitation contract spanning the interval between the two posts. Its physical length is $C_{uv}=p(v)-p(u)$. A design chooses a compatible sequence of contracts partitioning the corridor, with at most $h$ contracts. On each chosen contract it treats a length $x_{uv}\in[0,C_{uv}]$, earns a continuous concave incremental condition benefit $\phi_{uv}(x_{uv})$, and pays a fixed mobilization charge included once in that edge payoff. A funding requirement fixes the total treated length at $B$.
+
+This is precisely the resource-path model: vertices are permissible boundaries, edges are admissible contracts, the command-count analogue is the contract allowance, and $R=p(t)-p(s)-B$ is the untreated length. The potential is $H_v=p(t)-p(v)$, so all path capacities equal the corridor length regardless of the chosen partition. Deficit repair expands untreated lengths within the same contracts, keeping both the partition and the funding equality. Contract-specific technologies can change $\phi_{uv}$ without changing recognition. With several permissible starting posts, a common untreated length is possible exactly when $p(t)-p(s)-B_s$ is independent of $s$.
+
+The mapping assumes divisible treatment and separable contract returns; it does not cover inter-contract deterioration spillovers or indivisible work packages. It is a decision model derived from stated physical quantities, not a field-calibrated experiment. It illustrates why conservation and recovery are useful outside renewal commands without importing the renewal-specific lottery or eligibility argument into an unrelated application.
+\section{Implementation Boundaries and External-Input Verification}\label{sec:implementation63}
+The exact tariff algorithm computes a modal opening fee before allocation. Equal-frequency modes are resolved by the smallest rational fee; every mode minimizes the number of exceptional commands. The emitted record contains that fee, the exceptional index set, its count, and the declared guard. The reference implementation's default guard is 12. Crossing it produces \texttt{ENGINEERING\_GUARD}, not mathematical inapplicability and not a polynomial-time claim. Positive service cost or nonlinear reward instead produces \texttt{MATHEMATICALLY\_INAPPLICABLE}. An optimization deadline and a parent-process timeout are separate recorded outcomes. Sparse proof tables and stored rational numerators have costs beyond the arithmetic operation count.
+
+For a directed acyclic graph, a real path has at most $|V|-1$ edges. The implementation replaces a supplied edge allowance $h$ by $h_{\rm eff}=\min\{h,|V|-1\}$ before allocating layered states. A terminal bookkeeping edge neither consumes the real-edge allowance nor enters the rounding count. The regression suite compares an allowance of $10^{100}$ with the corresponding effective allowance of two. Thus the running time does not scale with the numerical value of a binary-encoded redundant path allowance. Capacity conservation, interval feasibility, and the original promise remain independently checked.
+
+\subsection{Binding a mathematical proof to its requested input}\label{sec:binding63}
+A proof that verifies against its own embedded model need not verify the externally requested model. The earlier execution used both ordinary and hexadecimal encodings of exact rational numbers. A price producer normalized its embedded fractions; the global replay compared their raw serialization digest with the frozen request and rejected an otherwise equal input. Four hybrid records also encountered this boundary. We preserve these execution failures and their original deadlines.
+
+The current adapter requires both the certificate and the external frozen input. It validates the complete set of fields, the original integer allowance, and all model constraints. It then proves exact equality of every rational field, recording the requested byte digest, the certificate-input byte digest, and a canonical rational digest. Only after this binding does the independent mathematical checker verify the proof. A second policy check uses the external original input directly; embedded hybrid probes are bound recursively. Unknown or missing fields, changed parameters, and altered policies are rejected. The adapter imports no optimization routine. A change of rational notation is distinguished from a change of problem data, not accepted on trust.
+
+All 405 frozen execution records are retained. Of these, 389 contain a certificate: current independent replay checks 342 rational two-sided certificates and 47 numerical-solver policies for lower bounds only. Sixteen records contain no certificate. Sixteen existing certificates use a different rational input serialization, with exact fieldwise equivalence established in every case. Forty-five certificates previously failed or lacked a completed check; their later successful replay does not reclassify their original deadline outcome. Numerical solver upper bounds are never promoted to exact rational bounds.
+
+\subsection{Certifying fee selection, projection, and minimal allowance}\label{sec:semantic64}
+An exact allocation proof and a correct claim about the chosen parameterization are different obligations. The tariff recurrence remains exact for any supplied standard fee after enumerating every relative exception. Its canonical certificate additionally claims that the standard is a most frequent original fee, with the smallest rational mode used to break ties. The independent checker now counts the original fees and checks this rule before checking the exception inventory, subset coverage, every Bellman state, and the returned original policy. Choosing a mode minimizes the exception count; choosing the smallest tied mode makes the implementation deterministic without changing its exact optimal value.
+
+For a robust certificate the checker first binds the externally requested physical input. It sorts the original fees by value and catalog index, and, for the submitted allowance $d_{\rm allow}$, independently visits every consecutive window of length $N-d_{\rm allow}$. It evaluates the direct sum of absolute deviations from each lower median. This differs from the optimizer's prefix-sum calculation. It selects the minimum tuple (distortion, median, left position), and checks the supplied retained indices, median, complete projected charge vector, exception indices, and distortion. The inner exact tariff proof must use precisely this projected vector; its standard fee is independently checked against that vector's own modes. Thus $d_{\rm tariff}\leq d_{\rm proj}\leq d_{\rm allow}$, even when the two standard fees differ.
+
+Write $D_d$ for the minimum total absolute distortion at allowance $d$. The checker verifies $D_{d_{\rm allow}}\leq\varepsilon$ and, when $d_{\rm allow}>0$, $D_{d_{\rm allow}-1}>\varepsilon$. Since $D_d$ is nonincreasing, the latter inequality excludes every smaller allowance; it is not necessary to trust the optimizer's binary-search path. At allowance zero no predecessor check is needed. Recomputing these two projections takes $O(N\log N+(d_{\rm allow}+1)N)$ rational operations. The certified minimum concerns the total absolute fee distortion, not the smallest final interval, realized regret, exact exception count after re-centering, or computation time. All original policy, one-sided error-budget, and final interval checks remain in force. The compatibility verifier delegates to the independent checker rather than retaining a weaker second verification path.
+
+The semantic regression suite checks 288 small projections against exhaustive retained-subset enumeration and accepts 577 valid certificates, including equivalent rational encodings. Ten adversarial certificates carry false parameterization or projection claims while retaining valid objective intervals. They include a nonmodal standard, the wrong tied mode, a nonoptimal retained window, an incorrect median, and a nonminimal allowance. An isolated replay confirms that the archived checker accepts all ten; the current checker rejects all ten. This demonstrates the particular semantic closure, rather than counting arbitrary corrupted bytes as evidence. Checker import-closure tests exclude the optimization modules. These finite tests support implementation validation; the proofs in the article establish the mathematical guarantees.
+
+The projection-quality table in the article is generated solely from frozen inputs, records, and certificates. It contains all twelve adversarial robust-tariff requests. Five original-fee regrets are identified exactly by closed rational intervals; two remain bounded rather than identified, and five requests have no certificate. Times and proof sizes are the original recorded quantities. Additional comparator checks determine value information only and do not alter a comparator's recorded deadline or checking outcome. The machine-readable table includes record and certificate hashes and keeps these two uses of evidence separate.
+
+\subsection{Source closure and reproduction}
+The flat revision distinguishes three sources: unchanged earlier timing records, the fee-robustness and graph regressions, and the new exhaustive root-support diagnostic. Frozen original sources are retained beside each timing panel. The replay checks their hashes before any proof. The R63 root panel's original source freeze is verified against the unchanged archived R63 code, while current checkers are separately hashed and execute the proof replay. The root panel has its own input and source freeze before its execution; it was designed after the earlier study and is not described as an independently sampled population. Every complete raw row, guard, limit, serialization cost, and missing phase remains accessible. No failed request is assigned a zero checking cost.
+
+The package includes standalone manuscript and companion sources, current code, unchanged historical execution snapshots, input freezes, row-level records, exact proofs, an explicit section-preservation map, and reconstruction commands. Reader generation does not overwrite the historical data. The repository publication records the generated commit and validates that exact checkout, avoiding a self-referential file hash of the commit that contains it. The scientific branch descends from the author-only source root, while the reviewed report is identified by its immutable branch, commit, path, and blob. Reviewer files are not introduced as a scientific parent. R64 preserves the R63 readers, code, and result snapshot; their unchanged R60/R61 evidence remains shared at its original paths. The archival manifest is interpreted with this preservation map rather than as an independently copied second timing study. Exact-head receipts establish artifact integrity and executed checks, not novelty or editorial acceptance.
+\clearpage\phantomsection\label{ec-refs-start}
+\begin{thebibliography}{99}\raggedright
+\bibitem[Aggarwal et al.(1987)Aggarwal, Klawe, Moran, Shor, and Wilber]{Aggarwal1987}
+Aggarwal A, Klawe MM, Moran S, Shor P, Wilber R (1987) Geometric applications of a matrix-searching algorithm. \emph{Algorithmica} 2:195--208. doi:10.1007/BF01840359.
+\bibitem[Ahmadi et al.(2025)Ahmadi, Raith, and Jalili]{Ahmadi2025}
+Ahmadi S, Raith A, Jalili M (2025) A fast and simple algorithm for the resource constrained shortest path problem. \emph{33rd Annual European Symposium on Algorithms}, LIPIcs 351:97:1--97:15. doi:10.4230/LIPIcs.ESA.2025.97.
+\bibitem[Arya et al.(2004)Arya, Garg, Khandekar, Meyerson, Munagala, and Pandit]{Arya2004}
+Arya V, Garg N, Khandekar R, Meyerson A, Munagala K, Pandit V (2004) Local search heuristics for $k$-median and facility location problems. \emph{SIAM Journal on Computing} 33(3):544--562. doi:10.1137/S0097539702416402.
+\bibitem[Babaioff et al.(2022)Babaioff, Gonczarowski, and Nisan]{Babaioff2016}
+Babaioff M, Gonczarowski YA, Nisan N (2022) The menu-size complexity of revenue approximation. \emph{Games and Economic Behavior} 134:281--307. doi:10.1016/j.geb.2021.03.001.
+\bibitem[Beasley and Christofides(1989)]{BeasleyChristofides1989}
+Beasley JE, Christofides N (1989) An algorithm for the resource constrained shortest path problem. \emph{Networks} 19(4):379--394. doi:10.1002/net.3230190402.
+\bibitem[Bolusani et al.(2024)]{Bolusani2024}
+Bolusani S, et al. (2024) The SCIP Optimization Suite 9.0. ZIB Report 24-02, Zuse Institute Berlin. The execution manifest records the version actually run; this citation documents the solver framework.
+\bibitem[Di Puglia Pugliese and Guerriero(2013)]{PuglieseGuerriero2013}
+Di Puglia Pugliese L, Guerriero F (2013) A survey of resource constrained shortest path problems: Exact solution approaches. \emph{Networks} 62(3):183--200. doi:10.1002/net.21511.
+\bibitem[Downey and Fellows(1995)]{DowneyFellows1995b}
+Downey RG, Fellows MR (1995) Fixed-parameter tractability and completeness II: On completeness for W[1]. \emph{Theoretical Computer Science} 141(1--2):109--131. doi:10.1016/0304-3975(94)00097-3.
+\bibitem[Fisher(1981)]{Fisher1981}
+Fisher ML (1981) The Lagrangian relaxation method for solving integer programming problems. \emph{Management Science} 27(1):1--18. doi:10.1287/mnsc.27.1.1.
+\bibitem[Gurski et al.(2019)Gurski, Rehs, and Rethmann]{Gurski2019}
+Gurski F, Rehs C, Rethmann J (2019) Knapsack problems: A parameterized point of view. \emph{Theoretical Computer Science} 775:93--108. doi:10.1016/j.tcs.2018.12.019.
+\bibitem[Handler and Zang(1980)]{HandlerZang1980}
+Handler GY, Zang I (1980) A dual algorithm for the constrained shortest path problem. \emph{Networks} 10(4):293--309. doi:10.1002/net.3230100403.
+\bibitem[Hart and Nisan(2019)]{HartNisan2013}
+Hart S, Nisan N (2019) Selling multiple correlated goods: Revenue maximization and menu-size complexity. \emph{Journal of Economic Theory} 183:991--1029. doi:10.1016/j.jet.2019.07.006.
+\bibitem[Hassin(1992)]{Hassin1992}
+Hassin R (1992) Approximation schemes for the restricted shortest path problem. \emph{Mathematics of Operations Research} 17(1):36--42. doi:10.1287/moor.17.1.36.
+\bibitem[Karp(1972)]{Karp1972}
+Karp RM (1972) Reducibility among combinatorial problems. Miller RE, Thatcher JW, eds. \emph{Complexity of Computer Computations} (Plenum Press, New York), 85--103. doi:10.1007/978-1-4684-2001-2\_9.
+\bibitem[Lorenz and Raz(2001)]{LorenzRaz2001}
+Lorenz DH, Raz D (2001) A simple efficient approximation scheme for the restricted shortest path problem. \emph{Operations Research Letters} 28(5):213--219. doi:10.1016/S0167-6377(01)00069-4.
+\bibitem[Maher et al.(2016)Maher, Miltenberger, Pedroso, Rehfeldt, Schwarz, and Serrano]{Maher2016}
+Maher S, Miltenberger M, Pedroso JP, Rehfeldt D, Schwarz R, Serrano F (2016) PySCIPOpt: Mathematical programming in Python with the SCIP optimization suite. \emph{Mathematical Software---ICMS 2016}, 301--307. doi:10.1007/978-3-319-42432-3\_37.
+\bibitem[Mohajerin Esfahani and Kuhn(2018)]{EsfahaniKuhn2018}
+Mohajerin Esfahani P, Kuhn D (2018) Data-driven distributionally robust optimization using the Wasserstein metric: Performance guarantees and tractable reformulations. \emph{Mathematical Programming} 171:115--166. doi:10.1007/s10107-017-1172-1.
+\bibitem[Pag\`es and Wilbertz(2012)]{PagesWilbertz2012}
+Pag\`es G, Wilbertz B (2012) Intrinsic stationarity for vector quantization: Foundation of dual quantization. \emph{SIAM Journal on Numerical Analysis} 50(2):747--780. doi:10.1137/110827041.
+\bibitem[Patriksson(2008)]{Patriksson2008}
+Patriksson M (2008) A survey on the continuous nonlinear resource allocation problem. \emph{European Journal of Operational Research} 185(1):1--46. doi:10.1016/j.ejor.2006.12.006.
+\bibitem[Rusmevichientong et al.(2010)Rusmevichientong, Shen, and Shmoys]{Rusmevichientong2010}
+Rusmevichientong P, Shen ZJM, Shmoys DB (2010) Dynamic assortment optimization with a multinomial logit choice model and capacity constraint. \emph{Operations Research} 58(6):1666--1680. doi:10.1287/opre.1100.0866.
+\bibitem[Sadykov et al.(2021)Sadykov, Uchoa, and Pessoa]{Sadykov2021}
+Sadykov R, Uchoa E, Pessoa A (2021) A bucket graph-based labeling algorithm with application to vehicle routing. \emph{Transportation Science} 55(1):4--28. doi:10.1287/trsc.2020.0985.
+\bibitem[Tableman(1994)]{Tableman1994}
+Tableman M (1994) The asymptotics of the least trimmed absolute deviations (LTAD) estimator. \emph{Statistics \& Probability Letters} 19(5):387--398. doi:10.1016/0167-7152(94)90007-8.
+\bibitem[Virtanen et al.(2020)Virtanen, Gommers, Oliphant, et al.]{Virtanen2020}
+Virtanen P, Gommers R, Oliphant TE, et al. (2020) SciPy 1.0: Fundamental algorithms for scientific computing in Python. \emph{Nature Methods} 17:261--272. doi:10.1038/s41592-019-0686-2.
+\bibitem[Winkler(1988)]{Winkler1988}
+Winkler G (1988) Extreme points of moment sets. \emph{Mathematics of Operations Research} 13(4):581--587. doi:10.1287/moor.13.4.581.
+\bibitem[Wu(1991)]{Wu1991}
+Wu X (1991) Optimal quantization by matrix searching. \emph{Journal of Algorithms} 12(4):663--673. doi:10.1016/0196-6774(91)90039-2.
+\bibitem[Xu and Burer(2017)]{XuBurer2017}
+Xu G, Burer S (2017) Robust sensitivity analysis of the optimal value of linear programming. \emph{Optimization Methods and Software} 32(6):1187--1205. doi:10.1080/10556788.2016.1256400.
+\bibitem[Yang et al.(2025)Yang, Song, Wang, Yang, and Leus]{Yang2025}
+Yang K, Song G, Wang R, Yang H, Leus R (2025) Perspective Benders decomposition with applications to fixed-charge nonlinear resource allocation. \emph{INFORMS Journal on Computing}, published online July 8. doi:10.1287/ijoc.2024.0984.
+\bibitem[Zhang(2012)]{Zhang2012}
+Zhang H (2012) Solving an infinite horizon adverse selection model through finite policy graphs. \emph{Operations Research} 60(4):850--864. doi:10.1287/opre.1120.1056.
+
+
+\bibitem[Zioutas et al.(2015)Zioutas, Chatzinakos, Nguyen, and Pitsoulis]{Zioutas2015}
+Zioutas G, Chatzinakos C, Nguyen TD, Pitsoulis L (2015) Optimization techniques for multivariate least trimmed absolute deviation estimation. arXiv:1511.04220.
+\end{thebibliography}
+\label{ec-refs-end}\end{document}

@@ -1,0 +1,121 @@
+{
+  "id": "split-N65-d4-t3-f0.35",
+  "method": "hybrid",
+  "instance_sha256": "ce4ea8079e738e7aa6400f5238e8865e9d794470d1245b0651899ec0cabc5302",
+  "status": "EXACT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 4,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:7cc0b/124238",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:c9f1/1d36c",
+        "supports_promise": false,
+        "support_seconds": 0.0007069369999044284,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:169/1000",
+          "hex:31/100",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:8a1/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:ff1050f/24847000",
+        "support_low": "hex:b41167/175f000",
+        "support_high": "hex:be1/175f",
+        "distance": "hex:5c9303/74db000",
+        "supports_promise": false,
+        "support_seconds": 0.0024581519999173906,
+        "oracle_calls": 2
+      }
+    ]
+  },
+  "probe_seconds": 0.2431917460000932,
+  "selected_route": "robust_tariff_d_le_4",
+  "lower": "hex:17c83/3a6d8",
+  "upper": "hex:17c83/3a6d8",
+  "selected_exception_budget": 2,
+  "projected_exceptions": 2,
+  "regret_bound": "hex:3/7d0",
+  "optimization_seconds": 0.4634651579999627,
+  "setup_seconds": 0.18220274700001937,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/split-N65-d4-t3-f0.35--hybrid.json.gz",
+  "certificate_schema": "NDU-R61-robust-tariff-v1",
+  "certificate_sha256": "8f3cec54203a23f1434dfba52ebdf2d3b367ef4d894f0e2e09b4240c8aaea264",
+  "proof_bytes": 88118,
+  "compressed_proof_bytes": 10961,
+  "serialization_seconds": 0.005253531999869665,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "97411/239320",
+    "upper": "97411/239320",
+    "branches": 4,
+    "hybrid_probe": {
+      "status": "PASS",
+      "lower": "hex:71113/124238",
+      "upper": "hex:7cc0b/124238",
+      "gap": "hex:1/19",
+      "tolerance_met": false,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.10176402100000814,
+      "instance_sha256": "ce4ea8079e738e7aa6400f5238e8865e9d794470d1245b0651899ec0cabc5302",
+      "root_diagnostics": {
+        "status": "PASS",
+        "checked_root_candidates": 2
+      }
+    },
+    "checking_seconds": 0.5599247590000687,
+    "process_seconds": 0.7410145139999713,
+    "peak_rss_kib": 25724
+  },
+  "checker_peak_rss_kib": 25724,
+  "verification_seconds": 0.7600186980000672,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 1.411401210999884,
+  "parent_finished": true,
+  "parent_seconds": 1.4327117119999002,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

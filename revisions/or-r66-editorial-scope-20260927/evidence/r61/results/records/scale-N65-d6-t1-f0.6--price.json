@@ -1,0 +1,141 @@
+{
+  "id": "scale-N65-d6-t1-f0.6",
+  "method": "price",
+  "instance_sha256": "d044bb38af81105eab1727d92a541c9603ccfe949ba39c4ec6c60e5c2269685e",
+  "status": "TIME_LIMIT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 6,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "lower": "hex:73fd1/124238",
+  "upper": "hex:f26eebb/24847000",
+  "gap": "hex:2175bf/74db000",
+  "seconds": 0.3975094600000375,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.178400369999963,
+      "lower": "hex:-1/c8",
+      "upper": "hex:7cc0b/124238",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.2659998330000235,
+      "lower": "hex:71113/124238",
+      "upper": "hex:7cc0b/124238",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.35446084000000155,
+      "lower": "hex:73fd1/124238",
+      "upper": "hex:f26eebb/24847000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.3966937520000329,
+      "lower": "hex:73fd1/124238",
+      "upper": "hex:f26eebb/24847000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 2,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:7cc0b/124238",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:c9f1/1d36c",
+        "supports_promise": false,
+        "support_seconds": 0.0007310650000817986,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:169/1000",
+          "hex:31/100",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:8a1/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:ff1050f/24847000",
+        "support_low": "hex:b41167/175f000",
+        "support_high": "hex:be1/175f",
+        "distance": "hex:5c9303/74db000",
+        "supports_promise": false,
+        "support_seconds": 0.002484385000002476,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:271/1000",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:f26eebb/24847000",
+        "support_low": "hex:5777f3/baf800",
+        "support_high": "hex:5777f3/baf800",
+        "distance": "hex:2175bf/3a6d800",
+        "supports_promise": false,
+        "support_seconds": 0.001949866000018119,
+        "oracle_calls": 3
+      }
+    ]
+  },
+  "optimization_seconds": 0.3986054160000094,
+  "setup_seconds": 0.18272802699993917,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/scale-N65-d6-t1-f0.6--price.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "e36ec1ae7f03a5c485f9262c9c5d229587002014b8040b8402453f5dec8d91e8",
+  "proof_bytes": 7296,
+  "compressed_proof_bytes": 1241,
+  "serialization_seconds": 0.0005929740000283346,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "parent_finished": true,
+  "parent_seconds": 1.0023148309999215,
+  "parent_timeout": true,
+  "parent_returncode": -9,
+  "within_total_budget": false,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

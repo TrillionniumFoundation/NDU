@@ -1,0 +1,51 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,newtxtext,newtxmath,setspace,xurl}
+\usepackage[hidelinks]{hyperref}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\begin{document}
+\begin{center}{\Large\bfseries Response to the R64 Referee Report}\par
+Finite-Catalog Resource Allocation: A Tariff-Sensitive Complexity Frontier\par
+Anonymous revision R65 --- September 27, 2026\end{center}
+We thank the referee for identifying two distinctions between a valid objective interval and the stronger claims made by its certificate. We have repaired the request-level binding and the transferred-policy check, reproduced both counterexamples, and replayed the frozen evidence. The model, contribution hierarchy, all principal results, proofs, computational observations, and unfavorable outcomes are retained. No new optimization campaign is used to replace the existing evidence.
+
+\section*{1. External request and requested tolerance}
+\textbf{Comment.} The previous adapter bound the physical model but not the tolerance determining the minimum projection allowance.
+
+\textbf{Response.} The independent entry point now receives an external request containing the complete physical specification, requested rational tolerance, certificate class, configured guard, and schema version. The envelope contains a canonical request and digest, but these are compared with the caller's separately supplied request rather than trusted. In a robust certificate, its projection tolerance must equal the external tolerance. Minimal allowance is then checked against that same tolerance through the optimal distortion at the reported allowance and failure at its predecessor.
+
+The reproduced three-command example rejects the proof for tolerance $1/200$ when the external request asks for $1/10$, even though its physical model and exact interval are valid. A coordinated change to both envelope and envelope digest also fails against the unchanged external request. Exact rational equivalence is accepted; a floating-point tolerance, unknown field, or changed original command allowance is not silently normalized away. The request schema and trust boundary are documented in the companion section ``Binding a mathematical proof to its requested input.''
+
+The executable entry point is \texttt{code/binding65.py}; \texttt{code/produce65.py} emits request-bound envelopes for the tariff and robust-tariff producers. Legacy model-only routines remain available for historical mathematics, not as substitutes for request-level acceptance.
+
+\section*{2. Exact transferred lower formula}
+\textbf{Comment.} Equality of the selected book does not establish the theorem's same-policy transfer value.
+
+\textbf{Response.} We adopt the referee's tie-compatible contract. Both policies are independently checked for feasibility and value. The outer policy must select the inner book, have exactly the inner policy's gross payoff, and satisfy
+\[
+ L=\widetilde V-\sum_{i\in\widetilde c}(\rho_i-\widetilde\rho_i).
+\]
+The check derives gross payoff from the validated net value and book charges; any separately declared gross value is also checked. It therefore permits a different equally good fixed-book policy without falsely claiming identical physical fields.
+
+The second referee witness retains book $(0,1/2)$ and moves $1/50$ of the first history's obligation to preliminary service. Its interval $[23/100,6/25]$ remains valid, but its lower value is below the required $6/25$. The strengthened checker rejects it for this reason. The unchanged legacy checker accepts it, which is recorded in the regression evidence. A positive test swaps the two identical histories while retaining gross payoff and is accepted. Theorem~6.1 and its perturbation proof are unchanged; the main text and Companion Section ``Certifying the transferred lower policy'' now state what is checked.
+
+\section*{3. Guard and redundant metadata}
+\textbf{Comment.} The configured guard and modal tie-rule string were not verified.
+
+\textbf{Response.} The tariff checker validates the canonical string ``smallest rational fee,'' recomputes the modal fee, and requires a nonnegative integer guard at least as large as the actual modal exception count. The request-level checker also requires equality to the external guard. Boolean guards and altered or missing tie-rule declarations are rejected. A uniform surrogate with guard zero remains valid.
+
+This establishes agreement with a declared mathematical request, not an attestation of runtime settings or wall-clock behavior. The companion and receipt make that boundary explicit. For non-tariff proof classes the guard field is null rather than unused but apparently certified metadata.
+
+\section*{4. Regressions and unchanged historical evidence}
+The new suite records 66 valid request checks and 25 rejected adversaries, including both coordinated referee witnesses. The retained semantic suite again checks 288 projections against exhaustive retained-subset enumeration, accepts 577 valid certificates, and rejects the ten earlier semantic adversaries. Structural, binding, and exact root-support checks are retained in the qualification record.
+
+We replay all 405 frozen requests. The 389 available proofs comprise 342 rational two-sided certificates and 47 numerical-solver lower policies; 16 requests have no certificate. Every available proof is request-bound. All 42 robust certificates pass both the externally requested tolerance and the exact transfer checks. The replay derives physical inputs and tolerances from frozen cases, certificate classes from immutable records, and guards from the cases or the frozen hybrid rule of four exceptions. It never infers a requested tolerance or guard from the certificate under examination.
+
+The historical files are byte-preserved. An envelope for an old proof is constructed only at replay and is not backdated. The 16 equivalent but byte-different input encodings remain distinguishable from changed inputs. The 45 previously incomplete or unsuccessful checks are not promoted to original timed successes. Parallel replay times are post-study integrity measurements, not replacements for the original optimization or checking times. No numerical solver upper bound is relabeled as a rational certificate.
+
+\section*{5. Exposition and delivery}
+The abstract now specifies that minimum-distortion projection is within a stated sparse-exception class. The main narrative adds only the request/transfer contract; implementation detail remains in the companion. The companion explicitly notes the separate sorts for the two checked allowances. The projection-quality table, regret-bound brackets, original timings, failure cases, and stylized service-credit interpretation are preserved. Exact surrogate optimality, exact original feasibility, and additive original optimality remain distinct.
+
+The new branch descends directly from the reviewed R64 author commit. The R64 report is pinned by commit, path, and blob. The package archives the earlier readers and modified sources and verifies every file in the previous manifest through an explicit preservation map. The current manuscript, companion, response, code, data, manifest, and qualification records are delivered together. A read-only check on the actual published commit and a fresh proof replay produce the exact-head receipt. These certify the delivered artifacts and enumerated checks, not editorial acceptance.
+\end{document}

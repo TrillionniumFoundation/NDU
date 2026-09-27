@@ -1,0 +1,26 @@
+{
+  "schema": "NDU-R60-exact-regressions-v1",
+  "status": "PASS",
+  "tariff": {
+    "instances": 172,
+    "big_integer_instances": 5,
+    "books_cross_checked": 6302,
+    "maximum_input_denominator_bits": 513,
+    "corrupt_certificates_rejected": 48
+  },
+  "paths": {
+    "potential_graphs": 160,
+    "perturbed_witnesses": 160,
+    "bounded_vs_exhaustive": 480,
+    "round_repair": 400,
+    "holey_convolution": 400,
+    "maximum_vertices": 10,
+    "maximum_edges": 45
+  },
+  "price_gap": {
+    "exact_value": "-1/4",
+    "supporting_price_upper": "-3/16",
+    "gap": "1/16"
+  }
+}
+

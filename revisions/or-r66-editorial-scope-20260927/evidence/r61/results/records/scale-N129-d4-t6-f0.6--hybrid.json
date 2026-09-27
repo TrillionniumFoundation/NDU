@@ -1,0 +1,91 @@
+{
+  "id": "scale-N129-d4-t6-f0.6",
+  "method": "hybrid",
+  "instance_sha256": "5448da62b13840d900cb056e5e3c31b0c631d3e7b5a9ebdbe48afe8750b18618",
+  "status": "EXACT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 4,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:2ea8f/6e280",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:1e37/4680",
+        "supports_promise": false,
+        "support_seconds": 0.0011175810000167985,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:7e9/4000",
+          "hex:1/4",
+          "hex:169/400",
+          "hex:1ef1/4000",
+          "hex:271/400",
+          "hex:31/40",
+          "hex:3931/4000",
+          "hex:1/1"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:47441491/a53c0000",
+        "support_low": "hex:325e739/69c0000",
+        "support_high": "hex:8e3/11a0",
+        "distance": "hex:50bf39/69c0000",
+        "supports_promise": false,
+        "support_seconds": 0.0034513189999643146,
+        "oracle_calls": 2
+      }
+    ]
+  },
+  "probe_seconds": 1.2767995299999484,
+  "selected_route": "robust_tariff_d_le_4",
+  "lower": "hex:8e43/16080",
+  "upper": "hex:8e43/16080",
+  "selected_exception_budget": 2,
+  "projected_exceptions": 2,
+  "regret_bound": "hex:3/7d0",
+  "optimization_seconds": 2.9482110980000016,
+  "setup_seconds": 0.19424868299995524,
+  "optimizer_peak_rss_kib": 28364,
+  "certificate": "certificates/scale-N129-d4-t6-f0.6--hybrid.json.gz",
+  "certificate_schema": "NDU-R61-robust-tariff-v1",
+  "certificate_sha256": "d4adbbad31689b1ad68fe5041861dc7512d98ea0c02b2dba62bc558b88f9af30",
+  "proof_bytes": 333066,
+  "compressed_proof_bytes": 35533,
+  "serialization_seconds": 0.01675410199993621,
+  "parent_finished": true,
+  "parent_seconds": 6.008279972000082,
+  "parent_timeout": true,
+  "parent_returncode": -9,
+  "within_total_budget": false,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

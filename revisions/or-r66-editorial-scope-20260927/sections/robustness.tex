@@ -1,0 +1,52 @@
+\section{Near-Standard Tariffs and Implementable Decision Frontiers}\label{sec:robust63}
+An exact standard tariff is an institutional restriction, not a rounding convention. A common installation charge may represent a standardized configuration procedure, while a few commands require separate certification or integration. The count of exceptional commands is observable before allocation. Small deviations on many commands, however, can make that exact count large. This section shows how to approximate such fees while retaining a certificate for the \emph{original} tariff and the original physical policy. The physical assumptions of Theorem~\ref{thm:tariff60} are needed for its tractable inner optimization; the perturbation bound itself does not require linear rewards or free service.
+
+\subsection{A fee-perturbation certificate}
+Fix the physical primitives and the feasible book family $\mathcal C_B$. Write $W_c(B)$ for the gross value of a book, and $V_\rho=\max_{c\in\mathcal C_B}\{W_c(B)-\sum_{i\in c}\rho_i\}$. Replace the fee vector $\rho$ by a nonnegative vector $\widetilde\rho$, without changing any other input. Put $\delta_i=\rho_i-\widetilde\rho_i$, and, with $\bar m=\min\{m,N\}$, define
+\[
+ E_+=\sum_{\ell=1}^{\bar m}(\delta_+)_{[\ell]},\qquad
+ E_-=\sum_{\ell=1}^{\bar m}((-\delta)_+)_{[\ell]},
+\]
+where descending order statistics are padded with zeros. These quantities depend only on the two tariffs and the command allowance.
+\begin{theorem}[Certified transfer to the original tariff]\label{thm:robust63}
+Suppose $\widetilde c$ and an original-feasible policy attain $V_{\widetilde\rho}$. Evaluating that same policy under $\rho$ gives the certified interval
+\begin{equation}\label{eq:robust63}
+ L=V_{\widetilde\rho}-\sum_{i\in\widetilde c}\delta_i
+ \ \leq\ V_\rho\ \leq\ U=V_{\widetilde\rho}+E_-.
+\end{equation}
+Consequently,
+\[
+ 0\leq U-L\leq E_++E_-\leq\|\rho-\widetilde\rho\|_1
+ \leq N\|\rho-\widetilde\rho\|_\infty,
+ \qquad E_++E_-\leq2\bar m\|\rho-\widetilde\rho\|_\infty.
+\]
+The policy preserves the book allowance, every history's constraints, and the accepted aggregate promise exactly. If the surrogate optimum exceeds every other book's surrogate value by more than $E_++E_-$, its book remains uniquely optimal under $\rho$.
+\end{theorem}
+\begin{proof}
+For every admissible book $c$, at most $\bar m$ fee differences are summed, so
+$-E_-\leq\sum_{i\in c}\delta_i\leq E_+$. Its original net value equals its surrogate net value minus that sum. Maximizing gives the upper bound in \eqref{eq:robust63}; retaining the attaining policy gives the lower bound. Subtracting the bounds proves the regret statement. Positive and negative differences occupy disjoint coordinates, which proves the $\ell_1$ inequality; each one-sided sum has at most $\bar m$ terms, proving the second norm bound. Feasibility involves no opening fee, so the same allocation remains feasible. Finally, perturbation can decrease the difference between the chosen book and any competitor by at most $E_++E_-$. A strictly larger surrogate separation therefore preserves its strict ordering.
+\end{proof}
+
+Thus a uniform approximation within $\eta$ yields an additive guarantee $2\bar m\eta$, and one-sided fee changes yield $\bar m\eta$. More informative book-specific bounds follow directly from \eqref{eq:robust63}. A numerically small fee dispersion does not make arbitrary fees \emph{exactly} fixed-parameter tractable. It creates a certified approximation neighborhood of the exact theorem, with an explicit price for simplifying the tariff. The strict-margin condition is a theoretical book-stability diagnostic: the implementation does not compute a second-best-book margin or claim a stability certificate.
+
+\subsection{Selecting a sparse-exception surrogate}
+For an integer $0\leq d_{\rm allow}<N$, consider surrogates that leave at most $d_{\rm allow}$ original fees unchanged as exceptions and replace all remaining fees by one nonnegative standard. Let $n_0=N-d_{\rm allow}$, and sort the original fees as $r_1\leq\cdots\leq r_N$, breaking equal-fee ties by catalog index. For each consecutive window of $n_0$ observations, assign its lower median as the standard and leave all observations outside the window unchanged.
+\begin{proposition}[Sparse-tariff preprocessing by trimmed absolute deviation]\label{prop:projection63}
+A window of minimum absolute deviation produces a surrogate minimizing $\|\rho-\widetilde\rho\|_1$ among all surrogates with at most $d_{\rm allow}$ unchanged exceptions. Its actual number of fees different from the chosen standard is at most $d_{\rm allow}$. The minimum distortion is nonincreasing in $d_{\rm allow}$. Hence, for any tolerance $\varepsilon\geq0$, binary search over $d_{\rm allow}\in\{0,\ldots,N-1\}$ finds the smallest exception allowance in this surrogate class with distortion at most $\varepsilon$.
+\end{proposition}
+\begin{proof}
+For a fixed standard, an optimal choice of replaced entries consists of $n_0$ entries closest to that standard. In a sorted list there is such a choice forming a consecutive window: if an omitted entry lies between two chosen entries, its distance does not exceed the larger endpoint distance, so exchanging that endpoint cannot increase the objective. Repeating removes all holes, with equal distances resolved consistently. For a fixed window, a median minimizes the sum of absolute deviations; its lower median is nonnegative. Minimizing over all windows therefore attains the global minimum. Entries outside the window are the only possible exceptions, and an outside fee equal to the median further reduces their actual count. Enlarging the exception allowance retains every previously feasible surrogate, proving monotonicity. At $d_{\rm allow}=N-1$ the distortion is zero, so the stated binary search terminates.
+\end{proof}
+
+This is the one-dimensional trimmed absolute-deviation construction discussed in the related work, specialized to tariff preprocessing. Among windows with equal minimum distortion, choose the smallest lower median and then the earliest sorted window. Write $d_{\rm proj}$ for the actual number of projected fees different from this median and $d_{\rm tariff}$ for the inner tariff solver's exception count after it chooses its own modal fee. Then $d_{\rm tariff}\leq d_{\rm proj}\leq d_{\rm allow}$; the two standards need not coincide.
+
+Sorted prefix sums evaluate all window deviations in linear time after sorting. The retained implementation re-sorts at each binary-search step and therefore uses $O(N\log^2 N)$ comparison/arithmetic preprocessing; sorting once reduces this to $O(N\log N)$. We report the implemented, rather than the improved hypothetical, preprocessing bound. Applying Theorem~\ref{thm:tariff60} to the selected surrogate takes $2^{d_{\rm tariff}}\operatorname{poly}(L)$ bit operations and returns the original-policy interval \eqref{eq:robust63}. The selected $d_{\rm allow}$ minimizes the stated $\ell_1$ distortion criterion, not the realized regret or wall-clock cost. The two one-sided order-statistic budgets can certify a smaller error than the projection objective. The tolerance constrains total absolute fee distortion, not the final width directly. A declared computational guard may still stop a request with large $d_{\rm tariff}$. Independent checking certifies both the projection and failure of the preceding allowance; it does not trust the binary-search trace.
+
+\subsection{Exact fees, installed commands, and policy changes}\label{sec:frontier63}
+Consider four equally likely histories with caps and ceilings $(0,1/3,2/3,1)$, catalog $(0,1/3,2/3,1)$, $m=4$, $B=2/5$, reward $f(x)=x$, and free service. At a uniform opening fee $\rho$, the relevant capacity envelopes give
+\[
+ V(\rho)=\max\{2/5-3\rho,\;1/3-2\rho,\;-\rho\}.
+\]
+The four-command line is dominated under the smallest-size tie convention. For $0\leq\rho<1/15$, an optimal representative is $(0,1/3,2/3)$; for $1/15\leq\rho<1/3$, it is $(0,2/3)$; and for $\rho\geq1/3$, it is $(0)$. At a switching fee the smaller book is selected. The first book has terminal capacity $5/12$ and delivers the entire promise through terminal lotteries. The second has capacity $1/3$ and supplies aggregate preliminary service $1/15$. The singleton supplies all $2/5$ through preliminary service. Thus the frontier specifies both the installed commands and the allocation mechanism, not only the envelope value. These are deterministic representatives; uniqueness is not asserted at ties.
+
+Now take the nonuniform fees $(67/2000,33/1000,203/6000,199/6000)$ and tolerance $1/1000$. The projection selects one exceptional command and returns the original book $(0,1/3,1)$. Its original net value is $901/3000$, and the independently checked upper bound is $451/1500$, giving gap $1/3000$. Here $E_+=1/3000$ and $E_-=1/6000$. The change in book composition is not described by a monotonic nesting claim: only the smallest optimal \emph{size} is monotone along a uniform-fee frontier. The code/data package also supplies complete rational frontiers and reconstructed policies for catalogs of 17, 65, and 129 commands.

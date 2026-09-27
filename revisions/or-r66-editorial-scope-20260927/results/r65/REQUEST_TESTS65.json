@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "legacy_witnesses_accepted": {
+    "strict_tolerance": "PASS",
+    "degraded_policy": "PASS"
+  },
+  "coordinated_witnesses_rejected": 2,
+  "rejected_adversaries": 25,
+  "rejections": [
+    {
+      "name": "stricter-self-declared-tolerance",
+      "reason": "Projection tolerance differs from external request"
+    },
+    {
+      "name": "feasible-degraded-same-book-policy",
+      "reason": "Transferred policy has different gross payoff"
+    },
+    {
+      "name": "coordinated-request-and-digest",
+      "reason": "Certificate differs from the externally requested contract"
+    },
+    {
+      "name": "guard-larger-than-external",
+      "reason": "Configured exception guard differs from external request"
+    },
+    {
+      "name": "boolean-proof-guard",
+      "reason": "Configured exception guard differs from external request"
+    },
+    {
+      "name": "false-modal-tie-rule",
+      "reason": "Incorrect modal tie-rule metadata"
+    },
+    {
+      "name": "missing-modal-tie-rule",
+      "reason": "Incorrect modal tie-rule metadata"
+    },
+    {
+      "name": "false-outer-gross-metadata",
+      "reason": "False declared gross payoff"
+    },
+    {
+      "name": "false-inner-gross-metadata",
+      "reason": "False declared gross payoff"
+    },
+    {
+      "name": "stale-request-digest",
+      "reason": "Wrong canonical request digest"
+    },
+    {
+      "name": "unknown-request-field",
+      "reason": "Request field mismatch"
+    },
+    {
+      "name": "missing-request-tolerance",
+      "reason": "Request field mismatch"
+    },
+    {
+      "name": "wrong-request-class",
+      "reason": "Certificate differs from the externally requested contract"
+    },
+    {
+      "name": "wrong-proof-class",
+      "reason": "Certificate class differs from external request"
+    },
+    {
+      "name": "invalid-external-epsilon-True",
+      "reason": "Request tolerance must have an exact rational encoding"
+    },
+    {
+      "name": "invalid-external-epsilon-0.1",
+      "reason": "Request tolerance must have an exact rational encoding"
+    },
+    {
+      "name": "invalid-external-epsilon-'-1'",
+      "reason": "Negative requested tolerance"
+    },
+    {
+      "name": "invalid-external-configured_guard-True",
+      "reason": "Invalid requested exception guard"
+    },
+    {
+      "name": "invalid-external-configured_guard--1",
+      "reason": "Invalid requested exception guard"
+    },
+    {
+      "name": "invalid-external-configured_guard-None",
+      "reason": "Invalid requested exception guard"
+    },
+    {
+      "name": "changed-external-promise",
+      "reason": "Certificate differs from the externally requested contract"
+    },
+    {
+      "name": "changed-external-command-allowance",
+      "reason": "Certificate differs from the externally requested contract"
+    },
+    {
+      "name": "changed-external-guard",
+      "reason": "Certificate differs from the externally requested contract"
+    },
+    {
+      "name": "unknown-envelope-field",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "name": "guard-smaller-than-exception-count",
+      "reason": "Configured exception guard differs from external request"
+    }
+  ],
+  "positive_request_checks": 66,
+  "equal_gross_different_policy_accepted": true,
+  "equivalent_rational_request_accepted": true,
+  "optimizer_free_request_checker": true,
+  "seconds": 0.5258996510000316,
+  "scope": "Finite exact regression; not an editorial acceptance or timing claim"
+}

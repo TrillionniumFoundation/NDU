@@ -1,0 +1,131 @@
+{
+  "schema": "NDU-R65-executed-qualification-v1",
+  "status": "PASS",
+  "python": "3.13.5 (main, Jun 12 2025, 03:51:15) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.35",
+  "commands": [
+    {
+      "name": "reconstruct_readers",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "revise65.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.08499642100002802,
+      "log": "results/r65/reconstruct_readers.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "request_transfer_regressions",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests65.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.7462605929999881,
+      "log": "results/r65/request_transfer_regressions.log",
+      "log_sha256": "857e1e7f38702c69195894057724858d844442698bfad91fde33bb274956c0c7"
+    },
+    {
+      "name": "retained_semantic_regressions",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests64.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r65-request-transfer-20260927/results/r65/legacy64"
+      ],
+      "exit_code": 0,
+      "seconds": 2.192658460999951,
+      "log": "results/r65/retained_semantic_regressions.log",
+      "log_sha256": "5212a4e768058350fc95f69ed7f2517ee4bbf1dbf3312615cf960d68cb111ace"
+    },
+    {
+      "name": "structural60",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests60.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r65-request-transfer-20260927/results/r65/STRUCTURAL60_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "seconds": 1.8367693899999722,
+      "log": "results/r65/structural60.log",
+      "log_sha256": "62796b2bd6e6a6566db9a9d871728dc519e44c66e776ef4e4a6c80f6385152a3"
+    },
+    {
+      "name": "structural61",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests61.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r65-request-transfer-20260927/results/r65/STRUCTURAL61_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.84703687800004,
+      "log": "results/r65/structural61.log",
+      "log_sha256": "2911851beaf3ba4c954c3dcca4ddd53df22951f1abbb2b67b6318af752f541e3"
+    },
+    {
+      "name": "physical_binding63",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests63.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.25848446600002717,
+      "log": "results/r65/physical_binding63.log",
+      "log_sha256": "251b5731a498c971f75b431253cd724053f97c6bf5f8b055d937a562a6356d4e"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "compile65.py"
+      ],
+      "exit_code": 0,
+      "seconds": 3.38626457700002,
+      "log": "results/r65/compile.log",
+      "log_sha256": "c4e288fd558ec74d6f875c5a3251aeb06d57928fb5128c13ce1b2cea52c943f5"
+    },
+    {
+      "name": "frozen_request_replay",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/replay65.py",
+        "evidence/r61",
+        "/home/runner/work/NDU/NDU/revisions/or-r65-request-transfer-20260927/results/r65/replay"
+      ],
+      "exit_code": 0,
+      "seconds": 85.69824351400007,
+      "log": "results/r65/frozen_request_replay.log",
+      "log_sha256": "c9b8eee6cfdf2eac4b65cd83f211e2a5c7b7f65043afc2c4a8e7a7f3d50883ed"
+    }
+  ],
+  "read_only_check": {
+    "status": "PASS",
+    "r64_files_preserved": 6992,
+    "unchanged_mathematical_environments": {
+      "main": 36,
+      "electronic_companion": 42
+    },
+    "root_cases_independently_rechecked": 48,
+    "request_regressions": 66,
+    "request_adversaries_rejected": 25,
+    "archived_witnesses_accepted_and_current_rejected": 2,
+    "valid_legacy_certificates": 577,
+    "exhaustive_projections": 288,
+    "requests": 405,
+    "certificates": 389,
+    "PASS": 342,
+    "PASS_LOWER_ONLY": 47,
+    "no_certificate": 16,
+    "different_input_bytes": 16,
+    "newly_replayed_not_reclassified": 45,
+    "request_bound_certificates": 389,
+    "robust_transfer_and_request_bound": 42,
+    "manifest_checked": false
+  },
+  "read_only_check_seconds": 1.1514632829999982,
+  "source_freeze_sha256": "376854a8081d86fdf95ae02d1c9c987a6843d111ebc204e1fce22484e39c865a",
+  "scope": "Executed request, transfer, structural, build and replay checks; original study outcomes unchanged"
+}

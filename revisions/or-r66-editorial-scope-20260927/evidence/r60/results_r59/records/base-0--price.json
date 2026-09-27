@@ -1,0 +1,82 @@
+{
+  "id": "base-0",
+  "method": "price",
+  "instance_sha256": "81ce825dc82d81e61b635ee37ef2a092029ac6691757c5cb7082a96f4e017d81",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/64",
+  "lower": "hex:5659877/12c00000",
+  "upper": "hex:1875225ddad/54600000000",
+  "gap": "hex:1c2174b5/3600000000",
+  "seconds": 0.03809694199998148,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.03729190500001778,
+      "lower": "hex:5659877/12c00000",
+      "upper": "hex:1875225ddad/54600000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.03734715799998867,
+      "lower": "hex:5659877/12c00000",
+      "upper": "hex:1875225ddad/54600000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1174fbf213/5437c000000",
+        "upper": "hex:79/60",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:1c2174b5/3600000000"
+  },
+  "optimization_seconds": 0.038363145999994686,
+  "setup_seconds": 0.20692355599999246,
+  "peak_rss_kib": 27364,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/base-0--price.json.gz",
+  "certificate_sha256": "db33ce388cd6500a0503a17e9ed65a21e12c917fcd2e4e9c788e2daf567b0d54",
+  "proof_bytes": 3663,
+  "compressed_proof_bytes": 818,
+  "serialization_seconds": 0.000555663000000095,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:5659877/12c00000",
+    "upper": "hex:1875225ddad/54600000000",
+    "gap": "hex:1c2174b5/3600000000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.04943507100000488,
+    "instance_sha256": "81ce825dc82d81e61b635ee37ef2a092029ac6691757c5cb7082a96f4e017d81"
+  },
+  "verification_seconds": 0.053611015000001316,
+  "checker_peak_rss_kib": 27364,
+  "worker_seconds": 0.29968686399996614,
+  "parent_finished": true,
+  "parent_seconds": 0.3287552350000169,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

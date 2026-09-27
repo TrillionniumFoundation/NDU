@@ -1,0 +1,119 @@
+{
+  "schema": "NDU-R64-executed-qualification-v1",
+  "status": "PASS",
+  "python": "3.13.5 (main, Jun 12 2025, 03:51:15) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.35",
+  "commands": [
+    {
+      "name": "frozen_projection_table",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/projection_table64.py"
+      ],
+      "exit_code": 0,
+      "seconds": 10.764727497999985,
+      "log": "results/r64/frozen_projection_table.log",
+      "log_sha256": "ec3a66b4fc231339ee61e1facfdf1d2c51abb7dde75fc8b2bda3f0401c040ee2"
+    },
+    {
+      "name": "reader_revision",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "revise64.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.11431136900000638,
+      "log": "results/r64/reader_revision.log",
+      "log_sha256": "53a029ae072261086b3c97257d2e843c24802abf946b3d221f92218d405e9950"
+    },
+    {
+      "name": "semantic_regressions",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests64.py"
+      ],
+      "exit_code": 0,
+      "seconds": 2.755636938000009,
+      "log": "results/r64/semantic_regressions.log",
+      "log_sha256": "229f7b24e090eeba93cf17df5f3c0f0b90ed17b6520507bab1a7d9be01080a09"
+    },
+    {
+      "name": "structural60",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests60.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r64-certificate-closure-20260927/results/r64/STRUCTURAL60_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.2309602240000004,
+      "log": "results/r64/structural60.log",
+      "log_sha256": "62796b2bd6e6a6566db9a9d871728dc519e44c66e776ef4e4a6c80f6385152a3"
+    },
+    {
+      "name": "structural61",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests61.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r64-certificate-closure-20260927/results/r64/STRUCTURAL61_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "seconds": 6.14622162500001,
+      "log": "results/r64/structural61.log",
+      "log_sha256": "2911851beaf3ba4c954c3dcca4ddd53df22951f1abbb2b67b6318af752f541e3"
+    },
+    {
+      "name": "binding_regressions",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests63.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3194257920000041,
+      "log": "results/r64/binding_regressions.log",
+      "log_sha256": "251b5731a498c971f75b431253cd724053f97c6bf5f8b055d937a562a6356d4e"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "compile64.py"
+      ],
+      "exit_code": 0,
+      "seconds": 4.111269574000005,
+      "log": "results/r64/compile.log",
+      "log_sha256": "83edfbc6056b91c34e8251e4f732649c233451283355f5cee3548f4ad47de02d"
+    },
+    {
+      "name": "full_replay",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/replay63.py",
+        "evidence/r61",
+        "results/r64/replay"
+      ],
+      "exit_code": 0,
+      "seconds": 248.26904603,
+      "log": "results/r64/full_replay.log",
+      "log_sha256": "02ccc1488298b792ece39c4f0271dfeb652146499934e5dac7ce5f5208b7e4c2"
+    }
+  ],
+  "read_only_check": {
+    "status": "PASS",
+    "root_cases_independently_rechecked": 48,
+    "r63_files_preserved": 6848,
+    "historical_requests_preserved": 405,
+    "two_sided_replay": 342,
+    "numerical_lower_only_replay": 47,
+    "no_certificate_preserved": 16,
+    "later_replay_not_reclassified": 45,
+    "semantic_adversaries_rejected": 10,
+    "valid_semantic_certificates": 577,
+    "projection_cases": 288,
+    "manifest_checked": false
+  },
+  "read_only_check_seconds": 0.8499015609999674,
+  "source_freeze_sha256": "6d5749b453224737044e7e50abc678fc7107a8c14ff3a536d6bdb015dc3712bf",
+  "scope": "Executed current-source checks; historical study source, records, failures and timing classifications unchanged"
+}

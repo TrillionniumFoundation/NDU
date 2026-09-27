@@ -1,0 +1,259 @@
+{
+  "id": "adversarial-4-0-t6-f0.6",
+  "method": "price",
+  "instance_sha256": "be4136505d3eeaaac6b98a5ec537e2d076b95326854d7fd178f9098b86eee23a",
+  "status": "TOLERANCE",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 0,
+    "configured_guard": 12,
+    "mathematical_applicability": false,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "lower": "hex:559861/1048f80",
+  "upper": "hex:55d8ed/1048f80",
+  "gap": "hex:11/44a0",
+  "seconds": 0.042936084000075425,
+  "nodes": 1,
+  "oracle_calls": 7,
+  "trace": [
+    {
+      "seconds": 0.007785634000128994,
+      "lower": "hex:1aa9ed533/66939e1c0",
+      "upper": "hex:598a7cf5/102b1ce40",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.014042592000123477,
+      "lower": "hex:83b4f89/19720380",
+      "upper": "hex:598a7cf5/102b1ce40",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.019626977000143597,
+      "lower": "hex:83b4f89/19720380",
+      "upper": "hex:87c7369/19720380",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.02599475200008783,
+      "lower": "hex:83b4f89/19720380",
+      "upper": "hex:87c7369/19720380",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.03156833499997447,
+      "lower": "hex:8419d35/19720380",
+      "upper": "hex:2d8bef68b/88c4d2d00",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.03712433400005466,
+      "lower": "hex:8419d35/19720380",
+      "upper": "hex:55d8ed/1048f80",
+      "nodes": 1,
+      "oracle_calls": 6
+    },
+    {
+      "seconds": 0.04259235900008207,
+      "lower": "hex:559861/1048f80",
+      "upper": "hex:55d8ed/1048f80",
+      "nodes": 1,
+      "oracle_calls": 7
+    },
+    {
+      "seconds": 0.042627054000149656,
+      "lower": "hex:559861/1048f80",
+      "upper": "hex:55d8ed/1048f80",
+      "nodes": 1,
+      "oracle_calls": 7
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-122092d/ad67cc0",
+        "upper": "hex:5/8",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 4,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:11/44a0",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:4/9"
+        ],
+        "price": "hex:c9f/1310",
+        "upper": "hex:598a7cf5/102b1ce40",
+        "support_low": "hex:224/66f",
+        "support_high": "hex:224/66f",
+        "distance": "hex:f29/80ac",
+        "supports_promise": false,
+        "support_seconds": 0.0004364320000149746,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:19/51",
+          "hex:a9/144",
+          "hex:40/51",
+          "hex:1/1"
+        ],
+        "price": "hex:-223/c18",
+        "upper": "hex:c176dbc5/223134b40",
+        "support_low": "hex:61/b7",
+        "support_high": "hex:61/b7",
+        "distance": "hex:61/4c4",
+        "supports_promise": false,
+        "support_seconds": 0.0005954739999651792,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:19/51",
+          "hex:a9/144"
+        ],
+        "price": "hex:1b7/360",
+        "upper": "hex:87c7369/19720380",
+        "support_low": "hex:8f/16e",
+        "support_high": "hex:8f/16e",
+        "distance": "hex:49/4c4",
+        "supports_promise": false,
+        "support_seconds": 0.0005185009999877366,
+        "oracle_calls": 3
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:19/51",
+          "hex:a9/144",
+          "hex:40/51",
+          "hex:1/1"
+        ],
+        "price": "hex:-577/366c",
+        "upper": "hex:be25a64f/223134b40",
+        "support_low": "hex:61/b7",
+        "support_high": "hex:61/b7",
+        "distance": "hex:61/4c4",
+        "supports_promise": false,
+        "support_seconds": 0.000593475999949078,
+        "oracle_calls": 4
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:19/51",
+          "hex:a9/144",
+          "hex:31/51",
+          "hex:121/144"
+        ],
+        "price": "hex:b17f/366c0",
+        "upper": "hex:2d8bef68b/88c4d2d00",
+        "support_low": "hex:322/66f",
+        "support_high": "hex:322/66f",
+        "distance": "hex:4af/80ac",
+        "supports_promise": false,
+        "support_seconds": 0.0006003000000873726,
+        "oracle_calls": 5
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:19/51",
+          "hex:a9/144",
+          "hex:31/51"
+        ],
+        "price": "hex:17b/360",
+        "upper": "hex:55d8ed/1048f80",
+        "support_low": "hex:139/2dc",
+        "support_high": "hex:139/2dc",
+        "distance": "hex:7/131",
+        "supports_promise": false,
+        "support_seconds": 0.0005743730000631331,
+        "oracle_calls": 6
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:10/51",
+          "hex:19/51",
+          "hex:a9/144",
+          "hex:40/51"
+        ],
+        "price": "hex:22f75/6cd80",
+        "upper": "hex:90e67d43/1b5a90900",
+        "support_low": "hex:bf3/19bc",
+        "support_high": "hex:bf3/19bc",
+        "distance": "hex:e3/4056",
+        "supports_promise": false,
+        "support_seconds": 0.0005536210001082509,
+        "oracle_calls": 7
+      }
+    ]
+  },
+  "optimization_seconds": 0.04337577599994802,
+  "setup_seconds": 0.17979554200019265,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/adversarial-4-0-t6-f0.6--price.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "992d58c566106d9b1c5d4a3f2de94913c954e01d40985e419060fcbf76a24385",
+  "proof_bytes": 4304,
+  "compressed_proof_bytes": 1030,
+  "serialization_seconds": 0.0004142739999224432,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:559861/1048f80",
+    "upper": "hex:55d8ed/1048f80",
+    "gap": "hex:11/44a0",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.007592570000042542,
+    "instance_sha256": "5b59778f4d729da4b834e8ac175de1c880741e22c001767ca4986ba0a3c62473",
+    "root_diagnostics": {
+      "status": "PASS",
+      "checked_root_candidates": 7
+    },
+    "checking_seconds": 0.0660254019999229,
+    "process_seconds": 0.2454920029999812,
+    "peak_rss_kib": 25824
+  },
+  "checker_peak_rss_kib": 25824,
+  "verification_seconds": 0.2634807770000407,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 0.4876541430000998,
+  "parent_finished": true,
+  "parent_seconds": 0.5081664269998782,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

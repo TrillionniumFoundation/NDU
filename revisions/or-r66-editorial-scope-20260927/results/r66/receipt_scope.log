@@ -1,0 +1,708 @@
+{
+  "schema": "NDU-R66-receipt-scope-regression-v1",
+  "status": "PASS",
+  "baseline_classes": 6,
+  "legacy_extension_receipts_unchanged": 30,
+  "nested_tariff_receipts_unchanged": 5,
+  "exact_schema_extensions_rejected": 90,
+  "numerical_lower_only_preserved": true,
+  "excluded_comparison_fields": [
+    "seconds (per-execution diagnostic)"
+  ],
+  "accepted_cases": [
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "authenticated_origin",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "runtime_attestation",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "editorial_approval",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "unreported_optimality_claim",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "vendor_extension",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "authenticated_origin",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "runtime_attestation",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "editorial_approval",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "unreported_optimality_claim",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "vendor_extension",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "authenticated_origin",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "runtime_attestation",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "editorial_approval",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "unreported_optimality_claim",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "vendor_extension",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "authenticated_origin",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "runtime_attestation",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "editorial_approval",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "vendor_extension",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "authenticated_origin",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "runtime_attestation",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "editorial_approval",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "vendor_extension",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "authenticated_origin",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "runtime_attestation",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "editorial_approval",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "unreported_optimality_claim",
+      "mathematical_receipt_unchanged": true
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "vendor_extension",
+      "mathematical_receipt_unchanged": true
+    }
+  ],
+  "rejected_cases": [
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "authenticated_origin",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "authenticated_origin",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "authenticated_origin",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "runtime_attestation",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "runtime_attestation",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "runtime_attestation",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "editorial_approval",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "editorial_approval",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "editorial_approval",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "vendor_extension",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "vendor_extension",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R59-SCIP-numerical-v1",
+      "extension": "vendor_extension",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "authenticated_origin",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "authenticated_origin",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "authenticated_origin",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "runtime_attestation",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "runtime_attestation",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "runtime_attestation",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "editorial_approval",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "editorial_approval",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "editorial_approval",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "vendor_extension",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "vendor_extension",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R60-tariff-frontier-v1",
+      "extension": "vendor_extension",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "authenticated_origin",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "authenticated_origin",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "authenticated_origin",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "runtime_attestation",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "runtime_attestation",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "runtime_attestation",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "editorial_approval",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "editorial_approval",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "editorial_approval",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "unreported_optimality_claim",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "vendor_extension",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "vendor_extension",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-R61-robust-tariff-v1",
+      "extension": "vendor_extension",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "authenticated_origin",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "authenticated_origin",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "authenticated_origin",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "runtime_attestation",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "runtime_attestation",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "runtime_attestation",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "editorial_approval",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "editorial_approval",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "editorial_approval",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "vendor_extension",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "vendor_extension",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-deficit-v1-hex",
+      "extension": "vendor_extension",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "authenticated_origin",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "authenticated_origin",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "authenticated_origin",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "runtime_attestation",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "runtime_attestation",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "runtime_attestation",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "editorial_approval",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "editorial_approval",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "editorial_approval",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "vendor_extension",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "vendor_extension",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-enumeration-v1-hex",
+      "extension": "vendor_extension",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "authenticated_origin",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "authenticated_origin",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "authenticated_origin",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "runtime_attestation",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "runtime_attestation",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "runtime_attestation",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "editorial_approval",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "editorial_approval",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "editorial_approval",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "unreported_optimality_claim",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "vendor_extension",
+      "boundary": "envelope",
+      "reason": "Envelope field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "vendor_extension",
+      "boundary": "external_request",
+      "reason": "Request field mismatch"
+    },
+    {
+      "class": "NDU-price-path-v2-hex",
+      "extension": "vendor_extension",
+      "boundary": "embedded_request",
+      "reason": "Request field mismatch"
+    }
+  ],
+  "seconds": 214.797588615,
+  "scope": "Finite documentation regression of unchanged checker behavior; not authentication, runtime attestation or new optimization evidence."
+}

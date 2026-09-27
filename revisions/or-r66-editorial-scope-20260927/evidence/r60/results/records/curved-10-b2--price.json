@@ -1,0 +1,89 @@
+{
+  "id": "curved-10-b2",
+  "method": "price",
+  "instance_sha256": "54c05f140b12837955291e15256460b35440fb469e95f52a67ef4c5a30c2bc8e",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/14",
+  "lower": "hex:520b9/d4800",
+  "upper": "hex:2f4da55/70e4000",
+  "gap": "hex:3b780d/70e4000",
+  "seconds": 0.010349952000069607,
+  "nodes": 1,
+  "oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.0054843339999024465,
+      "lower": "hex:8802676f/1964c8000",
+      "upper": "hex:2f4da55/70e4000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.009768263000296429,
+      "lower": "hex:520b9/d4800",
+      "upper": "hex:2f4da55/70e4000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.009817574999942735,
+      "lower": "hex:520b9/d4800",
+      "upper": "hex:2f4da55/70e4000",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-252877/2842400",
+        "upper": "hex:9/8",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 2,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:3b780d/70e4000"
+  },
+  "optimization_seconds": 0.01043047299981481,
+  "setup_seconds": 0.21167856800002482,
+  "peak_rss_kib": 30412,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/curved-10-b2--price.json.gz",
+  "certificate_sha256": "67898d26105e61ec9a0c32adb39acb0cb36905f459ee3b82ba197d3111b4839c",
+  "proof_bytes": 2548,
+  "compressed_proof_bytes": 600,
+  "serialization_seconds": 0.00045878899982199073,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:520b9/d4800",
+    "upper": "hex:2f4da55/70e4000",
+    "gap": "hex:3b780d/70e4000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.005745634000049904,
+    "instance_sha256": "54c05f140b12837955291e15256460b35440fb469e95f52a67ef4c5a30c2bc8e"
+  },
+  "verification_seconds": 0.009988956000142934,
+  "checker_peak_rss_kib": 30412,
+  "worker_seconds": 0.23280024199993932,
+  "parent_finished": true,
+  "parent_seconds": 0.260922066999683,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

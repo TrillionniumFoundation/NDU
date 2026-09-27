@@ -1,0 +1,82 @@
+{
+  "id": "accuracy20-6",
+  "method": "price",
+  "instance_sha256": "a7a7d47a544df2962496f581a2fdf7b1f2d9166877bc9e409627e076d5bba304",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/14",
+  "lower": "hex:1286af/47e000",
+  "upper": "hex:316ebd9ed/b9a758000",
+  "gap": "hex:1945a181/b9a758000",
+  "seconds": 0.03228117499998007,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.031512216000010085,
+      "lower": "hex:1286af/47e000",
+      "upper": "hex:316ebd9ed/b9a758000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.03156517399997938,
+      "lower": "hex:1286af/47e000",
+      "upper": "hex:316ebd9ed/b9a758000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-270ce01/1071b8000",
+        "upper": "hex:90d/730",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:1945a181/b9a758000"
+  },
+  "optimization_seconds": 0.032535386999938964,
+  "setup_seconds": 0.20941257900005894,
+  "peak_rss_kib": 27364,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/accuracy20-6--price.json.gz",
+  "certificate_sha256": "a27774f3a6bd42b83775fc941c70522f99be7fc0943d41ae5e7f3d77eaf1dd09",
+  "proof_bytes": 3609,
+  "compressed_proof_bytes": 778,
+  "serialization_seconds": 0.0005237230000147974,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:1286af/47e000",
+    "upper": "hex:316ebd9ed/b9a758000",
+    "gap": "hex:1945a181/b9a758000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.04274948299996595,
+    "instance_sha256": "a7a7d47a544df2962496f581a2fdf7b1f2d9166877bc9e409627e076d5bba304"
+  },
+  "verification_seconds": 0.04698963399994227,
+  "checker_peak_rss_kib": 27364,
+  "worker_seconds": 0.2896699120000221,
+  "parent_finished": true,
+  "parent_seconds": 0.31910082900003545,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

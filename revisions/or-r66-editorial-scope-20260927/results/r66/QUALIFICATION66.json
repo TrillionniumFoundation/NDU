@@ -1,0 +1,146 @@
+{
+  "schema": "NDU-R66-executed-qualification-v1",
+  "status": "PASS",
+  "python": "3.13.5 (main, Jun 12 2025, 03:51:15) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.35",
+  "commands": [
+    {
+      "name": "receipt_scope",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "tests66.py"
+      ],
+      "exit_code": 0,
+      "seconds": 215.01460745500003,
+      "log": "results/r66/receipt_scope.log",
+      "log_sha256": "3c32992146e0d7f11cb715a3a409add0f57d72024c2cdae0045a25c4a9be0dc3"
+    },
+    {
+      "name": "request_transfer",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests65.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r66-editorial-scope-20260927/results/r66/request"
+      ],
+      "exit_code": 0,
+      "seconds": 1.0676414299999806,
+      "log": "results/r66/request_transfer.log",
+      "log_sha256": "c5c4e2705a13c5190be7f79de74842ccbabaaf2b3926569c805b12d9b28482d7"
+    },
+    {
+      "name": "retained_semantics",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests64.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r66-editorial-scope-20260927/results/r66/semantic"
+      ],
+      "exit_code": 0,
+      "seconds": 3.2555023149999442,
+      "log": "results/r66/retained_semantics.log",
+      "log_sha256": "51be46d8d1148c67715fa091f0967306ac285b6b5b9b6fe012ee65d6a9261a67"
+    },
+    {
+      "name": "structural60",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests60.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r66-editorial-scope-20260927/results/r66/STRUCTURAL60_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.605021418999968,
+      "log": "results/r66/structural60.log",
+      "log_sha256": "62796b2bd6e6a6566db9a9d871728dc519e44c66e776ef4e4a6c80f6385152a3"
+    },
+    {
+      "name": "structural61",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests61.py",
+        "--output",
+        "/home/runner/work/NDU/NDU/revisions/or-r66-editorial-scope-20260927/results/r66/STRUCTURAL61_REPLAY.json"
+      ],
+      "exit_code": 0,
+      "seconds": 7.271744917999968,
+      "log": "results/r66/structural61.log",
+      "log_sha256": "2911851beaf3ba4c954c3dcca4ddd53df22951f1abbb2b67b6318af752f541e3"
+    },
+    {
+      "name": "physical_binding",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/tests63.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3780629970000291,
+      "log": "results/r66/physical_binding.log",
+      "log_sha256": "251b5731a498c971f75b431253cd724053f97c6bf5f8b055d937a562a6356d4e"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "compile66.py"
+      ],
+      "exit_code": 0,
+      "seconds": 4.484130125999968,
+      "log": "results/r66/compile.log",
+      "log_sha256": "c4e288fd558ec74d6f875c5a3251aeb06d57928fb5128c13ce1b2cea52c943f5"
+    },
+    {
+      "name": "frozen_request_replay",
+      "command": [
+        "/opt/hostedtoolcache/Python/3.13.5/x64/bin/python",
+        "code/replay65.py",
+        "evidence/r61",
+        "/home/runner/work/NDU/NDU/revisions/or-r66-editorial-scope-20260927/results/r66/replay"
+      ],
+      "exit_code": 0,
+      "seconds": 132.013828074,
+      "log": "results/r66/frozen_request_replay.log",
+      "log_sha256": "8011dcaf3d1f38c85ad87d13de92e0e3f88715733f930d494194f6b698879b09"
+    }
+  ],
+  "read_only_check": {
+    "status": "PASS",
+    "r65_files_preserved": 7080,
+    "unchanged_mathematical_environments": {
+      "main": 36,
+      "electronic_companion": 42
+    },
+    "unchanged_displays": {
+      "main": 38,
+      "electronic_companion": 35
+    },
+    "unchanged_tables": {
+      "main": 5,
+      "electronic_companion": 0
+    },
+    "existing_code_files_unchanged": 33,
+    "accepted_request_schema_unchanged": true,
+    "existing_historical_evidence_unchanged": true,
+    "governing_report_blob": "3d1c9c5ef76988894b624b9872e3a5332566cf07",
+    "root_cases_independently_rechecked": 48,
+    "scope_baseline_classes": 6,
+    "legacy_extensions_not_endorsed": 35,
+    "exact_schema_extensions_rejected": 90,
+    "request_regressions": 66,
+    "request_adversaries_rejected": 25,
+    "semantic_certificates": 577,
+    "exhaustive_projections": 288,
+    "requests": 405,
+    "certificates": 389,
+    "PASS": 342,
+    "PASS_LOWER_ONLY": 47,
+    "no_certificate": 16,
+    "different_input_bytes": 16,
+    "newly_replayed_not_reclassified": 45,
+    "request_bound_certificates": 389,
+    "robust_transfer_and_request_bound": 42,
+    "manifest_checked": false
+  },
+  "source_freeze_sha256": "c07514981e5a724d5f679f9195bd72cbac791ee8be4bae874cde47d41a150894",
+  "scope": "Executed editorial, receipt-scope, retained regressions, PDF builds and integrity replay; no new optimization study or historical reclassification"
+}

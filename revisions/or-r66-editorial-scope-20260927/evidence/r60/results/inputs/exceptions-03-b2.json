@@ -1,0 +1,133 @@
+{
+  "id": "exceptions-03-b2",
+  "specification_id": "exceptions-03",
+  "family": "exceptions",
+  "seed": 600930,
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:1/2",
+        "hex:7/8",
+        "hex:15/20",
+        "hex:1b/20",
+        "hex:9/10",
+        "hex:d/10",
+        "hex:5/10",
+        "hex:1/4"
+      ],
+      "weights": [
+        "hex:3/2b",
+        "hex:4/2b",
+        "hex:7/2b",
+        "hex:3/2b",
+        "hex:7/2b",
+        "hex:8/2b",
+        "hex:7/2b",
+        "hex:4/2b"
+      ],
+      "gamma": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "ceilings": [
+        "hex:5/8",
+        "hex:f/10",
+        "hex:19/20",
+        "hex:7/8",
+        "hex:15/20",
+        "hex:d/10",
+        "hex:b/20",
+        "hex:5/10"
+      ],
+      "reward_r": [
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2"
+      ],
+      "reward_q": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/10",
+      "hex:1/8",
+      "hex:3/10",
+      "hex:1/4",
+      "hex:5/10",
+      "hex:3/8",
+      "hex:7/10",
+      "hex:1/2",
+      "hex:9/10",
+      "hex:5/8",
+      "hex:b/10",
+      "hex:3/4",
+      "hex:d/10",
+      "hex:7/8",
+      "hex:f/10",
+      "hex:1/1"
+    ],
+    "charges": [
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:3/64",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/14",
+      "hex:1/32",
+      "hex:1/32",
+      "hex:1/32"
+    ],
+    "promise": "hex:67/2b0",
+    "budget": 2
+  },
+  "epsilon": "hex:1/64",
+  "metadata": {
+    "k": 8,
+    "N": 17,
+    "m": 2,
+    "q_b": 8,
+    "joint_types": 8,
+    "exceptions": 2,
+    "weight_denominator_bits": 6,
+    "promise_fraction": "hex:1/4",
+    "deficit": "hex:135/2b0",
+    "epsilon": "hex:1/64",
+    "grid_Q": 135
+  },
+  "total_seconds": 3.0,
+  "optimization_cutoff_seconds": 1.7999999999999998,
+  "methods": [
+    "price",
+    "deficit",
+    "enumeration",
+    "scip",
+    "tariff"
+  ]
+}
