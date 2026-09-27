@@ -1,0 +1,70 @@
+{
+  "id": "scale-N65-d2-t1-f0.6",
+  "method": "hybrid",
+  "instance_sha256": "a1a0d0540e024a2506717d5113e1353c0e04fdd5693712f1c3270d124e39b65d",
+  "status": "EXACT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 2,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 0,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:7cc0b/124238",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:c9f1/1d36c",
+        "supports_promise": false,
+        "support_seconds": 0.0007124179999209446,
+        "oracle_calls": 1
+      }
+    ]
+  },
+  "probe_seconds": 0.15362177099996188,
+  "selected_route": "robust_tariff_d_le_4",
+  "lower": "hex:17c83/3a6d8",
+  "upper": "hex:17c83/3a6d8",
+  "selected_exception_budget": 0,
+  "projected_exceptions": 0,
+  "regret_bound": "hex:3/7d0",
+  "optimization_seconds": 0.31128107699998964,
+  "setup_seconds": 0.18049656200003028,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/scale-N65-d2-t1-f0.6--hybrid.json.gz",
+  "certificate_schema": "NDU-R61-robust-tariff-v1",
+  "certificate_sha256": "9c6b9a853beb7f71fc0e4b4fd7dcb667412892895371fc9109df440741cfdab1",
+  "proof_bytes": 37643,
+  "compressed_proof_bytes": 3992,
+  "serialization_seconds": 0.0019438659999195806,
+  "parent_finished": true,
+  "parent_seconds": 1.0023768370000425,
+  "parent_timeout": true,
+  "parent_returncode": -9,
+  "within_total_budget": false,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

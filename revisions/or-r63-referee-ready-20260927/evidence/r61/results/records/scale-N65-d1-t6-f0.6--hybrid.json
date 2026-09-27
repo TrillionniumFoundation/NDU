@@ -1,0 +1,140 @@
+{
+  "id": "scale-N65-d1-t6-f0.6",
+  "method": "hybrid",
+  "instance_sha256": "b77db98624b3d89ba063197930b22526ea13dd792f9fc3d8dc5b421135b01bb2",
+  "status": "EXACT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 1,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 1,
+    "incumbent_updates": 2,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:2175bf/74db000",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:7cc0b/124238",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:c9f1/1d36c",
+        "supports_promise": false,
+        "support_seconds": 0.0007295569999996587,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:169/1000",
+          "hex:31/100",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:8a1/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:ff1050f/24847000",
+        "support_low": "hex:b41167/175f000",
+        "support_high": "hex:be1/175f",
+        "distance": "hex:5c9303/74db000",
+        "supports_promise": false,
+        "support_seconds": 0.00251227100000051,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:271/1000",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:f26eebb/24847000",
+        "support_low": "hex:5777f3/baf800",
+        "support_high": "hex:5777f3/baf800",
+        "distance": "hex:2175bf/3a6d800",
+        "supports_promise": false,
+        "support_seconds": 0.001972352000052524,
+        "oracle_calls": 3
+      }
+    ]
+  },
+  "probe_seconds": 0.3308658440000727,
+  "selected_route": "robust_tariff_d_le_4",
+  "lower": "hex:17c83/3a6d8",
+  "upper": "hex:17c83/3a6d8",
+  "selected_exception_budget": 0,
+  "projected_exceptions": 0,
+  "regret_bound": "hex:1/7d0",
+  "optimization_seconds": 0.48957082099991567,
+  "setup_seconds": 0.1806558450000466,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/scale-N65-d1-t6-f0.6--hybrid.json.gz",
+  "certificate_schema": "NDU-R61-robust-tariff-v1",
+  "certificate_sha256": "aab5b505baeb5c52c6795335509fded8b0e77772459a238fc5fccfe9c9d19733",
+  "proof_bytes": 39188,
+  "compressed_proof_bytes": 4310,
+  "serialization_seconds": 0.002019152999992002,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "97411/239320",
+    "upper": "97411/239320",
+    "branches": 1,
+    "hybrid_probe": {
+      "status": "PASS",
+      "lower": "hex:73fd1/124238",
+      "upper": "hex:f26eebb/24847000",
+      "gap": "hex:2175bf/74db000",
+      "tolerance_met": false,
+      "leaves": 2,
+      "splits": 1,
+      "prices": 1,
+      "seconds": 0.15951062800002092,
+      "instance_sha256": "b77db98624b3d89ba063197930b22526ea13dd792f9fc3d8dc5b421135b01bb2",
+      "root_diagnostics": {
+        "status": "PASS",
+        "checked_root_candidates": 3
+      }
+    },
+    "checking_seconds": 0.6638639569999896,
+    "process_seconds": 0.8447470170000315,
+    "peak_rss_kib": 25720
+  },
+  "checker_peak_rss_kib": 25720,
+  "verification_seconds": 0.8637808419999828,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 1.536489491999987,
+  "parent_finished": true,
+  "parent_seconds": 1.558424897000009,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

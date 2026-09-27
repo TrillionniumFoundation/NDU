@@ -1,0 +1,22 @@
+{
+  "id": "curved-24-b2",
+  "method": "deficit",
+  "instance_sha256": "47d136e5caa7d49ff899bbdcfffb6170b4f21c81cf75454db6fe0725f4e66e08",
+  "status": "STATE_LIMIT",
+  "epsilon": "hex:1/1f4",
+  "error": "StateLimit('Requested state count has 20 bits; allowance 600000')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/NDU/NDU/revisions/or-r60-tariff-frontier-20260927/code/worker60.py\", line 47, in main\n    ans=solve(spec,eps,exact_lattice=not eps,max_states=600000)\n  File \"/home/runner/work/NDU/NDU/revisions/or-r58-structural-referee-20260926/code/deficit.py\", line 128, in solve\n    raise StateLimit(m*n*Q,max_states)\ndeficit.StateLimit: Requested state count has 20 bits; allowance 600000\n",
+  "requested_states": "656850",
+  "optimization_seconds": 0.022844624999834195,
+  "setup_seconds": 0.20898618100000022,
+  "peak_rss_kib": 30412,
+  "worker_seconds": 0.23183761900008903,
+  "parent_finished": true,
+  "parent_seconds": 0.259663308999734,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": false,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

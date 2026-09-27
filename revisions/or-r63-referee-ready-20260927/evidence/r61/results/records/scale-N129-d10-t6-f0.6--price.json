@@ -1,0 +1,165 @@
+{
+  "id": "scale-N129-d10-t6-f0.6",
+  "method": "price",
+  "instance_sha256": "1eead457d395f4c0be9dd909bf95fbb3d47ff1105ac819b4007c6b1ec842a6a0",
+  "status": "TOLERANCE",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 10,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "lower": "hex:8e43/16080",
+  "upper": "hex:1ac346b/4218000",
+  "gap": "hex:48af/d38000",
+  "seconds": 2.1833487929999364,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.8111705159999474,
+      "lower": "hex:-1/c8",
+      "upper": "hex:2ea8f/6e280",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 1.267750578999994,
+      "lower": "hex:2a40f/6e280",
+      "upper": "hex:2ea8f/6e280",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 1.7252192839999907,
+      "lower": "hex:2b5af/6e280",
+      "upper": "hex:87f6517f/14a780000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 2.182060184999955,
+      "lower": "hex:8e43/16080",
+      "upper": "hex:1ac346b/4218000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 2.1820983339999884,
+      "lower": "hex:8e43/16080",
+      "upper": "hex:1ac346b/4218000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 3,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:48af/d38000",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:2ea8f/6e280",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:1e37/4680",
+        "supports_promise": false,
+        "support_seconds": 0.0010952620000352908,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:7e9/4000",
+          "hex:f81/4000",
+          "hex:169/400",
+          "hex:1ef1/4000",
+          "hex:271/400",
+          "hex:31/40",
+          "hex:3931/4000",
+          "hex:1/1"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:11c99eaf/294f0000",
+        "support_low": "hex:c92e07/1a70000",
+        "support_high": "hex:8e3/11a0",
+        "distance": "hex:13e407/1a70000",
+        "supports_promise": false,
+        "support_seconds": 0.003477845000020352,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:7e9/4000",
+          "hex:1299/4000",
+          "hex:1ae9/4000",
+          "hex:271/400",
+          "hex:31/40",
+          "hex:3d09/4000"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:87f6517f/14a780000",
+        "support_low": "hex:3118957/69c0000",
+        "support_high": "hex:3118957/69c0000",
+        "distance": "hex:3c6157/69c0000",
+        "supports_promise": false,
+        "support_seconds": 0.0029459080000151516,
+        "oracle_calls": 3
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:31/100",
+          "hex:169/400",
+          "hex:271/400",
+          "hex:349/400"
+        ],
+        "price": "hex:3/4",
+        "upper": "hex:1ac346b/4218000",
+        "support_low": "hex:16f1ef/34e000",
+        "support_high": "hex:16f1ef/34e000",
+        "distance": "hex:48af/34e000",
+        "supports_promise": false,
+        "support_seconds": 0.002472149000027457,
+        "oracle_calls": 4
+      }
+    ]
+  },
+  "optimization_seconds": 2.1860105140000314,
+  "setup_seconds": 0.18218678100004126,
+  "optimizer_peak_rss_kib": 29828,
+  "certificate": "certificates/scale-N129-d10-t6-f0.6--price.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "324603ab6f099af947cff8eccad1e122002c184894b7f2b5edcc1f279bb7036a",
+  "proof_bytes": 11017,
+  "compressed_proof_bytes": 1577,
+  "serialization_seconds": 0.0008689940000294882,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "parent_finished": true,
+  "parent_seconds": 6.008343940000032,
+  "parent_timeout": true,
+  "parent_returncode": -9,
+  "within_total_budget": false,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

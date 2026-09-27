@@ -1,0 +1,140 @@
+{
+  "id": "split-N65-d4-t3-f0.8",
+  "method": "hybrid",
+  "instance_sha256": "ce4ea8079e738e7aa6400f5238e8865e9d794470d1245b0651899ec0cabc5302",
+  "status": "EXACT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 4,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 1,
+    "incumbent_updates": 2,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:2175bf/74db000",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:7cc0b/124238",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:c9f1/1d36c",
+        "supports_promise": false,
+        "support_seconds": 0.0007236380001813814,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:169/1000",
+          "hex:31/100",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:8a1/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:ff1050f/24847000",
+        "support_low": "hex:b41167/175f000",
+        "support_high": "hex:be1/175f",
+        "distance": "hex:5c9303/74db000",
+        "supports_promise": false,
+        "support_seconds": 0.002706843999931152,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:271/1000",
+          "hex:121/400",
+          "hex:739/1000",
+          "hex:a29/1000",
+          "hex:bd1/1000",
+          "hex:e89/1000"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:f26eebb/24847000",
+        "support_low": "hex:5777f3/baf800",
+        "support_high": "hex:5777f3/baf800",
+        "distance": "hex:2175bf/3a6d800",
+        "supports_promise": false,
+        "support_seconds": 0.0020562310000968864,
+        "oracle_calls": 3
+      }
+    ]
+  },
+  "probe_seconds": 0.3336295889998837,
+  "selected_route": "robust_tariff_d_le_4",
+  "lower": "hex:17c83/3a6d8",
+  "upper": "hex:17c83/3a6d8",
+  "selected_exception_budget": 2,
+  "projected_exceptions": 2,
+  "regret_bound": "hex:3/7d0",
+  "optimization_seconds": 0.5548629239999627,
+  "setup_seconds": 0.1804457989999264,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/split-N65-d4-t3-f0.8--hybrid.json.gz",
+  "certificate_schema": "NDU-R61-robust-tariff-v1",
+  "certificate_sha256": "6295bc39e3b485124ed479b9027a3b14d5559f19b609e59c511a4020c730466c",
+  "proof_bytes": 88654,
+  "compressed_proof_bytes": 11000,
+  "serialization_seconds": 0.005276291999962268,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "97411/239320",
+    "upper": "97411/239320",
+    "branches": 4,
+    "hybrid_probe": {
+      "status": "PASS",
+      "lower": "hex:73fd1/124238",
+      "upper": "hex:f26eebb/24847000",
+      "gap": "hex:2175bf/74db000",
+      "tolerance_met": false,
+      "leaves": 2,
+      "splits": 1,
+      "prices": 1,
+      "seconds": 0.16053923499998746,
+      "instance_sha256": "ce4ea8079e738e7aa6400f5238e8865e9d794470d1245b0651899ec0cabc5302",
+      "root_diagnostics": {
+        "status": "PASS",
+        "checked_root_candidates": 3
+      }
+    },
+    "checking_seconds": 0.7373839079998561,
+    "process_seconds": 0.9218812179999532,
+    "peak_rss_kib": 25720
+  },
+  "checker_peak_rss_kib": 25720,
+  "verification_seconds": 0.9407203749999553,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 1.6817990389999977,
+  "parent_finished": true,
+  "parent_seconds": 1.703269409999848,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

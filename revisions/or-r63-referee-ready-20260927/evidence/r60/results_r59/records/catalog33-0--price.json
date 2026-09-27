@@ -1,0 +1,82 @@
+{
+  "id": "catalog33-0",
+  "method": "price",
+  "instance_sha256": "8b67ae1a005ea9112ba3ea0ca12c74d6e618eb1358327207cb26af0f38da791d",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/64",
+  "lower": "hex:af99f85/25800000",
+  "upper": "hex:2c9627cced/9600000000",
+  "gap": "hex:25798a7/200000000",
+  "seconds": 0.12191538500002252,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.12104105999998183,
+      "lower": "hex:af99f85/25800000",
+      "upper": "hex:2c9627cced/9600000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.12109846599997809,
+      "lower": "hex:af99f85/25800000",
+      "upper": "hex:2c9627cced/9600000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1174fbf213/5437c000000",
+        "upper": "hex:79/60",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:25798a7/200000000"
+  },
+  "optimization_seconds": 0.12300061300004472,
+  "setup_seconds": 0.21015778699995735,
+  "peak_rss_kib": 27364,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/catalog33-0--price.json.gz",
+  "certificate_sha256": "cb3eb2ddbf656e34456dcf9f145ce894488c1e8eb1a0ec5dcaec089e05e49cc9",
+  "proof_bytes": 4039,
+  "compressed_proof_bytes": 870,
+  "serialization_seconds": 0.0006711069999596475,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:af99f85/25800000",
+    "upper": "hex:2c9627cced/9600000000",
+    "gap": "hex:25798a7/200000000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.16458804999996346,
+    "instance_sha256": "8b67ae1a005ea9112ba3ea0ca12c74d6e618eb1358327207cb26af0f38da791d"
+  },
+  "verification_seconds": 0.16898618599998372,
+  "checker_peak_rss_kib": 27364,
+  "worker_seconds": 0.5030448989999741,
+  "parent_finished": true,
+  "parent_seconds": 0.5320654839999861,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

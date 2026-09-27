@@ -1,0 +1,119 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable,graphicx}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Finite-Catalog Resource Allocation}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+
+% BEGIN retained/current source: revisions/or-r52-resource-path-20260925/generated/metrics.tex
+\newcommand{\FineMaxGap}{0.000500}
+\newcommand{\FineMinTime}{3.523}
+\newcommand{\FineMaxTime}{19.762}
+\newcommand{\FineMaxRelative}{1.63\%}
+\newcommand{\FineMinPacked}{0.216}
+\newcommand{\FineMaxPacked}{6.628}
+\newcommand{\FineMaxDenBits}{553}
+\newcommand{\AllResourceExact}{31}
+\newcommand{\GroupNOneComplete}{2}
+\newcommand{\MIPMaxSeconds}{0.038}
+\newcommand{\MIPMaxGap}{$5.55\,10^{-17}$}
+
+% END source
+
+
+% BEGIN retained/current source: revisions/or-r54-exact-price-path-20260926/generated/metrics.tex
+\newcommand{\PriceExact}{10}
+\newcommand{\PriceTolerance}{19}
+\newcommand{\PriceLimited}{1}
+\newcommand{\PriceChecked}{30}
+\newcommand{\PriceMinBytes}{541}
+\newcommand{\PriceMaxBytes}{5895}
+\newcommand{\AnytimeExact}{10}
+\newcommand{\ForcedAnchors}{45}
+\newcommand{\HardnessSubsets}{1692}
+\newcommand{\HardnessBooks}{3004}
+
+% END source
+
+\hypersetup{pdftitle={Finite-Catalog Resource Allocation: A Tariff-Sensitive Complexity Frontier},pdfauthor={Anonymous}}
+\externaldocument{.build/r63/main_refs}[main.pdf]
+\externaldocument{.build/r63/electronic_companion_refs}[electronic_companion.pdf]
+\begin{document}
+\begin{center}{\Large\bfseries Response to the R60 Referee Report}\par
+Finite-Catalog Resource Allocation: A Tariff-Sensitive Complexity Frontier\par
+R63 --- September 27, 2026\end{center}
+We thank the referee for identifying the tariff theorem and the original-model reduction as the central contribution, while asking for a more operational positive result and substantially better-aligned evidence. This revision develops those contributions rather than replace them. It adds a near-standard-tariff theorem with original-policy recovery, an optimal absolute-distortion projection, explicit installed-command frontiers, an expanded frozen execution panel, and an independent exhaustive root-support diagnostic. The core exact representation, hardness reduction, tariff algorithm, conservation and approximation results remain. Supporting heterogeneous-reward, cap-count, prototype, and nonrenewal results remain in the electronic companion; earlier presentations and evidence are preserved byte-for-byte in the archive. The numbered responses below follow the seventeen requested revision actions. References point to the current readers.
+
+\section*{1. A dominant scientific argument}
+The introduction and main text now follow the original allocation model, constructive selected-boundary representation, original-model parameterized lower bound, tariff-sensitive exact algorithm, and near-standard extension. The resource-deficit guarantee and price-support theorem follow as complementary results, before the revised study. Recognition details, heterogeneous extensions, and prototype selection move to the companion. The title and main contribution remain a tariff-sensitive complexity frontier; the revision does not retreat to a generic dynamic-programming or auditing paper.
+
+\section*{2. State the exact positive regime}
+Section~\ref{sec:tariff60} keeps common linear terminal reward and free preliminary service explicit. Expected caps, realization ceilings, positive probabilities, catalog spacing, the command allowance, and rational denominators remain unrestricted. Theorem~\ref{thm:tariff60} gives $O(kN^2+2^d mN^2)$ rational operations and $2^d\operatorname{poly}(L)$ bit complexity. The hard construction of Theorem~\ref{thm:wone59} uses the same physical regime but arbitrary command-specific fees. We do not claim a complete classification of curved rewards with uniform fees. Section~\ref{sec:robust63} genuinely enlarges the positive result to a quantitatively specified tariff neighborhood rather than weakening its original conclusion.
+
+\section*{3. Preserve secondary results without obscuring the main claim}
+The companion retains the cap-count and heterogeneous-type proofs, exact price-path oracle, complete discrete search, lattice and saturated-promise regimes, capacity repair, graph recognition, prototype guarantees, and corridor application. The main text retains the stronger merged-origin, centered-deficit theorem. The superseded earlier uncentered grid presentation and its complete proofs remain in the byte-identical R60 companion and source archive, alongside the original experimental tables. The section-preservation map identifies each relocation and supersession. No previous mathematical claim or unfavorable empirical record is silently discarded.
+
+\section*{4. Interpret standard and exceptional opening fees}
+Section~\ref{sec:institution63} gives an explicit service-credit interpretation. Standard setup incurs a common charge; exceptional command levels can require additional integration or qualification. Histories retain distinct expected caps and outcome-by-outcome ceilings. The provider has already accepted an aggregate obligation, which must be discharged exactly; this is not an inequality budget relabeled as an equality. We identify the interpretation as constructed rather than falsely attribute data or adoption to a provider. Exception counts are observable from the tariff before resource optimization.
+
+\section*{5. Near-standard tariffs: a new original-policy guarantee}
+Theorem~\ref{thm:robust63} bounds the original optimal value using the exact surrogate optimum and two one-sided fee budgets. For fee differences $\delta_i=\rho_i-\widetilde\rho_i$, let $E_+$ and $E_-$ be the sums of the largest at most $m$ positive and negative differences. The unchanged surrogate policy is feasible under the original model and has value $L=V_{\widetilde\rho}-\sum_{i\in\widetilde c}\delta_i$; $U=V_{\widetilde\rho}+E_-$ is a valid original upper bound. The gap is at most $E_++E_-$, hence at most the total absolute fee distortion and at most $2m$ times the maximum fee distortion. The theorem also gives a strict book-stability condition.
+
+Proposition~\ref{prop:projection63} solves the best absolute-distortion sparse-exception projection by a consecutive sorted window and its median. Monotonicity in the exception allowance permits binary search for the smallest allowance meeting a stated distortion tolerance. The exact tariff solver then supplies the inner solution. We distinguish this optimal projection criterion from globally minimizing realized regret or computation time. The original physical model is unchanged; approximation is confined to fees and charged explicitly in the final value certificate.
+
+\section*{6. Show actual installation switches}
+Section~\ref{sec:frontier63} computes a rational four-history example, including the installed book and how the promise is delivered. Switching fees are $1/15$ and $1/3$: deterministic representatives change from $(0,1/3,2/3)$ to $(0,2/3)$ to $(0)$. The service component changes from zero to aggregate $1/15$ and then $2/5$. A near-standard example returns $(0,1/3,1)$ with original value $901/3000$ and upper bound $451/1500$. Complete rational frontiers and original policies are also supplied for 17-, 65-, and 129-command catalogs. Cardinality monotonicity is not incorrectly strengthened to nestedness of the installed commands.
+
+\section*{7. Vary the exception count and separate certification costs}
+The expanded frozen scaling panel uses $d=0,1,2,4,6,8,10,12$ at each of three physical sizes and two total time allowances. Table~\ref{tab:d63} reports every exception count at a fixed size, separating optimization, serialization, checking, optimizer/checker memory, and proof bytes. The largest proof in the panel contains 5,572,345 uncompressed bytes. Completed search followed by an interrupted checker is not an end-to-end success. The raw files retain every declared request, including guard, deadline, mathematical-inapplicability, and missing-certificate outcomes.
+
+\section*{8. Increase both catalog size and command allowance}
+The controlled sizes are $(N,k,m)=(17,12,8),(65,32,16),(129,48,32)$, compared with the smaller reviewed panel. Table~\ref{tab:scaling63} retains all eight exception values per size and budget. At six seconds the tariff method certifies 8/8, 5/8, and 3/8, respectively. Enumeration certifies none of the 48 controlled requests under their assigned budgets. This is observed behavior on declared instances, not an empirical substitute for the FPT/XP distinction. Five additional encoding cases exercise rational constructions through 4,096 bits without introducing a resource grid.
+
+\section*{9. A separately specified adversarial generator}
+Twelve stress cases at 19 and 41 catalog commands vary fee density, small promises, near-standard dispersion, curvature, costly service, eligibility geometry, and alternating fee levels. They do not reuse the older seeds or the clique/group-sum construction. Together they yield 84 six-second requests for seven methods. Section~\ref{sec:study59} reports the complete counts, including 0/12 for deficit and enumeration, and distinguishes numerical SCIP bounds from rational certificates. These constructed stress cases answer the requested broader adversarial alternative; they are not presented as external field data or independent random samples.
+
+\section*{10. Root support, root gaps, and search mechanics}
+A selected active book at a sampled price does not classify the whole root relaxation. Section~\ref{sec:root63} therefore adds an independent exhaustive experiment. For each of 48 complete factorial cells, we enumerate all original feasible books and construct the upper concave hull of their exact value vertices. This gives the minimum price bound and all active support intervals without the price-path recurrence. Among 1,176 books in total, 20 cases have same-book support and 28 have a positive minimum root gap, at most $1/20$. All final price certificates are exact. Table~\ref{tab:root63} reports branching and checking work by this exact classification. The support characterization and distance inequality are checked for every active book in the panel.
+
+\section*{11. Execute the hybrid; do not overstate the routing conclusion}
+The expanded study actually executes a fixed hybrid: a limited price probe, then a guarded near-standard tariff solve when justified, otherwise a charged restart of price search. It achieves 27/48 controlled targets, compared with 25/48 for tariff and 24/48 for price. In the adversarial panel it attains 8/12 while price attains 12/12. These mixed results are reported, and the manuscript does not claim a validated universally optimal routing hierarchy. Physical applicability, exception count, fee distortion, and an available support witness are useful observables, not an untested guarantee of runtime superiority.
+
+\section*{12. Binary-encoded edge allowances}
+The graph implementation clamps $h$ to $\min\{h,|V|-1\}$ before allocating layered states. Its terminal bookkeeping arc does not count as a real graph edge. The regression suite checks a declared allowance $10^{100}$ against an effective allowance of two. Section~\ref{sec:implementation63} states this implementation contract explicitly, retaining the full length-aware theorem and corridor example in Section~\ref{sec:bounded60}.
+
+\section*{13. Separate a practical guard from theorem applicability}
+The emitted request record includes the standard fee, exceptional indices and count, and guard. A count above twelve produces \texttt{ENGINEERING\_GUARD}; curved reward or positive service cost produces \texttt{MATHEMATICALLY\_INAPPLICABLE}. Optimization deadlines, parent timeouts, and checking failures remain separate. The regressions check exact instances through twelve exceptions and a guard case at thirteen. The existence theorem is not restricted to twelve; the reference implementation is guarded for explicit resource reasons.
+
+\section*{14. Arithmetic operations, bit operations, and numerical grids}
+The theorem retains both its rational-operation count and its binary bit-complexity statement. Intermediate capacities and costs have polynomial encoding length, not unit bit cost. The uniform-tariff arithmetic count is independent of denominator values; the exact lattice regime remains pseudo-polynomial in its numerical grid. The robust projection discussion reports the implemented repeated-sort preprocessing cost rather than a hypothetical optimized implementation. The new encoding panel tests, but does not prove away, large-rational costs.
+
+\section*{15. Choose the standard fee reproducibly}
+The exact solver uses a most frequent rational opening fee. Ties are resolved by the smallest rational value. Every tied mode minimizes the number of exceptional commands; different choices may change the enumerated exceptional set, but not the attained exact optimum. This preprocessing and the distinction between exceptional commands and distinct fee values are explicit in the theorem and implementation description.
+
+\section*{16. Independent replay and exact source closure}
+We found and repaired a real input-binding defect at the interface between rational encodings and certificates. The new adapter first establishes exact equality with the externally requested input, records both raw digests and a canonical rational digest, and only then invokes the independent mathematical checker. It checks the original policy against the external model and recursively binds hybrid probes. It imports no optimizer. Twenty-one additional mutations are rejected, including changed model fields, the original integer allowance, policies, extra fields, and a nested probe.
+
+All 405 frozen records are retained. Of 389 existing certificates, the new independent replay verifies 342 two-sided rational certificates and 47 numerical-solver lower policies. Sixteen inputs have a different but exactly equal rational serialization; sixteen requests have no certificate. Forty-five previously failed or incomplete checks succeed in later replay, without changing their original deadline labels. The original source freeze, inputs, records, certificate hashes, and all replay receipts are supplied. The publication build records reader hashes and validates the exact generated checkout; reproducibility is not inferred from a workflow's display name.
+
+\section*{17. A clean author branch and immutable review reference}
+The revision is based on the author-only R61 scientific branch, which records the reviewed R60 source and the governing review separately. The report is pinned by its immutable commit, path, and blob; it is not a scientific parent. The incomplete R62 transport branch is left untouched, as are all existing author and review branches. The new R63 branch contains the complete materialized main paper, companion, response, code/data, preservation map, and validation records for a fresh referee review.
+
+\section*{Validation scope}
+The new theorems have full proofs in the current manuscript. Exact finite regressions and exhaustive diagnostics provide complementary checks, not a proof of general novelty or acceptance. The prior negative results and timing failures remain visible. The manuscript uses an anonymous 11-point, one-and-one-half-spaced layout with one-inch margins, a text-only abstract below 200 words, author--year references, and tables after the references. The build checks page counts and cross-references. The editor and referee retain the scientific judgment on the contribution and the sufficiency of the evidence.
+
+\end{document}
