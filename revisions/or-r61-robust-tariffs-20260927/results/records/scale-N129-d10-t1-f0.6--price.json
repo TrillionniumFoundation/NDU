@@ -1,0 +1,90 @@
+{
+  "id": "scale-N129-d10-t1-f0.6",
+  "method": "price",
+  "instance_sha256": "1eead457d395f4c0be9dd909bf95fbb3d47ff1105ac819b4007c6b1ec842a6a0",
+  "status": "TIME_LIMIT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 10,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "lower": "hex:-1/c8",
+  "upper": "hex:1/1",
+  "gap": "hex:c9/c8",
+  "seconds": 0.3991916200000105,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.39797270200006096,
+      "lower": "hex:-1/c8",
+      "upper": "hex:1/1",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 0,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": []
+  },
+  "optimization_seconds": 0.4009612229999675,
+  "setup_seconds": 0.18113907800000106,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/scale-N129-d10-t1-f0.6--price.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "1da458e7414171af5000e1d08316d04241dd3d967123fda95fdcf3733c173aa0",
+  "proof_bytes": 9216,
+  "compressed_proof_bytes": 1110,
+  "serialization_seconds": 0.0006872359999761102,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:-1/c8",
+    "upper": "hex:1/1",
+    "gap": "hex:c9/c8",
+    "tolerance_met": false,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 0,
+    "seconds": 0.0032172800000580537,
+    "instance_sha256": "1eead457d395f4c0be9dd909bf95fbb3d47ff1105ac819b4007c6b1ec842a6a0",
+    "root_diagnostics": {
+      "status": "PASS",
+      "checked_root_candidates": 0
+    },
+    "checking_seconds": 0.00829189299997779,
+    "process_seconds": 0.18884187100002237,
+    "peak_rss_kib": 26136
+  },
+  "checker_peak_rss_kib": 26136,
+  "verification_seconds": 0.2072385699999586,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 0.7904417779999449,
+  "parent_finished": true,
+  "parent_seconds": 0.8102630399999953,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

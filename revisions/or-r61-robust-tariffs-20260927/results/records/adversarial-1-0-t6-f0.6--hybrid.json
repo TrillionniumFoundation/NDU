@@ -1,0 +1,104 @@
+{
+  "id": "adversarial-1-0-t6-f0.6",
+  "method": "hybrid",
+  "instance_sha256": "a7261b4b0d465db1cd3068cd95b56028067dd985feafbdea6a81e8062e856ab6",
+  "status": "EXACT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 4,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 1,
+    "incumbent_updates": 1,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:1/c8",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:9183/1e8b88",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:93b/186fa",
+        "supports_promise": false,
+        "support_seconds": 0.00024636800003463577,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:a9/144"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:278a03b/4d51304",
+        "support_low": "hex:67331/c5ee9",
+        "support_high": "hex:15b8/2719",
+        "distance": "hex:3d943f/7bb51a",
+        "supports_promise": false,
+        "support_seconds": 0.0003053689999887865,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:a9/144"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:512ec0/13544c1",
+        "support_low": "hex:67331/c5ee9",
+        "support_high": "hex:67331/c5ee9",
+        "distance": "hex:3d943f/7bb51a",
+        "supports_promise": false,
+        "support_seconds": 0.0003064830000312213,
+        "oracle_calls": 3
+      }
+    ]
+  },
+  "probe_seconds": 0.017031921999887345,
+  "selected_route": "robust_tariff_d_le_4",
+  "lower": "hex:3535/f45c4",
+  "upper": "hex:3535/f45c4",
+  "selected_exception_budget": 2,
+  "projected_exceptions": 2,
+  "regret_bound": "hex:3/7d0",
+  "optimization_seconds": 0.0270818930000587,
+  "setup_seconds": 0.1821010959999967,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/adversarial-1-0-t6-f0.6--hybrid.json.gz",
+  "certificate_schema": "NDU-R61-robust-tariff-v1",
+  "certificate_sha256": "94b1e778fb70050f5e8246c2422b62cde5d513a9eb2d4629935727fbaab5c33f",
+  "proof_bytes": 14065,
+  "compressed_proof_bytes": 1828,
+  "serialization_seconds": 0.0008930139999847597,
+  "verification_status": "FAIL",
+  "verification_error": "CalledProcessError(1, ['/opt/hostedtoolcache/Python/3.13.5/x64/bin/python', '/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/checker61.py', '/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/results/certificates/adversarial-1-0-t6-f0.6--hybrid.json.gz', '/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/results/records/adversarial-1-0-t6-f0.6--hybrid.check.json'])",
+  "verification_traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/worker61.py\", line 100, in main\n    subprocess.run([sys.executable,str(R/'code/checker61.py'),str(path),str(receipt_path)],check=True)\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/subprocess.py\", line 577, in run\n    raise CalledProcessError(retcode, process.args,\n                             output=stdout, stderr=stderr)\nsubprocess.CalledProcessError: Command '['/opt/hostedtoolcache/Python/3.13.5/x64/bin/python', '/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/checker61.py', '/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/results/certificates/adversarial-1-0-t6-f0.6--hybrid.json.gz', '/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/results/records/adversarial-1-0-t6-f0.6--hybrid.check.json']' returned non-zero exit status 1.\n",
+  "verification_seconds": 0.21455352099997071,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 0.425097629999982,
+  "parent_finished": true,
+  "parent_seconds": 0.44577822599990213,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

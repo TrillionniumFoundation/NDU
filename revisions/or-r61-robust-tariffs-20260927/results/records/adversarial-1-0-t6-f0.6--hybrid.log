@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/checker61.py", line 19, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/checker61.py", line 13, in main
+    spec=c.get('spec',c.get('instance'));tick=time.perf_counter();ans=check(c,spec)
+                                                                      ~~~~~^^^^^^^^
+  File "/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/worker61.py", line 32, in check
+    out['hybrid_probe']=check(cert['hybrid_probe_certificate'],spec)
+                        ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/worker61.py", line 27, in check
+    out=verify(cert,digest(spec))
+  File "/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/check_price.py", line 102, in verify
+    if expected_sha256 is not None:require(sha==expected_sha256,'Wrong requested instance')
+                                   ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/check_price.py", line 11, in require
+    if not ok:raise ValueError(message)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Wrong requested instance

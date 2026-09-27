@@ -1,0 +1,109 @@
+{
+  "id": "scale-N129-d12-t1-f0.6",
+  "method": "hybrid",
+  "instance_sha256": "66ce898608fc07e2db73c4f4d07500dec057330df8772d3477673cc7292d12e7",
+  "status": "TIME_LIMIT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 12,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [],
+    "splits": 0,
+    "incumbent_updates": 0,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": []
+  },
+  "probe_seconds": 0.3650001210000937,
+  "selected_route": "price_restart",
+  "lower": "hex:-1/c8",
+  "upper": "hex:1/1",
+  "gap": "hex:c9/c8",
+  "seconds": 0.02983455999992657,
+  "nodes": 0,
+  "oracle_calls": 0,
+  "trace": [
+    {
+      "seconds": 0.028661081000109334,
+      "lower": "hex:-1/c8",
+      "upper": "hex:1/1",
+      "nodes": 0,
+      "oracle_calls": 0
+    }
+  ],
+  "mechanics": {
+    "evaluations": [],
+    "splits": 0,
+    "incumbent_updates": 0,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": null,
+    "root_support": []
+  },
+  "optimization_seconds": 0.39887428700012606,
+  "setup_seconds": 0.18241494599988073,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/scale-N129-d12-t1-f0.6--hybrid.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "69e90b0ab20513453834c9a00b5634de926e0e687d61f7d63f6a59649911781f",
+  "proof_bytes": 18466,
+  "compressed_proof_bytes": 1227,
+  "serialization_seconds": 0.0010457700000188197,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:-1/c8",
+    "upper": "hex:1/1",
+    "gap": "hex:c9/c8",
+    "tolerance_met": false,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 0,
+    "seconds": 0.0032479950000379176,
+    "instance_sha256": "66ce898608fc07e2db73c4f4d07500dec057330df8772d3477673cc7292d12e7",
+    "root_diagnostics": {
+      "status": "PASS",
+      "checked_root_candidates": 0
+    },
+    "hybrid_probe": {
+      "status": "PASS",
+      "lower": "hex:-1/c8",
+      "upper": "hex:1/1",
+      "gap": "hex:c9/c8",
+      "tolerance_met": false,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 0,
+      "seconds": 0.003075363000107245,
+      "instance_sha256": "66ce898608fc07e2db73c4f4d07500dec057330df8772d3477673cc7292d12e7",
+      "root_diagnostics": {
+        "status": "PASS",
+        "checked_root_candidates": 0
+      }
+    },
+    "checking_seconds": 0.012565733999963413,
+    "process_seconds": 0.19319125099991652,
+    "peak_rss_kib": 26144
+  },
+  "checker_peak_rss_kib": 26144,
+  "verification_seconds": 0.21167043099990224,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 0.7943920069999422,
+  "parent_finished": true,
+  "parent_seconds": 0.81506459000002,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

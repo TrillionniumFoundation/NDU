@@ -1,0 +1,27 @@
+{
+  "id": "adversarial-1-1-t6-f0.6",
+  "method": "deficit",
+  "instance_sha256": "6e95c677381f1e6f5378408d354550f581eaa60ab71bbab542b5fd9c64c1f48c",
+  "status": "STATE_LIMIT",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 4,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "error": "StateLimit('Requested state count has 21 bits; allowance 600000')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/worker61.py\", line 63, in main\n    ans=solve(spec,eps,max_states=600000)\n  File \"/home/runner/work/NDU/NDU/revisions/or-r61-robust-tariffs-20260927/code/deficit.py\", line 128, in solve\n    raise StateLimit(m*n*Q,max_states)\ndeficit.StateLimit: Requested state count has 21 bits; allowance 600000\n",
+  "optimization_seconds": 0.01318754700014324,
+  "setup_seconds": 0.1806126779999886,
+  "optimizer_peak_rss_kib": 27644,
+  "worker_seconds": 0.19390557100018668,
+  "parent_finished": true,
+  "parent_seconds": 0.21440774699999565,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}
