@@ -1,0 +1,21 @@
+\begin{table}[p]\centering\caption{Rationally certified target attainment by family and total allowance}\label{tab:newrational60}
+\begin{tabular}{llrrr}\toprule Family & Method & 0.5 seconds & 1.5 seconds & 3 seconds\\\midrule
+Standard & Price & 19/30 & 24/30 & 29/30\\
+Standard & Tariff & 30/30 & 30/30 & 30/30\\
+Standard & Deficit & 2/30 & 12/30 & 12/30\\
+Standard & Enumeration & 10/30 & 17/30 & 19/30\\
+Exceptions & Price & 19/30 & 24/30 & 29/30\\
+Exceptions & Tariff & 30/30 & 30/30 & 30/30\\
+Exceptions & Deficit & 2/30 & 12/30 & 12/30\\
+Exceptions & Enumeration & 10/30 & 17/30 & 19/30\\
+Curved & Price & 17/30 & 25/30 & 28/30\\
+Curved & Tariff & -- & -- & --\\
+Curved & Deficit & 0/30 & 5/30 & 10/30\\
+Curved & Enumeration & 8/30 & 16/30 & 18/30\\
+\bottomrule\end{tabular}\par\smallskip\begin{minipage}{\textwidth}\small Each denominator counts requests, not independent observations. Thirty specifications per family recur across budgets. Standard and exceptions have common linear rewards and free service; curved has quadratic rewards and positive service costs. Tariff is inapplicable, not failed, on curved instances. The numerical panel uses SCIP bounds with a reporting tolerance of $10^{-8}$; it is not a rational upper certificate.\end{minipage}\end{table}
+\begin{table}[p]\centering\caption{Numerical-bound target attainment; independently checked lower policies only}\label{tab:newnumerical60}
+\begin{tabular}{llrrr}\toprule Family & Method & 0.5 seconds & 1.5 seconds & 3 seconds\\\midrule
+Standard & SCIP & 0/30 & 28/30 & 30/30\\
+Exceptions & SCIP & 0/30 & 29/30 & 30/30\\
+Curved & SCIP & 0/30 & 20/30 & 27/30\\
+\bottomrule\end{tabular}\par\smallskip\begin{minipage}{\textwidth}\small Each denominator counts requests, not independent observations. Thirty specifications per family recur across budgets. Standard and exceptions have common linear rewards and free service; curved has quadratic rewards and positive service costs. Tariff is inapplicable, not failed, on curved instances. The numerical panel uses SCIP bounds with a reporting tolerance of $10^{-8}$; it is not a rational upper certificate.\end{minipage}\end{table}

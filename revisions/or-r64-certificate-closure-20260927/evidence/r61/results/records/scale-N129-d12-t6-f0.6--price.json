@@ -1,0 +1,165 @@
+{
+  "id": "scale-N129-d12-t6-f0.6",
+  "method": "price",
+  "instance_sha256": "66ce898608fc07e2db73c4f4d07500dec057330df8772d3477673cc7292d12e7",
+  "status": "TOLERANCE",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 12,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": true,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "lower": "hex:8e43/16080",
+  "upper": "hex:1ac346b/4218000",
+  "gap": "hex:48af/d38000",
+  "seconds": 2.195845554000016,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.8148180540001704,
+      "lower": "hex:-1/c8",
+      "upper": "hex:2ea8f/6e280",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 1.273939288000065,
+      "lower": "hex:2a40f/6e280",
+      "upper": "hex:2ea8f/6e280",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 1.7333908980001524,
+      "lower": "hex:2b5af/6e280",
+      "upper": "hex:87f6517f/14a780000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 2.194539445000146,
+      "lower": "hex:8e43/16080",
+      "upper": "hex:1ac346b/4218000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 2.194578970000066,
+      "lower": "hex:8e43/16080",
+      "upper": "hex:1ac346b/4218000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 3,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:48af/d38000",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:2ea8f/6e280",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:1e37/4680",
+        "supports_promise": false,
+        "support_seconds": 0.0011068819999309198,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:7e9/4000",
+          "hex:f81/4000",
+          "hex:169/400",
+          "hex:1ef1/4000",
+          "hex:271/400",
+          "hex:31/40",
+          "hex:3931/4000",
+          "hex:1/1"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:11c99eaf/294f0000",
+        "support_low": "hex:c92e07/1a70000",
+        "support_high": "hex:8e3/11a0",
+        "distance": "hex:13e407/1a70000",
+        "supports_promise": false,
+        "support_seconds": 0.003466524000032223,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:7e9/4000",
+          "hex:1299/4000",
+          "hex:1ae9/4000",
+          "hex:271/400",
+          "hex:31/40",
+          "hex:3d09/4000"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:87f6517f/14a780000",
+        "support_low": "hex:3118957/69c0000",
+        "support_high": "hex:3118957/69c0000",
+        "distance": "hex:3c6157/69c0000",
+        "supports_promise": false,
+        "support_seconds": 0.0029751320000741543,
+        "oracle_calls": 3
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:31/100",
+          "hex:169/400",
+          "hex:271/400",
+          "hex:349/400"
+        ],
+        "price": "hex:3/4",
+        "upper": "hex:1ac346b/4218000",
+        "support_low": "hex:16f1ef/34e000",
+        "support_high": "hex:16f1ef/34e000",
+        "distance": "hex:48af/34e000",
+        "supports_promise": false,
+        "support_seconds": 0.0023977189998731774,
+        "oracle_calls": 4
+      }
+    ]
+  },
+  "optimization_seconds": 2.1986650249998547,
+  "setup_seconds": 0.1819863460000306,
+  "optimizer_peak_rss_kib": 29820,
+  "certificate": "certificates/scale-N129-d12-t6-f0.6--price.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "a7c9fd7ba5395376fbf2e0500530273927cbc09878daf7a13549cf72fe42fae3",
+  "proof_bytes": 11021,
+  "compressed_proof_bytes": 1581,
+  "serialization_seconds": 0.0008880650000264723,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "parent_finished": true,
+  "parent_seconds": 6.008015156000056,
+  "parent_timeout": true,
+  "parent_returncode": -9,
+  "within_total_budget": false,
+  "rational_target_met": false,
+  "numerical_target_met": false
+}

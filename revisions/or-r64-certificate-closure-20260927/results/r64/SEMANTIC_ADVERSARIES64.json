@@ -1,0 +1,3137 @@
+{
+  "adversaries": [
+    {
+      "name": "nonmodal-standard",
+      "certificate": {
+        "schema": "NDU-R60-tariff-frontier-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:1/64",
+            "hex:1/64",
+            "hex:1/64",
+            "hex:1/32"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "0799d896f9d6a8c73ec99bf41a52fa0d06d40ed199654201e0e41f88c1c5a03a",
+        "standard_fee": "hex:1/32",
+        "exceptions": [
+          0,
+          1,
+          2
+        ],
+        "configured_guard": 4,
+        "modal_tie_rule": "smallest rational fee",
+        "branches": [
+          {
+            "mask": 0,
+            "rows": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": null
+          },
+          {
+            "mask": 1,
+            "rows": [
+              [
+                "hex:0/1",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                "hex:1/4"
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": "hex:b/32"
+          },
+          {
+            "mask": 2,
+            "rows": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": null
+          },
+          {
+            "mask": 3,
+            "rows": [
+              [
+                "hex:0/1",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                "hex:1/4",
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                "hex:5/c"
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": "hex:9/19"
+          },
+          {
+            "mask": 4,
+            "rows": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": null
+          },
+          {
+            "mask": 5,
+            "rows": [
+              [
+                "hex:0/1",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                "hex:1/3",
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                "hex:5/c"
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": "hex:9/19"
+          },
+          {
+            "mask": 6,
+            "rows": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": null
+          },
+          {
+            "mask": 7,
+            "rows": [
+              [
+                "hex:0/1",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                "hex:1/4",
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                "hex:5/c",
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                "hex:1/2"
+              ]
+            ],
+            "upper": "hex:25/64"
+          }
+        ],
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:3/5"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/3",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:2/3",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/3",
+                "hex:1/5"
+              ],
+              [
+                "hex:2/3",
+                "hex:4/5"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:25/64",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:25/64",
+        "upper": "hex:25/64"
+      }
+    },
+    {
+      "name": "wrong-modal-tie",
+      "certificate": {
+        "schema": "NDU-R60-tariff-frontier-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/64",
+            "hex:1/32"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "8655c3f7d55262000e2883f1de320227d92e5315be46799fcdfac0cc1116958c",
+        "standard_fee": "hex:1/32",
+        "exceptions": [
+          0,
+          2
+        ],
+        "configured_guard": 4,
+        "modal_tie_rule": "smallest rational fee",
+        "branches": [
+          {
+            "mask": 0,
+            "rows": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": null
+          },
+          {
+            "mask": 1,
+            "rows": [
+              [
+                "hex:0/1",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                "hex:1/4",
+                null,
+                "hex:1/4"
+              ],
+              [
+                null,
+                null,
+                null,
+                "hex:5/c"
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": "hex:7/14"
+          },
+          {
+            "mask": 2,
+            "rows": [
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "upper": null
+          },
+          {
+            "mask": 3,
+            "rows": [
+              [
+                "hex:0/1",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                "hex:1/4",
+                "hex:1/3",
+                null
+              ],
+              [
+                null,
+                null,
+                "hex:5/c",
+                "hex:5/c"
+              ],
+              [
+                null,
+                null,
+                null,
+                "hex:1/2"
+              ]
+            ],
+            "upper": "hex:9/19"
+          }
+        ],
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:3/5"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/3",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:2/3",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/3",
+                "hex:1/5"
+              ],
+              [
+                "hex:2/3",
+                "hex:4/5"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:9/19",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:9/19",
+        "upper": "hex:9/19"
+      }
+    },
+    {
+      "name": "nonoptimal-retained-window",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:0/1",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "5cddd7187ae3b8a5f01ac8734200ce9e0b3df49ca8d63e10828725af25742d59",
+          "standard_fee": "hex:1/32",
+          "exceptions": [
+            0
+          ],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "upper": null
+            },
+            {
+              "mask": 1,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:11/32"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:11/32",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:11/32",
+          "upper": "hex:11/32"
+        },
+        "projection": {
+          "standard_fee": "hex:1/32",
+          "charges": [
+            "hex:0/1",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32"
+          ],
+          "exceptions": [
+            0
+          ],
+          "retained_window": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "absolute_deviation": "hex:9/32"
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:7/14",
+        "error_budget": {
+          "error": [
+            "hex:0/1",
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:2/19",
+            "hex:9/64"
+          ],
+          "positive_budget": "hex:11/64",
+          "negative_budget": "hex:1/64",
+          "regret_bound": "hex:9/32",
+          "absolute_deviation": "hex:9/32"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 1
+      }
+    },
+    {
+      "name": "incorrect-median",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "15cb8f8a2c33fa578ee38b77d8d76f539ed3b1fbf86e509dee1ba24e199889cb",
+          "standard_fee": "hex:0/1",
+          "exceptions": [],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:2/5"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:2/5",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:2/5",
+          "upper": "hex:2/5"
+        },
+        "projection": {
+          "standard_fee": "hex:0/1",
+          "charges": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "exceptions": [],
+          "absolute_deviation": "hex:6/19",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:2/5",
+        "error_budget": {
+          "error": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "positive_budget": "hex:6/19",
+          "negative_budget": "hex:0/1",
+          "regret_bound": "hex:6/19",
+          "absolute_deviation": "hex:6/19"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 0
+      }
+    },
+    {
+      "name": "nonminimal-selected-allowance",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:1/64",
+              "hex:1/64",
+              "hex:1/64",
+              "hex:1/64",
+              "hex:b/64"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "28c43c5179de6a508e9749e10aeb140a702feac648173e19f8fcd16d74b8e085",
+          "standard_fee": "hex:1/64",
+          "exceptions": [
+            4
+          ],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  null
+                ]
+              ],
+              "upper": "hex:43/c8"
+            },
+            {
+              "mask": 1,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:d/32"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:1f/3c",
+              "hex:3/4"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:1/c",
+              "hex:1/3c",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:3/4",
+                  "hex:1/1"
+                ]
+              ]
+            ],
+            "gross": "hex:3/8",
+            "value": "hex:43/c8",
+            "price": "hex:0/1"
+          },
+          "lower": "hex:43/c8",
+          "upper": "hex:43/c8"
+        },
+        "projection": {
+          "standard_fee": "hex:1/64",
+          "charges": [
+            "hex:1/64",
+            "hex:1/64",
+            "hex:1/64",
+            "hex:1/64",
+            "hex:b/64"
+          ],
+          "exceptions": [
+            4
+          ],
+          "absolute_deviation": "hex:b/64",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:1f/3c",
+            "hex:3/4"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:1/c",
+            "hex:1/3c",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:3/4",
+                "hex:1/1"
+              ]
+            ]
+          ],
+          "gross": "hex:3/8",
+          "value": "hex:31/c8",
+          "price": "hex:0/1"
+        },
+        "lower": "hex:31/c8",
+        "upper": "hex:45/c8",
+        "error_budget": {
+          "error": [
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:1/64",
+            "hex:9/64",
+            "hex:0/1"
+          ],
+          "positive_budget": "hex:1/a",
+          "negative_budget": "hex:1/64",
+          "regret_bound": "hex:b/64",
+          "absolute_deviation": "hex:b/64"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 1
+      }
+    },
+    {
+      "name": "false-distortion",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "b16593787ccaaeac31f9b735205c083f1d12756419983d1002abf3c37b4dffc5",
+          "standard_fee": "hex:1/32",
+          "exceptions": [],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:8/19"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:8/19",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:8/19",
+          "upper": "hex:8/19"
+        },
+        "projection": {
+          "standard_fee": "hex:1/32",
+          "charges": [
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32"
+          ],
+          "exceptions": [],
+          "absolute_deviation": "999",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:7/14",
+        "error_budget": {
+          "error": [
+            "hex:-1/32",
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:2/19",
+            "hex:9/64"
+          ],
+          "positive_budget": "hex:11/64",
+          "negative_budget": "hex:3/64",
+          "regret_bound": "hex:1/5",
+          "absolute_deviation": "hex:1/5"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 0
+      }
+    },
+    {
+      "name": "detached-projection-charges",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "b16593787ccaaeac31f9b735205c083f1d12756419983d1002abf3c37b4dffc5",
+          "standard_fee": "hex:1/32",
+          "exceptions": [],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:8/19"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:8/19",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:8/19",
+          "upper": "hex:8/19"
+        },
+        "projection": {
+          "standard_fee": "hex:1/32",
+          "charges": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "exceptions": [],
+          "absolute_deviation": "hex:1/5",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:7/14",
+        "error_budget": {
+          "error": [
+            "hex:-1/32",
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:2/19",
+            "hex:9/64"
+          ],
+          "positive_budget": "hex:11/64",
+          "negative_budget": "hex:3/64",
+          "regret_bound": "hex:1/5",
+          "absolute_deviation": "hex:1/5"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 0
+      }
+    },
+    {
+      "name": "false-projection-exceptions",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "b16593787ccaaeac31f9b735205c083f1d12756419983d1002abf3c37b4dffc5",
+          "standard_fee": "hex:1/32",
+          "exceptions": [],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:8/19"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:8/19",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:8/19",
+          "upper": "hex:8/19"
+        },
+        "projection": {
+          "standard_fee": "hex:1/32",
+          "charges": [
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32"
+          ],
+          "exceptions": [
+            0
+          ],
+          "absolute_deviation": "hex:1/5",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:7/14",
+        "error_budget": {
+          "error": [
+            "hex:-1/32",
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:2/19",
+            "hex:9/64"
+          ],
+          "positive_budget": "hex:11/64",
+          "negative_budget": "hex:3/64",
+          "regret_bound": "hex:1/5",
+          "absolute_deviation": "hex:1/5"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 0
+      }
+    },
+    {
+      "name": "invalid-budget-type",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "b16593787ccaaeac31f9b735205c083f1d12756419983d1002abf3c37b4dffc5",
+          "standard_fee": "hex:1/32",
+          "exceptions": [],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:8/19"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:8/19",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:8/19",
+          "upper": "hex:8/19"
+        },
+        "projection": {
+          "standard_fee": "hex:1/32",
+          "charges": [
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32"
+          ],
+          "exceptions": [],
+          "absolute_deviation": "hex:1/5",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:7/14",
+        "error_budget": {
+          "error": [
+            "hex:-1/32",
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:2/19",
+            "hex:9/64"
+          ],
+          "positive_budget": "hex:11/64",
+          "negative_budget": "hex:3/64",
+          "regret_bound": "hex:1/5",
+          "absolute_deviation": "hex:1/5"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": true
+      }
+    },
+    {
+      "name": "out-of-range-budget",
+      "certificate": {
+        "schema": "NDU-R61-robust-tariff-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "weights": [
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4",
+              "hex:1/4"
+            ],
+            "gamma": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "ceilings": [
+              "hex:0/1",
+              "hex:1/3",
+              "hex:2/3",
+              "hex:1/1"
+            ],
+            "reward_r": [
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1",
+              "hex:1/1"
+            ],
+            "reward_q": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ]
+          },
+          "catalog": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "charges": [
+            "hex:0/1",
+            "hex:1/64",
+            "hex:1/32",
+            "hex:1/a",
+            "hex:b/64"
+          ],
+          "promise": "hex:2/5",
+          "budget": 4
+        },
+        "instance_sha256": "b1ec131bdb83e28d2d34baf86b0dd0dbf8322ebd34bee2eec3f775129c77d799",
+        "surrogate_certificate": {
+          "schema": "NDU-R60-tariff-frontier-v1",
+          "spec": {
+            "model": {
+              "caps": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "weights": [
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4",
+                "hex:1/4"
+              ],
+              "gamma": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ],
+              "ceilings": [
+                "hex:0/1",
+                "hex:1/3",
+                "hex:2/3",
+                "hex:1/1"
+              ],
+              "reward_r": [
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1",
+                "hex:1/1"
+              ],
+              "reward_q": [
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1",
+                "hex:0/1"
+              ]
+            },
+            "catalog": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:3/4",
+              "hex:1/1"
+            ],
+            "charges": [
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32",
+              "hex:1/32"
+            ],
+            "promise": "hex:2/5",
+            "budget": 4
+          },
+          "instance_sha256": "b16593787ccaaeac31f9b735205c083f1d12756419983d1002abf3c37b4dffc5",
+          "standard_fee": "hex:1/32",
+          "exceptions": [],
+          "configured_guard": 5,
+          "modal_tie_rule": "smallest rational fee",
+          "branches": [
+            {
+              "mask": 0,
+              "rows": [
+                [
+                  "hex:0/1",
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  "hex:3/10",
+                  "hex:1/4",
+                  "hex:3/10",
+                  "hex:1/4"
+                ],
+                [
+                  null,
+                  null,
+                  "hex:5/10",
+                  "hex:5/10",
+                  "hex:3/8"
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  "hex:3/8",
+                  "hex:7/10"
+                ]
+              ],
+              "upper": "hex:8/19"
+            }
+          ],
+          "policy": {
+            "book": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:1/1"
+            ],
+            "targets": [
+              "hex:0/1",
+              "hex:1/4",
+              "hex:1/2",
+              "hex:11/14"
+            ],
+            "intermediate": [
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1",
+              "hex:0/1"
+            ],
+            "lotteries": [
+              [
+                [
+                  "hex:0/1",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/4",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:1/1"
+                ]
+              ],
+              [
+                [
+                  "hex:1/2",
+                  "hex:3/a"
+                ],
+                [
+                  "hex:1/1",
+                  "hex:7/a"
+                ]
+              ]
+            ],
+            "gross": "hex:2/5",
+            "value": "hex:8/19",
+            "price": "hex:1/1"
+          },
+          "lower": "hex:8/19",
+          "upper": "hex:8/19"
+        },
+        "projection": {
+          "standard_fee": "hex:1/32",
+          "charges": [
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32",
+            "hex:1/32"
+          ],
+          "exceptions": [],
+          "absolute_deviation": "hex:1/5",
+          "retained_window": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "policy": {
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "targets": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:11/14"
+          ],
+          "intermediate": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "lotteries": [
+            [
+              [
+                "hex:0/1",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/4",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:1/1"
+              ]
+            ],
+            [
+              [
+                "hex:1/2",
+                "hex:3/a"
+              ],
+              [
+                "hex:1/1",
+                "hex:7/a"
+              ]
+            ]
+          ],
+          "gross": "hex:2/5",
+          "value": "hex:d/32",
+          "price": "hex:1/1"
+        },
+        "lower": "hex:d/32",
+        "upper": "hex:7/14",
+        "error_budget": {
+          "error": [
+            "hex:-1/32",
+            "hex:-1/64",
+            "hex:0/1",
+            "hex:2/19",
+            "hex:9/64"
+          ],
+          "positive_budget": "hex:11/64",
+          "negative_budget": "hex:3/64",
+          "regret_bound": "hex:1/5",
+          "absolute_deviation": "hex:1/5"
+        },
+        "epsilon": "hex:1/1",
+        "selected_exception_budget": 5
+      }
+    }
+  ]
+}

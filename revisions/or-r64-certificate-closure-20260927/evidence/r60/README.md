@@ -1,0 +1,11 @@
+# R60 standalone submission
+
+Read main.pdf, electronic_companion.pdf and RESPONSE_TO_REFEREES.pdf. Their complete sources have no scientific input dependencies outside this package. The archived BUILD_VALIDATION.json describes the published readers.
+
+With Python 3.13.5, install `python -m pip install -r requirements.txt`. Run `python code/flat_verify60.py` for read-only validation of file hashes, both source/input freezes, 1,548 recorded requests, all completed rational certificates and all completed numerical-solver lower policies. It imports no optimizer to check tariff certificates. Exact global intervals and numerical upper bounds are not conflated. Post-study checks do not relabel original deadline failures.
+
+Run `python code/tests60.py --output /tmp/STRUCTURAL60.json` for exact structural tests. Run `python rebuild_readers.py` with TeX Live/newtx/xr-hyper/xurl for four-pass cross-referenced PDF compilation; new PDFs are in .build/r60 and do not overwrite the recorded PDFs. Run `python rerun_study.py --output /absolute/empty/directory` for a new execution of the prospective 90-specification, three-budget design. That directory must be empty. This uses a path-only-adapted flat runtime and generates a new freeze, environment and timings; these are not the original experiment.
+
+`results` holds R60's 1,260 requests. `results_r59` holds the retained R59 study's 288 requests; it has 56 distinct specifications and 72 tolerance cases. `EXECUTION_SOURCE_MAP.json` maps every original frozen-source path to a byte-identical flat snapshot under execution_sources. The code directory contains runnable current methods and their minimal core dependencies, with path-only changes mapped and hashed separately. The remaining original execution snapshots are provenance, not required for import resolution. No earlier revision directory tree or live repository is needed to check the package.
+
+All measurements are model-derived, not field observations. The SCIP formulation is algebraically exact, but its upper bound is numerical; only its reconstructed original lower policy is independently checked exactly. Timeouts, phase costs, proof sizes and errors remain visible. No acceptance or external-benchmark performance is claimed.

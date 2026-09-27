@@ -1,0 +1,103 @@
+{
+  "id": "curved-12-b0",
+  "method": "price",
+  "instance_sha256": "79a9dd5c2452da2236527727f408714ccb3a4ad493cf8711a495ba9616724c2b",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/64",
+  "lower": "hex:bb69/32000",
+  "upper": "hex:1cec2b/780000",
+  "gap": "hex:40e17/2580000",
+  "seconds": 0.022710637000272982,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.007291680999969685,
+      "lower": "hex:e29750f/50780000",
+      "upper": "hex:4900c7/12c0000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.013051577000169345,
+      "lower": "hex:1653d/64000",
+      "upper": "hex:4900c7/12c0000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.017729928999870026,
+      "lower": "hex:2e09d/c8000",
+      "upper": "hex:4900c7/12c0000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.022302564000256098,
+      "lower": "hex:bb69/32000",
+      "upper": "hex:1cec2b/780000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.022347638000155712,
+      "lower": "hex:bb69/32000",
+      "upper": "hex:1cec2b/780000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-110b631/50780000",
+        "upper": "hex:9/8",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 4,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:40e17/2580000"
+  },
+  "optimization_seconds": 0.02281051399995704,
+  "setup_seconds": 0.21010655999998562,
+  "peak_rss_kib": 30412,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/curved-12-b0--price.json.gz",
+  "certificate_sha256": "69891becc566d11ffc24adc348fad6ab1b8d59b01d1b2564f7a376ee65f3d5ed",
+  "proof_bytes": 1823,
+  "compressed_proof_bytes": 530,
+  "serialization_seconds": 0.00040686100010134396,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:bb69/32000",
+    "upper": "hex:1cec2b/780000",
+    "gap": "hex:40e17/2580000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.00714518799986763,
+    "instance_sha256": "79a9dd5c2452da2236527727f408714ccb3a4ad493cf8711a495ba9616724c2b"
+  },
+  "verification_seconds": 0.011309347999940655,
+  "checker_peak_rss_kib": 30412,
+  "worker_seconds": 0.24485611899990545,
+  "parent_finished": true,
+  "parent_seconds": 0.27274756900033026,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

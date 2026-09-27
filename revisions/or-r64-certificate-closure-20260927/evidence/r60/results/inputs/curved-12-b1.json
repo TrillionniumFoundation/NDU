@@ -1,0 +1,132 @@
+{
+  "id": "curved-12-b1",
+  "specification_id": "curved-12",
+  "family": "curved",
+  "seed": 600939,
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:1b/20",
+        "hex:1/2",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:d/20",
+        "hex:d/10",
+        "hex:15/20"
+      ],
+      "weights": [
+        "hex:1/f",
+        "hex:7/1e",
+        "hex:1/f",
+        "hex:2/f",
+        "hex:1/6",
+        "hex:1/1e",
+        "hex:7/1e",
+        "hex:1/f"
+      ],
+      "gamma": [
+        "hex:1/2",
+        "hex:3/4",
+        "hex:5/4",
+        "hex:5/4",
+        "hex:5/4",
+        "hex:5/4",
+        "hex:1/4",
+        "hex:1/2"
+      ],
+      "ceilings": [
+        "hex:1d/20",
+        "hex:13/20",
+        "hex:d/10",
+        "hex:1b/20",
+        "hex:19/20",
+        "hex:d/20",
+        "hex:1d/20",
+        "hex:3/4"
+      ],
+      "reward_r": [
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2"
+      ],
+      "reward_q": [
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/10",
+      "hex:1/8",
+      "hex:3/10",
+      "hex:1/4",
+      "hex:5/10",
+      "hex:3/8",
+      "hex:7/10",
+      "hex:1/2",
+      "hex:9/10",
+      "hex:5/8",
+      "hex:b/10",
+      "hex:3/4",
+      "hex:d/10",
+      "hex:7/8",
+      "hex:f/10",
+      "hex:1/1"
+    ],
+    "charges": [
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8",
+      "hex:1/c8"
+    ],
+    "promise": "hex:29b/f00",
+    "budget": 4
+  },
+  "epsilon": "hex:1/64",
+  "metadata": {
+    "k": 8,
+    "N": 17,
+    "m": 4,
+    "q_b": 6,
+    "joint_types": 6,
+    "exceptions": 0,
+    "weight_denominator_bits": 5,
+    "promise_fraction": "hex:1/4",
+    "deficit": "hex:29b/500",
+    "epsilon": "hex:1/64",
+    "grid_Q": 574
+  },
+  "total_seconds": 1.5,
+  "optimization_cutoff_seconds": 0.8999999999999999,
+  "methods": [
+    "price",
+    "deficit",
+    "enumeration",
+    "scip"
+  ]
+}

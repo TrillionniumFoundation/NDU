@@ -1,0 +1,89 @@
+{
+  "id": "accuracy500-0",
+  "method": "price",
+  "instance_sha256": "81ce825dc82d81e61b635ee37ef2a092029ac6691757c5cb7082a96f4e017d81",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/1f4",
+  "lower": "hex:e6f91d/3200000",
+  "upper": "hex:1875225ddad/54600000000",
+  "gap": "hex:18dc4edad/54600000000",
+  "seconds": 0.052747232999990956,
+  "nodes": 1,
+  "oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.03716428799998539,
+      "lower": "hex:5659877/12c00000",
+      "upper": "hex:1875225ddad/54600000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.05194615400000657,
+      "lower": "hex:e6f91d/3200000",
+      "upper": "hex:1875225ddad/54600000000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.05199988399999711,
+      "lower": "hex:e6f91d/3200000",
+      "upper": "hex:1875225ddad/54600000000",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1174fbf213/5437c000000",
+        "upper": "hex:79/60",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 2,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:18dc4edad/54600000000"
+  },
+  "optimization_seconds": 0.05302523900002143,
+  "setup_seconds": 0.20809175399995183,
+  "peak_rss_kib": 27364,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/accuracy500-0--price.json.gz",
+  "certificate_sha256": "a40e848efc7326c6fc13af751c4865df92bac9c0e201a9c56ce18fcfadcb5345",
+  "proof_bytes": 3615,
+  "compressed_proof_bytes": 804,
+  "serialization_seconds": 0.0006155639999860796,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:e6f91d/3200000",
+    "upper": "hex:1875225ddad/54600000000",
+    "gap": "hex:18dc4edad/54600000000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.04938326000001325,
+    "instance_sha256": "81ce825dc82d81e61b635ee37ef2a092029ac6691757c5cb7082a96f4e017d81"
+  },
+  "verification_seconds": 0.053644248999944466,
+  "checker_peak_rss_kib": 27364,
+  "worker_seconds": 0.31571291199998086,
+  "parent_finished": true,
+  "parent_seconds": 0.3435893369999121,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}
