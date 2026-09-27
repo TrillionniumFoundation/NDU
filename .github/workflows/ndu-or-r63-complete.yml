@@ -1,0 +1,72 @@
+name: NDU OR R63 complete publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r63-referee-ready-20260927]
+    paths: ['.github/workflows/ndu-or-r63-complete.yml', '.r63-ci/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+  statuses: write
+concurrency:
+  group: ndu-or-r63-publication
+  cancel-in-progress: false
+env:
+  REV: revisions/or-r63-referee-ready-20260927
+  GH_TOKEN: ${{ github.token }}
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUNBUFFERED: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Install workflow parser
+        run: python -m pip install PyYAML==6.0.2
+      - name: Verify ancestry and materialize all frozen revision sources
+        run: python .r63-ci/complete.py source
+      - name: Retrieve immutable reviewed manuscript and historical source artifacts
+        run: python .r63-ci/complete.py artifacts
+      - name: Install complete TeX toolchain including the missing generic dependency
+        run: python .r63-ci/complete.py install
+      - name: Recover already completed R63 scientific execution with hash and source checks
+        run: python .r63-ci/complete.py restore
+      - name: Repeat structural regressions without replacing the frozen root diagnostic
+        run: python .r63-ci/complete.py regressions
+      - name: Build and validate the full manuscript, companion and response
+        run: python .r63-ci/complete.py compile
+      - name: Publish the full revision and root reader package to this branch
+        run: python .r63-ci/complete.py publish
+      - name: Verify the exact published commit and independently recheck all 389 proofs
+        run: python .r63-ci/complete.py exact
+      - name: Publish complete referee package and exact-commit receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r63-referee-package-and-exact-head-receipt
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            CURRENT_SUBMISSION.zip
+            ${{ runner.temp }}/R63_EXACT_HEAD_RECEIPT.json
+            ${{ runner.temp }}/r63-exact-replay/BINDING_REPLAY.json
+            ${{ runner.temp }}/r63-exact-replay/BINDING_RECEIPTS.jsonl
+      - name: Preserve build diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r63-completion-diagnostics
+          retention-days: 7
+          include-hidden-files: true
+          path: |
+            ${{ runner.temp }}/r63-tex-install.log
+            revisions/or-r63-referee-ready-20260927/results/
+            revisions/or-r63-referee-ready-20260927/.build/
