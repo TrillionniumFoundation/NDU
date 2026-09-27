@@ -1,0 +1,173 @@
+name: NDU OR R63 publication and exact-head verification
+on:
+  push:
+    branches: [revision/ndu-operations-research-r63-referee-ready-20260927]
+    paths: ['.github/workflows/ndu-or-r63-publish.yml', '.r63-source/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+  statuses: write
+concurrency:
+  group: ndu-or-r63-publication
+  cancel-in-progress: false
+env:
+  REV: revisions/or-r63-referee-ready-20260927
+  GH_TOKEN: ${{ github.token }}
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUNBUFFERED: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Validate author ancestry and materialize the complete reviewed source payload
+        run: |
+          git merge-base --is-ancestor d020973ac2ca36d83080324d89c37b99b48cf9d0 HEAD
+          test "$(git rev-list --max-parents=0 HEAD)" = 447eb4ca5783720a14d1135ea7022eae35ab4a7e
+          if git merge-base --is-ancestor 65c1b64efcf596e12a0134e4696f4bb5a7183f99 HEAD; then exit 1; fi
+          python - <<'PY'
+          import base64,hashlib,json,lzma,os
+          from pathlib import Path
+          r=Path(os.environ['REV']);r.mkdir(parents=True,exist_ok=True)
+          parts=sorted(Path('.r63-source').glob('part*'))
+          assert [p.name for p in parts]==['part00','part01','part02']
+          raw=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert len(raw)==25460
+          assert hashlib.sha256(raw).hexdigest()=='9526a44d23ad9cac0424981abe2b735b6bc96c60e72c2eea0bef15f38a25ef96'
+          source=json.loads(lzma.decompress(raw));assert len(source)==17
+          for name,text in source.items():
+              p=r/name;assert p.resolve().is_relative_to(r.resolve())
+              p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
+          # Include historical manifests in the current manifest; exclude only itself.
+          p=r/'publish63.py';text=p.read_text();old="p.name!='PACKAGE_MANIFEST.json'"
+          assert text.count(old)==1;p.write_text(text.replace(old,"p != R/'PACKAGE_MANIFEST.json'"))
+          print('All 17 source files materialized; payload digest verified.')
+          PY
+      - name: Retrieve immutable reviewed source and historical execution artifacts
+        run: |
+          mkdir -p "$RUNNER_TEMP/r63-work/r60" "$RUNNER_TEMP/r63-work/r61"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/10918781206/zip" > "$RUNNER_TEMP/r63-work/r60.zip"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/10919089105/zip" > "$RUNNER_TEMP/r63-work/r61.zip"
+          python - <<'PY'
+          import hashlib,io,os,shutil,zipfile
+          from pathlib import Path
+          work=Path(os.environ['RUNNER_TEMP'])/'r63-work'
+          with zipfile.ZipFile(work/'r60.zip') as outer:
+              names=[n for n in outer.namelist() if n.endswith('/or-r60-tariff-frontier-20260927/CURRENT_SUBMISSION.zip')]
+              assert len(names)==1,names
+              with zipfile.ZipFile(io.BytesIO(outer.read(names[0]))) as inner:inner.extractall(work/'r60')
+          candidates=[p.parent for p in (work/'r60').rglob('main.tex') if hashlib.sha256(p.read_bytes()).hexdigest()=='9dd88b398938c4bc4947e105ab0cdac2e6a92f745d31d0d2045d1801405a0719']
+          assert len(candidates)==1,candidates;r60=candidates[0]
+          with zipfile.ZipFile(work/'r61.zip') as z:z.extractall(work/'r61')
+          r61=work/'r61';r=Path(os.environ['REV'])
+          assert (r61/'results/STUDY_FREEZE.json').is_file()
+          for p in (r61/'code').glob('*.py'):
+              dest=r/'code'/p.name
+              if not dest.exists():shutil.copy2(p,dest)
+          with open(os.environ['GITHUB_ENV'],'a') as f:f.write(f'R60={r60}\nR61={r61}\n')
+          print('Reviewed R60 and frozen R61 artifacts extracted without modifying their contents.')
+          PY
+      - name: Install pinned numerical dependencies and manuscript TeX toolchain
+        run: |
+          python -m pip install -r "$REV/requirements.txt"
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra > "$RUNNER_TEMP/r63-tex-install.log" 2>&1
+          kpsewhich newtxtext.sty
+          kpsewhich newtxmath.sty
+      - name: Re-run inherited and new structural regressions and freeze the new diagnostic
+        run: |
+          mkdir -p "$REV/results"
+          python "$REV/code/tests60.py" --output "$REV/results/STRUCTURAL60_REPLAY.json"
+          python "$REV/code/tests61.py" --output "$REV/results/STRUCTURAL61_REPLAY.json"
+          python "$REV/code/tests63.py"
+          python "$REV/code/support63.py"
+      - name: Independently bind and recheck every available historical certificate
+        run: python "$REV/code/replay63.py" "$R61" "$REV/results"
+      - name: Assemble the full revision and compile all three readers
+        run: |
+          python "$REV/build_revision.py" --r60 "$R60" --r61 "$R61"
+          python "$REV/compile63.py"
+          python "$REV/verify63.py" --no-manifest
+      - name: Seal and publish materialized manuscripts, proofs, data, code and preservation map
+        run: |
+          python "$REV/publish63.py" --repo "$GITHUB_WORKSPACE"
+          python "$REV/verify63.py"
+          python - <<'PY'
+          import os,shutil
+          from pathlib import Path
+          r=Path(os.environ['REV'])
+          for p in list(r.rglob('__pycache__')):
+              if p.is_dir():shutil.rmtree(p)
+          if (r/'.build').exists():shutil.rmtree(r/'.build')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f -- "$REV" main.tex main.pdf electronic_companion.tex electronic_companion.pdf RESPONSE_TO_REFEREES.tex RESPONSE_TO_REFEREES.pdf README.md CURRENT_REVISION.json CURRENT_SUBMISSION.zip
+          git diff --cached --quiet || git commit -m 'revision(or-r63): publish referee-ready tariff robustness, expanded evidence, complete readers and exact proofs [skip ci]'
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          git rev-parse HEAD > "$RUNNER_TEMP/r63-published-sha.txt"
+      - name: Recheck the exact published commit without mutating its evidence
+        run: |
+          python "$REV/verify63.py" > "$RUNNER_TEMP/r63-exact-check.json"
+          python "$REV/code/replay63.py" "$REV/evidence/r61" "$RUNNER_TEMP/r63-exact-replay"
+          python - <<'PY'
+          import hashlib,json,os,subprocess,zipfile
+          from pathlib import Path
+          r=Path(os.environ['REV']);temp=Path(os.environ['RUNNER_TEMP'])
+          sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          assert sha==(temp/'r63-published-sha.txt').read_text().strip()
+          subprocess.run(['git','diff','--exit-code','HEAD','--',str(r),'main.pdf','electronic_companion.pdf','RESPONSE_TO_REFEREES.pdf','CURRENT_SUBMISSION.zip'],check=True)
+          m=json.loads((r/'PACKAGE_MANIFEST.json').read_text())
+          actual={str(p.relative_to(r)) for p in r.rglob('*') if p.is_file() and p!=r/'PACKAGE_MANIFEST.json' and not any(x in ('.build','__pycache__') for x in p.relative_to(r).parts)}
+          assert actual==set(m['files']),('Manifest inventory mismatch',actual.symmetric_difference(m['files']))
+          with zipfile.ZipFile('CURRENT_SUBMISSION.zip') as z:
+              for name,h in m['files'].items():assert hashlib.sha256(z.read('NDU_R63/'+name)).hexdigest()==h,name
+          readers={}
+          for name in ('main','electronic_companion','RESPONSE_TO_REFEREES'):
+              for ext in ('.tex','.pdf'):assert Path(name+ext).read_bytes()==(r/(name+ext)).read_bytes()
+              readers[name]=hashlib.sha256((r/(name+'.pdf')).read_bytes()).hexdigest()
+          receipt={'status':'PASS','published_commit':sha,'source_trigger_commit':os.environ['GITHUB_SHA'],
+             'run_url':f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
+             'payload_manifest_sha256':hashlib.sha256((r/'PACKAGE_MANIFEST.json').read_bytes()).hexdigest(),
+             'manifest_files':len(m['files']),'reader_pdf_sha256':readers,
+             'build':json.loads((r/'results/BUILD63.json').read_text()),
+             'read_only_check':json.loads((temp/'r63-exact-check.json').read_text()),
+             'exact_commit_independent_replay':json.loads((temp/'r63-exact-replay/BINDING_REPLAY.json').read_text()),
+             'historical_deadlines_and_failures_preserved':True}
+          (temp/'R63_EXACT_HEAD_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+          SHA=$(cat "$RUNNER_TEMP/r63-published-sha.txt")
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$SHA" -f state=success -f context='ndu/r63-exact-head' -f description='Published readers, full inventory, 48 exact cases and 389 bound proofs verified' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Export complete referee package and SHA-bound verification receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r63-referee-package-and-exact-head-receipt
+          retention-days: 30
+          if-no-files-found: error
+          path: |
+            CURRENT_SUBMISSION.zip
+            ${{ runner.temp }}/R63_EXACT_HEAD_RECEIPT.json
+            ${{ runner.temp }}/r63-exact-replay/BINDING_REPLAY.json
+            ${{ runner.temp }}/r63-exact-replay/BINDING_RECEIPTS.jsonl
+      - name: Retain diagnostic logs on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r63-failure-diagnostics
+          retention-days: 7
+          include-hidden-files: true
+          path: |
+            ${{ runner.temp }}/r63-tex-install.log
+            revisions/or-r63-referee-ready-20260927/results/
+            revisions/or-r63-referee-ready-20260927/.build/
