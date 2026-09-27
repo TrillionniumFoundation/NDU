@@ -38,15 +38,21 @@ jobs:
           with zipfile.ZipFile('revisions/or-r60-tariff-frontier-20260927/CURRENT_SUBMISSION.zip') as z:
               for name in z.namelist():
                   p=Path(name)
-                  if p.is_absolute() or '..' in p.parts:raise ValueError(name)
+                  if p.is_absolute() or '..' in p.parts:raise ValueError(('unsafe retained path',name))
                   if (name.startswith('code/') and name.endswith('.py')) or name=='requirements.txt':
                       dst=r/p;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes(z.read(name))
-          parts=sorted(Path('.r61-transport').glob('study.part*'));assert len(parts)==3
+          parts=sorted(Path('.r61-transport').glob('study.part*'))
+          print('TRANSPORT_PARTS',[(p.name,p.stat().st_size) for p in parts])
+          if len(parts)!=3:raise ValueError(('transport part count',len(parts)))
           raw=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
-          assert hashlib.sha256(raw).hexdigest()=='92b44def6c7d85f5b24423be5520f6ae4c849d7fe9006bf64f060cec5475b7d8'
-          files=json.loads(lzma.decompress(raw));assert len(files)==11
+          digest=hashlib.sha256(raw).hexdigest();print('TRANSPORT_SHA256',digest)
+          if digest!='92b44def6c7d85f5b24423be5520f6ae4c849d7fe9006bf64f060cec5475b7d8':raise ValueError(('transport digest mismatch',digest))
+          files=json.loads(lzma.decompress(raw));print('SOURCE_KEYS',list(files))
+          expected={'code/paths60.py','code/tariff60.py','code/price_path.py','code/robust61.py','code/check_robust61.py','code/diagnostics61.py','code/scip61.py','code/worker61.py','code/checker61.py','code/study61.py','code/tests61.py'}
+          if set(files)!=expected:raise ValueError(('unexpected scientific source paths',list(files)))
           for name,text in files.items():
-              p=Path(name);assert not p.is_absolute() and '..' not in p.parts
+              p=Path(name)
+              if p.is_absolute() or '..' in p.parts:raise ValueError(('unsafe source path',name))
               dst=r/p;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_text(text)
           for d in ['results','generated','sections']:(r/d).mkdir(exist_ok=True)
           PY
@@ -58,7 +64,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           python - <<'PY'
-          import hashlib,json,os,subprocess
+          import json,os,subprocess
           from pathlib import Path
           base='b6833bc77786db5902b5562f985f2201de58e40f'
           entries=subprocess.check_output(['git','ls-tree','-r','--format=%(objectname) %(path)',base],text=True).splitlines()
