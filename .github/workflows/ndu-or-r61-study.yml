@@ -1,0 +1,116 @@
+name: NDU R61 clean scientific snapshot and prospective scaling study
+on:
+  push:
+    branches: [build/ndu-operations-research-r61-20260927]
+    paths: ['.r61-transport/study.part*', '.github/workflows/ndu-or-r61-study.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r61-study
+  cancel-in-progress: false
+env:
+  R: revisions/or-r61-robust-tariffs-20260927
+  BRANCH: revision/ndu-operations-research-r61-robust-tariffs-20260927
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUNBUFFERED: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+jobs:
+  study:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Recover retained runtime and verify new scientific source bytes
+        run: |
+          python - <<'PY'
+          import base64,hashlib,json,lzma,os,zipfile
+          from pathlib import Path
+          r=Path(os.environ['R']);r.mkdir(parents=True,exist_ok=True)
+          with zipfile.ZipFile('revisions/or-r60-tariff-frontier-20260927/CURRENT_SUBMISSION.zip') as z:
+              for name in z.namelist():
+                  p=Path(name)
+                  if p.is_absolute() or '..' in p.parts:raise ValueError(name)
+                  if (name.startswith('code/') and name.endswith('.py')) or name=='requirements.txt':
+                      dst=r/p;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_bytes(z.read(name))
+          parts=sorted(Path('.r61-transport').glob('study.part*'));assert len(parts)==3
+          raw=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='92b44def6c7d85f5b24423be5520f6ae4c849d7fe9006bf64f060cec5475b7d8'
+          files=json.loads(lzma.decompress(raw));assert len(files)==11
+          for name,text in files.items():
+              p=Path(name);assert not p.is_absolute() and '..' not in p.parts
+              dst=r/p;dst.parent.mkdir(parents=True,exist_ok=True);dst.write_text(text)
+          for d in ['results','generated','sections']:(r/d).mkdir(exist_ok=True)
+          PY
+      - name: Create new author-only root snapshot without rewriting any existing branch
+        run: |
+          if git ls-remote --exit-code --heads origin "refs/heads/$BRANCH"; then
+            echo 'Refusing to overwrite an existing author branch';exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python - <<'PY'
+          import hashlib,json,os,subprocess
+          from pathlib import Path
+          base='b6833bc77786db5902b5562f985f2201de58e40f'
+          entries=subprocess.check_output(['git','ls-tree','-r','--format=%(objectname) %(path)',base],text=True).splitlines()
+          reports={}
+          for row in entries:
+              blob,path=row.split(' ',1);name=Path(path).name.lower()
+              if path.startswith('reviews/') or 'referee_report' in name or 'review_report' in name:reports[path]=blob
+          record=dict(schema='NDU-R61-scientific-snapshot-v1',scientific_source_commit=base,
+              scientific_source_tree='6ff3105d3f10c4ffe61f96d5078f5f6ca296f65d',
+              governing_review_commit='65c1b64efcf596e12a0134e4696f4bb5a7183f99',
+              governing_review_path='reviews/operation_research_referee_report_r60_independent_harsh_2026-09-27.md',
+              governing_review_blob='01b9bbc3c1712da26bd3a58d741caa8bcd80b952',
+              ancestry_policy='New author-only root snapshot; immutable scientific source and review references, not reviewer commits as parents. Existing branches untouched.',
+              omitted_reviewer_paths=reports)
+          r=Path(os.environ['R']);(r/'PROVENANCE.json').write_text(json.dumps(record,indent=2)+'\n')
+          (r/'REVIEW_REFERENCE.md').write_text('# Governing review\n\nThe response addresses the September 27, 2026 R60 report at immutable commit `65c1b64efcf596e12a0134e4696f4bb5a7183f99`, path `reviews/operation_research_referee_report_r60_independent_harsh_2026-09-27.md`. The reviewed scientific tip is `b6833bc77786db5902b5562f985f2201de58e40f`. No review branch is modified.\n')
+          subprocess.run(['git','checkout','--orphan',os.environ['BRANCH']],check=True)
+          for p in reports:subprocess.run(['git','rm','--',p],check=True,stdout=subprocess.DEVNULL)
+          PY
+          git add "$R" .github/workflows/ndu-or-r61-study.yml .r61-transport
+          git commit -m 'revision(or-r61): author-only scientific snapshot of R60 with robust tariff certificates and prospective scaling sources [skip ci]'
+          test "$(git rev-list --count HEAD)" = 1
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned exact and numerical comparator environment
+        run: python -m pip install -r "$R/requirements.txt"
+      - name: Execute new and inherited structural regressions, then freeze inputs before timing
+        run: |
+          python "$R/code/tests60.py" --output "$R/results/INHERITED_STRUCTURAL60.json"
+          python "$R/code/tests61.py" --output "$R/results/STRUCTURAL61.json"
+          python "$R/code/study61.py" freeze
+          git add "$R/results"
+          git commit -m 'evidence(or-r61): freeze 44 distinct models, 88 cases and 405 matched requests before execution [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$R/results/SOURCE_FREEZE_COMMIT.txt"
+      - name: Run every prospective request and retain deadlines and guard decisions
+        run: python "$R/code/study61.py" run
+      - name: Recheck all completed certificates without relabeling timings
+        run: python "$R/code/study61.py" verify
+      - name: Commit and push complete execution evidence
+        if: always()
+        run: |
+          if [ "$(git branch --show-current)" = "$BRANCH" ]; then
+            git add "$R"
+            git add -f "$R/results" "$R/generated"
+            git diff --cached --quiet || git commit -m 'evidence(or-r61): retain exception scaling, adversarial and hybrid outcomes, independent checks and all failures [skip ci]'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - name: Export execution evidence including failure records
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r61-study
+          include-hidden-files: true
+          retention-days: 30
+          path: revisions/or-r61-robust-tariffs-20260927/
