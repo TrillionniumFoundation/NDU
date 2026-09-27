@@ -1,0 +1,98 @@
+name: NDU OR R6 scientific publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r6-20260921]
+    paths: [.github/workflows/ndu-or-r6-publish.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r6-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      REVISION_BRANCH: revision/ndu-operations-research-r6-20260921
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Preserve reviewed scientific baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p archive/pre-r6
+          for f in main.tex main.pdf electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md; do
+            git show a16435cca2c973331e60908b4c45f505de71e698:"$f" > "archive/pre-r6/$f"
+          done
+      - name: Materialize and verify executed scientific sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import base64, hashlib, io, lzma, tarfile
+          parts=sorted(Path('.r6-transport').glob('part-*.b64'))
+          assert len(parts)==7, 'Incomplete revision transport'
+          text=''.join(p.read_text() for p in parts)
+          assert len(text)==109536
+          packed=base64.b64decode(text,validate=True)
+          assert hashlib.sha256(packed).hexdigest()=='6848fcb0701ad3b3c43ca6170a51ffbd15c5247279d614c67f0f39b908547e5a'
+          with tarfile.open(fileobj=io.BytesIO(lzma.decompress(packed))) as archive:
+              for member in archive.getmembers():
+                  path=PurePosixPath(member.name)
+                  assert member.isfile() and not path.is_absolute() and '..' not in path.parts
+                  assert member.name in ('README.md','NDU_OR_submission_checklist.md') or member.name.startswith(('revisions/or-r6-20260921/','_r6_transport/'))
+              archive.extractall('.',filter='data')
+          PY
+          python _r6_transport/materialize.py
+          python revisions/or-r6-20260921/verify.py
+      - name: Commit the actual manuscript, proofs, trained weights and results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'NDU R6 scientific revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          rm -rf _r6_transport
+          git rm -r .r6-transport
+          # Do not leave R4 PDFs beside R6 sources while the new PDFs build.
+          # Their exact bytes are preserved under archive/pre-r6/.
+          git rm main.pdf electronic_companion.pdf
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md archive/pre-r6 revisions/or-r6-20260921
+          git commit -m 'paper(or-r6): accepted-contract Pareto certificate, structural extensions and learned operational controls'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+      - name: Install manuscript typesetting dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended
+      - name: Build both manuscripts and reject unresolved references or layout warnings
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash revisions/or-r6-20260921/build.sh 2>&1 | tee revisions/or-r6-20260921/ci-build.log
+      - name: Commit compiled R6 manuscripts on the same branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          sha256sum main.pdf electronic_companion.pdf > revisions/or-r6-20260921/pdf-sha256-ci.txt
+          git add -f main.pdf electronic_companion.pdf revisions/or-r6-20260921/ci-build.log revisions/or-r6-20260921/pdf-sha256-ci.txt
+          git add revisions/or-r6-20260921/validation.json
+          git commit -m 'build(or-r6): publish verified manuscript and electronic companion PDFs'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-operations-research-r6-review-package
+          path: |
+            main.pdf
+            electronic_companion.pdf
+            main.log
+            electronic_companion.log
+            revisions/or-r6-20260921/
+          if-no-files-found: warn

@@ -1,0 +1,100 @@
+\section{What accepted adaptivity buys}\label{sec:accepted-continuous}
+The occupation program establishes a feasible improvement, but an information decomposition must impose its commitments in every class. We now solve that comparison with continuous tiers, rather than transferring an unconstrained information increment to the accepted problem. A supporting-price argument first identifies the physical policy from the commitments themselves.
+
+\subsection{The service and resource commitments identify stock}
+\begin{lemma}[Physical-policy identification]\label{lem:stock-pin}
+Let $s_z$ be a fixed-stock rule and suppose that, for some $\xi>0$,
+\begin{equation}\label{eq:stock-pin}
+ C_z(S)-C_z(s_z)-\xi\{f_z(S)-f_z(s_z)\}\geq0
+\end{equation}
+for every feasible $z,S$, with equality only at $S=s_z$. Demand regimes are exogenous. Any protocol with $F^\pi\geq F^s$ and $C^\pi\leq C^s$ must select $S_t=s_{z_t}$ almost surely at every positive-probability review. Both commitments then hold with equality. For the canonical instance, $s_z=z+2$ and $\xi=1$ satisfy \eqref{eq:stock-pin}, for both the original stock menu and every stock in $[0,6]$.
+\end{lemma}
+\begin{proof}
+The expected discounted sum of the left side of \eqref{eq:stock-pin} is nonnegative. Feasibility bounds that sum above by $(C^\pi-C^s)-\xi(F^\pi-F^s)\leq0$. Every nonnegative summand at a reachable state must therefore vanish. Strictness identifies stock, and exogeneity gives equality of both totals. In the instance, $C_z(z+2)=1.03+0.3z$ and $f_z(z+2)=1.5+z$. On the half-unit menu, the smallest positive supporting gap is exactly $9/40$. The functions are piecewise linear between the demand atoms, all of which belong to that menu. The same unique minimizer consequently holds on the entire stock interval. The positive gap $9/40$ is a menu gap, not a uniform gap on continuous stocks approaching $z+2$.
+\end{proof}
+This is not unconstrained stock elimination inside a constrained problem. Both the service floor and the physical-cost cap are used to prove that no other stock decision is feasible. Under looser commitments, we retain all stock choices in the occupation program.
+
+Set $w_{tz}=\beta^t\Pr(z_t=z)$, $a_z=r_z-\kappa L_z(s_z)$, and $A=\sum_{t,z}w_{tz}a_z$. At the canonical stocks, $a_z=0.36+1.4z$. Let $\bar\theta$ be the optimized continuous static tier, and put $\overline P=A\bar\theta$. The remaining acceptance condition is a payment budget,
+\begin{equation}\label{eq:accepted-payment}
+ P^\pi:=\E^\pi\sum_t\beta^t a_{z_t}\theta_t\leq\overline P,
+ \qquad U^\pi=\nu F^s-P^\pi.
+\end{equation}
+The accepted reward is $W^\pi=P^\pi-C^s-\E^\pi\sum_t\beta^t[m\theta_t^2+\lambda(\theta_t-q_t)^2]$. Thus matching the customer's utility fixes expected net payments. The remaining economic benefit must be a reduction in maintenance and reconfiguration resources, not an unreported transfer from the customer.
+
+\subsection{Randomization and the accepted information hierarchy}
+We define randomization before comparing information. An ex ante public random tape $R$, independent of demand regimes, may select a constant tier, a time schedule, or a map of time and current regime. These classes have rules $f(R)$, $f_t(R)$, and $f_t(z,R)$, respectively. They include deterministic rules and public mixtures of them. They do not silently grant a regime-only rule access to earlier regimes through an unrecorded memory state. Full protocols may use the entire observed history; their optimum will admit a Markov implementation.
+
+\begin{proposition}[Derandomization on a continuous accepted menu]\label{prop:accepted-jensen}
+Under Lemma~\ref{lem:stock-pin}, continuous tier feasibility $[0,1]$, and convex maintenance and adjustment costs, public randomization does not improve the accepted static, time-only, or time--regime value. An inherited-only randomized rule with deterministic initial tier has the same accepted value as a time-only rule. For the canonical quadratic problem, a deterministic full-state rule also attains the unrestricted accepted optimum.
+\end{proposition}
+\begin{proof}
+Replace each restricted rule by its expectation over $R$, holding the regime path fixed. The resulting action remains in $[0,1]$ and in the same information class. Expected payments do not change. Jensen's inequality decreases each maintenance cost and each adjustment cost, including the jointly randomized difference of consecutive tiers. The fixed physical policy preserves the other commitments. Without regime inputs, an inherited-only rule generates a random time schedule from $q_0$ and $R$; the preceding argument applies. For full histories the conditional-mean construction need not preserve the displayed Markov parametrization. The deterministic Markov rule and a matching unrestricted Lagrangian upper bound constructed below establish attainment directly. None of these statements asserts derandomization on a coarse, nonconvex tier menu.
+\end{proof}
+
+For a multiplier $\eta\geq0$, maximize $W^\pi-\eta P^\pi$ and add $\eta\overline P$. This is a different sign convention from the customer-utility multiplier in \eqref{eq:dual}, with the constant customer-service term removed. Write its full-state value as
+\begin{equation}\label{eq:riccati-form}
+ J_t^\eta(z,q)=-A_tq^2+B_{tz}q+D_{tz},\qquad A_T=B_{Tz}=D_{Tz}=0.
+\end{equation}
+When the maximizers are interior, backward completion of squares gives
+\begin{align}
+ K_t&=m+\lambda+\beta A_{t+1},&
+ L_{tz}&=(1-\eta)a_z+\beta\sum_{z'}P_{zz'}B_{t+1,z'},\notag\\
+ A_t&=\lambda-\lambda^2/K_t,& B_{tz}&=\lambda L_{tz}/K_t,\label{eq:riccati}\\
+ D_{tz}&=-C_z(s_z)+\beta\sum_{z'}P_{zz'}D_{t+1,z'}+L_{tz}^2/(4K_t),&
+ \theta_t^\eta(z,q)&=\lambda q/K_t+L_{tz}/(2K_t).\notag
+\end{align}
+Endpoint verification is essential: the affine rule must lie in $[0,1]$ for every $q\in[0,1]$, not just along one simulated path. We verify both endpoints in rational arithmetic for every period and regime in the canonical certificate.
+
+The restricted classes require their own optimization. Give each reachable time--information pair one tier variable $x_i$. Their rewards have the form
+\begin{equation}\label{eq:restricted-qp}
+ W(x)=-x^\top Hx+b^\top x-c_0,\qquad c^\top x\leq\overline P,
+ \qquad H\succ0.
+\end{equation}
+Here the maintenance terms contribute $m w_i$ to the diagonal; an adjustment edge from variable $j$ to variable $i$ contributes its discounted transition weight times $\lambda(x_i-x_j)^2$. The initial installation cost contributes $\lambda(x_0-q_0)^2$. There are one, eight, and twenty-two variables in the static, time, and time--regime problems. For an interior solution,
+\[
+ x=\tfrac12H^{-1}(b-\eta c),\qquad
+ \eta=\max\left\{0,\frac{c^\top H^{-1}b-2\overline P}{c^\top H^{-1}c}\right\}.
+\]
+The matrix is not a full-state Bellman relaxation of the regime restriction: a single variable is shared by every history with the same permitted information.
+
+\begin{theorem}[Exact accepted information values]\label{thm:accepted-hierarchy}
+For the canonical primitives, the commitments of the optimized continuous static contract, and continuous stock and tier intervals, the accepted values in Table~\ref{tab:accepted-hierarchy} are exact rational numbers. Each value is attained without public randomization. The accepted increment from observing the inherited tier, after time and current regime have already been admitted, is $0.019290378765\ldots$. The total gain over the optimized static contract is $0.636665271611\ldots$.
+\end{theorem}
+\begin{proof}
+The exhaustive static stock-envelope calculation yields the stated $\bar\theta$ and stocks. Lemma~\ref{lem:stock-pin} then reduces every feasible protocol, not just the proposed ones, to \eqref{eq:accepted-payment}. For each restricted class, the displayed solution of \eqref{eq:restricted-qp} has every tier strictly between zero and one. Rational arithmetic verifies its stationarity equation, nonnegative multiplier, primal feasibility, and complementary slackness. Strict concavity proves global optimality in the deterministic class; Proposition~\ref{prop:accepted-jensen} includes its public mixtures.
+
+In the full problem, $A_t$ is independent of $\eta$ and $B_{tz}$ is proportional to $1-\eta$. Forward first moments make $P^{\theta^\eta}$ affine in $\eta$. Solving $P^{\theta^\eta}=\overline P$ gives $\eta=0.180271243733\ldots$. Rational endpoint checks verify interior maximization in every Bellman step. The affine policy is feasible, and its Lagrangian bound is equal to its reward. Forward second moments evaluate maintenance and adjustment exactly. This bounds every randomized history-dependent protocol from above and attains the bound with a deterministic Markov policy. The files record the rational values, multipliers, and policy coefficients, rather than only the decimals in the table.
+\end{proof}
+\input{revisions/or-r7-20260921/tables/accepted_hierarchy.tex}
+The inherited-tier increment is approximately three percent of the total accepted gain. Most of the gain is due to current-regime reallocation; attributing the entire improvement to contractual memory would be incorrect. Nevertheless, inherited information has strictly positive value under the same customer commitments, not only in a provider relaxation. The continuous optimum also exceeds the certified $0.1$-menu optimum by $0.011524959639\ldots$. The earlier lottery is therefore not the source of the economic improvement.
+
+\subsection{A primitive mechanism for a robust improvement}
+\begin{theorem}[A customer-neutral adaptive direction]\label{thm:local-gain}
+Consider a feasible constant tier $\bar\theta\in(0,1)$ with fixed stocks $s_z$, linear net payments $a_z\theta$, and twice continuously differentiable maintenance $M$ near $\bar\theta$, with $M'(\bar\theta)>0$. Suppose that at a review $t\geq1$ two regimes have positive discounted weights $w_L,w_H$ and $0<a_L<a_H$. For every finite quadratic adjustment coefficient, a sufficiently small deterministic time--regime perturbation strictly improves provider reward while preserving customer utility, fill, and physical cost exactly. The conclusion holds in a neighborhood of primitives preserving these strict inequalities.
+\end{theorem}
+\begin{proof}
+Change only that review's tiers by $\varepsilon d_z$, where
+\[
+ d_H=(w_Ha_H)^{-1},\qquad d_L=-(w_La_L)^{-1},\qquad d_z=0\text{ otherwise}.
+\]
+Then $\sum_z w_za_zd_z=0$ and $\sum_z w_zd_z=1/a_H-1/a_L<0$. Payments and physical decisions are unchanged in expectation. The first-order reward gain is
+$\varepsilon M'(\bar\theta)(1/a_L-1/a_H)>0$.
+All changed adjustment costs are second order because the baseline tier is constant at this and the next review; the initial installation is unaffected. If $|M''|\leq L_M$ locally, the absolute quadratic cost is at most
+\[
+ \varepsilon^2\{L_M/2+\lambda+\beta\lambda\mathbf1_{\{t<T-1\}}\}
+       \left(\frac1{w_Ha_H^2}+\frac1{w_La_L^2}\right).
+\]
+Choose $\varepsilon$ small enough to keep both tiers interior and make this term smaller than the positive linear gain. Continuity preserves a strictly positive margin in a sufficiently small neighborhood. For $M(\theta)=m\theta^2$, the displayed first- and second-order terms give the exact payoff difference, not just an asymptotic expansion.
+\end{proof}
+This argument does not require translated demand, a coarse menu, or a lottery. It does require positive and heterogeneous net payment rates and an interior static tier with increasing maintenance cost. It proves existence of an improvement, not that every parameter perturbation has a large gain. It also explains the role of the customer constraint: concentrating a fixed expected payment budget on higher-payment regimes permits a lower average maintained tier. Reconfiguration is worthwhile when those savings exceed its resource cost.
+
+\subsection{Allowing the customer to leave at each review}\label{sec:interim}
+The ex ante institution can be weakened without introducing hidden action or changing the tariff. At every observed regime history $h$ at review $t$, let the customer's outside option be the remaining service utility of the same static contract. The provider remains committed to the announced protocol, but the customer may leave at each such review. Physical stock is still identified by the service and cost commitments. Continuation participation therefore requires
+\begin{equation}\label{eq:interim}
+ \E\left[\left.\sum_{s=t}^{T-1}\beta^{s-t}a_{z_s}\theta_s\right|h\right]
+ \leq\bar\theta\E\left[\left.\sum_{s=t}^{T-1}\beta^{s-t}a_{z_s}\right|h\right]
+ \quad\text{for every reachable }h.
+\end{equation}
+These constraints cannot be replaced by the root participation inequality. On the finite regime tree they are linear, while maintenance and adjustment give a strictly concave quadratic objective. The canonical tree has 3,280 decision nodes. Its policy may depend on history; a promise-state representation is an alternative, not an assumption that the original three-coordinate Markov policy remains sufficient.
+
+We solve this convex program numerically, round its deterministic tiers to rational numbers, and contract the vector slightly toward zero to enforce every continuation inequality exactly. The resulting reward is $-5.417032209823\ldots$, an improvement of $0.453078763224\ldots$ over the static contract. A rational feasible-policy and weighted-residual certificate places the interim-participation optimum less than $6.95\times10^{-7}$ above this reward. Thus the exit option costs approximately $0.18358651$ relative to full customer commitment, but does not eliminate the gain. EC Section~\ref{ec:interim-certificate} gives the upper-bound proof and the complete policy audit. No compensating side payment or change in the fixed menu is used to obtain this result.

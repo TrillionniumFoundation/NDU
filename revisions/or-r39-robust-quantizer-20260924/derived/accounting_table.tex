@@ -1,0 +1,20 @@
+\begin{table}[p]
+\caption{Accounting for Theorem~\ref{thm:r37-linear}; ordered rational input, $1\leq m\leq k$.}\label{tab:r37-accounting}
+\begin{tabular}{p{.40\textwidth}p{.53\textwidth}}
+\toprule
+Cost component & Included work or storage \\
+\midrule
+Input validation and six prefix moments & $O(k)$ rational operations; $O(k)$ stored values. \\
+Sorting & Input interface requires ordered distinct caps; otherwise add $O(k\log k)$ exact comparisons and reorder associated primitives. \\
+Continuous terminal minimization & Included in $O(k)$ oracle requests; each interval minimizes its quadratic exactly, including singleton and endpoint cases. \\
+Key comparisons and repeated requests & Included in $O(mk)$ work; a repeated finite request is charged again. No quadratic entry cache is assumed. \\
+Padding comparisons & Included index comparisons; undefined economic costs are never evaluated. \\
+Previous-layer values and backpointers & $O(mk)$ stored values and indices, plus $O(k)$ working search space. \\
+Reconstruction and output & One winning codebook per budget; $O(m^2)\leq O(mk)$ symbols written. No reconstruction at every candidate endpoint. \\
+Rational heights and integer operations & $O(S)$ bits per evaluated rational, $S=O(k[L+\log(k+2)])$; conservative $O(mkS^3)$ bit operations, including reduction and comparison. \\
+Physical bit storage & $O((mk+k)[S+\log(k+2)])$ bits for the stated arrays and indices; not a claim of $O(mk)$ bits. \\
+Inherited public graph and response compiler & Not invoked by the renewal algorithm; their read-only data, compilation, and query costs enter the separate implementation menu when used. \\
+External solver preprocessing & Not part of the frontier theorem. Finite-network construction, floating solver work, and exact certification are measured separately. \\
+\bottomrule
+\end{tabular}
+\end{table}

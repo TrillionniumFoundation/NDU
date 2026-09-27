@@ -1,0 +1,138 @@
+{
+  "id": "heterogeneous-small-5601-t2",
+  "family": "heterogeneous-small",
+  "method": "direct-mip",
+  "instance_sha256": "d3c4162b4c299497f534a726808dfb74ab12c0440c26c4a9eabc7a247218935c",
+  "epsilon": "hex:1/14",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.6660255820000032,
+  "status": "NUMERICAL",
+  "numerical": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "seconds": 0.012529295000007323,
+    "formulation": "direct support-indicator probability/service MILP",
+    "envelope": "tangent",
+    "segments": 16,
+    "variables": 169,
+    "binaries": 81,
+    "constraints": 370,
+    "approximation_error": 5.7637691497802734e-05,
+    "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+    "numerical_upper": 0.6579980468750001,
+    "node_count": 1,
+    "mip_gap": 0.0,
+    "value": 0.657998046875,
+    "objective": 0.6579980468750001,
+    "max_model_residual": 3.3306690738754696e-16,
+    "installed": [
+      "1/8",
+      "5/8"
+    ],
+    "probabilities": [
+      [
+        0.0,
+        1.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.7499999999999997,
+        -0.0,
+        -0.0,
+        0.0,
+        0.25000000000000033,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.5,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.5,
+        -0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        1.0,
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      [
+        0.0,
+        0.8750000000000001,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.1249999999999999,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "intermediate": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "algorithm_seconds": 0.014577191000000767,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 79128,
+  "total_measured_seconds": 0.014577191000000767
+}

@@ -1,0 +1,137 @@
+name: NDU Operations Research R60 publication and exact-head verification
+on:
+  push:
+    branches: [revision/ndu-operations-research-r60-tariff-frontier-20260927]
+    paths: ['.r60-transport/publication_source.part*', '.github/workflows/ndu-or-r60-publication.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+concurrency:
+  group: ndu-or-r60-publication
+  cancel-in-progress: false
+env:
+  R: revisions/or-r60-tariff-frontier-20260927
+  BRANCH: revision/ndu-operations-research-r60-tariff-frontier-20260927
+  PYTHONDONTWRITEBYTECODE: '1'
+  PYTHONUNBUFFERED: '1'
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  NUMEXPR_NUM_THREADS: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r60-tariff-frontier-20260927'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Materialize hash-verified ordinary manuscript and publication sources
+        run: |
+          python - <<'PY'
+          import base64,hashlib,json,lzma,os
+          from pathlib import Path
+          parts=sorted(Path('.r60-transport').glob('publication_source.part*'))
+          assert len(parts)==6
+          raw=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='5dbe8801d54d9ddf468058baf2f9205e64ac4619a2b6a7312db4162ea51492ff','Source transport mismatch'
+          files=json.loads(lzma.decompress(raw));assert len(files)==15
+          for name,text in files.items():
+              p=Path(name);assert not p.is_absolute() and '..' not in p.parts
+              target=Path(os.environ['R'])/p;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(text)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R/ABSTRACT.txt" "$R/sections" "$R/code"
+          git diff --cached --quiet || git commit -m 'revision(or-r60): publish complete tariff-frontier manuscript, bounded-path proofs and point-by-point response [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned scientific verifier dependencies
+        run: python -m pip install -r "$R/requirements.txt"
+      - name: Install Operations Research reader build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Generate actual evidence tables and compile all three readers
+        run: |
+          python "$R/code/package60.py" tails
+          python "$R/code/build60.py"
+      - name: Independently close the standalone package without rerunning frozen timings
+        run: python "$R/code/package60.py" finish
+      - name: Commit and push complete current readers and evidence
+        id: publish
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add README.md main.tex electronic_companion.tex NDU_OR_submission_checklist.md "$R"
+          git add -f main.pdf electronic_companion.pdf "$R"/*.pdf "$R"/*.zip "$R/results" "$R/generated" "$R/retained_r59"
+          git diff --cached --quiet || git commit -m 'revision(or-r60): publish 30-page manuscript, 28-page companion, full response and independently checked standalone package [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          SHA=$(git rev-parse HEAD)
+          echo "final_sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "$SHA" > "$RUNNER_TEMP/R60_PUBLISHED_COMMIT.txt"
+      - name: Retain publication and any build failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r60-referee-package
+          include-hidden-files: true
+          retention-days: 30
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r60-tariff-frontier-20260927/
+            .build/r60/*.log
+            ${{ runner.temp }}/R60_PUBLISHED_COMMIT.txt
+  exact-head-verification:
+    needs: publish
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      statuses: write
+    env:
+      FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.5'
+      - name: Install read-only verification dependencies
+        run: python -m pip install -r "$R/requirements.txt"
+      - name: Verify exact final checkout, historical preservation and all certificates
+        id: check
+        run: |
+          test "$(git rev-parse HEAD)" = "$FINAL_SHA"
+          export R60_VERIFY_OUTPUT="$RUNNER_TEMP/EXACT_HEAD_VERIFICATION.json"
+          python "$R/code/package60.py" verify
+          test -z "$(git status --porcelain --untracked-files=no)"
+      - name: Bind independent verification status to final manuscript commit
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECK_OUTCOME: ${{ steps.check.outcome }}
+        run: |
+          STATE=failure
+          if [ "$CHECK_OUTCOME" = success ]; then STATE=success; fi
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state="$STATE" -f context='ndu-r60/exact-head-verification' -f description='Read-only current manuscript, history, 1548 records and exact structural proof verification' -f target_url="https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - name: Retain exact-head verification receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ndu-or-r60-exact-head-verification
+          retention-days: 30
+          path: ${{ runner.temp }}/EXACT_HEAD_VERIFICATION.json

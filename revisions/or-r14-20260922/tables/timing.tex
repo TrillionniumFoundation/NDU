@@ -1,0 +1,20 @@
+\begin{table}[htbp]
+\centering
+\caption{Complete matched-accuracy deployment on 32 contexts, with three repetitions. All final normalized exact gaps are at most $10^{-7}$.}
+\label{tab:r14-timing}
+\begin{tabular}{lrrrr}
+\toprule
+Method & Total (ms) & Audit (ms) & Iterations & Refined (\%)\\
+\midrule
+Cold scalar Newton & 5.353 & 5.222 & 3.75 & 0.00\\
+Brent & 5.363 & 5.224 & 7.81 & 0.00\\
+Sorted breakpoints & 5.513 & 5.222 & 57.91 & 0.00\\
+Value only & 10.635 & 10.436 & 1.69 & 81.25\\
+Value gradient & 10.600 & 10.397 & 1.72 & 78.12\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.97\linewidth}
+Times are medians including both audits when refinement occurs. Iterations are mean full-objective solver iterations, counting zero for an immediately certified learned response. The classical methods solve directly, so their refinement indicator is zero rather than a claim of zero computation. Breakpoint scan iterations count scanned intervals and are not comparable arithmetic units to Newton or Brent steps.
+\end{minipage}
+\end{table}

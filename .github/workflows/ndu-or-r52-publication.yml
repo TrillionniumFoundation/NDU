@@ -1,0 +1,92 @@
+name: NDU R52 validated referee revision
+on:
+  push:
+    branches: [revision/ndu-operations-research-r52-resource-path-20260925]
+    paths:
+      - .github/workflows/ndu-or-r52-publication.yml
+      - revisions/or-r52-resource-path-20260925/bootstrap.py
+      - revisions/or-r52-resource-path-20260925/transport/**
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r52-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r52-resource-path-20260925'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      R: revisions/or-r52-resource-path-20260925
+      BRANCH: revision/ndu-operations-research-r52-resource-path-20260925
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Verify source transport and preserve reviewed entry points
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/bootstrap.py"
+          python "$R/code/assemble.py"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R" main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r52): publish selected-boundary manuscript, proofs, response and frozen code [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned scientific dependencies
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7
+          mkdir -p "$R/results"
+          python -m pip freeze > "$R/results/ci_environment.txt"
+      - name: Execute all prescribed cases and independent regressions
+        run: python "$R/code/publication.py"
+      - name: Install LaTeX and PDF rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Build all readers and check every inherited blob
+        run: |
+          python "$R/code/build.py"
+          python "$R/code/preservation.py"
+          python "$R/code/package.py"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          r = Path(os.environ['R'])
+          for name in ['BUILD_VALIDATION.json', 'PRESERVATION_MANIFEST.json', 'results/tests.json', 'results/SUMMARY.json']:
+              record = json.loads((r/name).read_text())
+              if record.get('status') != 'PASS':
+                  raise RuntimeError('Publication check failed: ' + name)
+          PY
+      - name: Push validated readers, certificates and complete evidence
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add "$R" main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md
+          git add -f main.pdf electronic_companion.pdf "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip"
+          git diff --cached --quiet || git commit -m 'revision(or-r52): commit verified PDFs, all experiments, exact certificates and preservation audit [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$RUNNER_TEMP/R52_PUBLISHED_COMMIT.txt"
+      - name: Preserve complete referee package and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r52-referee-package
+          retention-days: 30
+          include-hidden-files: true
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r52-resource-path-20260925/
+            .build/r52/*.log
+            ${{ runner.temp }}/R52_PUBLISHED_COMMIT.txt

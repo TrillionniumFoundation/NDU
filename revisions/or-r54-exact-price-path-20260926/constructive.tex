@@ -1,0 +1,66 @@
+\section{Constructive Selected-Boundary Decomposition}\label{sec:boundaries52}
+This section assumes the common reward $f$ in Section~\ref{sec:model52}. For a selected book $c=(u_1<\cdots<u_s)$, write $a=u_1$ and $d_j=\max\{u_i:u_i\leq\tau_j\}$.
+\begin{lemma}[Global terminal-first allocation]\label{lem:terminal52}
+An optimal fixed-book canonical allocation cannot have both $t_i>d_i$ and $t_j<\min(b_j,d_j)$.
+\end{lemma}
+\begin{proof}
+Choose $0<\delta\leq\min\{t_i-d_i,\pi_j[\min(b_j,d_j)-t_j]/\pi_i\}$. Reduce $t_i$ by $\delta$ and increase $t_j$ by $\pi_i\delta/\pi_j$. The weighted change is zero. The donor's terminal reward is unchanged and its service cost weakly decreases; the recipient's strictly increasing terminal interpolant improves. Both responses remain feasible by Proposition~\ref{prop:canonical52}, contradicting optimality.
+\end{proof}
+For selected neighbors $u<v$, define
+\begin{align}
+ \delta_j(u,v)&=\mathbf1_{\{\tau_j\geq v\}}[\min(b_j,v)-u]_+,
+ &T_{uv}&=\sum_j\pi_j\delta_j(u,v),\label{eq:terminalarc52}\\
+ J_{uv}&=\{j:u\leq\tau_j<v\},
+ &Q_{uv}&=\sum_{j\in J_{uv}}\pi_j(b_j-u)_+.\label{eq:exit52}
+\end{align}
+The capped service value on an exit set is
+\begin{equation}\label{eq:servicearc52}
+ H_{uv}(y)=\min\left\{\sum_{j\in J_{uv}}\pi_jh_j(z_j):
+ 0\leq z_j\leq(b_j-u)_+,\ \sum_{j\in J_{uv}}\pi_jz_j=y\right\},\quad 0\leq y\leq Q_{uv}.
+\end{equation}
+Empty sets have zero capacity and zero value at zero. Let $\sigma_{uv}=[f(v)-f(u)]/(v-u)$ and
+\begin{equation}\label{eq:arc52}
+ \Phi_{uv}(x)=\sigma_{uv}\min(x,T_{uv})-H_{uv}((x-T_{uv})_+),
+ \qquad 0\leq x\leq T_{uv}+Q_{uv}.
+\end{equation}
+For the terminal edge $(u,\dagger)$, use $T_{u\dagger}=0$, $J_{u\dagger}=\{j:\tau_j\geq u\}$, and $\Phi_{u\dagger}=-H_{u\dagger}$. The functions $\Phi$ are concave. Under the quadratic primitives, they are $L$-Lipschitz with $L$ as in \eqref{eq:L52}.
+
+\begin{lemma}[Nested terminal layers]\label{lem:nested54}
+Start each history at target $a$. Fill the selected terminal layers in increasing edge order. Once every preceding layer is full, each history with $\delta_j(u,v)>0$ is at target $u$. Every weighted amount $x\in[0,T_{uv}]$ in the next layer has a feasible individual allocation. After all terminal layers are full, history $j$ is at $\min(b_j,d_j)$; its remaining service capacity belongs to exactly one exit set.
+\end{lemma}
+\begin{proof}
+A history with positive increment on $(u,v)$ has $b_j>u$ and $\tau_j\geq v$. It is eligible for all earlier selected commands, and the increments of those earlier layers telescope to $u-a$. This proves the first assertion, including a history whose cap will truncate the current layer.
+
+For any desired $x$, initialize residual $r=x$ and visit histories in any fixed order. Give history $j$ increment $e_j=\min\{\delta_j(u,v),r/\pi_j\}$ and reduce $r$ by $\pi_je_j$. Since $x\leq\sum_j\pi_j\delta_j(u,v)$, the final residual is zero. Each affected target lies in $[u,\min(b_j,v)]$ and is implemented by the adjacent lottery on $u,v$ with upper probability $e_j/(v-u)$. It has no intermediate service and both realizations are below $\tau_j$. Histories with zero increments keep their previously feasible responses.
+
+If a layer is partial, stop: its predecessors are full and its successors unused. If every layer is full, the increments for history $j$ telescope to $\min(b_j,d_j)-a$. It exits exactly after $d_j$, at an ordinary crossing edge or at the terminal edge. Thus its remaining capacity is $(b_j-d_j)_+$ and appears in exactly one $H$. Any feasible service vector on the exit sets implements target $\min(b_j,d_j)+z_j$. A positive $z_j$ requires $b_j>d_j$, and its implementation is the sure command $d_j$ plus service $z_j$; their sum is at most $b_j\leq\tau_j$. Zero-capacity histories require no service. The exit sets are disjoint, so these implementations combine without conflicting allocations.
+\end{proof}
+
+\begin{lemma}[Implementable rearrangement]\label{lem:rearrange54}
+For a fixed selected path, any feasible arc-resource vector can be rearranged, with unchanged total resource and no smaller payoff, into full earlier terminal layers, at most one partial terminal layer, and service only after all terminal layers are full. That rearranged payoff is attained by original history-level policies.
+\end{lemma}
+\begin{proof}
+Split the resource on each arc into its terminal and service parts in \eqref{eq:arc52}. If any terminal capacity remains unused while some service is positive, transfer the smaller of the available terminal capacity and a positive service amount to that terminal layer. The terminal gain is positive, while reducing service weakly lowers cost. Repeat until there is no such pair. This operation never changes charges or the sum of resources.
+
+Next, if an earlier terminal layer is unfinished and a later one is positive, transfer the smaller of the unfinished capacity and the later mass. Selected chord slopes are positive and nonincreasing, so payoff cannot decrease. Filling layers successively yields the asserted form after finitely many exhausted donors or filled recipients. Each arc still respects its capacity: terminal mass is at most $T_e$, and service, when present, is at most $Q_e$ after that arc's terminal part is full. Allocate any remaining service by minimizers of the corresponding $H_e$; these minimizers exist by compactness and continuity. Lemma~\ref{lem:nested54} implements the resulting terminal pattern and the disjoint service allocations. Its gross payoff is precisely $f(a)+\sum_e\Phi_e(x_e)$ for the rearranged vector. An arbitrary original vector need not be implemented at its unrearranged payoff; the weak improvement is the comparison needed for exact optimal values.
+\end{proof}
+
+\begin{theorem}[Exact selected-boundary resource path]\label{thm:path52}
+Let $P(c)$ contain the successive selected edges and the terminal edge of a feasible book. Then
+\begin{align}
+ \sum_{e\in P(c)}(T_e+Q_e)&=\bar b-a,\label{eq:capacityidentity52}\\
+ V_c(B)&=f(a)-\sum_{z\in c}\rho(z)+
+ \max_{\substack{0\leq x_e\leq T_e+Q_e\\\sum_e x_e=B-a}}\sum_{e\in P(c)}\Phi_e(x_e).\label{eq:pathidentity52}
+\end{align}
+Maximizing over paths with at most $m$ selected commands solves the original joint problem exactly. Reconstruction fills terminal layers in order, uses the greedy partial-layer allocation of Lemma~\ref{lem:nested54}, and then solves the disjoint capped service allocations. The resulting policy obeys the original promise, expected caps, realization ceilings, and command budget.
+\end{theorem}
+\begin{proof}
+For history $j$, the terminal increments sum to $\min(b_j,d_j)-a$ and its unique service capacity is $(b_j-d_j)_+$. Their sum is $b_j-a$, proving \eqref{eq:capacityidentity52} after weighting. In an original optimum, Lemma~\ref{lem:terminal52} places service after terminal capacity. Among terminal layers, exchanging equal weighted amounts orders the common decreasing chord slopes; Lemma~\ref{lem:nested54} justifies the individual feasibility of that ordering. If all terminal capacity is full, the exit-set cost minimizations describe all remaining feasible service allocations. Hence an original optimum supplies an arc allocation of the same value. Conversely, Lemma~\ref{lem:rearrange54} implements a weakly improved version of every feasible arc allocation. The two comparisons yield equality of the attained maxima. Each selected charge is subtracted once, and the terminal edge does not open an additional command.
+\end{proof}
+
+\begin{corollary}[Endogenous eligibility]\label{cor:endogenous52}
+A book of $s$ commands has at most $s$ nonempty selected-prefix classes. Inserting unselected candidates changes neither its arc functions nor its fixed-book optimum.
+\end{corollary}
+\begin{proof}
+The nonempty exit sets partition histories according to their last eligible selected command. Their definitions and terminal increments depend on the selected endpoints, not intervening unused candidates.
+\end{proof}

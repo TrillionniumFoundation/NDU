@@ -1,0 +1,55 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable,graphicx}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Renewal Design: Menus and Deficit Paths}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\input{revisions/or-r52-resource-path-20260925/generated/metrics.tex}
+\input{revisions/or-r54-exact-price-path-20260926/generated/metrics.tex}
+\hypersetup{pdftitle={Finite-Catalog Renewal Design: Small Menus and Resource-Deficit Paths},pdfauthor={Anonymous}}
+\externaldocument{.build/r58/electronic_companion}[electronic_companion.pdf]
+\begin{document}\hypersetup{pageanchor=false}
+\begin{titlepage}\centering{\Large\bfseries Finite-Catalog Renewal Design: Small Menus and Resource-Deficit Paths\par}
+\vspace{0.25in}Anonymous manuscript for Operations Research --- R58\par\vspace{0.2in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A renewal provider chooses a paid command book and allocates an accepted obligation across histories with expected caps and realization ceilings. We derive exact resource and price path representations with heterogeneous concave terminal rewards. Under a common reward, an optimum uses at most twice the number of distinct expected caps, and the bound is tight. Joint cap and reward classes admit the same reduction. Approximate reward classes yield an oscillation-based loss certificate without changing any feasibility constraint. Complementing edge resources merges all feasible anchors into one deficit dynamic program. Centered kernels and exact promise repair give an additive approximation with quadratic rather than cubic catalog dependence. Zero service costs yield exact lattice optimization at arbitrary command budgets; a saturated promise yields an exact all-budget frontier even with positive service costs. These regimes distinguish numerical granularity from binary encoding and complement weak SUBSET SUM hardness with a nonbinding budget. Price paths support finite branching and independent rational certificates. Synthetic experiments separate exact targets from positive tolerances, expose search mechanics, retain resource limits, and measure screening together with downstream solution and verification. A service-credit architecture distinguishes implementability from empirical calibration.
+\par\vspace{0.15in}\textbf{Keywords:} renewal contracts; dynamic programming; global optimization.
+\par\vspace{0.1in}\textbf{Subject classifications:} Dynamic programming: finite command design; Programming: global optimization.
+\par\vspace{0.1in}\textbf{Area of review:} Optimization.\end{minipage}\vfill September 26, 2026\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r58-structural-referee-20260926/introduction.tex}
+\input{revisions/or-r58-structural-referee-20260926/model.tex}
+\input{revisions/or-r58-structural-referee-20260926/constructive.tex}
+\input{revisions/or-r53-catalog-safe-certificates-20260926/capacity_potential.tex}
+\input{revisions/or-r58-structural-referee-20260926/exact_caps.tex}
+\input{revisions/or-r58-structural-referee-20260926/hardness.tex}
+\input{revisions/or-r58-structural-referee-20260926/small_menus.tex}
+\input{revisions/or-r58-structural-referee-20260926/robust_types.tex}
+\input{revisions/or-r58-structural-referee-20260926/price_duality.tex}
+\input{revisions/or-r58-structural-referee-20260926/packing.tex}
+\input{revisions/or-r58-structural-referee-20260926/branching.tex}
+\input{revisions/or-r58-structural-referee-20260926/uniform_summary.tex}
+\input{revisions/or-r58-structural-referee-20260926/deficit_paths.tex}
+\input{revisions/or-r58-structural-referee-20260926/saturation.tex}
+\input{revisions/or-r58-structural-referee-20260926/lattice.tex}
+\input{revisions/or-r58-structural-referee-20260926/study.tex}
+\input{revisions/or-r58-structural-referee-20260926/new_study.tex}
+\input{revisions/or-r58-structural-referee-20260926/conclusion.tex}
+\clearpage\phantomsection\label{refs-start}
+\input{revisions/or-r58-structural-referee-20260926/references.tex}
+\label{refs-end}\clearpage
+\input{revisions/or-r58-structural-referee-20260926/generated/main_tables.tex}
+\end{document}

@@ -1,0 +1,108 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[tablesonly,nomarkers,nolists,noheads]{endfloat}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Accepted Multistage Service Control}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Multistage Service Control and Certified Value-Gradient Decisions},pdfauthor={Anonymous}}
+\externaldocument{ec-labels}[electronic_companion.pdf]
+\externaldocument{legacy-main-labels}[revisions/or-r19-20260923/predecessor/main.pdf]
+\externaldocument{legacy-ec-labels}[revisions/or-r19-20260923/predecessor/electronic_companion.pdf]
+\externaldocument{history-labels}[historical_supplement.pdf]
+\input{revisions/or-r10-20260921/tables/metrics.tex}
+\input{revisions/or-r12-20260922/tables/metrics.tex}
+\input{revisions/or-r13-20260922/tables/metrics.tex}
+\input{revisions/or-r14-20260922/tables/metrics.tex}
+\begin{document}
+\begin{titlepage}\centering
+{\Large\bfseries Neural Differential Utility:\\ Accepted Multistage Service Control and\\ Certified Value-Gradient Decisions\par}
+\vspace{.3in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
+\begin{minipage}{\textwidth}
+\textbf{Abstract.}
+A service provider can revise persistent contractual tiers only when customers accept the continuation protocol and physical service commitments remain intact. We characterize accepted adaptation by continuation prices, boundary scarcity, and switching capacities on a full scenario tree. Exact transfer coordinates yield constructive critical-friction brackets and profitable feasible deviations. A resource-price representation then connects a scalar value gradient to accepted multistage decisions with vector tiers, multiple capacities, nonconstant comparators, and endogenous switching signs. An exact decomposition gives a global quadratic regret bound without an optimal face; an inexact-response theorem incorporates separately certified solver error and numerical repair. Eight independent training/deployment pairs compare neural critics, direct-price regressors, polynomial response surfaces, and radial-basis interpolation on a coupled multistage problem. Derivative supervision improves the paired neural comparison, while direct-price and non-neural methods are stronger. Independent rational replay, targeted boundary tests, complete accuracy-targeted timing, and a conditional frozen-fleet gain bound distinguish decision quality from computational advantage. The resulting framework integrates acceptance, learnable resource statistics, and auditable implementation without assuming neural superiority or free online optimization.
+\par\vspace{.16in}\textbf{Keywords:} accepted service control; resource prices; value-gradient decisions.
+\par\vspace{.10in}\textbf{Subject classifications:} Inventory/production: service contracts; Dynamic programming/optimal control: stochastic control; Analysis of algorithms: approximation guarantees.
+\par\vspace{.10in}\textbf{Area of review:} Stochastic Models.
+\end{minipage}\vfill{Revision R19, September 23, 2026\par}\end{titlepage}
+\section{Introduction}
+A service provider can adapt physical stock and the contractual tier attached to it. Higher tiers can earn premiums but also increase indemnity, maintenance, and installation costs. A profitable revision is useful only if the customer accepts the resulting continuation and the provider respects its physical commitments. The operational question is therefore not simply whether an adaptive policy has a larger unconstrained objective. It is which accepted revisions create value, when switching friction prevents them, and how repeated decisions can be implemented and checked.
+
+We study Neural Differential Utility as joint control of physical activity and a persistent, externally priced contractual state. Regimes, stock, tiers, and fulfillment are observable and contractible. The provider announces a contingent protocol; in the continuation model the customer may leave at each review. Tariffs and demand transitions are fixed before optimization. There is no private type or hidden effort. Expanded-state stochastic control remains the underlying framework. Acceptance is an explicit constraint, not a claim to escape standard dynamic programming.
+
+The paper develops one chain of results: accepted-control geometry identifies profitable changes; resource prices provide a learnable decision statistic on that same geometry; independent certificates connect the resulting proposal to the implemented policy. This chain is not restricted to a two-date scalar allocation model. It retains multistage participation constraints, vector services, several resource capacities, a nonconstant outside protocol, and switching costs whose signs emerge from optimization.
+
+Our first contribution gives a full-tree balance characterization. A protocol is optimal precisely when marginal operating rewards can be balanced by continuation prices, boundary scarcity, and capacity-constrained switching tensions. On a scalar tree, eliminating the tensions yields cumulative subtree cuts. Exact continuation-transfer coordinates give constructive critical-friction bounds and an explicit profitable accepted deviation when a lower witness separates the comparator from optimality. The normal-cone and total-variation tools are classical; the payment-transfer cone, cumulative continuation prices, and constructive service decisions are the application-specific structure. Large friction supports a zero-switching comparator on a ray, whereas a comparator that already changes can have a bounded optimality interval.
+
+Our second contribution supplies a nonoracular value-gradient implementation on general accepted polyhedra. A scalar optimized value differentiated in specified resource-reward coordinates yields the resource vector of the optimal policy. Its marginal smooth resource cost is a price that drives a feasible response. An exact two-remainder identity converts price error into quadratic regret, globally across capacity and switching transitions. The response retains every acceptance row and the original nonsmooth switching penalty; it does not require the unknown optimal face or switching signs. The guarantee assumes stated curvature, not differentiability of the switching cost. Resource dimension need not be one, and low rank is useful but not mathematically required.
+
+Our third contribution incorporates implementation error explicitly. An independently bounded response-subproblem error, together with an observable price residual, bounds regret for the actual repaired decision. A separate rational conjugate calculation certifies the full objective and every modeled commitment. Learning does not replace this calculation or make a multistage response free. The response can be driven by a neural critic, a non-neural value function, or direct price regression, so their quality and full computational costs can be compared under identical requirements.
+
+Our fourth contribution executes that comparison. Eight independent training/deployment pairs evaluate seven methods on a coupled, two-service, multistage tree. Derivative supervision improves the specified neural comparison, but direct-price regression and simple non-neural surrogates are stronger. A new cost study gives classical algorithms the same initial numerical tolerance and independently certified deployment target. Deliberate tests require actual binding capacities, tier boundaries, and switching kinks, rather than counting generic instances as difficult geometry. Conditional inference for a deployed uniform fleet of frozen policies complements, rather than substitutes for, the eight-pair comparison. The earlier unresolved star comparison and nonlinear transfer failures remain part of the evidence.
+
+These findings support an integrated accepted-control method, not a claim that neural approximation is always necessary. The practical choice among an exact solve, a value-derived price, and direct price prediction depends on approximation quality, required certification, and total cost. The general theory makes those choices comparable without changing customer commitments. All empirical primitives are synthetic; no service-provider calibration, model-misspecification robustness, or advantage of arbitrary retraining is inferred.
+\subsection{Related literature and the incremental contribution}
+Inventory decisions and service contracts have long been studied jointly. \citet{Henig1997} embed inventory decisions in supply-contract design; \citet{LiangAtkins2013,Sieke2012,Katok2008} study agreements, penalties, coordination, and review periods. Dynamic stocking under service-level agreements is established \citep{Hosseinifard2022,Caggiano2007,Abbasi2022}. Here the static-contract comparator can already adapt physical stock to the regime. The additional decisions are accepted revisions of contractual tiers, not state-aware inventory actions withheld from the benchmark.
+
+Private information and unobserved effort create different constraints. \citet{NasserTurcic2019} study temporary contract adjustment with a private demand forecast; \citet{PlambeckZenios2003} study incentive-efficient control with unobserved effort. We impose public-state continuation participation, not truth telling or hidden-action incentive compatibility. Combined pricing and inventory optimization is also established \citep{FedergruenHeching1999}; our tariff and demand law remain external to the provider's control.
+
+Constrained Markov decision processes, occupation measures, and Lagrangian resource prices are classical \citep{Altman1999}. Conditional promised utility supports recursive contracting \citep{SpearSrivastava1987}, while self-enforcing wage contracts analyze participation over time \citep{ThomasWorrall1988}. Our remaining-payment state is a service-control specialization, not a new principle of dynamic programming. The contribution is the exact continuation-price and switching-capacity characterization, including its cumulative cut form and friction comparative statics, under the stated observable-service institution.
+
+Monotone selections follow \citet{Topkis1978}, and hysteretic control has predecessors including \citet{HippHolzbaur1988}. Supporting-price stock identification, normal cones, Bregman decompositions, and strong-convexity residual bounds use standard convex tools \citep{BoydVandenberghe2004}. We state those tools explicitly so that their specialization is not mistaken for independent mathematical novelty. Approximate dynamic programming also uses optimization to connect approximate values and decisions \citep{DeFariasVanRoy2003}. Our complete-tree audit retains all participation rows and boundary prices rather than relying on a collection of unverified one-step errors.
+
+Derivative-weighted fitting follows Sobolev training \citep{Czarnecki2017}; graph filtering follows \citet{Defferrard2016}. Safe and constrained learning studies cumulative constraints and, in some models, unknown safe regions \citep{Satija2020,WachiSui2020}. Here the feasible polyhedron is known; learning proposes a policy and a separate calculation certifies it. The full-polyhedron resource-price bridge and its inexact-response certificate explain the role and limits of this separation; the earlier acceptance-face construction remains available in the companion. We benchmark SciPy's sequential quadratic programming implementation alongside the preserved sparse Newton methods \citep{Virtanen2020}; no custom implementation is declared the practical optimization frontier. Forward--backward value-process methods \citep{MaProtterYong1994,HanJentzenE2018} and Markov-chain approximation \citep{KushnerDupuis2001} support the separately preserved continuous-time material, not the finite-tree theorem by analogy.
+
+Graph total variation and regularization paths have established dual and algorithmic representations \citep{TibshiraniTaylor2011,ArnoldTibshirani2016}. Explicit constrained control uses multiparametric quadratic programs \citep{Bemporad2002}, and safe screening uses gap-based regions \citep{Fercoq2015}. Our contribution is not to rename those methods: it is the continuation-transfer representation, constructive price repair, and their integration with verified scalar experts and independently validated accepted deployment.
+
+Classical single-resource algorithms already exploit multiplier and breakpoint structure \citep{PatrikssonStromberg2015}. The scalar resource-allocation reduction is retained as a special case. The current bridge keeps general accepted polyhedra and endogenous nonsmooth switching, identifies the partial value gradient associated with coupled resources, and supplies an implemented-decision certificate; it is not a claim to invent a generic multiplier or envelope method.
+
+The main paper contains the institution, general accepted-tree structure, essential proofs of the new resource-price and inexact-response results, and the repeated multistage comparison. The companion retains the complete scalar and verified-cell developments and details the new checks. Immutable predecessor manuscripts preserve the earlier continuous-time and nonlinear investigations in full, with an explicit relocation map.
+
+\input{revisions/or-r14-20260922/sections/model.tex}
+\input{revisions/or-r12-20260922/retained/accepted.tex}
+\input{revisions/or-r7-20260921/sections/accepted_continuous.tex}
+\input{revisions/or-r14-20260922/sections/general_theory.tex}
+\input{revisions/or-r14-20260922/sections/network_structure.tex}
+\input{revisions/or-r13-20260922/sections/constructive_flow.tex}
+\input{revisions/or-r19-20260923/sections/general_bridge.tex}
+\input{revisions/or-r19-20260923/sections/experiment.tex}
+\section{Conclusions and operational implications}
+Accepted adaptation changes the allocation of resources while preserving announced commitments. Continuation prices and switching capacities identify when a protocol can improve and which branches finance the change. The critical-friction and constructive-transfer results therefore precede, rather than depend on, a choice of learning architecture.
+
+The resource-price bridge now applies to multistage vector decisions with endogenous switching signs. Its value gradient is specified by a perturbation of resource rewards, with acceptance held fixed. Strong convexity supplies a global quadratic regret guarantee; the inexact-response theorem charges the actual subproblem error and repair. Nothing in that argument requires optimal faces or asserts a cheap response on every accepted polyhedron. Cases without the stated curvature retain the general balance theory but not its quadratic error constant without further regularization.
+
+The repeated study demonstrates that derivative supervision can improve a neural critic's decisions in the declared multistage distribution. It also demonstrates stronger direct-price and non-neural alternatives. These observations identify how to implement the mathematical statistic, rather than requiring a preferred architecture to win. Complete accuracy-targeted timing and conservative offline accounting separate useful approximation from reduced resource consumption. The frozen-fleet bound is conditional on a precisely deployed finite collection of models, not an assurance about all future training. Operational calibration and robustness to a misspecified acceptance model remain separate empirical questions; the present certificates cover the known model and the actual implemented decision.
+\section*{Data, software, and computation accessibility}
+All current manuscript inputs, proofs, scripts, frozen models, primitive definitions, observations, exact audit records, and build instructions are supplied in the versioned review package. The current README identifies a single main manuscript and electronic companion. Earlier revision directories, reports, and scientific observations are preserved unchanged, and exact predecessor root documents are snapshotted with a relocation map. New follow-up measurements are distinguished from retrospective analyses of the R16 dataset. Source and result hashes accompany the published files. All experiments use synthetic data and no personal or confidential operational records.
+\clearpage\label{r19-reference-start}
+\input{revisions/or-r14-20260922/sections/references.tex}
+\label{r19-reference-end}
+\end{document}

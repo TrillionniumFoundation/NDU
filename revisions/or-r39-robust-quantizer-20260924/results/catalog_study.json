@@ -1,0 +1,376 @@
+{
+  "status": "PASS",
+  "python": "3.12.14",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "timing_scope": "One process, perf_counter around solve including validation, reconstruction and direct replay; not comparable to legacy process-isolated frontier timings.",
+  "rows": [
+    {
+      "family": "uniform",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "0",
+      "total": "38977/380160",
+      "service_loss": "23581/237600",
+      "level_charge": "21/6400",
+      "symbols": 8,
+      "seconds": 0.04499992399999542,
+      "codebook": [
+        "0",
+        "1/15",
+        "1/5",
+        "1/3",
+        "7/15",
+        "3/5",
+        "11/15",
+        "13/15"
+      ]
+    },
+    {
+      "family": "uniform",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "1/8",
+      "total": "135239/20908800",
+      "service_loss": "8329/2613600",
+      "level_charge": "21/6400",
+      "symbols": 8,
+      "seconds": 0.0488875700000051,
+      "codebook": [
+        "0",
+        "2/15",
+        "4/15",
+        "2/5",
+        "8/15",
+        "2/3",
+        "4/5",
+        "14/15"
+      ]
+    },
+    {
+      "family": "uniform",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "1",
+      "total": "29/6400",
+      "service_loss": "1/400",
+      "level_charge": "13/6400",
+      "symbols": 8,
+      "seconds": 0.05504590099999973,
+      "codebook": [
+        "0",
+        "1/5",
+        "1/3",
+        "7/15",
+        "2/3",
+        "13/15",
+        "14/15",
+        "1"
+      ]
+    },
+    {
+      "family": "uniform",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "0",
+      "total": "3122172887/30704641920",
+      "service_loss": "1220083553/12281856768",
+      "level_charge": "3/1280",
+      "symbols": 8,
+      "seconds": 0.5559813389999988,
+      "codebook": [
+        "0",
+        "3/31",
+        "6/31",
+        "10/31",
+        "14/31",
+        "18/31",
+        "23/31",
+        "27/31"
+      ]
+    },
+    {
+      "family": "uniform",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "1/8",
+      "total": "1057711241/153523209600",
+      "service_loss": "48155137/12281856768",
+      "level_charge": "19/6400",
+      "symbols": 8,
+      "seconds": 0.5947997350000023,
+      "codebook": [
+        "0",
+        "5/31",
+        "9/31",
+        "13/31",
+        "17/31",
+        "21/31",
+        "25/31",
+        "30/31"
+      ]
+    },
+    {
+      "family": "uniform",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "1",
+      "total": "7119721/2380204800",
+      "service_loss": "7505/2975256",
+      "level_charge": "3/6400",
+      "symbols": 8,
+      "seconds": 0.6827599989999982,
+      "codebook": [
+        "0",
+        "7/31",
+        "14/31",
+        "17/31",
+        "21/31",
+        "24/31",
+        "28/31",
+        "1"
+      ]
+    },
+    {
+      "family": "clustered",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "0",
+      "total": "613576759/11324620800",
+      "service_loss": "590573623/11324620800",
+      "level_charge": "13/6400",
+      "symbols": 3,
+      "seconds": 0.04790565100000066,
+      "codebook": [
+        "1/5",
+        "4/15",
+        "11/15"
+      ]
+    },
+    {
+      "family": "clustered",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "1/8",
+      "total": "815557/235929600",
+      "service_loss": "225733/235929600",
+      "level_charge": "1/400",
+      "symbols": 5,
+      "seconds": 0.05462415099999873,
+      "codebook": [
+        "1/5",
+        "4/15",
+        "1/3",
+        "2/3",
+        "4/5"
+      ]
+    },
+    {
+      "family": "clustered",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "1",
+      "total": "691397/235929600",
+      "service_loss": "249029/235929600",
+      "level_charge": "3/1600",
+      "symbols": 5,
+      "seconds": 0.06029136000000079,
+      "codebook": [
+        "1/5",
+        "4/15",
+        "7/15",
+        "2/3",
+        "4/5"
+      ]
+    },
+    {
+      "family": "clustered",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "0",
+      "total": "1994662835713/77389941964800",
+      "service_loss": "75433329193/3095597678592",
+      "level_charge": "9/6400",
+      "symbols": 4,
+      "seconds": 0.6237303890000021,
+      "codebook": [
+        "7/31",
+        "8/31",
+        "23/31",
+        "24/31"
+      ]
+    },
+    {
+      "family": "clustered",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "1/8",
+      "total": "93410165003/77389941964800",
+      "service_loss": "1801658051/3095597678592",
+      "level_charge": "1/1600",
+      "symbols": 5,
+      "seconds": 0.6741591380000003,
+      "codebook": [
+        "7/31",
+        "9/31",
+        "21/31",
+        "24/31",
+        "28/31"
+      ]
+    },
+    {
+      "family": "clustered",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "1",
+      "total": "429995309/403072614400",
+      "service_loss": "7122997/16122904576",
+      "level_charge": "1/1600",
+      "symbols": 5,
+      "seconds": 0.7567086560000007,
+      "codebook": [
+        "7/31",
+        "9/31",
+        "21/31",
+        "24/31",
+        "28/31"
+      ]
+    },
+    {
+      "family": "concentrated_weights",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "0",
+      "total": "3511973/80213760",
+      "service_loss": "131801/3133350",
+      "level_charge": "11/6400",
+      "symbols": 8,
+      "seconds": 0.044297325000002274,
+      "codebook": [
+        "0",
+        "2/15",
+        "1/5",
+        "1/3",
+        "7/15",
+        "2/3",
+        "13/15",
+        "14/15"
+      ]
+    },
+    {
+      "family": "concentrated_weights",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "1/8",
+      "total": "63889157/22058784000",
+      "service_loss": "256789/172334250",
+      "level_charge": "9/6400",
+      "symbols": 7,
+      "seconds": 0.04843449700000235,
+      "codebook": [
+        "0",
+        "1/5",
+        "2/5",
+        "7/15",
+        "2/3",
+        "14/15",
+        "1"
+      ]
+    },
+    {
+      "family": "concentrated_weights",
+      "k": 32,
+      "N": 16,
+      "budget": 8,
+      "delta": "1",
+      "total": "1182443/668448000",
+      "service_loss": "1763/2611125",
+      "level_charge": "7/6400",
+      "symbols": 6,
+      "seconds": 0.05514935200000082,
+      "codebook": [
+        "0",
+        "1/5",
+        "7/15",
+        "2/3",
+        "14/15",
+        "1"
+      ]
+    },
+    {
+      "family": "concentrated_weights",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "0",
+      "total": "27858490402493/1013928685482240",
+      "service_loss": "42291185339/1584263571066",
+      "level_charge": "1/1280",
+      "symbols": 8,
+      "seconds": 0.5538770049999968,
+      "codebook": [
+        "0",
+        "3/31",
+        "7/31",
+        "10/31",
+        "14/31",
+        "21/31",
+        "28/31",
+        "30/31"
+      ]
+    },
+    {
+      "family": "concentrated_weights",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "1/8",
+      "total": "1345721867711/1689881142470400",
+      "service_loss": "169012178/264043928511",
+      "level_charge": "1/6400",
+      "symbols": 6,
+      "seconds": 0.602298918999999,
+      "codebook": [
+        "0",
+        "7/31",
+        "14/31",
+        "21/31",
+        "28/31",
+        "1"
+      ]
+    },
+    {
+      "family": "concentrated_weights",
+      "k": 128,
+      "N": 32,
+      "budget": 8,
+      "delta": "1",
+      "total": "20797196477/39299561452800",
+      "service_loss": "2290100/6140556477",
+      "level_charge": "1/6400",
+      "symbols": 6,
+      "seconds": 0.6908733910000109,
+      "codebook": [
+        "0",
+        "7/31",
+        "14/31",
+        "21/31",
+        "28/31",
+        "1"
+      ]
+    }
+  ]
+}

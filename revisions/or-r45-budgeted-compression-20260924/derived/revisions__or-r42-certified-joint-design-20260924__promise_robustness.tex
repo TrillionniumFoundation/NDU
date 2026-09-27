@@ -1,0 +1,86 @@
+\section{Promise Allocation Away from Saturation}\label{sec:promise}
+The saturated promise is an endpoint of a larger allocation problem, not a normalization. Fix the branch caps and replace the root promise by $B\in[0,\bar b]$, where $\bar b=\sum_j\pi_jb_j$. Write $V_m^E(B)$, $V_m^P(B)$, and $V_m^D(B)$ for optimal value with at most $m$ symbols under expected participation, pathwise participation allowing draw-specific intermediate tiers, and deterministic execution, respectively. The information interface remains unchanged. There is no codeword-dependent charge in this section, and terminal levels may range continuously over $[0,1]$. The full-information value is $V_\infty(B)$.
+
+\subsection{An exact threshold for every root promise}
+\begin{theorem}[Clipped service levels and exact alphabet]\label{thm:clipped}
+Suppose $f$ is strictly increasing and strictly concave, and each $h_j$ is convex, nondecreasing, with $h_j(0)=0$. For every $B\in[0,\bar b]$, full information uniquely implements
+\begin{equation}\label{eq:clipped}
+ Y_j=0,\qquad C_j=\min\{b_j,\tau\},\qquad
+ \sum_j\pi_j\min\{b_j,\tau\}=B.
+\end{equation}
+At $B=0$ take $\tau=0$, and at $B=\bar b$ take $\tau=\max_jb_j$. The minimum alphabet attaining this value under any of the three institutions is
+\[
+ n(B)=\bigl|\{\min(b_j,\tau):1\leq j\leq k\}\bigr|.
+\]
+In particular, for $0\leq B\leq\min_jb_j$, one symbol attains $V_m^I(B)=f(B)$ for every $m\geq1$ and $I\in\{E,P,D\}$.
+\end{theorem}
+\begin{proof}
+For a full-information feasible policy, let $t_j=\E(Y_j+C_j)\leq b_j$. Replacing it on branch $j$ by $Y_j=0,C_j=t_j$ preserves the root promise and satisfies even pathwise participation. Jensen's inequality, strict increase of $f$, and $h_j\geq0$ show that the replacement weakly improves value, strictly if $\E Y_j>0$ or $C_j$ is nonconstant. Hence it suffices to maximize $\sum_j\pi_j f(t_j)$ with $0\leq t_j\leq b_j$ and $\sum_j\pi_jt_j=B$. Strict concavity implies uniqueness. If two uncapped coordinates differ, transferring equal probability-weighted amounts from the larger to the smaller strictly improves this sum; the same transfer shows that a capped coordinate below the common free level must be filled. Thus the unique optimizer is \eqref{eq:clipped}, with the endpoint cases interpreted as stated. Continuity of the clipped mean gives existence of $\tau$.
+
+Equality in these improvements requires deterministic terminal action $\min(b_j,\tau)$ on each branch. A symbol's terminal decoder cannot implement two different deterministic actions at the same public vertex. Its conditional output distribution is independent of the originating branch, including when fresh decoder randomization is permitted. Consequently distinct optimal actions require distinct symbols. Assigning one symbol per distinct action attains the lower bound under all institutions. When $B\leq\min b_j$, all optimal actions equal $B$.
+\end{proof}
+
+For strictly ordered caps, the thresholds at which $n(B)$ changes are explicit: put $B_\ell=\sum_j\pi_j\min(b_j,b_\ell)$. The exact alphabet is $\ell+1$ for $B_\ell<B\leq B_{\ell+1}$, $1\leq\ell<k$, and it is one on $[0,B_1]$. At $B=B_\ell$ it is $\ell$. Thus exact implementation has a promise-dependent phase diagram, rather than requiring $k$ symbols at every promise.
+
+\begin{proposition}[Repeated caps at the saturated endpoint]\label{prop:repeated}
+For $B=\bar b$, branches with a common cap $b$ can be aggregated in every deterministic, expected, and pathwise frontier. Their aggregate probability is $p_b=\sum_{j:b_j=b}\pi_j$ and their aggregate intermediate cost is $h_b(y)=p_b^{-1}\sum_{j:b_j=b}\pi_jh_j(y)$. Quadratic costs therefore aggregate by their probability-weighted curvature. The exact alphabet threshold is the number of distinct caps. For arbitrary $B$, the full-information threshold remains \eqref{eq:clipped}, but aggregation of the restricted-alphabet problem with heterogeneous intermediate costs is not asserted.
+\end{proposition}
+\begin{proof}
+At saturation, the fixed-book expected rule chooses the same terminal mean and intermediate tier for all branches with the same cap. The deterministic and pathwise rules choose the same highest eligible terminal level. Summing their rewards gives precisely the aggregate cost. Optimize over the common books and apply Theorem~\ref{thm:clipped} for the threshold. Away from saturation the branch promises themselves can differ, so the saturated aggregation argument does not apply.
+\end{proof}
+
+\subsection{Uniform transport between any two root promises}
+Assume in addition that $f$ is Lipschitz with constant $L_f$ on $[0,1]$ and each $h_j$ is Lipschitz with constant $H_j$ on $[0,b_j]$; put $H=\max_jH_j$. These constants are independent of the alphabet budget. For quadratic primitives one may take $L_f=r$ and $H=\max_j\gamma_jb_j$. The smaller intermediate domain is sufficient because the mean and pathwise replacements used below have tiers at most $b_j$.
+\begin{theorem}[All-promise value and institutional-gap stability]\label{thm:stability}
+For any $0\leq B_1\leq B_2\leq\bar b$, $\Delta=B_2-B_1$, every $m\geq1$, and $I\in\{E,P,D\}$,
+\begin{equation}\label{eq:value-stability}
+ V_m^I(B_2)-L_f\Delta\ \leq\ V_m^I(B_1)\ \leq\ V_m^I(B_2)+H\Delta.
+\end{equation}
+If $G_m(B)=V_m^E(B)-V_m^P(B)$, then
+\begin{equation}\label{eq:gap-stability}
+ |G_m(B_2)-G_m(B_1)|\leq(L_f+H)\Delta.
+\end{equation}
+The same bound holds for changes in the loss $V_\infty(B)-V_m^I(B)$. In particular, a certified strict advantage $G_m(B_0)>0$ persists for every feasible $B$ with $|B-B_0|<G_m(B_0)/(L_f+H)$.
+\end{theorem}
+\begin{proof}
+First contract any policy at $B_2>0$ by multiplying all intermediate and terminal actions by $\alpha=B_1/B_2$. The decoder uses the same symbols, and both participation conventions remain feasible. Intermediate cost weakly decreases. The decrease in terminal reward is at most $L_f(1-\alpha)\E C\leq L_f\Delta$, where expectations include branch weights. The case $B_2=0$ is immediate. Taking suprema gives the left inequality.
+
+For the other direction, start from a policy at $B_1$. Under expected participation, replace the terminal decoder given a symbol by its mean and the intermediate tier on each branch by its mean. These changes weakly improve reward, preserve the alphabet, and preserve expected obligations. Write $\mu_j=\E C_j$, $y_j=\E Y_j$, and $s_j=b_j-y_j-\mu_j\geq0$. If $B_1<\bar b$, put $\theta=\Delta/(\bar b-B_1)$ and replace $y_j$ by $y_j+\theta s_j$. The total added obligation is $\theta\sum_j\pi_js_j=\Delta$. Its cost is at most $H\Delta$, and the book and its encoding probabilities are unchanged.
+
+For pathwise participation, replace fresh terminal decoder randomness conditional on symbol $z$ by its mean $c_z$. Conditional independence from the earlier tier ensures $Y_j+c_z\leq b_j$ almost surely after this replacement; terminal concavity weakly improves reward. Use the draw-specific tier
+\[
+ Y'_j=Y_j+\theta(b_j-Y_j-c_z).
+\]
+This is admissible at the stipulated intermediate timing, remains between $Y_j$ and $b_j-c_z$, and adds expected obligation $\Delta$ with cost at most $H\Delta$. It requires no extra information at the terminal gateway. The deterministic case is the same construction without random draws. If $B_1=\bar b$, necessarily $\Delta=0$. Taking suprema, or limits of near-optimal policies, proves the right inequality without requiring a maximizer.
+
+For each institution the value increment lies in $[-H\Delta,L_f\Delta]$. Subtracting two such increments proves the institutional-gap bound. The same constructions apply with unrestricted full information, yielding the loss bound. Every transformation preserves the original number of writable symbols; no concavity of the optimized codebook envelope is assumed.
+\end{proof}
+
+In the equal-probability three-branch example of Proposition~\ref{prop:r33-random-gap}, $\bar b=1/2$, $G_2(\bar b)=11/96$, and $L_f+H=2+3/4=11/4$. Therefore
+\begin{equation}\label{eq:robust-interval}
+ G_2(B)\geq\frac{11}{96}-\frac{11}{4}\left(\frac12-B\right)>0
+ \qquad\text{for }\frac{11}{24}<B\leq\frac12.
+\end{equation}
+This is a sufficient certified interval of strict advantage, not a maximal interval or an exact nonsaturated loss formula. The global cell algorithm below computes exact values outside this conservative interval as well. At the other endpoint, $B\leq1/4$ gives zero loss with one symbol. In between, cap anchoring at the original $b_j$ and pathwise--deterministic equality do not follow from the saturated proofs. Indeed the one-symbol full optimum $C=B<\min b_j$ already shows why original-cap anchoring cannot hold for all promises. The decision insight persists without implying that the saturated algorithm solves every interior promise.
+
+\subsection{The nonsaturated allocation problem}
+The larger problem has an exact reduction even when it does not have the saturated finite-anchor reduction. For a fixed book $c=(c_1,\ldots,c_s)$ let $F_c$ be its concave interpolant and define
+\begin{equation}\label{eq:promise-response}
+ v_{j,c}(t)=F_c(\min\{t,c_s\})-h_j((t-c_s)_+),\qquad c_1\leq t\leq b_j.
+\end{equation}
+\begin{proposition}[Joint promise allocation and codebook design]\label{prop:allocation}
+The expected-participation value at any $B$ is exactly
+\begin{equation}\label{eq:joint-allocation}
+ V_m^E(B)=\max_{\substack{|c|\leq m,\,0\leq c_1<\cdots<c_s\leq1\\
+ c_1\leq t_j\leq b_j,\,\sum_j\pi_jt_j=B}}
+ \sum_j\pi_j v_{j,c}(t_j).
+\end{equation}
+For a fixed book this is a separable concave resource-allocation problem. Branch targets are the chosen $t_j$, not mechanically the original caps. Saturation fixes $t_j=b_j$ and recovers the earlier frontier.
+\end{proposition}
+\begin{proof}
+Set $t_j=\E(Y_j+C_j)$ for an arbitrary feasible policy. The mean replacements in Theorem~\ref{thm:r33-lotteries} are still valid. For a given $t_j$, maximizing $F_c(\mu)-h_j(t_j-\mu)$ over $c_1\leq\mu\leq\min(t_j,c_s)$ selects its largest feasible mean by monotonicity. Conversely that mean and its adjacent lottery implement \eqref{eq:promise-response} with intermediate tier $(t_j-c_s)_+$. This proves both directions of \eqref{eq:joint-allocation}. The response is concave: to the left of $c_s$ it is $F_c$, to the right it is $f(c_s)-h_j(t-c_s)$, and the one-sided slopes drop from a nonnegative chord slope to a nonpositive cost slope. This also covers a singleton book. Allocation with a common supporting multiplier, allowing subgradient intervals at kinks, solves the fixed-book problem. No interchange of codebook optimization and a dual minimization is used.
+\end{proof}
+
+Electronic Companion Proposition~\ref{prop:allocation-certificate} gives an exact supporting-price algorithm and a separately checkable certificate for every fixed-book allocation. Exhaustive certified catalog search extends that computation to all promises on small catalogs; its exponential cost is stated explicitly.
+
+Theorem~\ref{thm:eligible} extends the fixed-book response to every realization ceiling. Theorems~\ref{thm:continuous} and~\ref{thm:mesh} solve the continuous outer design and certify its catalog approximation; thus the inner allocation is no longer the endpoint of the nonsaturated analysis.

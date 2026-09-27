@@ -1,0 +1,103 @@
+{
+  "id": "common-small-5602-t2",
+  "family": "common-small",
+  "method": "direct-mip",
+  "instance_sha256": "a76c98e0354aec55966a1343e5bf2181fc57b03cabdeddebf06d022ce437bb26",
+  "epsilon": "hex:1/14",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.6611605939999947,
+  "status": "NUMERICAL",
+  "numerical": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "seconds": 0.007629074999996988,
+    "formulation": "direct support-indicator probability/service MILP",
+    "envelope": "tangent",
+    "segments": 16,
+    "variables": 103,
+    "binaries": 49,
+    "constraints": 242,
+    "approximation_error": 8.757909138997395e-05,
+    "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+    "numerical_upper": 0.623611111111111,
+    "node_count": 1,
+    "mip_gap": 0.0,
+    "value": 0.6236111111111111,
+    "objective": 0.623611111111111,
+    "max_model_residual": 0.0,
+    "installed": [
+      "0",
+      "1/3",
+      "1"
+    ],
+    "probabilities": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.25,
+        0.0,
+        0.75,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.09374999999999999,
+        0.0,
+        0.0,
+        0.0,
+        0.90625
+      ],
+      [
+        0.0,
+        0.0,
+        0.6249999999999999,
+        0.0,
+        0.0,
+        0.0,
+        0.3750000000000001
+      ],
+      [
+        -0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "intermediate": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "algorithm_seconds": 0.009250997999998845,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 78356,
+  "total_measured_seconds": 0.009250997999998845
+}

@@ -1,0 +1,47 @@
+\section{Optimizing a Shared Information Restriction}\label{sec:shared-new}
+The finite-price construction also changes how an optimized comparator is obtained. There are two distinct operations: choosing one table before uncertainty, and executing accepted recourse around that table. They must not be interchanged.
+
+\subsection{An exact graph-sized formulation at zero release}
+Let $c(v)\in\{1,\ldots,K\}$ be the permitted information cell and require every occurrence of $v$ to use tier $u_{c(v)}$. A time-only table has one coordinate per date; a public-regime table can have one per vertex. Let $\pi_v$ be the unconditional reach probability of $v$, obtained by forward propagation, and let $w_v=\beta^{t(v)}\pi_v$. A fixed table's conditional remaining payment, denoted $y_v$, satisfies
+\begin{equation}\label{eq:table-condensed}
+ y_v=a_vu_{c(v)}+\beta\sum_wp_{vw}y_w,
+ \qquad y_v\leq B_v,\qquad y_0=b_0.
+\end{equation}
+This is a system of $N$ payment equations and $N$ caps, not one row for every history.
+
+\begin{proposition}[Optimized shared-table condensation]\label{prop:table-condensed}
+For the public graph institution, the optimized zero-release comparator equals the convex quadratic program
+\begin{equation}\label{eq:table-qp}
+ K=\max_{u,y}\left\{\sum_vw_vg_v(u_{c(v)}):
+ \eqref{eq:table-condensed},\ l_v\leq u_{c(v)}\leq h_v\right\}.
+\end{equation}
+Its extended formulation has $K+N$ variables and $O(N+M+K)$ nonzero coefficient occurrences, after intersecting tier intervals within each information cell. With incoming absolute-value switching costs, exact condensation still holds: add the root switching cost and, for each edge $(v,w)$, its discounted reach-weighted cost of $|u_{c(w)}-u_{c(v)}|$. Introducing one epigraph variable per edge preserves graph-sized convex representability.
+\end{proposition}
+\begin{proof}
+Under a fixed table, every future action and primitive depends only on the displayed public vertex. Conditional expectation and backward induction therefore give the same remaining payment at every occurrence of that vertex, namely \eqref{eq:table-condensed}. Every feasible table in the history formulation satisfies these equations and all displayed caps. Conversely, a feasible solution implements the same table at every history and hence satisfies every continuation inequality. Summing the common local rewards with the forward reach weights gives \eqref{eq:table-qp}. Switching on an edge uses the two table entries, so its expected cost is also obtained by edge occupation weights. There is no omitted inherited action when the whole table is fixed. The extra root term uses the stipulated initial tier.
+\end{proof}
+
+The proposition is not a new quadratic-programming algorithm. It establishes when the \emph{optimized} contractual restriction can be compiled directly on the public input graph. Combining it with Theorem~\ref{thm:finite-price} yields both sides of the adaptation premium without full-history enumeration in the no-switching subclass. The public-only table remains a restriction: Theorem~\ref{thm:memory} shows why the full optimum need not be attainable with it. The graph-sized formulation and the finite-price controller thus solve different policy classes on the same primitives.
+
+\subsection{An exact fixed-table oracle at positive release}
+Fix one global table and permit $|x_h-u_{c(h)}|\leq\delta\omega_{c(h)}$. For fixed $(u,\delta)$, intersect each corridor with its physical interval and apply Theorem~\ref{thm:finite-price}. This constructs an exact value and a feasible policy, or detects an empty root payment interval. The physical primitives, graph, and root promise remain fixed across table queries.
+
+\begin{proposition}[Tree-free table supergradients]\label{prop:table-oracle}
+At a feasible fixed-table query, the finite-price construction supplies an exact value $V(u,\delta)$ and corridor multipliers $\rho^+_{v,\eta},\rho^-_{v,\eta}\geq0$. Aggregate them with the compact pair occupation weights:
+\begin{equation}\label{eq:table-gradient}
+ G_c=\sum_{(v,\eta):c(v)=c}w_{v,\eta}(\rho^+_{v,\eta}-\rho^-_{v,\eta}),
+ \qquad H=\sum_{(v,\eta)}w_{v,\eta}\omega_{c(v)}(\rho^+_{v,\eta}+\rho^-_{v,\eta}).
+\end{equation}
+For every other feasible table/release pair $(\widetilde u,\widetilde\delta)$,
+\begin{equation}\label{eq:table-cut}
+ V(\widetilde u,\widetilde\delta)
+ \leq V(u,\delta)+G^\top(\widetilde u-u)+H(\widetilde\delta-\delta).
+\end{equation}
+Thus the fixed-table oracle constructs exact supporting cuts for a Benders-style shared-design master without starting from an extensive-form optimum.
+\end{proposition}
+\begin{proof}
+The local stationarity residual in \eqref{eq:price-kkt} assigns a nonnegative upper multiplier at an active upper endpoint and a nonnegative lower multiplier at an active lower endpoint. Assign that multiplier to an active physical bound or to the corridor attaining that endpoint; either allocation is valid at a tie. At a zero-width intersection, split according to the sign of the residual. Together with the reflected cap prices and root equality price, these are full Lagrange multipliers for the fixed-table optimum. The compact weights aggregate identical public-history occurrences of this certificate.
+
+Keep these multipliers fixed and change only the corridor right-hand sides. Their linear change in the dual objective is exactly the right-hand side of \eqref{eq:table-gradient}. Weak duality gives \eqref{eq:table-cut}; complementarity at the anchor makes its constant exact. Although the old price labels organize this stored certificate, its weak-duality bound applies to every new feasible policy, not only policies following those labels.
+\end{proof}
+A finite collection of these cuts produces the usual shared-design upper master, and feasible oracle policies provide lower bounds. Optimizing a \emph{continuous} shared table with positive release is not thereby assigned a finite exact cut count. The graph-sized exact comparator applies at zero release; the polynomial finite-price bound applies to each fixed-table oracle. Distinguishing these results prevents an existence statement about supporting planes from becoming an unsupported complexity claim about the outer design problem. The inherited implementation-cost analysis, release rents, and switching results remain in Appendices~\ref{sec:release}--\ref{sec:certification}.

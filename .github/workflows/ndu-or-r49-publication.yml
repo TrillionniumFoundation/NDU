@@ -1,0 +1,88 @@
+name: NDU R49 exact eligibility pooling publication
+on:
+  push:
+    branches: [revision/ndu-operations-research-r49-dispersion-certificates-20260925]
+    paths:
+      - '.github/workflows/ndu-or-r49-publication.yml'
+      - 'revisions/or-r49-dispersion-certificates-20260925/bootstrap.py'
+      - 'revisions/or-r49-dispersion-certificates-20260925/transport/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r49-publication
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r49-dispersion-certificates-20260925
+  R: revisions/or-r49-dispersion-certificates-20260925
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r49-dispersion-certificates-20260925'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Verify source payload and archive exact predecessor readers
+        run: python "$R/bootstrap.py"
+      - name: Install independent verification dependencies
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 pymupdf==1.26.7
+          mkdir -p "$R/results"
+          python -m pip freeze > "$R/results/ci_python_environment.txt"
+      - name: Reproduce all frozen cases and verify all exact certificates
+        run: python "$R/code/publication_r49.py"
+      - name: Commit and push readable scientific sources before compilation
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git config user.name 'NDU revision publication'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf" "$R/results/certificates"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r49): exact eligibility pooling, four theorems, and independently verified joint evidence [skip ci]'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - name: Install Operations Research reader toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile all readers and audit inherited content preservation
+        run: |
+          python "$R/code/build_r49.py"
+          python "$R/code/metadata_r49.py"
+          python "$R/code/preservation_r49.py"
+      - name: Push validated manuscript companion response and preservation audit
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R"
+          git add -f main.pdf electronic_companion.pdf r49-main-labels.aux r49-ec-labels.aux r49-cs-labels.aux "$R/RESPONSE_TO_REFEREES.pdf" "$R/COMPUTATIONAL_RECORD.pdf" "$R/BUILD_VALIDATION.json" "$R/PRESERVATION_MANIFEST.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r49): validated OR readers and complete inherited-tree preservation [skip ci]'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+          git rev-parse HEAD > "$RUNNER_TEMP/R49_PUBLICATION_COMMIT.txt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r49-referee-package
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r49-*-labels.aux
+            revisions/or-r49-dispersion-certificates-20260925/
+            reviews/operation_research_referee_report_r45_independent_harsh_2026-09-25.md
+            .build/r49/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: error

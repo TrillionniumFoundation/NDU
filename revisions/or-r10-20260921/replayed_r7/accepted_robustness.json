@@ -1,0 +1,2952 @@
+[
+  {
+    "case": "canonical",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.6049371219999955,
+      "variables": 37752,
+      "value": -5.244970661074603,
+      "gain": 0.6251403119721557,
+      "filled": 18.021386713525324,
+      "customer": 28.65750614501887,
+      "physical": 9.58737773159547,
+      "slacks": [
+        3.552713678800501e-15,
+        3.552713678800501e-15,
+        -1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.1776267146202726,
+        0.0038324611071098857
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.5126788710517758e-15,
+      "inequality_violation": 1.7763568394002505e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -1.4432899320127035e-15,
+      "positive_columns": 131,
+      "gain_over_accepted_static": 0.6251403119721548
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046758,
+        "eta": 1.2595108335923145e-16,
+        "stationarity": 1.7840836053651216e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264031,
+        "eta": 0.0015682942812897487,
+        "stationarity": 7.108029442814967e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.2527360802005845,
+        "eta": 0.17484975079685391,
+        "stationarity": 3.885780586188048e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.233445701435323,
+        "eta": 0.1802712437335984,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "lam=0.1",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.1,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5858724945723526,
+      "value": -5.866585460960695,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.432997291812317,
+      "demand": 19.463097650607345,
+      "customer": 28.609776135238324
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5996351459999971,
+      "variables": 37752,
+      "value": -5.138141463171033,
+      "gain": 0.728443997789662,
+      "filled": 18.021386713525324,
+      "customer": 28.609776135238327,
+      "physical": 9.587377731595474,
+      "slacks": [
+        3.552713678800501e-15,
+        7.105427357601002e-15,
+        -3.552713678800501e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.23082304831954123,
+        0.14953883632865272
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.3306690738754696e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -1.1102230246251565e-15,
+      "positive_columns": 74,
+      "gain_over_accepted_static": 0.728443997789662
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.866585460960695,
+        "eta": 0.0,
+        "stationarity": 0.0,
+        "customer_slack": 1.7763568394002505e-15
+      },
+      {
+        "policy_class": "time",
+        "value": -5.866547950067796,
+        "eta": 6.886086174544886e-05,
+        "stationarity": 3.3767476662061036e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.128609443829081,
+        "eta": 0.20011184475170837,
+        "stationarity": 2.7755575615628914e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.127494351324559,
+        "eta": 0.2004141279772508,
+        "customer_slack": -1.7763568394002505e-15
+      }
+    ]
+  },
+  {
+    "case": "lam=1.2",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 1.2,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5780092576762975,
+      "value": -5.873954195472736,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.333235963033913,
+      "demand": 19.463097650607345,
+      "customer": 28.709537464016726
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5217310080000175,
+      "variables": 37752,
+      "value": -5.324351942468791,
+      "gain": 0.549602253003945,
+      "filled": 18.021386713525317,
+      "customer": 28.709537464016734,
+      "physical": 9.587377731595469,
+      "slacks": [
+        -3.552713678800501e-15,
+        7.105427357601002e-15,
+        1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.20090909090908865,
+        0.07890557081604105
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 2.220446049250313e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -5.551115123125783e-16,
+      "positive_columns": 119,
+      "gain_over_accepted_static": 0.5496022530039459
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.873954195472737,
+        "eta": 0.0,
+        "stationarity": 0.0,
+        "customer_slack": 2.6645352591003757e-15
+      },
+      {
+        "policy_class": "time",
+        "value": -5.871794601560228,
+        "eta": 0.00436410388096877,
+        "stationarity": 7.225123277443402e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.356231864053661,
+        "eta": 0.15438147547216824,
+        "stationarity": 8.049116928532385e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "full",
+        "value": -5.314178068329022,
+        "eta": 0.1666182013661979,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "lam=4.0",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 4.0,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5632635344358629,
+      "value": -5.887772591278833,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.146156142889823,
+      "demand": 19.463097650607345,
+      "customer": 28.89661728416082
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.48393635599998674,
+      "variables": 37752,
+      "value": -5.526647002646529,
+      "gain": 0.36112558863230415,
+      "filled": 18.021386713525324,
+      "customer": 28.896617284160826,
+      "physical": 9.58737773159547,
+      "slacks": [
+        0.0,
+        7.105427357601002e-15,
+        -1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.057580712964746456,
+        0.14512073120948651,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.903127820947816e-16,
+      "inequality_violation": 1.7763568394002505e-15,
+      "duality_gap": 8.881784197001252e-16,
+      "reduced_cost_min": -2.220446049250313e-15,
+      "positive_columns": 113,
+      "gain_over_accepted_static": 0.3611255886323086
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.8877725912788375,
+        "eta": 0.0,
+        "stationarity": 0.0,
+        "customer_slack": 6.217248937900877e-15
+      },
+      {
+        "policy_class": "time",
+        "value": -5.880339102757654,
+        "eta": 0.01852287320766504,
+        "stationarity": 1.824929096727601e-15,
+        "customer_slack": 1.7763568394002505e-15
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.589738642442484,
+        "eta": 0.11384837406537349,
+        "stationarity": 6.106226635438361e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.499875442743363,
+        "eta": 0.14332614746843184,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "m=1.2",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.2,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.7181986328054277,
+      "value": -4.966004916536893,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 9.111826450433899,
+      "demand": 19.463097650607345,
+      "customer": 26.93094697661674
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.58739539299998,
+      "variables": 37752,
+      "value": -4.2028788462473585,
+      "gain": 0.7631260702895348,
+      "filled": 18.021386713525324,
+      "customer": 26.93094697661675,
+      "physical": 9.58737773159547,
+      "slacks": [
+        3.552713678800501e-15,
+        7.105427357601002e-15,
+        -1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.020140898782924382,
+        0.14772727272727243,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 9.71445146547012e-17,
+      "inequality_violation": 1.7763568394002505e-15,
+      "duality_gap": 8.881784197001252e-16,
+      "reduced_cost_min": -5.551115123125783e-16,
+      "positive_columns": 146
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "m=1.8",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.8,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.48937997330893057,
+      "value": -6.486168116005853,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 6.208791247193877,
+      "demand": 19.463097650607345,
+      "customer": 29.833982179856765
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.46186918600000126,
+      "variables": 37752,
+      "value": -5.951108690393915,
+      "gain": 0.5350594256119381,
+      "filled": 18.021386713525324,
+      "customer": 29.83398217985675,
+      "physical": 9.58737773159547,
+      "slacks": [
+        0.0,
+        -1.0658141036401503e-14,
+        0.0
+      ],
+      "multipliers": [
+        0.07574521933699191,
+        0.15534810126582288,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 2.1371793224034263e-15,
+      "inequality_violation": 1.0658141036401503e-14,
+      "duality_gap": -2.6645352591003757e-15,
+      "reduced_cost_min": -3.552713678800501e-15,
+      "positive_columns": 116,
+      "gain_over_accepted_static": 0.5350594256119381
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -6.486168116005853,
+        "eta": 0.0,
+        "stationarity": 0.0,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -6.4861558493307445,
+        "eta": 0.0,
+        "stationarity": 6.661338147750939e-16,
+        "customer_slack": 0.0010794674095837564
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.953531329536943,
+        "eta": 0.1780441401566441,
+        "stationarity": 4.718447854656915e-16,
+        "customer_slack": -8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.940869147121955,
+        "eta": 0.18228111035298045,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "power=1.5",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 1.5,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.6003154493969471,
+      "value": -7.006493607703586,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.616235872035033,
+      "demand": 19.463097650607345,
+      "customer": 28.426537555015607
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.6116363220000096,
+      "variables": 37752,
+      "value": -6.022635823672084,
+      "gain": 0.9838577840315024,
+      "filled": 18.021386713525324,
+      "customer": 28.426537555015614,
+      "physical": 9.587377731595472,
+      "slacks": [
+        3.552713678800501e-15,
+        0.0,
+        0.0
+      ],
+      "multipliers": [
+        0.15848760070963747,
+        0.16401881518750103,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.4710455076283324e-15,
+      "inequality_violation": 0.0,
+      "duality_gap": 2.6645352591003757e-15,
+      "reduced_cost_min": -2.220446049250313e-15,
+      "positive_columns": 182
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "power=3.0",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 3.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.6217766660526194,
+      "value": -4.306977991638336,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.888515534860045,
+      "demand": 19.463097650607345,
+      "customer": 28.154257892190596
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5033496279999952,
+      "variables": 37752,
+      "value": -3.9296480577896435,
+      "gain": 0.3773299338486922,
+      "filled": 18.02138671352532,
+      "customer": 28.154257892190596,
+      "physical": 9.58737773159547,
+      "slacks": [
+        0.0,
+        3.552713678800501e-15,
+        1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.17879746835443064,
+        0.1445743023237536
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 5.551115123125783e-17,
+      "inequality_violation": 0.0,
+      "duality_gap": 0.0,
+      "reduced_cost_min": -2.7755575615628914e-16,
+      "positive_columns": 89
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "kappa=0.9",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 0.9,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.601058943724426,
+      "value": -5.614242747335083,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.88563460228612,
+      "demand": 19.463097650607345,
+      "customer": 28.15713882476452
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.47739028199998756,
+      "variables": 37752,
+      "value": -4.981128186507112,
+      "gain": 0.6331145608279707,
+      "filled": 18.02138671352531,
+      "customer": 28.157138824764505,
+      "physical": 9.587377731595465,
+      "slacks": [
+        -1.4210854715202004e-14,
+        -1.0658141036401503e-14,
+        5.329070518200751e-15
+      ],
+      "multipliers": [
+        0.013390234333527817,
+        0.16955900621118203,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.1102230246251565e-15,
+      "inequality_violation": 1.4210854715202004e-14,
+      "duality_gap": -3.552713678800501e-15,
+      "reduced_cost_min": -6.661338147750939e-16,
+      "positive_columns": 125,
+      "gain_over_accepted_static": 0.6331145608279716
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.6142427473350835,
+        "eta": 1.1778350314380975e-16,
+        "stationarity": 2.3108798071883307e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.613005348184917,
+        "eta": 0.0018665751040205874,
+        "stationarity": 4.098284211995207e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -4.989801841643898,
+        "eta": 0.16570673146174217,
+        "stationarity": 3.3306690738754696e-16,
+        "customer_slack": -2.6645352591003757e-15
+      },
+      {
+        "policy_class": "full",
+        "value": -4.970074577659258,
+        "eta": 0.17089302772264287,
+        "customer_slack": 8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "kappa=1.5",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.5,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5631618398277662,
+      "value": -6.117783698382703,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 6.901290962528875,
+      "demand": 19.463097650607345,
+      "customer": 29.141482464521765
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.38531743000001484,
+      "variables": 37752,
+      "value": -5.507239723440917,
+      "gain": 0.6105439749417858,
+      "filled": 18.021386713525324,
+      "customer": 29.141482464521765,
+      "physical": 9.58737773159547,
+      "slacks": [
+        0.0,
+        0.0,
+        -1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.21774786323372525,
+        0.0710126848954917
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 9.71445146547012e-17,
+      "inequality_violation": 1.7763568394002505e-15,
+      "duality_gap": 8.881784197001252e-16,
+      "reduced_cost_min": -9.880984919163893e-15,
+      "positive_columns": 137,
+      "gain_over_accepted_static": 0.6105439749417867
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -6.117783698382704,
+        "eta": 0.0,
+        "stationarity": 0.0,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -6.117300339339669,
+        "eta": 0.0012489583416606734,
+        "stationarity": 6.570265165262157e-16,
+        "customer_slack": -1.7763568394002505e-15
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.507944722153129,
+        "eta": 0.1847495933805016,
+        "stationarity": 3.0531133177191805e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "full",
+        "value": -5.489121695782083,
+        "eta": 0.19041793743940674,
+        "customer_slack": 1.7763568394002505e-15
+      }
+    ]
+  },
+  {
+    "case": "slope=1.1",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.1,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.4873676320344468,
+      "value": -7.026519595969156,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 5.129295692031961,
+      "demand": 19.463097650607345,
+      "customer": 30.91347773501868
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.4426893510000127,
+      "variables": 37752,
+      "value": -6.636750822101716,
+      "gain": 0.38976877386744047,
+      "filled": 18.021386713525317,
+      "customer": 30.913477735018684,
+      "physical": 9.587377731595467,
+      "slacks": [
+        -7.105427357601002e-15,
+        0.0,
+        1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.18068085238254078,
+        0.11199999999999827,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 2.7755575615628914e-16,
+      "inequality_violation": 7.105427357601002e-15,
+      "duality_gap": 8.881784197001252e-16,
+      "reduced_cost_min": -4.440892098500626e-16,
+      "positive_columns": 119,
+      "gain_over_accepted_static": 0.3897687738674387
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -7.026519595969154,
+        "eta": 5.490890539691618e-16,
+        "stationarity": 1.3265451874636492e-15,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -7.026500054148617,
+        "eta": 0.0,
+        "stationarity": 6.661338147750939e-16,
+        "customer_slack": 0.001426552899376432
+      },
+      {
+        "policy_class": "regime",
+        "value": -6.6375054139861,
+        "eta": 0.15828376708811553,
+        "stationarity": 4.440892098500626e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -6.625106532967768,
+        "eta": 0.16333819869022098,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "slope=1.7",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.7,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.6768531515177455,
+      "value": -4.5088148407310555,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 10.051013890818181,
+      "demand": 19.463097650607345,
+      "customer": 25.991759536232458
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.569080415000002,
+      "variables": 37752,
+      "value": -3.608502888985901,
+      "gain": 0.9003119517451545,
+      "filled": 18.021386713525317,
+      "customer": 25.991759536232454,
+      "physical": 9.587377731595467,
+      "slacks": [
+        -7.105427357601002e-15,
+        0.0,
+        3.552713678800501e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.1904423032798618,
+        0.12308628507680286
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 2.7755575615628914e-16,
+      "inequality_violation": 7.105427357601002e-15,
+      "duality_gap": 0.0,
+      "reduced_cost_min": -1.1657341758564144e-15,
+      "positive_columns": 167
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "r0=0.3",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.3,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.4873676320344467,
+      "value": -7.026519595969157,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 5.129295692031959,
+      "demand": 19.463097650607345,
+      "customer": 30.91347773501868
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.3727744950000158,
+      "variables": 37752,
+      "value": -6.450368213366956,
+      "gain": 0.5761513826022009,
+      "filled": 18.021386713525317,
+      "customer": 30.913477735018695,
+      "physical": 9.58737773159547,
+      "slacks": [
+        3.552713678800501e-15,
+        1.0658141036401503e-14,
+        0.0
+      ],
+      "multipliers": [
+        0.0,
+        0.2768531468531418,
+        0.21585398626608843
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.1102230246251565e-16,
+      "inequality_violation": 0.0,
+      "duality_gap": 2.6645352591003757e-15,
+      "reduced_cost_min": -1.0658141036401503e-14,
+      "positive_columns": 119,
+      "gain_over_accepted_static": 0.5761513826022009
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -7.026519595969157,
+        "eta": 3.660593693127747e-16,
+        "stationarity": 2.998744346244019e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -7.026500054148617,
+        "eta": 0.0,
+        "stationarity": 4.440892098500626e-16,
+        "customer_slack": 0.001426552899376432
+      },
+      {
+        "policy_class": "regime",
+        "value": -6.452768621895924,
+        "eta": 0.23359213391829264,
+        "stationarity": 2.220446049250313e-16,
+        "customer_slack": -8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -6.436164919338726,
+        "eta": 0.2403606704332401,
+        "customer_slack": 8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "r0=0.9",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.9,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.6768531515177455,
+      "value": -4.5088148407310555,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 10.051013890818181,
+      "demand": 19.463097650607345,
+      "customer": 25.991759536232458
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.48530857400001537,
+      "variables": 37752,
+      "value": -3.851498082756051,
+      "gain": 0.6573167579750043,
+      "filled": 18.021386713525317,
+      "customer": 25.99175953623246,
+      "physical": 9.587377731595467,
+      "slacks": [
+        -3.552713678800501e-15,
+        -3.552713678800501e-15,
+        3.552713678800501e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.16080080720319934,
+        0.035247748430687655
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.3306690738754696e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 0.0,
+      "reduced_cost_min": -9.43689570931383e-16,
+      "positive_columns": 134,
+      "gain_over_accepted_static": 0.6573167579750061
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -4.508814840731057,
+        "eta": 1.838750475132225e-16,
+        "stationarity": 9.541182312795357e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -4.505025305833675,
+        "eta": 0.0028859425758765,
+        "stationarity": 9.43689570931383e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "regime",
+        "value": -3.859855229304674,
+        "eta": 0.13541672965304705,
+        "stationarity": 6.106226635438361e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "full",
+        "value": -3.838644430840076,
+        "eta": 0.13977385022840252,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "nu=1.0",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 1.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 10.636119431493553
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5685110560000055,
+      "variables": 37752,
+      "value": -5.244970661074603,
+      "gain": 0.6251403119721557,
+      "filled": 18.021386713525317,
+      "customer": 10.636119431493553,
+      "physical": 9.587377731595467,
+      "slacks": [
+        -3.552713678800501e-15,
+        -1.7763568394002505e-15,
+        0.0
+      ],
+      "multipliers": [
+        0.19120365747792137,
+        0.17762671462027185,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 6.349087922075114e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 0.0,
+      "reduced_cost_min": -3.6637359812630166e-15,
+      "positive_columns": 131,
+      "gain_over_accepted_static": 0.6251403119721548
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046758,
+        "eta": 1.2595108335923145e-16,
+        "stationarity": 1.7840836053651216e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264031,
+        "eta": 0.0015682942812897487,
+        "stationarity": 7.108029442814967e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.2527360802005845,
+        "eta": 0.17484975079685391,
+        "stationarity": 3.885780586188048e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.233445701435323,
+        "eta": 0.1802712437335984,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "nu=3.0",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 3.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 46.678892858544195
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.4945088449999844,
+      "variables": 37752,
+      "value": -5.244970661074607,
+      "gain": 0.6251403119721521,
+      "filled": 18.02138671352532,
+      "customer": 46.678892858544195,
+      "physical": 9.58737773159547,
+      "slacks": [
+        -3.552713678800501e-15,
+        0.0,
+        1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.17762671462027407,
+        0.30836423263651874
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 4.2327252813834093e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 8.881784197001252e-16,
+      "reduced_cost_min": -1.6653345369377348e-15,
+      "positive_columns": 131,
+      "gain_over_accepted_static": 0.6251403119721513
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046758,
+        "eta": 1.2595108335923145e-16,
+        "stationarity": 1.7840836053651216e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264031,
+        "eta": 0.0015682942812897487,
+        "stationarity": 7.108029442814967e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.2527360802005845,
+        "eta": 0.17484975079685391,
+        "stationarity": 3.885780586188048e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.233445701435323,
+        "eta": 0.1802712437335984,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "persistence=0.6",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 0.6,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.582110391776096,
+      "value": -5.87011097304676,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.587377731595472,
+      "filled": 18.021386713525324,
+      "payment": 7.385267282031765,
+      "demand": 19.463097650607352,
+      "customer": 28.657506145018882
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5095469569999977,
+      "variables": 37752,
+      "value": -5.28919583778078,
+      "gain": 0.5809151352659798,
+      "filled": 18.02138671352532,
+      "customer": 28.657506145018893,
+      "physical": 9.58737773159547,
+      "slacks": [
+        -3.552713678800501e-15,
+        1.4210854715202004e-14,
+        5.329070518200751e-15
+      ],
+      "multipliers": [
+        0.04845492308821501,
+        0.16477272727272757,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.2612801348363973e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -2.220446049250313e-16,
+      "positive_columns": 116,
+      "gain_over_accepted_static": 0.580915135265978
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046758,
+        "eta": 6.297554167961571e-16,
+        "stationarity": 8.843150367176896e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264035,
+        "eta": 0.001568294281290247,
+        "stationarity": 9.272096979096034e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.300858210304525,
+        "eta": 0.16132519580317808,
+        "stationarity": 3.469446951953614e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "full",
+        "value": -5.278164801932584,
+        "eta": 0.16770309821226403,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "persistence=1.2",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.2,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760961,
+      "value": -5.870110973046761,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.587377731595474,
+      "filled": 18.021386713525324,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607352,
+      "customer": 28.65750614501888
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5823139759999947,
+      "variables": 37752,
+      "value": -5.226121840831908,
+      "gain": 0.6439891322148528,
+      "filled": 18.021386713525324,
+      "customer": 28.657506145018868,
+      "physical": 9.58737773159547,
+      "slacks": [
+        -3.552713678800501e-15,
+        -1.0658141036401503e-14,
+        3.552713678800501e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.18871926978614204,
+        0.09095296180808053
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 9.8879238130678e-16,
+      "inequality_violation": 1.0658141036401503e-14,
+      "duality_gap": 0.0,
+      "reduced_cost_min": -4.218847493575595e-15,
+      "positive_columns": 137,
+      "gain_over_accepted_static": 0.6439891322148554
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.8701109730467635,
+        "eta": 0.0,
+        "stationarity": 1.7763568394002505e-15,
+        "customer_slack": 3.552713678800501e-15
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264035,
+        "eta": 0.001568294281289624,
+        "stationarity": 4.666406150377611e-16,
+        "customer_slack": -1.7763568394002505e-15
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.230463625139013,
+        "eta": 0.18110934576228502,
+        "stationarity": 3.3306690738754696e-16,
+        "customer_slack": -1.7763568394002505e-15
+      },
+      {
+        "policy_class": "full",
+        "value": -5.21521415910026,
+        "eta": 0.18539515442494933,
+        "customer_slack": 1.7763568394002505e-15
+      }
+    ]
+  },
+  {
+    "case": "dispersion=0.8",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 0.8,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.6018168858023593,
+      "value": -5.13528149734714,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.118821677043812,
+      "filled": 18.396231557166647,
+      "payment": 7.905990227911926,
+      "demand": 19.463097650607345,
+      "customer": 28.88647288642137
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.8152173913043468,
+      "gap": 0.1434782608695651
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5251034220000008,
+      "variables": 37752,
+      "value": -4.501887821920048,
+      "gain": 0.6333936754270919,
+      "filled": 18.396231557166647,
+      "customer": 28.886472886421366,
+      "physical": 9.118821677043812,
+      "slacks": [
+        0.0,
+        -7.105427357601002e-15,
+        0.0
+      ],
+      "multipliers": [
+        0.0,
+        0.17017750744786475,
+        0.03828633080739185
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 5.551115123125783e-17,
+      "inequality_violation": 7.105427357601002e-15,
+      "duality_gap": -8.881784197001252e-16,
+      "reduced_cost_min": -2.0872192862952943e-14,
+      "positive_columns": 125,
+      "gain_over_accepted_static": 0.6333936754270919
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.13528149734714,
+        "eta": 1.17473478703166e-16,
+        "stationarity": 2.331230143343051e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -5.134025467606021,
+        "eta": 0.0018780978048107784,
+        "stationarity": 6.31873026124552e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "regime",
+        "value": -4.510566978861989,
+        "eta": 0.16535574705356043,
+        "stationarity": 7.771561172376096e-16,
+        "customer_slack": -1.7763568394002505e-15
+      },
+      {
+        "policy_class": "full",
+        "value": -4.490822842846336,
+        "eta": 0.17053287592510505,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "dispersion=1.2",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.2,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5533085928146347,
+      "value": -6.928147348922866,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 10.272190426709432,
+      "filled": 17.47353655743415,
+      "payment": 6.656100999884352,
+      "demand": 19.46309765060735,
+      "customer": 28.29097211498395
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.3145161290322558,
+      "gap": 0.13199999999999984
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.3974378199999933,
+      "variables": 37752,
+      "value": -6.32437323293414,
+      "gain": 0.6037741159887258,
+      "filled": 17.47353655743415,
+      "customer": 28.29097211498396,
+      "physical": 10.27219042670943,
+      "slacks": [
+        0.0,
+        1.0658141036401503e-14,
+        1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.03832939539281086,
+        0.20312282328459305,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.608224830031759e-16,
+      "inequality_violation": 0.0,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -7.771561172376096e-16,
+      "positive_columns": 137,
+      "gain_over_accepted_static": 0.6037741159887249
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -6.928147348922865,
+        "eta": 1.4009371784564773e-16,
+        "stationarity": 1.867437238963385e-15,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -6.927803034875588,
+        "eta": 0.00107382875636076,
+        "stationarity": 5.134781488891349e-16,
+        "customer_slack": -8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -6.322431517126755,
+        "eta": 0.19022187114411107,
+        "stationarity": 4.996003610813204e-16,
+        "customer_slack": -8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -6.303864287326985,
+        "eta": 0.1960231932516485,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "utility_delta=-0.2",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": -0.2,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5833144389999916,
+      "variables": 37752,
+      "value": -5.209900372074305,
+      "gain": 0.6602106009724542,
+      "filled": 18.021386713525324,
+      "customer": 28.457506145018865,
+      "physical": 9.58737773159547,
+      "slacks": [
+        -3.552713678800501e-15,
+        -7.105427357601002e-15,
+        3.552713678800501e-15
+      ],
+      "multipliers": [
+        0.05129299566741369,
+        0.15379113924050591,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.6653345369377348e-16,
+      "inequality_violation": 7.105427357601002e-15,
+      "duality_gap": 0.0,
+      "reduced_cost_min": -3.1086244689504383e-15,
+      "positive_columns": 149,
+      "gain_over_accepted_static": 0.6602106009724524
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046757,
+        "eta": 0.0,
+        "stationarity": 0.0,
+        "customer_slack": 0.1999999999999993
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869285331128968,
+        "eta": 0.0,
+        "stationarity": 8.881784197001252e-16,
+        "customer_slack": 0.18882207865145606
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.220085185722932,
+        "eta": 0.151659193979669,
+        "stationarity": 3.469446951953614e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.199695271455579,
+        "eta": 0.15723305606385657,
+        "customer_slack": 1.7763568394002505e-15
+      }
+    ]
+  },
+  {
+    "case": "utility_delta=0.2",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.2,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": false,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5680591790000165,
+      "variables": 37752,
+      "value": -5.287250069453258,
+      "gain": 0.5828609035935015,
+      "filled": 18.021386713525324,
+      "customer": 28.857506145018867,
+      "physical": 9.58737773159547,
+      "slacks": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "multipliers": [
+        0.0,
+        0.24441554971439328,
+        0.17903295355974036
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 5.412337245047638e-16,
+      "inequality_violation": 0.0,
+      "duality_gap": -2.6645352591003757e-15,
+      "reduced_cost_min": -1.1102230246251565e-15,
+      "positive_columns": 140,
+      "gain_over_accepted_static": 0.5856970698539179
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.8729471393071755,
+        "eta": 0.028361662604177402,
+        "stationarity": 2.609024107869118e-15,
+        "customer_slack": -8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.872413812225879,
+        "eta": 0.029628865337177783,
+        "stationarity": 7.632783294297951e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.290025086041672,
+        "eta": 0.19804030761403885,
+        "stationarity": 3.608224830031759e-16,
+        "customer_slack": -8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.271803768949017,
+        "eta": 0.20330943140334024,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "utility_delta=0.8",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.8,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": false,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5770758559999933,
+      "variables": 37752,
+      "value": -5.434428255460823,
+      "gain": 0.43568271758593635,
+      "filled": 18.021386713525338,
+      "customer": 29.457506145018876,
+      "physical": 9.587377731595478,
+      "slacks": [
+        1.4210854715202004e-14,
+        7.105427357601002e-15,
+        -8.881784197001252e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.2505696202531633,
+        0.19287797623101663
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.609823385706477e-15,
+      "inequality_violation": 8.881784197001252e-15,
+      "duality_gap": -1.7763568394002505e-15,
+      "reduced_cost_min": -5.551115123125783e-16,
+      "positive_columns": 134,
+      "gain_over_accepted_static": 0.4810613777526189
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.915489633213442,
+        "eta": 0.11344665041670911,
+        "stationarity": 1.3322676295501878e-15,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.915445645378485,
+        "eta": 0.11381057850484176,
+        "stationarity": 1.2490009027033011e-15,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.429720771745563,
+        "eta": 0.2676119780655935,
+        "stationarity": 5.273559366969494e-16,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "full",
+        "value": -5.414523796693789,
+        "eta": 0.2724239944125656,
+        "customer_slack": 0.0
+      }
+    ]
+  },
+  {
+    "case": "fill_delta=-0.015",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": -0.015,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5667541350000249,
+      "variables": 37752,
+      "value": -5.244970661074603,
+      "gain": 0.6251403119721557,
+      "filled": 18.021386713525324,
+      "customer": 28.65750614501887,
+      "physical": 9.58737773159547,
+      "slacks": [
+        0.2919464647591141,
+        3.552713678800501e-15,
+        -1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.1776267146202726,
+        0.0038324611071098857
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 1.5126788710517758e-15,
+      "inequality_violation": 1.7763568394002505e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -1.4432899320127035e-15,
+      "positive_columns": 131
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "fill_delta=0.015",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.015,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": false,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "feasible": false,
+      "seconds": 0.4903953210000225,
+      "variables": 37752
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "stock_step=1.0",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 1.0,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        2,
+        3,
+        4
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999987,
+      "gap": 0.2999999999999999
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.2508521149999865,
+      "variables": 20328,
+      "value": -5.244970661074605,
+      "gain": 0.6251403119721539,
+      "filled": 18.02138671352532,
+      "customer": 28.65750614501887,
+      "physical": 9.587377731595469,
+      "slacks": [
+        3.552713678800501e-15,
+        7.105427357601002e-15,
+        0.0
+      ],
+      "multipliers": [
+        0.020233214872433125,
+        0.17762671462027316,
+        0.0
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 2.463307335887066e-16,
+      "inequality_violation": 0.0,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -3.552713678800501e-15,
+      "positive_columns": 131,
+      "gain_over_accepted_static": 0.625140311972153
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046758,
+        "eta": 1.2595108335923145e-16,
+        "stationarity": 1.7840836053651216e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264031,
+        "eta": 0.0015682942812897487,
+        "stationarity": 7.108029442814967e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.2527360802005845,
+        "eta": 0.17484975079685391,
+        "stationarity": 3.885780586188048e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.233445701435323,
+        "eta": 0.1802712437335984,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "stock_step=0.25",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.25,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        8,
+        12,
+        16
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.7499999999999905,
+      "gap": 0.07499999999999987
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 1.114023259999982,
+      "variables": 72600,
+      "value": -5.244970661074603,
+      "gain": 0.6251403119721557,
+      "filled": 18.021386713525313,
+      "customer": 28.657506145018864,
+      "physical": 9.587377731595467,
+      "slacks": [
+        -1.0658141036401503e-14,
+        -1.0658141036401503e-14,
+        7.105427357601002e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.17762671462027252,
+        0.03164944382721785
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 4.440892098500626e-16,
+      "inequality_violation": 1.0658141036401503e-14,
+      "duality_gap": -8.881784197001252e-16,
+      "reduced_cost_min": -1.0436096431476471e-14,
+      "positive_columns": 131,
+      "gain_over_accepted_static": 0.6251403119721548
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.870110973046758,
+        "eta": 1.2595108335923145e-16,
+        "stationarity": 1.7840836053651216e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.869294096264031,
+        "eta": 0.0015682942812897487,
+        "stationarity": 7.108029442814967e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.2527360802005845,
+        "eta": 0.17484975079685391,
+        "stationarity": 3.885780586188048e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.233445701435323,
+        "eta": 0.1802712437335984,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "lower_variance_prob",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.05,
+        0.35,
+        0.45,
+        0.15
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.601058943724426,
+      "value": -5.163708079496948,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.136843063757336,
+      "filled": 18.38181444779583,
+      "payment": 7.88563460228612,
+      "demand": 19.463097650607345,
+      "customer": 28.877994293305537
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 2.5000000000000013,
+      "gap": 0.16875000000000007
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.505786014999984,
+      "variables": 37752,
+      "value": -4.530593518668983,
+      "gain": 0.6331145608279654,
+      "filled": 18.381814447795833,
+      "customer": 28.87799429330554,
+      "physical": 9.136843063757338,
+      "slacks": [
+        0.0,
+        1.0658141036401503e-14,
+        -3.552713678800501e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.16955900621118108,
+        0.03388060381543888
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.3133218391157016e-16,
+      "inequality_violation": 3.552713678800501e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -5.551115123125783e-16,
+      "positive_columns": 125,
+      "gain_over_accepted_static": 0.6331145608279662
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -5.163708079496949,
+        "eta": 1.1778350314380975e-16,
+        "stationarity": 2.3108798071883307e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "time",
+        "value": -5.162470680346782,
+        "eta": 0.0018665751040205874,
+        "stationarity": 4.098284211995207e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "regime",
+        "value": -4.539267173805763,
+        "eta": 0.16570673146174217,
+        "stationarity": 3.3306690738754696e-16,
+        "customer_slack": -2.6645352591003757e-15
+      },
+      {
+        "policy_class": "full",
+        "value": -4.519539909821123,
+        "eta": 0.17089302772264287,
+        "customer_slack": 8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "higher_variance_prob",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.15,
+        0.25,
+        0.35,
+        0.25
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.5631618398277662,
+      "value": -6.568318366220837,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 10.037912399433605,
+      "filled": 17.660958979254815,
+      "payment": 6.901290962528875,
+      "demand": 19.463097650607345,
+      "customer": 28.420626995980754
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 1.2999999999999992,
+      "gap": 0.13124999999999984
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.39085634300002425,
+      "variables": 37752,
+      "value": -5.957774391279052,
+      "gain": 0.6105439749417849,
+      "filled": 17.660958979254815,
+      "customer": 28.420626995980758,
+      "physical": 10.037912399433605,
+      "slacks": [
+        0.0,
+        3.552713678800501e-15,
+        0.0
+      ],
+      "multipliers": [
+        0.0,
+        0.21774786323372525,
+        0.015114587389963909
+      ],
+      "randomized_reachable_states": 1,
+      "flow_residual": 3.400058012914542e-16,
+      "inequality_violation": 0.0,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -1.1102230246251565e-15,
+      "positive_columns": 137,
+      "gain_over_accepted_static": 0.6105439749417858
+    },
+    "continuous_hierarchy": [
+      {
+        "policy_class": "static",
+        "value": -6.568318366220838,
+        "eta": 2.699972843000383e-16,
+        "stationarity": 1.5323364815411366e-15,
+        "customer_slack": 0.0
+      },
+      {
+        "policy_class": "time",
+        "value": -6.567835007177804,
+        "eta": 0.001248958341660807,
+        "stationarity": 8.773363979752702e-16,
+        "customer_slack": -1.7763568394002505e-15
+      },
+      {
+        "policy_class": "regime",
+        "value": -5.958479389991263,
+        "eta": 0.18474959338050173,
+        "stationarity": 4.440892098500626e-16,
+        "customer_slack": 8.881784197001252e-16
+      },
+      {
+        "policy_class": "full",
+        "value": -5.939656363620216,
+        "eta": 0.19041793743940674,
+        "customer_slack": -8.881784197001252e-16
+      }
+    ]
+  },
+  {
+    "case": "higher_service_with_cost_slack",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 1.4,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.015,
+      "utility_delta": 0.0,
+      "cost_delta": 0.6
+    },
+    "reference": {
+      "theta": 0.5821103917760962,
+      "value": -5.870110973046759,
+      "stock_indices": [
+        4,
+        6,
+        8
+      ],
+      "physical": 9.58737773159547,
+      "filled": 18.02138671352532,
+      "payment": 7.3852672820317675,
+      "demand": 19.463097650607345,
+      "customer": 28.65750614501887
+    },
+    "reference_meets_changed_reservation": false,
+    "stock_support": {
+      "price": 1.7499999999999978,
+      "gap": 0.1499999999999998
+    },
+    "accepted": {
+      "status": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+      "feasible": false,
+      "seconds": 0.5902861579999978,
+      "variables": 37752
+    },
+    "continuous_hierarchy": null
+  },
+  {
+    "case": "zero_regime_premium",
+    "primitives": {
+      "T": 8,
+      "beta": 0.97,
+      "lam": 0.6,
+      "m": 1.5,
+      "power": 2.0,
+      "kappa": 1.2,
+      "slope": 0.0,
+      "r0": 0.6,
+      "nu": 2.0,
+      "persistence": 1.0,
+      "n": 10,
+      "stock_step": 0.5,
+      "probabilities": [
+        0.1,
+        0.3,
+        0.4,
+        0.2
+      ],
+      "dispersion": 1.0,
+      "q0": 0.5,
+      "fill_delta": 0.0,
+      "utility_delta": 0.0,
+      "cost_delta": 0.0
+    },
+    "reference": {
+      "theta": 0.0,
+      "value": -8.656094528783951,
+      "stock_indices": [
+        2,
+        4,
+        6
+      ],
+      "physical": 8.506094528783951,
+      "filled": 13.696253902279246,
+      "payment": -0.0,
+      "demand": 19.463097650607345,
+      "customer": 27.39250780455849
+    },
+    "reference_meets_changed_reservation": true,
+    "stock_support": {
+      "price": 0.12499999999999982,
+      "gap": 0.037500000000000006
+    },
+    "accepted": {
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "feasible": true,
+      "seconds": 0.5534629750000022,
+      "variables": 37752,
+      "value": -8.656094528783953,
+      "gain": -1.7763568394002505e-15,
+      "filled": 13.696253902279246,
+      "customer": 27.39250780455849,
+      "physical": 8.506094528783951,
+      "slacks": [
+        0.0,
+        0.0,
+        -1.7763568394002505e-15
+      ],
+      "multipliers": [
+        0.0,
+        0.057872340425533186,
+        0.0
+      ],
+      "randomized_reachable_states": 0,
+      "flow_residual": 1.1102230246251565e-16,
+      "inequality_violation": 1.7763568394002505e-15,
+      "duality_gap": 1.7763568394002505e-15,
+      "reduced_cost_min": -1.2101430968414206e-14,
+      "positive_columns": 22
+    },
+    "continuous_hierarchy": null
+  }
+]

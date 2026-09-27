@@ -1,0 +1,87 @@
+\section{An Exact Two-Sided Price Oracle}\label{sec:r46-box}
+After any exact type reduction, retain the index $j$ for a branch and its weight $\pi_j$. A target box $X=[\ell,u]$ satisfies $0\leq\ell_j\leq u_j\leq b_j$ and intersects $\sum_j\pi_jt_j=B$. Only anchors in
+\begin{equation}\label{eq:r46-anchors}
+ I_X=\left\{i:a_i\leq\min_j u_j,\quad
+               \sum_j\pi_j\max\{\ell_j,a_i\}\leq B\right\}
+\end{equation}
+can meet the equality inside this box. Because $B\leq\sum_j\pi_ju_j$, these conditions are also sufficient for a fixed book's box feasibility. They depend on its lowest level, not on its remaining levels.
+
+Let $g(x)=f(x)-\lambda x$ at a fixed real price $\lambda$. For a book whose first index lies in $I_X$, relax only the aggregate equality and define
+\begin{align}
+ S_X(\lambda)&=\max_{\substack{\emptyset\ne c\subseteq\mathcal A,\ |c|\leq m\\c_1=a_i,\ i\in I_X}}
+ \left\{\sum_j\pi_j\max_{\max\{\ell_j,c_1\}\leq t\leq u_j}
+       [v_{j,c}(t)-\lambda t]-R(c)\right\},\label{eq:r46-support}\\
+ U_X(\lambda)&=\lambda B+S_X(\lambda).\label{eq:r46-upper}
+\end{align}
+Every $U_X(\lambda)$ bounds the best original-budget joint design in $X$. No zero-duality-gap assumption is made. For a general cost define the clipped scalar support
+\[
+ \Phi_j(s,t;\lambda)=\max_{s\leq y\leq t}\{-h_j(y)-\lambda y\}.
+\]
+For quadratic costs it is obtained by clipping $-\lambda/\gamma_j$ to $[s,t]$ when $\gamma_j>0$; for zero curvature choose the endpoint with the better linear value. Write
+$\psi_j(z)=\Phi_j(\max\{0,\ell_j-z\},u_j-z;\lambda)$ whenever $z\leq u_j$.
+
+\subsection{The increasing and decreasing sides}
+For $x<z$ define an upper-crossing edge and its terminal value by
+\begin{align}
+ A^+(x,z)&=\sum_{j:x\leq u_j<z}\pi_j
+ \begin{cases}
+ g(x)+\dfrac{u_j-x}{z-x}[g(z)-g(x)],&z\leq\tau_j,\\
+ g(x)+\psi_j(x),&z>\tau_j,
+ \end{cases}\label{eq:r46-plus}\\
+ T^+(x)&=\sum_{j:u_j\geq x}\pi_j[g(x)+\psi_j(x)].\label{eq:r46-plus-tail}
+\end{align}
+When $\lambda>0$ also define a lower-crossing edge, a lower terminal value, and a peak value:
+\begin{align}
+ A^-(x,z)&=\sum_{j:x\leq\ell_j<z}\pi_j
+ \begin{cases}
+ g(x)+\dfrac{\ell_j-x}{z-x}[g(z)-g(x)],&z\leq\tau_j,\\
+ g(x)-h_j(\ell_j-x)-\lambda(\ell_j-x),&z>\tau_j,
+ \end{cases}\label{eq:r46-minus}\\
+ T^-(x)&=\sum_{j:\ell_j\geq x}\pi_j
+          [g(x)-h_j(\ell_j-x)-\lambda(\ell_j-x)],\label{eq:r46-minus-tail}\\
+ H(x)&=\sum_{j:\ell_j<x\leq u_j}\pi_jg(x).\label{eq:r46-peak}
+\end{align}
+Only increasing-score arcs use $A^+$, and only decreasing-score arcs use $A^-$. Equal-score arcs may be assigned to either side. Set missing forward states to $-\infty$, and compute
+\begin{align}
+ \alpha_1(i)&=\begin{cases}-\rho_i,&i\in I_X,\\-\infty,&\text{otherwise},\end{cases}\label{eq:r46-forward}\\
+ \alpha_r(v)&=-\rho_v+
+    \max_{\substack{i<v\\g(a_i)\leq g(a_v)}}
+       [\alpha_{r-1}(i)+A^+(a_i,a_v)],\qquad 2\leq r\leq m.\nonumber
+\end{align}
+This table pays the charge for its last level. For positive prices a backward table excludes the charge for its first level:
+\begin{align}
+ \beta_1(i)&=T^-(a_i),\label{eq:r46-backward}\\
+ \beta_s(i)&=\max\left\{T^-(a_i),
+  \max_{\substack{v>i\\g(a_v)\leq g(a_i)}}
+       [A^-(a_i,a_v)-\rho_v+\beta_{s-1}(v)]\right\},\quad 2\leq s\leq m.\nonumber
+\end{align}
+
+\begin{theorem}[Two-sided box-price decomposition]\label{thm:r46-box}
+If $I_X$ is nonempty, the exact support in \eqref{eq:r46-support} is
+\begin{equation}\label{eq:r46-glue}
+ S_X(\lambda)=
+ \begin{cases}
+ \displaystyle\max_{1\leq r\leq m,\ i}\{\alpha_r(i)+T^+(a_i)\},&\lambda\leq0,\\[2mm]
+ \displaystyle\max_{1\leq r\leq m,\ i}\{\alpha_r(i)+H(a_i)+\beta_{m-r+1}(i)\},&\lambda>0.
+ \end{cases}
+\end{equation}
+The maximizing book and scalar target supports are recoverable. Computing one price bound takes $O((d+m)N^2)$ arithmetic operations and $O(N^2+mN)$ storage, where $d$ is the number of branches after type reduction. General costs additionally require $O(dN^2)$ clipped scalar-oracle calls. Rational quadratic data and a rational price give an exact rational bound in polynomial bit complexity for each node.
+\end{theorem}
+\begin{proof}
+Concavity of $g$ implies that its values on any ordered book increase to a peak and then decrease; a tie can be placed on either side. For $\lambda\leq0$, strict increase of $f$ makes all scores strictly increasing, so the peak is the final level. Consider first a positive price and a chosen peak $p$.
+
+If $u_j<p$, exactly one increasing edge $[x,z)$ crosses $u_j$. If $z$ is eligible, the interpolant of $g$ is nondecreasing through this edge and is maximized on the permitted target interval at $u_j$. No later segment below $u_j$ exists. If $z$ is ineligible, every later book level is ineligible, so $x$ is the last usable level and clipped shortfall maximization gives $g(x)+\psi_j(x)$. This proves the upper-crossing formula. Its clipping is essential when $\ell_j>x$.
+
+If $\ell_j<p\leq u_j$, the peak is eligible because $p\leq u_j\leq b_j\leq\tau_j$. It attains $g(p)$ at zero shortfall. All eligible chord values are at most $g(p)$, and positive-price shortfall cannot improve them. This proves the middle term.
+
+If $\ell_j\geq p$, the interpolant on the decreasing side is nonincreasing. Each shortfall tail is also nonincreasing because $h_j$ is nondecreasing and $\lambda>0$. The smallest permissible target, $\ell_j$, therefore maximizes the branch's priced payoff. Its crossing edge gives \eqref{eq:r46-minus}; when the next level is ineligible it uses the singleton plus the required shortfall. Targets beyond the last level give \eqref{eq:r46-minus-tail}. Equality at the peak belongs to this third group, preventing double counting.
+
+These three groups partition the branches. Upper crossings before the peak, the peak, and lower crossings after the peak thus decompose the exact priced value of every book, not merely a dominant subset of books. Forward states enumerate all increasing prefixes starting at a feasible anchor. Backward states enumerate all decreasing suffixes, with an optional stop. Gluing a prefix of $r$ levels to a suffix of at most $m-r+1$ levels counts the shared peak once, counts its charge once, and uses at most $m$ levels. Every feasible ordered book has such a representation, and every represented path is a feasible book for the box. This proves the positive-price formula.
+
+For nonpositive prices, the best point on an eligible increasing chord up to the cap is the cap. Where the next level is ineligible, the last singleton plus clipped shortfall gives the scalar optimum; the same argument gives the final tail. Hence \eqref{eq:r46-plus} and \eqref{eq:r46-plus-tail} partition all branches, proving the first case.
+
+The edge construction scans at most $d$ branches for each ordered pair. Each table has $mN$ states and at most $N$ transitions per state. Backpointers reconstruct the book, and scalar maximization reconstructs its supports. For quadratic rational inputs each edge uses a polynomial number of rational operations; each path sums polynomially many terms. Their numerator and denominator lengths remain polynomial in the input, price, and box-endpoint bit lengths. This is a per-node bit-complexity statement, not a bound independent of search depth.
+\end{proof}
+
+\paragraph{Why a second side is necessary.}
+Take equal weights, targets and caps $(1/5,1/2,4/5)$, unit shortfall curvature, unit ceilings, catalog $\{1/5,1/2,4/5\}$, zero charges, budget three, and reward $f(x)=2x-x^2/2$. At price $3/2$, the complete book has scores $(2/25,1/8,2/25)$. On the singleton target box its exact joint value is $169/200$. Restricting to nondecreasing-score books gives only $83/100$, a shortfall of $3/200$. Thus the unrestricted deletion argument in Theorem~\ref{thm:r43-price} cannot be reused on a target box. The new recurrence repairs that structural obstruction rather than placing the old one-sided oracle inside a generic partitioning procedure.

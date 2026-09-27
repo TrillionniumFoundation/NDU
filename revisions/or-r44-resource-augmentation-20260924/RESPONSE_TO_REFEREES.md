@@ -1,0 +1,111 @@
+# Response to the Operations Research Referee Report
+
+Manuscript: **Limited-Memory Renewal Contracts: Exact Quadratic Design and Resource Augmentation**.
+
+Revision R44, September 24, 2026.
+
+Report addressed: `reviews/operation_research_referee_report_r42_independent_harsh_2026-09-24.md`.
+
+Immutable review commit: `a0d1f4e3dfc3f7639f806cab01f1faae877d5361`.
+
+Immediate manuscript predecessor: R43, commit `55313f79ad7d6b09c2edf1ceeafe254898a2bcbe`.
+
+New branch: `revision/ndu-operations-research-r44-resource-augmentation-20260924`.
+
+## Overview of the substantive revision
+
+We thank the referee for distinguishing the correctness of the contractual reduction from the strength of the ensuing optimization methodology. The new revision adds a constructive, variable-budget result rather than relying solely on generic exhaustive quadratic enumeration. It builds on the exact eligibility-prefix price decomposition already established in R43 and retains that decomposition and every preceding theorem, proof, experiment, and historical revision.
+
+The new theorem uses two priced optimizers to construct one fixed installed union alphabet. The branch targets are combined, but the original intermediate services and lotteries are not simply randomized: the union's canonical branch rule is reconstructed at each new target. This preserves every participation target and realization ceiling exactly, including the zero-overrun endpoint, with an intermediate tier fixed before the terminal draw. At most twice the original alphabet budget suffices. With zero opening charges the achieved payoff is within any prescribed additive tolerance of the original-budget catalog optimum, in polynomial computation with variable branch count and alphabet budget. With nonnegative charges the theorem reports the exact excess cost of installing the union.
+
+The same construction, combined with exactly feasible mesh transport, gives a continuous-design comparison with variable budget. This is a resource-augmentation guarantee, not a same-budget FPTAS. The original-budget exact continuous result remains unchanged and is available when the interface cannot be expanded. We also give an exact positive price-gap example, new exhaustive comparisons, and independently checkable recovery certificates. Thus the constructive theorem does not presume that the outer Lagrangian gap is zero.
+
+## 1. Correcting the active-face complexity count
+
+The referee's correction is retained at theorem level: a lottery branch may impose four inequalities, comprising the two chord bounds, the target cap, and the realization-eligibility ceiling. The safe cell count is `s+1+4k`, with dimension at most `s+k-1`. The exact continuous theorem states both the all-subsets bound and its sharper rank-limited binomial count. Neither target-cap nor eligibility inequalities are silently dropped when the overrun allowance is positive.
+
+The current article reads the corrected R43 `joint_design.tex` without modifying it. The R42 report and original R42 files remain unchanged as historical evidence, rather than being retroactively rewritten. The exponential reference solver and its reported face counts retain their explicit scope. The additional polynomial recovery result does not use the incorrect exponent, nor does it convert polynomial witness encoding length into a polynomial exhaustive-search claim.
+
+## 2. A constructive result beyond finite exhaustive enumeration
+
+The paper now has three complementary levels of general algorithmic treatment. The rational-quadratic stationary-face algorithm gives exact continuous optimization at the original budget. The eligibility-prefix dynamic program gives polynomial priced optimization and exact completion bounds for original-budget prefix search. The new two-price recovery theorem converts priced solutions into a feasible fixed expanded interface with an explicit payoff guarantee.
+
+For the new construction, an initial negative price forces every branch target to its cap, while a sufficiently positive price forces the target to the book's lowest level. Bisection maintains supported solutions whose weighted targets bracket the promised amount. A feasible supported solution already certifies original-budget global optimality. Otherwise a scalar mixing weight combines their branch targets to the exact promise. One installs the union of their books and applies the canonical union response at those targets.
+
+The central model-specific argument is union-response dominance and concavity after eligibility truncation. This is what implements aggregate recovery without a random installed book, an uncharged shared seed, or draw-dependent intermediate service. Classical Lagrangian convexification alone does not establish those contractual properties. We explicitly credit the classical relaxation and supporting-solution ideas, including Lemarechal's account, and state the structural addition separately.
+
+The number of exact price calls is logarithmic in the target price accuracy. Each uses the polynomial path oracle with variable branch count and alphabet budget. The full complexity statement includes the separate sorting term for the optional original-budget fixed-book lower policies. Exact rational bit complexity and storage are stated, rather than just counting unit-cost arithmetic operations.
+
+Location: main section “From Price Bounds to a Fixed Expanded Alphabet,” Theorem “Two-price recovery with resource augmentation”; companion section “Detailed Recovery Proof and a Strict Price Gap”; `code/augmentation.py`.
+
+## 3. Quantifying the memory and opening-charge tradeoff
+
+The recovered alphabet has at most twice the original number of levels, possibly fewer because the two books overlap. It is a fixed installed alphabet. The payoff guarantee is against the original-budget optimum; we never compare the augmented payoff with an original-budget upper bound as though they described the same feasible set.
+
+For charged levels, the new theorem subtracts the actual union charge and reports the excess relative to the weighted endpoint charges. This excess equals the weighted charges on the two nonoverlapping portions of the books. It is nonnegative and is bounded by the original symbol budget times the largest catalog charge, but the implementation and study use its exact instance-specific value. This prevents an operating-payoff improvement from being misrepresented as a net benefit when installing more levels is expensive.
+
+When the union happens to meet the original symbol budget, it also provides a same-budget approximate certificate. Otherwise a separately feasible original-budget policy supplies the lower endpoint for that budget. No unproved nested-book property, universal one-extra-level theorem, or factor-two lower bound is asserted.
+
+## 4. A variable-budget continuous approximation comparison
+
+The feasible mesh theorem and its full proof remain in the main article. The fixed-input lower bound showing that uniform-mesh error is of linear order is also retained. The new corollary adds a materially different algorithmic consequence: with zero charges, choose mesh spacing to allocate half the requested error to discretization and half to two-price recovery. The resulting fixed, at-most-doubled alphabet is within the requested additive tolerance of the original-budget continuous optimum.
+
+This is polynomial in branch count, alphabet budget, the numerical mesh scale, and rational input encoding length. Its statement explicitly includes the dependence on the Lipschitz scale divided by requested accuracy. It is not described as strongly polynomial or as an FPTAS under unchanged memory. For nonzero Lipschitz charges, the comparison includes both the mesh charge term and the measured union-charge excess. Neither root-promise nor risk slack is introduced at any stage.
+
+Location: Corollary “Continuous comparison with variable alphabet budget”; the unchanged mesh certificate and fixed-input sharpness proposition immediately precede the new section.
+
+## 5. An exact example with a positive outer price gap
+
+We add a fixed two-branch example with zero charges, zero overrun, a nine-point catalog, and a two-symbol budget. Its exact original-budget optimum is `45/64`, while its minimum price upper bound is `453/640`. The strict gap is `3/640`. The companion gives the finite reduced table of possible two-level books and their exact concave allocation values. At price `23/16`, two priced optimizers bracket the exact promise, and their target mixture proves the matching lower bound for every price. Direct eligible-reward maxima establish the price upper bound without trusting the recurrence implementation.
+
+The installed union has three levels and attains `453/640` with explicit branch lotteries. This is useful evidence of the distinct role of recovery: tightening price accuracy alone cannot force the original-budget gap to vanish on this input, while the allowed extra level gives a feasible policy meeting the bound. The example uses no specially shaped opening charge. It concerns the price gap and resource augmentation, not the different one-branch pathwise-randomization question in the report.
+
+The new exact test suite verifies this example independently against catalog enumeration. Its complete rational policy certificate is `results/certificates/strict_gap.json`.
+
+## 6. Independent global verification
+
+The new recovery checker does not import the recovery algorithm, the fixed-book allocation optimizer, or the continuous cell solver. It reconstructs global price bounds using the separately implemented explicit-support dynamic program introduced in R43. It verifies each endpoint's price-optimality identity and replays the actual target, tier, probabilities, support, realization ceiling, root sum, payoff, and charge of every reported policy using exact fractions.
+
+It then checks the fixed union, the branch-target mixture, the reported price error and charge excess, and the distinct original-budget interval. A source hash is not substituted for any of these checks. Fourteen semantic modifications to certificates must be rejected, including omitted installed levels, false prices and bounds, changed targets and lottery probabilities, underreported costs, and incorrect memory accounting. The checker rejects all fourteen.
+
+The prior prefix-partition certificates and their independent checker remain available for exact original-budget catalog globality. The six independently formulated SCIP comparisons remain in the current main/companion package and are explicitly preceding numerical evidence, not newly executed runs or exact-rational certificates.
+
+Location: `code/check_augmentation.py`, `results/certificates/`, the new experimental-protocol section, and the preserved R43 implementation and independent nonlinear formulation.
+
+## 7. Expanded computation and explicit limits
+
+The new seeded suite compares 144 instances with exhaustive original-budget catalog optimization. Each recovered interval contains the exact optimum and each augmented policy satisfies the stated bound. These comparisons cover one through six branches, budgets one through three, four risk regimes, zero and heterogeneous curvatures, repeated caps, endpoint promises, and zero, affine, or nonmonotone nonnegative charges. Sixteen additional boundary cases and five invalid-input rejections are recorded.
+
+All twelve declared scaling and accuracy runs are retained. They have distinct caps and heterogeneous shortfall costs, reach 256 branches and 65 catalog levels, and vary the symbol budget through eight. The records separate the original-budget lower and upper bounds, augmented payoff, installed union size, price error, opening-charge excess, and continuous mesh term. All root and positive realization-violation residuals are exactly zero.
+
+The study records price-call counts, the maximum bit length stored in dynamic-programming values, separately timed checker execution, wall time, and peak Python-traced allocation. Timings are single instrumented runs, not performance averages. Traced memory is not mislabeled as total resident-set size, and the recorded bit statistic is not claimed to measure every interpreter temporary. Complete fractions are archived; table decimals are displays only.
+
+The inherited R43 price/prefix suite and supplementary nonquadratic-class audit, together with R42 and R39/R33--R37 regressions, are re-executed in disposable hierarchies. The earlier 25-run continuous face frontier, including its six stopped runs, and its face counts, arithmetic growth, and independent nonlinear comparisons are preserved. We do not invent additional continuous-solver scaling claims from the new catalog algorithm.
+
+## 8. Broader mathematical class and the operational model
+
+We continue to take the referee's proposed methodological route rather than inventing an empirical deployment. The recovery theorem applies to the abstract ordered-interface class with a common increasing concave reward, separable convex shortfall costs, target caps, and branch-specific eligibility thresholds. The endpoints use stated Lipschitz bounds, while the scalar oracle supplies priced shortfall optimization. Exact rational implementation is provided for the quadratic subclass.
+
+The renewal contract is a specified specialization, including its acceptance timing, pre-draw service commitment, and downstream execution boundary. The security-interface analogy remains an analogy; it is not used to validate customer preferences, a field calibration, or deployment. No fabricated application data are added. The broader class and explicit resource tradeoff identify what other optimization researchers can reuse without adopting the renewal narrative.
+
+## 9. The one-branch nonmonotone-charge example
+
+The original example using `3c(1-c)` and its proof remain in the main paper. Its interpretation remains expressly limited to that nonmonotone charge. The monotone-charge theorem added in R43 is also preserved: with one branch and continuously chosen levels, replacing terminal and intermediate service by their means weakly improves operating payoff by Jensen's inequality, and a nonnegative nondecreasing selected-level charge cannot increase when the old book is replaced by its terminal mean. This covers zero charge, nondecreasing affine and convex charges, and a fixed fee plus a monotone surcharge.
+
+The result explains the boundary of the original example without falsely asserting collapse for heterogeneous multiple branches or a fixed catalog that excludes the mean. The new positive price-gap example is deliberately distinguished from this institutional question.
+
+## 10. Scope, priority, and Operations Research presentation
+
+The title continues to qualify exact continuous design as quadratic. The abstract and introduction distinguish general concave fixed-book structure and scalar-oracle decomposition from exact rational-quadratic continuous optimization. They now explain the extra-symbol guarantee in ordinary decision terms. The abstract is one text-only paragraph of 189 words; the introduction uses no displayed formulas or symbolic notation. The reader retains 11-point type, one-inch margins, one-and-a-half spacing, anonymous presentation, and author-year references.
+
+The new priority discussion distinguishes classical Lagrangian convexification from the model-specific fixed-union feasibility proof and exact charge accounting. The close comparison with Jourdain and Pages, optimized grids, classical random splitting, Monge search, opening costs, and rational quadratic witnesses is retained. No generic convexification or two-point mixing principle is claimed as new.
+
+The manuscript remains in the journal's Lengthy category. Build validation checks the actual nonreference page count, companion length, unresolved citations and cross-references, and overfull boxes. Detailed proofs and implementation protocols are in the electronic companion with explicit references; preceding technical results and tables have not been deleted to make space.
+
+## 11. Version isolation, preservation, and reproducibility
+
+The revision starts from the complete published R43 tip, not from an earlier manuscript that would discard intervening work. The latest located report is the R42 independent report, and both that report and the immediate R43 response remain in the branch. This provenance is explicit: R44 addresses the same report while adding to, rather than relabeling, R43's response.
+
+The new branch preserves every tracked predecessor path except the designated current reader wrappers and outputs, README, and submission checklist. Their predecessor bytes are snapshotted. Every earlier revision directory and review report is compared against the pinned predecessor before publication. No prior branch is updated. The new sources and executed evidence are committed before compilation, and the build record identifies that committed scientific source separately from generated PDF hashes.
+
+The resulting package gives the next referee the revised main article, complete companion, this point-by-point response, executable recovery and checker code, raw tests and scaling certificates, and the intact historical derivation record.

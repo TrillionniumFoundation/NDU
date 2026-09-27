@@ -1,0 +1,14 @@
+\begin{table}[htbp]\centering
+\caption{Exact complete-frontier comparison on identical renewal inputs. All budgets one through eight are computed. Counts are tail-interval and prefix-edge oracle calls, not bit operations.}\label{tab:r35-scale}
+\begin{tabular}{rrrrr}\toprule
+Branches & R34 calls & Accelerated calls & R34 seconds & Accelerated seconds\\\midrule
+16 & 546 & 289 & 0.015 & 0.010\\
+32 & 2,594 & 842 & 0.064 & 0.023\\
+64 & 11,298 & 2,177 & 0.266 & 0.057\\
+128 & 47,138 & 5,247 & 1.068 & 0.130\\
+256 & 192,546 & 12,177 & 4.515 & 0.310\\
+512 & --- & 27,600 & --- & 0.718\\
+1,024 & --- & 61,546 & --- & 1.642\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.97\textwidth}\small The first five rows have exact equality with the unchanged R34 complete-frontier algorithm. Dashes mark unexecuted baseline runs, not timeouts or estimated results. Larger rows pass exact controller replay. All instances are synthetic.\end{minipage}
+\end{table}

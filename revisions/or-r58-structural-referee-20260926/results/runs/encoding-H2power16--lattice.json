@@ -1,0 +1,20 @@
+{
+  "id": "encoding-H2power16",
+  "family": "encoding_extension",
+  "method": "lattice",
+  "instance_sha256": "4c7257d2290185761333865f01d4d1889886bd552e2e2427dc2aa52ea362a0d2",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.0052505239999618425,
+  "status": "STATE_LIMIT",
+  "error": "StateLimit('Requested state count has 21 bits; allowance 600000')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/NDU/NDU/revisions/or-r58-structural-referee-20260926/code/worker56.py\", line 25, in main\n    elif method in ('deficit','lattice'):ans=dp_solve(spec,eps,exact_lattice=method=='lattice')\n                                             ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/NDU/NDU/revisions/or-r58-structural-referee-20260926/code/deficit.py\", line 128, in solve\n    raise StateLimit(m*n*Q,max_states)\ndeficit.StateLimit: Requested state count has 21 bits; allowance 600000\n",
+  "requested_state_bits": 21,
+  "requested_states_hex": "18a1f6",
+  "state_allowance": 600000,
+  "algorithm_seconds": 0.0010484520000204611,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25112,
+  "total_measured_seconds": 0.0010484520000204611
+}

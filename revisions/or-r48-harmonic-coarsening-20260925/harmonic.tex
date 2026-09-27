@@ -1,0 +1,93 @@
+\section{Harmonic Pooling and Square-Root Cost Coarsening}\label{sec:r48-harmonic}
+Minimum-curvature aggregation discards how much service the low-cost histories can absorb. We strengthen its upper model without increasing the number of target coordinates. Retain the quadratic primitives, eligibility groups, and anchor guard of Section~\ref{sec:r47-coarsening}. For group $g$, write $w_j=\pi_j/W_g$ and define
+\begin{equation}\label{eq:r48-curvature}
+ A_g=\sum_{j\in G_g}w_j\gamma_j,\qquad
+ H_g=\begin{cases}(\sum_{j\in G_g}w_j/\gamma_j)^{-1},&\min_{j\in G_g}\gamma_j>0,\\0,&\text{otherwise}.\end{cases}
+\end{equation}
+The harmonic representative has the same weighted cap, weight, and eligible prefix as before, but curvature $H_g$. Let $P_G^H$ and $P_G^{\min}$ be the harmonic and minimum-curvature joint optima. Their feasible books, opening charges, and target constraints are identical. Harmonic pooling and the inequalities between means are classical \citep{LiaoWu2015}; the issue is whether they remain valid under a shared menu, exact root obligation, cap clipping, and supportwise realization limits.
+
+\begin{theorem}[Dominating harmonic relaxation]\label{thm:r48-harmonic}
+For every admissible partition,
+\begin{equation}\label{eq:r48-domination}
+ P\leq P_G^H\leq P_G^{\min}.
+\end{equation}
+For a fixed book, every original group allocation of mean $s$ has operating value at most $W_gv^H_{g,c}(s)$. Moreover, $H_g$ is the largest constant $H$ such that
+$\sum_jw_j\gamma_jy_j^2\geq H(\sum_jw_jy_j)^2$ for all nonnegative service vectors. If $G'$ refines $G$ and both satisfy the guard, then $P\leq P_{G'}^H\leq P_G^H$.
+\end{theorem}
+\begin{proof}
+Fix a group and book, with last eligible level $d$. Set $x_j=\min(t_j,d)$ and $y_j=(t_j-d)_+$. The common interpolant $F_c$ is increasing and concave on the eligible book. With bars denoting weighted means, Jensen's and Cauchy--Schwarz inequalities give
+\[
+ \sum_jw_j\{F_c(x_j)-\gamma_jy_j^2/2\}
+ \leq F_c(\bar x)-H_g\bar y^2/2
+ \leq F_c(\min(s,d))-H_g(s-d)_+^2/2.
+\]
+Indeed, $\bar x+\bar y=s$, $\bar x\leq d$, and reward increases while cost decreases as $\bar x$ increases. If a curvature is zero, the cost inequality is simply nonnegativity. The weighted means respect the reduced caps and root equality, and the guard preserves feasible anchors. Summing and subtracting unchanged charges proves the first inequality in \eqref{eq:r48-domination}. Since $H_g\geq\min_j\gamma_j$, the harmonic response never exceeds the minimum-curvature response, proving the second.
+
+For positive curvatures, equality in the cost inequality holds at $y_j=H_g u/\gamma_j$ for any prescribed mean $u\geq0$; if a curvature is zero, put all service on zero-curvature histories. Thus no larger uniform constant works. This sharpness assertion does not remove individual cap constraints. Finally, harmonic aggregation composes: the reciprocal of the coarse curvature is the subgroup-weighted mean of reciprocal subgroup curvatures. A zero curvature propagates through either aggregation. Applying the first argument to the refined representatives proves monotone refinement.
+\end{proof}
+
+\subsection{Optimal within-group recovery and an explicit loss bound}
+For a reduced policy $(c,s)$, first form the clipping lift $t^0$ from Theorem~\ref{thm:r47-coarsening}. Next optimize each original group's allocation for the same book and the same group mean $s_g$, using the concave fixed-book allocator. This second step cannot reduce value and introduces neither new commands nor new charges. It is distinct from changing the group means or selecting another book. Each group supplies a scalar supporting price, which independently certifies its allocation by direct maximization over eligible knots, the cap, and tail stationary points.
+
+Let $b_g^+=\max_{j\in G_g}b_j$, $L_{gj}=\max\{r,\gamma_jb_g^+\}$, and $L_g^+=\max_jL_{gj}$. Define
+\begin{align}
+ \Delta_G^H&=\sum_g\left[2L_g^+\sum_{j\in G_g}\pi_j(\bar b_g-b_j)_+
+       +\frac{W_g}{2}(A_g-H_g)(\bar b_g-a_1)^2\right],\label{eq:r48-defect}\\
+ \delta_G^H(c,s)&=\sum_g\left[\sum_{j\in G_g}\pi_jL_{gj}|t_j^0-s_g|
+       +\frac{W_g}{2}(A_g-H_g)(s_g-d_g(c))_+^2\right].\label{eq:r48-posterior}
+\end{align}
+\begin{theorem}[Same-book optimal lift and error composition]\label{thm:r48-lift}
+The within-group optimal lift has net value $V$ and satisfies every original constraint. If the reduced policy has value $\bar V$ and certified upper bound $\bar U$, then
+\begin{equation}\label{eq:r48-interval}
+ V\leq P\leq\bar U,\qquad
+ 0\leq\bar V-V\leq\delta_G^H(c,s)\leq\Delta_G^H,
+ \qquad \bar U-V\leq(\bar U-\bar V)+\Delta_G^H.
+\end{equation}
+In particular, $P_G^H\leq P+\Delta_G^H$. For rational quadratic data, recovery and its supporting-price certificates take polynomial time in the original history count and input bit length.
+\end{theorem}
+\begin{proof}
+The clipping construction preserves the group means and individual caps, so each within-group allocation is feasible. Its canonical lotteries respect the original eligible prefix and realization ceilings. A supporting-price water-level sweep gives the exact concave optimum and cannot be worse than $t^0$. On the mathematical extension to $[\min c,b_g^+]$, each original response is $L_{gj}$-Lipschitz, and
+\[
+ W_gv^H_{g,c}(s_g)-\sum_{j\in G_g}\pi_jv_{j,c}(s_g)
+       =\frac{W_g}{2}(A_g-H_g)(s_g-d_g(c))_+^2.
+\]
+Subtract the clipping lift and apply the Lipschitz bounds. The clipping distance is $2\sum_j\pi_j(s_g-b_j)_+$; also $s_g\leq\bar b_g$ and $d_g(c)\geq a_1$. These facts give \eqref{eq:r48-posterior} and \eqref{eq:r48-defect}. Theorem~\ref{thm:r48-harmonic} applied to the optimal lift at its unchanged group means gives $V\leq\bar V$. Charges cancel throughout. Weak duality and then a reduced optimal policy prove the remaining assertions. The allocator uses rational breakpoints and scalar quadratic stationary points, with polynomial encoding length.
+\end{proof}
+
+The harmonic optimum is always tighter than the minimum-curvature optimum, but its displayed worst-case defect need not be smaller: $L_g^+$ uses the largest original curvature. Likewise, independently interrupted searches need not produce ordered upper bounds. Retain the minimum certified upper and maximum original feasible lower across methods. This gives a nested valid interval without a false dominance claim about every runtime or recovered policy.
+
+The pooling bound can be exact with heterogeneous costs. With one command $d=0$, equal weights, caps $9/10$, curvatures $1$ and $4$, and mean obligation $1/4$, $H_g=8/5$. The allocation $(2/5,1/10)$ is feasible and has value $-1/20$, exactly the harmonic value; the minimum-curvature model gives $-1/32$. In general, for positive curvatures and mean $s\geq d$, equality holds when $t_j=d+H_g(s-d)/\gamma_j\leq b_j$ for every member. A tight cap or exhausted zero-cost capacity can prevent equality; such cases require refinement rather than a completion claim based only on the reduced model.
+
+\subsection{Square-root bins improve the accuracy-dependent dimension}
+The arithmetic--harmonic gap is second order in the spread of square-root curvatures. This avoids assuming a positive lower cost curvature.
+\begin{lemma}[Square-root dispersion]\label{lem:r48-square}
+For nonnegative curvatures in $[u,v]$ and positive normalized weights,
+\begin{equation}\label{eq:r48-am-hm}
+ 0\leq A-H\leq(\sqrt v-\sqrt u)^2.
+\end{equation}
+If every group has cap spread at most $\beta$ and square-root curvature spread at most $\eta$, then, with $L=\max\{r,\Gamma\}$ and $\Gamma=\max_j\gamma_j$,
+\begin{equation}\label{eq:r48-binned}
+ \Delta_G^H\leq L\beta/2+\eta^2/2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $0<u\leq\gamma\leq v$, $(\gamma-u)(\gamma-v)\leq0$ implies $\gamma+uv/\gamma\leq u+v$. Taking means and writing $T=\sum_jw_j/\gamma_j$ gives
+$A-H\leq u+v-uvT-1/T\leq u+v-2\sqrt{uv}$.
+When $u=0$, $A-H\leq A\leq v$ proves the same bound, including zero curvatures. Nonnegativity follows from Cauchy--Schwarz. For caps, the bounded-mean deviation inequality in Lemma~\ref{lem:r47-dispersion} gives $\sum_j\pi_j(\bar b_g-b_j)_+\leq W_g\beta/4$. Apply \eqref{eq:r48-am-hm}, $\bar b_g-a_1\leq1$, and sum the weights in \eqref{eq:r48-defect}.
+\end{proof}
+
+\begin{theorem}[Square-root-coarsened variable-history scheme]\label{thm:r48-scheme}
+For rational quadratic finite-catalog inputs and $\varepsilon>0$, partition by exact eligibility, cap bins of width $\varepsilon/(2L)$, and curvature intervals
+$[\ell^2\varepsilon/2,(\ell+1)^2\varepsilon/2)$, for integers $\ell\geq0$. Add the minimum-cap guard. Solve the harmonic reduced problem to tolerance $\varepsilon/2$ and apply the optimal lift. The original policy is $\varepsilon$-optimal at the original command budget, with unchanged charges, root promise, and individual constraints. The number of reduced coordinates is at most
+\begin{equation}\label{eq:r48-dimension}
+ d^H_\varepsilon=
+ 1+E(1+\lceil2L/\varepsilon\rceil)
+       (1+\lceil\sqrt{2\Gamma/\varepsilon}\rceil).
+\end{equation}
+For fixed eligibility complexity, bounded primitive scales, and fixed positive accuracy, running time is polynomial in the variable history count, catalog size, command budget, and rational input length.
+\end{theorem}
+\begin{proof}
+The squared endpoints ensure square-root spread at most $\sqrt{\varepsilon/2}$; bin membership uses rational comparisons and integer square roots, not rounded floating boundaries. Lemma~\ref{lem:r48-square} gives defect at most $\varepsilon/2$, and Theorem~\ref{thm:r48-lift} adds the inner tolerance. Counting cap and square-root bins proves \eqref{eq:r48-dimension}. Use the finite adaptive-cover bound in Theorem~\ref{thm:r47-variable}, replacing its dimension by $d^H_\varepsilon$. Harmonic means of rational data and optimal lifts have polynomial bit length; grouping and recovery scan the original histories. This proves the claimed parameter regime.
+\end{proof}
+
+For fixed primitive scales, the worst-case dimension improves from order $\varepsilon^{-2}$ to order $\varepsilon^{-3/2}$; these are \emph{dimension} bounds, not runtime exponents. The adaptive cover remains exponential in this dimension. Neither theorem is an FPTAS or a hardness classification for unrestricted eligibility complexity. The classical scalar inequalities are not claimed as new: the contribution is their integration into a dominating contract-preserving relaxation, an optimally allocated original-space lift, and the improved variable-history accuracy construction. All preceding minimum-curvature guarantees remain available, including at zero costs.

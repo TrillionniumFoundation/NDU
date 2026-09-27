@@ -1,0 +1,37 @@
+\begin{longtable}{p{.36\textwidth}rrrr}
+\caption{Full accepted-problem robustness design}\label{tab:robust-all}\\
+\toprule Perturbation & Grid gain & Active & Lottery & Memory gain\\\midrule\endfirsthead
+\toprule Perturbation & Grid gain & Active & Lottery & Memory gain\\\midrule\endhead
+canonical & 0.625140 & FUC & 1 & 0.019290\\
+lam = 0.1 & 0.728444 & FUC & 1 & 0.001115\\
+lam = 1.2 & 0.549602 & FUC & 1 & 0.042054\\
+lam = 4.0 & 0.361126 & FUC & 1 & 0.089863\\
+m = 1.2 & 0.763126 & FUC & 1 & ---\\
+m = 1.8 & 0.535059 & FUC & 1 & 0.012662\\
+power = 1.5 & 0.983858 & FUC & 1 & ---\\
+power = 3.0 & 0.377330 & FUC & 1 & ---\\
+kappa = 0.9 & 0.633115 & FUC & 1 & 0.019727\\
+kappa = 1.5 & 0.610544 & FUC & 1 & 0.018823\\
+slope = 1.1 & 0.389769 & FUC & 1 & 0.012399\\
+slope = 1.7 & 0.900312 & FUC & 1 & ---\\
+r0 = 0.3 & 0.576151 & FUC & 1 & 0.016604\\
+r0 = 0.9 & 0.657317 & FUC & 1 & 0.021211\\
+nu = 1.0 & 0.625140 & FUC & 1 & 0.019290\\
+nu = 3.0 & 0.625140 & FUC & 1 & 0.019290\\
+persistence = 0.6 & 0.580915 & FUC & 1 & 0.022693\\
+persistence = 1.2 & 0.643989 & FUC & 1 & 0.015249\\
+dispersion = 0.8 & 0.633394 & FUC & 1 & 0.019744\\
+dispersion = 1.2 & 0.603774 & FUC & 1 & 0.018567\\
+utility delta = -0.2 & 0.660211 & FUC & 1 & 0.020390\\
+utility delta = 0.2 & 0.585697 & FUC & 1 & 0.018221\\
+utility delta = 0.8 & 0.481061 & FUC & 1 & 0.015197\\
+fill delta = -0.015 & 0.625140 & UC & 1 & ---\\
+fill delta = 0.015 & infeasible & --- & --- & ---\\
+stock step = 1.0 & 0.625140 & FUC & 1 & 0.019290\\
+stock step = 0.25 & 0.625140 & FUC & 1 & 0.019290\\
+lower variance prob & 0.633115 & FUC & 1 & 0.019727\\
+higher variance prob & 0.610544 & FUC & 1 & 0.018823\\
+higher service with cost slack & infeasible & --- & --- & ---\\
+zero regime premium & 0.000000 & FUC & 0 & ---\\
+\bottomrule\end{longtable}
+Grid gain uses the $0.1$ accepted menu and the reoptimized continuous static comparator under the same reservations. For increased customer reservations the accepted static tier is reoptimized again. The full JSON records original-static feasibility separately. Active constraints are filled demand ($F$), customer utility ($U$), and physical cost ($C$), using a numerical tolerance of $10^{-7}$. Lottery counts are reachable states randomized by the returned LP policy; a positive count does not prove that every optimizer randomizes. Memory gain is the continuous full-state minus time--regime value, computed only when stock identification and the interior quadratic reduction are verified. Dashes do not assert zero. All robustness diagnostics are floating-point, not interval certificates.

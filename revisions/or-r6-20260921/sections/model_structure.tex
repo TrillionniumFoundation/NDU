@@ -1,0 +1,198 @@
+\section{An externally priced inventory contract}\label{sec:model}
+There are periods $t=0,\ldots,T-1$. The observed state is $(z,q)$, where $z$ is a demand regime in a finite ordered set $\mathcal Z$ and $q\in[0,1]$ is the inherited contract. Conditional demand $D_z$ is nonnegative with finite first moment. A decision consists of stock $S\in\mathcal S\subset[0,\bar S]$ and contract $\theta\in\Theta\subset[0,1]$. Both feasible sets are fixed compact chains; finite grids are allowed. Unused stock perishes and unmet demand is lost. Thus no inventory or backlog is carried. The next regime has exogenous transition matrix $P$, and the next inherited contract equals the chosen contract.
+
+Write the expected overage and shortage as
+\begin{equation}\label{eq:cost}
+ O_z(S)=\E\pos{S-D_z},\qquad L_z(S)=\E\pos{D_z-S},\qquad
+ C_z(S)=cS+hO_z(S)+pL_z(S).
+\end{equation}
+Here $c,h,p\geq0$ are externally fixed physical-cost coefficients. The provider receives premium $r_z\theta$, pays incremental liability $\kappa\theta L_z(S)$, pays maintenance $m\theta^2$, and pays adjustment $\lambda(\theta-q)^2$, where $\kappa,m,\lambda>0$. Expected one-period net reward is
+\begin{equation}\label{eq:reward}
+ g(z,q,S,\theta)=r_z\theta-C_z(S)-\kappa\theta L_z(S)
+                       -m\theta^2-\lambda(\theta-q)^2.
+\end{equation}
+The expectation in this expression is over demand, not over the decision. Premium rates, liability coefficients, and physical-cost weights cannot be controlled. The contract is a real cash-flow commitment. Its level affects both reward and the future state; it is not an estimator of a preference parameter.
+
+\subsection{A customer-accepted master agreement}\label{sec:institution}
+The contract is a publicly specified menu, not a penalty that the provider can change after performance is observed. Before period zero, a risk-neutral customer and provider sign a master agreement. It specifies the premium schedule $r_z\theta$, the indemnity $\kappa\theta(D_z-S)^+$, the horizon, and a contingent operating protocol. Regime, tier, stock, demand, and fulfillment are observable and contractible. At each review the provider implements the announced protocol after observing $(z,q)$ and before demand is realized. Public randomization is permitted when specified in the agreement. The customer commits to the contingent menu, not to a new purchase at each review. Transfers and compliance with the protocol are enforceable. No hidden effort or private type is assumed.
+
+Let $f_z(S)=\E D_z-L_z(S)$ be expected units served. For a fixed service benefit $\nu>0$, the customer's incremental one-period utility is
+\begin{equation}\label{eq:customer}
+ u(z,S,\theta)=\nu f_z(S)+\kappa\theta L_z(S)-r_z\theta.
+\end{equation}
+Indemnity is a transfer from the provider to this customer. Maintenance and adjustment are real resource expenditures, not payments to the customer. Write $F^\pi=\E^\pi\sum_t\beta^t f_{z_t}(S_t)$, $D=\E\sum_t\beta^t\E D_{z_t}$, and $U^\pi=\E^\pi\sum_t\beta^t u(z_t,S_t,\theta_t)$. Demand is exogenous, so $D$ is independent of the protocol. The agreement is accepted only if
+\begin{equation}\label{eq:participation}
+ U^\pi\geq\underline U,\qquad F^\pi\geq\gamma D.
+\end{equation}
+These are ex ante participation and expected discounted fill commitments. They are not period-by-period chance constraints or a right to renegotiate after each regime realization. A customer with such rights would require continuation participation constraints and an additional promised-utility state.
+
+A fixed retainer $A_0$ can fund provider participation. Total provider profit is $A_0+W^\pi$ and total customer surplus is $U^\pi-A_0$; the retainer does not affect policy comparisons. In the numerical study $A_0=6$, $\nu=2$, and the customer's outside alternative is the best fixed-contract arrangement, including the same retainer. Both that arrangement and the accepted adaptive arrangement satisfy a zero provider outside option. We report incremental $W$ and $U$ so that the historical accounting remains exactly comparable.
+
+The institution fixes the menu and designs the contingent protocol subject to acceptance. It does not claim to solve private-information screening or to endogenize every price in the menu. The unconstrained Bellman equation below is the provider relaxation and is also the problem when the acceptance constraints are slack. Section~\ref{sec:accepted} solves the binding-acceptance problem. A lower fill rate or customer surplus in the relaxation is not presented as an improvement under the accepted agreement.
+
+For discount $\beta\in(0,1]$ and zero terminal reward, the Bellman equation is
+\begin{equation}\label{eq:bellman}
+ V_t(z,q)=\max_{S,\theta}\left\{g(z,q,S,\theta)
+       +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta)\right\},\qquad V_T=0.
+\end{equation}
+Finite actions make existence immediate. For compact intervals, bounded demand moments, continuity of the stage reward, and induction give a continuous value and an attained maximum. We select the greatest optimal pair when the lattice conditions below hold.
+
+\subsection{Exact representation and comparator classes}\label{sec:representation}
+\begin{proposition}[Expanded actions and the fixed-contract restriction]\label{prop:expanded}
+The model in \eqref{eq:bellman} is exactly the Markov decision process with state $(z,q)$, action $(S,\theta)$, reward \eqref{eq:reward}, and transition $P_{zz'}\1_{\{q'=\theta\}}$. Its value is unchanged by flattening the product action set into one action index. A frozen-contract problem is the restriction $\theta=\bar\theta$; its value cannot exceed the joint value when the same initial state and external reward are used. A dummy label that changes neither reward nor the next state does not enlarge the attainable value.
+\end{proposition}
+\begin{proof}
+A policy in either representation assigns the same pair to each observed history, so it induces the same joint law of states, actions, and rewards. Equivalently, the two Bellman maxima enumerate the same quantities. The frozen problem optimizes over a subset of these policies. Duplicating a maximand leaves a maximum unchanged.\end{proof}
+
+Optimizing over a genuine extra decision can nevertheless produce a reduced operator that is not affine in the continuation value. For fixed physical action, write
+\begin{equation}\label{eq:support}
+ \mathcal B(v)=\sup_{\theta}\{b_\theta+\beta\langle P_\theta,v\rangle\}.
+\end{equation}
+If this envelope has two different uniquely exposed slopes on an open convex set of continuation values, it cannot equal one fixed affine reward/kernel primitive there. This is a statement about eliminating a decision while retaining one primitive, not a separation from the expanded-action problem. The proof and the precise exposed-slope condition appear in Electronic Companion (EC) Section~EC.1.
+
+Nor does support-envelope geometry exclude entropic control. For $\rho>0$, a finite full-support reference distribution $P$, and any bounded vector $v$,
+\begin{equation}\label{eq:gibbs}
+ \frac1\rho\log\E_P e^{\rho\beta v}
+ =\sup_{Q\in\Delta}\left\{\beta\E_Qv-\frac1\rho\KL(Q\Vert P)\right\}.
+\end{equation}
+The optimizer is proportional to $P\exp(\rho\beta v)$. Subtracting the objective at a particular $Q$ from the left side gives $\rho^{-1}\KL(Q\Vert Q^*)\geq0$. A sufficiently rich kernel-control family therefore represents this entropic operator exactly. The inventory model uses its specific contractual family; the general framework does not claim non-equivalence to all risk-sensitive or robust-control models.
+
+\section{Structure, exact reduction, and approximation}\label{sec:structure}
+\begin{assumption}[Premium--liability compatibility]\label{ass:lattice}
+Demand is stochastically nondecreasing in $z$, the regime transition is stochastically monotone, and for every $z_2\geq z_1$ and feasible $S$,
+\begin{equation}\label{eq:premium}
+ r_{z_2}-r_{z_1}\ \geq\ \kappa\{L_{z_2}(S)-L_{z_1}(S)\}.
+\end{equation}
+All other cost coefficients and the product action set are independent of $z$.
+\end{assumption}
+For a translated demand family $D_z=D_0+z$, shortage is 1-Lipschitz in the translation. Thus $r_{z_2}-r_{z_1}\geq\kappa(z_2-z_1)$ is a sufficient primitive condition. It allows shortage exposure to rise; premium growth must compensate for the incremental liability attached to a larger contract.
+
+\begin{theorem}[Monotone stock and contract]\label{thm:lattice}
+Under Assumption~\ref{ass:lattice}, $V_t$ is supermodular in $(z,q)$ for every $t$. The set of maximizing pairs in \eqref{eq:bellman} is a compact sublattice and has a greatest element. Both components of this greatest optimizer, $S_t^*(z,q)$ and $\theta_t^*(z,q)$, are nondecreasing in $z$ and in $q$.
+\end{theorem}
+\begin{proof}
+We verify increasing differences for the full maximand, including the continuation value. In the action pair $(S,\theta)$, the only cross term is $-\kappa\theta L_z(S)$, which has increasing differences because $L_z$ decreases in $S$. In $(\theta,q)$, the cross difference from adjustment is $2\lambda\,\Delta\theta\,\Delta q\geq0$.
+
+For fixed $\theta$, $-C_z(S)-\kappa\theta L_z(S)$ has increasing differences in $(S,z)$. To see this without a density assumption, its stock marginal at continuity points is
+\[
+ -c-hF_z(S)+(p+\kappa\theta)(1-F_z(S));
+\]
+stochastic demand ordering makes this marginal nondecreasing in $z$. Integrating between two stock levels proves the required finite-difference inequality, including at atoms. The stage cross difference in $(\theta,z)$ is
+\[
+ \Delta\theta\,[\Delta r-\kappa\Delta L(S)]\geq0
+\]
+by \eqref{eq:premium}. All remaining cross pairs involving $q$ or $z$ have zero stage cross difference.
+
+Suppose $V_{t+1}$ is supermodular in $(z',q')$. For $\theta_2\geq\theta_1$, the function $z'\mapsto V_{t+1}(z',\theta_2)-V_{t+1}(z',\theta_1)$ is nondecreasing. Stochastic monotonicity here means $\sum_{z'}P_{z_2z'}f(z')\geq\sum_{z'}P_{z_1z'}f(z')$ for every increasing $f$ and $z_2\geq z_1$, equivalently ordering every upper-tail probability. It therefore makes its conditional expectation nondecreasing in $z$. The continuation term has increasing differences in $(z,\theta)$ and is independent of $S,q$. Consequently the full maximand is supermodular on the product lattice $(S,\theta,z,q)$.
+
+Maximizing a supermodular function over a fixed compact action lattice preserves supermodularity in the remaining coordinates: apply the lattice inequality to maximizing pairs at two parameter states, and use their meet and join as feasible pairs at the meet and join of those states. The same inequality makes the argmax a sublattice and orders its greatest elements when the parameters increase. To make the selection step explicit, take greatest maximizers $a$ at $x$ and $b$ at $y\geq x$. The joint lattice inequality gives
+$F(a,x)+F(b,y)\leq F(a\wedge b,x)+F(a\vee b,y)$.
+Optimality forces equality, so $a\vee b$ is optimal at $y$; greatest selection implies $a\vee b\leq b$, hence $a\leq b$. Continuity and compactness give nonempty compact argmax sets. Closure under meet and join gives their greatest elements on the finite-dimensional compact product of chains. This is the supermodular-maximization and greatest-selection form of the lattice theorem of \citet{Topkis1978}, with its existence and order hypotheses verified here. Since $V_T=0$ is supermodular, backward induction completes the proof.\end{proof}
+
+The result concerns the state variables of the stated model. It does not assert a backlog comparative static in a model that has no carried backlog. It also does not follow for an internal penalty-only objective. With terminal value zero, $p(\theta)=\theta$, $q=1/2$, and fixed stock, that alternative objective has optimizer
+\begin{equation}\label{eq:penaltycounter}
+ \argmax_{0\leq\theta\leq1}\{-\theta L-\lambda(\theta-1/2)^2\}
+ =\clip_{[0,1]}\left(\frac12-\frac{L}{2\lambda}\right),
+\end{equation}
+which decreases with exposure. External premium income in \eqref{eq:reward}, and specifically \eqref{eq:premium}, changes this conclusion.
+
+\subsection{Stock elimination and the inherited-contract envelope}
+For a fixed contract, stock solves a newsvendor problem:
+\begin{equation}\label{eq:stock}
+ S_z(\theta)\in\argmin_{S\in\mathcal S}\{cS+hO_z(S)+(p+\kappa\theta)L_z(S)\}.
+\end{equation}
+On a stock interval with a continuous strictly increasing demand distribution, an interior optimum has critical fractile
+\begin{equation}\label{eq:fractile}
+ F_z(S_z(\theta))=\frac{p+\kappa\theta-c}{h+p+\kappa\theta}.
+\end{equation}
+Boundary solutions apply when the right side is outside the attainable distribution range. For atoms or a stock grid, \eqref{eq:stock} itself, with the greatest-minimizer convention, is the definition; no continuous quantile formula is silently substituted for grid optimization.
+
+Set $U_z(\theta)=\max_S\{-C_z(S)-\kappa\theta L_z(S)\}$ and
+\begin{equation}\label{eq:b}
+ b_t(z,\theta)=r_z\theta-(m+\lambda)\theta^2+U_z(\theta)
+                 +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta).
+\end{equation}
+Then
+\begin{equation}\label{eq:envelope}
+ V_t(z,q)=-\lambda q^2+\max_{\theta\in\Theta}\{b_t(z,\theta)+2\lambda\theta q\}.
+\end{equation}
+\begin{theorem}[Exact envelope reduction]\label{thm:envelope}
+For any demand family and any regime transition, $q\mapsto V_t(z,q)+\lambda q^2$ is convex. If $\Theta$ contains $N_\theta$ ordered points, this function is a convex piecewise-affine envelope with ordered slopes $2\lambda\theta$. Its active line selects a greatest optimal contract, and \eqref{eq:stock} supplies the corresponding stock. After stock costs and continuation expectations are computed, the envelope can be constructed in $O(N_\theta)$ arithmetic operations from the ordered slopes and queried at $N_q$ ordered inherited-contract states in $O(N_\theta+N_q)$ operations. No global concavity of $b_t$ is required.
+\end{theorem}
+\begin{proof}
+Equation~\eqref{eq:envelope} is obtained by expanding $-\lambda(\theta-q)^2$. A supremum of affine functions is convex. For finite $\Theta$, insert lines in increasing slope order. Intersections with the current last line must increase along an upper hull; otherwise the last line has an empty interval of optimality and is removed. Each line is inserted and removed at most once. At an intersection choose the larger slope, which selects the greater contract. A single forward pass through ordered queries locates all active intervals. Stock elimination is exact because the continuation and adjustment terms do not depend on stock.\end{proof}
+
+The operation count is an arithmetic count, not a bit-complexity statement for arbitrarily long rational numbers. A direct factored enumeration already reduces the expensive product search: on the recorded grid, it uses 2,904 rather than 37,752 Bellman action comparisons, plus 429 one-time stock-stage computations. The hull construction further avoids enumerating every contract at every inherited state. The executed hull and factored enumeration agree with exhaustive rational optimization at all 264 nonterminal states.
+
+\subsection{A quadratic bound without global concavity}\label{sec:grid}
+Let $V$ now allow every contract in $[0,1]$, retaining the same stock set. Let $V^{(n)}$ restrict all contract actions to $\Theta_n=\{0,1/n,\ldots,1\}$ but permit any initial $q\in[0,1]$. After the first action, the inherited state lies on the grid. Define $H_r=\sum_{k=0}^{r-1}\beta^k$, with $H_0=0$.
+
+\begin{lemma}[A nonsmooth global-maximizer lemma]\label{lem:semiconvex}
+Let $G$ be finite, convex, and continuous on $[0,1]$, let $A\geq0$, and set $f(x)=G(x)-Ax^2+\ell x$. If an interior point $x^*$ is a global maximizer, every $g\in\partial G(x^*)$ equals $2Ax^*-\ell$, and
+$f(x^*)-f(y)\leq A(y-x^*)^2$ for every $y\in[0,1]$.
+A global maximum at an endpoint is represented exactly on every endpoint-containing grid. Consequently an $n$-interval uniform grid loses at most $A/(4n^2)$.
+\end{lemma}
+\begin{proof}
+A supporting line gives
+$f(x^*+h)\geq f(x^*)+(g-2Ax^*+\ell)h-Ah^2$.
+If the linear coefficient were nonzero, a sufficiently small interior $h$ of its sign would strictly improve the objective. Thus it vanishes for every subgradient. The same supporting inequality at any $y$ gives the stated bound, and a nearest grid point has distance at most $1/(2n)$. If $G$ has a genuine kink, its subdifferential is not a singleton and that point cannot be an interior maximum of this form. No endpoint subgradient is assumed and no global concavity of $f$ is used.
+\end{proof}
+
+\begin{theorem}[Continuous-contract value enclosure]\label{thm:quadratic}
+With the primitives of \eqref{eq:reward}, for $r=T-t\geq1$,
+\begin{equation}\label{eq:quadbound}
+ 0\leq V_t(z,q)-V_t^{(n)}(z,q)
+ \leq\frac{(m+\lambda)H_r+\beta\lambda H_{r-1}}{4n^2}.
+\end{equation}
+This is also a performance-loss bound for the exact grid-optimal policy when it is implemented in the continuous-contract problem from $(z,q)$. It is uniform in $z,q$ and does not require differentiability of demand distributions, global concavity, or a numerical smoothness estimate.
+\end{theorem}
+\begin{proof}
+First consider $f(x)=G(x)-A x^2+\ell x$ on $[0,1]$, where $G$ is finite and convex and $A>0$. If a maximum $x^*$ lies at an endpoint, it belongs to every grid. If it is interior, take any subgradient $s$ of $G$ there. The supporting-line inequality gives
+\[
+ f(x)\geq f(x^*)+(s-2Ax^*+\ell)(x-x^*)-A(x-x^*)^2.
+\]
+An interior maximum forces the linear coefficient to vanish: otherwise a sufficiently small displacement with its sign would improve the objective. Therefore the nearest grid point loses at most $A/(4n^2)$.
+
+For the Bellman maximization after stock elimination, $U_z$ is convex as a supremum of affine functions of $\theta$. Theorem~\ref{thm:envelope}, applied to continuous actions, says that $V_{t+1}(z',\theta)+\lambda\theta^2$ is convex. Consequently its contract objective has the displayed form with $A=m+\lambda+\beta\lambda$ whenever $t<T-1$. At the final period, $A=m+\lambda$ because $V_T=0$. Restricting just the current maximization thus loses at most the corresponding $A/(4n^2)$.
+
+Let $E_t=\sup_{z,q}(V_t-V_t^{(n)})$. Monotonicity and the $\beta$-Lipschitz property of the Bellman operator give
+\[
+ E_t\leq \frac{m+\lambda+\beta\lambda\1_{\{t<T-1\}}}{4n^2}
+                  +\beta E_{t+1},\qquad E_T=0.
+\]
+Summing proves \eqref{eq:quadbound}. A grid policy uses admissible continuous actions and has exactly the grid-model reward and transition law, so its continuous-model value is $V^{(n)}$.\end{proof}
+
+The theorem bounds contract discretization, not physical-stock discretization or an inventory diffusion limit. It avoids interpreting a small difference between two numerical grids as a proof. In the recorded instance, the 160-interval result encloses the continuous-contract initial value in $[-4.99278573,-4.99260152]$; the exact rational endpoints are supplied with the code.
+
+\subsection{Constructive smooth neural critics}
+The exact finite-grid envelope also supplies a smooth neural approximation with a deterministic error budget. This construction uses computed envelope weights rather than statistical training. It provides a certified neural representation of the contract model without making a claim about the optimization of a large network.
+
+\begin{corollary}[Smooth value-gradient representation]\label{cor:neural}
+For a finite contract grid, let $V_t^{(n)}$ be the exact grid value, extended to every inherited $q\in[0,1]$ by \eqref{eq:envelope}. For each $(t,z)$ write its convex part as
+\[
+ V_t^{(n)}(z,q)+\lambda q^2=a+bq+\sum_j d_j(q-k_j)^+,
+ \qquad d_j\geq0,\quad \sum_jd_j\leq2\lambda.
+\]
+For $\tau>0$, replace each hinge by
+\[
+ h_\tau(x)=\frac{(x+\tau)_+^3-2x_+^3+(x-\tau)_+^3}{6\tau^2}
+\]
+and denote the resulting critic by $w_{t,\tau}$; keep $w_{T,\tau}=0$. It is a quadratic skip connection plus a finite cubic-ReLU network, is $C^2$ in $q$, and satisfies
+\begin{equation}\label{eq:neuralbound}
+ 0\leq w_{t,\tau}(z,q)-V_t^{(n)}(z,q)\leq\lambda\tau/3.
+\end{equation}
+If $A_\tau$ exactly maximizes the one-step grid objective with continuation $w_{t+1,\tau}$, then, for $r=T-t$,
+\begin{equation}\label{eq:neuralpolicy}
+ 0\leq V_t^{(n)}(z,q)-V_t^{A_\tau}(z,q)
+ \leq\beta(\lambda\tau/3)H_{r-1}.
+\end{equation}
+Combining this bound with \eqref{eq:quadbound} bounds loss relative to continuous contract actions. The derivative $\partial_qw_{t,\tau}$ is a compatible shadow price, not an independently fitted vector field.
+\end{corollary}
+\begin{proof}
+The hinge representation follows from the ordered slopes of the upper envelope. Its total slope increase is at most $2\lambda$, the width of the slope interval. The cubic finite difference equals the convolution of $x^+$ with the symmetric triangular density $(\tau-|y|)_+/\tau^2$. Convexity gives $h_\tau(x)\geq x^+$, and direct integration shows $h_\tau(x)-x^+\leq\tau/6$, with equality at $x=0$. This proves \eqref{eq:neuralbound}. Each cubic-ReLU term is $C^2$.
+
+The exact and approximate one-step action values differ by a number in $[0,\beta\lambda\tau/3]$. Thus maximizing the latter loses at most $\beta\lambda\tau/3$ in the former, rather than twice that amount, because the approximation is one-sided. The final action uses the exact terminal continuation and has zero loss. Backward policy evaluation gives \eqref{eq:neuralpolicy}. The gradient statement follows from the scalar construction.\end{proof}
+
+
+\paragraph{Network size convention.}
+Each hidden unit computes $(wq+b)_+^3$; three units implement one smoothed hinge. The reported maximum of 27 units is per $(t,z)$ critic, excluding its explicit quadratic skip $-\lambda q^2$ and affine skip. There is no sharing across the 24 nonterminal $(t,z)$ critics; their aggregate hidden-unit budget is at most $24\cdot27=648$, not 27 for one joint network. Each unit has a scalar input weight, bias, and output weight; skip coefficients must also be stored. This convention is not directly comparable to the 1,281 trainable parameters of the joint tanh critic in Section~\ref{sec:operationalcontinuous}.

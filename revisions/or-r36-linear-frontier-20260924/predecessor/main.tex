@@ -1,0 +1,75 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r35-ec-labels}[electronic_companion.pdf]
+\hypersetup{pdftitle={Accepted Service Adaptation: Exact Parametric Quotients and Minimal Additional Writable Memory},pdfauthor={Anonymous}}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}\centering
+{\Large\bfseries Accepted Service Adaptation:\\ Exact Parametric Quotients and\\ Minimal Additional Writable Memory\par}
+\vspace{.35in}{Anonymous manuscript for Operations Research\par}\vspace{.25in}
+\begin{minipage}{\textwidth}
+\textbf{Abstract.} Renewal agreements can reach the same public state with different accepted continuation obligations. We study exact representation under one additive commitment and separable concave rewards. Probability weighting yields classical laminar allocation, and normalized memoization gives the public-graph recursion. For quadratic rewards, the global knot universe is linear and explicit vertex tables have tight quadratic size. Exact closure extends to continuous piecewise-quadratic rewards, including marginal jumps, with rational complexity bounds and shared storage. Classical behavioral minimization identifies the minimum additional writable alphabet conditional on free public observation; combined states and read-only storage are counted separately. A heterogeneous renewal model yields deterministic and globally optimized randomized memory frontiers. All but the highest randomized level can be anchored at branch caps; the remaining continuous level is optimized exactly. Ordered cost structure accelerates both complete frontiers without discretizing service. An exact example establishes that cap-only codebooks are suboptimal. Randomization improves expected participation but cannot improve any budget under pathwise participation in this renewal architecture. Exact controller replay, exhaustive comparisons, complete parametric-path tests, and same-input computational comparisons support the analysis. Earlier switching, shared-table, and deployment results are preserved.
+\par\vspace{.15in}\textbf{Keywords:} continuation participation; contractual memory; parametric resource allocation.
+\par\vspace{.1in}\textbf{Subject classifications:} Programming: stochastic resource allocation; Dynamic programming/optimal control: contractual memory.
+\par\vspace{.1in}\textbf{Area of review:} Stochastic Models.
+\end{minipage}\vfill{Revision R35, September 23, 2026\par}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r35-monge-frontier-20260923/introduction.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/model_literature.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/quotient_theory.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/extensions.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/memory_theory.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/randomized_memory.tex}
+\input{revisions/or-r34-global-randomized-frontier-20260923/global_frontier.tex}
+\input{revisions/or-r35-monge-frontier-20260923/frontier_acceleration.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/shared_comparator.tex}
+\input{revisions/or-r31-tightness-minimal-machine-20260923/computational_evidence.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/new_evidence.tex}
+\input{revisions/or-r34-global-randomized-frontier-20260923/evidence.tex}
+\input{revisions/or-r35-monge-frontier-20260923/evidence.tex}
+\section{Conclusions}\label{sec:conclusion}
+Accepted continuations admit an exact quotient on a recombining public graph. The underlying laminar allocation and normalized memoization are classical; the results concern the complete response's event budget, exact rational implementation, and execution architecture. The quadratic specialization attains linear global-knot and quadratic explicit-table orders. Changing curvature and downward marginal jumps preserve finite exact closure with a budget determined by the number of local pieces and public caps.
+
+Representation must be specified before a storage lower bound is interpreted. Separately materialized vertex tables can require quadratic output, while a shared circuit represents the same responses with linear persistent space in the local-piece and graph input after compilation. Its query evaluation is slower. Neither count measures the additional writable history needed to implement one fixed-query optimum. That history is characterized by a contract-generated finite transducer and classical behavioral minimization, with ordered classes and a linear worst-case alphabet.
+
+Restricted memory creates a distinct design question. The deterministic renewal frontier has an ordered partition solution. Under conditional-expectation participation, randomized symbols instead use concave-envelope lotteries. The explicit three-branch solution shows that randomization can substantially reduce loss below the exact alphabet threshold without changing that threshold. Expected and pathwise participation remain different institutions. The radial-spread comparative static retains its stated ordered-family scope.
+
+The new exact implementation checks changing curvature, marginal jumps, shared evaluation, inversion, and conjugate certificates. Whole-path agreement with an independently coded KKT enumerator supports the parametric object rather than only selected promises. These checks and the retained computational studies do not establish superiority over unimplemented specialized methods or empirical service calibration. Switching, coupled commitments, and broader deployment questions retain their separate formulations and historical evidence.
+
+The randomized frontier is now a global codebook design result rather than only a fixed-codebook formula or an isolated example. Cap anchoring leaves one continuous highest level, whose interval optimum is rational under quadratic intermediate costs. This yields an exact polynomial algorithm for heterogeneous branch probabilities and costs, including cap-only instances that miss the optimum. Pathwise participation changes the feasible institution and restores the deterministic frontier at every budget. These statements use the renewal architecture and root saturation; they do not impose that institution on the broader expected-participation model.
+
+Both institutional frontiers also have an ordered-cost structure. The terminal array retains its Monge inequality after continuous minimization, despite heterogeneous intermediate curvatures. Together with ordered prefix costs, this reduces the exact search from quadratic to near-linear work per budget layer. The same-input comparisons test precisely that acceleration and preserve the global randomized optimum, including non-cap terminal levels.
+
+\paragraph{Code, data, and reproducibility.}
+The R35 package adds the Monge proofs, two accelerated frontier implementations, exact independent checks, and same-input scale comparisons. The R33 compiler and R34 global-frontier sources and evidence remain unchanged; both exact suites are rerun separately. All R31--R34 theorem modules, earlier evidence, and broader retained theory volumes remain in the repository. Archived predecessor wrappers, a byte-level preservation manifest, and a commit-pinned derivation record distinguish inherited results from this revision. The companion provides implementation details and evidence dependencies. The build binds reader PDFs and their hashes to the scientific source commit.
+\clearpage
+\phantomsection\label{r35-refs-start}
+\input{revisions/or-r35-monge-frontier-20260923/references.tex}
+\label{r35-refs-end}
+\clearpage
+\input{revisions/or-r33-piecewise-randomized-20260923/main_table_layout.tex}
+\input{revisions/or-r33-piecewise-randomized-20260923/evidence_table.tex}
+\input{revisions/or-r34-global-randomized-frontier-20260923/evidence_table.tex}
+\input{revisions/or-r35-monge-frontier-20260923/evidence_table.tex}
+\end{document}

@@ -1,0 +1,83 @@
+{
+  "id": "screen-k8-c0-5601",
+  "family": "screening",
+  "method": "screen",
+  "instance_sha256": "8d803b84850d2065f715d466a2ac4f794ac594c8d5055355f56c8e29a0d1f0ef",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.007157789000018511,
+  "status": "TOLERANCE",
+  "lower": "hex:b7f/1000",
+  "upper": "hex:5c287/80000",
+  "gap": "hex:307/80000",
+  "seconds": 0.012202800000011393,
+  "screen_seconds": 0.010010180999984186,
+  "seed_seconds": 0.00452191300001914,
+  "reduced_seconds": 0.002080990000024485,
+  "commands_removed": 5,
+  "removal_categories": {
+    "0": "possible_anchor",
+    "2": "ordinary",
+    "5": "ordinary",
+    "6": "ordinary",
+    "8": "ordinary"
+  },
+  "forced_oracle_calls": 13,
+  "downstream_nodes": 1,
+  "downstream_oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.0017315360000225155,
+      "lower": "hex:b7f/1000",
+      "upper": "hex:5c287/80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.0017763000000172724,
+      "lower": "hex:b7f/1000",
+      "upper": "hex:5c287/80000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "algorithm_seconds": 0.01227716800002554,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-screen-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 19,
+    "denominator_bits": 20,
+    "rational_count": 267
+  },
+  "certificate": "certificates/screen-k8-c0-5601--screen.json.gz",
+  "certificate_sha256": "d2a97b4e928d8eea65b2dcdcf68dddacfaec147cc14e1438203ee14fe4897a67",
+  "proof_bytes": 3968,
+  "compressed_proof_bytes": 680,
+  "serialization_seconds": 0.0005475739999951657,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:b7f/1000",
+    "upper": "hex:5c287/80000",
+    "gap": "hex:307/80000",
+    "seconds": 0.00983616600001369,
+    "fixings_checked": 5,
+    "reduced_check": {
+      "status": "PASS",
+      "lower": "hex:b7f/1000",
+      "upper": "hex:5c287/80000",
+      "gap": "hex:307/80000",
+      "tolerance_met": true,
+      "leaves": 1,
+      "splits": 0,
+      "prices": 1,
+      "seconds": 0.002090758999997888,
+      "instance_sha256": "0d455970af7f6a25b4aef0cf7b53a0abedfd1b7da02dcb79561988e0b8659ef5"
+    },
+    "instance_sha256": "8d803b84850d2065f715d466a2ac4f794ac594c8d5055355f56c8e29a0d1f0ef"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.009980114999962097,
+  "total_measured_seconds": 0.022804856999982803
+}

@@ -1,0 +1,103 @@
+\section{Correlated Comparator Prices, Reuse Loss, and Uniform Certificates}\label{ec:r27}
+\subsection{Derivation and scope of the reusable certificate}
+The notation in this section is that of main equations~\eqref{eq:r27-model}--\eqref{eq:r27-upper}. The diagonal-plus-resource decomposition is $Q=H+R^\top R$, not a removal of the coupled quadratic cost. The equality matrix $F_\theta$ includes the actual payment commitments and the chosen information restriction. A changed equality must be evaluated with its actual coefficients and right-hand side.
+
+For any $x$, the resource inequality
+\[
+ -\tfrac12\norm{Rx}^2\leq-\alpha^\top Rx+\tfrac12\norm{\alpha}^2
+\]
+has gap $\norm{\alpha-Rx}^2/2$. The switching inequality
+$-\lambda_\theta\kappa_j|u|\leq-\lambda_\theta\tau_j u$
+has gap $\lambda_\theta(\kappa_j|u|-\tau_j u)$, nonnegative for $|\tau_j|\leq\kappa_j$. For feasible $x$, adding $\mu^\top(b_\theta-A_\theta x)$ and $\nu^\top(f_\theta-F_\theta x)$ gives an upper bound because the first term is nonnegative and the second is zero. The remaining coordinate maximizations have the clipped maximizers stated in the main text. This proves the bound and the exact four-term decomposition without a constraint qualification. It also shows why the offset $c_\theta$ and the term $\lambda_\theta\tau^\top h$ must not be omitted.
+
+At an anchor with $\lambda_i>0$, an audited tension $s_i$ is stored as $\tau_i=s_i/\lambda_i$. At a zero-friction anchor the audited tension must be zero, and storing $\tau_i=0$ is globally safe. Keeping the old unscaled $s_i$ when friction decreases is not safe in general: its magnitude may exceed the new switching capacity. Neither normalizing the tension nor weak duality assumes that the numerical anchor is an exact optimizer. The local loss statement separately requires an exact primal--dual anchor and a retained priced face.
+
+The certificate also remains valid after changing $A_\theta,F_\theta,b_\theta,f_\theta,p_\theta,\lambda_\theta,c_\theta$ simultaneously, provided the dimensions agree and the displayed common box and cost matrices remain fixed. No common outer polyhedron replaces the model-specific continuation rows. This preserves correlations in the evaluated coefficients, not an inferred statistical correlation in field data. An empty restricted class is excluded by the model, not interpreted as an infinite economic gain.
+
+If these coefficients depend affinely on a $d$-vector, precompute the constant and $d$ coefficient vectors of $d_\theta(a)$ and of the scalar affine terms for each anchor. The query then requires order $n(d+1)$ operations and order $n(d+1)$ stored coefficients per anchor, followed by $n$ scalar clips. Without this preprocessing, matrix--vector products are charged at their sparse sizes. This complexity counts arithmetic, not rational bit operations, cache construction, implemented-policy feasibility, or possible refresh solves. The deployed function receives only query coefficients and cached prices; it does not receive a query comparator optimizer or its value.
+
+\subsection{Explicit local constants and the active-face boundary}
+For the exact-anchor part of Theorem~\ref{thm:r27-cache}, define $\delta=\norm{\theta-\theta_0}$. Suppose throughout a specified neighborhood that
+\[
+ \norm{z_\theta-z_0}\leq L_z\delta,
+ \quad \norm{p_\theta-p_0}\leq L_p\delta,
+ \quad \norm{A_\theta-A_0}\leq L_A\delta,
+ \quad \norm{F_\theta-F_0}\leq L_F\delta,
+ \quad |\lambda_\theta-\lambda_0|\leq L_\lambda\delta.
+\]
+Here matrix norms are Euclidean operator norms. Because $d_0-Hz_0-v_0=0$,
+\[
+ e_\theta=(p_\theta-p_0)-(A_\theta-A_0)^\top\mu
+ -(F_\theta-F_0)^\top\nu-(\lambda_\theta-\lambda_0)D^\top\tau-H(z_\theta-z_0).
+\]
+Consequently, for $h_{\min}=\min_i H_{ii}>0$ and
+$C=L_p+L_A\norm{\mu}+L_F\norm{\nu}+L_\lambda\norm{D^\top\tau}$,
+\begin{equation}\label{eq:r27-constant}
+ \mathcal U_\theta(a)-K_\theta
+ \leq\tfrac12\left\{\norm{R}^2L_z^2+
+       \frac{(C+\norm{H}L_z)^2}{h_{\min}}\right\}\delta^2.
+\end{equation}
+The constants refer to a verified neighborhood, not to an unspecified asymptotic limit. Smooth coefficients, an independent retained active constraint system, strict complementary inequalities and box faces, and interior tensions on retained zero-switch edges give one sufficient regularity route: the nonsingular active KKT system yields a locally differentiable optimizer, and strict inequalities preserve the face. This is a sufficient route, not an assertion that the numerical study certifies such a neighborhood for every instance. The main inequality itself only uses its explicit priced-face conditions.
+
+There is no contradiction between quadratic reuse loss here and the linear local bound for a common outer comparator. The two bounds discard different information. The outer construction relaxes participation rows; the normalized cache retains the actual rows. Nor does the quadratic bound assert that every fixed anchor is better than the outer comparator. Its exact-anchor error is zero, whereas an approximate anchor can have a nonzero residual at its center. Formula~\eqref{eq:r27-decomposition} remains the appropriate identity in that case.
+
+An exact moving-geometry example has one tier $x\in[0,1]$, reward $p_t=2+2t$, friction $\lambda_t=1/2+t/4$, cost $x^2/2+\lambda_t|x|$, and participation row
+\[
+ (1+t)x\leq\tfrac12+\tfrac18t,\qquad -\tfrac14\leq t\leq\tfrac14.
+\]
+The optimizer is $z_t=(1/2+t/8)/(1+t)$. Its participation multiplier is positive. At zero, $z_0=1/2$ and the exact normalized price is $\mu=\tau=1$. Its query residual is $d_t=1/2+3t/4$, which remains interior to the tier box. Therefore
+\[
+ \mathcal U_t-K_t
+ =\tfrac12\left(\frac{t(9/8+3t/4)}{1+t}\right)^2.
+\]
+All three changes---reward, participation coefficients and budget, and switching friction---are retained in this identity. The verifier checks it at 17 rational parameters in addition to the algebraic proof. The degenerate two-cap example in the main text is checked at 17 parameters as well; it is a deliberate failure of an unconditional quadratic claim, not an exception omitted from the evidence.
+
+\subsection{Uniform uncertainty: the order of the extrema matters}
+For an affine coefficient family on a polytope, fixed-price upper functions are convex even when their active scalar clips change. Thus their maxima, and the minima of fixed-policy gain minus those functions, are bounded by vertices. This observation proves Corollary~\ref{cor:r27-cells} without differentiability, an unchanged active set, or an interior promise.
+
+To verify subdivision, fix an old cell and its selected anchor. Every new vertex in that cell is a convex combination of old vertices, so the concave gain lower function at that vertex is at least the old minimum. Every subcell can retain that anchor or choose a better one. Taking the minimum over subcells cannot worsen the old lower certificate. Adding prices is similarly monotone because the previous maximizing choice remains available. These are finite certificates; increasing dimension or the number of cells can still make vertex enumeration expensive.
+
+The order of extrema cannot be reversed. Consider $0\leq x\leq1$, payoff $x-x^2/2$, and rows $x\leq1+t$, $x\leq1-t$ on $t\in[-1,1]$. The two dual prices $(1,0)$ and $(0,1)$ give valid affine upper bounds $1+t$ and $1-t$. Their pointwise minimum is zero at both endpoints, while the true value at $t=0$ is $1/2$. Thus the maximum over vertices of the minimum over anchors is not a uniform upper certificate. For a gain certificate the analogous mistake is selecting an anchor separately at each vertex before taking the vertex minimum. The verifier deliberately attempts the invalid uniform bound and rejects it.
+
+For a positive uniform economic certificate, consider the same scalar reward and friction as in the preceding moving-geometry example, but use the participation row
+$(1+t)x\leq3/4+t/8$ and restrict the comparator to $x=1/2$. The implemented tier $\widehat x=3/5$ and the comparator are both feasible for every $t\in[-1/4,1/4]$. The restricted optimum is exactly that singleton. The implemented gain is
+\[
+ W_t(3/5)-K_t=\frac{19}{200}+\frac{7}{40}t,
+ \qquad \inf_t\{W_t(3/5)-K_t\}=\frac{41}{800}.
+\]
+At anchors $a=-1/4,0,1/4$, use $\mu=0$, $\tau=1$, and equality price $\nu_a=1+7a/4$. The cached upper bound is
+$\mathcal U_t(a)=\nu_a/2+\psi(1/2+7(t-a)/4)$, with the box clip retained. The exact cell certificates are
+\[
+ \begin{array}{cccccc}
+ \text{equal cells}&1&2&4&8&16\\ \hline
+ \text{uniform gain lower bound}&-569/12800&-9/12800&2519/51200&2519/51200&2519/51200.
+ \end{array}
+\]
+The four-cell lower endpoint is $0.04919921875$, below the true worst gain $0.05125$. Further subdivision does not remove the approximation loss of a fixed finite cache. The example establishes a continuous, positive gain certificate, not a rate of convergence for arbitrary cache or cell refinements.
+
+\subsection{New and inherited evidence: exact specification}\label{ec:r27-design}
+The joint coefficient family is rebuilt from the R25 rational primitives: 63 history nodes, two service coordinates, six coupled resource factors, a positive diagonal curvature, 124 nonroot service-continuation rows, four shared capacity rows, and two root equalities. The time-only comparator additionally pools each service's amendment at histories with equal date. All numerical comparisons below use this optimized restricted class; a full-class candidate is separately checked against the root equalities and all accepted constraints.
+
+For context $c$ and uncertainty coordinates $\vartheta\in(-1,1)^3$, the radius-$\rho$ family has
+\[
+ p_i=(1+\rho\vartheta_1)p_i^0+\rho\vartheta_3(-1)^i/8,
+ \quad\lambda=(1+\rho\vartheta_2)\lambda_0,
+ \quad A_{ji}=A^0_{ji}(1+\rho\vartheta_3\sigma_i),
+\]
+where $\sigma_i$ alternates by history node, shared capacities scale by $1+\rho\vartheta_2$, and the root and time-only equalities are unchanged. The historical outer model uses nominal continuation coefficients, the rowwise box support expansion, and capacity scaling $1+\rho$. The reward and friction coefficients are identical between a true model and its outer comparison. The known gain-relative constant is $\lambda\sum_j\kappa_j|h_j|$; it is included in every certificate.
+
+We fix the first eight R25 contexts and retain three independently audited historical comparator prices in each: radii $0$, $1/16$, and $1/4$, along that context's recorded coefficient direction. Their tension is normalized before storage. The other seven recorded radii per context give 56 holdouts whose optimizer information is not supplied to the deployed cache. These are new evaluations of inherited optimization records, not 56 new solves or a prospectively registered validation sample.
+
+A second study generates 24 new off-ray queries: for each context $i=0,\ldots,7$ and $k=0,1,2$, set $\rho=1/64,1/16,1/8$, respectively, and take the three integer numerators
+\[
+ ((-5+3i+2k)\bmod13)-6,\quad
+ ((4+2i+5k)\bmod13)-6,\quad
+ ((7+4i+3k)\bmod13)-6,
+\]
+divided by eight. If the resulting direction is collinear with the inherited one, increment the first coordinate that breaks collinearity, cyclically in $\{-6,\ldots,6\}$. This exclusion depends only on coefficients, not on a measured value or algorithm outcome. The complete realized design is stored before its proposal solves. It is a structured sensitivity study, not a random field sample. Its prices remain the same 24 historical anchors; no new-query optimizer is added to the cache.
+
+For each new query, the proposer solves the true restricted problem, its historical outer relaxation, and the full accepted problem, for 72 new proposals. It uses the inherited OSQP adapter and rational primal repair. The independent R27 verifier imports none of those routines. It reconstructs every model coefficient, every root and pooling equality, the tier box, and all participation rows. It independently recomputes the scalar conjugates, normalized tension capacities, and each primal--dual bracket. It checks 160 inherited and 72 new optimization records, and 240 cached-price evaluations on the 80 non-anchor queries. Every cache gap at the offline restricted witness is decomposed exactly into its four nonnegative terms. The new full-class policies are feasible proposals, not exact optimizer labels.
+
+The table entries are means of $U-L_K$, where $L_K$ is the independently checked restricted feasible value; the true cache loss is enclosed by $[\max\{0,U-U_K\},U-L_K]$. Every displayed upper decimal is rounded upward. The largest optimization bracket across the audited records is below $6\times10^{-8}$. For the 24 new queries, all cache economic-gain certificates are positive and all are tighter than the matched outer certificates. This finite-design statement does not imply that a finite cache dominates every outer construction or is faster in complete deployment.
+
+All initial optimizer work is recorded, and the cache's query routine performs no restricted solve. The new 72 proposal solves are offline quality evaluation, not hidden online work. Historical solver seconds, new solver seconds, and rational verification are separated in the execution record; no unmatched timing ratio is advertised. The 14 rejection tests cover corrupted coefficients, promises, multiplier signs and dimensions, unscaled tensions, objective endpoints, a false unconditional quadratic rate, and the invalid vertex/anchor interchange. Their role is to test the implementation of the stated mathematics, not to measure scientific novelty.

@@ -1,0 +1,33 @@
+\section{Selecting Reward Prototypes}\label{sec:grouping59}
+The oscillation guarantee becomes an optimization tool only after groups and prototypes are chosen. For catalog reward vectors define
+\[
+ d(f,h)=\max_{a\in\mathcal A}[f(a)-h(a)]-\min_{a\in\mathcal A}[f(a)-h(a)].
+\]
+This is a pseudometric: symmetry follows by negating the difference, and the triangle inequality follows from subadditivity of maximum minus minimum. It is a metric after identifying vectors differing by a constant. Only histories with the same expected cap may share a prototype; ceilings, costs, probabilities, and promise remain unchanged.
+
+For prototypes restricted to observed rewards, the minimum loss certificate with at most $G$ groups is the cap-restricted weighted medoid problem
+\[
+ \min\sum_{j,r:\,b_j=b_r}\pi_jd(f_j,f_r)x_{jr},\quad
+ \sum_{r:b_r=b_j}x_{jr}=1,\quad 0\leq x_{jr}\leq z_r,\quad
+ \sum_r z_r\leq G,\quad z_r\in\{0,1\}.
+\]
+For fixed selected centers a nearest-center assignment is optimal, so fractional assignment variables do not change the optimum. This is a standard facility-location model, not a new general clustering method. Its feasible upper bound supplies a valid loss certificate immediately, even if clustering is interrupted; a lower bound quantifies how much better this declared prototype family could be. Combined with Theorem~\ref{thm:robusttypes58}, a clustering solution of cost $\Delta$ and a prototype-policy solution of error $\xi$ give original regret at most $\Delta+\xi$ and an existence bound of $\min\{m,2G\}$ commands.
+
+\begin{theorem}[Exact cap-preserving grouping frontier]\label{thm:grouping59}
+Suppose that within cap class $b$, rewards are $f_j(x)=\alpha_j+r_jx-\kappa_b x^2/2$, with $r_j\geq\kappa_b\geq0$ and strict increase on the catalog. Among prototypes of this same class-specific curvature, the minimum oscillation loss for every group allowance through $G$ can be computed by weighted-median dynamic programming in
+$O(k\log(k+1)+k^2G+q_bG^2)$ rational operations and $O(k^2+kG+q_bG)$ stored entries. This optimizes prototype selection, not the subsequent command-book search. Different expected caps are never merged.
+\end{theorem}
+\begin{proof}
+Additive constants and common curvature cancel in each difference. Thus $d(f_j,f_r)=(a_N-a_1)|r_j-r_r|$. For a fixed cap class, sort the slopes. For any chosen ordered center slopes, nearest-center regions on a line can be chosen as contiguous intervals; weights multiply their distances but do not affect the nearest-center choice for an individual point. Conversely, each interval is optimally represented by a weighted median, which can be chosen among its observed slopes. The allowed median preserves increasing concavity. Therefore an optimum has contiguous groups with observed medians.
+
+For sorted indices $1,\ldots,n_b$, let
+$C_b(i,j)=(a_N-a_1)\min_r\sum_{v=i}^j\pi_v|r_v-r|$.
+Prefix sums of weights and weighted slopes, with a median pointer that moves only forward as $j$ increases for fixed $i$, compute all interval costs in $O(n_b^2)$ operations. Define
+\[
+ F_b(t,j)=\min_{t-1\leq i<j}\{F_b(t-1,i)+C_b(i+1,j)\},
+ \quad F_b(0,0)=0,
+\]
+with other infeasible states infinite. This yields every cap-class frontier in $O(Gn_b^2)$ operations. Convolve these frontiers over cap classes, allocating at least one group to each nonempty class and at most $G$ in total. This takes $O(q_bG^2)$ operations. Backtracking yields centers and assignments. The storage bound includes interval costs and backpointers. Summing over classes gives the result. With $G<q_b$ the declared cap-preserving grouping problem is infeasible; with $G\geq k$ its loss is zero.
+\end{proof}
+
+For arbitrary reward curves the medoid formulation remains valid, but the one-dimensional dynamic program is not asserted. No statistical estimation guarantee is implicit in this calculation. The tests compare the computed frontier with exhaustive medoid choices, and the resulting loss remains in the same reward-minus-cost units as the original objective.

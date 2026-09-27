@@ -1,0 +1,20 @@
+\begin{table}[tbp]\centering\small
+\caption{Complete matched-target pipelines after certificate-price repair.}\label{tab:r22-cost}
+\begin{tabular}{lrrrrr}
+\toprule
+Method & Coarse ms & Before (\%) & After (\%) & Strict ms & After (\%)\\
+\midrule
+Dense cold & 14.302 & 100.00 & 100.00 & 25.609 & 57.81\\
+Dense previous & 13.745 & 100.00 & 100.00 & 25.527 & 56.64\\
+Lifted continuation & 7.539 & 100.00 & 100.00 & 18.941 & 58.59\\
+Tanh value & 40.443 & 0.00 & 0.00 & 40.611 & 0.00\\
+Tanh gradient & 38.503 & 0.78 & 4.69 & 39.541 & 0.00\\
+Tanh direct & 33.829 & 1.56 & 12.50 & 38.330 & 0.00\\
+Quadratic value & 33.493 & 4.30 & 17.58 & 38.489 & 0.00\\
+Quadratic gradient & 32.737 & 8.59 & 26.56 & 39.553 & 0.00\\
+Quadratic direct & 10.471 & 55.86 & 87.50 & 38.160 & 0.00\\
+RBF direct & 8.542 & 86.72 & 93.75 & 36.492 & 0.00\\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small Coarse and strict refer to final gap targets $10^{-3}$ and $10^{-5}$. Percentages are immediate passes before or after price repair, not final feasibility rates. Every returned final decision meets its requested target. Each method--target mean uses 256 complete pipelines; fallback and all audit costs are charged.\end{minipage}
+\end{table}

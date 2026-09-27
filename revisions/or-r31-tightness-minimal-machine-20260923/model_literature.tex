@@ -1,0 +1,60 @@
+\section{Service Agreements and Their Laminar Allocation Form}\label{sec:model}
+\subsection{Public primitives and accepted continuations}
+Let $G=(\mathcal V,\mathcal E)$ be a finite, rooted, acyclic public graph. Vertices include date; all are reachable. Write $N=|\mathcal V|$, $M=|\mathcal E|$, and let $p_{vw}>0$ be the exogenous probability on edge $(v,w)$, with probabilities summing to one at a nonterminal vertex. The discount factor is $0<\beta\leq1$. An occurrence $h$ is a root-to-vertex history in the finite unfolding $\mathcal T$; its public vertex is $v(h)$ and its discounted reach weight is $w_h=\beta^{t(h)}\Pr(h)>0$. Write $j\succeq h$ for a descendant, including $h$, and $H=|\mathcal T|$.
+
+At occurrence $h$ of $v$, the provider chooses a tier $x_h\in[l_v,h_v]\subseteq[0,1]$. The payment coefficient $a_v>0$ is fixed, and the operating reward is $g_v(x)=r_vx-q_vx^2/2$, with $q_v>0$. Customer utility is a publicly specified service-benefit term minus $a_vx$. For example, fixed stock $s_z$ yields
+\begin{equation}\label{eq:customer-r31}
+ u(z,s_z,x)=\nu\mathbb E\min(s_z,D_z)-a_zx,
+ \qquad a_z=r_z^{\rm premium}-\kappa\mathbb E(D_z-s_z)^+>0.
+\end{equation}
+Stock may be stipulated, or identified by the service and cost commitments in the retained stock-identification results. The customer can leave before each modeled review; the provider commits to its contingent protocol. Retaining the customer requires the conditional service benefit minus remaining payment to exceed the public outside continuation. Assume their difference is a vertex-sufficient cap $B_v$. The accepted optimization is
+\begin{align}
+ J(b_0)=\max_x\quad &\sum_{h\in\mathcal T}w_hg_{v(h)}(x_h) \label{eq:primal-r31}\\
+ \text{subject to}\quad
+ &Y_h:=\sum_{j\succeq h}\frac{w_j}{w_h}a_{v(j)}x_j\leq B_{v(h)}\quad(h\in\mathcal T),\qquad Y_0=b_0,\nonumber\\
+ &l_{v(h)}\leq x_h\leq h_{v(h)}.\nonumber
+\end{align}
+The root has a cap as well as the equality promise. No privately informed reports, endogenous termination choice, or policy-dependent transition probabilities are part of this institution. The no-switching restriction is essential to the scalar-price result; the retained general model continues to allow switching and is not replaced by \eqref{eq:primal-r31}.
+
+The feasible remaining-payment interval is computed without unfolding:
+\begin{equation}\label{eq:intervals-r31}
+ L_v=a_vl_v+\beta\sum_wp_{vw}L_w,\qquad
+ U_v=\min\left\{B_v,a_vh_v+\beta\sum_wp_{vw}U_w\right\}.
+\end{equation}
+A subtree is feasible precisely when its successors are feasible and $L_v\leq U_v$. Throughout, $b_0\in[L_0,U_0]\subseteq(-\infty,B_0]$. Convexity fills every point between the two extreme payments. Compactness gives an optimum and strict concavity gives a unique occurrence-indexed action vector.
+
+\subsection{An exact mapping, not an analogy}
+\begin{proposition}[Laminar allocation equivalence]\label{prop:laminar}
+Define $z_h=w_ha_{v(h)}x_h$. Problem~\eqref{eq:primal-r31} is exactly the separable concave allocation problem
+\begin{align}
+ \max_z\quad &\sum_h\left[\frac{r_{v(h)}}{a_{v(h)}}z_h-
+ \frac{q_{v(h)}}{2w_ha_{v(h)}^2}z_h^2\right],\label{eq:laminar}\\
+ \sum_{j\succeq h}z_j&\leq w_hB_{v(h)},\qquad \sum_jz_j=b_0,\nonumber\\
+ w_ha_{v(h)}l_{v(h)}&\leq z_h\leq w_ha_{v(h)}h_{v(h)}.\nonumber
+\end{align}
+The constrained descendant sets are laminar. The change of variables is invertible and preserves objective values and optimal policies.
+\end{proposition}
+\begin{proof}
+Substitution gives each term and row of \eqref{eq:laminar}. Two rooted descendant sets in a tree are either disjoint or one contains the other. Positivity of $w_ha_{v(h)}$ makes the coordinate map bijective and preserves every inequality direction.
+\end{proof}
+
+Thus the expanded primal lies in the tree-constrained allocation lineage of \citet{Mjelde1983} and \citet{Tang1990}. Tang reports a reduction to one-variable convex subproblems; that result is part of the inherited optimization structure, not a competitor we relabel. The chain-nested allocation results of \citet{Vidal2016,SchootUiterkamp2021,Wu2021} concern related but different input structures. A complexity bound for an ascending chain cannot simply be assigned to arbitrary branching descendant sets.
+
+After subtracting lower allocations, the packing region is a laminar polymatroid, and the exact total selects a base of its truncation (Electronic Companion, Section~\ref{ec:polymatroid}). This connects the model to \citet{FedergruenGroenevelt1986} and \citet{Groenevelt1991}. \citet{HarksKlimmPeis2018} further show that sensitivity analysis for separable optimization over integral polymatroid bases is a substantial literature in its own right. Their decision set is integral and their perturbations concern costs and polymatroid parameters; our theorem concerns a continuous quadratic accepted-service model and a complete response in one dual price. We cite that work as sensitivity lineage, not as a result to be rediscovered.
+
+\subsection{What remains after memoization and generic parametric optimization}
+An occurrence-indexed marginal reduction may represent subtree payment in the unnormalized units $z$. Its entire response is the occurrence weight times a common conditional response, proved below. Dividing by that weight makes occurrences of the same public vertex identical. Memoizing those normalized responses therefore gives our graph recursion. There is no additional stochastic obstruction or different first-order condition. We do not assert that scalar marginal allocation, subtree reduction, or memoization originated here.
+
+The closest modern parametric comparison is \citet{KlimmWarode2021}, who construct output-polynomial algorithms for separable, continuous, piecewise-quadratic parametric minimum-cost flow. Their parameter scales network demands and their feasible set is a flow polyhedron; our parameter is the price conjugate to an accepted-service payment and the unfolded feasible set is laminar allocation. A laminar problem may itself be reformulated before a parametric method is applied, so we make no priority claim for generic piecewise-affine solution paths or for output-sensitive parametric optimization. The contribution claimed here is narrower and quantitative: after quotienting repeated occurrences to the supplied public graph, all response changes are generated by local clipping events and at most one cap barrier per public vertex. This gives an at-most-$3N$ global knot universe, a matching $\Omega(N)$ family, a matching $\Omega(N^2)$ total-response family, and an explicit rational bit bound measured in the compact graph input. These conclusions are proved directly in Section~\ref{sec:quotient}.
+
+This positioning answers five distinct questions. First, the complete response is a special structured parametric convex solution map, so pathwise parametricity itself is not claimed. Second, an unfolded laminar algorithm can compute the same path, and normalized memoization yields the same recurrence. Third, the compact quotient makes the response-size bound depend on public vertices rather than occurrence histories. Fourth, the global knot and total-storage orders are shown below to be tight for polynomial-size rational instances. Fifth, the bit bound is for the explicit coefficient-event constructor and includes exact sorting and comparison cost; it is not a generic encoding theorem for every parametric solver.
+
+\subsection{Behavioral minimization and policy-graph lineage}
+The reached execution object is also connected to classical minimization. \citet{BeanBirgeSmith1987} study aggregation in dynamic programming; \citet{GivanDeanGreig2003} develop state equivalence and model minimization for MDPs; and \citet{Peyriere2023} gives a minimum-state equivalent Moore-machine construction. Our backward equality of current outputs and successor classes is an instance of that classical deterministic behavioral-minimization principle. Section~\ref{sec:memory} therefore states the reached price system as an output transducer first, applies standard minimization, and then isolates the contract-specific results: finite reachability from continuous controls, ordered contiguous behavior classes, separate writable/read-only accounting, and a linear contractual lower-bound family.
+
+Promised continuation utility is a standard recursive state in dynamic contracting \citep{SpearSrivastava1987,ThomasWorrall1988,ChenSunXiao2020}. \citet{Zhang2012} is especially relevant because it uses finite policy graphs to represent continuation contracts and payoff frontiers in an infinite-horizon adverse-selection model with Markov information. That policy graph is an approximation device for a different information and incentive problem. Our public-information model is finite horizon, has no private reports, and compiles an exact transducer for a fixed root promise. The comparison is nevertheless conceptually close: the present result can be read as an exact policy-graph compression theorem for this scalar public-information subclass.
+
+Policy-graph decomposition and stochastic decomposition already avoid naive scenario enumeration \citep{PereiraPinto1991,Girardeau2015,Dowson2020}. We compare an explicit primal promise-grid method on the public graph rather than treat the mere use of a graph as a contribution. Our exact closure depends on one scalar additive commitment and separable quadratics; general convex policy-graph decomposition has a broader domain. The supporting cuts for fixed tables are also instances of standard dual decomposition \citep{Benders1962,BoydVandenberghe2004}, not a new general finite-convergence theorem.
+
+\paragraph{Input-size convention.}
+An explicit-tree representation has $H$ local records and must at least expose those records to an occurrence-indexed implementation. Our compact representation has $N$ vertices and $M$ edges. This is an input/output comparison, not a lower bound against every algorithm that accepts a compact graph. The independent tree code is retained as an exact cross-check, not as a stand-in for the strongest classical or modern specialized solver.

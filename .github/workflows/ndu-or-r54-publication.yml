@@ -1,0 +1,94 @@
+name: NDU R54 exact price-path referee revision
+on:
+  push:
+    branches: [revision/ndu-operations-research-r54-exact-price-path-20260926]
+    paths:
+      - .github/workflows/ndu-or-r54-publication.yml
+      - revisions/or-r54-exact-price-path-20260926/**
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r54-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r54-exact-price-path-20260926'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      R: revisions/or-r54-exact-price-path-20260926
+      BRANCH: revision/ndu-operations-research-r54-exact-price-path-20260926
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Verify source transport and preserve exact reviewed readers
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          python "$R/bootstrap.py"
+          python "$R/code/assemble.py"
+          mkdir -p "$R/results"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$R"
+          git add -f "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r54): publish readable exact-path proofs and frozen reproduction source [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+      - name: Install pinned scientific dependencies
+        run: |
+          python -m pip install scipy==1.17.0 sympy==1.14.0 PyMuPDF==1.26.7
+          python -m pip freeze > "$R/results/ci_environment.txt"
+      - name: Run all declared regressions and matched-limit experiments
+        run: python "$R/code/publication.py"
+      - name: Install LaTeX and PDF rendering tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Build the complete readers and audit inherited content
+        run: |
+          python "$R/code/build.py"
+          python "$R/code/preservation.py"
+          python "$R/code/package.py"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          r=Path(os.environ['R'])
+          for name in ['BUILD_VALIDATION.json','PRESERVATION_MANIFEST.json','results/EXECUTION_AUDIT.json','results/REGRESSION.json']:
+              if json.loads((r/name).read_text()).get('status')!='PASS':
+                  raise RuntimeError('Failed publication check: '+name)
+          PY
+      - name: Push validated manuscripts, response, data and certificates
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git add "$R" main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md
+          git add -f main.pdf electronic_companion.pdf "$R/main.pdf" "$R/electronic_companion.pdf" "$R/RESPONSE_TO_REFEREES.pdf" "$R/CODE_AND_DATA.zip" "$R/predecessor/main.pdf" "$R/predecessor/electronic_companion.pdf"
+          git diff --cached --quiet || git commit -m 'revision(or-r54): publish validated OR manuscript and complete rational evidence [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          git rev-parse HEAD > "$RUNNER_TEMP/R54_PUBLISHED_COMMIT.txt"
+      - name: Preserve full referee package and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r54-referee-package
+          retention-days: 30
+          include-hidden-files: true
+          path: |
+            main.tex
+            main.pdf
+            electronic_companion.tex
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            revisions/or-r54-exact-price-path-20260926/
+            .build/r54/*.log
+            ${{ runner.temp }}/R54_PUBLISHED_COMMIT.txt

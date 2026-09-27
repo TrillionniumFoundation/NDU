@@ -1,0 +1,22 @@
+\section{Continuation participation and its rational certificate}\label{ec:interim-certificate}
+Index the regime-history decision nodes by $i$, with discounted probability $w_i>0$, parent $p(i)$, and tier $x_i$. For the root, the parent tier is the fixed $q_0$. Let $a_i$ denote its net payment rate. The interim constraints can be multiplied by the unconditional discounted probability of their root without changing their meaning. Their matrix form is
+\[
+ Cx\leq h,\qquad C_{ij}=w_ja_j\mathbf1_{\{j\text{ descends from }i\}},
+ \qquad h_i=\bar\theta\sum_{j\text{ descends from }i}w_ja_j.
+\]
+Write the reward as $W(x)=-x^\top Hx+b^\top x-c_0$. The adjustment graph contributes nonnegative squares, so $H\succeq m\operatorname{diag}(w)$. The change of variables $y_i=\sqrt{w_i}x_i$ gives a well-conditioned sparse quadratic matrix for the numerical proposal; a sparse factorization is reused in the bound-constrained dual solve. There are only $O(TN)$ nonzero continuation coefficients on an $N$-node finite tree, rather than a dense $N^2$ constraint matrix.
+
+\begin{proposition}[Weighted residual certificate]\label{prop:interim-bound}
+For any feasible $x\in[0,1]^N$, nonnegative vector $\ell$, and residual $r=b-2Hx-C^\top\ell$,
+\[
+ W^{\rm interim,*}-W(x)\leq
+ \ell^\top(h-Cx)+\sum_i\frac{r_i^2}{4mw_i}.
+\]
+All terms can be computed exactly from rational node probabilities, tier choices, and multipliers, even when a floating-point optimizer proposed them.
+\end{proposition}
+\begin{proof}
+The Lagrangian $W(y)+\ell^\top(h-Cy)$ is an upper bound on every feasible reward. Its difference from its value at $x$ is $r^\top(y-x)-(y-x)^\top H(y-x)$. Bound $H$ below by $m\operatorname{diag}(w)$ and complete each scalar square. Adding the slack term proves the result. Optimizing over all real vectors only relaxes the tier box.
+\end{proof}
+The numerical proposal is rounded down to denominator $10^9$. If a continuation budget is violated after rounding, multiply all tiers by the smallest ratio of the corresponding budget to its proposed subtree payment, then round down again. Since every $a_i$ is positive, this enforces every subtree constraint and preserves the tier box. In the recorded calculation the contraction is approximately $0.99999943$, not a material change in the policy. The proposed nonnegative dual variables are independently rounded; no stationarity claim is inferred from solver success.
+
+The resulting deterministic reward is $-5.4170322098230885$, and the exact upper-minus-lower gap is $6.948160845151524\times10^{-7}$. The tier range is approximately $[0.087564039,0.672234204]$. All 3,280 continuation inequalities, the customer root constraint, physical cost, and service are satisfied. The displayed gap includes both weighted stationarity error and complementary slackness, and does not drop the larger of the two. The JSON certificate contains every rational tier and multiplier in breadth-first tree order. A separate verifier reconstructs the tree and repeats the audit without the numerical optimizer.

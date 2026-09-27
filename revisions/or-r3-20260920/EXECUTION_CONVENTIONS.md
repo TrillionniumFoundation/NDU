@@ -1,0 +1,13 @@
+# Execution conventions fixed before R3 results
+
+The R2 protocol is executed byte-for-byte: Git blob `055cec67f297166cca69b60d92be3faeb0cb86f4`; SHA-256 `ef3b61559baa1b015a23ee06ade6e3fa4097273e09ca314559f68047f7809b5b`. No economic parameter, method, grid, seed, batch count, or fitting specification is changed.
+
+The following reporting/implementation conventions resolve details that the protocol leaves implicit. They are fixed before executing the R3 calculations.
+
+1. Time runs from 0 through 7 with zero terminal reward. All accounting components are expected discounted sums. Fill is discounted filled demand divided by discounted demand; undiscounted service counts are also retained in machine-readable output.
+2. The physical oracle minimizes only physical cost. Its physical optimum does not identify a contract. To implement the protocol's lexicographically greatest `(objective, stock, contract)` rule without choosing a favorable contract after seeing results, enumerate the same product action set and select contract 1 on physical-objective ties. Its reported net cash flow is consequently an evaluation convention, not the quantity it optimizes. The physical-cost lower bound is independent of this convention. The primary comparison is its physical cost, not that convention-dependent net cash flow.
+3. The capacity-matched gate enumerates 11 dummy labels per stock action, but the actual economic contract and next previous-contract state are both 1/2. Report duplicate gate evaluations separately from the 13 unique economic stock choices. No equality of effective action capacity is claimed.
+4. Common random numbers mean identical regime and base-demand paths across policies within each of 64 batches. Confidence intervals use the two-sided Student t quantile with 63 degrees of freedom and paired batch differences. They quantify simulation error only.
+5. Both least-squares parameterizations use identical u, xi and payoff observations; the same u and xi are reused across epsilon within a batch. There is no injected target noise, regularization, model selection or optimization stopping rule.
+6. Primary grid solutions use exhaustive exact integer-scaled rational Bellman comparisons and are checked by an independently written Fraction-based enumeration. Nested-grid calculations may eliminate stock first because the continuation and contract-adjustment terms do not depend on stock; their actual evaluation counts are reported separately.
+7. The preserved historical root manuscript and PDF are archival evidence, not the R3 submission. The final R3 root entry point and PDF will refer to the new manuscript. Historical learned-neural diagnostics are not relabeled as exact, uniform, or freshly trained results.

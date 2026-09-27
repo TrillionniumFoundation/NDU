@@ -1,0 +1,23 @@
+\section{Net reward, physical cost, and service}\label{sec:physical}
+For a policy $\pi$, let $C^\pi$ be its expected discounted physical cost and let $K^\pi$ be its expected discounted premium minus liability, maintenance, and adjustment. Its net reward is $W^\pi=K^\pi-C^\pi$. All these quantities use the same external coefficients. Let $J$ denote a net-reward-optimal joint policy, $F$ a frozen-contract policy optimized for that reward, and $O$ a physical-cost-optimal policy with the same information and admissible stock actions.
+
+\begin{theorem}[Accounting and an optimizer-based physical-cost bound]\label{thm:physical}
+For these actual policies,
+\begin{align}
+ C^F-C^J&=(W^J-W^F)-(K^J-K^F),\label{eq:identity}\\
+ 0\leq C^J-C^O&\leq K^J-K^O.\label{eq:oraclebudget}
+\end{align}
+Thus $J$ improves physical cost over $F$ exactly when its optimized net-reward gain exceeds the increase in net contract transfers. Physical-cost dominance over $O$ cannot follow from net-reward optimality. A physical oracle may have multiple contract implementations; \eqref{eq:oraclebudget} holds for any specified feasible implementation.
+\end{theorem}
+\begin{proof}
+Subtract $W=K-C$ for the two policies to obtain \eqref{eq:identity}. Physical optimality gives $C^O\leq C^J$. Net-reward optimality gives $K^J-C^J\geq K^O-C^O$, yielding the other inequality. Neither step inserts a preferred contract into the optimizing policy.\end{proof}
+
+The bound can be strengthened by choosing the net-transfer-maximizing implementation within the physical-optimal policy set. Our primary experiment does not change the previously recorded oracle implementation for this purpose: the greatest-contract tie convention selects contract one. The physical lower bound is independent of that convention, whereas the oracle's reported net cash flow is not.
+
+A positive physical gap can also be stable without assuming that all reoptimized policies remain unchanged. Suppose the same two calibrated policies are deployed under a perturbed exogenous one-step law whose total-variation distance is at most $\eta$ uniformly in regime, and physical stage cost lies in $[0,\bar C]$. Coupling exogenous histories gives
+\begin{equation}\label{eq:robust}
+ \left|(C^F-C^J)_{\rm new}-(C^F-C^J)_{\rm old}\right|
+ \leq 2\bar C\eta\sum_{t=0}^{T-1}\beta^t(t+1).
+\end{equation}
+Before a coupling failure the two copies of each fixed policy choose identical contracts and stock. The chance of failure by period $t$ is at most $(t+1)\eta$; summation proves the bound. This statement concerns deployment of the calibrated policies, not arbitrary policy reselection at a tie. The traditional critical-fractile mismatch argument is retained separately in EC.2; it is not used to attribute physical improvement to an unproved endogenous selector.
+

@@ -1,0 +1,57 @@
+\section{Local Distortion and Same-Budget Certificates}\label{sec:r45-certificates}
+The target net provides a global guarantee when fully enumerated. A complementary certificate can be evaluated with just one conditional dynamic program. Let
+\[
+ t_j^0=\min\{b_j,z\},\qquad \sum_j\pi_jt_j^0=B,
+ \qquad W_0=\sum_j\pi_jf(t_j^0).
+\]
+At $B=\bar b$ take $t^0=b$. The water level is otherwise found by sorting caps. Let $\rho_* =\min_{a_i\leq a_*}\rho_i$, where $a_*=\min\{B,\min_jb_j\}$. Feasibility guarantees that this set is nonempty.
+
+\begin{theorem}[Distortion--charge certificate]\label{thm:r45-jensen}
+For every symbol budget $s\geq1$, define
+\[
+ C_s=\min_{\substack{c\subseteq\mathcal A,\ |c|\leq s\\c_1\leq\min_jt_j^0}}
+ \left[\sum_j\pi_j\{f(t_j^0)-v_{j,c}(t_j^0)\}+R(c)\right].
+\]
+The conditional dynamic program computes $C_s=W_0-P_s(t^0)$ exactly, and
+\begin{equation}\label{eq:r45-jensen}
+ P_s(t^0)\leq\mathcal V_{s,\mathcal A}^{\tau}(B;\rho)\leq W_0-\rho_*.
+\end{equation}
+Thus $C_s-\rho_*$ is an explicit original-budget optimality-gap certificate. Any other valid upper bound for that budget can replace the right-hand side by its minimum with $W_0-\rho_*$. A larger-budget policy value is not such an upper bound.
+\end{theorem}
+\begin{proof}
+For any policy, $\E C_j\leq t_j$ and Jensen's inequality and monotonicity give $\E f(C_j)-h_j(y_j)\leq f(t_j)$. Maximizing the sum of these ideal rewards under the root equality and caps gives $t^0$: their marginal rewards are equal on uncapped branches, and weakly larger on capped branches. This remains an optimum when $f$ is not strictly concave. Every feasible nonempty book contains a level at most $a_*$ and pays at least $\rho_*$. Hence its net value is at most $W_0-\rho_*$. Conversely, the conditional optimal policy at $t^0$ is feasible at budget $s$. Finally, minimizing the displayed distortion plus charge is exactly the conditional objective subtracted from $W_0$.
+\end{proof}
+
+The certificate remains valid with nonuniform or large fees, because those fees are optimized rather than charged after an uncontrolled expansion. It can still be loose: $C_s$ includes unavoidable finite-memory distortion, the cost of the selected levels, and any loss caused by fixing $t^0$. We report its numerical size instead of asserting that it is uniformly small relative to the optimum. A multiplicative guarantee is particularly inappropriate when the optimal net payoff is zero or negative.
+
+\subsection{Local errors, adaptive candidates, and constructive rates}
+For a twice differentiable $f$, suppose $-f''\leq M_{uv}$ on $[u,v]$. If an eligible pair brackets a target $t$, its interpolation error satisfies
+\begin{equation}\label{eq:r45-local}
+ 0\leq f(t)-\left[f(u)+\frac{t-u}{v-u}(f(v)-f(u))\right]
+ \leq\frac{M_{uv}}2(t-u)(v-t).
+\end{equation}
+This follows by comparing $f$ with its chord plus $M_{uv}(t-u)(v-t)/2$, whose difference has nonnegative second derivative and zero endpoint values. If the next selected level is ineligible or no upper level exists, the exact local deficit is
+\begin{equation}\label{eq:r45-shortfall}
+ f(t)-f(u)+h_j(t-u),
+\end{equation}
+not a second-order chord error. Summing these local quantities with the actual selected-level charges yields $C_s$ for the chosen book. A piecewise curvature majorant can also be placed directly in the target-crossing recurrence to minimize a certified distortion bound. It must retain the first-order expression \eqref{eq:r45-shortfall} on ineligible edges.
+
+An adaptive candidate pool can include ideal target values and refine intervals that matter for \eqref{eq:r45-local}--\eqref{eq:r45-shortfall}. The resulting certificate is evaluated from the final pool and policy. We make no uniform convergence-rate claim for the greedy midpoint refinement used in the experiments. In particular, adding a level just above an eligibility threshold need not help the affected branch. Candidate selection and the exact optimization over those candidates are distinct tasks.
+
+\begin{proposition}[Original-budget comparison books]\label{prop:r45-rates}
+Let $m\geq2$, $h=1/(m-1)$, and suppose the catalog contains the uniform $m$-point book $G=\{0,h,\ldots,1\}$. With zero charges, the conditional policy at $t^0$ satisfies
+\begin{align}
+ \mathcal V_{m,\mathcal A}^{\tau}(B;0)-P_m(t^0)
+ &\leq L_fh+\sum_j\pi_jh_j(h),\label{eq:r45-linear}\\
+ \mathcal V_{m,\mathcal A}^{\tau}(B;0)-P_m(t^0)
+ &\leq Mh^2/8
+ \quad\hbox{if }\min_j(\tau_j-b_j)\geq h
+ \hbox{ and }-f''\leq M.\label{eq:r45-quadratic}
+\end{align}
+In \eqref{eq:r45-linear}, $h_j(h)$ may be replaced by $h_j(\min\{h,b_j\})$ if costs are defined only on $[0,b_j]$. The same bounds hold relative to the uncharged \emph{continuous} $m$-level optimum. With charges, adding $R(G)-\rho_*$ to the right-hand side gives the corresponding catalog comparison. If the distinct ideal targets are themselves available and number at most $m$, the uncharged policy attains $W_0$ and is globally optimal, for any realization headroom.
+\end{proposition}
+\begin{proof}
+At each target, round its terminal level down to the nearest point of $G$ and supply the difference before execution. The difference is at most $h$, the target and root promise are unchanged, and every realized total equals the target, hence is no larger than $b_j$. This proves \eqref{eq:r45-linear} by comparison with $W_0$. Under the headroom assumption the upper neighbor is no higher than $t_j^0+h\leq b_j+h\leq\tau_j$, so the adjacent unbiased lottery is feasible with no intermediate service. Apply \eqref{eq:r45-local} and $(t-u)(v-t)\leq h^2/4$. The conditional optimum on the whole catalog is no worse than either comparison policy. Since $W_0$ also bounds continuous design, the continuous comparison follows. With fees, the comparison book pays $R(G)$ while the catalog upper bound subtracts $\rho_*$. Finally, installing the distinct ideal targets realizes them deterministically with no intermediate service, attaining the ideal upper bound.
+\end{proof}
+
+These are explicit same-budget guarantees, not claims that uniform catalogs are always efficient. Their approximation parameter is the number of installed symbols, whereas Theorem~\ref{thm:r45-net} controls computational accuracy at a fixed symbol budget. The local certificate and the direct continuous comparisons below distinguish the two effects. In particular, driving a price tolerance to zero cannot remove finite-catalog distortion or the original-budget price gap.

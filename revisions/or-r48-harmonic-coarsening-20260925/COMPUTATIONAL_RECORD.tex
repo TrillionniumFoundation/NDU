@@ -1,0 +1,40 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r48-main-labels}[../../main.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Harmonic Coarsening and Certified Joint Design},pdfauthor={Anonymous}}
+\renewcommand{\thesection}{CR.\arabic{section}}
+\renewcommand{\theequation}{CR.\arabic{equation}}
+\renewcommand{\thetable}{CR.\arabic{table}}
+
+\externaldocument{r48-ec-labels}[../../electronic_companion.pdf]
+\begin{document}
+\begin{center}{\Large\bfseries Computational Reproduction Record}\end{center}
+This repository record preserves the complete R46 and R47 computational narratives and implementation protocols, and supplies all R48 per-instance metrics. Mathematical statements and proofs remain in the current article and electronic companion. Antecedent measurements are not relabeled as new runs.
+\input{revisions/or-r46-box-decomposition-20260925/study.tex}
+\input{revisions/or-r46-box-decomposition-20260925/protocol.tex}
+\input{revisions/or-r47-joint-certificates-20260925/study.tex}
+\clearpage\input{revisions/or-r48-harmonic-coarsening-20260925/generated/references.tex}
+\clearpage\input{revisions/or-r48-harmonic-coarsening-20260925/generated/detailed_tables.tex}
+\end{document}

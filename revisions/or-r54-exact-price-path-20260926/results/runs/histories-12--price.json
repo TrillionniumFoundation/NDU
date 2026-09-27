@@ -1,0 +1,66 @@
+{
+  "id": "histories-12",
+  "method": "price",
+  "instance_sha256": "763667493105b2180319a8ce8434ac92a9e12cd7b3fe9826bb6207445e3f9569",
+  "epsilon": "1/1000",
+  "setup_seconds": 0.004963493999980528,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "TOLERANCE",
+  "lower": "59867/103500",
+  "upper": "95809/165600",
+  "gap": "109/828000",
+  "seconds": 0.04246542299998168,
+  "nodes": 1,
+  "oracle_calls": 3,
+  "trace": [
+    {
+      "seconds": 0.017847036000006256,
+      "lower": "151526547841/286467300000",
+      "upper": "691197049/1190250000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.030888723000003893,
+      "lower": "37753/66240",
+      "upper": "691197049/1190250000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.04207152699999028,
+      "lower": "59867/103500",
+      "upper": "95809/165600",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.04212278299999639,
+      "lower": "59867/103500",
+      "upper": "95809/165600",
+      "nodes": 1,
+      "oracle_calls": 3
+    }
+  ],
+  "algorithm_seconds": 0.04319019700000126,
+  "algorithm_peak_rss_kib": 27652,
+  "certificate": "certificates/histories-12--price.json.gz",
+  "certificate_bytes": 657,
+  "uncompressed_certificate_bytes": 1745,
+  "verification": {
+    "status": "PASS",
+    "lower": "59867/103500",
+    "upper": "95809/165600",
+    "gap": "109/828000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.014364739000001236,
+    "instance_sha256": "763667493105b2180319a8ce8434ac92a9e12cd7b3fe9826bb6207445e3f9569"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.014403400999981386,
+  "process_peak_rss_kib": 27652
+}

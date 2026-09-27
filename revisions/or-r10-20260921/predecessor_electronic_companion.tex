@@ -1,0 +1,58 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Electronic Companion}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning},pdfauthor={Anonymous}}
+
+\externaldocument{main-labels}[main.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\theequation}{EC.\arabic{equation}}
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion\par}\medskip
+{\large Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning\par}\medskip
+Revision R7, September 21, 2026
+\end{center}
+This companion supplies the continuation-participation certificate, the complete robustness and learning diagnostics, and the preserved scientific material from earlier revisions. Historical sections retain their original computations and evidence scope; they are not pooled with the new accepted comparisons. The current manuscript and this companion are self-contained for the new results. All prior revision directories and the reviewed sources remain in the repository.
+\input{revisions/or-r7-20260921/sections/interim_certificate.tex}
+\input{revisions/or-r7-20260921/sections/diagnostics.tex}
+\input{revisions/or-r7-20260921/sections/retained_ec_front.tex}
+\input{revisions/or-r6-20260921/sections/operational_continuous.tex}
+\input{revisions/or-r7-20260921/sections/legacy_study.tex}
+\input{revisions/or-r6-20260921/sections/retained_history.tex}
+\input{revisions/or-r6-20260921/sections/retained_diffusion.tex}
+\input{revisions/or-r6-20260921/sections/retained_study.tex}
+\clearpage
+\input{revisions/or-r4-20260920/tables.tex}
+\clearpage
+\input{revisions/or-r7-20260921/sections/references.tex}
+\end{document}

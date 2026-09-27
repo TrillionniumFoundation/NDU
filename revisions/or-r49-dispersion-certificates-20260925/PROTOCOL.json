@@ -1,0 +1,47 @@
+{
+  "revision": "R49",
+  "scientific_parent": "939cce84881a1d1eabf93aa3a2d3f4f4417ce53f",
+  "review_commit": "260a5224c55e0326d9da7f0c813b4a3fcab7671f",
+  "study_scope": "Declared synthetic structural study, not independently calibrated operational data or a held-out application.",
+  "paired_cases": "All 24 immutable R48 cases, identical model, catalog, charges, promise and budget. Historical R48 values and times remain identified as historical; they are not fresh matched-machine timings.",
+  "paired_epsilon": "1/1000",
+  "paired_node_limit": 31,
+  "price_steps": 4,
+  "additional_common_eligibility": {
+    "histories": [16, 64, 256, 1024],
+    "catalog_sizes": [9, 17],
+    "seeds": [49400, 49401],
+    "budget": 3,
+    "epsilon": "0",
+    "node_limit": 1,
+    "caps": "1/10 + 4(j+1)/(5(k+1))",
+    "curvatures": "(j mod 7)^2 / 3, including zero",
+    "weights": "independent integers 1..5 from the specified seed, normalized exactly",
+    "charges": "independent integers 0..6 divided by 100 from the specified seed",
+    "promise": "9/10 of the aggregate cap",
+    "ceiling": "1"
+  },
+  "eligibility_stress": {
+    "seeds": [49500, 49501, 49502, 49503, 49504, 49505],
+    "histories": 12,
+    "catalog_size": 9,
+    "budget": 3,
+    "caps": "integers 1..9 divided by 10",
+    "curvatures": "integers 0..16 divided by 4",
+    "ceilings": "min(1, cap + an integer 0..5 divided by 10)",
+    "weights": "integers 1..5 normalized exactly",
+    "charges": "integers 0..4 divided by 50",
+    "promise": "aggregate cap times an integer 1..10 divided by 10",
+    "epsilon": ["1/100", "1/1000"],
+    "node_limits": [31, 127],
+    "exact_reference": "all books of size at most 3"
+  },
+  "independent_mip": {
+    "cases": "paired case-00 through case-11 plus all six eligibility-stress instances",
+    "envelopes": ["tangent", "secant"],
+    "segments": 32,
+    "seconds_per_solve": 3,
+    "record": "status, wall time, node count, solver gap, envelope error and numerical bracket, including every time limit"
+  },
+  "reporting": "Retain every specified case. Record exact rational lower/upper bounds, unresolved intervals, original-space policy, complete cover, pooling primal-dual witnesses, independent check time, certificate hash and measured toolchain. Freeze this protocol before the study run; test-only examples are separate."
+}

@@ -1,0 +1,87 @@
+{
+  "id": "histories-192",
+  "method": "price",
+  "instance_sha256": "423a307b29178b76a945cc9a427be16bcfcfa2dc98c5fa3f1d0bd908638a6ade",
+  "epsilon": "1/1000",
+  "setup_seconds": 0.008785555000002887,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "TOLERANCE",
+  "lower": "71974511/106992000",
+  "upper": "72049091/106992000",
+  "gap": "1243/1783200",
+  "seconds": 0.8698022229999935,
+  "nodes": 1,
+  "oracle_calls": 6,
+  "trace": [
+    {
+      "seconds": 0.22196136099998398,
+      "lower": "426706884164561/694104358800000",
+      "upper": "6714356146643/9936882000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.372392308000002,
+      "lower": "1989743/2972000",
+      "upper": "6714356146643/9936882000000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.4962273049999908,
+      "lower": "7170383/10699200",
+      "upper": "6714356146643/9936882000000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.6176110719999883,
+      "lower": "7170383/10699200",
+      "upper": "6714356146643/9936882000000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.7414001829999961,
+      "lower": "71974511/106992000",
+      "upper": "6714356146643/9936882000000",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.8673942639999837,
+      "lower": "71974511/106992000",
+      "upper": "72049091/106992000",
+      "nodes": 1,
+      "oracle_calls": 6
+    },
+    {
+      "seconds": 0.8674520409999786,
+      "lower": "71974511/106992000",
+      "upper": "72049091/106992000",
+      "nodes": 1,
+      "oracle_calls": 6
+    }
+  ],
+  "algorithm_seconds": 0.8768530959999907,
+  "algorithm_peak_rss_kib": 27652,
+  "certificate": "certificates/histories-192--price.json.gz",
+  "certificate_bytes": 2106,
+  "uncompressed_certificate_bytes": 13948,
+  "verification": {
+    "status": "PASS",
+    "lower": "71974511/106992000",
+    "upper": "72049091/106992000",
+    "gap": "1243/1783200",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.13229898099999104,
+    "instance_sha256": "423a307b29178b76a945cc9a427be16bcfcfa2dc98c5fa3f1d0bd908638a6ade"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.1324334219999912,
+  "process_peak_rss_kib": 27652
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "cases": 12,
+  "all_exact_values_preserved": true,
+  "regression": {
+    "status": "PASS",
+    "models": 120,
+    "capacity_identities": 2332,
+    "context_envelopes": 542,
+    "pointwise_deletion_checks": 129448,
+    "exhaustive_equalities": 120,
+    "screened_commands": 149,
+    "transfer_certificates": 20,
+    "rejected_corruptions": [
+      "unknown schema",
+      "false bound",
+      "false charge",
+      "false strictness",
+      "anchor removal",
+      "omitted deletion",
+      "duplicate deletion",
+      "false original digest",
+      "different requested instance",
+      "changed retained charge",
+      "changed root promise",
+      "changed upper bound",
+      "missing Bellman coverage",
+      "bad lottery mass"
+    ],
+    "equality_case": "Both optimal books may exist; a retained optimum is certified",
+    "zero_cap_zero_promise": "PASS",
+    "seconds": 9.97157152800014
+  },
+  "seconds": 11.368581106999954,
+  "python": "3.13.5 (main, Jun 12 2025, 03:51:07) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "note": "Finite synthetic validation; inherited R52 timings and results are not overwritten."
+}

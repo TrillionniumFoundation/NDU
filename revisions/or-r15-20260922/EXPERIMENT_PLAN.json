@@ -1,0 +1,57 @@
+{
+  "revision": "R15",
+  "review_branch": "review/operation-research-r14-harsh-20260922",
+  "review_sha": "d4b3d13fc3798ef4f474fe4e4cdf0e66b8910462",
+  "scientific_parent": "f34badb1acecd7eaebbb483b32688c77568f88a1",
+  "status": "Committed before implementation, new training, and new outcome inspection. Numerical debugging on nonstudy seeds is permitted and will be labeled; any protocol amendments must be separately timestamped and disclosed.",
+  "primary_study": {
+    "model": "Accepted multistage quadratic service control with nonsmooth tree switching, two service coordinates, six coupled resource channels, nonconstant outside protocol, node boundaries and additional capacity rows. No single-price star reduction.",
+    "nodes": 63,
+    "service_coordinates": 2,
+    "resource_rank": 6,
+    "primitive_seed": 15001,
+    "training_seeds": [15011,15012,15013,15014,15015,15016,15017,15018],
+    "training_contexts_per_seed": 256,
+    "deployment_seeds": [15111,15112,15113,15114,15115,15116,15117,15118],
+    "deployment_contexts_per_seed": 256,
+    "context": "Six independent resource-reward shifts uniformly on the integer grid [-16,16]/16 and positive switching friction uniformly on [2,32]/64. Exact primitive generation is committed in executable sources before study execution.",
+    "models": ["scalar tanh random-feature value critic", "same scalar critic with value-and-resource-gradient labels", "direct-price tanh random-feature regression", "quadratic value response surface", "quadratic value-and-gradient response surface", "direct quadratic price regression", "direct cubic radial-basis price interpolation"],
+    "random_features": 192,
+    "feature_scale": 1.0,
+    "ridge": 1e-7,
+    "gradient_loss_weight": 1.0,
+    "selection_rule": "None. Retain all eight independent fits and their independently generated deployment cohorts. No seed or method selection using deployment results.",
+    "primary_endpoint": "Paired cohort-mean unrefined regret, gradient-supervised minus value-only neural critic; training/cohort pair is the replication unit.",
+    "secondary_endpoints": ["direct-price and non-neural regret", "certificate gap", "gate activation", "acceptance and box feasibility", "switching signs and kinks", "capacity-binding strata", "complete certified latency", "offline amortization"],
+    "certificate_tolerances": [0.001,0.00001],
+    "timing_contexts": 32,
+    "timing_repetitions": 3,
+    "classical_baselines": ["cached OSQP full problem, cold iterates", "cached OSQP full problem, previous-context warm start", "cached base-response solver with predicted resource prices"],
+    "timing_rule": "Charge prediction, feasible repair, dual certificate, and every actual fallback solve and second audit. Record setup and label/fitting costs separately. Certification is identical across learned and classical candidates. No speed claim unless complete measured pipeline supports it."
+  },
+  "structural_and_stress_tests": {
+    "seeds": [15201,15202,15203,15204],
+    "tree_nodes": [15,31,63,127],
+    "resource_ranks": [2,4,6,8],
+    "scope": "Independent heterogeneous primitives, vector decisions, nonconstant comparators, endogenous switching signs, multiple capacities; arbitrary-price certificate and derivative-response identities, with small-instance independent optimization cross-checks."
+  },
+  "star_reassessment": {
+    "source": "Unchanged R14 accepted-star primitives and exact structural solvers",
+    "training_seeds": [15311,15312,15313,15314],
+    "training_contexts_per_seed": 512,
+    "test_seed": 15399,
+    "contexts_per_stratum": 128,
+    "strata": ["original R14 distribution", "critical friction ratios spanning 0.9 to 1.1", "high resource rewards activating root capacity", "primitive perturbations"],
+    "baselines": ["value and value-gradient tanh critics", "direct-price tanh regression", "quadratic and cubic value surfaces", "direct quadratic price regression", "cubic radial-basis price interpolation", "exact Newton and Brent"],
+    "report": "Preserve all strata, zero-gain cases, unfavorable seeds and original R14 observations. Report nearest breakpoint, active/saturated leaves, root binding, gate activation, unrefined regret and certification rates."
+  },
+  "inference": {
+    "family_error_probability": 0.05,
+    "paired_intervals": "Student intervals across independent training/deployment pairs; explicitly state the approximate distributional interpretation and separate from exact certificate validity.",
+    "frozen_policy_bounds": "Simultaneous bounded-variable bounds conditional on all fitted policies using genuinely untouched deployment contexts; disclose any vacuous lower bound. Use deterministic analytic range bounds, not empirical maxima.",
+    "procedure_claim": "Do not conflate conditional frozen-policy guarantees with distribution-free reliability over training randomness. Repeated-train cohort results directly measure both sources of variability.",
+    "provenance": "R14 seed-14999 validation is held-out internal validation, not externally preregistered validation. R15 uses this prior remote protocol commit."
+  },
+  "preservation": "No predecessor scientific source, observation or review will be deleted. Exact R14 root files are snapshotted; relocations have a mapping. Main and review branches remain unchanged.",
+  "publication": "Ordinary TeX, runnable sources, generated tables and raw outcomes, compiled main and companion manuscripts, point-by-point R14 response, checksums, and a read-only validation check on the final reviewable commit."
+}

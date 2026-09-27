@@ -1,0 +1,23 @@
+name: NDU OR R8 validation
+on:
+  push:
+    branches: ['revision/ndu-operations-research-r8-20260921']
+    paths: ['.github/workflows/ndu-or-r8-validation.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export immutable reviewed sources
+        run: |
+          mkdir -p /tmp/ndu-r8-source
+          git archive --format=tar HEAD > /tmp/ndu-r8-source/repository.tar
+          git rev-parse HEAD > /tmp/ndu-r8-source/SOURCE_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r8-reviewed-source
+          path: /tmp/ndu-r8-source/
+          retention-days: 14

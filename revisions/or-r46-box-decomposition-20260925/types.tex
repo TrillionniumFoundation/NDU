@@ -1,0 +1,20 @@
+\section{Response Types and the Complexity Map}\label{sec:r46-types}
+Write $P_m(B)=\mathcal V_{m,\mathcal A}^{\tau}(B;\rho)$ and $R(c)=\sum_{a_i\in c}\rho_i$. All results in this section concern a fixed finite catalog $\mathcal A=(a_1<\cdots<a_N)$. A response type consists of a cap, a shortfall cost function, and an eligible catalog prefix. Let $d$ denote the number of such types; this is distinct from the quadratic reward-curvature parameter $q$ in the continuous-design appendix.
+
+\begin{proposition}[Exact response-type reduction]\label{prop:r46-types}
+Partition branches into groups with the same $b_j$, the same $h_j$ on $[0,b_j]$, and the same set $\mathcal A\cap[0,\tau_j]$. Replace each group by one branch whose weight is the sum of its weights and whose ceiling is the minimum of its ceilings. The reduced and original joint catalog problems have the same optimum at every feasible $B$ and every budget $m$. A reduced solution lifts by assigning its target and canonical lottery to every branch in its group.
+\end{proposition}
+\begin{proof}
+Every book is a subset of $\mathcal A$. Group members therefore have exactly the same eligible book and the same concave response $v_c$. For a group of total weight $w$, replace its targets by their weighted average $\bar t$. This preserves its contribution to the root equality, keeps the average between the common anchor and cap, and gives
+$w v_c(\bar t)\geq\sum_{j\text{ in group}}\pi_jv_c(t_j)$.
+Neither the book nor its charge changes. Conversely, the common reduced target and its canonical realization satisfy every original ceiling because the eligible catalog prefix is unchanged. The two feasible mappings prove equality of optimal values.
+\end{proof}
+The common-ceiling homogeneous aggregation argument already appears in the retained continuous analysis. The present statement uses catalog-prefix equivalence and permits distinct numerical ceilings. Equal caps alone do not suffice when either the cost or eligible prefix differs. Forming rational quadratic signatures by binary searching the ordered catalog takes $O(k\log N)$ prefix comparisons, plus grouping and output work. With hashing, grouping uses expected linear dictionary operations; comparison-based sorting instead adds $O(k\log k)$ comparisons. General cost-function equality requires a supplied exact representation or a verified type partition.
+
+\begin{proposition}[Positive complexity regimes]\label{prop:r46-complexity}
+For rational quadratic primitives: (i) one response type or $B=\bar b$ is solved by one invocation of Theorem~\ref{thm:r45-frontier}; (ii) for every fixed $m$, exact joint catalog design is polynomial in $N$, $k$, and input bit length by enumerating at most $\sum_{s=1}^{m}\binom Ns$ books and applying the fixed-book allocator; and (iii) the adaptive method below has polynomial work per price per node and a finite additive scheme in dimension $d-1$.
+\end{proposition}
+\begin{proof}
+With one type the root equality fixes its target. At saturation positive weights force every target to its cap. For a specified book the concave allocation and its supporting-price certificate are polynomial for rational quadratic data, so enumerating the stated finite collection proves (ii). Theorems~\ref{thm:r46-box} and~\ref{thm:r46-adaptive} prove (iii).
+\end{proof}
+Enumeration is an XP bound in $m$, not a fixed-parameter bound of the form $F(m)N^c$ with a uniform exponent. A hardness assertion with a fixed small $m$ would contradict (ii) unless P equals NP. We establish neither general NP-hardness nor a polynomial-time algorithm when both $m$ and the number of distinct types vary. The additive scheme below remains exponential in $d$ in its worst case. This map distinguishes proved upper bounds from unresolved lower bounds rather than treating the earlier grid's dimension as an intrinsic impossibility.

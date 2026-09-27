@@ -1,0 +1,38 @@
+\subsection{A certified cache-governance rule}\label{sec:governance}
+The global bound in Theorem~\ref{thm:r27-cache} remains valid when its favorable priced face changes. Its quadratic-loss clause is not a license to trust a stale cache. The following rule uses only audited feasible witnesses and the actual query coefficients.
+\begin{proposition}[Quality and refresh certificate]\label{prop:governance}
+Let $U=\min_aU_\theta(a)$ be the cached comparator upper bound, and let $z^w\in Y_\theta$ be any independently audited restricted witness. Then
+\[
+ 0\leq U-K_\theta\leq U-W_\theta(z^w).
+\]
+Thus a computed width at most $\varepsilon$ certifies cache quality without knowing the query optimizer. Otherwise the controller must refresh the price/witness pair or declare the requested tolerance uncertified. Failure of this sufficient test does not prove that the cache is inaccurate. Deployment additionally requires an audited full-class policy and $W_\theta(\widehat x)-U$ above the required net improvement.
+\end{proposition}
+The width is the exact four-term decomposition in Theorem~\ref{thm:r27-cache} at $z^w$. A repaired cached table or a feasible state policy from Theorem~\ref{thm:bridge} can provide the witness; a repair is not credited as a fresh optimized comparator. No empirical price is interpreted as a directional derivative at degeneracy.
+
+A stronger face test is also available. Store an independent active equality basis, its switching signs, and the exact-anchor prices. At a query, solve only the equality-constrained KKT linear system on that face, then verify \emph{all} primal inequalities, dual signs, switching tensions, and complementarity against the query model. If these checks pass, convex optimality certifies the query restricted optimum; the additional cached-face conditions in Theorem~\ref{thm:r27-cache} then certify its quadratic bound. A nonsingular factorization can be reused only when its coefficient matrix is unchanged. Otherwise factorization and verification are additional costs, not constant-time cache lookups. EC Section~\ref{ec:governance} gives the system and the complete accounting.
+
+\subsection{Uniform certificates for a declared adaptive policy}\label{sec:adaptiveuniform}
+The preceding uniform corollary concerns a fixed policy. To certify an actual adaptive deployment map, partition its parameter domain into simplices and declare $\widehat x(\theta)$ affine on each simplex. Assume every restricted query set is nonempty, the common box and quadratic/switching geometry stay fixed, and $A_\theta,b_\theta,F_\theta,f_\theta,p_\theta,c_\theta,\lambda_\theta$ are affine, with $\lambda_\theta\geq0$. Write $E_\theta x=e_\theta$ for the full-class equalities; $F_\theta x=f_\theta$ additionally includes the comparator restriction. The accepted equalities are affine too. The deployed policy is audited against $(A_\theta,b_\theta,E_\theta,e_\theta)$, not against comparator-only pooling rows. Feasibility must hold throughout each cell, not only at sampled queries.
+\begin{proposition}[Adaptive, correlation-preserving cell certificate]\label{prop:adaptiveuniform}
+Let the vertices of a simplex be $v_i$, with policy values $x_i=\widehat x(v_i)$. A sufficient condition for $A_\theta\widehat x(\theta)\leq b_\theta$ throughout the simplex is componentwise nonnegativity of all coefficients
+\begin{equation}\label{eq:bernsteinfeas}
+ B_{ii}=b_i-A_ix_i,\qquad
+ B_{ij}=\tfrac12(b_i+b_j-A_ix_j-A_jx_i)\quad(i<j).
+\end{equation}
+Apply the same formula to the accepted equalities $(E_\theta,e_\theta)$ and require every coefficient to be zero; box feasibility is vertex-checkable. Refine cells at switching-sign hyperplanes. For a cached price $a$, define the quadratic polynomial
+\[
+ f_a(\theta)=W_\theta(\widehat x(\theta))-\sum_i\lambda_i(\theta)U_{v_i}(a),
+\]
+where the $\lambda_i(\theta)$ in this display are barycentric weights, not friction scales. Its quadratic Bernstein coefficients are
+\[
+ g_{ii,a}=f_a(v_i),\qquad
+ g_{ij,a}=2f_a((v_i+v_j)/2)-\tfrac12[f_a(v_i)+f_a(v_j)].
+\]
+If every cell passes the feasibility test, a uniform gain lower bound is
+\begin{equation}\label{eq:adaptivegain}
+ \inf_\theta\{W_\theta(\widehat x(\theta))-K_\theta\}
+ \geq \min_{\text{cells}}\max_a\min_{i\leq j}g_{ij,a}.
+\end{equation}
+The guarantee includes the interior of every cell and the prescribed boundary policy. Discontinuous piecewise policies require a declared boundary assignment and a certificate for each assigned piece.
+\end{proposition}
+The proof expands the correlated products in the nonnegative Bernstein basis. Convexity of $U_\theta(a)$ puts it below its vertex chord; the Bernstein minimum bounds the remaining quadratic. Checking only vertices of $A_\theta\widehat x(\theta)$ is false in general. For example, $A_\theta=\theta$, $\widehat x(\theta)=1-\theta$, $b_\theta=0$ passes both endpoint checks but violates the constraint in the interior. The off-diagonal coefficient in \eqref{eq:bernsteinfeas} is $-1/2$ and rejects it. EC Section~\ref{ec:adaptiveuniform} proves the result and gives a nonconstant, uniformly feasible policy with certified gain $9/1024$ under jointly changing rewards, a continuation coefficient, and friction scale.

@@ -1,0 +1,56 @@
+\section{Certificate structure and fixed-decision price repair}\label{sec:r22-certification}
+A response can have a small objective loss and a loose certificate, or a tight certificate for a poor proposal. These cases require different computational actions. We separate them on the quadratic instance of Section~\ref{sec:r19-bridge}, retaining the entire accepted polyhedron. Write
+$r=b_h-U^\top p-B^\top s-A^\top\mu-E^\top\nu$ and let $\mathcal U$ be the conjugate upper bound defined there. Prices are dual-feasible when $|s_j|\leq\lambda\kappa_j$ and $\mu\geq0$; $p$ and $\nu$ are unrestricted. The implemented decision must satisfy all equalities exactly. A small equality residual is not silently discarded.
+
+\begin{theorem}[Certificate components and an irreducible price-repair floor]\label{thm:r22-decomposition}
+For every feasible $y$ and every dual-feasible $(p,s,\mu,\nu)$,
+\begin{align}
+ \mathcal U-F_h(y)
+ ={}&\underbrace{\sum_i\{q_i(y_i)+q_i^*(r_i)-r_iy_i\}}_{G_{\rm box}}
+ +\underbrace{\tfrac12\|p-Uy\|^2}_{G_{\rm resource}}\nonumber\\
+ &+\underbrace{\sum_j\{\lambda\kappa_j|(By+v)_j|-s_j(By+v)_j\}}_{G_{\rm switch}}
+ +\underbrace{\mu^\top(a-Ay)}_{G_{\rm acceptance}}.\label{eq:r22-components}
+\end{align}
+All four terms are nonnegative. If a rational audit rounds the conjugates outward and reports $\mathcal U^+=\mathcal U+\rho$, the reported gap has the additional, explicitly nonnegative remainder $\rho$. At fixed $y,s,\mu$, every choice of resource and equality prices therefore has gap at least
+$G_{\rm switch}+G_{\rm acceptance}$, and at least the true regret $J(h)-F_h(y)$. Any feasible reference $w$ supplies the computable regret lower bound $F_h(w)-F_h(y)$. If this bound or $G_{\rm switch}+G_{\rm acceptance}$ exceeds the requested tolerance, changing only $p,\nu$ cannot certify that decision at that tolerance.
+\end{theorem}
+\begin{proof}
+Expand the objective and conjugate bound, add and subtract $r^\top y$, and use $Ey=0$. The terms involving $p$ complete the square; those involving $s$ combine with the original, untranslated switching argument $By+v$. The remaining inequality-price term is $\mu^\top(a-Ay)$. Fenchel's inequality proves nonnegativity of the box terms; the tension bounds and primal inequality feasibility prove the other assertions. Weak duality supplies the true-regret lower bound. Outward rounding changes only $\rho$, not the decision or its exact objective.
+\end{proof}
+The decomposition is an explicit Fenchel-gap accounting identity, not a new general duality principle \citep{BoydVandenberghe2004}. Its accepted-control use is an actionable distinction between resource-price error and unrepaired switching or participation slack. Applying the identity after an outside or benchmark gate requires the \emph{selected} decision; the ungated proposal's decomposition is not its substitute. Our records retain the proposal, and the independent verifier recomputes every gate from its exact objective.
+
+\begin{proposition}[Small-dimensional monotone certificate repair]\label{prop:r22-polishing}
+Fix feasible $y$, feasible tensions $s$, and nonnegative $\mu$. Put $c=b_h-B^\top s-A^\top\mu$ and
+\[
+ Q(p,\nu)=\sum_iq_i^*(c_i-(U^\top p+E^\top\nu)_i)+\tfrac12\|p\|^2.
+\]
+This is a continuously differentiable convex function. With
+$z_i=\operatorname{clip}_{[\ell_i,\bar u_i]}((c_i-(U^\top p+E^\top\nu)_i)/d_i)$,
+\begin{equation}\label{eq:r22-polishgradient}
+ \nabla Q(p,\nu)=(p-Uz,-Ez).
+\end{equation}
+A zero gradient is sufficient for a globally minimal upper bound among these prices. On a region with unclipped index set $I$, a generalized Hessian is
+\begin{equation}\label{eq:r22-polishhessian}
+ \begin{pmatrix}
+ I_r+U_ID_I^{-1}U_I^\top&U_ID_I^{-1}E_I^\top\\
+ E_ID_I^{-1}U_I^\top&E_ID_I^{-1}E_I^\top
+ \end{pmatrix}.
+\end{equation}
+If zero is interior to the box and $E$ has full row rank, a minimizer exists. Irrespective of these additional attainment conditions, accepting a numerical price proposal only when its rational upper bound is no larger than the stored bound gives a monotone certificate sequence while leaving the decision, commitments, switching tensions, and inequality prices unchanged.
+\end{proposition}
+\begin{proof}
+The maximizer defining each $q_i^*$ is the displayed clipped scalar and is unique because $d_i>0$. Differentiation gives \eqref{eq:r22-polishgradient}; differentiating the free scalar coordinates gives \eqref{eq:r22-polishhessian}, with limiting selections at clipping points. Convexity makes stationarity sufficient. For attainment, the box contains a ball about zero, so its conjugate dominates a positive multiple of $\|c-U^\top p-E^\top\nu\|$ minus a constant. The quadratic term controls $p$; full row rank then controls $\nu$. Thus sublevel sets are bounded. Finally, any proposed $p,\nu$ remains dual-feasible. Comparing outward rational bounds, rather than trusting a floating-point descent test, proves the last assertion.
+\end{proof}
+The proposed repair uses at most twelve damped Newton steps in the resource-plus-equality dimension, with a descent fallback and a retained original certificate. For the 63-node study this dimension is eight, not the number of participation rows. The free set in \eqref{eq:r22-polishhessian} is obtained by scalar clipping at the current price; it is not an oracle for the unknown optimal accepted face. We claim neither finite-step exact minimization nor that this repair can overcome the floor in Theorem~\ref{thm:r22-decomposition}. If the requested certificate still fails, the measured pipeline actually executes a full optimization refinement.
+
+\paragraph{Objective scope and the cost of adding curvature.}
+The global quadratic price-error rate in Theorem~\ref{thm:r19-global} requires the specified strong convexity and smooth resource coupling. The certificate logic has broader objective scope. For proper closed convex box costs $q_i$ and a proper closed convex coupling $\Psi$, replace the resource square in \eqref{eq:r22-components} by
+$\Psi(Uy)+\Psi^*(p)-p^\top Uy$ and the upper bound's price square by $\Psi^*(p)$. The same expansion proves a valid nonnegative decomposition whenever these conjugates are finite; differentiability and positive curvature are unnecessary for weak certification. Thus broad feasible geometry does not imply a quadratic derivative-error theorem for every accepted objective.
+
+If one nevertheless regularizes an unregularized gain $F$ as
+$F_\epsilon(x)=F(x)-\epsilon\|x\|^2/2$ on a feasible set with $\|x\|\leq R$, a certified regularized gap $\gamma$ for feasible $y$ implies
+\begin{equation}\label{eq:r22-regularization}
+ \max_XF-F(y)\leq\gamma+\tfrac\epsilon2(R^2-\|y\|^2).
+\end{equation}
+Indeed, $\max_XF\leq\max_XF_\epsilon+\epsilon R^2/2$ and
+$F(y)=F_\epsilon(y)+\epsilon\|y\|^2/2$. The bias budget cannot be omitted or described as the original objective's exact regret. Our quadratic experiments use their stated economic curvature and do not introduce a hidden regularizer to manufacture this rate.

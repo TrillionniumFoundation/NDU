@@ -1,0 +1,7 @@
+\section*{Executed evidence}
+The executed suite checks 784 completed matrices and 282,832 selected-submatrix row minima, including 98,728 wholly padded selected rows. It records 1,890 exact frontier equalities and direct controller replays, 190 bounded-overrun all-pairs equalities, and 33 evaluations of the solved tolerance frontier. The unchanged R33--R36 suites also pass in isolated directories. All 24 independently assembled HiGHS cases yield an exactly certified reduced-network optimum and a matching controller.
+
+
+At the largest completed common size for expected participation, 16,384 branches, the retained SMAWK implementation takes 26.601 seconds against 37.436 for divide-and-conquer, a time ratio of 0.711. At the largest completed common size for pathwise participation, 16,384 branches, the retained SMAWK implementation takes 44.132 seconds against 52.054 for divide-and-conquer, a time ratio of 0.848. Across the 6 completed same-size comparisons, SMAWK is slower in 2. These are observations on one runner and one input family, not a uniform speedup claim. No configured study case exceeded the stated process limit.
+
+The machine-readable evidence is in the current results directory. The current build manifest records the exact scientific source commit, PDF hashes, page counts, and base-tree preservation audit.

@@ -1,0 +1,336 @@
+{
+  "status": "PASS",
+  "scope": "Three explicit neighbors at the proven sharpness configuration; separate from the 24-case screening-rate benchmark.",
+  "rows": [
+    {
+      "multiplier": "9/10",
+      "G": "157/200",
+      "charge": "1413/2000",
+      "slack": "-157/2000",
+      "singleton": "-11/75",
+      "pair": "-409/6000",
+      "target_necessary": true,
+      "target_tied": false,
+      "target_excluded": false,
+      "certificate": {
+        "schema": "NDU-price-path-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "1/5",
+              "2/5",
+              "3/5"
+            ],
+            "weights": [
+              "1/3",
+              "1/3",
+              "1/3"
+            ],
+            "gamma": [
+              "0",
+              "1",
+              "2"
+            ],
+            "ceilings": [
+              "3/5",
+              "13/20",
+              "7/10"
+            ],
+            "reward_r": [
+              "2",
+              "2",
+              "2"
+            ],
+            "reward_q": [
+              "1",
+              "1",
+              "1"
+            ]
+          },
+          "catalog": [
+            "0",
+            "1/2"
+          ],
+          "charges": [
+            "0",
+            "1413/2000"
+          ],
+          "promise": "2/5",
+          "budget": 2
+        },
+        "epsilon": "0",
+        "tree": {
+          "proof": {
+            "type": "price",
+            "price": "-6/5",
+            "upper": "-409/6000"
+          }
+        },
+        "policy": {
+          "book": [
+            "0",
+            "1/2"
+          ],
+          "targets": [
+            "1/5",
+            "2/5",
+            "3/5"
+          ],
+          "intermediate": [
+            "0",
+            "0",
+            "1/10"
+          ],
+          "lotteries": [
+            [
+              [
+                "0",
+                "3/5"
+              ],
+              [
+                "1/2",
+                "2/5"
+              ]
+            ],
+            [
+              [
+                "0",
+                "1/5"
+              ],
+              [
+                "1/2",
+                "4/5"
+              ]
+            ],
+            [
+              [
+                "1/2",
+                "1"
+              ]
+            ]
+          ],
+          "gross": "383/600",
+          "value": "-409/6000",
+          "price": "-1/5"
+        },
+        "lower": "-409/6000",
+        "upper": "-409/6000",
+        "instance_sha256": "a90520da005f173e74fda1713614b2c48966d1a2f033f6543525a238951634a3"
+      }
+    },
+    {
+      "multiplier": "1",
+      "G": "157/200",
+      "charge": "157/200",
+      "slack": "0",
+      "singleton": "-11/75",
+      "pair": "-11/75",
+      "target_necessary": false,
+      "target_tied": true,
+      "target_excluded": false,
+      "certificate": {
+        "schema": "NDU-price-path-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "1/5",
+              "2/5",
+              "3/5"
+            ],
+            "weights": [
+              "1/3",
+              "1/3",
+              "1/3"
+            ],
+            "gamma": [
+              "0",
+              "1",
+              "2"
+            ],
+            "ceilings": [
+              "3/5",
+              "13/20",
+              "7/10"
+            ],
+            "reward_r": [
+              "2",
+              "2",
+              "2"
+            ],
+            "reward_q": [
+              "1",
+              "1",
+              "1"
+            ]
+          },
+          "catalog": [
+            "0",
+            "1/2"
+          ],
+          "charges": [
+            "0",
+            "157/200"
+          ],
+          "promise": "2/5",
+          "budget": 2
+        },
+        "epsilon": "0",
+        "tree": {
+          "proof": {
+            "type": "price",
+            "price": "-6/5",
+            "upper": "-11/75"
+          }
+        },
+        "policy": {
+          "book": [
+            "0"
+          ],
+          "targets": [
+            "1/5",
+            "2/5",
+            "3/5"
+          ],
+          "intermediate": [
+            "1/5",
+            "2/5",
+            "3/5"
+          ],
+          "lotteries": [
+            [
+              [
+                "0",
+                "1"
+              ]
+            ],
+            [
+              [
+                "0",
+                "1"
+              ]
+            ],
+            [
+              [
+                "0",
+                "1"
+              ]
+            ]
+          ],
+          "gross": "-11/75",
+          "value": "-11/75",
+          "price": "-6/5"
+        },
+        "lower": "-11/75",
+        "upper": "-11/75",
+        "instance_sha256": "24d8cdd5a3c0d56662e780a806ec78d27d5fd32ee78da9a551d5124b25ddfa7c"
+      }
+    },
+    {
+      "multiplier": "11/10",
+      "G": "157/200",
+      "charge": "1727/2000",
+      "slack": "157/2000",
+      "singleton": "-11/75",
+      "pair": "-1351/6000",
+      "target_necessary": false,
+      "target_tied": false,
+      "target_excluded": true,
+      "certificate": {
+        "schema": "NDU-price-path-v1",
+        "spec": {
+          "model": {
+            "caps": [
+              "1/5",
+              "2/5",
+              "3/5"
+            ],
+            "weights": [
+              "1/3",
+              "1/3",
+              "1/3"
+            ],
+            "gamma": [
+              "0",
+              "1",
+              "2"
+            ],
+            "ceilings": [
+              "3/5",
+              "13/20",
+              "7/10"
+            ],
+            "reward_r": [
+              "2",
+              "2",
+              "2"
+            ],
+            "reward_q": [
+              "1",
+              "1",
+              "1"
+            ]
+          },
+          "catalog": [
+            "0",
+            "1/2"
+          ],
+          "charges": [
+            "0",
+            "1727/2000"
+          ],
+          "promise": "2/5",
+          "budget": 2
+        },
+        "epsilon": "0",
+        "tree": {
+          "proof": {
+            "type": "price",
+            "price": "-6/5",
+            "upper": "-11/75"
+          }
+        },
+        "policy": {
+          "book": [
+            "0"
+          ],
+          "targets": [
+            "1/5",
+            "2/5",
+            "3/5"
+          ],
+          "intermediate": [
+            "1/5",
+            "2/5",
+            "3/5"
+          ],
+          "lotteries": [
+            [
+              [
+                "0",
+                "1"
+              ]
+            ],
+            [
+              [
+                "0",
+                "1"
+              ]
+            ],
+            [
+              [
+                "0",
+                "1"
+              ]
+            ]
+          ],
+          "gross": "-11/75",
+          "value": "-11/75",
+          "price": "-6/5"
+        },
+        "lower": "-11/75",
+        "upper": "-11/75",
+        "instance_sha256": "349b6f59541fcde94882d5ab06f91e0b991fcdab2780a49ebb585dce96c54421"
+      }
+    }
+  ]
+}

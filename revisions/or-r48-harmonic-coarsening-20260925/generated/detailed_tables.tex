@@ -1,0 +1,54 @@
+\section{Complete Paired Outcomes}\label{sec:r48-record}
+All cases in the declared protocol are listed. H and M denote harmonic and minimum-curvature aggregation. C and U denote a certified tolerance and an unresolved original-space gap. Times include reduction and lift but exclude independent checking. The objective scale is $r+\Gamma/2$ plus the largest possible selected charge; scaled gaps divide by that stated scale, not by a possibly zero or negative optimum.
+\begin{longtable}{lrrrrrrrrrr}
+\caption{Every original-space interval and execution cost.}\label{tab:r48-all}\\
+\toprule Case & $k$ & $d$ & $m$ & H gap & M gap & H sec. & M sec. & H/M & H nodes & Scale\\\midrule\endfirsthead
+\toprule Case & $k$ & $d$ & $m$ & H gap & M gap & H sec. & M sec. & H/M & H nodes & Scale\\\midrule\endhead
+case-00 & 4 & 2 & 1 & 7.273e-05 & 0.005223 & 0.007067 & 0.01756 & C/U & 1 & 3.303 \\
+case-01 & 6 & 3 & 3 & 0.01757 & 0.01798 & 0.09332 & 0.1154 & U/U & 23 & 3.511 \\
+case-02 & 8 & 4 & 2 & 0.001003 & 0.008414 & 0.008683 & 0.005686 & U/U & 1 & 6.004 \\
+case-03 & 4 & 4 & 3 & 2.196e-05 & 2.196e-05 & 0.0151 & 0.01344 & C/C & 1 & 6.044 \\
+case-04 & 6 & 2 & 1 & 0 & 0.005836 & 0.006112 & 0.005672 & C/U & 1 & 3.486 \\
+case-05 & 8 & 3 & 3 & 0.02529 & 0.02522 & 0.1212 & 0.093 & U/U & 31 & 3.628 \\
+case-06 & 4 & 4 & 2 & 0 & 0 & 0.007206 & 0.005672 & C/C & 1 & 6.004 \\
+case-07 & 6 & 4 & 3 & 7.878e-06 & 7.878e-06 & 0.0155 & 0.0134 & C/C & 1 & 6.048 \\
+case-08 & 8 & 2 & 1 & 0.0005123 & 0.009995 & 0.008584 & 0.02171 & C/U & 1 & 3.593 \\
+case-09 & 4 & 3 & 3 & 0.0008874 & 0.0008874 & 0.12 & 0.1181 & C/C & 31 & 3.333 \\
+case-10 & 6 & 4 & 2 & 0.003184 & 0.009106 & 0.008 & 0.005815 & U/U & 1 & 6.003 \\
+case-11 & 8 & 4 & 3 & 0.0005434 & 0.0004811 & 0.1744 & 0.1697 & C/C & 31 & 6.044 \\
+case-12 & 32 & 2 & 1 & 1.242e-05 & 0.0001593 & 0.01876 & 0.008649 & C/C & 1 & 3.884 \\
+case-13 & 32 & 4 & 3 & 0.02647 & 0.02651 & 0.2471 & 0.1906 & U/U & 31 & 3.929 \\
+case-14 & 32 & 4 & 2 & 0.002726 & 0.004005 & 0.02676 & 0.009981 & U/U & 1 & 6.005 \\
+case-15 & 32 & 4 & 3 & 0.0004471 & 3.402e-05 & 0.03163 & 0.02185 & C/C & 1 & 6.05 \\
+case-16 & 128 & 2 & 1 & 1.152e-05 & 0.0001534 & 0.08403 & 0.01338 & C/C & 1 & 3.97 \\
+case-17 & 128 & 4 & 3 & 0.02906 & 0.02903 & 0.4054 & 0.1266 & U/U & 31 & 4.015 \\
+case-18 & 128 & 4 & 2 & 0.003184 & 0.004612 & 0.2144 & 0.0153 & U/U & 1 & 6.005 \\
+case-19 & 128 & 4 & 3 & 4.955e-05 & 5.621e-05 & 0.06063 & 0.02612 & C/C & 1 & 6.02 \\
+case-20 & 256 & 2 & 1 & 4.111e-06 & 0.0001508 & 0.3307 & 0.01909 & C/C & 1 & 3.985 \\
+case-21 & 256 & 4 & 3 & 0.0316 & 0.03165 & 1.095 & 0.1777 & U/U & 29 & 4.025 \\
+case-22 & 256 & 4 & 2 & 0.003552 & 0.004935 & 0.7878 & 0.02204 & U/U & 1 & 6.005 \\
+case-23 & 256 & 4 & 3 & 0 & 7.392e-07 & 0.141 & 0.02952 & C/C & 1 & 6.025 \\
+\bottomrule\end{longtable}
+\section{Independent Numerical Mixed-Integer Comparisons}
+Every primary case has tangent and secant solves of the uneliminated original model. Status 0 means completed; status 1 means a solver limit. Times, nodes and relative primal--dual gaps below are tangent/secant pairs. The approximation bound is the maximum one-sided quadratic-envelope error. Width is the tangent dual upper bound minus the secant feasible original payoff. These are floating-point diagnostics, never substitutes for the exact semantic certificates.
+\begin{longtable}{lrrrrrr}
+\caption{All direct MIP comparisons; no timeout or failed solve is omitted.}\label{tab:r48-mip}\\
+\toprule Case & Status & Seconds & Nodes & MIP gaps & Env. error & Width\\\midrule\endfirsthead
+\toprule Case & Status & Seconds & Nodes & MIP gaps & Env. error & Width\\\midrule\endhead
+case-00 & 0/0 & 0.002927/0.00213 & 1/1 & 0/0 & 0.0001154 & 5.226e-05 \\
+case-01 & 0/0 & 0.008477/0.007788 & 1/1 & 0/0 & 6.078e-05 & 0 \\
+case-02 & 0/0 & 0.02646/0.02367 & 1/1 & 0/0 & 0.00014 & 6.545e-05 \\
+case-03 & 0/0 & 0.005721/0.005395 & 1/1 & 0/0 & 0.0001162 & 0 \\
+case-04 & 0/0 & 0.002528/0.002488 & 1/1 & 0/0 & 9.626e-05 & 4.048e-05 \\
+case-05 & 0/0 & 0.005747/0.005584 & 1/1 & 0/0 & 9.181e-05 & 0 \\
+case-06 & 0/0 & 0.008634/0.009637 & 1/1 & 0/0 & 0.0001127 & 1.759e-05 \\
+case-07 & 0/0 & 0.02879/0.0256 & 2/1 & 0/0 & 8.268e-05 & -3.109e-14 \\
+case-08 & 0/0 & 0.003193/0.003005 & 1/1 & 0/0 & 0.0001198 & 9.469e-05 \\
+case-09 & 0/0 & 0.007799/0.008086 & 1/1 & 0/0 & 7.96e-05 & 0 \\
+case-10 & 0/0 & 0.02637/0.02744 & 1/1 & 0/0 & 9.436e-05 & 1.515e-05 \\
+case-11 & 0/0 & 0.01151/0.01303 & 1/1 & 0/0 & 9.175e-05 & 1.11e-16 \\
+\bottomrule\end{longtable}
+\section{Interpretation and Reproduction}
+The twelve all-book references independently enumerate menu choices but share the exact fixed-book allocator. The separate MIP retains support indicators, probabilities, pre-draw service and every realized ceiling. The harmonic checker imports neither harmonic reduction nor the search implementation: it rebuilds harmonic means, verifies eligibility and the anchor guard, checks all original lottery constraints, verifies clipping comparison identities and group supporting prices, and delegates the full target-cover and Bellman upper witness to the antecedent independent checker.
+
+The paired study deliberately uses one wide curvature bin within each cap and eligibility group. It is an ablation of the optimistic representative, not an experiment claiming that conservative accuracy bins are always small. The supplied records separately count both accuracy partitions at three tolerances. The final metric pass uses the antecedent node-accounting MIP wrapper; the cases and limits did not change from the initial authoring run. Both local and remote executions must identify their own measured times rather than substitute one environment's times for another's. Full rational policies, raw solver messages, scaled-gap denominators, check times, protocol hashes and generators are retained in the revision directory.

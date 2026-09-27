@@ -1,0 +1,77 @@
+\section{Accepted contracts and the value of information}\label{sec:accepted}
+The relevant static comparator is chosen before period zero, not fixed at an arbitrary tier. Let $\mathcal P_{\rm stat}$ consist of constant-contract protocols, with stock still optimized using the observed regime. Every comparator pays the initial installation cost $\lambda(\theta-q_0)^2$. Let $\mathcal P_t$, $\mathcal P_{t,z}$, $\mathcal P_{t,q}$, and $\mathcal P_{t,z,q}$ denote deterministic contract rules using the displayed information. Physical stock can use the full observed state in each class. With a fixed initial contract,
+\begin{equation}\label{eq:classes}
+ \mathcal P_{\rm stat}\subseteq\mathcal P_t
+ \subseteq\mathcal P_{t,z}\subseteq\mathcal P_{t,z,q}.
+\end{equation}
+The inherited-only class is not an additional information increment along this chain.
+\begin{proposition}[Inherited-only information and optimized static contracts]\label{prop:classes}
+For deterministic $q_0$, the value of $\mathcal P_{t,q}$ equals the value of $\mathcal P_t$. For a finite stock menu and continuous tier, the optimal static contract can be found exactly by enumerating stock-envelope breakpoints and the stationary point of the objective on each intervening interval.
+\end{proposition}
+\begin{proof}
+If $\theta_t=f_t(q_t)$ and $q_{t+1}=\theta_t$, induction makes the entire tier path deterministic. A time-only schedule implements that path, and every schedule is an inherited-only rule. Independent private randomization is a mixture of deterministic paths and cannot improve the unconstrained maximum.
+
+For the static calculation define $a_z=\sum_t\beta^t\Pr(z_t=z)$ and $H=\sum_z a_z$. Its objective is
+\begin{equation}\label{eq:static}
+ W_{\rm stat}(\theta)=\sum_z a_z\{r_z\theta+U_z(\theta)\}
+             -mH\theta^2-\lambda(\theta-q_0)^2.
+\end{equation}
+Each $U_z$ is a finite upper envelope of affine stock payoffs. Between all pairwise line crossings, the active stock choices are constant, so \eqref{eq:static} is a concave quadratic with coefficient $-(mH+\lambda)$. Its maximum on that interval is at its stationary point or an endpoint. Checking all such candidates and the endpoints $0,1$ is exhaustive, including ties and nonconcavity across intervals.\end{proof}
+The equality in the proposition concerns the value from the specified initial state; it is not equality of the two feedback function spaces on unreachable histories. For $\mathcal P_{t,z}$ we use occupation variables and binary tier selectors shared across all inherited states. Optimizing an ordinary full-state Bellman equation and then deleting $q$ from the policy label would not solve this restriction.
+
+\subsection{A constrained operating protocol}
+The customer-accepted problem is
+\begin{equation}\label{eq:master}
+ \max_\pi W^\pi\quad\text{subject to}\quad
+ F^\pi\geq\gamma D,\quad U^\pi\geq\underline U,
+ \quad C^\pi\leq\overline C,
+\end{equation}
+where the optional final constraint rules out financing provider gains with a higher physical resource cost. For a finite tier menu let $x_t(z,q,S,\theta)$ be the undiscounted state--action occupancy. It satisfies $x\geq0$ and
+\begin{align}
+ \sum_{S,\theta}x_0(z,q,S,\theta)&=\mu_0(z,q),\
+ \sum_{S,\theta}x_t(z,q,S,\theta)&=
+ \sum_{z_-,q_-,S_-}P_{z_-z}x_{t-1}(z_-,q_-,S_-,q),\quad t\geq1.\label{eq:flow}
+\end{align}
+All objectives and commitments are linear functionals of $x$, with $\beta^t$ in their coefficients. The transition on the right has next contract $q$, explaining the last action index. The full stock menu is retained: eliminating stock by the unconstrained newsvendor solution is generally invalid under service and participation constraints.
+\begin{theorem}[Acceptance, Pareto comparison, and a certificate]\label{thm:accepted}
+For finite states and actions, \eqref{eq:master} equals the linear program defined by \eqref{eq:flow} and its linear commitments. From any feasible occupation measure, choosing actions with probabilities proportional to the local occupancies implements the same reward and commitments. If a static comparator is feasible, the optimum in a policy class containing it is at least its reward. Moreover, for any $\mu,\eta,\chi\geq0$,
+\begin{equation}\label{eq:dual}
+ W^*_{\rm acc}\leq V^{\mu,\eta,\chi}_0
+           -\mu\gamma D-\eta\underline U+\chi\overline C,
+\end{equation}
+where $V^{\mu,\eta,\chi}$ is the ordinary Bellman value for reward
+$g+\mu f+\eta u-\chi C$. A feasible protocol and this upper bound give a two-sided certificate without trusting an optimizer's status label.
+\end{theorem}
+\begin{proof}
+History-dependent policies induce occupancies satisfying the flow equations. Conversely, normalize each positive local occupancy; induction on $t$ recovers every occupancy, choosing arbitrary actions at zero-mass states. This proves equality and implementability. The finite feasible flow polytope is compact, and linear programming duality applies when the commitment set is nonempty. The comparison follows by feasibility. For the certificate, each feasible policy satisfies
+$W^\pi\leq W^\pi+\mu(F^\pi-\gamma D)+\eta(U^\pi-\underline U)-\chi(C^\pi-\overline C)$.
+Maximize the expression over all policies and evaluate its reward term by Bellman recursion.\end{proof}
+The same Lagrangian retains the inherited-contract envelope because the added commitments depend on current stock and tier, not separately on inherited $q$. However, the premium--liability monotonicity assumptions may change after reweighting. Neither a constrained optimizer nor its randomized policy is assumed to inherit the relaxation's statewise monotonicity without checking those conditions.
+
+\subsection{An exact customer-preserving improvement}\label{sec:pareto}
+For the canonical primitives in Section~\ref{sec:study}, optimize the continuous static tier and set $(\gamma D,\underline U,\overline C)$ equal to its fill, customer utility, and physical cost. The exact stationary candidate is
+\[
+ \theta^*_{\rm stat}=\frac{33217640615804572}{57064160140575975}
+   =0.582110391776\ldots,
+ \qquad W^*_{\rm stat}=-5.870110973047\ldots.
+\]
+On the $0.1$ tier grid, a dynamic protocol achieves
+\begin{equation}\label{eq:paretogain}
+ W_{\rm acc}=-5.244970661075\ldots,
+ \qquad W_{\rm acc}-W^*_{\rm stat}=0.625140311972\ldots,
+\end{equation}
+with exactly equal $F$, $U$, and $C$ to the continuous static comparator. The finer static class makes this comparison more demanding than comparison with the best static grid point. Randomizing over static contracts cannot improve their unconstrained maximum; the static optimum itself satisfies these commitments.
+
+This statement has a constructive rational certificate. Every positive-occupancy stock is $S=z+2$. The protocol is deterministic except at $(t,z,q)=(1,2,0.5)$, where it selects tier $0.8$ with probability
+\[
+ \omega=
+ \frac{23922659112150250115102014240924014583}
+ {112890354847273020834603977168500200000}
+ =0.211910567068\ldots
+\]
+and tier $0.7$ otherwise. The complete feedback map is supplied with the certificate. Fixing that single choice low or high gives two deterministic protocols with rational rewards and utilities. Set $\omega=(\underline U-U_L)/(U_H-U_L)$; exact forward propagation verifies $0\leq\omega\leq1$ and equality of all three commitments. The gain in \eqref{eq:paretogain} is the positive rational number
+\[
+ \frac{1039866308925205364208678517401738512452611721}
+ {1663412659543104261120000000000000000000000000}.
+\]
+An independent rational Bellman recursion for \eqref{eq:dual}, using nonnegative rational prices and $\chi=0$, gives an upper bound less than $8.21\times10^{-16}$ above this feasible reward. Thus the observed improvement is neither Monte Carlo noise nor a payment for lower service. It is an instance-specific, reproducible Pareto improvement in provider reward at the customer's reservation utility and service level; it is not a universal dominance theorem for every set of primitives.

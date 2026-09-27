@@ -1,0 +1,54 @@
+\section{The Limited-Menu Complexity Frontier}\label{sec:param59}
+Let $q_b=|\{b_j:j=1,\ldots,k\}|$ denote the number of distinct expected caps; the subscript distinguishes this count from a quadratic curvature. For a fixed command budget, enumerating all feasible books is polynomial with an exponent depending on that budget. Under a common reward, Theorem~\ref{thm:capcount56} reduces the useful book size to $\min\{m,2q_b\}$, and its coefficient two is tight. The following result identifies why neither parameter generally removes the exponent dependence.
+
+\begin{theorem}[Parameterized hardness in menu size and cap count]\label{thm:wone59}
+The rational finite-catalog decision problem is $\mathrm{W}[1]$-hard parameterized by $m+q_b$. Hardness holds with the fixed common reward $f(x)=x$, zero service costs, uniform strictly positive probabilities, $\tau_j=b_j$, nonnegative rational opening charges, and $m=q_b$. Consequently, unless $\mathrm{FPT}=\mathrm{W}[1]$, no exact algorithm has running time $F(m,q_b)\mathcal L^c$ for an arbitrary computable $F$ and a constant $c$ independent of the parameters, where $\mathcal L$ is binary input length. The same conclusion holds for parameterization by either $m$ or $q_b$ alone.
+\end{theorem}
+
+The proof has two explicit stages. A group-sum encoding carries the consistency requirements of a multicolored clique. Dedicated baseline histories then make those group choices mandatory in the original renewal problem. Unlike a free augmentation under a nonbinding budget, every baseline must actually be installed in a threshold-achieving book.
+
+\begin{lemma}[Group-sum encoding]\label{lem:groupsum59}
+From an instance of multicolored clique with $r$ color classes, one can construct $g=r+\binom r2$ nonempty groups of positive integers $A_1,\ldots,A_g$ and a positive integer $W$, of total binary length polynomial in the graph description, such that a selection of at most one integer from each group sums to $W$ if and only if the graph has a multicolored clique. Every such sum uses exactly one integer from every group.
+\end{lemma}
+\begin{proof}
+Empty color classes or a color pair with no edge give an immediate no-instance. Otherwise number vertices by distinct codes in $\{1,\ldots,n\}$. Create one group for each color and one for each unordered color pair. Use one digit for every group and two incidence digits for every color pair, in base $H>(2g+1)(n+1)$. The target has digit one at every group position and digit $n$ at every incidence position.
+
+A vertex of color $i$ supplies digit one at its color-group position and its code at every incidence position involving that color. An edge joining codes $u$ and $v$ supplies digit one at its pair-group position and digits $n-u$ and $n-v$ at the two corresponding incidence positions. All unspecified digits are zero. Each encoded integer is positive because of its group digit. A selection of at most one integer per group has no carries: its digit sums are at most $gn<H$. Equality at the group digits forces every group to be represented. Equality at each incidence digit forces the chosen edge endpoint to equal the chosen vertex. Thus the selection is precisely a clique and its edges. Conversely such a clique supplies the required sum. There are $O(r^2)$ digits, each using $O(\log(rn))$ bits, and at most one encoded integer per vertex or edge. The construction is a parameterized reduction. Multicolored clique is $\mathrm{W}[1]$-hard: from ordinary $r$-clique make $r$ color copies of every vertex and connect distinct copies exactly when their original vertices are adjacent; clique hardness follows by complementing the independent-set completeness result of \citet{DowneyFellows1995b}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:wone59}]
+Apply Lemma~\ref{lem:groupsum59}. A target outside $[0,\sum_i\max A_i]$ is an immediate no-instance and can be mapped to the fixed feasible renewal instance with one zero command, cap and promise zero, and threshold one. Otherwise set
+\[
+ M=\max_i\max A_i,\qquad T=2(g+1)M,\qquad K=(2g+1)T,
+ \qquad \ell_i=\frac{i}{g+1},\quad i=1,\ldots,g.
+\]
+There are $2g+1$ equally likely histories: one with cap and ceiling zero, and, for each group $i$, two with caps and ceilings $\ell_i$ and $\ell_i+\max A_i/T$. The catalog contains zero, every baseline $\ell_i$, and an optional command $\ell_i+w/T$ for each distinct $w\in A_i$. All points lie in $[0,1]$. Options within group $i$ lie strictly between its baseline and the next group's baseline; the last option is strictly below one. Equal integers within a group can be merged without changing the sum problem. Charge zero for zero and the baselines, and charge $w/(2K)$ for the option representing $w$. Set
+\begin{equation}\label{eq:budgetreduction59}
+ m=2g+1,\quad D_0=\frac{2}{2g+1}\sum_i\ell_i,\quad
+ B=D_0+\frac{W}{K},\quad \zeta=D_0+\frac{W}{2K}.
+\end{equation}
+The $2g+1$ caps are distinct, so $q_b=m$. The promise is feasible because
+$\bar b=D_0+\sum_i\max A_i/K\geq B$ and zero is in the catalog.
+
+Any feasible book must contain zero, since the zero-cap history has positive probability. Write $S(c)$ for the sum of the integers represented by its installed optional commands. With linear reward and free service, its exact gross value is
+\[
+ \min\{B,D(c)\},\qquad D(c)=\sum_j\pi_j\max(c\cap[0,b_j]).
+\]
+If $B\leq D(c)$, lotteries between zero and each last eligible command attain the required aggregate terminal mean. If $B>D(c)$, use those last commands surely and fill the remaining promise with deterministic service; the available service capacity is $\bar b-D(c)$. These constructions obey the original realized ceilings, not only the expected caps.
+
+For an upper bound only, augment the book by all baselines, ignoring the augmented count. Its terminal capacity is
+\[
+ D(c)\leq D_0+\frac{1}{K}\sum_i\max\bigl(\{w:\ell_i+w/T\in c\}\cup\{0\}\bigr)
+ \leq D_0+\frac{S(c)}{K}.
+\]
+The actual book, not the augmented comparison, pays charge $S(c)/(2K)$. Hence
+\begin{equation}\label{eq:keyparam59}
+ V_c(B)\leq \min\{B,D_0+S(c)/K\}-S(c)/(2K)
+       =\zeta-\frac{|S(c)-W|}{2K}.
+\end{equation}
+Suppose its value reaches $\zeta$. Then $S(c)=W$ and both capacity inequalities must be equalities. All option weights are positive, so the second equality allows at most one optional command per group. The first equality forces every baseline into the actual book: if $\ell_i$ is absent, the dedicated history with cap $\ell_i$ has a strictly smaller last command, and adding $\ell_i$ strictly increases its positive-weight contribution to $D(c)$. Zero and the $g$ baselines therefore consume $g+1$ slots. Lemma~\ref{lem:groupsum59} now forces one option from each group. These $2g+1$ installed commands are within the original budget and encode a clique.
+
+Conversely, choose the $g$ options representing a clique together with zero and all baselines. This book uses exactly $m$ commands, has $D(c)=D_0+W/K=B$, and has net value $\zeta$. This proves equivalence. The rational construction has polynomial bit length, and $m+q_b=4g+2=O(r^2)$, proving the parameterized hardness statement.
+\end{proof}
+
+This theorem does not assert $\mathrm{W}[1]$ membership, a sharp exponent lower bound, strong NP-hardness, or hardness under uniform positive charges. It establishes a parameterized barrier for the original restricted model, rather than for a larger abstract path problem. Its fine rational scales also explain why it is consistent with the additive algorithm and the pseudo-polynomial lattice algorithm. Exact enumeration is XP, whereas an exponent independent of both menu size and cap count would collapse the stated parameterized classes. The full earlier SUBSET SUM construction and the tight cap-count proof are retained in the electronic companion.

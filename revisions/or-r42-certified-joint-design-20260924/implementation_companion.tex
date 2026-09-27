@@ -1,0 +1,25 @@
+\section{Implementation of the Joint Continuous and Grid Certificates}\label{ec:r42-implementation}
+The proofs of the joint design and mesh theorems are in the article. This section specifies their executable reference implementations and distinguishes global and conditional certificates.
+
+\subsection{Rational stationary-face enumeration}
+The implementation eliminates $t_k$ using the root equality, retaining $x=(c_1,\ldots,c_s,t_1,\ldots,t_{k-1})$. Each mode assignment yields a quadratic $a+g^Tx+x^THx/2$ and rational inequalities $Ax\leq d$. For every linearly independent candidate active set $I$, the stationary system is
+\[
+ \begin{pmatrix}H&A_I^T\\A_I&0\end{pmatrix}
+ \begin{pmatrix}x\\\nu\end{pmatrix}
+ =\begin{pmatrix}-g\\d_I\end{pmatrix}.
+\]
+Every nonsingular solution is tested against all original inequalities and scored with the original quadratic. The sign of $\nu$ is not needed for this exhaustive candidate algorithm: no candidate is accepted as an upper bound merely because it is stationary. Globality follows because all accepted candidates are feasible and Lemma~\ref{lem:faces} guarantees that a global maximizer occurs among them. In particular, an indefinite stationary point may be retained harmlessly; a singular system can be skipped only because all smaller active faces are also searched. Exact arithmetic, rather than a numerical rank tolerance, decides these cases.
+
+Fraction-free elimination clears row denominators and uses exact integer division with pivoting. An independently implemented symbolic linear solver checks small rational systems. The code also checks a flat polytope objective, an indefinite quadratic, and a degenerate maximizing face. These are implementation tests, not a formal verification of arbitrary dimensions. The exponential search is intended as a transparent global reference and a source of exact small-instance benchmarks.
+
+After optimizing all book sizes, the implementation removes duplicate levels, reconstructs each branch's singleton or two-point policy, and solves the fixed-book allocation independently. Equality of the reconstructed net value with the face maximum is required. Nonnegative charges are essential when duplicate or unused slots are removed. The charge validator tests the endpoints and, for an upward-opening quadratic, its interior minimum; it does not incorrectly require every polynomial coefficient to be nonnegative.
+
+\subsection{A separate support oracle and promise-preserving repair}
+For a fixed book, a separate branch oracle enumerates every eligible singleton and every eligible pair, including nonadjacent pairs, before taking their maximum. This independently checks the adjacent-prefix reduction. Supporting-price maxima are checked at every eligible knot, the branch cap, and the clipped stationary point of the quadratic tail. Such a multiplier proves optimality conditional on a particular book. Only complete cell search or the enclosing grid theorem supplies a global continuous certificate.
+
+For grid transfer, keep each original branch target, round book levels downward, merge collisions, and solve the new canonical response at that same target. The tests explicitly verify the exact weighted promise, each conditional expectation cap, and each realization ceiling after reconstruction. They include the counterexample in Section~\ref{sec:grid}, in which preserving the old lottery probabilities and compensating the lost mean with intermediate service would violate the realization ceiling. The repair changes probabilities instead of silently introducing a risk or promise tolerance.
+
+\subsection{Evidence domains and replay}
+The seeded checks use exact rational caps, weights, costs, books, promises, and risk tolerances; they include repeated caps, zero intermediate curvature, cap equality, endpoint promises, and invalid-input rejection. The saturated catalog recurrence and the prior expected-participation allocation solver are replayed as independent predecessor comparisons. Tests of equal-cap aggregation use identical intermediate costs, precisely as required by Proposition~\ref{prop:interior-aggregation}. Heterogeneous-cap aggregation and an uncharged universal pathwise-randomization advantage are not asserted.
+
+All theorem-critical routines use Python's integer and rational arithmetic. The symbolic linear-system oracle uses SymPy only in the tests. A complete replay from the repository root is specified in the revision README and its build program. The preparation phase executes the new tests and studies and runs preceding verification scripts in isolated temporary copies, so old result files are not rewritten. The build phase compiles the committed article, companion, and referee response; resolves their cross-document labels; checks undefined references, overfull boxes, abstract and page limits; and records source, evidence, and PDF hashes. In a complete Git checkout, the preservation check compares every inherited tracked path with the immutable R39 review commit. Downloaded-reader local runs are labeled as such rather than assigned a fictitious scientific commit.

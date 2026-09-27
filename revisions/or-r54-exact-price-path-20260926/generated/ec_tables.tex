@@ -1,0 +1,68 @@
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Complete numerical mixed-integer diagnostics on the historical cases.}\label{tab:mip54}
+\begin{tabular}{rlrrrrrrr}\toprule
+Seed & Envelope & Variables & Binary & Nodes & Solver s & Limit s & Error & Width\\\midrule
+49500 & tangent & 249 & 117 & 1 & 0.0219 & 2 & 1.1e-04 & 0\\
+49500 & secant & 249 & 117 & 1 & 0.0171 & 2 & 1.1e-04 & 0\\
+49501 & tangent & 249 & 117 & 1 & 0.0174 & 2 & 1.3e-04 & 0\\
+49501 & secant & 249 & 117 & 1 & 0.0154 & 2 & 1.3e-04 & 0\\
+49502 & tangent & 249 & 117 & 1 & 0.0075 & 2 & 4.3e-05 & 5.6e-17\\
+49502 & secant & 249 & 117 & 1 & 0.0080 & 2 & 4.3e-05 & 5.6e-17\\
+49503 & tangent & 249 & 117 & 1 & 0.0228 & 2 & 5.9e-05 & -1.4e-17\\
+49503 & secant & 249 & 117 & 1 & 0.0132 & 2 & 5.9e-05 & -1.4e-17\\
+49504 & tangent & 249 & 117 & 1 & 0.0085 & 2 & 2.8e-05 & 0\\
+49504 & secant & 249 & 117 & 1 & 0.0070 & 2 & 2.8e-05 & 0\\
+49505 & tangent & 249 & 117 & 1 & 0.0109 & 2 & 8.8e-05 & 0\\
+49505 & secant & 249 & 117 & 1 & 0.0099 & 2 & 8.8e-05 & 0\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Solver seconds are actual per-envelope calls; each solver limit is two seconds, within the total four-second algorithm alarm. Error is the analytical service-envelope approximation allowance, not a time allowance. Width is the signed floating-point difference of the two returned numerical values; tiny negative values are roundoff and are not recast as exact certificates. All raw primal/dual values, status codes, relative solver gaps and residuals are retained in the machine-readable records.\end{minipage}\end{table}\clearpage
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Target-command threshold slacks and exact relevance in every screening case.}\label{tab:threshold54}
+\begin{tabular}{rrrrrrrr}\toprule
+Family & Ratio & $z$ & $G(z)$ & Charge & Slack & Envelope & Forced\\\midrule
+0 & 9/10 & 0.50 & 0.7384 & 0.6646 & -0.0738 & 0 & 1\\
+0 & 1 & 0.50 & 0.7384 & 0.7384 & 0 & 1 & 1\\
+0 & 11/10 & 0.50 & 0.7384 & 0.8122 & 0.0738 & 1 & 1\\
+1 & 9/10 & 0.75 & 0.4652 & 0.4187 & -0.0465 & 0 & 1\\
+1 & 1 & 0.75 & 0.4652 & 0.4652 & 0 & 1 & 1\\
+1 & 11/10 & 0.75 & 0.4652 & 0.5117 & 0.0465 & 1 & 1\\
+2 & 9/10 & 0.50 & 0.7140 & 0.6426 & -0.0714 & 0 & 1\\
+2 & 1 & 0.50 & 0.7140 & 0.7140 & 0 & 1 & 1\\
+2 & 11/10 & 0.50 & 0.7140 & 0.7854 & 0.0714 & 1 & 1\\
+3 & 9/10 & 0.75 & 0.5916 & 0.5324 & -0.0592 & 0 & 1\\
+3 & 1 & 0.75 & 0.5916 & 0.5916 & 0 & 1 & 1\\
+3 & 11/10 & 0.75 & 0.5916 & 0.6508 & 0.0592 & 1 & 1\\
+4 & 9/10 & 0.50 & 0.8006 & 0.7205 & -0.0801 & 0 & 1\\
+4 & 1 & 0.50 & 0.8006 & 0.8006 & 0 & 1 & 1\\
+4 & 11/10 & 0.50 & 0.8006 & 0.8806 & 0.0801 & 1 & 1\\
+5 & 9/10 & 0.75 & 0.5421 & 0.4879 & -0.0542 & 0 & 1\\
+5 & 1 & 0.75 & 0.5421 & 0.5421 & 0 & 1 & 1\\
+5 & 11/10 & 0.75 & 0.5421 & 0.5963 & 0.0542 & 1 & 1\\
+6 & 9/10 & 0.50 & 0.7463 & 0.6717 & -0.0746 & 0 & 1\\
+6 & 1 & 0.50 & 0.7463 & 0.7463 & 0 & 1 & 1\\
+6 & 11/10 & 0.50 & 0.7463 & 0.8210 & 0.0746 & 1 & 1\\
+7 & 9/10 & 0.75 & 0.8500 & 0.7650 & -0.0850 & 0 & 1\\
+7 & 1 & 0.75 & 0.8500 & 0.8500 & 0 & 1 & 1\\
+7 & 11/10 & 0.75 & 0.8500 & 0.9351 & 0.0850 & 1 & 1\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small Each family uses the same nonuniform caps, promise and mixed catalog at charge ratios $0.9,1,1.1$. The full command records additionally give $G$, charge, slack, forced upper bound and exact inclusion/exclusion value for every candidate, not just this target. A below-envelope charge does not by itself prove usefulness. The separate sharpness examples below demonstrate that usefulness can change across the equality threshold.\end{minipage}\end{table}\clearpage
+\begin{table}[p]\centering\small\setlength{\tabcolsep}{3pt}
+\caption{Exact sharpness neighbors and a distinct divisible-production example.}\label{tab:production54}
+\begin{tabular}{rrrrrr}\toprule
+Charge ratio & Envelope & Charge & Singleton & Pair & Pair needed\\\midrule
+9/10 & 0.785000 & 0.706500 & -0.146667 & -0.068167 & 1\\
+1 & 0.785000 & 0.785000 & -0.146667 & -0.146667 & 0\\
+11/10 & 0.785000 & 0.863500 & -0.146667 & -0.225167 & 0\\
+\bottomrule\end{tabular}\par\medskip
+\begin{tabular}{rrrrl}\toprule Module budget & Order & Exact value & Supporting price & Selected vertices\\\midrule
+1 & 3 & 27/4 & 3/2 & 0,3\\
+1 & 6 & 9 & 0 & 0,3\\
+1 & 8 & 8 & -1 & 0,3\\
+2 & 3 & 181/16 & 13/4 & 0,1,3\\
+2 & 6 & 39/2 & 9/4 & 0,2,3\\
+2 & 8 & 93/4 & 3/2 & 0,2,3\\
+3 & 3 & 685/52 & 57/13 & 0,1,2,3\\
+3 & 6 & 97/4 & 3 & 0,1,2,3\\
+3 & 8 & 799/28 & 9/7 & 0,1,2,3\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{0.98\textwidth}\small The sharpness configuration has $B=\bar b$, nonuniform caps and a feasible two-command budget; equality allows both books. Production uses vertices of capacities $0,2,5,9$ and six independently specified compatible modules, with parallel divisible order assignment. Exact allocations and every alternative configuration are recorded. This is a numerical mathematical example, not an industrial calibration or a renamed history/lottery instance.\end{minipage}\end{table}\clearpage

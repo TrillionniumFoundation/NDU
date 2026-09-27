@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "hierarchy_certificates": 240,
+  "radius_certificates": 160,
+  "cache_certificates": 36,
+  "total_new_optimization_certificates": 436,
+  "release_KKT_witnesses": 49,
+  "capacity_KKT_witnesses": 40,
+  "friction_witnesses": 65,
+  "random_rational_cells": 24,
+  "promise_cases": 3,
+  "enumerated_history_policies": 37142,
+  "negative_controls_rejected": [
+    "root payment mutation",
+    "negative participation price",
+    "switch capacity violation",
+    "falsified upper objective",
+    "changed equality certificate",
+    "changed model row",
+    "false cache upper",
+    "false release gain",
+    "reversed amortization sign"
+  ],
+  "verifier": "Python standard library only; no numerical optimizer imported"
+}

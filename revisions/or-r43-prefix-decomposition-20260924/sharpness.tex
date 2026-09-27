@@ -1,0 +1,14 @@
+\subsection{The uniform-mesh rate is sharp}\label{sec:r43-sharpness}
+The linear bound in Theorem~\ref{thm:mesh} reflects exact feasibility, not only an insensitive Lipschitz estimate. It cannot be uniformly replaced by a higher-order rate for the declared uniform catalogs.
+\begin{proposition}[A fixed-input lower bound]\label{prop:r43-sharp}
+Take one branch and one symbol, $b=B=1/2$, $f(c)=c-c^2/2$, $h(y)=y^2/2$, and zero charges. For every risk tolerance and every odd integer $N\geq3$, the uniform catalog with spacing $h=1/N$ has loss
+\[
+ \mathcal V_1^\delta(B;0)-\mathcal V_{1,\mathcal A_N}^\delta(B;0)
+ =\frac h4+\frac{h^2}4.
+\]
+Thus the worst-case $O(h)$ rate is order-sharp, even for a single fixed input with no opening charges and no randomization.
+\end{proposition}
+\begin{proof}
+With one level, $c\leq B$ and $y=B-c$. Payoff $f(c)-(B-c)^2/2$ is strictly increasing on $[0,B]$. Its continuous maximizer is $B$, with value $3/8$. For odd $N$, the largest feasible catalog point is $B-h/2$. Substitution gives the displayed loss. All realizations equal total service $B$, so risk tolerance plays no role. The sequence of odd $N$ uses the same primitives throughout.
+\end{proof}
+This is a lower bound for uniform catalogs, not for all adaptive discretizations. Adding the cap $1/2$ removes this particular error. It also does not rule out faster convergence on other fixed instances. The search interval in \eqref{eq:r43-interval} is therefore useful even when its optimization gap has already vanished: refinement addresses a genuinely different source of error.

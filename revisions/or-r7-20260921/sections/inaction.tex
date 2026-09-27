@@ -1,0 +1,20 @@
+\subsection{The actual multi-tier inaction regions}\label{sec:multi-inaction}
+A pairwise crossing alone need not be a surviving decision region. The following statement compares every competing tier. Fix the continuation value and let a one-review premium shift $s$ add $s\theta$ to its intrinsic reward $B_i$; future premiums are not changed. For inherited tier $\theta_j$, define
+\begin{align*}
+ \ell_j&=\max_{i<j}\left\{\frac{B_i-B_j}{\theta_j-\theta_i}-\lambda(\theta_j-\theta_i)\right\},\\
+ u_j&=\min_{i>j}\left\{\frac{B_j-B_i}{\theta_i-\theta_j}+\lambda(\theta_i-\theta_j)\right\},
+\end{align*}
+with the empty maximum $-\infty$ and empty minimum $+\infty$.
+\begin{proposition}[Surviving inaction bands]\label{prop:multi-inaction}
+Under the greatest-tier tie convention, the installed tier $\theta_j$ is retained exactly when $\ell_j\leq s<u_j$. An empty interval means that this tier has no inaction band. For a uniform menu of width $h$ and concave intrinsic reward sequence, the finite endpoints reduce to
+\[
+ \ell_j=-\frac{B_j-B_{j-1}}h-\lambda h,\qquad
+ u_j=-\frac{B_{j+1}-B_j}h+\lambda h.
+\]
+Both endpoint sequences are nondecreasing. Each interior band's width is
+$[(B_j-B_{j-1})-(B_{j+1}-B_j)]/h+2\lambda h$, and adjacent bands overlap by exactly $2\lambda h$.
+\end{proposition}
+\begin{proof}
+Subtract the payoff from every lower and higher competing tier at inherited state $q=\theta_j$. Every lower comparison imposes the corresponding lower bound, whereas a tie with a higher tier excludes the upper endpoint. Their intersection is precisely the displayed interval. Under concavity, the largest lower restriction and smallest upper restriction come from the adjacent tiers. Ordered adjacent secant slopes give ordered endpoints and the stated width and overlap formulas.
+\end{proof}
+Concavity is a sufficient condition for the simplified formulas, not an implication of the general inventory envelope. Our diagnostic therefore uses all competitors for each of the 264 period--regime--tier cases and stores empty bands as well as surviving ones. A choice cell in the inherited coordinate is not called an inaction interval when the chosen tier differs from that coordinate. Neither this result nor a fixed-continuation shift is used as a permanent-premium comparative-static theorem.

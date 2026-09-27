@@ -1,0 +1,73 @@
+{
+  "id": "anytime-catalog-65",
+  "method": "price",
+  "instance_sha256": "0c2a90d48c64b2e3c30065cb776b805b6f3599370c6792f1be34217c12bfee0e",
+  "epsilon": "0",
+  "setup_seconds": 0.006037213000013253,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "EXACT",
+  "lower": "65540331/108032000",
+  "upper": "65540331/108032000",
+  "gap": "0",
+  "seconds": 0.7908730560000095,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.2949672060000239,
+      "lower": "9325105001993/16553332838400",
+      "upper": "69341154093/113973760000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.4740390940000907,
+      "lower": "16065967/27008000",
+      "upper": "69341154093/113973760000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.6324632080001038,
+      "lower": "65540331/108032000",
+      "upper": "32798903/54016000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.790005777000033,
+      "lower": "65540331/108032000",
+      "upper": "65540331/108032000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.7900747050000518,
+      "lower": "65540331/108032000",
+      "upper": "65540331/108032000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "algorithm_seconds": 0.7934219049999456,
+  "algorithm_peak_rss_kib": 26192,
+  "certificate": "certificates/anytime-catalog-65--price.json.gz",
+  "certificate_bytes": 1157,
+  "uncompressed_certificate_bytes": 5115,
+  "verification": {
+    "status": "PASS",
+    "lower": "65540331/108032000",
+    "upper": "65540331/108032000",
+    "gap": "0",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.10884305000001859,
+    "instance_sha256": "0c2a90d48c64b2e3c30065cb776b805b6f3599370c6792f1be34217c12bfee0e"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.1089916580000363,
+  "process_peak_rss_kib": 26192
+}

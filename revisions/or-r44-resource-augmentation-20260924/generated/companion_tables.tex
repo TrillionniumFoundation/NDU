@@ -1,0 +1,35 @@
+\begin{table}[p]\centering
+\caption{Complete recovery work and accuracy records. Wall times and peak traced memory are single instrumented observations, not repeated performance averages. Checker time is measured separately.}\label{tab:r44-work}
+\small\begin{tabular}{rrrrrrrrr}\toprule
+Case & $\delta$ & Charge slope & $\varepsilon$ & Time (s) & Check (s) & Peak (MB) & Bits & $e$\\\midrule
+0 & 0 & 0 & 1e-03 & 0.090 & 0.010 & 0.033 & 38 & 7.94e-07\\
+1 & 0 & 0 & 1e-03 & 0.093 & 0.012 & 0.039 & 38 & 3.48e-06\\
+2 & 0 & 0 & 1e-03 & 0.750 & 0.073 & 0.094 & 37 & 1.67e-05\\
+3 & 0.125 & 0 & 1e-03 & 0.946 & 0.114 & 0.170 & 37 & 4.74e-05\\
+4 & 0 & 0 & 1e-03 & 7.347 & 0.775 & 0.245 & 45 & 8.29e-06\\
+5 & 0.125 & 0 & 1e-03 & 12.291 & 1.333 & 0.624 & 45 & 2.79e-05\\
+6 & 0.125 & 0 & 1e-03 & 22.995 & 2.521 & 0.569 & 47 & 3.24e-06\\
+7 & 0.125 & 1.00e-02 & 1e-03 & 3.223 & 0.466 & 0.156 & 39 & 1.68e-05\\
+8 & 0.125 & 5.00e-02 & 1e-03 & 4.909 & 0.706 & 0.161 & 39 & 4.17e-06\\
+9 & 0 & 0 & 1e-01 & 0.416 & 0.128 & 0.058 & 37 & 5.96e-03\\
+10 & 0 & 0 & 1e-03 & 1.180 & 0.162 & 0.082 & 50 & 2.21e-06\\
+11 & 0 & 0 & 1e-05 & 1.995 & 0.143 & 0.090 & 66 & 2.09e-10\\
+\bottomrule\end{tabular}
+\end{table}
+\begin{table}[p]\centering
+\caption{Original-budget and continuous-comparison terms. The mesh column equals $K_mh$, not an optimization error.}\label{tab:r44-values}
+\small\begin{tabular}{rrrrrr}\toprule
+Case & $L_m$ & $U_m$ & $J_U$ & $K_mh$ & $e+\Omega$\\\midrule
+0 & 0.16609 & 0.16609 & 0.16609 & 0.36616 & 7.94e-07\\
+1 & 0.56733 & 0.56733 & 0.56733 & 0.36616 & 3.48e-06\\
+2 & 0.71549 & 0.71632 & 0.71631 & 0.17251 & 1.67e-05\\
+3 & 0.71954 & 0.72042 & 0.72048 & 0.17762 & 4.74e-05\\
+4 & 0.71626 & 0.71675 & 0.71674 & 0.08831 & 8.29e-06\\
+5 & 0.71762 & 0.71777 & 0.71777 & 0.08831 & 2.79e-05\\
+6 & 0.71781 & 0.71788 & 0.71789 & 0.04416 & 3.24e-06\\
+7 & 0.71144 & 0.71194 & 0.70772 & 0.09006 & 0.00446\\
+8 & 0.68144 & 0.68247 & 0.66893 & 0.09506 & 0.01377\\
+9 & 0.61722 & 0.61727 & 0.61717 & 0.17251 & 0.00596\\
+10 & 0.61722 & 0.61722 & 0.61722 & 0.17251 & 2.21e-06\\
+11 & 0.61722 & 0.61722 & 0.61722 & 0.17251 & 2.09e-10\\
+\bottomrule\end{tabular}\end{table}

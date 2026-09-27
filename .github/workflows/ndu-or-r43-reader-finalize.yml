@@ -1,0 +1,71 @@
+name: NDU R43 final reader and general-class audit
+on:
+  push:
+    branches: [revision/ndu-operations-research-r43-prefix-decomposition-20260924]
+    paths: ['.github/workflows/ndu-or-r43-reader-finalize.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r43-reader-finalize
+  cancel-in-progress: false
+env:
+  BRANCH: revision/ndu-operations-research-r43-prefix-decomposition-20260924
+  R: revisions/or-r43-prefix-decomposition-20260924
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  finalize:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r43-prefix-decomposition-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the completed scientific experiments are unchanged
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          git diff --exit-code bb3fa604d0e4f780fa697046d5b638775f30186c -- "$R/code" "$R/results" "$R/generated/main_tables.tex" "$R/generated/companion_tables.tex" "$R/study.tex"
+      - name: Replay the supplementary nonquadratic general-class audit
+        run: |
+          R43_AUDIT_CONTEXT='GitHub Actions reader-only finalization' R43_AUDIT_OUTPUT="$RUNNER_TEMP/r43-general-class-ci.json" python "$R/supplementary_audits/verify_general_class.py"
+      - name: Install the reader toolchain
+        run: |
+          python -m pip install pypdf
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile and validate the committed final readers
+        run: python "$R/code/build.py" build
+      - name: Publish final readers and supplementary CI evidence
+        run: |
+          test "$(git branch --show-current)" = "$BRANCH"
+          cp "$RUNNER_TEMP/r43-general-class-ci.json" "$R/supplementary_audits/general_class_ci_result.json"
+          git config user.name 'NDU revision publication'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add -f main.pdf electronic_companion.pdf r43-main-labels.aux r43-ec-labels.aux "$R/RESPONSE_TO_REFEREES.pdf" "$R/BUILD_VALIDATION.json" "$R/PRESERVATION_MANIFEST.json" "$R/supplementary_audits/general_class_ci_result.json"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r43): publish final reader layout and nonquadratic general-class audit'
+            git push origin "HEAD:refs/heads/$BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r43-final-referee-package
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r43-*-labels.aux
+            revisions/or-r43-prefix-decomposition-20260924/
+            reviews/operation_research_referee_report_r42_independent_harsh_2026-09-24.md
+            .build/ndu-r43/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: error

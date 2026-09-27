@@ -1,0 +1,23 @@
+name: NDU OR R22 source archive
+on:
+  push:
+    branches: [revision/ndu-operations-research-r22-20260923]
+    paths: [.github/workflows/ndu-or-r22-source.yml]
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Archive the exact source commit
+        run: |
+          git rev-parse HEAD > SOURCE_SHA.txt
+          git archive --format=tar.gz --output=NDU_R22_source.tar.gz HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-or-r22-pinned-source
+          path: |
+            NDU_R22_source.tar.gz
+            SOURCE_SHA.txt
+          retention-days: 7

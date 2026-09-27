@@ -1,0 +1,87 @@
+% R6 scientific revision. Reviewed R4/R5 sources preserved at archive/pre-r6/.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small NDU: Accepted Dynamic Service Contracts}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Accepted Dynamic Service Contracts and Certified Value-Gradient Learning},pdfauthor={Anonymous}}
+\begin{document}
+\begin{titlepage}
+\centering
+{\Large\bfseries Neural Differential Utility:\ Accepted Dynamic Service Contracts and\ Certified Value-Gradient Learning\par}
+\vspace{0.3in}
+{Anonymous manuscript for Operations Research\par}
+\vspace{0.25in}
+\begin{minipage}{\textwidth}
+\textbf{Abstract.}
+A persistent service tier links inventory decisions, provider cash flows, and customer commitments. We study publicly priced contingent contracts accepted before operation, with explicit participation and fill requirements. Premium--liability compatibility yields monotone stock and tier decisions. Ordered value envelopes give switching thresholds, two-tier hysteresis, and a quadratic tier-discretization bound without global concavity; a dual-coordinate representation extends the reduction to nonquadratic adjustment costs. We optimize continuous static contracts and separate time, regime, and inherited-tier information. In a reproducible instance, a dynamic protocol improves provider reward by 0.62514031 over the optimal continuous static contract while preserving exactly the customer's utility, expected service, and physical cost. A rational feasible-policy and Bellman-dual certificate encloses its optimum to within $10^{-15}$. The same operating primitives generate a nonmanufactured continuous-review control problem. We train compatible scalar value-gradient critics and evaluate their policies and residual budgets on a complete finite controlled Markov chain. Derivative supervision reduces policy loss in both paired runs, while worst-case budgets remain distinct from observed losses. Expanded-action dynamic programming represents all joint decisions exactly; gains arise from accepted adaptivity, not from escaping ordinary stochastic control.
+\par\vspace{0.18in}
+\textbf{Keywords:} service-level agreements; inventory control; switching costs; customer participation; value of adaptivity; value-gradient learning.
+\par\vspace{0.12in}
+\textbf{Subject classifications:} Inventory/production: service contracts; Dynamic programming/optimal control: stochastic control; Analysis of algorithms: approximation guarantees.
+\par\vspace{0.12in}
+\textbf{Area of review:} Stochastic Models.
+\end{minipage}
+\vfill
+{Revision R6, September 21, 2026\par}
+\end{titlepage}
+
+\section{Introduction}
+A service provider can change inventory and the liability tier attached to that inventory. Increasing the tier can earn a higher premium but also increase indemnity exposure; changing an inherited tier consumes resources. A useful operational question is therefore not whether a provider can improve a self-selected performance score. It is whether an enforceable, customer-accepted adaptive contract creates value after its static alternative has been optimized and its service promises have been held fixed.
+
+We address this question through Neural Differential Utility (NDU): joint control of physical activity and a persistent, externally priced contractual state, together with compatible value-gradient representations for continuous reconfiguration. Both the contract menu and the accounting rule are fixed before optimization. NDU is an ordinary Markov decision process on an expanded action space. Its operational content lies in which contracting commitments, information, adjustment costs, and computational guarantees are included, not in a purported exemption from conventional stochastic control.
+
+The first contribution makes the contracting institution and its comparison explicit. A customer agrees ex ante to a publicly specified contingent menu and operating protocol. The protocol must satisfy a customer-utility reservation value and an expected fill commitment. We optimize the continuous static tier, charge the same initial installation cost to every protocol, and then solve an accepted dynamic operating program. On the canonical instance, the provider gains $0.62514031$ while customer utility, service, and physical cost remain exactly unchanged. We provide a complete rational feedback protocol and an independently evaluated Bellman-dual upper bound, rather than relying on a rounded optimizer objective. This improvement survives the objection that provider gains merely purchase lower service.
+
+The second contribution identifies implementable structure. Premium--liability compatibility gives statewise monotone stock and tier choices. A quadratic adjustment state produces an ordered affine envelope, which yields exact switching thresholds and a two-tier hysteresis band. Revealed-preference inequalities give aggregate exposure comparative statics without unsupported statewise parameter monotonicity. The envelope extends to a specified nonquadratic adjustment family in dual coordinates, including a vector identity and a physical-state extension. A separate supporting-subgradient lemma proves a quadratic tier-grid error bound despite a nonconcave reduced objective.
+
+The third contribution isolates what must adapt. Static, time-only, time--regime, and full-state contract classes form a nested comparison. An inherited-only rule adds no information from a deterministic initial tier, because its tier path is a time schedule. Regime-only rules are optimized with shared-action constraints across inherited states. On the recorded instance, the optimized time--regime rule captures most, but not all, of the adaptive gain; using the inherited tier adds a strictly positive remainder. These increments distinguish economic flexibility from an arbitrarily weak baseline.
+
+The fourth contribution connects continuous control and actual learning to the same operating primitives. A flow-rate embedding gives a confined regime-switching reconfiguration problem with an unknown, nonmanufactured value function. Its derivative determines the optimal revision speed. We train scalar networks from operational value and derivative targets, preserving gradient compatibility, and evaluate their deployed policies on every state of a separate finite Markov-chain approximation. The inherited constructive cubic-ReLU theorem and the new trained critic are different results. Likewise, finite-chain residual budgets, continuum verification assumptions, and historical sampled diagnostics retain distinct scopes.
+
+\subsection{Related literature and the incremental contribution}
+Service-level agreements already connect inventory choices to operational performance and transfers. \citet{LiangAtkins2013} analyze inventory-management agreements and the effects of proportional versus lump-sum penalties, bonuses, and allowed deviations. \citet{Sieke2012} study manufacturer-designed flat and unit penalty contracts for supply-chain coordination. \citet{Katok2008} examine inventory SLAs and review periods. Our question fixes the accepted menu and studies costly adaptation of the installed tier, not the optimal design of every incentive coefficient. Customer participation and a fill floor are explicit constraints rather than interpretations assigned to an unconstrained payoff after optimization.
+
+Dynamic operating responses under SLAs are also established. \citet{Hosseinifard2022} optimize dynamic stocking under ready-rate agreements with penalty and bonus structures and compare it with static inventory control. Here stock is regime responsive even in the static-contract comparator; the incremental decision is the persistent tier itself. \citet{Caggiano2007} address time-based customer SLAs in multiechelon service-parts inventory, while \citet{Abbasi2022} study exact operational service levels in vendor-managed inventory contracts. We do not reproduce those network and VMI institutions. The new comparison holds customer utility and fill at an optimized fixed tier's levels and isolates the value of tier information and reconfiguration.
+
+In dynamic contracting, \citet{PlambeckZenios2003} analyze a make-to-stock principal-agent model with unobserved production effort. Our contractible stock and publicly observed state remove that incentive-compatibility problem. The resulting accepted-control formulation is simpler institutionally and supports an exact occupation-measure certificate; it is not advertised as a solution to hidden-action contracting. Combined pricing and inventory control is likewise not new \citep{FedergruenHeching1999}; demand here remains exogenous and the tier changes indemnity and persistence rather than demand through price.
+
+The structural analysis builds on lattice optimization \citep{Topkis1978} and acknowledges monotone hysteretic policies \citep{HippHolzbaur1988}. Its additions are the contract-specific compatibility condition, threshold and exposure formulas, dual-coordinate envelope, and error enclosure. We claim neither the first hysteresis theorem nor a new general convex-hull algorithm. Derivative-informed fitting follows established Sobolev training \citep{Czarnecki2017}; forward--backward and deep value-process methods provide related representations \citep{MaProtterYong1994,HanJentzenE2018}. Here the derivative controls an operational tier velocity, and its learned deployment is checked independently. Markov-chain approximation is used in its stated numerical role \citep{KushnerDupuis2001}; no general convergence rate is inferred from one manufactured quadratic example.
+
+\input{revisions/or-r6-20260921/sections/model_structure.tex}
+\input{revisions/or-r6-20260921/sections/extensions.tex}
+\input{revisions/or-r6-20260921/sections/accounting.tex}
+\input{revisions/or-r6-20260921/sections/accepted.tex}
+\input{revisions/or-r6-20260921/sections/operational_continuous.tex}
+\input{revisions/or-r6-20260921/sections/study.tex}
+\clearpage
+\input{revisions/or-r6-20260921/sections/references.tex}
+\end{document}

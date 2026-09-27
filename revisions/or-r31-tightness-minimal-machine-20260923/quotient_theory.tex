@@ -1,0 +1,125 @@
+\section{A Tight Quantitative Quotient of the History Tree}\label{sec:quotient}
+\subsection{Conditional responses and cap reflection}
+For an occurrence $h$ of $v$, let $H_h(\eta)$ be the maximum conditional reward minus $\eta Y_h$, imposing all subtree caps but not an exact payment equality at $h$. Let $H_h^{\rm pre}(\eta)$ remove only the cap at $h$, retaining every successor cap. Conditional rewards use weights $w_j/w_h$. Define $R_h(\eta)$ as the payment of the unique maximizer of $H_h(\eta)$; use $d_h(\eta)$ for the pre-cap payment. These definitions separate a removed current cap from the constrained continuation problems below it.
+
+\begin{theorem}[Occurrence-to-vertex quotient and finite response closure]\label{thm:quotient}
+Under the assumptions of Section~\ref{sec:model}, occurrences $h,h'$ of a public vertex $v$ with the same incoming price $\eta$ have identical normalized optimal continuation plans. In particular, $H_h=H_{h'}=:H_v$, $H_h^{\rm pre}=H_{h'}^{\rm pre}=:H_v^{\rm pre}$, and $R_h=R_{h'}=:R_v$. The following backward construction computes the common payment responses and optimal policies:
+\begin{align}
+ x_v^0(\eta)&=\left[(r_v-a_v\eta)/q_v\right]_{[l_v,h_v]},\label{eq:local}\\
+ d_v(\eta)&=a_vx_v^0(\eta)+\beta\sum_wp_{vw}R_w(\eta),\label{eq:pre}\\
+ R_v(\eta)&=\min\{B_v,d_v(\eta)\}.\label{eq:capped}
+\end{align}
+Write $d_v^-=a_vh_v+\beta\sum_wp_{vw}U_w$ for the finite constant on the left tail of $d_v$. If $B_v\geq d_v^-$, assign no barrier at $v$. Otherwise let $\alpha_v$ be the leftmost finite solution of $d_v(\alpha_v)=B_v$. The optimal local action and the incoming price sent to every successor are determined by
+\begin{equation}\label{eq:reflection}
+ s_v=\max\{\eta,\alpha_v\},\qquad x_v=x_v^0(s_v),
+\end{equation}
+where a missing barrier leaves $s_v=\eta$.
+
+Every $R_v$ is continuous, nonincreasing, piecewise affine with constant tails and range $[L_v,U_v]$. The global universe of distinct response knots has size at most $3N$. Complete response tables can be constructed in
+\begin{equation}\label{eq:arithmetic}
+ A=O\bigl((N+M)N\log(N+1)\bigr)
+\end{equation}
+exact rational arithmetic operations and exact comparisons, using $O(N^2+M)$ scalar storage. For a fixed root promise, choose any finite $\eta_0$ with $R_0(\eta_0)=b_0$. Execution uses at most $N+1$ distinct incoming-price labels, drawn from $\eta_0$ and the finite cap barriers. The construction does not enumerate $H$ occurrences.
+\end{theorem}
+\begin{proof}
+The subtree below an occurrence is determined by its displayed vertex and subsequent public transitions. The map replacing the initial occurrence by another occurrence of the same vertex preserves all suffix paths, relative probabilities, discounts, local rewards, bounds, and caps. It is consequently a bijection of the normalized feasible problems at any common $\eta$. Strict concavity makes their maximizing action vectors agree. This proves the quotient independently of the algorithm.
+
+Remove the current cap. Separability gives \eqref{eq:local} and independent successor problems at the same incoming price, proving \eqref{eq:pre}. Their unique maximizers have continuous payment responses. Backward induction starts with a clipped affine local payment and preserves continuity, monotonicity, and affine pieces under weighted summation. Its two tails are the extreme attainable payments before the current cap.
+
+When the current cap is redundant, this pre-cap maximizer is feasible. Otherwise feasibility implies that $B_v$ belongs to the range of $d_v$. The clipped finite response reaches its tails at finite prices, so a finite leftmost crossing exists. For $\eta<\alpha_v$, the pre-cap optimum at $\alpha_v$ has payment $B_v$. Let $z^*$ be that optimum and $z$ any policy satisfying the current cap. Writing $G$ for conditional reward and $Y$ for payment gives
+\[
+ G(z)-\eta Y(z)\leq G(z^*)-\alpha_v B_v+(\alpha_v-\eta)Y(z)
+ \leq G(z^*)-\eta B_v.
+\]
+For $\eta\geq\alpha_v$, the pre-cap optimizer already satisfies the cap. These two cases prove reflection, \eqref{eq:capped}, and its implementing policy. If the payment is constant between two prices, the two optimality inequalities imply that either unique optimizer is also optimal at the other price. Thus the policy is unchanged on an equality plateau even when the supporting dual price is not unique. This also covers a cap at the minimum feasible payment and fixed local intervals.
+
+Local clipping contributes at most two knots. Summing child responses introduces no knot outside their union. Capping can remove knots and introduces at most one crossing. Inducting over distinct \emph{vertices}, rather than occurrences, gives a global union of at most $3N$. Each of the $N$ responses can still have order $N$ segments, so total response storage is quadratic, not linear. Directly merging weighted coefficient changes at sorted knots gives \eqref{eq:arithmetic}; the graph takes an additional $O(N+M)$ records.
+
+Finally, each executed price is the maximum of the root price and the barriers along the realized path. There are at most $N+1$ such numerical labels for this fixed root query, and at most $N(N+1)$ reachable vertex--price pairs. The root maximizer at $\eta_0$ has precisely $b_0$, so it also maximizes reward among policies satisfying the equality.
+\end{proof}
+
+The unnormalized response at occurrence $h$ in Proposition~\ref{prop:laminar} is $w_hR_{v(h)}(\eta)$. This identity is the explicit link to an occurrence-indexed tree reduction. A normalized memoized implementation enjoys the same quotient recurrence; it is not an algorithmic competitor that our implementation is claimed to dominate.
+
+\subsection{Matching lower bounds for the response representation}
+The preceding upper bounds are not artifacts of a loose counting argument.
+
+\begin{theorem}[Worst-case tight response size]\label{thm:tight-response}
+For every integer $n\geq1$, there is an $n$-vertex rational instance with $M=n-1$ for which the global response-knot universe has exactly $2n$ distinct knots and the total number of affine response segments is exactly $n^2+2n$. Consequently the $O(N)$ global-knot bound and the $O(N^2+M)$ complete-response storage bound in Theorem~\ref{thm:quotient} are worst-case tight up to constant factors, even with no binding continuation caps.
+\end{theorem}
+\begin{proof}
+Take the deterministic chain $1\to2\to\cdots\to n$, with $\beta=1$, edge probability one, $a_i=q_i=1$, $l_i=0$, $h_i=1$, and $r_i=2i$. Set the continuation cap at vertex $i$ to
+\[
+ B_i=n-i+1.
+\]
+This cap equals the maximum feasible remaining payment, so it is redundant and creates no barrier. The response at vertex $i$ is therefore
+\begin{equation}\label{eq:tight-chain}
+ R_i(\eta)=\sum_{j=i}^{n}[2j-\eta]_{[0,1]}.
+\end{equation}
+For every $j$, the local summand has knots $2j-1$ and $2j$. These $2n$ numbers are distinct. At each such number the slope of exactly one summand changes by one in magnitude, so no knot cancels in any ancestor response that contains that summand. Hence $R_i$ has exactly $2(n-i+1)$ knots and $2(n-i+1)+1$ affine segments. Summing over $i$ gives
+\[
+ \sum_{i=1}^{n}\bigl[2(n-i+1)+1\bigr]
+ =\sum_{k=1}^{n}(2k+1)=n^2+2n.
+\]
+All primitives are integers with $O(\log n)$ bits, so the family has polynomial encoding length. The claimed asymptotic lower bounds follow.
+\end{proof}
+
+The theorem separates two notions that can otherwise be conflated. There are only linearly many distinct knot \emph{locations}, but a downstream knot can appear in the response table of every ancestor, producing a quadratic number of stored affine pieces. The dense computational family in Section~\ref{sec:computational} is an empirical counterpart of this analytic construction; the lower bound itself does not depend on computation.
+
+\begin{corollary}[Several coordinates under one scalar commitment]\label{cor:coordinates}
+With $d_v$ separable local coordinates, positive payment coefficients, positive quadratic coefficients, and a product interval, let $D=\sum_vd_v$. The knot universe has size at most $2D+N$, response storage is $O(N(2D+N)+M)$, and the incoming-price alphabet still has at most $N+1$ elements for a fixed query.
+\end{corollary}
+\begin{proof}
+There are two clipping knots per coordinate, but only one scalar cap barrier per vertex. Clipping knots describe how a local action responds to a given price; they are not additional prices written into the running record. The common commitment price and cap reflection are unchanged.
+\end{proof}
+Independent commitments can be separated only when rewards and feasible sets also separate. Coupled vector promises, nonseparable quadratic terms, and intertemporal switching do not satisfy the scalar reflection argument. Their retained primal promise-state and convex formulations remain applicable.
+
+\subsection{Rational bit complexity}\label{sec:bit}
+An arithmetic count alone does not establish polynomial time on binary inputs. Let $L$ be the total binary encoding length of all rational primitives, graph indices, and the rational root query, with rationals in lowest terms. The following statement is specifically for the coefficient-event construction used in Theorem~\ref{thm:quotient}. Stored rational coefficients, event locations, and crossings are reduced to lowest terms after each exact arithmetic update. The common denominators used in the proof below are bounding devices; they are not materialized as a giant implementation denominator.
+
+\begin{theorem}[Polynomial rational preprocessing for the coefficient-event compiler]\label{thm:bit}
+All stored response slopes, intercepts, finite knots, cap barriers, and a returned finite root price can be represented with
+\begin{equation}\label{eq:bitheight}
+ S=O\bigl(NL+\log(N+M+1)\bigr)
+\end{equation}
+bits per reduced numerator and denominator. The event merges, sorting, exact comparisons, coefficient arithmetic, cap-crossing calculations, and one root inversion together admit the conservative bit-operation bound
+\begin{equation}\label{eq:turing}
+ O\!\left((N+M)N\log(N+1)\,S^3\right)=O(AS^3).
+\end{equation}
+The read-only response representation occupies $O((N^2+M)S)$ bits. These are polynomial bounds for rational inputs to this explicit compiler, not a strongly polynomial claim and not a generic bit bound for every parametric optimization algorithm.
+\end{theorem}
+\begin{proof}
+Fix an open interval between global knots. At a vertex whose current cap binds on that interval, the payment response is the constant $B_v$. Otherwise its coefficients are a local affine payment plus the discounted, probability-weighted coefficients at successors. The possible nonzero local sources are
+\begin{equation}\label{eq:sources}
+ B_v,\quad a_vl_v,\quad a_vh_v,\quad a_vr_v/q_v,\quad -a_v^2/q_v.
+\end{equation}
+Expanding either coefficient through the acyclic graph therefore gives a sum over directed paths of one source multiplied by edge probabilities and a power of $\beta$. Expansion stops at a capped vertex. No path repeats an edge, and its length is at most $N-1$.
+
+Let $D_0$ be the product of all positive denominators and the absolute values of all nonzero numerators appearing in the rational primitive input. Its logarithm is $O(L)$. Every path-term denominator divides $D_0^{N+4}$; this exponent covers repeated discounting, each edge probability, and the products and divisions in \eqref{eq:sources}. Thus a conceptual common denominator has $O(NL)$ bits even though the number of paths may be exponential. The sum of nonnegative discounted path weights to source occurrences is at most $N$, because it is bounded by the expected number of visited vertices. The absolute value of a source is at most $2^{O(L)}$. Multiplying by the conceptual denominator therefore bounds every reduced stored numerator and denominator by \eqref{eq:bitheight}.
+
+The actual event compiler does not build $D_0^{N+4}$. It adds and multiplies ordinary reduced rationals while merging sorted coefficient events. Intermediate stored partial sums have the same path-product denominator structure and differ by at most a polynomial factor in $N+M$ in magnitude. A new cap crossing has form $(B_v-c)/m$ on a nonconstant line $m\eta+c$; local clipping knots and a root inverse are ratios of a constant number of bounded-height rationals. Their reduced heights also satisfy \eqref{eq:bitheight}.
+
+Sorting and merging are part of the operation count in \eqref{eq:arithmetic}. Every exact order test is a cross-product comparison of $O(S)$-bit integers. Rational addition, multiplication, division, comparison, and gcd reduction can all be bounded conservatively by $O(S^3)$ bit operations. Multiplying that cost by the full arithmetic-and-comparison count proves \eqref{eq:turing}. Counting stored coefficients, knot locations, and graph entries proves the storage claim.
+\end{proof}
+
+The coefficient height above is not the bit length of a completely printed primal--dual certificate. Aggregate execution rewards and certificate totals can combine different realized denominators and have a larger, still polynomial, height. The Electronic Companion reports that separate aggregate bound and the implementation records coefficient precision separately from certificate precision. This distinction is part of the memory accounting below.
+
+\begin{corollary}[Amortized exact root inversion]\label{cor:root-query}
+After the complete response family is compiled, a new feasible root promise can be inverted on the stored root response using $O(\log(N+1))$ exact comparisons and a constant number of rational arithmetic operations. This is an inversion bound only: emitting and auditing the reached execution machine for the new query is a separate operation.
+\end{corollary}
+\begin{proof}
+The root response has at most $3N$ globally indexed knots. Binary search locates the constant or affine segment containing the requested payment; one affine solve, or selection of a finite point on a constant tail, returns a valid root price.
+\end{proof}
+
+\subsection{A compact exact certificate}\label{sec:certificate}
+For each reached $(v,\eta)$, propagate discounted occupation weight $w$, effective price $s$, action $x$, and multipliers $\chi=s-\eta$, $\ell,u\geq0$. They satisfy
+\begin{equation}\label{eq:kkt}
+ r_v-q_vx-a_vs+\ell-u=0,\quad
+ \ell(x-l_v)=u(h_v-x)=\chi(B_v-R_v(\eta))=0.
+\end{equation}
+Weight $\beta wp_{vw}$ moves to $(w,s)$. A backward conditional-payment calculation verifies every cap; forward flow verifies occupation weights and the root promise. The resulting dual upper bound is
+\begin{equation}\label{eq:dual}
+ \eta_0b_0+\sum_{(v,\eta)}w\left[
+ \chi B_v+u h_v-\ell l_v+
+ \frac{(r_v-a_vs+\ell-u)^2}{2q_v}\right].
+\end{equation}
+Ancestor prices telescope under the flow equations, and \eqref{eq:kkt} makes \eqref{eq:dual} equal the implemented reward. These rational checks certify a particular optimum; verifying entire response-curve identities is a separate implementation test. Neither kind of code execution replaces the mathematical proof above.

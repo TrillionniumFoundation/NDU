@@ -1,0 +1,85 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Comparison on unfoldable instances}\label{tab:comparison}
+\begin{tabular}{rrrrrrrr}
+\toprule
+Dates & Seed & Vertices & Occurrences & Quotient & Tree & Convex & Value error \\
+\midrule
+4 & 13 & 7 & 15 & 0.0009 & 0.0018 & 0.0265 & 3.64e-07 \\
+4 & 29 & 7 & 15 & 0.0009 & 0.0022 & 0.0697 & 9.12e-10 \\
+6 & 13 & 11 & 63 & 0.0023 & 0.0099 & 0.0713 & 5.88e-09 \\
+6 & 29 & 11 & 63 & 0.0022 & 0.0090 & 0.1183 & 8.74e-10 \\
+8 & 13 & 15 & 255 & 0.0040 & 0.0379 & 0.2627 & 1.36e-09 \\
+8 & 29 & 15 & 255 & 0.0039 & 0.0483 & 0.3436 & 2.57e-09 \\
+10 & 13 & 19 & 1023 & 0.0041 & 0.1663 & 1.2747 & 1.39e-08 \\
+10 & 29 & 19 & 1023 & 0.0059 & 0.1670 & 2.4538 & 3.22e-10 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Times are seconds. Quotient time is the sum of the separately measured phase medians for construction, root inversion, and certificate generation; the exact audit is excluded. Tree and convex times are end-to-end medians of three repetitions. Tree and quotient values agree as rational numbers. Value error is the absolute difference between the numerical convex-solver value and the exact optimum; its feasibility and stationarity residuals are retained separately. All methods use the same input, not an optimum supplied by another method.\end{minipage}
+\end{table}
+\clearpage
+\begin{table}[htbp]
+\centering\small
+\caption{Primal promise discretization on the public graph}\label{tab:grid}
+\begin{tabular}{rrrrrrrr}
+\toprule
+Dates & Seed & $Q=10$ & $Q=20$ & $Q=40$ & $Q=80$ & Seconds & States \\
+\midrule
+4 & 13 & 8.82e-03 & 5.11e-03 & 0 & 0 & 0.0085 & 619 \\
+4 & 29 & 3.21e-02 & 7.48e-03 & 1.50e-04 & 5.29e-06 & 0.0084 & 599 \\
+8 & 13 & 2.54e-02 & 4.00e-03 & 3.79e-04 & 7.69e-05 & 0.0342 & 2275 \\
+8 & 29 & 2.19e-02 & 8.73e-04 & 2.25e-04 & 5.95e-05 & 0.0333 & 2279 \\
+12 & 13 & 1.68e-02 & 1.87e-03 & 4.15e-04 & 9.76e-05 & 0.0792 & 4971 \\
+12 & 29 & 2.15e-02 & 9.97e-04 & 3.15e-04 & 5.68e-05 & 0.0853 & 4967 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize The four resolution columns report the exact feasible-policy value loss relative to the quotient optimum. Child promises are multiples of $1/Q$; local actions are continuous residuals and the root promise is not rounded. Seconds and stored states refer to $Q=80$. Times are medians of three repetitions. The grid is a public-graph dynamic program, not a scenario-tree baseline; exact rational replay checks its feasibility. A zero gap on a particular instance is not a uniform exactness claim for the grid.\end{minipage}
+\end{table}
+\clearpage
+\begin{table}[htbp]
+\centering\small
+\caption{Response representation and rational coefficient growth}\label{tab:representation}
+\begin{tabular}{lrrrrrr}
+\toprule
+Family & Vertices & Edges & Knots & Segments & Largest & Bits \\
+\midrule
+Coupled & 61 & 228 & 128 & 2428 & 83 & 198 \\
+Coupled & 125 & 484 & 240 & 10168 & 159 & 388 \\
+Coupled & 253 & 996 & 436 & 34748 & 279 & 768 \\
+Tight caps & 509 & 2020 & 723 & 67212 & 295 & 1501 \\
+Late renewal & 253 & 996 & 10 & 2706 & 11 & 277 \\
+Late renewal & 509 & 2020 & 10 & 5523 & 11 & 554 \\
+Late renewal & 1021 & 4068 & 10 & 11154 & 11 & 1107 \\
+Late renewal & 2045 & 8164 & 10 & 22419 & 11 & 2213 \\
+Dense knots & 63 & 122 & 96 & 3161 & 68 & 12 \\
+Dense knots & 127 & 250 & 192 & 12473 & 132 & 14 \\
+Dense knots & 255 & 506 & 384 & 49529 & 260 & 16 \\
+Dense knots & 511 & 1018 & 768 & 197369 & 516 & 18 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Knots counts the distinct global union; segments counts the entire stored family. Bits is the largest numerator or denominator bit length among reduced affine coefficients. Late-renewal caps are heterogeneous and active only at the penultimate date; this family is deliberately distinct from the dense-knot stress family and from the broadly capped coupled family. It tests long rational horizons with a small knot universe, not worst-case quadratic storage.\end{minipage}
+\end{table}
+\clearpage
+\begin{table}[htbp]
+\centering\small
+\caption{Separate construction, execution, and audit costs}\label{tab:phases}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Family & Vertices & Build & Invert & Certificate & Audit & Symbols & Memory \\
+\midrule
+Coupled & 61 & 0.1220 & 16.3 & 0.0484 & 0.0775 & 18 & 97.3 \\
+Coupled & 125 & 0.5158 & 183.1 & 0.1154 & 0.2222 & 23 & 117.5 \\
+Coupled & 253 & 2.3536 & 433.9 & 0.6680 & 1.1607 & 61 & 227.2 \\
+Tight caps & 509 & 7.1123 & 1426.9 & 0.5700 & 0.1233 & 1 & 396.5 \\
+Late renewal & 253 & 0.0976 & 19.1 & 0.0154 & 0.0293 & 4 & 97.2 \\
+Late renewal & 509 & 0.2551 & 24.8 & 0.0483 & 0.0839 & 4 & 107.4 \\
+Late renewal & 1021 & 0.7465 & 48.9 & 0.1691 & 0.2958 & 4 & 137.3 \\
+Late renewal & 2045 & 2.6156 & 127.1 & 0.8716 & 1.1871 & 4 & 251.0 \\
+Dense knots & 63 & 0.0417 & 69.7 & 0.0043 & 0.0037 & 1 & 94.3 \\
+Dense knots & 127 & 0.1679 & 146.2 & 0.0163 & 0.0092 & 1 & 100.2 \\
+Dense knots & 255 & 0.6180 & 271.4 & 0.1215 & 0.0153 & 1 & 121.4 \\
+Dense knots & 511 & 2.5074 & 504.5 & 0.3282 & 0.0315 & 1 & 214.3 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Build, certificate, and audit are seconds; inversion is microseconds. Build and inversion use three repetitions. Certificate generation and the independent single-query policy audit are each measured once in this scale suite; they are diagnostic measurements, not repeated-time claims. Symbols is the exact minimized writable alphabet. Memory is the absolute fresh-worker process high-water mark in MiB, including common Python, NumPy, and SciPy imports; it is not incremental algorithm allocation. Whole-curve audits are reported separately from these single-query KKT/flow audits.\end{minipage}
+\end{table}

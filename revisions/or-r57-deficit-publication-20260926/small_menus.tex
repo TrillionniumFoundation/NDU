@@ -1,0 +1,46 @@
+\subsection{A tight cap-count bound for the command book}\label{sec:smallmenus56}
+The common-cap result extends to a structural parameter without requiring common realization ceilings. Let $q=|\{b_j:1\leq j\leq k\}|$ be the number of distinct expected caps. The next result concerns a common terminal reward; heterogeneous rewards remain allowed in the resource and price algorithms below.
+
+\begin{theorem}[Cap-count compression]\label{thm:capcount56}
+Suppose the catalog is common and ordered, eligibility is induced by the realization ceilings, the terminal reward is common, strictly increasing and concave, service costs are continuous, convex and nondecreasing, and opening charges are nonnegative. Every feasible book and policy is dominated in value by a policy on a subset of that book containing at most $2q$ commands. Consequently some optimum uses at most $\min\{m,2q\}$ commands. Given the original policy, the smaller book and a dominating policy can be constructed by solving at most $q$ common-cap fixed-book allocation problems. For rational quadratic primitives this construction has polynomial arithmetic and bit complexity.
+\end{theorem}
+\begin{proof}
+Let $I_h$ be a cap class, $W_h=\sum_{j\in I_h}\pi_j$, and let
+\[
+ B_h=\frac{1}{W_h}\sum_{j\in I_h}\pi_jt_j
+\]
+be its conditional promise under the supplied policy. Every target is at least the original anchor, and $B_h$ does not exceed the class cap. Treat the supplied book as the available catalog for class $h$, normalize its probabilities by $W_h$, and temporarily set opening charges to zero. Theorem~\ref{thm:twocommand54} gives a singleton or pair $c_h$ from that book whose optimized conditional gross payoff is no smaller than the supplied conditional payoff at $B_h$. This use of the theorem does not require the supplied class allocation to have been optimal.
+
+For completeness, the book extraction is explicit. If $B_h$ is selected, retain its singleton. If the largest selected command is below $B_h$, retain that command. Otherwise retain the two selected neighbors bracketing $B_h$. The common-cap proof verifies the original expected and realized constraints in each case, including a successor above the class cap.
+
+Install $\widetilde c=\bigcup_h c_h$ and retain each class's conditional policy. An enlarged available support does not invalidate a lottery that uses only its subgroup book. Every class keeps its exact conditional promise, so $\sum_hW_hB_h=B$ remains unchanged. Summing conditional gross payoffs proves gross dominance. Since $\widetilde c\subseteq c$, nonnegative opening charges cannot increase. Also $|\widetilde c|\leq\min\{|c|,2q\}$. The fixed-book rational allocation and its encoding bound follow from Proposition~\ref{prop:oracle54} and the history-level marginal construction. An optimal supplied policy gives the existence claim. Existence itself follows from the finite book set and compact feasible allocations.
+\end{proof}
+
+\begin{proposition}[Tightness and exact enumeration]\label{prop:tight56}
+The coefficient two in Theorem~\ref{thm:capcount56} is sharp for every positive integer $q$. For rational quadratic inputs, exhaustive evaluation through size $s=\min\{m,2q\}$ is an exact algorithm with arithmetic count $O(N^s\operatorname{poly}(k,s))$ and polynomial bit cost per book. This is an XP bound in the cap count or command budget, not an FPT bound in either parameter alone.
+\end{proposition}
+\begin{proof}
+For tightness, take $q$ histories of probability $1/q$. For $h=1,\ldots,q$, put
+\[
+ u_h=\frac{3h-2}{3q},\qquad v_h=\frac{3h-1}{3q},\qquad
+ b_h=\frac{u_h+v_h}{2},\qquad \tau_h=v_h.
+\]
+Use catalog $\{u_h,v_h:1\leq h\leq q\}$, zero service costs and charges, common reward $f(x)=2x-x^2/2$, budget $2q$, and promise $B=\bar b$. The root equality and individual caps force every target to equal $b_h$. The full book attains the upper concave envelope of the eligible catalog at that target, with zero service. Strict increase rules out positive service at an optimum, since the eligible pair can attain terminal mean $b_h$. Strict concavity makes the two adjacent points $u_h,v_h$ the unique supporting pair at this interior mean. Omitting either strictly decreases history $h$'s maximum payoff. All other histories are already at their individual maxima, so they cannot offset that decrease. Every optimum therefore uses all $2q$ commands.
+
+For enumeration, evaluate every nonempty subset through size $s$ whose anchor is feasible. Theorem~\ref{thm:capcount56} guarantees that this list contains an optimum, even if some original optimum contains extra zero-charge commands. There are $O(N^s)$ such books. The fixed-book marginal and capped-service calculation is polynomial in its rational input length. The unknown optimal allocation is not assumed available to this enumeration algorithm: the compression theorem justifies its search range.
+\end{proof}
+
+These results distinguish three resources. A fixed small command budget gives exact polynomial enumeration with a budget-dependent exponent. A small cap count bounds the useful book, but does not make that exponent independent of the cap count. Numerical lattice size gives a different exact algorithm, developed in Section~\ref{sec:lattice56}, whose exponent does not grow with either parameter. Thus the nonbinding-budget hardness construction and the limited-menu results address different, explicitly stated input regimes.
+
+\subsection{Finite heterogeneous reward types}\label{sec:types57}
+The compression argument is conditional, rather than intrinsically global. It therefore also covers finite heterogeneity in terminal rewards. Two histories have the same catalog reward type when their terminal reward values agree at every catalog command; behavior between commands does not affect a terminal lottery. Let $g$ be the number of nonempty classes formed jointly by expected cap and catalog reward type. Service costs and prefix realization ceilings may vary within a class.
+
+\begin{theorem}[Joint cap--reward compression]\label{thm:types57}
+Suppose every terminal reward is strictly increasing and concave, service costs are continuous, convex and nondecreasing, and opening charges are nonnegative. Every feasible book and policy is weakly dominated by an original-feasible policy on a subset of that book containing at most $2g$ commands. In particular, an optimum exists with at most $\min\{m,2g\}$ commands. Given the original policy, its compression uses at most $g$ fixed-book allocation problems. For rational quadratic primitives, enumerating books of cardinality at most $\min\{m,2g\}$ is exact with polynomial bit work per book. The exponent still depends on $g$ or $m$; this is an XP guarantee, not an FPT claim.
+\end{theorem}
+\begin{proof}
+Partition histories by their joint type. For class $I$, write $w_I=\sum_{j\in I}\pi_j$ and retain its conditional promise $B_I=w_I^{-1}\sum_{j\in I}\pi_j t_j$ from the given policy. The conditional policy is feasible under the class's common cap, normalized positive probabilities, original ceilings and costs. At catalog commands its rewards equal one common strictly increasing concave reward. Its terminal-lottery objective consequently equals the common-reward objective, even if the rewards differ between commands. Apply Theorem~\ref{thm:twocommand54} with the given book as the available catalog and zero charges for this conditional problem. It yields a singleton or adjacent pair with no smaller conditional gross payoff and the same $B_I$. The explicit bracketing construction in the proof of Theorem~\ref{thm:capcount56} supplies those commands before the fixed-book allocation is solved.
+Take the union of these conditional singleton/pair books. It is a subset of the original book, has at most $2g$ members, and does not exceed the original cardinality. Execute each class's conditional policy without changing it. A union command assigned zero lottery probability in a class cannot violate that class's ceiling. Conditional promises sum to $\sum_I w_I B_I=B$, so the original aggregate equality is unchanged. All history-level caps, pre-draw service requirements and realization ceilings remain satisfied. The gross payoff weakly increases and nonnegative opening charges cannot increase upon deletion. This proves dominance. There are at most $g$ conditional allocations, followed, if desired, by reoptimization of the union book at $B$. Finite enumeration and the rational fixed-book allocation bound give the final assertion.
+\end{proof}
+
+The common-reward cap-count theorem is recovered when the number of joint classes equals the number of distinct caps. Its strict $2q$ examples also show that the coefficient two cannot be improved uniformly over this larger model class. The bound does not promise compression when nearly every history has a different joint type. It identifies a useful finite-type regime without imposing common rewards on the heterogeneous resource algorithm.

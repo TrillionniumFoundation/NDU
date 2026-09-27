@@ -1,0 +1,103 @@
+{
+  "id": "screen-k8-c1_10-5602",
+  "family": "screening",
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:1/8",
+        "hex:1/4",
+        "hex:f/10",
+        "hex:d/10",
+        "hex:7/10",
+        "hex:b/10",
+        "hex:b/10",
+        "hex:9/10"
+      ],
+      "weights": [
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8"
+      ],
+      "gamma": [
+        "hex:3/4",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:3/4",
+        "hex:1/1",
+        "hex:1/4",
+        "hex:1/4",
+        "hex:3/4"
+      ],
+      "ceilings": [
+        "hex:7/10",
+        "hex:5/10",
+        "hex:f/10",
+        "hex:d/10",
+        "hex:d/10",
+        "hex:3/4",
+        "hex:f/10",
+        "hex:1/1"
+      ],
+      "reward_r": [
+        "hex:5/2",
+        "hex:2/1",
+        "hex:2/1",
+        "hex:3/1",
+        "hex:3/1",
+        "hex:3/1",
+        "hex:9/4",
+        "hex:5/2"
+      ],
+      "reward_q": [
+        "hex:1/1",
+        "hex:1/1",
+        "hex:1/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:3/4"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/8",
+      "hex:1/4",
+      "hex:3/8",
+      "hex:1/2",
+      "hex:5/8",
+      "hex:3/4",
+      "hex:7/8",
+      "hex:1/1"
+    ],
+    "charges": [
+      "hex:0/1",
+      "hex:1/2",
+      "hex:0/1",
+      "hex:3/a",
+      "hex:1/a",
+      "hex:2/5",
+      "hex:2/5",
+      "hex:2/5",
+      "hex:2/5"
+    ],
+    "promise": "hex:1b/40",
+    "budget": 3
+  },
+  "epsilon": "1/100",
+  "seconds": 2.0,
+  "methods": [
+    "price",
+    "screen"
+  ],
+  "k": 8,
+  "n": 9,
+  "m": 3,
+  "seed": 5602,
+  "instance_sha256": "c61bdb1ad1a5030a64ef5f839d42065669d371a834eb4e94227a0b8bfac8023d"
+}

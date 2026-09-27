@@ -1,0 +1,31 @@
+\begin{table}[!htbp]\centering
+\caption{Exact computation on coupled recombining graphs.}\label{tab:r29-scaling}
+\begin{tabular}{lrrrrrr}\toprule
+Design & Vertices & Knots & Segments & Price pairs & Solve (s) & Audit (s)\\\midrule
+8 dates, 2 states & 15 & 30 & 180 & 33 & 0.007 & 0.018 \\
+16 dates, 2 states & 31 & 62 & 699 & 101 & 0.030 & 0.078 \\
+32 dates, 2 states & 63 & 129 & 2801 & 69 & 0.117 & 0.336 \\
+64 dates, 2 states & 127 & 246 & 8883 & 1439 & 0.643 & 1.633 \\
+16 dates, 3 states & 46 & 96 & 1677 & 172 & 0.091 & 0.231 \\
+32 dates, 3 states & 94 & 180 & 5405 & 337 & 0.285 & 0.807 \\
+64 dates, 3 states & 190 & 332 & 20452 & 580 & 1.190 & 3.512 \\
+32 dates, 2 states* & 63 & 146 & 2859 & 273 & 0.123 & 0.359 \\
+64 dates, 2 states* & 127 & 278 & 11094 & 559 & 0.566 & 1.583 \\
+\bottomrule\end{tabular}
+\begin{minipage}{.97\linewidth}\small *Fixed shared time-only table with positive corridor release. Knots count the global union, segments count all stored response pieces, and price pairs count reached public/incoming-price states. Every value has an exact system-level rational primal--dual equality. Times are single-run platform observations, not replicated speed estimates; audit is independent of the generator.\end{minipage}
+\end{table}
+\begin{table}[!htbp]\centering
+\caption{The exact memory frontier for eight renewal regimes.}\label{tab:r29-memory}
+\begin{tabular}{rrrr}\toprule
+Symbols & Writable bits & Optimal reward & Loss from full information\\\midrule
+1 & 0 & $35/324$ & $119/162$ \\
+2 & 1 & $61/108$ & $5/18$ \\
+3 & 2 & $56/81$ & $49/324$ \\
+4 & 2 & $245/324$ & $7/81$ \\
+5 & 3 & $169/216$ & $13/216$ \\
+6 & 3 & $29/36$ & $1/27$ \\
+7 & 3 & $535/648$ & $11/648$ \\
+8 & 3 & $91/108$ & $0$ \\
+\bottomrule\end{tabular}
+\begin{minipage}{.9\linewidth}\small Caps are $b_j=j/9$ and the exact root promise is $1/2$. Bits count an index into a stored decision table, not the read-only table or numeric storage. Two bits permit four symbols; unused capacity is not required. No memory costs are calibrated.\end{minipage}
+\end{table}

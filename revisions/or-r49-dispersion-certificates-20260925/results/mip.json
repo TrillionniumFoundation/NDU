@@ -1,0 +1,4301 @@
+{
+  "protocol_sha256": "577f82768f779e7a85056273d58e990e811079fa08c93b9a2d78263388cc3d67",
+  "python": "3.13.5 (main, Jun 12 2025, 03:51:07) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "cases": [
+    {
+      "id": "mip-paired-case-00",
+      "source_case": "paired-case-00",
+      "exact_reference": "120922022079/139492718750",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.002785907999992787,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 226,
+          "approximation_error": 0.00011544744318181818,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8669038920454545,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8668071666666666,
+          "objective": 0.8669038920454545,
+          "max_model_residual": 1.734723475976807e-17,
+          "installed": [
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.3,
+            0.17166666666666716,
+            0.08749999999999986,
+            0.06249999999999973
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.0020852789999992183,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 222,
+          "approximation_error": 0.00011544744318181818,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8668414772727272,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8668516363636364,
+          "objective": 0.8668414772727272,
+          "max_model_residual": 2.3418766925686896e-17,
+          "installed": [
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.3,
+            0.18000000000000013,
+            0.09999999999999941,
+            0.050000000000000225
+          ]
+        }
+      },
+      "bracket_width": 5.225568181810303e-05
+    },
+    {
+      "id": "mip-paired-case-01",
+      "source_case": "paired-case-01",
+      "exact_reference": "2179/3000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.008328339999991385,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 338,
+          "approximation_error": 6.078437234268707e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7263333333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7263333333333334,
+          "objective": 0.7263333333333334,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "0",
+            "1/3",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.09999999999999998,
+              0.0,
+              0.9,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.5999999999999998,
+              0.40000000000000024,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.5099999999999991,
+              0.4900000000000009,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.007818492000012611,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 332,
+          "approximation_error": 6.078437234268707e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7263333333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7263333333333334,
+          "objective": 0.7263333333333334,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "0",
+            "1/3",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.09999999999999998,
+              0.0,
+              0.9,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.5999999999999998,
+              0.40000000000000024,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.5099999999999991,
+              0.4900000000000009,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-paired-case-02",
+      "source_case": "paired-case-02",
+      "exact_reference": "5254848007/7290000000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.02580193299999678,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 450,
+          "approximation_error": 0.000139969729189356,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7208950796518672,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7208296305898495,
+          "objective": 0.7208950796518672,
+          "max_model_residual": 8.881784197001252e-16,
+          "installed": [
+            "1/6",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              -0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.3311111111111107,
+              -0.0,
+              -0.0,
+              0.6688888888888893,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              1.0000000000000007,
+              -0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.3277777777777774,
+              -0.0,
+              -0.0,
+              0.6722222222222226,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              -0.0,
+              1.0000000000000007,
+              -0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.32444444444444387,
+              -0.0,
+              -0.0,
+              0.6755555555555561,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.13388888888888892,
+            -0.0,
+            0.03499999999999959,
+            0.1355555555555558,
+            -0.0,
+            0.03666666666666629,
+            0.13722222222222222,
+            -0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.022880788000009034,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 442,
+          "approximation_error": 0.000139969729189356,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7207250383026836,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7208296305898493,
+          "objective": 0.7207250383026836,
+          "max_model_residual": 1.1102230246251565e-16,
+          "installed": [
+            "1/6",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.33111111111111113,
+              0.0,
+              0.0,
+              0.6688888888888889,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.3277777777777777,
+              0.0,
+              0.0,
+              0.6722222222222223,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.3244444444444443,
+              0.0,
+              0.0,
+              0.6755555555555557,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.13388888888888892,
+            -0.0,
+            0.035000000000000045,
+            0.13555555555555499,
+            -0.0,
+            0.036666666666666736,
+            0.13722222222222222,
+            -0.0
+          ]
+        }
+      },
+      "bracket_width": 6.544906201788603e-05
+    },
+    {
+      "id": "mip-paired-case-03",
+      "source_case": "paired-case-03",
+      "exact_reference": "891499/1200000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.005548255999997309,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 226,
+          "approximation_error": 0.00011618428458658855,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7429158333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7429158333333334,
+          "objective": 0.7429158333333334,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "1/6",
+            "1/2",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.597,
+              0.0,
+              0.403,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.19353999999999869,
+              0.8064600000000013,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.588,
+              0.0,
+              0.41200000000000003,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.0052803629999971236,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 222,
+          "approximation_error": 0.00011618428458658855,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7429158333333334,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7429158333333334,
+          "objective": 0.7429158333333334,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "1/6",
+            "1/2",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.597,
+              0.0,
+              0.403,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.19353999999999869,
+              0.8064600000000013,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.588,
+              0.0,
+              0.41200000000000003,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-paired-case-04",
+      "source_case": "paired-case-04",
+      "exact_reference": "12483646749236127/14369131262122000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.00247979599998871,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 338,
+          "approximation_error": 9.626116071428572e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8688116292189954,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8687357568027211,
+          "objective": 0.8688116292189954,
+          "max_model_residual": 1.214306433183765e-17,
+          "installed": [
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.30000000000000004,
+            0.23749999999999907,
+            0.11249999999999982,
+            0.08166666666666766,
+            0.03749999999999991,
+            0.0375
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.0024528419999967355,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 332,
+          "approximation_error": 9.626116071428572e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.868764925922292,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8687711497579801,
+          "objective": 0.868764925922292,
+          "max_model_residual": 1.0408340855860843e-17,
+          "installed": [
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.30000000000000004,
+            0.2316666666666667,
+            0.1250000000000001,
+            0.0750000000000001,
+            0.04999999999999991,
+            0.02499999999999954
+          ]
+        }
+      },
+      "bracket_width": 4.0479461015263674e-05
+    },
+    {
+      "id": "mip-paired-case-05",
+      "source_case": "paired-case-05",
+      "exact_reference": "2219/2700",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.005738333000010698,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 450,
+          "approximation_error": 9.1808862780791e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8218518518518518,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8218518518518518,
+          "objective": 0.8218518518518518,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "1/6",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.6666666666666666,
+              -0.0,
+              0.33333333333333337,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.43333333333333335,
+              -0.0,
+              0.5666666666666667,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.19999999999999996,
+              -0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.029333333333333596,
+              -0.0,
+              0.9706666666666665,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.005477275999993481,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 442,
+          "approximation_error": 9.1808862780791e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8218518518518518,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8218518518518518,
+          "objective": 0.8218518518518518,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "1/6",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.6666666666666665,
+              0.0,
+              0.3333333333333335,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.43333333333333324,
+              0.0,
+              0.5666666666666668,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.19999999999999993,
+              0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.1466666666666667,
+              0.0,
+              0.8533333333333333,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-paired-case-06",
+      "source_case": "paired-case-06",
+      "exact_reference": "528030423/760000000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.008499400000005153,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 226,
+          "approximation_error": 0.0001127022017501028,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.6947944638890323,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.6947768723684218,
+          "objective": 0.6947944638890323,
+          "max_model_residual": 1.3322676295501878e-15,
+          "installed": [
+            "1/6",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              -0.0,
+              0.5969999999999995,
+              0.0,
+              0.4030000000000005,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              1.0000000000000009,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              1.0000000000000007,
+              -0.0,
+              -0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.5879999999999996,
+              -0.0,
+              0.4120000000000003,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            -0.0,
+            0.002000000000000016,
+            0.20299999999999882,
+            -0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.009317260999978316,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 222,
+          "approximation_error": 0.0001127022017501028,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.6947174016904811,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.6947768723684211,
+          "objective": 0.6947174016904811,
+          "max_model_residual": 1.1102230246251565e-16,
+          "installed": [
+            "1/6",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.597,
+              0.0,
+              0.403,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5879999999999999,
+              0.0,
+              0.41200000000000014,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0020000000000000018,
+            0.203,
+            -0.0
+          ]
+        }
+      },
+      "bracket_width": 1.759152061120428e-05
+    },
+    {
+      "id": "mip-paired-case-07",
+      "source_case": "paired-case-07",
+      "exact_reference": "195523/236250",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.02808854999997834,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 338,
+          "approximation_error": 8.267954415932109e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8276105820105515,
+          "node_count": 2,
+          "mip_gap": 0.0,
+          "value": 0.8276105820105465,
+          "objective": 0.8276105820105515,
+          "max_model_residual": 3.516076318987871e-13,
+          "installed": [
+            "0",
+            "1/3",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.09785714285712621,
+              -0.0,
+              0.9021428571428738,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.49571428571411885,
+              3.3319302538542123e-13,
+              0.504285714285548,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              3.516076318987871e-13,
+              0.9999999999996484,
+              0.0,
+              0.0
+            ],
+            [
+              0.09142857142855454,
+              -0.0,
+              0.9085714285714455,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.9855714285714776,
+              3.3319302538542123e-13,
+              0.014428571428189199,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              3.516076318987871e-13,
+              0.9999999999996484,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.024767233000005717,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 332,
+          "approximation_error": 8.267954415932109e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8276105820105826,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8276105820105826,
+          "objective": 0.8276105820105826,
+          "max_model_residual": 5.329070518200751e-15,
+          "installed": [
+            "0",
+            "1/3",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.09785714285714286,
+              -0.0,
+              0.9021428571428571,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.6611428571428567,
+              -0.0,
+              0.3388571428571433,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0914285714285713,
+              -0.0,
+              0.9085714285714287,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.4892857142856981,
+              -0.0,
+              0.5107142857143019,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": -3.108624468950438e-14
+    },
+    {
+      "id": "mip-paired-case-08",
+      "source_case": "paired-case-08",
+      "exact_reference": "3194804657033431/3679780375836000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.0030801860000053694,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 450,
+          "approximation_error": 0.00011981310013717421,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8682746770690445,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8681649805669869,
+          "objective": 0.8682746770690445,
+          "max_model_residual": 2.220446049250313e-16,
+          "installed": [
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0000000000000002,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.30000000000000004,
+            0.30000000000000004,
+            0.22312500000000055,
+            0.13749999999999962,
+            0.0874999999999992,
+            0.06250000000000006,
+            0.06250000000000022,
+            0.03749999999999979
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.002928800000006504,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 442,
+          "approximation_error": 0.00011981310013717421,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.8681490054869684,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.8681799875685872,
+          "objective": 0.8681490054869684,
+          "max_model_residual": 1.1102230246251565e-16,
+          "installed": [
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.30000000000000004,
+            0.30000000000000004,
+            0.22499999999999992,
+            0.12500000000000067,
+            0.09999999999999903,
+            0.07499999999999987,
+            0.05000000000000027,
+            0.032500000000000265
+          ]
+        }
+      },
+      "bracket_width": 9.468950045732338e-05
+    },
+    {
+      "id": "mip-paired-case-09",
+      "source_case": "paired-case-09",
+      "exact_reference": "34727/45000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.007746345000015253,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 226,
+          "approximation_error": 7.959993489583332e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7717111111111111,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7717111111111111,
+          "objective": 0.7717111111111111,
+          "max_model_residual": 4.440892098500626e-16,
+          "installed": [
+            "1/3",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.006399999999999836,
+              -0.0,
+              0.9936000000000001,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.008162625000011303,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 71,
+          "binaries": 35,
+          "constraints": 222,
+          "approximation_error": 7.959993489583332e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7717111111111111,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7717111111111111,
+          "objective": 0.7717111111111111,
+          "max_model_residual": 2.220446049250313e-16,
+          "installed": [
+            "1/3",
+            "2/3",
+            "5/6"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.9799999999999993,
+              0.0,
+              0.020000000000000632,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.5599999999999998,
+              0.0,
+              0.4400000000000001,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.20240000000000025,
+              0.0,
+              0.7975999999999998,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-paired-case-10",
+      "source_case": "paired-case-10",
+      "exact_reference": "14110077351/19208000000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.025883845999999266,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 338,
+          "approximation_error": 9.435988785991167e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7346089280559599,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7345937812890464,
+          "objective": 0.7346089280559599,
+          "max_model_residual": 5.551115123125783e-17,
+          "installed": [
+            "1/6",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.5978571428571429,
+              0.0,
+              0.4021428571428571,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5914285714285714,
+              0.0,
+              0.40857142857142864,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            -0.0,
+            0.0014285714285714457,
+            0.2021428571428566,
+            -0.0,
+            0.0035714285714285587,
+            0.2042857142857143
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.026794658000000027,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 103,
+          "binaries": 49,
+          "constraints": 332,
+          "approximation_error": 9.435988785991167e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7345424194167401,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7345937812890466,
+          "objective": 0.7345424194167401,
+          "max_model_residual": 4.440892098500626e-16,
+          "installed": [
+            "1/6",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              -0.0,
+              0.5978571428571428,
+              -0.0,
+              0.40214285714285725,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              1.0000000000000004,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              1.0000000000000004,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5914285714285712,
+              -0.0,
+              0.4085714285714288,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              1.0000000000000004,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              -0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            -0.0,
+            0.0014285714285712237,
+            0.20214285714285665,
+            -0.0,
+            0.0035714285714283367,
+            0.2042857142857143
+          ]
+        }
+      },
+      "bracket_width": 1.5146766913276544e-05
+    },
+    {
+      "id": "mip-paired-case-11",
+      "source_case": "paired-case-11",
+      "exact_reference": "4882157/6696000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.011145797000011726,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 450,
+          "approximation_error": 9.175250148937773e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7291154420549583,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7291154420549583,
+          "objective": 0.7291154420549583,
+          "max_model_residual": 1.7763568394002505e-15,
+          "installed": [
+            "0",
+            "1/3",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.09833333333333327,
+              -0.0,
+              0.9016666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.4966666666666658,
+              -0.0,
+              0.5033333333333342,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.09333333333333327,
+              -0.0,
+              0.9066666666666667,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.4916666666666666,
+              -0.0,
+              0.5083333333333334,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.08833333333333337,
+              -0.0,
+              0.9116666666666665,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.7751166666666658,
+              -0.0,
+              0.2248833333333342,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.012880471000016769,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 135,
+          "binaries": 63,
+          "constraints": 442,
+          "approximation_error": 9.175250148937773e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.7291154420549582,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.7291154420549582,
+          "objective": 0.7291154420549582,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/3",
+            "2/3"
+          ],
+          "probabilities": [
+            [
+              0.09833333333333327,
+              0.0,
+              0.9016666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.644083333333333,
+              0.0,
+              0.355916666666667,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.09333333333333327,
+              0.0,
+              0.9066666666666667,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.4916666666666666,
+              0.0,
+              0.5083333333333334,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.08833333333333337,
+              0.0,
+              0.9116666666666666,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.48666666666666647,
+              0.0,
+              0.5133333333333335,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 1.1102230246251565e-16
+    },
+    {
+      "id": "mip-stress-s49500-e1_100-n31",
+      "source_case": "stress-s49500-e1_100-n31",
+      "exact_reference": "29/96",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.01712372000000073,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 746,
+          "approximation_error": 0.00011198933919270835,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.30208333333333337,
+          "node_count": 1,
+          "mip_gap": 1.8376105235175007e-16,
+          "value": 0.3020833333333333,
+          "objective": 0.3020833333333333,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/2",
+            "7/8"
+          ],
+          "probabilities": [
+            [
+              0.6,
+              0.0,
+              -0.0,
+              0.0,
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.6,
+              0.0,
+              -0.0,
+              0.0,
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              -0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.8333333333333333,
+              0.0,
+              -0.0,
+              0.0,
+              0.16666666666666669,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              -0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.4,
+              0.0,
+              -0.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.014706103000008852,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 734,
+          "approximation_error": 0.00011198933919270835,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.3020833333333333,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.30208333333333337,
+          "objective": 0.3020833333333333,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/2",
+            "7/8"
+          ],
+          "probabilities": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.6999999999999997,
+              0.0,
+              0.0,
+              0.0,
+              0.30000000000000027,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-stress-s49501-e1_100-n31",
+      "source_case": "stress-s49501-e1_100-n31",
+      "exact_reference": "17569/32800",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.013080199000000903,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 746,
+          "approximation_error": 0.00013238674256859756,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.535640243902439,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.5356402439024391,
+          "objective": 0.535640243902439,
+          "max_model_residual": 1.1102230246251565e-16,
+          "installed": [
+            "0",
+            "1/8",
+            "3/4"
+          ],
+          "probabilities": [
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.24000000000000005,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.76,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5599999999999999,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.44000000000000006,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.8784000000000003,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.12159999999999971,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.01293527900000413,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 734,
+          "approximation_error": 0.00013238674256859756,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.535640243902439,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.535640243902439,
+          "objective": 0.535640243902439,
+          "max_model_residual": 1.1102230246251565e-16,
+          "installed": [
+            "0",
+            "1/8",
+            "3/4"
+          ],
+          "probabilities": [
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.24000000000000005,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.76,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5264000000000003,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.4735999999999997,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-stress-s49502-e1_100-n31",
+      "source_case": "stress-s49502-e1_100-n31",
+      "exact_reference": "7347/16000",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.004987974000016493,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 746,
+          "approximation_error": 4.31976318359375e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.4591875,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.4591875,
+          "objective": 0.4591875,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.39333333333333353,
+              0.0,
+              0.0,
+              0.0,
+              0.6066666666666665,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.006653015000011919,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 734,
+          "approximation_error": 4.31976318359375e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.4591875,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.45918749999999997,
+          "objective": 0.45918749999999997,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/2",
+            "7/8"
+          ],
+          "probabilities": [
+            [
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.2,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.6,
+              0.0,
+              0.0,
+              0.0,
+              0.4,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.0,
+              0.0,
+              0.0,
+              0.8,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.7900000000000009,
+              0.0,
+              0.0,
+              0.0,
+              0.20999999999999908,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 5.551115123125783e-17
+    },
+    {
+      "id": "mip-stress-s49503-e1_100-n31",
+      "source_case": "stress-s49503-e1_100-n31",
+      "exact_reference": "199/6600",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.017289210000001276,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 746,
+          "approximation_error": 5.913011955492424e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.03015151515151515,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.030151515151515165,
+          "objective": 0.03015151515151515,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.15000000000000002,
+              0.0,
+              0.0,
+              0.0,
+              0.85,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.010982493999989629,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 734,
+          "approximation_error": 5.913011955492424e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.03015151515151515,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.030151515151515165,
+          "objective": 0.03015151515151515,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/2"
+          ],
+          "probabilities": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.15000000000000002,
+              0.0,
+              0.0,
+              0.0,
+              0.85,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": -1.3877787807814457e-17
+    },
+    {
+      "id": "mip-stress-s49504-e1_100-n31",
+      "source_case": "stress-s49504-e1_100-n31",
+      "exact_reference": "19313/41600",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.0059758240000178375,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 746,
+          "approximation_error": 2.768883338341346e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.46425480769230765,
+          "node_count": 1,
+          "mip_gap": 1.1957043914567008e-16,
+          "value": 0.46425480769230765,
+          "objective": 0.4642548076923076,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/8",
+            "3/8"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.30000000000000004,
+              0.0,
+              0.7,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7,
+              0.0,
+              0.30000000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.560000000000007,
+              0.0,
+              0.43999999999999295,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.8,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7,
+              0.0,
+              0.30000000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.006001279000003024,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 734,
+          "approximation_error": 2.768883338341346e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.46425480769230765,
+          "node_count": 1,
+          "mip_gap": 1.1957043914567008e-16,
+          "value": 0.46425480769230765,
+          "objective": 0.4642548076923076,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "1/8",
+            "3/8"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.30000000000000004,
+              0.0,
+              0.7,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7,
+              0.0,
+              0.30000000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.5600000000000056,
+              0.0,
+              0.4399999999999944,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.19999999999999996,
+              0.8,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.7,
+              0.0,
+              0.30000000000000004,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    },
+    {
+      "id": "mip-stress-s49505-e1_100-n31",
+      "source_case": "stress-s49505-e1_100-n31",
+      "exact_reference": "11181/25600",
+      "envelopes": {
+        "tangent": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.007934185999999954,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "tangent",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 746,
+          "approximation_error": 8.830070495605469e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.4367578125,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.4367578125,
+          "objective": 0.4367578125,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "5/8"
+          ],
+          "probabilities": [
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.23199999999999998,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.768,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "secant": {
+          "status": 0,
+          "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+          "seconds": 0.007910731000009719,
+          "formulation": "direct support-indicator probability/service MILP",
+          "envelope": "secant",
+          "segments": 32,
+          "variables": 249,
+          "binaries": 117,
+          "constraints": 734,
+          "approximation_error": 8.830070495605469e-05,
+          "bound_scope": "floating-point HiGHS global solver bound, not a rational proof",
+          "numerical_upper": 0.4367578125,
+          "node_count": 1,
+          "mip_gap": 0.0,
+          "value": 0.4367578125,
+          "objective": 0.4367578125,
+          "max_model_residual": 0.0,
+          "installed": [
+            "0",
+            "5/8"
+          ],
+          "probabilities": [
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.23199999999999998,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.768,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "intermediate": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "bracket_width": 0.0
+    }
+  ]
+}

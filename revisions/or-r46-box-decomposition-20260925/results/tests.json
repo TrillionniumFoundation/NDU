@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "price_comparisons": 600,
+  "joint_intervals_checked": 24,
+  "net_lattice_coverage_checks": 2793,
+  "clipping_cases": 3,
+  "k1_calls": 1,
+  "aggregation_exact": true,
+  "mutation_rejections": [
+    "root_cover",
+    "missing_child",
+    "wrong_split",
+    "missing_leaf",
+    "policy_promise",
+    "opening_charge",
+    "false_upper",
+    "false_accuracy",
+    "invalid_types",
+    "prefix_bound",
+    "suffix_bound"
+  ],
+  "interrupted_interval_checked": true,
+  "two_sided_counterexample": {
+    "targets": [
+      "1/5",
+      "1/2",
+      "4/5"
+    ],
+    "price": "3/2",
+    "book": [
+      "1/5",
+      "1/2",
+      "4/5"
+    ],
+    "two_sided_value": "169/200",
+    "rising_only_value": "83/100",
+    "loss": "3/200"
+  },
+  "seconds": 3.1083283650000055
+}

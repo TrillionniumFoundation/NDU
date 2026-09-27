@@ -1,0 +1,95 @@
+\begin{table}[p]\centering
+\caption{Difficult instances: exact-resource intervals at tolerance 0.001}\label{tab:stress52}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Seed & $E$ & $E(c)$ & Reference & Width & Relative & Seconds\\
+\midrule
+49500 & 6 & 2 & 0.302083 & 0.000500 & 0.17\% & 13.831\\
+49501 & 7 & 2 & 0.535640 & 0.000470 & 0.09\% & 18.391\\
+49502 & 6 & 2 & 0.459188 & 0.000490 & 0.11\% & 17.073\\
+49503 & 8 & 2 & 0.030152 & 0.000493 & 1.63\% & 3.523\\
+49504 & 5 & 1 & 0.464255 & 0.000420 & 0.09\% & 15.290\\
+49505 & 6 & 2 & 0.436758 & 0.000430 & 0.10\% & 19.762\\
+\bottomrule\end{tabular}
+\par\vspace{6pt}\begin{minipage}{\textwidth}All instances have 12 histories, 9 candidates, and a command budget of 3. $E$ counts full-catalog classes and $E(c)$ counts classes on the returned book. Relative width is the interval width divided by the positive exhaustive reference. Every returned lower policy attains the exhaustive value, but its resource-path certificate has positive width.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Matched-machine subdivision and price sensitivity}\label{tab:baseline52}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Method & Nodes & Steps & Complete & Median width & Largest width & Seconds\\
+\midrule
+Group & 1 & 4 & 0 & 0.003165 & 0.026387 & 0.095\\
+Group & 7 & 4 & 0 & 0.003165 & 0.011484 & 0.321\\
+Group & 31 & 4 & 0 & 0.002099 & 0.009043 & 1.225\\
+Group & 127 & 4 & 2 & 0.001398 & 0.005906 & 4.438\\
+Group & 31 & 0 & 0 & 0.116023 & 0.170215 & 0.260\\
+Group & 31 & 8 & 3 & 0.001242 & 0.004110 & 0.671\\
+Individual & 31 & 4 & 0 & 0.003165 & 0.010020 & 0.598\\
+\bottomrule\end{tabular}
+\par\vspace{6pt}\begin{minipage}{\textwidth}Each row contains all six seeds in Table~\ref{tab:stress52}. Complete means an interval width at most 0.001. Nodes are the allowed node count, not a common time or memory allowance. Steps is the inherited root-price refinement parameter; zero retains only zero price. Seconds is the median optimization time. With a finite adaptive cover, a changed price set may change the chosen subdivisions, so more steps need not dominate every earlier interval.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Exact common eligibility with a strict interior prefix}\label{tab:strict52}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Histories & Design 1 & Design 2 & Design 3 & Check/solve & Width\\
+\midrule
+16 & 0.018 & 0.067 & 0.074 & 1.530 & 0\\
+64 & 0.060 & 0.236 & 0.258 & 1.619 & 0\\
+256 & 0.230 & 0.910 & 0.985 & 1.677 & 0\\
+1024 & 0.916 & 3.598 & 3.914 & 1.686 & 0\\
+\bottomrule\end{tabular}
+\par\vspace{6pt}\begin{minipage}{\textwidth}Optimization times are in seconds. Designs 1--3 use, respectively, $(N,m,B/\bar b)=(13,2,0.5),(25,3,0.9),(25,5,1)$. Every ceiling differs across histories and lies strictly in the catalog gap immediately above $1/2$; a nonempty catalog suffix is ineligible. Caps, weights, costs, and charges are heterogeneous, including zero curvature. The ratio is the largest checker-to-solver ratio across the three designs. These are structural zero-width closures, not extrapolated results for arbitrary eligibility.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Controlled full-catalog eligibility sweep}\label{tab:sweep52}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+$E$ & $E(c)$ & Width & Width/$L$ & States & Seconds\\
+\midrule
+1 & 1 & 0.004449 & 0.002225 & 18,671 & 2.010\\
+2 & 2 & 0.004560 & 0.002280 & 18,671 & 2.783\\
+3 & 2 & 0.004449 & 0.002225 & 18,671 & 2.986\\
+4 & 3 & 0.004661 & 0.002331 & 18,671 & 3.130\\
+6 & 3 & 0.005006 & 0.002503 & 18,671 & 3.227\\
+12 & 3 & 0.005052 & 0.002526 & 18,671 & 3.411\\
+\bottomrule\end{tabular}
+\par\vspace{6pt}\begin{minipage}{\textwidth}All six instances share 12 histories, 17 candidates, budget 3, promise fraction 0.85, caps, weights, costs, and charges. Only the ceiling grouping changes. The tolerance is 0.01. The generic resource method is used even at $E=1$ to isolate its scaling; the exact common-prefix algorithm remains available. Every interval contains its independent exhaustive reference. At two classes the returned lower value is below that reference by 83/143360; the other five returned values equal their references.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Resource certificate economics on the difficult instances}\label{tab:cert52}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Seed & Packed & Plain & Entries & Bits & Check/solve\\
+\midrule
+49500 & 1.737 & 4.150 & 75,647 & 174/174 & 0.162\\
+49501 & 2.360 & 5.526 & 94,591 & 185/185 & 0.156\\
+49502 & 4.041 & 9.041 & 89,731 & 327/327 & 0.154\\
+49503 & 0.216 & 0.595 & 17,546 & 104/104 & 0.171\\
+49504 & 5.555 & 12.175 & 80,444 & 495/495 & 0.148\\
+49505 & 6.628 & 14.469 & 85,753 & 553/553 & 0.146\\
+\bottomrule\end{tabular}
+\par\vspace{6pt}\begin{minipage}{\textwidth}Packed and Plain are decimal megabytes of compressed and uncompressed JSON. Entries counts serialized rational or common-denominator integer values. Bits reports the maximum numerator length and maximum denominator length; Bellman numerators are measured before reducing their common denominator. Verification reconstructs all arc kernels and checks every anchor table. Storage and checking are part of the certification cost, not part of the command alphabet budget.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Direct mixed-integer envelope diagnostics}\label{tab:mip52}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrrr}
+\toprule
+Seed & Tangent value & Upper & Secant value & Allowance & Seconds & Width\\
+\midrule
+49500 & 0.302083 & 0.302083 & 0.302083 & $1.12\,10^{-4}$ & 0.038 & 0\\
+49501 & 0.535640 & 0.535640 & 0.535640 & $1.32\,10^{-4}$ & 0.031 & 0\\
+49502 & 0.459188 & 0.459188 & 0.459187 & $4.32\,10^{-5}$ & 0.015 & $5.55\,10^{-17}$\\
+49503 & 0.030152 & 0.030152 & 0.030152 & $5.91\,10^{-5}$ & 0.034 & $-1.39\,10^{-17}$\\
+49504 & 0.464255 & 0.464255 & 0.464255 & $2.77\,10^{-5}$ & 0.015 & 0\\
+49505 & 0.436758 & 0.436758 & 0.436758 & $8.83\,10^{-5}$ & 0.020 & 0\\
+\bottomrule\end{tabular}
+\par\vspace{6pt}\begin{minipage}{\textwidth}Each formulation has 249 variables, including 117 binaries, and 746 constraints, with 32 service-envelope segments. All 12 solves return status zero and one branch-and-bound node. Their recorded relative solver gaps are below $10^{-12}$. The two solves share an allowance equal to the resource solver time, subject to a minimum of 0.1 seconds per solve. Allowance is the analytic envelope approximation allowance, not the runtime allowance. Width is the unrounded floating-point upper minus recovered secant value; a tiny negative width reflects numerical error and is not a rational zero-width proof. The full records retain both solver objectives, bounds, statuses, residuals, and allowances.\end{minipage}
+\end{table}

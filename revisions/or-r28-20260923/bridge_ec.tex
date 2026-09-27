@@ -1,0 +1,120 @@
+\section{The Shared-Table Bridge: Complete Proof and Representation Costs}\label{ec:bridge}
+\subsection{Institution and quantifier order}
+Let the finite-horizon exogenous Markov process have positive transition probabilities on its retained edges. Its finite public memory updates deterministically. A history $h$ at date $t$ has cell $c(h)=(t,m(h))$ and discounted reach probability $w_h>0$. Tier and table coordinates lie in $[0,1]$. A global table $u\in[0,1]^K$ is chosen at the root; every occurrence of a cell uses the same coordinate. Continuation caps and coefficients have the Markov description stated in the main text. Fix an exact feasible root promise. At a state reached under a fixed table the inherited tier and the conditional remaining payment are $(q,b)$.
+
+The order $\max_u\mathcal V_0(\cdot;u,\delta)$ is essential. In particular, $\max_u\sum_jp_j\mathcal V_j(\cdot;u,\delta)$ cannot in general be replaced by $\sum_jp_j\max_{u^j}\mathcal V_j(\cdot;u^j,\delta)$. Doing so changes a common contractual table into separate contingent tables. It removes the very restriction being valued.
+
+For fixed $u,\delta$, the admissible interval at cell $c$ is
+\[
+ l_c=\max(0,u_c-\delta\omega_c),\qquad
+ u_c^{\rm act}=\min(1,u_c+\delta\omega_c).
+\]
+With positive scalar payment coefficients, the exact feasible promise intervals are obtained backward by
+\[
+ L_t=a_t l_c+\beta\sum_jp_jL_{t+1,j},\qquad
+ U_t=\min\{\bar b_t,a_tu_c^{\rm act}+\beta\sum_jp_jU_{t+1,j}\}.
+\]
+Terminal intervals are $\{0\}$. An empty child interval or $U_t<L_t$ gives an empty parent domain. All intermediate payments are attainable: sums of intervals are intervals, and actions and child promises vary continuously. Feasibility does not depend on the inherited tier in this institution. These intervals can be used for fixed-table lower witnesses. The affine upper-plane recursion instead uses the \emph{unrestricted} intervals, obtained with action interval $[0,1]$, because its coefficients must remain valid as $u$ varies.
+
+Given an accepted history policy, assign at each child its actual conditional discounted remaining payment. The tower property gives the parent promise equality. Conditional optimization at fixed $u$ can only improve this policy. Conversely, an attained recursion choice and attained successor policies concatenate into a history policy with all required payments and caps. Induction proves equality for each fixed table. Compactness of the original finite-dimensional feasible graph gives an attained optimum over $u$ whenever the root problem is feasible. Maximizing only once proves the first assertion of Theorem~\ref{thm:bridge}.
+
+For a scalar cell, the intervals $[x_h-\delta\omega_c,x_h+\delta\omega_c]$ have a common intersection if and only if $\max_hx_h-\min_hx_h\leq2\delta\omega_c$. Their midpoint lies in $[0,1]$ because all tiers do. Thus eliminating $u_c$ gives all pairwise inequalities in the main text, with no extra restriction from the table box. The reduced tier problem has a positive-definite diagonal operating quadratic, a convex absolute-value switching penalty, and a fixed polyhedron with an affine right-side release parameter. The finite-pattern argument for Theorem~\ref{thm:release} applies. Concavity follows also by mixing both the tiers and their tables. No unique table is asserted: the optimized tier vector is unique, but several tables can implement it.
+
+\subsection{Validity of recursive prices}
+Suppose the successor plane inequalities hold throughout their feasible domains. Substitute $q_j=x$ and the common table in these inequalities. The payment equality permits adding $\eta(b-ax-\beta\sum_jp_jb_j)$. Add the nonnegative quantities
+\[
+ \chi(\bar b-b),\qquad
+ \rho^+(u_c+\delta\omega_c-x),\qquad
+ \rho^-(x-u_c+\delta\omega_c),
+\]
+and use $-\ell|x-q|\leq-s(x-q)$ for $|s|\leq\ell$. The coefficient of $x$ is $d$ in \eqref{eq:bridgeprices}; the coefficient of each child promise is $\beta p_j(B_j-\eta)$. Maximizing the scalar quadratic over the tier box and each child promise over its unrestricted interval gives exactly that equation. These maximizations can enlarge the feasible set, which is permitted for an upper bound. Induction starts with the zero terminal plane. Convex combinations of valid child planes are valid, so they are also allowed by the construction.
+
+For any fixed table, the value is below every valid root plane and hence their minimum. Maximizing the minimum over the same global table gives the epigraph formulation \eqref{eq:rootLP}, which is a bounded linear program when at least one plane is present. Every accepted state policy implements a lower witness only if its table is shared across all successors; its conditional payments must be actual promised payments, not interpolated forecasts. These observations prove both sides of \eqref{eq:stategain}. Neither weak duality nor a numerical root-LP success code certifies the lower witness by itself.
+
+\subsection{Dual completeness uses nested continuation constraints}
+We give the normalization explicitly. In the finite tree problem, let $\nu$ be the multiplier of the exact root payment, and let $\lambda_n\geq0$ price the \emph{conditional} cap at nonroot node $n$. Set
+\[
+ \chi_n=\lambda_n/w_n,\qquad
+ \eta_n=\nu+\sum_{v\preceq n,\ v\ne0}\chi_v,
+ \qquad \chi_0=0,\quad\eta_0=\nu.
+\]
+The multiplier of a conditional cap contributes $w_i a_i\chi_n$ to the payment coefficient of each descendant tier $i$. This follows from $w_i/w_n=\beta^{t(i)-t(n)}\Pr(i\mid n)$. Therefore the local payment coefficient after normalization is $a_i\eta_i$, and on every edge
+\begin{equation}\label{eq:normalizedprices}
+ \eta_j-\chi_j=\eta_n.
+\end{equation}
+This identity would not follow from an arbitrary collection of polyhedral rows.
+
+Take an optimum of the joint $(x,u)$ problem. The negative objective is a finite continuous convex function on a polyhedron. Polyhedral normal cones and the subdifferential sum rule supply multipliers, including switching subgradients, without requiring a strict interior feasible point. Divide each node's corridor multipliers by $w_n$ to obtain $\rho_n^\pm$, and normalize its switching tension to $s_n\in[-\ell_n,\ell_n]$. The stage stationarity condition, including incoming switching tension and outgoing child tensions, says exactly that $x_n$ maximizes the local box quadratic with coefficient $d_n$ in \eqref{eq:bridgeprices}.
+
+Construct a child plane for every node backward from these multipliers. Its payment coefficient is $B_j=\eta_j-\chi_j=\eta_n$. Thus the child-promise support term is zero and is tight at the actual child promise. Complementarity makes all priced continuation and corridor slacks zero. Switching tensions are exact subgradients, and local box maximization is attained. Induction shows that the resulting root plane equals the optimized policy value at $(q_0,b_0,u^*,\delta)$. Its table coefficient is
+\[
+ \gamma_c=\sum_{n:c(n)=c}w_n(\rho_n^+-\rho_n^-).
+\]
+Stationarity for the \emph{one global} table gives $\gamma\in N_{[0,1]^K}(u^*)$, so $u^*$ maximizes $\gamma^\top u$ over the table box. Consequently the maximum of this single root plane over all tables is exactly $V_M(\delta)$. The entire recursive plane class is therefore dual-complete for each finite problem.
+
+The construction proves existence using tree multipliers; it does \emph{not} propose enumerating that tree as the query algorithm. One may store multiple planes at the same $(t,z,m)$, reusing identical successor planes as a directed acyclic graph. The theorem does not guarantee that a single price function of the primal state suffices at degeneracy, or that the number of distinct planes in an exact certificate is polynomial in horizon. Finite stored families give valid bounds without either assertion. A master LP certificate itself may be checked through a primal--dual pair; merely maximizing each plane separately is a valid but potentially weaker upper bound.
+
+Unrolling the coefficient recursion yields
+\[
+ k_0=\sum_nw_n\omega_{c(n)}(\rho_n^++\rho_n^-).
+\]
+An exact root plane maximized at $u^*$ supports the concave optimized value as the release parameter changes, because its coefficient data remain fixed and its table maximum is an affine function of that parameter. Hence $V_M(\delta')\leq V_M(\delta)+k_0(\delta'-\delta)$ for every feasible release. At a differentiability point this gives the derivative. At a kink, a supporting price is not automatically the selected one-sided derivative: the directional price is the extremum over the optimal dual set specified in Section~\ref{sec:rents}. Our exact example reports left and right slopes separately at events and never interprets an arbitrary solver multiplier as a unique directional rent.
+
+\subsection{What is compressed, and what accuracy costs}\label{ec:accuracy}
+State sufficiency, existence of certified approximations, and complexity are distinct statements. The exact state has finite public coordinates and continuous $(q,b)$; additional additive commitments add continuous coordinates. The shared table contributes $K$ ex ante design variables. The state representation eliminates redundant histories, not continuous approximation or design optimization.
+
+For a stored family with at most $P_0$ planes at each of $TS_0M_0$ public date--regime--memory states, dense coefficient storage for the table-augmented planes is $O(TS_0M_0P_0(K+1))$, plus successor references. Verifying each plane from at most $B$ successors costs $O(B(K+1))$ arithmetic operations for scalar tiers. The root master has $K+1$ variables and $P_0$ inequalities besides table bounds. A policy's lower-envelope storage and child-allocation work are additional; the latter can grow exponentially in branching when combinations are enumerated. Stored witnesses must cover the promised domain on which a uniform claim is made. Evaluating only one root state is not a uniform-domain test. Rational bit complexity is separate from arithmetic counts.
+
+\begin{proposition}[Conditional accuracy rates, not dimension-free rates]\label{prop:r28-accuracy}
+Let a compact polyhedral feasible domain of dimension $d_s$ admit a simplicial mesh of maximum diameter $h$. Suppose the joint value function is concave and $L$-Lipschitz there; at every mesh vertex an accepted policy gives value within $\varepsilon_L$ of the optimum, and a valid supporting affine upper plane differs from the value at its anchor by at most $\varepsilon_U$ and has slope norm at most $L$. Then deterministic barycentric policy mixtures and the minimum of these planes have width at most
+\[
+ 2Lh+\varepsilon_L+\varepsilon_U.
+\]
+If the value has $M$-Lipschitz gradient on the domain and exact-gradient supporting planes are available with the stated intercept error, the width is at most $Mh^2+\varepsilon_L+\varepsilon_U$.
+\end{proposition}
+\begin{proof}
+At any point of a simplex, each vertex value differs from the point value by at most $Lh$. Concavity and feasibility of deterministic mixing give a lower value within $Lh+\varepsilon_L$. A plane from any simplex vertex is at most $2Lh+\varepsilon_U$ above the point value if used alone; a sharper joint estimate uses the barycentric average of the vertex planes. The minimum of the planes is no larger than that average. Subtracting the mixed lower value cancels the vertex values and leaves $\sum_i\lambda_i g_i^\top(y-y_i)+\varepsilon_L+\varepsilon_U\leq Lh+\varepsilon_L+\varepsilon_U$, which in particular implies the displayed conservative $2Lh$ bound. For the smooth case, the lower interpolation error is at most $Mh^2/2+\varepsilon_L$ by the descent inequality and barycentric cancellation at the point. The averaged upper error is at most $Mh^2/2+\varepsilon_U$ by the same inequality at the vertices. Their sum proves the assertion. All mixtures use the joint parameter/state coordinates and their compatible shared tables.
+\end{proof}
+
+For a fixed regular domain, covering by $O(h^{-d_s})$ simplices gives conditional counts $O((L/\varepsilon)^{d_s})$, or $O((M/\varepsilon)^{d_s/2})$ in the smooth case, apart from anchor accuracy and geometric constants. A mesh joint in $(q,b,u,\delta)$ includes the table dimension; treating the table by the master problem does not require such a mesh but does require certified planes. Nonsmooth active-set transitions generally invalidate the smooth rate. Boundary promises require the domain-relative Lipschitz and support assumptions just stated; they do not follow from compactness alone. Without these assumptions the earlier a posteriori gap remains valid, but no rate or finite mesh size for a requested tolerance is claimed.
+
+\section{Exact Bridge Example and an Endogenous Release Decision}\label{ec:bridgeexample}
+The two-period instance in Section~\ref{sec:bridge} has objective
+\[
+ W(x)=x_0-x_0^2/2+x_H-(x_L^2+x_H^2)/4,
+ \qquad x_0+(x_L+x_H)/2=1.
+\]
+The low and high child caps are $2/5$ and $4/5$. Eliminating the shared child table gives $|x_H-x_L|\leq2\delta$. The complete optimized policy is
+\[
+ (x_0,x_L,x_H)=
+ \begin{cases}
+ (3/5-\delta,\ 2/5,\ 2/5+2\delta),&0\leq\delta\leq1/10,\\
+ (1/2,\ 1/2-\delta,\ 1/2+\delta),&1/10\leq\delta\leq3/10,\\
+ (1/5+\delta,\ 4/5-2\delta,\ 4/5),&3/10\leq\delta\leq2/5,\\
+ (3/5,0,4/5),&\delta\geq2/5.
+ \end{cases}
+\]
+Substitution gives
+\[
+ V_M(\delta)=
+ \begin{cases}
+ 37/50+6\delta/5-3\delta^2/2,&0\leq\delta\leq1/10,\\
+ 3/4+\delta-\delta^2/2,&1/10\leq\delta\leq3/10,\\
+ 33/50+8\delta/5-3\delta^2/2,&3/10\leq\delta\leq2/5,\\
+ 53/50,&\delta\geq2/5.
+ \end{cases}
+\]
+All segments agree at their endpoints. Let $t$ price $x_H-x_L\leq2\delta$, and let $\mu_L,\mu_H$ price the two conditional child caps in the global objective normalization. Exact witnesses on the three nonconstant open segments are respectively
+\[
+ (\eta,t,\mu_L,\mu_H)=
+ \begin{cases}
+ (2/5+\delta,\ 3/5-3\delta/2,\ 1/5-2\delta,\ 0),\\
+ (1/2,\ 1/2-\delta/2,\ 0,\ 0),\\
+ (4/5-\delta,\ 4/5-3\delta/2,\ 0,\ 2\delta-3/5).
+ \end{cases}
+\]
+All are nonnegative where required. The normalized child participation prices are $\chi_j=2\mu_j$. Use corridor prices $\rho_H^+=2t$, $\rho_L^-=2t$, and all other corridor prices zero; the common child table is $(x_L+x_H)/2$. The child payment prices are $\eta_j=\eta+2\mu_j$. The two child table coefficients cancel in the root plane, while its release coefficient is $2t$. Local box conjugates are attained at the displayed policy. Hence the recursively constructed plane is an exact upper bound on the optimized table, not merely on a fixed witness. On the constant final segment use $t=0$, $\mu_H=2/5$, $\mu_L=0$, and $\eta=2/5$; the low child is at its tier lower bound.
+
+At $\delta=2/5$ the left derivative is $2/5$ and the right derivative is zero. Both are supported by optimal dual witnesses; a selected price between them is not a unique directional derivative. At zero release, the forward restriction price above realizes the right derivative. The replay checks stationarity, complementarity, local scalar maximization, recursive price equality, and all-policy support at every declared rational test release.
+
+For the design cost $C(\delta)=\delta$, the first-segment derivative equation $6/5-3\delta=1$ yields $\delta=1/15$. Concavity proves global net optimality. Its gross value is $61/75$, net value is $56/75$, and net improvement over no release is $1/150$. Full release has higher gross value but lower net value under this cost. These are stylized decision inputs, not calibrated installation costs.

@@ -1,0 +1,26 @@
+\subsection{Uniform transport between any two root promises}
+Assume in addition that $f$ is Lipschitz with constant $L_f$ on $[0,1]$ and each $h_j$ is Lipschitz with constant $H_j$ on $[0,b_j]$; put $H=\max_jH_j$. These constants are independent of the alphabet budget. For quadratic primitives one may take $L_f=r$ and $H=\max_j\gamma_jb_j$. The smaller intermediate domain is sufficient because the mean and pathwise replacements used below have tiers at most $b_j$.
+\begin{theorem}[All-promise value and institutional-gap stability]\label{thm:stability}
+For any $0\leq B_1\leq B_2\leq\bar b$, $\Delta=B_2-B_1$, every $m\geq1$, and $I\in\{E,P,D\}$,
+\begin{equation}\label{eq:value-stability}
+ V_m^I(B_2)-L_f\Delta\ \leq\ V_m^I(B_1)\ \leq\ V_m^I(B_2)+H\Delta.
+\end{equation}
+If $G_m(B)=V_m^E(B)-V_m^P(B)$, then
+\begin{equation}\label{eq:gap-stability}
+ |G_m(B_2)-G_m(B_1)|\leq(L_f+H)\Delta.
+\end{equation}
+The same bound holds for changes in the loss $V_\infty(B)-V_m^I(B)$. In particular, a certified strict advantage $G_m(B_0)>0$ persists for every feasible $B$ with $|B-B_0|<G_m(B_0)/(L_f+H)$.
+\end{theorem}
+\begin{proof}
+First contract any policy at $B_2>0$ by multiplying all intermediate and terminal actions by $\alpha=B_1/B_2$. The decoder uses the same symbols, and both participation conventions remain feasible. Intermediate cost weakly decreases. The decrease in terminal reward is at most $L_f(1-\alpha)\E C\leq L_f\Delta$, where expectations include branch weights. The case $B_2=0$ is immediate. Taking suprema gives the left inequality.
+
+For the other direction, start from a policy at $B_1$. Under expected participation, replace the terminal decoder given a symbol by its mean and the intermediate tier on each branch by its mean. These changes weakly improve reward, preserve the alphabet, and preserve expected obligations. Write $\mu_j=\E C_j$, $y_j=\E Y_j$, and $s_j=b_j-y_j-\mu_j\geq0$. If $B_1<\bar b$, put $\theta=\Delta/(\bar b-B_1)$ and replace $y_j$ by $y_j+\theta s_j$. The total added obligation is $\theta\sum_j\pi_js_j=\Delta$. Its cost is at most $H\Delta$, and the book and its encoding probabilities are unchanged.
+
+For pathwise participation, replace fresh terminal decoder randomness conditional on symbol $z$ by its mean $c_z$. Conditional independence from the earlier tier ensures $Y_j+c_z\leq b_j$ almost surely after this replacement; terminal concavity weakly improves reward. Use the draw-specific tier
+\[
+ Y'_j=Y_j+\theta(b_j-Y_j-c_z).
+\]
+This is admissible at the stipulated intermediate timing, remains between $Y_j$ and $b_j-c_z$, and adds expected obligation $\Delta$ with cost at most $H\Delta$. It requires no extra information at the terminal gateway. The deterministic case is the same construction without random draws. If $B_1=\bar b$, necessarily $\Delta=0$. Taking suprema, or limits of near-optimal policies, proves the right inequality without requiring a maximizer.
+
+For each institution the value increment lies in $[-H\Delta,L_f\Delta]$. Subtracting two such increments proves the institutional-gap bound. The same constructions apply with unrestricted full information, yielding the loss bound. Every transformation preserves the original number of writable symbols; no concavity of the optimized codebook envelope is assumed.
+\end{proof}

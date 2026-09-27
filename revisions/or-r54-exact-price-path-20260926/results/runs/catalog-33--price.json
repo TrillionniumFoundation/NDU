@@ -1,0 +1,73 @@
+{
+  "id": "catalog-33",
+  "method": "price",
+  "instance_sha256": "021399ad42a2d6b1091eb8e1c2ee59ddc6d02d34d059c6cefaf374d269582547",
+  "epsilon": "1/1000",
+  "setup_seconds": 0.00581945800001904,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "TOLERANCE",
+  "lower": "32391489/54016000",
+  "upper": "32402191/54016000",
+  "gap": "5351/27008000",
+  "seconds": 0.250324317000036,
+  "nodes": 1,
+  "oracle_calls": 4,
+  "trace": [
+    {
+      "seconds": 0.08892047699998784,
+      "lower": "40797980863991/86159706240000",
+      "upper": "34345321287/56986880000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.14809468400000014,
+      "lower": "15995503/27008000",
+      "upper": "34345321287/56986880000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.19918864700002814,
+      "lower": "32391489/54016000",
+      "upper": "32450069/54016000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.24950644900002317,
+      "lower": "32391489/54016000",
+      "upper": "32402191/54016000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.2495575440000266,
+      "lower": "32391489/54016000",
+      "upper": "32402191/54016000",
+      "nodes": 1,
+      "oracle_calls": 4
+    }
+  ],
+  "algorithm_seconds": 0.2523982330000081,
+  "algorithm_peak_rss_kib": 27740,
+  "certificate": "certificates/catalog-33--price.json.gz",
+  "certificate_bytes": 1056,
+  "uncompressed_certificate_bytes": 4480,
+  "verification": {
+    "status": "PASS",
+    "lower": "32391489/54016000",
+    "upper": "32402191/54016000",
+    "gap": "5351/27008000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.04934435199999143,
+    "instance_sha256": "021399ad42a2d6b1091eb8e1c2ee59ddc6d02d34d059c6cefaf374d269582547"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.049400477999995474,
+  "process_peak_rss_kib": 27740
+}

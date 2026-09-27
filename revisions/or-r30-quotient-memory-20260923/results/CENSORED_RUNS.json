@@ -1,0 +1,24 @@
+{
+  "status": "exploratory, not included among completed workers",
+  "runs": [
+    {
+      "family": "bounded",
+      "T": 128,
+      "S": 4,
+      "protocol": "three preprocessing repetitions; old whole-curve audit route",
+      "overall_execution_limit_seconds": 90,
+      "outcome": "execution limit; no complete worker receipt",
+      "follow_up": "same-size final single-query audit protocol completed and is reported"
+    },
+    {
+      "family": "bounded",
+      "T": 256,
+      "S": 4,
+      "protocol": "three preprocessing repetitions plus single-query execution/audit",
+      "overall_execution_limit_seconds": 140,
+      "outcome": "execution limit; no complete worker receipt",
+      "claimed_value_or_runtime": null
+    }
+  ],
+  "note": "These are overall execution limits, not isolated construction-time lower bounds. No extrapolated speed or success is claimed."
+}

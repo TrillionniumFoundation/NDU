@@ -1,0 +1,9563 @@
+[
+  {
+    "id": "exact-k8-5601-t2",
+    "instance_sha256": "d3c4162b4c299497f534a726808dfb74ab12c0440c26c4a9eabc7a247218935c",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 4,
+    "unique_fixed_books": 4,
+    "enumeration_books": 4,
+    "price_value": "hex:10733/19000",
+    "matched_enumeration_value": "hex:1571d/32000",
+    "difference": "hex:b749/32000",
+    "enumeration_policy": {
+      "book": [
+        "hex:0/1",
+        "hex:1/4"
+      ],
+      "targets": [
+        "hex:5/10",
+        "hex:b/14",
+        "hex:d/28",
+        "hex:7/14",
+        "hex:2/5",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:1/8"
+      ],
+      "intermediate": [
+        "hex:1/10",
+        "hex:3/a",
+        "hex:3/28",
+        "hex:1/a",
+        "hex:3/14",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/4"
+          ],
+          [
+            "hex:1/4",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/4"
+          ],
+          [
+            "hex:1/4",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          [
+            "hex:1/4",
+            "hex:1/2"
+          ]
+        ]
+      ],
+      "gross": "hex:fa5/2000",
+      "value": "hex:1571d/32000",
+      "price": "hex:-3/28"
+    },
+    "price_policy": {
+      "book": [
+        "hex:1/8",
+        "hex:5/8"
+      ],
+      "targets": [
+        "hex:1/8",
+        "hex:5/8",
+        "hex:1/4",
+        "hex:3/8",
+        "hex:5/8",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:1/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:7/8"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/8"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:b2b/1000",
+      "value": "hex:10733/19000",
+      "price": "hex:1d/10"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:221b/1000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:867281/c80000",
+          "book": [
+            "hex:1/8",
+            "hex:1/1"
+          ],
+          "indices": [
+            1,
+            8
+          ],
+          "price": "hex:221b/1000"
+        }
+      },
+      {
+        "price": "hex:-3/68",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:ca13c5/1081000",
+          "book": [
+            "hex:1/8",
+            "hex:3/8",
+            "hex:1/1"
+          ],
+          "indices": [
+            1,
+            3,
+            8
+          ],
+          "price": "hex:-3/68"
+        }
+      },
+      {
+        "price": "hex:2/1",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:1085f/19000",
+          "book": [
+            "hex:1/8",
+            "hex:5/8"
+          ],
+          "indices": [
+            1,
+            5
+          ],
+          "price": "hex:2/1"
+        }
+      },
+      {
+        "price": "hex:1d/10",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:10733/19000",
+          "book": [
+            "hex:1/8",
+            "hex:5/8"
+          ],
+          "indices": [
+            1,
+            5
+          ],
+          "price": "hex:1d/10"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-3b38b/514000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:1/1"
+        ],
+        "value": "hex:2e3d6f/514000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:3/8",
+          "hex:1/1"
+        ],
+        "value": "hex:10303/19000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:5/8"
+        ],
+        "value": "hex:10733/19000"
+      }
+    ]
+  },
+  {
+    "id": "exact-k8-5602-t2",
+    "instance_sha256": "04ef8c641d008ac0714696cec6699a96268ea2426119f153a334913f48ec403b",
+    "mechanics_match_published": true,
+    "nodes": 7,
+    "oracle_calls": 45,
+    "unique_fixed_books": 6,
+    "enumeration_books": 6,
+    "price_value": "hex:c7d/c80",
+    "matched_enumeration_value": "hex:b1fb/c800",
+    "difference": "hex:15d5/c800",
+    "enumeration_policy": {
+      "book": [
+        "hex:0/1",
+        "hex:1/2"
+      ],
+      "targets": [
+        "hex:0/1",
+        "hex:1/4",
+        "hex:b/10",
+        "hex:1/2",
+        "hex:7/10",
+        "hex:1/2",
+        "hex:1/2",
+        "hex:1/2"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:1/4",
+        "hex:3/10",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/8"
+          ],
+          [
+            "hex:1/2",
+            "hex:7/8"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:733/800",
+      "value": "hex:b1fb/c800",
+      "price": "hex:0/1"
+    },
+    "price_policy": {
+      "book": [
+        "hex:0/1",
+        "hex:1/4",
+        "hex:3/4"
+      ],
+      "targets": [
+        "hex:1/8",
+        "hex:1/4",
+        "hex:5/10",
+        "hex:3/4",
+        "hex:7/10",
+        "hex:b/10",
+        "hex:1/4",
+        "hex:9/10"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          [
+            "hex:1/4",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:7/8"
+          ],
+          [
+            "hex:3/4",
+            "hex:1/8"
+          ]
+        ],
+        [
+          [
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          [
+            "hex:3/4",
+            "hex:3/8"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/8"
+          ],
+          [
+            "hex:3/4",
+            "hex:7/8"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:3/8"
+          ],
+          [
+            "hex:3/4",
+            "hex:5/8"
+          ]
+        ]
+      ],
+      "gross": "hex:85/80",
+      "value": "hex:c7d/c80",
+      "price": "hex:f/8"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:237/100",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:d0393/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:0/1",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:3c35/3200",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:0/1"
+        }
+      },
+      {
+        "price": "hex:f/8",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:19065/19000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:f/8"
+        }
+      },
+      {
+        "price": "hex:f/10",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:6e29/6400",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:f/10"
+        }
+      },
+      {
+        "price": "hex:2d/20",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:d211/c800",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:2d/20"
+        }
+      },
+      {
+        "price": "hex:69/40",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:199e1/19000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:69/40"
+        }
+      },
+      {
+        "price": "hex:e1/80",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:32981/32000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:e1/80"
+        }
+      },
+      {
+        "price": "hex:1d1/100",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:648c1/64000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:1d1/100"
+        }
+      },
+      {
+        "price": "hex:3b1/200",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:c8741/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:3b1/200"
+        }
+      },
+      {
+        "price": "hex:771/400",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:320b29/320000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:771/400"
+        }
+      },
+      {
+        "price": "hex:ed3/800",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:3212c3/320000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:ed3/800"
+        }
+      },
+      {
+        "price": "hex:1db5/1000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:641b45/640000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:1db5/1000"
+        }
+      },
+      {
+        "price": "hex:237/100",
+        "required": [],
+        "forbidden": [
+          2
+        ],
+        "result": {
+          "upper": "hex:cf939/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            4
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:0/1",
+        "required": [],
+        "forbidden": [
+          2
+        ],
+        "result": {
+          "upper": "hex:1c141/19000",
+          "book": [
+            "hex:1/8",
+            "hex:3/4"
+          ],
+          "indices": [
+            1,
+            6
+          ],
+          "price": "hex:0/1"
+        }
+      },
+      {
+        "price": "hex:7b/40",
+        "required": [],
+        "forbidden": [
+          2
+        ],
+        "result": {
+          "upper": "hex:31c01/32000",
+          "book": [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            4
+          ],
+          "price": "hex:7b/40"
+        }
+      },
+      {
+        "price": "hex:237/100",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:d0393/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:0/1",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:3c35/3200",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:0/1"
+        }
+      },
+      {
+        "price": "hex:f/8",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:19065/19000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:f/8"
+        }
+      },
+      {
+        "price": "hex:f/10",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:6e29/6400",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:f/10"
+        }
+      },
+      {
+        "price": "hex:2d/20",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:d211/c800",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:2d/20"
+        }
+      },
+      {
+        "price": "hex:69/40",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:199e1/19000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:69/40"
+        }
+      },
+      {
+        "price": "hex:e1/80",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:32981/32000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:e1/80"
+        }
+      },
+      {
+        "price": "hex:1d1/100",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:648c1/64000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:1d1/100"
+        }
+      },
+      {
+        "price": "hex:3b1/200",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:c8741/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:3b1/200"
+        }
+      },
+      {
+        "price": "hex:771/400",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:320b29/320000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:771/400"
+        }
+      },
+      {
+        "price": "hex:ed3/800",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:3212c3/320000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:ed3/800"
+        }
+      },
+      {
+        "price": "hex:1db5/1000",
+        "required": [
+          2
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:641b45/640000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:1db5/1000"
+        }
+      },
+      {
+        "price": "hex:237/100",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:d0393/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:0/1",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:ddc9/c800",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:0/1"
+        }
+      },
+      {
+        "price": "hex:79/40",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:32147/32000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:79/40"
+        }
+      },
+      {
+        "price": "hex:79/80",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:1a3f/1900",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:79/80"
+        }
+      },
+      {
+        "price": "hex:16b/100",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:1981f/19000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:16b/100"
+        }
+      },
+      {
+        "price": "hex:34f/200",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:3246d/32000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:34f/200"
+        }
+      },
+      {
+        "price": "hex:717/400",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:32025f/320000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:717/400"
+        }
+      },
+      {
+        "price": "hex:db5/800",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:c85e3/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:db5/800"
+        }
+      },
+      {
+        "price": "hex:1be3/1000",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:18fff5/190000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:1be3/1000"
+        }
+      },
+      {
+        "price": "hex:383f/2000",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:1900727/1900000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:383f/2000"
+        }
+      },
+      {
+        "price": "hex:7005/4000",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:320027d/3200000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:7005/4000"
+        }
+      },
+      {
+        "price": "hex:df91/8000",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:63ff929/6400000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:df91/8000"
+        }
+      },
+      {
+        "price": "hex:237/100",
+        "required": [
+          2,
+          6
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:66897/64000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:f/8",
+        "required": [
+          2,
+          6
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:c7d/c80",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            0,
+            2,
+            6
+          ],
+          "price": "hex:f/8"
+        }
+      },
+      {
+        "price": "hex:237/100",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          4,
+          6
+        ],
+        "result": {
+          "upper": "hex:cc3ff/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:79/40",
+        "required": [
+          2
+        ],
+        "forbidden": [
+          4,
+          6
+        ],
+        "result": {
+          "upper": "hex:319/320",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            2,
+            5
+          ],
+          "price": "hex:79/40"
+        }
+      },
+      {
+        "price": "hex:237/100",
+        "required": [
+          2,
+          4
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:d0393/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:237/100"
+        }
+      },
+      {
+        "price": "hex:0/1",
+        "required": [
+          2,
+          4
+        ],
+        "forbidden": [
+          6
+        ],
+        "result": {
+          "upper": "hex:18a89/19000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            2,
+            4
+          ],
+          "price": "hex:0/1"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-c1/2000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2"
+        ],
+        "value": "hex:18a89/19000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:3/4"
+        ],
+        "value": "hex:c7d/c80"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:1/2"
+        ],
+        "value": "hex:b1fb/c800"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:3/4"
+        ],
+        "value": "hex:17a29/19000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:5/8"
+        ],
+        "value": "hex:319/320"
+      }
+    ]
+  },
+  {
+    "id": "exact-k8-5603-t2",
+    "instance_sha256": "b93d5e24c755afe0075876ed522a4a6e592240c1ebb6020fce4c75118f586895",
+    "mechanics_match_published": true,
+    "nodes": 5,
+    "oracle_calls": 43,
+    "unique_fixed_books": 10,
+    "enumeration_books": 10,
+    "price_value": "hex:116ef/19000",
+    "matched_enumeration_value": "hex:290a1b/410000",
+    "difference": "hex:156fa9/1450000",
+    "enumeration_policy": {
+      "book": [
+        "hex:0/1",
+        "hex:1/2"
+      ],
+      "targets": [
+        "hex:1af/340",
+        "hex:9/10",
+        "hex:f/d0",
+        "hex:1/2",
+        "hex:df/1a0",
+        "hex:df/1a0",
+        "hex:1/4",
+        "hex:f/d0"
+      ],
+      "intermediate": [
+        "hex:f/340",
+        "hex:1/10",
+        "hex:f/d0",
+        "hex:0/1",
+        "hex:f/1a0",
+        "hex:f/1a0",
+        "hex:0/1",
+        "hex:f/d0"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          [
+            "hex:1/2",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:8db9f/d0000",
+      "value": "hex:290a1b/410000",
+      "price": "hex:-f/340"
+    },
+    "price_policy": {
+      "book": [
+        "hex:1/4",
+        "hex:1/2"
+      ],
+      "targets": [
+        "hex:13/40",
+        "hex:1/2",
+        "hex:1/4",
+        "hex:1/2",
+        "hex:1/2",
+        "hex:1/2",
+        "hex:1/4",
+        "hex:1/4"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/4",
+            "hex:d/10"
+          ],
+          [
+            "hex:1/2",
+            "hex:3/10"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:c47/1000",
+      "value": "hex:116ef/19000",
+      "price": "hex:d/8"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:7b87/4000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:974251d/c800000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4"
+          ],
+          "indices": [
+            0,
+            2
+          ],
+          "price": "hex:7b87/4000"
+        }
+      },
+      {
+        "price": "hex:-1f/140",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:21aa3/28000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "indices": [
+            2,
+            4,
+            7
+          ],
+          "price": "hex:-1f/140"
+        }
+      },
+      {
+        "price": "hex:d/8",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:11d43/19000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:d/8"
+        }
+      },
+      {
+        "price": "hex:1e9/280",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:3b8cf/50000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "indices": [
+            2,
+            4,
+            7
+          ],
+          "price": "hex:1e9/280"
+        }
+      },
+      {
+        "price": "hex:5f9/500",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:23d383/320000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:5f9/500"
+        }
+      },
+      {
+        "price": "hex:e19/a00",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:4647a7/640000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:e19/a00"
+        }
+      },
+      {
+        "price": "hex:1e59/1400",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:8c883f/c80000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:1e59/1400"
+        }
+      },
+      {
+        "price": "hex:3a8b/2800",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:11892b5/1900000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:3a8b/2800"
+        }
+      },
+      {
+        "price": "hex:17d9/1000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:2309983/3200000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:17d9/1000"
+        }
+      },
+      {
+        "price": "hex:f0a1/a000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:4627337/6400000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:f0a1/a000"
+        }
+      },
+      {
+        "price": "hex:1df1b/14000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:8c317ad/c800000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:1df1b/14000"
+        }
+      },
+      {
+        "price": "hex:3bc0f/28000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:11846099/19000000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:3bc0f/28000"
+        }
+      },
+      {
+        "price": "hex:7b87/4000",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:974251d/c800000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4"
+          ],
+          "indices": [
+            0,
+            2
+          ],
+          "price": "hex:7b87/4000"
+        }
+      },
+      {
+        "price": "hex:-1f/140",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:21aa3/28000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "indices": [
+            2,
+            4,
+            7
+          ],
+          "price": "hex:-1f/140"
+        }
+      },
+      {
+        "price": "hex:d/8",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:11d43/19000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:d/8"
+        }
+      },
+      {
+        "price": "hex:1e9/280",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:3b8cf/50000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "indices": [
+            2,
+            4,
+            7
+          ],
+          "price": "hex:1e9/280"
+        }
+      },
+      {
+        "price": "hex:5f9/500",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:23d383/320000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:5f9/500"
+        }
+      },
+      {
+        "price": "hex:e19/a00",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:4647a7/640000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:e19/a00"
+        }
+      },
+      {
+        "price": "hex:1e59/1400",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:8c0367/c80000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:1e59/1400"
+        }
+      },
+      {
+        "price": "hex:3ed9/2800",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:11a71f7/1900000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:3ed9/2800"
+        }
+      },
+      {
+        "price": "hex:7b8b/5000",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:23212e5/3200000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:7b8b/5000"
+        }
+      },
+      {
+        "price": "hex:f4ef/a000",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:46154c1/6400000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:f4ef/a000"
+        }
+      },
+      {
+        "price": "hex:618b/4000",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:8bfd879/c800000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:618b/4000"
+        }
+      },
+      {
+        "price": "hex:3cd47/28000",
+        "required": [],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:117fe0f9/19000000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:3cd47/28000"
+        }
+      },
+      {
+        "price": "hex:7b87/4000",
+        "required": [
+          3
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:957451d/c800000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:7b87/4000"
+        }
+      },
+      {
+        "price": "hex:-17/240",
+        "required": [
+          3
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:21b8a83/2a30000",
+          "book": [
+            "hex:1/4",
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            3,
+            6
+          ],
+          "price": "hex:-17/240"
+        }
+      },
+      {
+        "price": "hex:65/40",
+        "required": [
+          3
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:8d8d7/c8000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:65/40"
+        }
+      },
+      {
+        "price": "hex:1bb/240",
+        "required": [
+          3
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:527f09/708000",
+          "book": [
+            "hex:1/4",
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            3,
+            6
+          ],
+          "price": "hex:1bb/240"
+        }
+      },
+      {
+        "price": "hex:a9/90",
+        "required": [
+          3
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:276d1/38400",
+          "book": [
+            "hex:1/4",
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            3,
+            6
+          ],
+          "price": "hex:a9/90"
+        }
+      },
+      {
+        "price": "hex:631/480",
+        "required": [
+          3
+        ],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:9b6cb3/e10000",
+          "book": [
+            "hex:0/1",
+            "hex:3/8"
+          ],
+          "indices": [
+            0,
+            3
+          ],
+          "price": "hex:631/480"
+        }
+      },
+      {
+        "price": "hex:7b87/4000",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:974251d/c800000",
+          "book": [
+            "hex:0/1",
+            "hex:1/4"
+          ],
+          "indices": [
+            0,
+            2
+          ],
+          "price": "hex:7b87/4000"
+        }
+      },
+      {
+        "price": "hex:-1f/140",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:a15d3/c8000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4",
+            "hex:7/8"
+          ],
+          "indices": [
+            2,
+            6,
+            7
+          ],
+          "price": "hex:-1f/140"
+        }
+      },
+      {
+        "price": "hex:d/8",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:11d43/19000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:d/8"
+        }
+      },
+      {
+        "price": "hex:1e9/280",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:129b53/190000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:1e9/280"
+        }
+      },
+      {
+        "price": "hex:5f9/500",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:23d383/320000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:5f9/500"
+        }
+      },
+      {
+        "price": "hex:e19/a00",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:4643e3/640000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:e19/a00"
+        }
+      },
+      {
+        "price": "hex:1e59/1400",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:8bd077/c80000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:1e59/1400"
+        }
+      },
+      {
+        "price": "hex:3a8b/2800",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:117ac69/1900000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:3a8b/2800"
+        }
+      },
+      {
+        "price": "hex:17d9/1000",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:22df5af/3200000",
+          "book": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            6
+          ],
+          "price": "hex:17d9/1000"
+        }
+      },
+      {
+        "price": "hex:f0a1/a000",
+        "required": [],
+        "forbidden": [
+          3,
+          4
+        ],
+        "result": {
+          "upper": "hex:45bb2af/6400000",
+          "book": [
+            "hex:1/4"
+          ],
+          "indices": [
+            2
+          ],
+          "price": "hex:f0a1/a000"
+        }
+      },
+      {
+        "price": "hex:7b87/4000",
+        "required": [
+          4
+        ],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:1d03439/2800000",
+          "book": [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          "indices": [
+            0,
+            4
+          ],
+          "price": "hex:7b87/4000"
+        }
+      },
+      {
+        "price": "hex:-f/340",
+        "required": [
+          4
+        ],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:15f5d5/1a6800",
+          "book": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "indices": [
+            2,
+            4,
+            7
+          ],
+          "price": "hex:-f/340"
+        }
+      },
+      {
+        "price": "hex:d/8",
+        "required": [
+          4
+        ],
+        "forbidden": [
+          3
+        ],
+        "result": {
+          "upper": "hex:116ef/19000",
+          "book": [
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "indices": [
+            2,
+            4
+          ],
+          "price": "hex:d/8"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-2641/60000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:1/4"
+        ],
+        "value": "hex:c707b/190000"
+      },
+      {
+        "book": [
+          "hex:1/4",
+          "hex:1/2",
+          "hex:7/8"
+        ],
+        "value": "hex:3563/5000"
+      },
+      {
+        "book": [
+          "hex:1/4"
+        ],
+        "value": "hex:c707b/190000"
+      },
+      {
+        "book": [
+          "hex:1/4",
+          "hex:3/4"
+        ],
+        "value": "hex:116a3/19000"
+      },
+      {
+        "book": [
+          "hex:1/4",
+          "hex:1/2"
+        ],
+        "value": "hex:116ef/19000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:3/8"
+        ],
+        "value": "hex:813947/e10000"
+      },
+      {
+        "book": [
+          "hex:1/4",
+          "hex:3/8",
+          "hex:3/4"
+        ],
+        "value": "hex:87057/c8000"
+      },
+      {
+        "book": [
+          "hex:1/4",
+          "hex:3/4",
+          "hex:7/8"
+        ],
+        "value": "hex:10aa3/19000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:1/2"
+        ],
+        "value": "hex:290a1b/410000"
+      }
+    ]
+  },
+  {
+    "id": "exact-k24-5601-t2",
+    "instance_sha256": "b3bc23e30426baa9a1d62e481a21d6f4cc98abed70431e81745d1fbd6de23f84",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 3,
+    "unique_fixed_books": 3,
+    "enumeration_books": 3,
+    "price_value": "hex:22d60f/258000",
+    "matched_enumeration_value": "hex:fdfd99/3fc0000",
+    "difference": "hex:d8bc3fb/13ec0000",
+    "enumeration_policy": {
+      "book": [
+        "hex:1/8"
+      ],
+      "targets": [
+        "hex:14d/440",
+        "hex:46f/1100",
+        "hex:14d/440",
+        "hex:3/8",
+        "hex:2d7/440",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:2d7/440",
+        "hex:14d/440",
+        "hex:5/10",
+        "hex:5/8",
+        "hex:1/2",
+        "hex:14d/440",
+        "hex:5/10",
+        "hex:2d7/440",
+        "hex:1/2",
+        "hex:1/4",
+        "hex:5/10",
+        "hex:46f/1100",
+        "hex:1/8",
+        "hex:14d/440",
+        "hex:35f/880",
+        "hex:7/8"
+      ],
+      "intermediate": [
+        "hex:c5/440",
+        "hex:24f/1100",
+        "hex:c5/440",
+        "hex:1/4",
+        "hex:24f/440",
+        "hex:1/10",
+        "hex:1/10",
+        "hex:0/1",
+        "hex:24f/440",
+        "hex:c5/440",
+        "hex:3/10",
+        "hex:1/2",
+        "hex:3/8",
+        "hex:c5/440",
+        "hex:3/10",
+        "hex:24f/440",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:3/10",
+        "hex:24f/1100",
+        "hex:0/1",
+        "hex:c5/440",
+        "hex:24f/880",
+        "hex:3/4"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:3cff85/cc0000",
+      "value": "hex:fdfd99/3fc0000",
+      "price": "hex:-24f/1100"
+    },
+    "price_policy": {
+      "book": [
+        "hex:0/1",
+        "hex:3/10",
+        "hex:5/8",
+        "hex:f/10"
+      ],
+      "targets": [
+        "hex:0/1",
+        "hex:5/8",
+        "hex:1/2",
+        "hex:3/10",
+        "hex:5/8",
+        "hex:0/1",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:3/10",
+        "hex:5/10",
+        "hex:5/8",
+        "hex:1/2",
+        "hex:7/10",
+        "hex:0/1",
+        "hex:7/8",
+        "hex:3/10",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:f/10",
+        "hex:1/8",
+        "hex:f/10",
+        "hex:21/40",
+        "hex:5/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:2/7"
+          ],
+          [
+            "hex:5/8",
+            "hex:5/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/3"
+          ],
+          [
+            "hex:3/10",
+            "hex:2/3"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:5/7"
+          ],
+          [
+            "hex:5/8",
+            "hex:2/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:2/7"
+          ],
+          [
+            "hex:5/8",
+            "hex:5/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:3/7"
+          ],
+          [
+            "hex:5/8",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/5"
+          ],
+          [
+            "hex:f/10",
+            "hex:4/5"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:f/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/3"
+          ],
+          [
+            "hex:3/10",
+            "hex:2/3"
+          ]
+        ],
+        [
+          [
+            "hex:f/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/10",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:16c67/18000",
+      "value": "hex:22d60f/258000",
+      "price": "hex:83/40"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:9305/4000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:23dea8d1/25800000",
+          "book": [
+            "hex:0/1",
+            "hex:3/10",
+            "hex:5/8"
+          ],
+          "indices": [
+            0,
+            3,
+            10
+          ],
+          "price": "hex:9305/4000"
+        }
+      },
+      {
+        "price": "hex:3d/20",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:45cb9/4b000",
+          "book": [
+            "hex:0/1",
+            "hex:3/10",
+            "hex:5/8",
+            "hex:f/10"
+          ],
+          "indices": [
+            0,
+            3,
+            10,
+            15
+          ],
+          "price": "hex:3d/20"
+        }
+      },
+      {
+        "price": "hex:83/40",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:22d60f/258000",
+          "book": [
+            "hex:0/1",
+            "hex:3/10",
+            "hex:5/8",
+            "hex:f/10"
+          ],
+          "indices": [
+            0,
+            3,
+            10,
+            15
+          ],
+          "price": "hex:83/40"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-5574b/cc0000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:3/10",
+          "hex:5/8"
+        ],
+        "value": "hex:8aca1/96000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:3/10",
+          "hex:5/8",
+          "hex:f/10"
+        ],
+        "value": "hex:22d60f/258000"
+      }
+    ]
+  },
+  {
+    "id": "exact-k24-5602-t2",
+    "instance_sha256": "e7c4c2eba68fe92f15657a2898ee1a4ce589be8c3248fcf2929e9f6fdeba3947",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 4,
+    "unique_fixed_books": 4,
+    "enumeration_books": 4,
+    "price_value": "hex:5c4e3/64000",
+    "matched_enumeration_value": "hex:10221f7/3b60000",
+    "difference": "hex:26ac4d1/3b60000",
+    "enumeration_policy": {
+      "book": [
+        "hex:1/8"
+      ],
+      "targets": [
+        "hex:1/8",
+        "hex:1/4",
+        "hex:3c7/980",
+        "hex:129/260",
+        "hex:7/10",
+        "hex:32f/4c0",
+        "hex:3c7/980",
+        "hex:3c7/980",
+        "hex:1/2",
+        "hex:3/4",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:3c7/980",
+        "hex:3c7/980",
+        "hex:9/10",
+        "hex:32f/4c0",
+        "hex:129/260",
+        "hex:1/4",
+        "hex:3c7/980",
+        "hex:5/10",
+        "hex:1/2",
+        "hex:7/10",
+        "hex:3/10",
+        "hex:1/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:1/8",
+        "hex:297/980",
+        "hex:dd/260",
+        "hex:5/10",
+        "hex:297/4c0",
+        "hex:297/980",
+        "hex:297/980",
+        "hex:3/8",
+        "hex:5/8",
+        "hex:1/10",
+        "hex:1/10",
+        "hex:297/980",
+        "hex:297/980",
+        "hex:7/10",
+        "hex:297/4c0",
+        "hex:dd/260",
+        "hex:1/8",
+        "hex:297/980",
+        "hex:3/10",
+        "hex:3/8",
+        "hex:5/10",
+        "hex:1/10",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:ab48f/260000",
+      "value": "hex:10221f7/3b60000",
+      "price": "hex:-297/980"
+    },
+    "price_policy": {
+      "book": [
+        "hex:1/10",
+        "hex:5/10",
+        "hex:b/10"
+      ],
+      "targets": [
+        "hex:1/8",
+        "hex:1/10",
+        "hex:b/10",
+        "hex:b/10",
+        "hex:5/10",
+        "hex:b/10",
+        "hex:b/10",
+        "hex:9/10",
+        "hex:5/10",
+        "hex:1/10",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:5/10",
+        "hex:b/10",
+        "hex:5/10",
+        "hex:b/10",
+        "hex:b/10",
+        "hex:1/4",
+        "hex:b/10",
+        "hex:5/10",
+        "hex:1/2",
+        "hex:d/40",
+        "hex:3/10",
+        "hex:1/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/10",
+            "hex:3/4"
+          ],
+          [
+            "hex:5/10",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/3"
+          ],
+          [
+            "hex:b/10",
+            "hex:2/3"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/10",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/10",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/10",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:b/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/2"
+          ],
+          [
+            "hex:b/10",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:7/10"
+          ],
+          [
+            "hex:5/10",
+            "hex:9/10"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/10",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:3/4"
+          ],
+          [
+            "hex:5/10",
+            "hex:1/4"
+          ]
+        ]
+      ],
+      "gross": "hex:3c5b/4000",
+      "value": "hex:5c4e3/64000",
+      "price": "hex:3d/20"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:1211/800",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:475ca69/4b00000",
+          "book": [
+            "hex:1/10",
+            "hex:9/10"
+          ],
+          "indices": [
+            1,
+            9
+          ],
+          "price": "hex:1211/800"
+        }
+      },
+      {
+        "price": "hex:1b/10",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:8c387/96000",
+          "book": [
+            "hex:1/10",
+            "hex:1/2",
+            "hex:b/10",
+            "hex:f/10"
+          ],
+          "indices": [
+            1,
+            8,
+            11,
+            15
+          ],
+          "price": "hex:1b/10"
+        }
+      },
+      {
+        "price": "hex:3f/20",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:1154b7/12c000",
+          "book": [
+            "hex:1/10",
+            "hex:5/10",
+            "hex:b/10"
+          ],
+          "indices": [
+            1,
+            5,
+            11
+          ],
+          "price": "hex:3f/20"
+        }
+      },
+      {
+        "price": "hex:3d/20",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:5c4e3/64000",
+          "book": [
+            "hex:1/10",
+            "hex:5/10",
+            "hex:b/10"
+          ],
+          "indices": [
+            1,
+            5,
+            11
+          ],
+          "price": "hex:3d/20"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-bacbcb/9600000"
+      },
+      {
+        "book": [
+          "hex:1/10",
+          "hex:9/10"
+        ],
+        "value": "hex:89789/96000"
+      },
+      {
+        "book": [
+          "hex:1/10",
+          "hex:1/2",
+          "hex:b/10",
+          "hex:f/10"
+        ],
+        "value": "hex:2dee3/32000"
+      },
+      {
+        "book": [
+          "hex:1/10",
+          "hex:5/10",
+          "hex:b/10"
+        ],
+        "value": "hex:5c4e3/64000"
+      }
+    ]
+  },
+  {
+    "id": "exact-k24-5603-t2",
+    "instance_sha256": "c71fe1e15dcc816bb2e1804d3c35c99998a8bb0ab364bc998295f9af6cf53f46",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 2,
+    "unique_fixed_books": 2,
+    "enumeration_books": 2,
+    "price_value": "hex:155771/190000",
+    "matched_enumeration_value": "hex:15733f/c80000",
+    "difference": "hex:954849/c80000",
+    "enumeration_policy": {
+      "book": [
+        "hex:1/10"
+      ],
+      "targets": [
+        "hex:d/10",
+        "hex:53/100",
+        "hex:1/4",
+        "hex:1/2",
+        "hex:63/200",
+        "hex:4b/80",
+        "hex:1/4",
+        "hex:1/4",
+        "hex:3/4",
+        "hex:d/10",
+        "hex:4b/80",
+        "hex:1/8",
+        "hex:5b/180",
+        "hex:1/8",
+        "hex:5b/180",
+        "hex:7/10",
+        "hex:53/100",
+        "hex:4b/80",
+        "hex:5/10",
+        "hex:53/100",
+        "hex:3/4",
+        "hex:5b/180",
+        "hex:1/8",
+        "hex:63/200"
+      ],
+      "intermediate": [
+        "hex:3/4",
+        "hex:43/100",
+        "hex:3/10",
+        "hex:7/10",
+        "hex:43/200",
+        "hex:43/80",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:b/10",
+        "hex:3/4",
+        "hex:43/80",
+        "hex:1/10",
+        "hex:43/180",
+        "hex:1/10",
+        "hex:43/180",
+        "hex:3/8",
+        "hex:43/100",
+        "hex:43/80",
+        "hex:1/4",
+        "hex:43/100",
+        "hex:b/10",
+        "hex:43/180",
+        "hex:1/10",
+        "hex:43/200"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/10",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:11917/80000",
+      "value": "hex:15733f/c80000",
+      "price": "hex:-43/200"
+    },
+    "price_policy": {
+      "book": [
+        "hex:1/8",
+        "hex:5/10",
+        "hex:3/4"
+      ],
+      "targets": [
+        "hex:5/10",
+        "hex:9/10",
+        "hex:1/4",
+        "hex:1/2",
+        "hex:9/10",
+        "hex:5/10",
+        "hex:1/4",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:b/10",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:7/10",
+        "hex:7/10",
+        "hex:19/40",
+        "hex:5/10",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:7/10",
+        "hex:1/8",
+        "hex:1/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:3/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/3"
+          ],
+          [
+            "hex:5/10",
+            "hex:2/3"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:4/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:3/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/3"
+          ],
+          [
+            "hex:5/10",
+            "hex:2/3"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:5/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:2/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:5/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:2/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:17/1c"
+          ],
+          [
+            "hex:3/4",
+            "hex:5/1c"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/10",
+            "hex:5/7"
+          ],
+          [
+            "hex:3/4",
+            "hex:2/7"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:dd19/10000",
+      "value": "hex:155771/190000",
+      "price": "hex:ef/80"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:1993f/c000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:aec5e67/c800000",
+          "book": [
+            "hex:1/8",
+            "hex:5/10",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            5,
+            12
+          ],
+          "price": "hex:1993f/c000"
+        }
+      },
+      {
+        "price": "hex:ef/80",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:155771/190000",
+          "book": [
+            "hex:1/8",
+            "hex:5/10",
+            "hex:3/4"
+          ],
+          "indices": [
+            2,
+            5,
+            12
+          ],
+          "price": "hex:ef/80"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-ff04d/12c0000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:5/10",
+          "hex:3/4"
+        ],
+        "value": "hex:155771/190000"
+      }
+    ]
+  },
+  {
+    "id": "exact-k96-5601-t2",
+    "instance_sha256": "6ac38311aca2ff92fa2213fdd11badffa35a3e886894513467fb4ae2ba9b7ba1",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 3,
+    "unique_fixed_books": 3,
+    "enumeration_books": 3,
+    "price_value": "hex:13f5167/1518000",
+    "matched_enumeration_value": "hex:10ca37d/7f80000",
+    "difference": "hex:1240dc077/166980000",
+    "enumeration_policy": {
+      "book": [
+        "hex:1/c"
+      ],
+      "targets": [
+        "hex:5/10",
+        "hex:2609/7f80",
+        "hex:bcb/1fe0",
+        "hex:3/8",
+        "hex:7/8",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:f/10",
+        "hex:bcb/1fe0",
+        "hex:5/10",
+        "hex:bcb/1fe0",
+        "hex:2609/7f80",
+        "hex:7/10",
+        "hex:5/10",
+        "hex:2609/7f80",
+        "hex:2609/7f80",
+        "hex:1/4",
+        "hex:2609/7f80",
+        "hex:f/10",
+        "hex:1/8",
+        "hex:2609/7f80",
+        "hex:5/8",
+        "hex:7/8",
+        "hex:2609/7f80",
+        "hex:7/8",
+        "hex:bcb/1fe0",
+        "hex:7/8",
+        "hex:20b9/3fc0",
+        "hex:2609/7f80",
+        "hex:9/10",
+        "hex:7/8",
+        "hex:2609/7f80",
+        "hex:1/4",
+        "hex:5/10",
+        "hex:2609/7f80",
+        "hex:3/10",
+        "hex:5/10",
+        "hex:20b9/3fc0",
+        "hex:2609/7f80",
+        "hex:7/8",
+        "hex:1/4",
+        "hex:2609/7f80",
+        "hex:d/10",
+        "hex:5/10",
+        "hex:2609/7f80",
+        "hex:3/8",
+        "hex:1/4",
+        "hex:2609/7f80",
+        "hex:1/8",
+        "hex:20b9/3fc0",
+        "hex:2609/7f80",
+        "hex:bcb/1fe0",
+        "hex:2609/7f80",
+        "hex:20b9/3fc0",
+        "hex:1/8",
+        "hex:2609/7f80",
+        "hex:1/2",
+        "hex:2609/7f80",
+        "hex:1/8",
+        "hex:20b9/3fc0",
+        "hex:bcb/1fe0",
+        "hex:2609/7f80",
+        "hex:bcb/1fe0",
+        "hex:20b9/3fc0",
+        "hex:2609/7f80",
+        "hex:3/4",
+        "hex:20b9/3fc0",
+        "hex:b/10",
+        "hex:3/8",
+        "hex:d/10",
+        "hex:1/4",
+        "hex:1/4",
+        "hex:bcb/1fe0",
+        "hex:bcb/1fe0",
+        "hex:1/8",
+        "hex:bcb/1fe0",
+        "hex:1/2",
+        "hex:2609/7f80",
+        "hex:1/8",
+        "hex:2609/7f80",
+        "hex:3/10",
+        "hex:3/4",
+        "hex:bcb/1fe0",
+        "hex:2609/7f80",
+        "hex:2609/7f80",
+        "hex:3/4",
+        "hex:2609/7f80",
+        "hex:2609/7f80",
+        "hex:7/10",
+        "hex:2609/7f80",
+        "hex:f/10",
+        "hex:9/10",
+        "hex:1/8",
+        "hex:1/4",
+        "hex:2609/7f80"
+      ],
+      "intermediate": [
+        "hex:b/30",
+        "hex:923/2a80",
+        "hex:923/1fe0",
+        "hex:7/18",
+        "hex:13/18",
+        "hex:5/30",
+        "hex:5/30",
+        "hex:1/18",
+        "hex:29/30",
+        "hex:923/1fe0",
+        "hex:b/30",
+        "hex:923/1fe0",
+        "hex:923/2a80",
+        "hex:11/30",
+        "hex:b/30",
+        "hex:923/2a80",
+        "hex:923/2a80",
+        "hex:1/6",
+        "hex:923/2a80",
+        "hex:29/30",
+        "hex:1/18",
+        "hex:923/2a80",
+        "hex:d/18",
+        "hex:13/18",
+        "hex:923/2a80",
+        "hex:13/18",
+        "hex:923/1fe0",
+        "hex:13/18",
+        "hex:923/1540",
+        "hex:923/2a80",
+        "hex:17/30",
+        "hex:13/18",
+        "hex:923/2a80",
+        "hex:1/6",
+        "hex:b/30",
+        "hex:923/2a80",
+        "hex:5/30",
+        "hex:b/30",
+        "hex:923/1540",
+        "hex:923/2a80",
+        "hex:13/18",
+        "hex:1/6",
+        "hex:923/2a80",
+        "hex:23/30",
+        "hex:b/30",
+        "hex:923/2a80",
+        "hex:7/18",
+        "hex:1/6",
+        "hex:923/2a80",
+        "hex:1/18",
+        "hex:923/1540",
+        "hex:923/2a80",
+        "hex:923/1fe0",
+        "hex:923/2a80",
+        "hex:923/1540",
+        "hex:1/18",
+        "hex:923/2a80",
+        "hex:5/c",
+        "hex:923/2a80",
+        "hex:1/18",
+        "hex:923/1540",
+        "hex:923/1fe0",
+        "hex:923/2a80",
+        "hex:923/1fe0",
+        "hex:923/1540",
+        "hex:923/2a80",
+        "hex:2/3",
+        "hex:923/1540",
+        "hex:1d/30",
+        "hex:7/18",
+        "hex:23/30",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:923/1fe0",
+        "hex:923/1fe0",
+        "hex:1/18",
+        "hex:923/1fe0",
+        "hex:5/c",
+        "hex:923/2a80",
+        "hex:1/18",
+        "hex:923/2a80",
+        "hex:5/30",
+        "hex:2/3",
+        "hex:923/1fe0",
+        "hex:923/2a80",
+        "hex:923/2a80",
+        "hex:2/3",
+        "hex:923/2a80",
+        "hex:923/2a80",
+        "hex:11/30",
+        "hex:923/2a80",
+        "hex:29/30",
+        "hex:17/30",
+        "hex:1/18",
+        "hex:1/6",
+        "hex:923/2a80"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/c",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:172a37d/7f80000",
+      "value": "hex:10ca37d/7f80000",
+      "price": "hex:-923/2a80"
+    },
+    "price_policy": {
+      "book": [
+        "hex:1/8",
+        "hex:3/8",
+        "hex:2/3",
+        "hex:5/6"
+      ],
+      "targets": [
+        "hex:5/10",
+        "hex:b/10",
+        "hex:1/2",
+        "hex:3/8",
+        "hex:5/6",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/6",
+        "hex:3/8",
+        "hex:5/10",
+        "hex:5/8",
+        "hex:3/8",
+        "hex:3/8",
+        "hex:5/10",
+        "hex:5/6",
+        "hex:1/8",
+        "hex:1/4",
+        "hex:5/10",
+        "hex:5/6",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:5/6",
+        "hex:9/10",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:5/6",
+        "hex:3/8",
+        "hex:31/40",
+        "hex:9/10",
+        "hex:5/6",
+        "hex:5/10",
+        "hex:1/4",
+        "hex:5/10",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/10",
+        "hex:9/10",
+        "hex:5/10",
+        "hex:5/6",
+        "hex:1/4",
+        "hex:5/6",
+        "hex:1/8",
+        "hex:5/10",
+        "hex:1/2",
+        "hex:3/8",
+        "hex:1/4",
+        "hex:5/10",
+        "hex:1/8",
+        "hex:5/6",
+        "hex:3/4",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/2",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:5/6",
+        "hex:1/8",
+        "hex:2/3",
+        "hex:1/2",
+        "hex:2/3",
+        "hex:2/3",
+        "hex:3/8",
+        "hex:2/3",
+        "hex:2/3",
+        "hex:1/8",
+        "hex:d/10",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:3/8",
+        "hex:1/2",
+        "hex:1/8",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:3/8",
+        "hex:3/8",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:3/8",
+        "hex:3/4",
+        "hex:1/8",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:1/4",
+        "hex:9/10"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:7/8"
+          ],
+          [
+            "hex:5/6",
+            "hex:1/8"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:4/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:2/3",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/6",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:d/20"
+          ],
+          [
+            "hex:5/6",
+            "hex:13/20"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:2/3",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:2/3",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:4/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/6",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:4/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/6",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:4/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/8"
+          ],
+          [
+            "hex:5/6",
+            "hex:7/8"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:4/7"
+          ],
+          [
+            "hex:2/3",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/6",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:2/3",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/6",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:2/3",
+            "hex:9/e"
+          ]
+        ]
+      ],
+      "gross": "hex:d2d7f/d8000",
+      "value": "hex:13f5167/1518000",
+      "price": "hex:1f/10"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:1aaa13/c0000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:50d492a879/5460000000",
+          "book": [
+            "hex:1/8",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:5/6"
+          ],
+          "indices": [
+            3,
+            6,
+            12,
+            20
+          ],
+          "price": "hex:1aaa13/c0000"
+        }
+      },
+      {
+        "price": "hex:17/c",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:4fda23/546000",
+          "book": [
+            "hex:1/8",
+            "hex:3/8",
+            "hex:2/3",
+            "hex:5/6"
+          ],
+          "indices": [
+            3,
+            9,
+            16,
+            20
+          ],
+          "price": "hex:17/c"
+        }
+      },
+      {
+        "price": "hex:1f/10",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:13f5167/1518000",
+          "book": [
+            "hex:1/8",
+            "hex:3/8",
+            "hex:2/3",
+            "hex:5/6"
+          ],
+          "indices": [
+            3,
+            9,
+            16,
+            20
+          ],
+          "price": "hex:1f/10"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-2e146f7/25800000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:5/6"
+        ],
+        "value": "hex:6a53e3/708000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:3/8",
+          "hex:2/3",
+          "hex:5/6"
+        ],
+        "value": "hex:13f5167/1518000"
+      }
+    ]
+  },
+  {
+    "id": "exact-k96-5602-t2",
+    "instance_sha256": "11112a9387022639ab01e52333233fb8fed034fbd59d57bb8ea10ea51ee2987f",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 2,
+    "unique_fixed_books": 2,
+    "enumeration_books": 2,
+    "price_value": "hex:6ec9/6c00",
+    "matched_enumeration_value": "hex:4f2168b/b8380000",
+    "difference": "hex:228124a5f/228a80000",
+    "enumeration_policy": {
+      "book": [
+        "hex:1/18"
+      ],
+      "targets": [
+        "hex:1/8",
+        "hex:3017/c480",
+        "hex:29f3/3120",
+        "hex:d/10",
+        "hex:3017/c480",
+        "hex:2bff/6240",
+        "hex:f59/3120",
+        "hex:9/10",
+        "hex:1/2",
+        "hex:3017/c480",
+        "hex:3/10",
+        "hex:3/10",
+        "hex:7/8",
+        "hex:3/4",
+        "hex:3017/c480",
+        "hex:29f3/3120",
+        "hex:f59/3120",
+        "hex:1/4",
+        "hex:2bff/6240",
+        "hex:f59/3120",
+        "hex:f59/3120",
+        "hex:7/10",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:d/10",
+        "hex:29f3/3120",
+        "hex:f59/3120",
+        "hex:b/10",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:f59/3120",
+        "hex:f59/3120",
+        "hex:3/10",
+        "hex:3017/c480",
+        "hex:b/10",
+        "hex:2bff/6240",
+        "hex:3/8",
+        "hex:f59/3120",
+        "hex:f/10",
+        "hex:f59/3120",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:2bff/6240",
+        "hex:5/8",
+        "hex:b/10",
+        "hex:1/4",
+        "hex:29f3/3120",
+        "hex:3/8",
+        "hex:1/2",
+        "hex:29f3/3120",
+        "hex:3017/c480",
+        "hex:b/10",
+        "hex:3/10",
+        "hex:3017/c480",
+        "hex:d/10",
+        "hex:f59/3120",
+        "hex:3/8",
+        "hex:7/10",
+        "hex:3017/c480",
+        "hex:3017/c480",
+        "hex:29f3/3120",
+        "hex:3/8",
+        "hex:29f3/3120",
+        "hex:1/8",
+        "hex:2bff/6240",
+        "hex:1/8",
+        "hex:2bff/6240",
+        "hex:3017/c480",
+        "hex:f59/3120",
+        "hex:b/10",
+        "hex:3017/c480",
+        "hex:3017/c480",
+        "hex:2bff/6240",
+        "hex:2bff/6240",
+        "hex:b/10",
+        "hex:1/4",
+        "hex:3017/c480",
+        "hex:3017/c480",
+        "hex:7/10",
+        "hex:f59/3120",
+        "hex:9/10",
+        "hex:3017/c480",
+        "hex:3017/c480",
+        "hex:7/10",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:5/10",
+        "hex:29f3/3120",
+        "hex:3/10",
+        "hex:2bff/6240",
+        "hex:2bff/6240",
+        "hex:2bff/6240",
+        "hex:5/8",
+        "hex:5/10",
+        "hex:f59/3120",
+        "hex:3/8"
+      ],
+      "intermediate": [
+        "hex:1/c",
+        "hex:d4d/4180",
+        "hex:d4d/1060",
+        "hex:25/30",
+        "hex:d4d/4180",
+        "hex:d4d/20c0",
+        "hex:46f/1060",
+        "hex:19/30",
+        "hex:b/18",
+        "hex:d4d/4180",
+        "hex:7/30",
+        "hex:7/30",
+        "hex:5/6",
+        "hex:11/18",
+        "hex:d4d/4180",
+        "hex:d4d/1060",
+        "hex:46f/1060",
+        "hex:5/18",
+        "hex:d4d/20c0",
+        "hex:46f/1060",
+        "hex:46f/1060",
+        "hex:13/30",
+        "hex:7/30",
+        "hex:1/c",
+        "hex:25/30",
+        "hex:d4d/1060",
+        "hex:46f/1060",
+        "hex:1f/30",
+        "hex:1/c",
+        "hex:11/18",
+        "hex:46f/1060",
+        "hex:46f/1060",
+        "hex:7/30",
+        "hex:d4d/4180",
+        "hex:1f/30",
+        "hex:d4d/20c0",
+        "hex:1/3",
+        "hex:46f/1060",
+        "hex:2b/30",
+        "hex:46f/1060",
+        "hex:1/c",
+        "hex:1/c",
+        "hex:d4d/20c0",
+        "hex:7/c",
+        "hex:1f/30",
+        "hex:5/18",
+        "hex:d4d/1060",
+        "hex:1/3",
+        "hex:b/18",
+        "hex:d4d/1060",
+        "hex:d4d/4180",
+        "hex:1f/30",
+        "hex:7/30",
+        "hex:d4d/4180",
+        "hex:25/30",
+        "hex:46f/1060",
+        "hex:1/3",
+        "hex:13/30",
+        "hex:d4d/4180",
+        "hex:d4d/4180",
+        "hex:d4d/1060",
+        "hex:1/3",
+        "hex:d4d/1060",
+        "hex:1/c",
+        "hex:d4d/20c0",
+        "hex:1/c",
+        "hex:d4d/20c0",
+        "hex:d4d/4180",
+        "hex:46f/1060",
+        "hex:1f/30",
+        "hex:d4d/4180",
+        "hex:d4d/4180",
+        "hex:d4d/20c0",
+        "hex:d4d/20c0",
+        "hex:1f/30",
+        "hex:5/18",
+        "hex:d4d/4180",
+        "hex:d4d/4180",
+        "hex:13/30",
+        "hex:46f/1060",
+        "hex:19/30",
+        "hex:d4d/4180",
+        "hex:d4d/4180",
+        "hex:13/30",
+        "hex:7/c",
+        "hex:1/c",
+        "hex:d/30",
+        "hex:d4d/1060",
+        "hex:7/30",
+        "hex:d4d/20c0",
+        "hex:d4d/20c0",
+        "hex:d4d/20c0",
+        "hex:7/c",
+        "hex:d/30",
+        "hex:46f/1060",
+        "hex:1/3"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:2d4d14f/24d80000",
+      "value": "hex:4f2168b/b8380000",
+      "price": "hex:-d4d/4180"
+    },
+    "price_policy": {
+      "book": [
+        "hex:1/8",
+        "hex:3/8",
+        "hex:5/8",
+        "hex:b/c"
+      ],
+      "targets": [
+        "hex:1/8",
+        "hex:1/4",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:b/10",
+        "hex:9/10",
+        "hex:1/2",
+        "hex:1/8",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:3/4",
+        "hex:9/10",
+        "hex:b/c",
+        "hex:b/10",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:5/10",
+        "hex:3/8",
+        "hex:7/10",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:7/8",
+        "hex:5/8",
+        "hex:b/10",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:3/8",
+        "hex:5/8",
+        "hex:5/8",
+        "hex:3/8",
+        "hex:d/10",
+        "hex:5/8",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:5/8",
+        "hex:1/4",
+        "hex:7/8",
+        "hex:1/8",
+        "hex:1/2",
+        "hex:7/8",
+        "hex:9/10",
+        "hex:b/10",
+        "hex:3/10",
+        "hex:3/8",
+        "hex:d/10",
+        "hex:7/8",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:b/c",
+        "hex:3/8",
+        "hex:b/c",
+        "hex:3/8",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:1/2",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:5/8",
+        "hex:3/8",
+        "hex:5/8",
+        "hex:1/4",
+        "hex:1/8",
+        "hex:3/8",
+        "hex:7/10",
+        "hex:3/8",
+        "hex:9/10",
+        "hex:1/8",
+        "hex:9/10",
+        "hex:1/8",
+        "hex:5/8",
+        "hex:1/8",
+        "hex:5/10",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:d/10",
+        "hex:5/8",
+        "hex:1b/40",
+        "hex:3/8",
+        "hex:5/10",
+        "hex:7/10",
+        "hex:1/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:b/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:3/e"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:4/7"
+          ],
+          [
+            "hex:b/c",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:b/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:b/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:3/e"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:b/c",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:b/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:3/e"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:b/c",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:b/c",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:b/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:3/e"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/7"
+          ],
+          [
+            "hex:b/c",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:b/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/2"
+          ],
+          [
+            "hex:3/8",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:5/e"
+          ],
+          [
+            "hex:b/c",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:5/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:d/10"
+          ],
+          [
+            "hex:5/8",
+            "hex:3/10"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/4"
+          ],
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ]
+        ],
+        [
+          [
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          [
+            "hex:5/8",
+            "hex:1/4"
+          ]
+        ],
+        [
+          [
+            "hex:1/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:6ec9/6c00",
+      "value": "hex:6ec9/6c00",
+      "price": "hex:2/1"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:1a94b5/c0000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:37ed1c35d/360000000",
+          "book": [
+            "hex:1/8",
+            "hex:3/8",
+            "hex:5/8",
+            "hex:b/c"
+          ],
+          "indices": [
+            3,
+            9,
+            15,
+            22
+          ],
+          "price": "hex:1a94b5/c0000"
+        }
+      },
+      {
+        "price": "hex:2/1",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:6ec9/6c00",
+          "book": [
+            "hex:1/8",
+            "hex:3/8",
+            "hex:5/8",
+            "hex:b/c"
+          ],
+          "indices": [
+            3,
+            9,
+            15,
+            22
+          ],
+          "price": "hex:2/1"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-5794521/58480000"
+      },
+      {
+        "book": [
+          "hex:1/8",
+          "hex:3/8",
+          "hex:5/8",
+          "hex:b/c"
+        ],
+        "value": "hex:6ec9/6c00"
+      }
+    ]
+  },
+  {
+    "id": "exact-k96-5603-t2",
+    "instance_sha256": "e00e26d5dac812ad6b491d3c93b62ce4a01f8ea138ef4cf6e48a7b58b462f1b7",
+    "mechanics_match_published": true,
+    "nodes": 1,
+    "oracle_calls": 2,
+    "unique_fixed_books": 2,
+    "enumeration_books": 2,
+    "price_value": "hex:6a0b25/708000",
+    "matched_enumeration_value": "hex:26b5665/55f50000",
+    "difference": "hex:18905e361/1adc90000",
+    "enumeration_policy": {
+      "book": [
+        "hex:1/18"
+      ],
+      "targets": [
+        "hex:d/10",
+        "hex:79d/1e90",
+        "hex:1/4",
+        "hex:37d/7a4",
+        "hex:37d/7a4",
+        "hex:d51/f48",
+        "hex:1/4",
+        "hex:1/4",
+        "hex:3/4",
+        "hex:d/10",
+        "hex:b/10",
+        "hex:1/8",
+        "hex:1/4",
+        "hex:1/8",
+        "hex:79d/1e90",
+        "hex:7/10",
+        "hex:79d/1e90",
+        "hex:5/8",
+        "hex:5/10",
+        "hex:37d/7a4",
+        "hex:37d/7a4",
+        "hex:7/10",
+        "hex:1/8",
+        "hex:d/10",
+        "hex:3/10",
+        "hex:d/10",
+        "hex:19f/518",
+        "hex:19f/518",
+        "hex:7/10",
+        "hex:5/10",
+        "hex:3/10",
+        "hex:5/8",
+        "hex:1/4",
+        "hex:3/10",
+        "hex:1/8",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:3/10",
+        "hex:79d/1e90",
+        "hex:3/10",
+        "hex:1/2",
+        "hex:79d/1e90",
+        "hex:37d/7a4",
+        "hex:5/10",
+        "hex:9/10",
+        "hex:19f/518",
+        "hex:19f/518",
+        "hex:3/10",
+        "hex:3/4",
+        "hex:37d/7a4",
+        "hex:3/4",
+        "hex:79d/1e90",
+        "hex:f/10",
+        "hex:79d/1e90",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:79d/1e90",
+        "hex:37d/7a4",
+        "hex:1/8",
+        "hex:37d/7a4",
+        "hex:1/8",
+        "hex:19f/518",
+        "hex:7/10",
+        "hex:19f/518",
+        "hex:37d/7a4",
+        "hex:d/10",
+        "hex:37d/7a4",
+        "hex:79d/1e90",
+        "hex:79d/1e90",
+        "hex:1/2",
+        "hex:b/10",
+        "hex:3/8",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:79d/1e90",
+        "hex:19f/518",
+        "hex:1/8",
+        "hex:3/8",
+        "hex:79d/1e90",
+        "hex:7/10",
+        "hex:37d/7a4",
+        "hex:79d/1e90",
+        "hex:3/10",
+        "hex:5/10",
+        "hex:79d/1e90",
+        "hex:5/10",
+        "hex:19f/518",
+        "hex:9/10",
+        "hex:3/4",
+        "hex:7/10",
+        "hex:d/10",
+        "hex:19f/518",
+        "hex:19f/518",
+        "hex:7/10",
+        "hex:7/10",
+        "hex:79d/1e90"
+      ],
+      "intermediate": [
+        "hex:25/30",
+        "hex:21d/a30",
+        "hex:5/18",
+        "hex:21d/518",
+        "hex:21d/518",
+        "hex:21d/28c",
+        "hex:5/18",
+        "hex:5/18",
+        "hex:11/18",
+        "hex:25/30",
+        "hex:1f/30",
+        "hex:1/c",
+        "hex:5/18",
+        "hex:1/c",
+        "hex:21d/a30",
+        "hex:13/30",
+        "hex:21d/a30",
+        "hex:7/c",
+        "hex:d/30",
+        "hex:21d/518",
+        "hex:21d/518",
+        "hex:13/30",
+        "hex:1/c",
+        "hex:25/30",
+        "hex:7/30",
+        "hex:25/30",
+        "hex:21d/7a4",
+        "hex:21d/7a4",
+        "hex:13/30",
+        "hex:d/30",
+        "hex:7/30",
+        "hex:7/c",
+        "hex:5/18",
+        "hex:7/30",
+        "hex:1/c",
+        "hex:1/c",
+        "hex:11/18",
+        "hex:7/30",
+        "hex:21d/a30",
+        "hex:7/30",
+        "hex:b/18",
+        "hex:21d/a30",
+        "hex:21d/518",
+        "hex:d/30",
+        "hex:19/30",
+        "hex:21d/7a4",
+        "hex:21d/7a4",
+        "hex:7/30",
+        "hex:11/18",
+        "hex:21d/518",
+        "hex:11/18",
+        "hex:21d/a30",
+        "hex:2b/30",
+        "hex:21d/a30",
+        "hex:1/c",
+        "hex:11/18",
+        "hex:21d/a30",
+        "hex:21d/518",
+        "hex:1/c",
+        "hex:21d/518",
+        "hex:1/c",
+        "hex:21d/7a4",
+        "hex:13/30",
+        "hex:21d/7a4",
+        "hex:21d/518",
+        "hex:25/30",
+        "hex:21d/518",
+        "hex:21d/a30",
+        "hex:21d/a30",
+        "hex:b/18",
+        "hex:1f/30",
+        "hex:1/3",
+        "hex:1/c",
+        "hex:11/18",
+        "hex:21d/a30",
+        "hex:21d/7a4",
+        "hex:1/c",
+        "hex:1/3",
+        "hex:21d/a30",
+        "hex:13/30",
+        "hex:21d/518",
+        "hex:21d/a30",
+        "hex:7/30",
+        "hex:d/30",
+        "hex:21d/a30",
+        "hex:d/30",
+        "hex:21d/7a4",
+        "hex:19/30",
+        "hex:11/18",
+        "hex:13/30",
+        "hex:25/30",
+        "hex:21d/7a4",
+        "hex:21d/7a4",
+        "hex:13/30",
+        "hex:13/30",
+        "hex:21d/a30"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:1/18",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:157eae1/11310000",
+      "value": "hex:26b5665/55f50000",
+      "price": "hex:-21d/a30"
+    },
+    "price_policy": {
+      "book": [
+        "hex:0/1",
+        "hex:7/18",
+        "hex:7/c",
+        "hex:7/8"
+      ],
+      "targets": [
+        "hex:d/10",
+        "hex:9/10",
+        "hex:1/4",
+        "hex:7/18",
+        "hex:9/10",
+        "hex:7/8",
+        "hex:1/4",
+        "hex:1/4",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/c",
+        "hex:1/8",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:3/4",
+        "hex:7/10",
+        "hex:7/10",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/c",
+        "hex:7/18",
+        "hex:7/10",
+        "hex:0/1",
+        "hex:d/10",
+        "hex:3/10",
+        "hex:7/c",
+        "hex:7/8",
+        "hex:0/1",
+        "hex:7/10",
+        "hex:7/18",
+        "hex:3/10",
+        "hex:7/c",
+        "hex:1/4",
+        "hex:3/10",
+        "hex:0/1",
+        "hex:1/8",
+        "hex:3/4",
+        "hex:3/10",
+        "hex:7/18",
+        "hex:0/1",
+        "hex:1/2",
+        "hex:7/18",
+        "hex:7/8",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:d/10",
+        "hex:0/1",
+        "hex:7/18",
+        "hex:3/4",
+        "hex:0/1",
+        "hex:7/10",
+        "hex:7/8",
+        "hex:7/18",
+        "hex:1/8",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/8",
+        "hex:0/1",
+        "hex:1/2",
+        "hex:0/1",
+        "hex:5/18",
+        "hex:0/1",
+        "hex:7/8",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/c",
+        "hex:5/8",
+        "hex:7/8",
+        "hex:7/18",
+        "hex:7/c",
+        "hex:7/18",
+        "hex:0/1",
+        "hex:3/4",
+        "hex:7/8",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:7/18",
+        "hex:0/1",
+        "hex:7/10",
+        "hex:b/10",
+        "hex:7/8",
+        "hex:3/10",
+        "hex:5/10",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/8",
+        "hex:9/10",
+        "hex:3/4",
+        "hex:7/18",
+        "hex:7/c",
+        "hex:7/8",
+        "hex:7/18",
+        "hex:7/18",
+        "hex:7/10",
+        "hex:7/8"
+      ],
+      "intermediate": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "lotteries": [
+        [
+          [
+            "hex:7/c",
+            "hex:3/e"
+          ],
+          [
+            "hex:7/8",
+            "hex:b/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/e"
+          ],
+          [
+            "hex:7/c",
+            "hex:d/e"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/e"
+          ],
+          [
+            "hex:7/c",
+            "hex:d/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:4/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/7"
+          ],
+          [
+            "hex:7/8",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/e"
+          ],
+          [
+            "hex:7/8",
+            "hex:b/e"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:5/e"
+          ],
+          [
+            "hex:7/18",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:5/e"
+          ],
+          [
+            "hex:7/18",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:6/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:5/e"
+          ],
+          [
+            "hex:7/18",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:4/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/7"
+          ],
+          [
+            "hex:7/8",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:5/e"
+          ],
+          [
+            "hex:7/18",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:2/7"
+          ],
+          [
+            "hex:7/c",
+            "hex:5/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/e"
+          ],
+          [
+            "hex:7/8",
+            "hex:b/e"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/7"
+          ],
+          [
+            "hex:7/8",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:4/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:3/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:2/7"
+          ],
+          [
+            "hex:7/c",
+            "hex:5/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:2/7"
+          ],
+          [
+            "hex:7/18",
+            "hex:5/7"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:6/7"
+          ],
+          [
+            "hex:7/8",
+            "hex:1/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/7"
+          ],
+          [
+            "hex:7/8",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:9/e"
+          ],
+          [
+            "hex:7/8",
+            "hex:5/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:0/1",
+            "hex:5/e"
+          ],
+          [
+            "hex:7/18",
+            "hex:9/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:d/e"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/e"
+          ],
+          [
+            "hex:7/c",
+            "hex:d/e"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:3/7"
+          ],
+          [
+            "hex:7/8",
+            "hex:4/7"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/c",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/1"
+          ]
+        ],
+        [
+          [
+            "hex:7/18",
+            "hex:1/2"
+          ],
+          [
+            "hex:7/c",
+            "hex:1/2"
+          ]
+        ],
+        [
+          [
+            "hex:7/8",
+            "hex:1/1"
+          ]
+        ]
+      ],
+      "gross": "hex:454ed/48000",
+      "value": "hex:6a0b25/708000",
+      "price": "hex:79/40"
+    },
+    "oracle_trace": [
+      {
+        "price": "hex:1a915/c000",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:6c83720b/70800000",
+          "book": [
+            "hex:0/1",
+            "hex:7/18",
+            "hex:7/c",
+            "hex:7/8"
+          ],
+          "indices": [
+            0,
+            7,
+            14,
+            21
+          ],
+          "price": "hex:1a915/c000"
+        }
+      },
+      {
+        "price": "hex:79/40",
+        "required": [],
+        "forbidden": [],
+        "result": {
+          "upper": "hex:6a0b25/708000",
+          "book": [
+            "hex:0/1",
+            "hex:7/18",
+            "hex:7/c",
+            "hex:7/8"
+          ],
+          "indices": [
+            0,
+            7,
+            14,
+            21
+          ],
+          "price": "hex:79/40"
+        }
+      }
+    ],
+    "book_values": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "value": "hex:-2310f8f/2c3d0000"
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:7/18",
+          "hex:7/c",
+          "hex:7/8"
+        ],
+        "value": "hex:6a0b25/708000"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1617 @@
+{
+  "status": "PASS",
+  "python": "3.12.14",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "rows": [
+    {
+      "branches": 16,
+      "budgets": 8,
+      "r36_randomized_calls": 534,
+      "r35_randomized_calls": 289,
+      "r34_randomized_calls": 546,
+      "r36_randomized_seconds": 0.013830372999990459,
+      "r35_randomized_seconds": 0.008398845000016308,
+      "r34_randomized_seconds": 0.014068075000011504,
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "PASS",
+      "r36_pathwise_calls": 610,
+      "r35_pathwise_calls": 280,
+      "r36_pathwise_seconds": 0.017775641000014275,
+      "r35_pathwise_seconds": 0.008304979000001822,
+      "r36_randomized_comparisons": 270,
+      "r36_pathwise_comparisons": 340,
+      "randomized_loss_m8": "35/39304",
+      "pathwise_loss_m8": "5041/117912",
+      "max_output_bits": 17
+    },
+    {
+      "branches": 32,
+      "budgets": 8,
+      "r36_randomized_calls": 1447,
+      "r35_randomized_calls": 842,
+      "r34_randomized_calls": 2594,
+      "r36_randomized_seconds": 0.03274819099999604,
+      "r35_randomized_seconds": 0.022046506999998883,
+      "r34_randomized_seconds": 0.061675434999983736,
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "PASS",
+      "r36_pathwise_calls": 1744,
+      "r35_pathwise_calls": 874,
+      "r36_pathwise_seconds": 0.05037312199999633,
+      "r35_pathwise_seconds": 0.02492344500001309,
+      "r36_randomized_comparisons": 722,
+      "r36_pathwise_comparisons": 938,
+      "randomized_loss_m8": "89/71874",
+      "pathwise_loss_m8": "109411/1724976",
+      "max_output_bits": 21
+    },
+    {
+      "branches": 64,
+      "budgets": 8,
+      "r36_randomized_calls": 3375,
+      "r35_randomized_calls": 2177,
+      "r34_randomized_calls": 11298,
+      "r36_randomized_seconds": 0.07348685499999874,
+      "r35_randomized_seconds": 0.05437599699999396,
+      "r34_randomized_seconds": 0.2562910400000078,
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "PASS",
+      "r36_pathwise_calls": 4176,
+      "r35_pathwise_calls": 2340,
+      "r36_pathwise_seconds": 0.1205131030000075,
+      "r35_pathwise_seconds": 0.06746512899999857,
+      "r36_randomized_comparisons": 1656,
+      "r36_pathwise_comparisons": 2174,
+      "randomized_loss_m8": "23/16900",
+      "pathwise_loss_m8": "654661/8788000",
+      "max_output_bits": 26
+    },
+    {
+      "branches": 128,
+      "budgets": 8,
+      "r36_randomized_calls": 7342,
+      "r35_randomized_calls": 5247,
+      "r34_randomized_calls": 47138,
+      "r36_randomized_seconds": 0.15624970799999005,
+      "r35_randomized_seconds": 0.12658554600000116,
+      "r34_randomized_seconds": 1.0306494800000223,
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "PASS",
+      "r36_pathwise_calls": 9192,
+      "r35_pathwise_calls": 5757,
+      "r36_pathwise_seconds": 0.26368412700000476,
+      "r35_pathwise_seconds": 0.16254162000001315,
+      "r36_randomized_comparisons": 3561,
+      "r36_pathwise_comparisons": 4687,
+      "randomized_loss_m8": "390425/274776192",
+      "pathwise_loss_m8": "22078357/274776192",
+      "max_output_bits": 29
+    },
+    {
+      "branches": 256,
+      "budgets": 8,
+      "r36_randomized_calls": 15376,
+      "r35_randomized_calls": 12177,
+      "r34_randomized_calls": 192546,
+      "r36_randomized_seconds": 0.34078646400001844,
+      "r35_randomized_seconds": 0.29911886400000753,
+      "r34_randomized_seconds": 4.370999365999978,
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "PASS",
+      "r36_pathwise_calls": 19386,
+      "r35_pathwise_calls": 13524,
+      "r36_pathwise_seconds": 0.5823989340000253,
+      "r35_pathwise_seconds": 0.40476211299997544,
+      "r36_randomized_comparisons": 7403,
+      "r36_pathwise_comparisons": 9755,
+      "randomized_loss_m8": "6287055/4345495808",
+      "pathwise_loss_m8": "90511861/1086373952",
+      "max_output_bits": 34
+    },
+    {
+      "branches": 512,
+      "budgets": 8,
+      "r36_randomized_calls": 31551,
+      "r35_randomized_calls": 27600,
+      "r34_randomized_calls": "NOT_RUN",
+      "r36_randomized_seconds": 0.7211945280000123,
+      "r35_randomized_seconds": 0.697107630000005,
+      "r34_randomized_seconds": "NOT_RUN",
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "NOT_RUN",
+      "r36_pathwise_calls": 39934,
+      "r35_pathwise_calls": 30889,
+      "r36_pathwise_seconds": 1.2468619420000095,
+      "r35_pathwise_seconds": 0.944154167999983,
+      "r36_randomized_comparisons": 15125,
+      "r36_pathwise_comparisons": 19938,
+      "randomized_loss_m8": "37736477/25921093824",
+      "pathwise_loss_m8": "17591675069/207368750592",
+      "max_output_bits": 38
+    },
+    {
+      "branches": 1024,
+      "budgets": 8,
+      "r36_randomized_calls": 63985,
+      "r35_randomized_calls": 61546,
+      "r34_randomized_calls": "NOT_RUN",
+      "r36_randomized_seconds": 1.4927507510000169,
+      "r35_randomized_seconds": 1.5842815499999858,
+      "r34_randomized_seconds": "NOT_RUN",
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "NOT_RUN",
+      "r36_pathwise_calls": 81178,
+      "r35_pathwise_calls": 69257,
+      "r36_pathwise_seconds": 2.5629803139999865,
+      "r35_pathwise_seconds": 2.1758488110000087,
+      "r36_randomized_comparisons": 30592,
+      "r36_pathwise_comparisons": 40340,
+      "randomized_loss_m8": "603777551/413526000000",
+      "pathwise_loss_m8": "283232331149/3308208000000",
+      "max_output_bits": 41
+    },
+    {
+      "branches": 2048,
+      "budgets": 8,
+      "r36_randomized_calls": 128966,
+      "r35_randomized_calls": 135597,
+      "r34_randomized_calls": "NOT_RUN",
+      "r36_randomized_seconds": 3.1287777029999972,
+      "r35_randomized_seconds": 3.55856606399999,
+      "r34_randomized_seconds": "NOT_RUN",
+      "exact_r35_equality": "PASS",
+      "exact_r34_equality": "NOT_RUN",
+      "r36_pathwise_calls": 163838,
+      "r35_pathwise_calls": 153180,
+      "r36_pathwise_seconds": 5.306926704999995,
+      "r35_pathwise_seconds": 4.916588061999988,
+      "r36_randomized_comparisons": 61565,
+      "r36_pathwise_comparisons": 81196,
+      "randomized_loss_m8": "4292073251/2936328072192",
+      "pathwise_loss_m8": "2272499988979/26426952649728",
+      "max_output_bits": 51
+    }
+  ],
+  "complete_frontiers": [
+    {
+      "branches": 16,
+      "randomized": [
+        {
+          "loss": "124681/117912",
+          "codebook": [
+            "1/17"
+          ]
+        },
+        {
+          "loss": "1589/29478",
+          "codebook": [
+            "1/17",
+            "15/17"
+          ]
+        },
+        {
+          "loss": "1115/78608",
+          "codebook": [
+            "1/17",
+            "10/17",
+            "16/17"
+          ]
+        },
+        {
+          "loss": "235/39304",
+          "codebook": [
+            "1/17",
+            "7/17",
+            "12/17",
+            "16/17"
+          ]
+        },
+        {
+          "loss": "127/39304",
+          "codebook": [
+            "1/17",
+            "6/17",
+            "10/17",
+            "13/17",
+            "16/17"
+          ]
+        },
+        {
+          "loss": "159/78608",
+          "codebook": [
+            "1/17",
+            "5/17",
+            "8/17",
+            "11/17",
+            "14/17",
+            "16/17"
+          ]
+        },
+        {
+          "loss": "13/9826",
+          "codebook": [
+            "1/17",
+            "5/17",
+            "8/17",
+            "10/17",
+            "12/17",
+            "14/17",
+            "16/17"
+          ]
+        },
+        {
+          "loss": "35/39304",
+          "codebook": [
+            "1/17",
+            "4/17",
+            "6/17",
+            "8/17",
+            "10/17",
+            "12/17",
+            "14/17",
+            "16/17"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "124681/117912",
+          "codebook": [
+            "1/17"
+          ]
+        },
+        {
+          "loss": "14707/39304",
+          "codebook": [
+            "1/17",
+            "9/17"
+          ]
+        },
+        {
+          "loss": "15969/78608",
+          "codebook": [
+            "1/17",
+            "7/17",
+            "12/17"
+          ]
+        },
+        {
+          "loss": "10747/78608",
+          "codebook": [
+            "1/17",
+            "6/17",
+            "10/17",
+            "14/17"
+          ]
+        },
+        {
+          "loss": "11273/117912",
+          "codebook": [
+            "1/17",
+            "5/17",
+            "8/17",
+            "11/17",
+            "14/17"
+          ]
+        },
+        {
+          "loss": "5687/78608",
+          "codebook": [
+            "1/17",
+            "5/17",
+            "8/17",
+            "11/17",
+            "13/17",
+            "15/17"
+          ]
+        },
+        {
+          "loss": "12559/235824",
+          "codebook": [
+            "1/17",
+            "4/17",
+            "7/17",
+            "9/17",
+            "11/17",
+            "13/17",
+            "15/17"
+          ]
+        },
+        {
+          "loss": "5041/117912",
+          "codebook": [
+            "1/17",
+            "4/17",
+            "6/17",
+            "8/17",
+            "10/17",
+            "12/17",
+            "14/17",
+            "16/17"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 89,
+        "edge_evaluations": 445,
+        "cell_evaluations": 0,
+        "key_requests": 540,
+        "padded_requests": 113,
+        "comparisons": 270,
+        "searches": 7,
+        "peak_recursion_depth": 5
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 610,
+        "key_requests": 680,
+        "padded_requests": 170,
+        "comparisons": 340,
+        "searches": 8,
+        "peak_recursion_depth": 5
+      }
+    },
+    {
+      "branches": 32,
+      "randomized": [
+        {
+          "loss": "1984321/1724976",
+          "codebook": [
+            "1/33"
+          ]
+        },
+        {
+          "loss": "51385/862488",
+          "codebook": [
+            "1/33",
+            "29/33"
+          ]
+        },
+        {
+          "loss": "28349/1724976",
+          "codebook": [
+            "1/33",
+            "6/11",
+            "31/33"
+          ]
+        },
+        {
+          "loss": "83/11616",
+          "codebook": [
+            "1/33",
+            "14/33",
+            "8/11",
+            "32/33"
+          ]
+        },
+        {
+          "loss": "4525/1149984",
+          "codebook": [
+            "1/33",
+            "1/3",
+            "19/33",
+            "26/33",
+            "32/33"
+          ]
+        },
+        {
+          "loss": "65/26136",
+          "codebook": [
+            "1/33",
+            "10/33",
+            "16/33",
+            "2/3",
+            "9/11",
+            "32/33"
+          ]
+        },
+        {
+          "loss": "1957/1149984",
+          "codebook": [
+            "1/33",
+            "8/33",
+            "14/33",
+            "19/33",
+            "8/11",
+            "28/33",
+            "32/33"
+          ]
+        },
+        {
+          "loss": "89/71874",
+          "codebook": [
+            "1/33",
+            "8/33",
+            "13/33",
+            "17/33",
+            "7/11",
+            "25/33",
+            "29/33",
+            "32/33"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "1984321/1724976",
+          "codebook": [
+            "1/33"
+          ]
+        },
+        {
+          "loss": "117781/287496",
+          "codebook": [
+            "1/33",
+            "6/11"
+          ]
+        },
+        {
+          "loss": "407741/1724976",
+          "codebook": [
+            "1/33",
+            "13/33",
+            "23/33"
+          ]
+        },
+        {
+          "loss": "23189/143748",
+          "codebook": [
+            "1/33",
+            "1/3",
+            "19/33",
+            "26/33"
+          ]
+        },
+        {
+          "loss": "414503/3449952",
+          "codebook": [
+            "1/33",
+            "3/11",
+            "16/33",
+            "2/3",
+            "28/33"
+          ]
+        },
+        {
+          "loss": "29597/313632",
+          "codebook": [
+            "1/33",
+            "8/33",
+            "13/33",
+            "6/11",
+            "23/33",
+            "28/33"
+          ]
+        },
+        {
+          "loss": "87425/1149984",
+          "codebook": [
+            "1/33",
+            "7/33",
+            "4/11",
+            "17/33",
+            "7/11",
+            "25/33",
+            "29/33"
+          ]
+        },
+        {
+          "loss": "109411/1724976",
+          "codebook": [
+            "1/33",
+            "7/33",
+            "4/11",
+            "16/33",
+            "20/33",
+            "8/11",
+            "9/11",
+            "10/11"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 186,
+        "edge_evaluations": 1261,
+        "cell_evaluations": 0,
+        "key_requests": 1444,
+        "padded_requests": 232,
+        "comparisons": 722,
+        "searches": 7,
+        "peak_recursion_depth": 6
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 1744,
+        "key_requests": 1876,
+        "padded_requests": 360,
+        "comparisons": 938,
+        "searches": 8,
+        "peak_recursion_depth": 6
+      }
+    },
+    {
+      "branches": 64,
+      "randomized": [
+        {
+          "loss": "102543/84500",
+          "codebook": [
+            "1/65"
+          ]
+        },
+        {
+          "loss": "1098599/17576000",
+          "codebook": [
+            "1/65",
+            "58/65"
+          ]
+        },
+        {
+          "loss": "904429/52728000",
+          "codebook": [
+            "1/65",
+            "36/65",
+            "62/65"
+          ]
+        },
+        {
+          "loss": "16931/2197000",
+          "codebook": [
+            "1/65",
+            "27/65",
+            "47/65",
+            "64/65"
+          ]
+        },
+        {
+          "loss": "75173/17576000",
+          "codebook": [
+            "1/65",
+            "22/65",
+            "38/65",
+            "4/5",
+            "64/65"
+          ]
+        },
+        {
+          "loss": "47627/17576000",
+          "codebook": [
+            "1/65",
+            "19/65",
+            "32/65",
+            "43/65",
+            "54/65",
+            "64/65"
+          ]
+        },
+        {
+          "loss": "32817/17576000",
+          "codebook": [
+            "1/65",
+            "16/65",
+            "28/65",
+            "38/65",
+            "47/65",
+            "56/65",
+            "64/65"
+          ]
+        },
+        {
+          "loss": "23/16900",
+          "codebook": [
+            "1/65",
+            "3/13",
+            "5/13",
+            "34/65",
+            "42/65",
+            "10/13",
+            "57/65",
+            "64/65"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "102543/84500",
+          "codebook": [
+            "1/65"
+          ]
+        },
+        {
+          "loss": "2867179/6591000",
+          "codebook": [
+            "1/65",
+            "36/65"
+          ]
+        },
+        {
+          "loss": "1671989/6591000",
+          "codebook": [
+            "1/65",
+            "27/65",
+            "47/65"
+          ]
+        },
+        {
+          "loss": "9284707/52728000",
+          "codebook": [
+            "1/65",
+            "21/65",
+            "37/65",
+            "4/5"
+          ]
+        },
+        {
+          "loss": "7028603/52728000",
+          "codebook": [
+            "1/65",
+            "18/65",
+            "31/65",
+            "43/65",
+            "54/65"
+          ]
+        },
+        {
+          "loss": "5605837/52728000",
+          "codebook": [
+            "1/65",
+            "16/65",
+            "27/65",
+            "37/65",
+            "47/65",
+            "56/65"
+          ]
+        },
+        {
+          "loss": "59451/676000",
+          "codebook": [
+            "1/65",
+            "14/65",
+            "24/65",
+            "33/65",
+            "41/65",
+            "49/65",
+            "57/65"
+          ]
+        },
+        {
+          "loss": "654661/8788000",
+          "codebook": [
+            "1/65",
+            "1/5",
+            "22/65",
+            "6/13",
+            "37/65",
+            "44/65",
+            "51/65",
+            "58/65"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 382,
+        "edge_evaluations": 2993,
+        "cell_evaluations": 0,
+        "key_requests": 3312,
+        "padded_requests": 428,
+        "comparisons": 1656,
+        "searches": 7,
+        "peak_recursion_depth": 7
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 4176,
+        "key_requests": 4348,
+        "padded_requests": 656,
+        "comparisons": 2174,
+        "searches": 8,
+        "peak_recursion_depth": 7
+      }
+    },
+    {
+      "branches": 128,
+      "randomized": [
+        {
+          "loss": "505581967/412164288",
+          "codebook": [
+            "1/129"
+          ]
+        },
+        {
+          "loss": "13136105/206082144",
+          "codebook": [
+            "1/129",
+            "115/129"
+          ]
+        },
+        {
+          "loss": "802021/45796032",
+          "codebook": [
+            "1/129",
+            "24/43",
+            "124/129"
+          ]
+        },
+        {
+          "loss": "45037/5724504",
+          "codebook": [
+            "1/129",
+            "18/43",
+            "31/43",
+            "127/129"
+          ]
+        },
+        {
+          "loss": "18973/4293378",
+          "codebook": [
+            "1/129",
+            "44/129",
+            "25/43",
+            "34/43",
+            "127/129"
+          ]
+        },
+        {
+          "loss": "386485/137388096",
+          "codebook": [
+            "1/129",
+            "37/129",
+            "64/129",
+            "29/43",
+            "36/43",
+            "128/129"
+          ]
+        },
+        {
+          "loss": "66727/34347024",
+          "codebook": [
+            "1/129",
+            "32/129",
+            "55/129",
+            "25/43",
+            "94/129",
+            "37/43",
+            "128/129"
+          ]
+        },
+        {
+          "loss": "390425/274776192",
+          "codebook": [
+            "1/129",
+            "29/129",
+            "49/129",
+            "67/129",
+            "28/43",
+            "33/43",
+            "38/43",
+            "128/129"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "505581967/412164288",
+          "codebook": [
+            "1/129"
+          ]
+        },
+        {
+          "loss": "121916101/274776192",
+          "codebook": [
+            "1/129",
+            "24/43"
+          ]
+        },
+        {
+          "loss": "215293013/824328576",
+          "codebook": [
+            "1/129",
+            "52/129",
+            "92/129"
+          ]
+        },
+        {
+          "loss": "5582945/30530688",
+          "codebook": [
+            "1/129",
+            "14/43",
+            "73/129",
+            "34/43"
+          ]
+        },
+        {
+          "loss": "6404755/45796032",
+          "codebook": [
+            "1/129",
+            "12/43",
+            "62/129",
+            "2/3",
+            "36/43"
+          ]
+        },
+        {
+          "loss": "46414885/412164288",
+          "codebook": [
+            "1/129",
+            "31/129",
+            "18/43",
+            "74/129",
+            "31/43",
+            "37/43"
+          ]
+        },
+        {
+          "loss": "9677059/103041072",
+          "codebook": [
+            "1/129",
+            "28/129",
+            "16/43",
+            "22/43",
+            "82/129",
+            "98/129",
+            "38/43"
+          ]
+        },
+        {
+          "loss": "22078357/274776192",
+          "codebook": [
+            "1/129",
+            "25/129",
+            "1/3",
+            "59/129",
+            "74/129",
+            "88/129",
+            "34/43",
+            "116/129"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 789,
+        "edge_evaluations": 6553,
+        "cell_evaluations": 0,
+        "key_requests": 7122,
+        "padded_requests": 783,
+        "comparisons": 3561,
+        "searches": 7,
+        "peak_recursion_depth": 8
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 9192,
+        "key_requests": 9374,
+        "padded_requests": 1178,
+        "comparisons": 4687,
+        "searches": 8,
+        "peak_recursion_depth": 8
+      }
+    },
+    {
+      "branches": 256,
+      "randomized": [
+        {
+          "loss": "8062695077/6518243712",
+          "codebook": [
+            "1/257"
+          ]
+        },
+        {
+          "loss": "69953161/1086373952",
+          "codebook": [
+            "1/257",
+            "229/257"
+          ]
+        },
+        {
+          "loss": "115361549/6518243712",
+          "codebook": [
+            "1/257",
+            "143/257",
+            "248/257"
+          ]
+        },
+        {
+          "loss": "3237679/407390232",
+          "codebook": [
+            "1/257",
+            "107/257",
+            "185/257",
+            "253/257"
+          ]
+        },
+        {
+          "loss": "7277519/1629560928",
+          "codebook": [
+            "1/257",
+            "86/257",
+            "149/257",
+            "204/257",
+            "254/257"
+          ]
+        },
+        {
+          "loss": "37156609/13036487424",
+          "codebook": [
+            "1/257",
+            "73/257",
+            "126/257",
+            "172/257",
+            "215/257",
+            "255/257"
+          ]
+        },
+        {
+          "loss": "25775407/13036487424",
+          "codebook": [
+            "1/257",
+            "64/257",
+            "110/257",
+            "150/257",
+            "187/257",
+            "222/257",
+            "255/257"
+          ]
+        },
+        {
+          "loss": "6287055/4345495808",
+          "codebook": [
+            "1/257",
+            "57/257",
+            "98/257",
+            "134/257",
+            "167/257",
+            "198/257",
+            "228/257",
+            "256/257"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "8062695077/6518243712",
+          "codebook": [
+            "1/257"
+          ]
+        },
+        {
+          "loss": "2925880367/6518243712",
+          "codebook": [
+            "1/257",
+            "142/257"
+          ]
+        },
+        {
+          "loss": "1729516957/6518243712",
+          "codebook": [
+            "1/257",
+            "102/257",
+            "182/257"
+          ]
+        },
+        {
+          "loss": "25333341/135796744",
+          "codebook": [
+            "1/257",
+            "82/257",
+            "146/257",
+            "203/257"
+          ]
+        },
+        {
+          "loss": "621957485/4345495808",
+          "codebook": [
+            "1/257",
+            "68/257",
+            "121/257",
+            "168/257",
+            "213/257"
+          ]
+        },
+        {
+          "loss": "251543723/2172747904",
+          "codebook": [
+            "1/257",
+            "61/257",
+            "107/257",
+            "148/257",
+            "186/257",
+            "222/257"
+          ]
+        },
+        {
+          "loss": "421577509/4345495808",
+          "codebook": [
+            "1/257",
+            "53/257",
+            "93/257",
+            "129/257",
+            "163/257",
+            "196/257",
+            "227/257"
+          ]
+        },
+        {
+          "loss": "90511861/1086373952",
+          "codebook": [
+            "1/257",
+            "49/257",
+            "86/257",
+            "118/257",
+            "148/257",
+            "177/257",
+            "204/257",
+            "231/257"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 1603,
+        "edge_evaluations": 13773,
+        "cell_evaluations": 0,
+        "key_requests": 14806,
+        "padded_requests": 1457,
+        "comparisons": 7403,
+        "searches": 7,
+        "peak_recursion_depth": 9
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 19386,
+        "key_requests": 19510,
+        "padded_requests": 2144,
+        "comparisons": 9755,
+        "searches": 8,
+        "peak_recursion_depth": 9
+      }
+    },
+    {
+      "branches": 512,
+      "randomized": [
+        {
+          "loss": "42975694531/34561458432",
+          "codebook": [
+            "1/513"
+          ]
+        },
+        {
+          "loss": "419499277/6480273456",
+          "codebook": [
+            "1/513",
+            "457/513"
+          ]
+        },
+        {
+          "loss": "1844657641/103684375296",
+          "codebook": [
+            "1/513",
+            "286/513",
+            "55/57"
+          ]
+        },
+        {
+          "loss": "828120505/103684375296",
+          "codebook": [
+            "1/513",
+            "71/171",
+            "41/57",
+            "505/513"
+          ]
+        },
+        {
+          "loss": "34481287/7680324096",
+          "codebook": [
+            "1/513",
+            "172/513",
+            "11/19",
+            "407/513",
+            "508/513"
+          ]
+        },
+        {
+          "loss": "594584327/207368750592",
+          "codebook": [
+            "1/513",
+            "146/513",
+            "28/57",
+            "115/171",
+            "430/513",
+            "170/171"
+          ]
+        },
+        {
+          "loss": "411998819/207368750592",
+          "codebook": [
+            "1/513",
+            "127/513",
+            "73/171",
+            "100/171",
+            "374/513",
+            "148/171",
+            "170/171"
+          ]
+        },
+        {
+          "loss": "37736477/25921093824",
+          "codebook": [
+            "1/513",
+            "113/513",
+            "65/171",
+            "89/171",
+            "37/57",
+            "395/513",
+            "454/513",
+            "511/513"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "42975694531/34561458432",
+          "codebook": [
+            "1/513"
+          ]
+        },
+        {
+          "loss": "93687736573/207368750592",
+          "codebook": [
+            "1/513",
+            "94/171"
+          ]
+        },
+        {
+          "loss": "6935255651/25921093824",
+          "codebook": [
+            "1/513",
+            "202/513",
+            "121/171"
+          ]
+        },
+        {
+          "loss": "9767600347/51842187648",
+          "codebook": [
+            "1/513",
+            "6/19",
+            "32/57",
+            "403/513"
+          ]
+        },
+        {
+          "loss": "15018065923/103684375296",
+          "codebook": [
+            "1/513",
+            "137/513",
+            "9/19",
+            "338/513",
+            "427/513"
+          ]
+        },
+        {
+          "loss": "8115614807/69122916864",
+          "codebook": [
+            "1/513",
+            "121/513",
+            "212/513",
+            "293/513",
+            "368/513",
+            "442/513"
+          ]
+        },
+        {
+          "loss": "20437680901/207368750592",
+          "codebook": [
+            "1/513",
+            "107/513",
+            "188/513",
+            "29/57",
+            "328/513",
+            "392/513",
+            "151/171"
+          ]
+        },
+        {
+          "loss": "17591675069/207368750592",
+          "codebook": [
+            "1/513",
+            "98/513",
+            "172/513",
+            "79/171",
+            "11/19",
+            "353/513",
+            "136/171",
+            "461/513"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 3240,
+        "edge_evaluations": 28311,
+        "cell_evaluations": 0,
+        "key_requests": 30250,
+        "padded_requests": 2774,
+        "comparisons": 15125,
+        "searches": 7,
+        "peak_recursion_depth": 10
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 39934,
+        "key_requests": 39876,
+        "padded_requests": 4010,
+        "comparisons": 19938,
+        "searches": 8,
+        "peak_recursion_depth": 10
+      }
+    },
+    {
+      "branches": 1024,
+      "randomized": [
+        {
+          "loss": "30693319/24600000",
+          "codebook": [
+            "1/1025"
+          ]
+        },
+        {
+          "loss": "2619048503/40344000000",
+          "codebook": [
+            "1/1025",
+            "913/1025"
+          ]
+        },
+        {
+          "loss": "393403183/22054720000",
+          "codebook": [
+            "1/1025",
+            "572/1025",
+            "198/205"
+          ]
+        },
+        {
+          "loss": "13243756153/1654104000000",
+          "codebook": [
+            "1/1025",
+            "426/1025",
+            "737/1025",
+            "1009/1025"
+          ]
+        },
+        {
+          "loss": "3722671781/827052000000",
+          "codebook": [
+            "1/1025",
+            "343/1025",
+            "594/1025",
+            "814/1025",
+            "203/205"
+          ]
+        },
+        {
+          "loss": "237708983/82705200000",
+          "codebook": [
+            "1/1025",
+            "291/1025",
+            "503/1025",
+            "689/1025",
+            "859/1025",
+            "1019/1025"
+          ]
+        },
+        {
+          "loss": "34312433/17230250000",
+          "codebook": [
+            "1/1025",
+            "254/1025",
+            "439/1025",
+            "601/1025",
+            "749/1025",
+            "888/1025",
+            "204/205"
+          ]
+        },
+        {
+          "loss": "603777551/413526000000",
+          "codebook": [
+            "1/1025",
+            "226/1025",
+            "391/1025",
+            "107/205",
+            "667/1025",
+            "791/1025",
+            "909/1025",
+            "1022/1025"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "30693319/24600000",
+          "codebook": [
+            "1/1025"
+          ]
+        },
+        {
+          "loss": "18751894783/41352600000",
+          "codebook": [
+            "1/1025",
+            "562/1025"
+          ]
+        },
+        {
+          "loss": "222269111753/827052000000",
+          "codebook": [
+            "1/1025",
+            "403/1025",
+            "727/1025"
+          ]
+        },
+        {
+          "loss": "156658954943/827052000000",
+          "codebook": [
+            "1/1025",
+            "323/1025",
+            "577/1025",
+            "807/1025"
+          ]
+        },
+        {
+          "loss": "80366021761/551368000000",
+          "codebook": [
+            "1/1025",
+            "272/1025",
+            "483/1025",
+            "673/1025",
+            "852/1025"
+          ]
+        },
+        {
+          "loss": "954108913/8068800000",
+          "codebook": [
+            "1/1025",
+            "238/1025",
+            "423/1025",
+            "587/1025",
+            "18/25",
+            "883/1025"
+          ]
+        },
+        {
+          "loss": "328719503299/3308208000000",
+          "codebook": [
+            "1/1025",
+            "212/1025",
+            "374/1025",
+            "518/1025",
+            "652/1025",
+            "778/1025",
+            "22/25"
+          ]
+        },
+        {
+          "loss": "283232331149/3308208000000",
+          "codebook": [
+            "1/1025",
+            "192/1025",
+            "338/1025",
+            "468/1025",
+            "588/1025",
+            "702/1025",
+            "812/1025",
+            "918/1025"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 6518,
+        "edge_evaluations": 57467,
+        "cell_evaluations": 0,
+        "key_requests": 61184,
+        "padded_requests": 5370,
+        "comparisons": 30592,
+        "searches": 7,
+        "peak_recursion_depth": 11
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 81178,
+        "key_requests": 80680,
+        "padded_requests": 7666,
+        "comparisons": 40340,
+        "searches": 8,
+        "peak_recursion_depth": 11
+      }
+    },
+    {
+      "branches": 2048,
+      "randomized": [
+        {
+          "loss": "10998217672805/8808984216576",
+          "codebook": [
+            "1/2049"
+          ]
+        },
+        {
+          "loss": "42409788045/652517349376",
+          "codebook": [
+            "1/2049",
+            "1826/2049"
+          ]
+        },
+        {
+          "loss": "35381015627849/1981080906143976",
+          "codebook": [
+            "1/2049",
+            "381/683",
+            "341979221/353899182"
+          ]
+        },
+        {
+          "loss": "105920975917/13213476324864",
+          "codebook": [
+            "1/2049",
+            "851/2049",
+            "491/683",
+            "2017/2049"
+          ]
+        },
+        {
+          "loss": "19848228601/4404492108288",
+          "codebook": [
+            "1/2049",
+            "686/2049",
+            "396/683",
+            "1627/2049",
+            "2030/2049"
+          ]
+        },
+        {
+          "loss": "19011028667/6606738162432",
+          "codebook": [
+            "1/2049",
+            "581/2049",
+            "1006/2049",
+            "459/683",
+            "1718/2049",
+            "679/683"
+          ]
+        },
+        {
+          "loss": "105372393701/52853905299456",
+          "codebook": [
+            "1/2049",
+            "506/2049",
+            "292/683",
+            "400/683",
+            "499/683",
+            "1775/2049",
+            "680/683"
+          ]
+        },
+        {
+          "loss": "4292073251/2936328072192",
+          "codebook": [
+            "1/2049",
+            "451/2049",
+            "781/2049",
+            "1069/2049",
+            "1333/2049",
+            "527/683",
+            "1817/2049",
+            "681/683"
+          ]
+        }
+      ],
+      "pathwise": [
+        {
+          "loss": "10998217672805/8808984216576",
+          "codebook": [
+            "1/2049"
+          ]
+        },
+        {
+          "loss": "23997323788123/52853905299456",
+          "codebook": [
+            "1/2049",
+            "1118/2049"
+          ]
+        },
+        {
+          "loss": "14230248090869/52853905299456",
+          "codebook": [
+            "1/2049",
+            "269/683",
+            "484/683"
+          ]
+        },
+        {
+          "loss": "3345020649847/17617968433152",
+          "codebook": [
+            "1/2049",
+            "647/2049",
+            "1153/2049",
+            "1612/2049"
+          ]
+        },
+        {
+          "loss": "7725993724235/52853905299456",
+          "codebook": [
+            "1/2049",
+            "181/683",
+            "968/2049",
+            "449/683",
+            "1703/2049"
+          ]
+        },
+        {
+          "loss": "1567702825207/13213476324864",
+          "codebook": [
+            "1/2049",
+            "159/683",
+            "281/683",
+            "1168/2049",
+            "1472/2049",
+            "1763/2049"
+          ]
+        },
+        {
+          "loss": "1757383098491/17617968433152",
+          "codebook": [
+            "1/2049",
+            "427/2049",
+            "251/683",
+            "1042/2049",
+            "436/683",
+            "1562/2049",
+            "1807/2049"
+          ]
+        },
+        {
+          "loss": "2272499988979/26426952649728",
+          "codebook": [
+            "1/2049",
+            "129/683",
+            "682/2049",
+            "938/2049",
+            "1177/2049",
+            "1403/2049",
+            "1622/2049",
+            "1837/2049"
+          ]
+        }
+      ],
+      "r36_randomized_work": {
+        "tail_evaluations": 13077,
+        "edge_evaluations": 115889,
+        "cell_evaluations": 0,
+        "key_requests": 123130,
+        "padded_requests": 10527,
+        "comparisons": 61565,
+        "searches": 7,
+        "peak_recursion_depth": 12
+      },
+      "r36_pathwise_work": {
+        "tail_evaluations": 0,
+        "edge_evaluations": 0,
+        "cell_evaluations": 163838,
+        "key_requests": 162392,
+        "padded_requests": 14910,
+        "comparisons": 81196,
+        "searches": 8,
+        "peak_recursion_depth": 12
+      }
+    }
+  ],
+  "source_sha256": {
+    "revisions/or-r36-linear-frontier-20260924/benchmark.py": "c93b25d8d6251fff1495a8d84c9fd86ac5b957d7f82fe6989f0caea81e9af7b9",
+    "revisions/or-r36-linear-frontier-20260924/linear_frontier.py": "9f21a15f45e571bcb7952a7e509ad010ca0facf74274e5c390407bd0bc4c701a",
+    "revisions/or-r35-monge-frontier-20260923/benchmark.py": "4740b01f34d3bc6bd8f106749c577a23a7b012bea3bb4bcac516b55680b221ec",
+    "revisions/or-r35-monge-frontier-20260923/monge_frontier.py": "38115826a31f6b751b0fbcfd95a84dcbb75b9e6c3c10ce9dec4add23d172a41f",
+    "revisions/or-r34-global-randomized-frontier-20260923/randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990"
+  },
+  "scope": "Synthetic, single-run measurements on identical exact problems. R35 both frontiers are compared through 2048 branches; R34 randomized baseline through 256. NOT_RUN means unexecuted, not timeout. All budgets replayed. Moment oracle and reduction are shared. Oracle calls are not bit-operation counts. No claim of comparison to external published parametric-flow software."
+}

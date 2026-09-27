@@ -1,0 +1,27 @@
+\begin{table}[!ht]
+\centering
+\caption{All coupled portfolio sizes}\label{tab:portfolio-all}
+\begin{tabular}{rlrrr}\toprule
+$d$ & Method & Mean loss/service & Max. bound/service & Time (ms)\\
+\midrule
+64 & Conjugate gradient & 7.50e-10 & 4.88e-09 & 0.463\\
+64 & Analytic Chebyshev & 2.57e-08 & 3.49e-07 & 0.206\\
+64 & Dense Cholesky & 0.00e+00 & 5.61e-12 & 0.144\\
+64 & Sparse direct & 0.00e+00 & 5.61e-12 & 0.226\\
+64 & Learned value--gradient & 1.27e-08 & 3.64e-07 & 0.186\\
+64 & Learned value only & 1.58e-08 & 5.38e-07 & 0.188\\
+256 & Conjugate gradient & 8.62e-10 & 4.92e-09 & 0.676\\
+256 & Analytic Chebyshev & 2.75e-08 & 3.82e-07 & 0.428\\
+256 & Dense Cholesky & 0.00e+00 & 7.25e-12 & 0.775\\
+256 & Sparse direct & 0.00e+00 & 7.25e-12 & 0.805\\
+256 & Learned value--gradient & 1.50e-08 & 5.79e-07 & 0.409\\
+256 & Learned value only & 1.68e-08 & 7.45e-07 & 0.412\\
+1024 & Conjugate gradient & 6.11e-10 & 3.46e-09 & 1.524\\
+1024 & Analytic Chebyshev & 2.69e-08 & 3.67e-07 & 1.220\\
+1024 & Dense Cholesky & 0.00e+00 & 7.80e-12 & 18.010\\
+1024 & Sparse direct & 0.00e+00 & 7.80e-12 & 7.619\\
+1024 & Learned value--gradient & 1.52e-08 & 8.04e-07 & 1.214\\
+1024 & Learned value only & 1.68e-08 & 9.01e-07 & 1.222\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small Same definitions and protocol as main Table~\ref{tab:portfolio}. No favorable-seed selection is used.\end{minipage}
+\end{table}

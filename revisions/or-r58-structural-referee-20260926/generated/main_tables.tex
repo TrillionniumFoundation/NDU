@@ -1,0 +1,61 @@
+\begin{table}[p]\centering\small
+\caption{Matched positive-tolerance runs: median optimization seconds and successes out of three seeds.}\label{tab:primary56}
+\begin{tabular}{@{}lrrcccc@{}}\toprule
+Family & $k,N,m$ & Limit & Price & Deficit & Enumeration & MIP \\ \midrule
+Common & $6,7,3$ & 0.5 & 0.004 [3] & 0.020 [3] & 0.013 [3] & 0.010 [3] \\
+Common & $6,7,3$ & 2 & 0.006 [3] & 0.021 [3] & 0.013 [3] & 0.009 [3] \\
+Heterogeneous S & $8,9,3$ & 0.5 & 0.008 [3] & 0.040 [3] & 0.028 [3] & 0.028 [3] \\
+Heterogeneous S & $8,9,3$ & 2 & 0.008 [3] & 0.041 [3] & 0.029 [3] & 0.028 [3] \\
+Heterogeneous M & $24,17,4$ & 0.5 & 0.040 [3] & 0.260 [3] & 0.499 [0] & 0.040 [3] \\
+Heterogeneous M & $24,17,4$ & 2 & 0.039 [3] & 0.261 [3] & 2.004 [0] & 0.040 [3] \\
+Heterogeneous L & $96,25,4$ & 0.5 & 0.304 [3] & 0.516 [0] & 0.505 [0] & 0.435 [2] \\
+Heterogeneous L & $96,25,4$ & 2 & 0.309 [3] & 0.929 [3] & 2.006 [0] & 0.436 [3] \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize All price and deficit targets are $1/20$; enumeration requests exact completion. MIP entries count returned numerical results, not rational certificates. Limits are optimization seconds per fresh process. Setup, serialization and independent checking are measured separately. Verification timeouts and subsequent checks of unchanged certificate bytes are reported separately in the generated execution summary.\end{minipage}
+\end{table}\clearpage
+\begin{table}[p]\centering\small
+\caption{Exact-target extension: all nine models at the two-second optimization limit.}\label{tab:exact56}
+\begin{tabular}{@{}rrrcrrrrr@{}}\toprule
+$k,N,m$ & Seed & Root gap & Nodes/calls & Depth & Books & Enum. $L$ & Price $V^*$ & Seconds \\ \midrule
+$8,9,3$ & 5601 & 0 & 1/4 & 0 & 4 & 0.4289 & 0.6580 & 0.012 \\
+$8,9,3$ & 5602 & 0.00181 & 7/45 & 3 & 6 & 0.8899 & 0.9991 & 0.087 \\
+$8,9,3$ & 5603 & 0.00335 & 5/43 & 2 & 10 & 0.6314 & 0.6973 & 0.073 \\
+$24,17,4$ & 5601 & 0 & 1/3 & 0 & 3 & 0.2490 & 0.9290 & 0.069 \\
+$24,17,4$ & 5602 & 0 & 1/4 & 0 & 4 & 0.2717 & 0.9231 & 0.081 \\
+$24,17,4$ & 5603 & 0 & 1/2 & 0 & 2 & 0.1073 & 0.8537 & 0.055 \\
+$96,25,4$ & 5601 & 0 & 1/3 & 0 & 3 & 0.1317 & 0.9461 & 0.514 \\
+$96,25,4$ & 5602 & 0 & 1/2 & 0 & 2 & 0.0268 & 1.0258 & 0.423 \\
+$96,25,4$ & 5603 & 0 & 1/2 & 0 & 2 & 0.0281 & 0.9426 & 0.399 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Root gap is the remaining rational gap after the root price attempts, before any split. Nodes are evaluated search nodes; calls are completed priced-path oracles. Books count distinct original fixed books in the untimed mechanical replay. Enumeration $L$ is the feasible value of lexicographic enumeration stopped at that same book count, not an equal-work or equal-time comparison. The raw record states each final interval, status and independent-check result; the generated text reports the actual number of exact closures. The half-second counterparts and complete traces remain in the raw records.\end{minipage}
+\end{table}\clearpage
+\begin{table}[p]\centering\small
+\caption{Screening economics: medians over three seeds at the same two-second total optimization allowance.}\label{tab:screen56}
+\begin{tabular}{@{}rrrccrrr@{}}\toprule
+$k,N$ & Charge & Removed & A/I/O & Direct total & Screen total & Ratio & Width change \\ \midrule
+$8,9$ & 0 & 6 & 4/0/13 & 0.018 & 0.027 & 1.52 & 0.00244$\to$0 \\
+$8,9$ & 1/100 & 5 & 3/0/14 & 0.021 & 0.035 & 1.53 & 0.00293$\to$0.00546 \\
+$8,9$ & 1/10 & 6 & 3/0/16 & 0.019 & 0.029 & 1.53 & 0.00604$\to$0.00604 \\
+$24,17$ & 0 & 12 & 4/0/27 & 0.109 & 0.196 & 1.81 & 0.000173$\to$0.000122 \\
+$24,17$ & 1/100 & 14 & 6/0/35 & 0.114 & 0.188 & 1.67 & 0.00126$\to$0 \\
+$24,17$ & 1/10 & 14 & 6/0/37 & 0.125 & 0.206 & 1.64 & 0$\to$0 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize Totals include optimization, serialization and independent checking, but not process setup. The screening allowance includes seed construction, forced bounds and reduced-catalog search; it is not added to a fresh full solve allowance. A/I/O are total removals across the three seeds: possible anchors, wholly ineligible commands, and ordinary nonanchors. Ratios are medians of paired total-time ratios. The number of actual paired time improvements is reported in the generated execution summary; a stronger bound is not itself a time saving.\end{minipage}
+\end{table}\clearpage
+\begin{table}[p]\centering\small
+\caption{Exact lattice results and explicit encoding limits.}\label{tab:lattice56}
+\begin{tabular}{@{}rrrcrrr@{}}\toprule
+Cap-grid $H$ & Budget & Seeds & Exact & Median $Q$ & DP seconds & Enum. seconds \\ \midrule
+8 & 2 & 3 & 3/3 & 22 & 0.0121 & 0.0044 \\
+8 & 4 & 3 & 3/3 & 22 & 0.0188 & 0.0247 \\
+16 & 2 & 3 & 3/3 & 40 & 0.0196 & 0.0042 \\
+16 & 4 & 3 & 3/3 & 40 & 0.0335 & 0.0219 \\
+32 & 2 & 3 & 3/3 & 73 & 0.0328 & 0.0027 \\
+32 & 4 & 3 & 3/3 & 73 & 0.0623 & 0.0171 \\
+\midrule \multicolumn{7}{l}{Post-inspection encoding stress: six histories, seven commands, budget two.} \\
+$2^{8}$ & 2 & 1 & \multicolumn{2}{c}{EXACT} & 0.1824 & --- \\
+$2^{16}$ & 2 & 1 & \multicolumn{2}{c}{STATE LIMIT} & 0.0010 & --- \\
+$2^{32}$ & 2 & 1 & \multicolumn{2}{c}{STATE LIMIT} & 0.0011 & --- \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{\textwidth}\footnotesize All lattice runs request exactly zero width; their comparator is exact book enumeration. $H$ describes the cap grid, while the implementation computes a common denominator for both cap and command components. The two larger stress grids exceeded the declared 600,000 Bellman-state allowance and return no optimality interval. Successful hexadecimal serialization does not remove this numerical-size barrier.\end{minipage}
+\end{table}\clearpage

@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\caption{Actual learned-critic deployment on the operational evaluation chain}\label{tab:r6learning}
+\small
+\begin{tabular}{rlrrr}
+\toprule
+Seed & Training targets & Policy loss & Value RMSE & Residual budget \\
+\midrule
+17 & Value & 0.029062 & 0.055700 & 5.337046 \\
+17 & Value + gradient & 0.014750 & 0.036387 & 2.903095 \\
+29 & Value & 0.020323 & 0.042422 & 4.246878 \\
+29 & Value + gradient & 0.006948 & 0.024725 & 2.183179 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{0.96\textwidth}\footnotesize Both methods use 2,048 identical sample locations and 6,000 matched optimization steps per seed. Derivative training receives additional numerical derivative labels. The budget is the floating evaluation of the full finite-chain formula, not a continuum certificate; it is intentionally not replaced by the observed initial policy loss.\end{minipage}
+\end{table}

@@ -1,0 +1,187 @@
+{
+  "created_at": "2026-05-27 Asia/Shanghai",
+  "handoff_rows": [
+    {
+      "expected": "present; LaTeX build remains local and previously passed at 80 pages.",
+      "files": [
+        "main.tex",
+        "main.pdf"
+      ],
+      "id": "manuscript_tex_pdf",
+      "role": "Reader-facing manuscript source and compiled local PDF."
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "reproducibility/check_ndu_reproducibility.py",
+        "reproducibility/check_ndu_reproducibility_results.json"
+      ],
+      "id": "reproducibility_gate",
+      "result_json": "reproducibility/check_ndu_reproducibility_results.json",
+      "role": "Lightweight reproducibility/readiness checker."
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_positioning_check.py",
+        "artifact/ndu_or_positioning_results.json"
+      ],
+      "id": "or_positioning_gate",
+      "result_json": "artifact/ndu_or_positioning_results.json",
+      "role": "OR-positioning and claim-boundary checker."
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_zip_closure_check.py",
+        "artifact/ndu_or_zip_closure_check_results.json"
+      ],
+      "id": "zip_closure_gate",
+      "result_json": "artifact/ndu_or_zip_closure_check_results.json",
+      "role": "ZIP closure against current root tree.",
+      "zip_bound": true
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_zip_source_result_partition_check.py",
+        "artifact/ndu_or_zip_source_result_partition_check_results.json"
+      ],
+      "id": "zip_source_result_partition_gate",
+      "result_json": "artifact/ndu_or_zip_source_result_partition_check_results.json",
+      "role": "ZIP source/result partition checker: required source-side audit scripts and static ledgers must be in the ZIP, while mutable local result outputs remain root-side only.",
+      "zip_bound": true
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_root_zip_forensic_parity_check.py",
+        "artifact/ndu_or_root_zip_forensic_parity_check_results.json"
+      ],
+      "id": "root_zip_forensic_parity_gate",
+      "result_json": "artifact/ndu_or_root_zip_forensic_parity_check_results.json",
+      "role": "Root/ZIP forensic parity checker: root files, ZIP source entries, sidecar, package hash ledger rows, referenced PASS result JSON files, and R89 boundary text must remain aligned.",
+      "zip_bound": true
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_external_boundary_scan_check.py",
+        "artifact/ndu_or_external_boundary_scan_check_results.json"
+      ],
+      "id": "external_boundary_scan_gate",
+      "result_json": "artifact/ndu_or_external_boundary_scan_check_results.json",
+      "role": "Scan root and ZIP text for unnegated external-process overclaim wording.",
+      "zip_bound": true
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_package_hash_ledger_check.py",
+        "artifact/ndu_or_package_hash_ledger_check_results.json"
+      ],
+      "id": "package_hash_ledger_gate",
+      "result_json": "artifact/ndu_or_package_hash_ledger_check_results.json",
+      "role": "Root package hash ledger and sidecar coherence."
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_extracted_hash_ledger_replay_check.py",
+        "artifact/ndu_or_extracted_hash_ledger_replay_check_results.json"
+      ],
+      "id": "extracted_hash_ledger_replay_gate",
+      "result_json": "artifact/ndu_or_extracted_hash_ledger_replay_check_results.json",
+      "role": "Temporary extracted-ZIP replay of root package hash ledger.",
+      "zip_bound": true
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_release_manifest_parity_ledger.json",
+        "artifact/ndu_or_release_manifest_parity_check.py",
+        "artifact/ndu_or_release_manifest_parity_check_results.json"
+      ],
+      "id": "release_manifest_parity_gate",
+      "result_json": "artifact/ndu_or_release_manifest_parity_check_results.json",
+      "role": "Release-manifest parity checker: root files, ZIP source entries, sidecar, package hash ledger, handoff index, PASS result JSON files, and R89 local-only boundary text must remain aligned.",
+      "zip_bound": true
+    },
+    {
+      "expected_status": "PASS",
+      "files": [
+        "artifact/ndu_or_result_freshness_check.py",
+        "artifact/ndu_or_result_freshness_check_results.json"
+      ],
+      "final_gate": true,
+      "id": "result_freshness_gate",
+      "result_json": "artifact/ndu_or_result_freshness_check_results.json",
+      "role": "Final anti-staleness gate over current checker/result hashes; rerun after this handoff index result is produced."
+    },
+    {
+      "expected": "present in root and ZIP as source evidence",
+      "files": [
+        "artifact/ndu_or_reviewer_handoff_index.json",
+        "artifact/ndu_or_reviewer_handoff_index_check.py"
+      ],
+      "id": "reviewer_handoff_index_gate",
+      "role": "This index and checker. The checker result is local-only and excluded from the distributable ZIP result-output set."
+    },
+    {
+      "expected": "sidecar line exactly matches current ZIP SHA256",
+      "files": [
+        "NDU_RL_OR.zip",
+        "NDU_RL_OR.zip.sha256"
+      ],
+      "id": "zip_sidecar",
+      "role": "Current distributable ZIP and SHA256 sidecar."
+    },
+    {
+      "expected": "mentions R89 release-manifest parity and local-only boundary",
+      "files": [
+        "NDU_OR_submission_checklist.md",
+        "draft/referee-loop-status.md"
+      ],
+      "id": "checklist_status",
+      "role": "Reviewer-facing local checklist/status boundary text."
+    }
+  ],
+  "nonclaim": "Local reviewer handoff index only; not full PyTorch/CEM regeneration, independent reproduction, external validation, external review, submission, upload, acceptance, or Strong Accept evidence.",
+  "package_label": "NDU_RL_OR_R89_release_manifest_parity",
+  "purpose": "Reviewer handoff index for local NDU RL OR package evidence: map the manuscript, reproducibility gates, package gates, ZIP source/result partition, root/ZIP forensic parity, release-manifest parity, ZIP sidecar, replay order, and retained boundary wording into a single reviewer-facing local audit route.",
+  "replay_order": [
+    "manuscript_tex_pdf",
+    "reproducibility_gate",
+    "or_positioning_gate",
+    "zip_closure_gate",
+    "zip_source_result_partition_gate",
+    "root_zip_forensic_parity_gate",
+    "release_manifest_parity_gate",
+    "external_boundary_scan_gate",
+    "package_hash_ledger_gate",
+    "extracted_hash_ledger_replay_gate",
+    "reviewer_handoff_index_gate",
+    "result_freshness_gate",
+    "checklist_status",
+    "zip_sidecar"
+  ],
+  "required_boundary_phrases": [
+    "reviewer handoff index",
+    "local package/evidence",
+    "no external review",
+    "submission",
+    "upload",
+    "acceptance",
+    "Strong Accept",
+    "ZIP source/result partition",
+    "artifact/ndu_or_zip_source_result_partition_check.py",
+    "R87",
+    "root/ZIP forensic parity",
+    "artifact/ndu_or_root_zip_forensic_parity_check.py",
+    "R88",
+    "release-manifest parity",
+    "artifact/ndu_or_release_manifest_parity_check.py",
+    "R89"
+  ],
+  "round": "R89"
+}

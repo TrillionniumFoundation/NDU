@@ -1,0 +1,118 @@
+\section{Accepted adaptation beyond the quadratic example}\label{sec:r8-general}
+The service commitments, the sources of adaptive value, and the deployment audit can be treated in one convex control problem. This section separates conclusions requiring quadratic adjustment from those surviving general convex resource costs. It also gives a global alternative to the earlier local perturbation argument. The underlying tools are convex duality and first-order optimality; the contribution is their joint operational interpretation under the same reoptimized static comparator.
+
+\subsection{Distribution-free identification and approximate identification}
+Let $s_z$ denote a candidate physical service policy and write
+$G_z(S)=C_z(S)-\xi f_z(S)$ for a common supporting price $\xi>0$.
+\begin{proposition}[Quantile characterization of identified stock]\label{prop:r8-quantile}
+Suppose the physical costs are $C_z(S)=cS+h\E(S-D_z)^++p\E(D_z-S)^+$ and $f_z(S)=\E\min(S,D_z)$. Put
+\[
+ \tau_\xi=\frac{p+\xi-c}{h+p+\xi},\qquad 0<\tau_\xi<1.
+\]
+On a compact stock interval, a stock $s_z$ uniquely minimizes $G_z$ whenever it is the unique constrained quantile at level $\tau_\xi$. In particular, this holds for a continuous distribution strictly increasing through that quantile, and at an atom strictly straddling $\tau_\xi$. No translation relationship between the regime distributions is required. The service floor $F^\pi\geq F^s$ and physical-cost cap $C^\pi\leq C^s$ then identify $S_t=s_{z_t}$ at every reachable review.
+
+More generally, suppose
+\begin{equation}\label{eq:r8-growth}
+ G_z(S)-G_z(s_z)\geq \alpha\|S-s_z\|^2,\qquad \alpha>0,
+\end{equation}
+for all feasible stocks. Under relaxed commitments $F^\pi\geq F^s-\delta_F$ and $C^\pi\leq C^s+\delta_C$,
+\begin{equation}\label{eq:r8-near-pin}
+ \E^\pi\sum_t\beta^t\|S_t-s_{z_t}\|^2
+ \leq \frac{\delta_C+\xi\delta_F}{\alpha}.
+\end{equation}
+The same assertion holds for vector stocks and any convex supporting gap satisfying \eqref{eq:r8-growth}.
+\end{proposition}
+\begin{proof}
+The one-sided derivatives of $G_z$ are obtained by substituting $F_z(S-)$ and $F_z(S)$ in
+\[
+ c-p-\xi+(h+p+\xi)F_z(S).
+\]
+They bracket zero precisely at the stated quantile. Convexity and uniqueness of the constrained minimizer give the strict supporting inequality. Summing that inequality with discounted occupation weights and using the two commitments gives zero, so each nonnegative summand at a reachable review is zero. This proves identification without imposing a distributional translation.
+
+For the relaxed statement, the same summation gives
+$\alpha\E\sum_t\beta^t\|S_t-s_{z_t}\|^2\leq
+(C^\pi-C^s)-\xi(F^\pi-F^s)\leq\delta_C+\xi\delta_F$.
+Exogeneity of the regime process permits the same comparison weights. The argument uses only the supporting gap and therefore extends to vector stocks.
+\end{proof}
+A demand density bounded below by $\rho>0$ throughout the relevant stock interval gives \eqref{eq:r8-growth} with $\alpha=(h+p+\xi)\rho/2$. This curvature statement is a separate assumption, not a claim that the canonical piecewise-linear cost has positive second derivative. The canonical atom example establishes exact identification; \eqref{eq:r8-near-pin} quantifies a different, smooth-demand regime with slack commitments.
+
+\subsection{A global criterion relative to the optimized static protocol}
+On a finite exogenous regime tree, let $x$ collect the tier at every information set permitted to the protocol. A single shared coordinate enforces a restricted information class. Let $w_n>0$ be the discounted probability of node $n$ and let $p_n=w_na_n$. Once stock is identified, write the tier-resource cost as
+\begin{equation}\label{eq:r8-F}
+ \mathcal F(x)=\sum_n w_n\{M_n(x_n)+A_n(x_n-x_{\operatorname{pa}(n)})
+                         +G_n(x_n)\},
+\end{equation}
+where the initial parent is the installed tier, $M_n,A_n,G_n$ are differentiable convex functions, and $\mathcal F$ is strictly convex on the decision space. The graph coupling of the computational study is included in $G_n$. Expected-payment and history-specific continuation commitments are linear inequalities $Ax\leq b$. Thus
+\begin{equation}\label{eq:r8-convex}
+ W^*=\max_{x\in X}\{p^\top x-\mathcal F(x)-C^s\},\qquad
+ X=\{x\in[0,1]^N:Ax\leq b\}.
+\end{equation}
+Rows for continuation participation use unconditional discounted subtree weights; multiplying a conditional inequality by its positive node probability preserves it.
+
+Let $\bar x$ be the constant tier of the \emph{reoptimized} continuous static arrangement, embedded in the same tree. The commitments in $b$ are those of that comparator, not of a previously selected or deliberately suboptimal tier. Assume $\bar x\in X$. Denote the feasible tangent cone by $T_X(\bar x)$ and use the outward normal-cone convention
+$N_X(\bar x)=\{v:v^\top(y-\bar x)\leq0\text{ for all }y\in X\}$.
+\begin{theorem}[Global accepted-adaptivity alternative]\label{thm:r8-alternative}
+Set $g=p-\nabla\mathcal F(\bar x)$. The following are equivalent:
+\begin{enumerate}
+\item $W^*>W(\bar x)$;
+\item there is $d\in T_X(\bar x)$ with $g^\top d>0$;
+\item $g\notin N_X(\bar x)$.
+\end{enumerate}
+If $g\in N_X(\bar x)$, the reoptimized static protocol is globally optimal in the specified accepted adaptive class. This includes boundary tiers and binding continuation constraints.
+
+For a feasible segment $\bar x+sd$, $0\leq s\leq s_{\max}$, suppose
+$d^\top\nabla^2\mathcal F(\bar x+sd)d\leq L\|d\|^2$. Then
+\begin{equation}\label{eq:r8-gain}
+ W(\bar x+sd)-W(\bar x)\geq s g^\top d-\tfrac12Ls^2\|d\|^2.
+\end{equation}
+Taking $s=\min\{s_{\max},g^\top d/(L\|d\|^2)\}$ gives a computable positive gain whenever $g^\top d>0$ and $L>0$.
+\end{theorem}
+\begin{proof}
+If a feasible $y$ improves the reward, convexity gives
+$W(y)-W(\bar x)\leq g^\top(y-\bar x)$, so the feasible tangent direction $y-\bar x$ has positive inner product. Conversely, $X$ is a polytope. Any direction in its tangent cone is feasible for a sufficiently short segment from $\bar x$. Differentiability and $g^\top d>0$ therefore imply improvement along that segment. Polarity of the tangent and normal cones proves the third equivalence. Alternatively, if $g\in N_X(\bar x)$, the displayed concavity inequality bounds every feasible improvement by zero. Integrating the directional second derivative proves \eqref{eq:r8-gain} and the stated step choice. Strict convexity ensures uniqueness when the normal-cone alternative holds; it is not needed for the equivalence itself.
+\end{proof}
+This is a global characterization for the identified-stock convex model, not an assertion that every service system has positive adaptive value. It determines both favorable and zero-gain cases using the same feasible set, and explains why a local sufficient direction cannot by itself classify every robustness instance. The direction test is a linear optimization problem over the active constraints and a norm ball; with the infinity norm it is a linear program. A zero-gain certificate consists of nonnegative multipliers for active participation constraints and signed multipliers for active tier bounds.
+
+\begin{corollary}[Smooth resource costs and customer-neutral reallocation]\label{cor:r8-smooth}
+Suppose $\bar x$ is an interior constant tier, the only payment restriction is the ex ante expected budget, and stocks are fixed. At a noninitial review, assume positive weights $w_L,w_H$, positive unequal net payment rates $a_L<a_H$, common maintenance derivative $M'(\bar x)>0$, no other tier-dependent cost, and differentiable adjustment with $A'(0)=0$. A sufficiently small time--regime perturbation strictly improves reward without changing expected payment, fill, or physical cost. If second derivatives are locally bounded, \eqref{eq:r8-gain} provides a finite improvement bound. The conclusion is relative to the optimized static comparator whenever $\bar x$ is that comparator.
+\end{corollary}
+\begin{proof}
+Choose $d_H=(w_Ha_H)^{-1}$ and $d_L=-(w_La_L)^{-1}$, leaving other decisions unchanged. Expected payment is unchanged, while the maintenance contribution to $g^\top d$ is
+$M'(\bar x)(1/a_L-1/a_H)>0$. All changed adjustment differences are initially zero, and their first derivatives vanish; initial installation is unchanged. Theorem~\ref{thm:r8-alternative} applies. A locally bounded Hessian gives the quantitative statement.
+\end{proof}
+An absolute adjustment cost need not have zero directional cost at the origin. In that case this corollary is not available; the full directional criterion must include the one-sided adjustment term. Convexity alone does not remove first-order switching friction.
+
+\subsection{Endogenous contractual state, rather than an additional demand signal}
+\begin{proposition}[Vanishing persistent-state increment at zero friction]\label{prop:r8-memory}
+Fix the tariff, the exogenous regime process, and an accepted feasible set consisting of box constraints and ex ante expected linear payment commitments. Let $W_{\rm full}(\lambda)$ and $W_{t,z}(\lambda)$ be the accepted values with and without feedback from the inherited tier, when the only inherited-state term is $\lambda\sum_t\beta^t\|\theta_t-q_t\|^2$. For convex stage resource costs and compact continuous tiers,
+\begin{equation}\label{eq:r8-memory}
+ 0\leq W_{\rm full}(\lambda)-W_{t,z}(\lambda)
+ \leq\lambda\mathcal A(\pi_0)
+ \leq\lambda d\sum_{t=0}^{T-1}\beta^t,
+\end{equation}
+where $\pi_0$ is any optimal time--regime protocol at $\lambda=0$ and $\mathcal A$ is its expected discounted squared adjustment. In particular, the increment vanishes at zero friction and tends to zero as $\lambda\downarrow0$ under the fixed commitments.
+\end{proposition}
+\begin{proof}
+At zero friction replace each history-dependent action by its conditional mean given time and current regime. This preserves all expected linear payments and decreases convex stage costs by Jensen's inequality. Hence $W_{\rm full}(0)=W_{t,z}(0)$, and compactness gives a time--regime maximizer $\pi_0$. Adding a nonnegative adjustment cost gives
+$W_{\rm full}(\lambda)\leq W_{\rm full}(0)$, whereas feasibility of $\pi_0$ gives
+$W_{t,z}(\lambda)\geq W_{t,z}(0)-\lambda\mathcal A(\pi_0)$.
+The squared distance between two points of $[0,1]^d$ is at most $d$ at each review.
+\end{proof}
+The installed tier is yesterday's action. Its incremental value is therefore the value of \emph{persistent-state feedback}, not an exogenous information signal about demand. Equation~\eqref{eq:r8-memory} does not assert monotonicity of that increment in friction, and its conditioning argument does not apply to unrestricted history-specific continuation promises. The canonical decomposition below keeps these distinctions explicit.
+
+\subsection{One identity for resource loss and participation slack}
+\begin{theorem}[Accepted Bregman loss identity]\label{thm:r8-bregman}
+Let $x^*$ solve \eqref{eq:r8-convex}. Suppose $\eta^*\geq0$ and $v^*\in N_{[0,1]^N}(x^*)$ satisfy
+$p-\nabla\mathcal F(x^*)=A^\top\eta^*+v^*$ and
+$\eta^{*\top}(b-Ax^*)=0$. For any feasible $x$,
+\begin{equation}\label{eq:r8-bregman}
+ W^*-W(x)=D_{\mathcal F}(x,x^*)+
+ \eta^{*\top}(b-Ax)+v^{*\top}(x^*-x),
+\end{equation}
+where $D_{\mathcal F}(x,x^*)=\mathcal F(x)-\mathcal F(x^*)-
+\nabla\mathcal F(x^*)^\top(x-x^*)$. Every term on the right is nonnegative.
+\end{theorem}
+\begin{proof}
+Add and subtract $\nabla\mathcal F(x^*)^\top(x-x^*)$ in the reward difference, substitute the stationarity equation, and use complementary slackness. Convexity gives the Bregman sign, feasibility gives the payment-slack sign, and the outward-normal definition gives the box term's sign. Polyhedral feasibility supplies such KKT multipliers under differentiability at an optimizer; the displayed assumptions also allow the multipliers themselves to be checked directly.
+\end{proof}
+Quadratic resource costs reduce the first term to an adjustment/maintenance energy. Nonquadratic maintenance, graph coupling, and multiple continuation promises remain within the same identity. This provides a common interpretation of exact economic comparisons and subsequent learned deployments without treating the numerical approximation method as the source of contractual value.

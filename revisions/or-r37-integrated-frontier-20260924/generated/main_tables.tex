@@ -1,0 +1,58 @@
+\begin{longtable}{@{}lrlrrr@{}}
+\caption{Same-input unprofiled frontier measurements; budgets one through eight.}\label{tab:r37-scale}\\
+\toprule
+Institution & Branches & Search & Seconds & Requests & Resident MiB \\
+\midrule
+\endfirsthead
+\toprule
+Institution & Branches & Search & Seconds & Requests & Resident MiB \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Expected & 256 & Divide-conquer & 0.3136 & 12,177 & 22.7 \\
+Expected & 256 & SMAWK & 0.3452 & 15,376 & 22.6 \\
+Expected & 256 & PADS & 0.3387 & 14,754 & 22.7 \\
+Pathwise & 256 & Divide-conquer & 0.4071 & 13,524 & 22.8 \\
+Pathwise & 256 & SMAWK & 0.5904 & 19,386 & 22.7 \\
+Pathwise & 256 & PADS & 0.5525 & 18,127 & 22.6 \\
+Expected & 4,096 & Divide-conquer & 7.9101 & 296,018 & 36.0 \\
+Expected & 4,096 & SMAWK & 6.4134 & 259,034 & 33.2 \\
+Expected & 4,096 & PADS & 6.3043 & 247,709 & 33.4 \\
+Pathwise & 4,096 & Divide-conquer & 10.9931 & 335,422 & 36.3 \\
+Pathwise & 4,096 & SMAWK & 10.7799 & 329,278 & 32.4 \\
+Pathwise & 4,096 & PADS & 10.1865 & 307,277 & 32.8 \\
+Expected & 16,384 & Divide-conquer & 37.4357 & 1,381,513 & 69.0 \\
+Expected & 16,384 & SMAWK & 26.6007 & 1,039,837 & 69.1 \\
+Expected & 16,384 & PADS & 26.1597 & 994,145 & 70.6 \\
+Pathwise & 16,384 & Divide-conquer & 52.0540 & 1,572,352 & 65.4 \\
+Pathwise & 16,384 & SMAWK & 44.1321 & 1,322,658 & 66.1 \\
+Pathwise & 16,384 & PADS & 41.4011 & 1,234,124 & 67.4 \\
+\end{longtable}
+\noindent Requests count finite economic-oracle evaluations, including reevaluations. Resident memory is the process peak before validation and includes its baseline. A limit denotes the 120-second whole-process limit, not a measured frontier time.
+
+
+\clearpage
+\begin{longtable}{@{}lrrrrr@{}}
+\caption{External compiled solver on independently assembled reduced networks; eight-symbol budget.}\label{tab:r37-solver}\\
+\toprule
+Institution & Branches & Arcs & Construction & Solver & Certification \\
+\midrule
+\endfirsthead
+\toprule
+Institution & Branches & Arcs & Construction & Solver & Certification \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Expected & 8 & 92 & 0.0041 & 0.0022 & 0.0055 \\
+Pathwise & 8 & 101 & 0.0023 & 0.0022 & 0.0051 \\
+Expected & 16 & 488 & 0.0300 & 0.0044 & 0.0165 \\
+Pathwise & 16 & 585 & 0.0146 & 0.0047 & 0.0204 \\
+Expected & 32 & 2,240 & 0.2074 & 0.0139 & 0.0453 \\
+Pathwise & 32 & 2,897 & 0.1048 & 0.0164 & 0.0620 \\
+Expected & 64 & 9,584 & 1.5880 & 0.0559 & 0.1337 \\
+Pathwise & 64 & 12,897 & 0.7787 & 0.0675 & 0.1701 \\
+\end{longtable}
+\noindent All times are seconds. Certification includes exact repricing, rational shortest-path potentials, controller replay, and comparison with the exact frontier. The machine-readable record also includes budgets two and four. Solver time excludes network construction and certification.
+

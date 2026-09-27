@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\caption{Unrefined accepted scalar-critic policies: eight paired training seeds, 128 shared independent contexts, and positive switching friction.}
+\label{tab:r14-quality}
+\begin{tabular}{lrr}
+\toprule
+Metric & Value only & Value gradient\\
+\midrule
+Mean normalized regret & $5.965\times10^{-6}$ & $2.210\times10^{-6}$\\
+Mean exact normalized gap & $1.534\times10^{-5}$ & $5.367\times10^{-6}$\\
+Mean residual bound & $9.131\times10^{-6}$ & $3.194\times10^{-6}$\\
+Mean gradient bound & $2.224\times10^{-5}$ & $7.046\times10^{-6}$\\
+Partial-gradient squared error & $1.171\times10^{-5}$ & $3.708\times10^{-6}$\\
+Immediately certified at $10^{-7}$ & 17.48\% & 19.04\%\\
+Negative gain, static gate & 0.00\% & 0.00\%\\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{0.94\linewidth}
+All proposal losses and bounds precede full-objective refinement. The paired primary regret interval includes zero; lower mean error alone does not establish a derivative-training advantage. The exact gap includes rational repair, whereas the analytical bounds describe the exact feasible price response.
+\end{minipage}
+\end{table}

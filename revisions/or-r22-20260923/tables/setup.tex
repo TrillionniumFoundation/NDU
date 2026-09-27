@@ -1,0 +1,20 @@
+\begin{table}[tbp]\centering\small
+\caption{Measured scaling offline work and formulation sizes.}\label{tab:r22-setup}
+\begin{tabular}{lrrrrrr}
+\toprule
+Nodes $\times$ services & Labels (s) & Fits (s) & Dense setup & Lifted setups & Dense $P$ & Lifted $P$\\
+\midrule
+$31\times 2$ & 0.448 & 0.034 & 0.001 & 0.001 & 3,566 & 64\\
+$63\times 2$ & 1.747 & 0.003 & 0.002 & 0.002 & 15,464 & 132\\
+$127\times 2$ & 4.489 & 0.003 & 0.016 & 0.003 & 62,804 & 260\\
+$255\times 2$ & 16.793 & 0.002 & 0.045 & 0.006 & 253,474 & 516\\
+$511\times 2$ & 96.487 & 0.003 & 0.227 & 0.008 & 1,017,116 & 1,028\\
+$1023\times 2$ & 232.009 & 0.002 & 1.506 & 0.016 & 4,077,840 & 2,052\\
+$127\times 1$ & 1.772 & 0.002 & 0.002 & 0.001 & 14,761 & 129\\
+$127\times 4$ & 20.889 & 0.003 & 0.074 & 0.006 & 253,614 & 520\\
+$127\times 2$ & 7.969 & 0.003 & 0.016 & 0.003 & 63,432 & 266\\
+$127\times 2$ & 4.653 & 0.003 & 0.015 & 0.003 & 62,804 & 260\\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small Labels include 64 lifted full-objective solves and independent audits. Fits include both declared predictors. Lifted setup charges two tolerance-isolated workspaces; dense cold setup charges one. The last columns report stored quadratic-matrix nonzero counts, not an asymptotic complexity theorem. Primitive construction and all remaining setup timings are retained in the raw summary.\end{minipage}
+\end{table}

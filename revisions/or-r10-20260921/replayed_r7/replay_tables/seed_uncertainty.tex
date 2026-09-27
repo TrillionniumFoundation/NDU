@@ -1,0 +1,12 @@
+\begin{table}[!ht]
+\centering
+\caption{Equal-information paired training-seed comparison}\label{tab:seed-uncertainty}
+\begin{tabular}{rrrrr}\toprule
+$d$ & Mean improvement & Lower 95\% & Upper 95\% & Favorable seeds\\
+\midrule
+64 & 3.07e-09 & -1.08e-09 & 7.22e-09 & 6/10\\
+256 & 1.76e-09 & -1.53e-09 & 5.04e-09 & 6/10\\
+1024 & 1.58e-09 & -3.93e-09 & 7.08e-09 & 6/10\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small Improvement is value-only loss minus value--gradient loss per service. The Student intervals summarize variation across ten independent training seeds conditional on the four selected test graphs; they are not population guarantees across arbitrary operations networks. The unit is a training seed, not forty independent replications. Every interval includes zero.\end{minipage}
+\end{table}

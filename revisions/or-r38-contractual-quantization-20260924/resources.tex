@@ -1,0 +1,10 @@
+\section{Pricing Writable Capacity and Other Implementation Resources}\label{sec:r37-resources}
+Writable state, read-only constants, evaluation work, and compilation are different resources. A finite menu of implementations $t$ for institution $I$, with charges depending only on capacity $m$, can be compared by
+\begin{align}\label{eq:r37-design}
+ \min_{I,m,t}\bigl\{D_m^I
+ &+\lambda_w\lceil\log_2m\rceil+\lambda_R R_{I,t}(m)
+ +\lambda_T Q_{I,t}(m)+C_{I,t}(m)/H_0+\kappa_I\bigr\}.
+\end{align}
+Here $H_0$ is the number of repeated deployments over which compilation is amortized, and $\kappa_I$ is an exogenous protocol charge. This is accounting followed by finite comparison, not an additional structural optimization theorem. Its validity requires the stipulated menu charges to be independent of the particular book at a given capacity. Theorem~\ref{thm:catalog}, in contrast, puts actual additive level charges inside book selection.
+
+With only a writable-bit price, capacity $2^w$ uses the frontier at $\min(2^w,k)$. For the equal-probability three-cap example, the zero-bit loss is $7/16$, the one-bit losses are $1/96$ under expected and $1/8$ under pathwise participation, and two bits attain full information. Thus a bit price strictly between $1/96$ and $1/8$ selects one bit under expected participation and two under pathwise participation when all other protocol charges agree. A different exogenous $\kappa_I$ can change that comparison. This example interprets the proved frontiers; it does not estimate the monetary value of certification or customers' tolerance for risk.

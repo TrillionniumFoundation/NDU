@@ -1,0 +1,83 @@
+\section{Continuous-Promise Certificates and Omitted-State Value}\label{ec:r26}
+\subsection{Exact domains, concavity, and deterministic implementation}
+We give the additional details behind main Theorem~\ref{thm:r26-envelopes}. The theorem concerns the scalar continuous-tier specialization, not the general polyhedron with unrecorded shared resources. For each positive-probability successor, assume its promise interval is nonempty. The image of $[0,1]\times\prod_j[L_{t+1}(j),U_{t+1}(j)]$ under $a x+\beta\sum_jP_jb_j$ is exactly the interval with endpoints in main equation~\eqref{eq:r26-domain}, before its intersection with $(-\infty,\bar b_t]$. This follows either from interval addition or continuity on a compact convex set. There are no missing interior promises. If a successor is infeasible, its positive conditional probability prevents retaining the customer in every continuation. Zero-probability successors are omitted. In the experiment all lower endpoints are zero; the theorem also states the general recursive lower endpoint.
+
+For two policies starting from $(q^1,b^1)$ and $(q^2,b^2)$ at the same date and regime, combine their actions on every future public history with a fixed weight $\alpha$. Exogenous transition probabilities are unchanged. The inherited tiers at all future histories combine with the same weight, exact promises and cap inequalities remain feasible, and
+\[
+ -\ell|\alpha(x^1-q^1)+(1-\alpha)(x^2-q^2)|
+ \geq-\alpha\ell|x^1-q^1|-(1-\alpha)\ell|x^2-q^2|.
+\]
+Together with quadratic concavity this proves the value inequality. The mixture is an actual intermediate tier, not a randomized contract. Compactness gives attainment on the finite tree even when all available continuation slack is exhausted.
+
+For implementation, a stored anchor $i$ contains its current action $x_i$ and, for each successor $j$, weights $\lambda_{ijk}$ on child anchors. Require
+\[
+ \lambda_{ijk}\geq0,\quad\sum_k\lambda_{ijk}=1,\quad
+ \sum_k\lambda_{ijk}q_{jk}=x_i,\quad
+ a x_i+\beta\sum_jP_j\sum_k\lambda_{ijk}b_{jk}=b_i,
+\]
+and
+\[
+ l_i\leq g(q_i,x_i)+\beta\sum_jP_j\sum_k\lambda_{ijk}l_{jk}.
+\]
+Given a query $(q,b)$, solve the lower-envelope mixture linear program in main equation~\eqref{eq:r26-envelopes}, apply $x=\sum_i\alpha_i x_i$, and assign
+$b_j=\sum_{i,k}\alpha_i\lambda_{ijk}b_{jk}$. The child weights $\sum_i\alpha_i\lambda_{ijk}$ give a feasible mixture at $(x,b_j)$. Choosing an optimal mixture afresh at that state has at least as large a lower value. Backward induction proves the claimed reward without carrying an unobserved mixture label as additional history. Convex action feasibility is indispensable: with actions $\{0,1\}$, one period, and payment coefficient 1, exact promise $1/2$ is infeasible even though it is the midpoint of two feasible promises.
+
+\subsection{Price planes, weak duality, and uniform error}
+For a child plane mixture, $\mathcal V_{t+1}(j,x,b_j)\leq A_jx+B_jb_j+C_j$. Any convex mixture remains a majorant; its weights must be nonnegative and normalized separately for each successor. For arbitrary $\eta$ and $|s|\leq\ell$, the parent's objective at a feasible allocation is bounded by
+\[
+ s q+\eta b+(r-s-a\eta+\beta\sum_jP_jA_j)x-dx^2/2
+ +\beta\sum_jP_j\{(B_j-\eta)b_j+C_j\}.
+\]
+Independent maximization over $x\in[0,1]$ and each exact child interval proves main equation~\eqref{eq:r26-plane}. The interval support uses the upper endpoint when $B_j-\eta\geq0$ and the lower endpoint otherwise. In particular, dropping the child cap from a \emph{lower-policy} construction would be invalid, while enlarging an interval in an upper bound only makes that bound weaker. The clipped quadratic conjugate verifies the entire continuum, not a finite sample of actions. Approximate numerical prices are permitted because their sign, normalization, and support constants are checked directly. Neither strong duality nor a strict feasible anchor is used for validity.
+
+Let $\mathcal T_t$ denote the exact Bellman maximization on the same feasible domains. If $f_j\leq h_j$ and $0\leq h_j-f_j\leq e_j$ on child domains, then
+\begin{equation}\label{ec:eq:r26-contraction}
+ 0\leq\mathcal T_t h-\mathcal T_t f\leq\beta\sum_jP_j e_j.
+\end{equation}
+To see this, compare the objectives at each common feasible action--promise allocation, then take maxima. If a table satisfies uniform local residual bounds
+\[
+ \underline V_t\geq\mathcal T_t\underline V_{t+1}-\tau_t^-,\qquad
+ \overline V_t\leq\mathcal T_t\overline V_{t+1}+\tau_t^+,
+\]
+then its width is at most $\tau_t^-+\tau_t^++\beta\max_j e_{t+1}(j)$. Repeating this gives the discounted sum of local residuals. This is a conditional residual theorem, not a claim that a chosen mesh automatically has small residuals. Our actual numerical error certificate instead uses main equation~\eqref{eq:r26-uniform}, which is directly checked for each stored triangle.
+
+There is a useful distinction between the two vertex calculations. If $L_{C_0}$ is the affine interpolant on a triangle, then for every plane $H_k$,
+\[
+ \sup_{C_0}(\overline V-\underline V)
+ \leq\sup_{C_0}(H_k-L_{C_0})
+ =\max_{i\in\operatorname{vert}(C_0)}(H_k(q_i,b_i)-l_i).
+\]
+Minimizing the right side gives a valid bound. In contrast, interchanging the minimum over planes and the maximum over vertices can underestimate an interior gap where different planes meet. The verifier recomputes the correct min--max order with exact fractions.
+
+If an old and a new collection have been validated, their union remains valid. Keeping all old anchors can only raise the lower envelope; keeping all old planes can only lower the upper envelope. This gives monotone \emph{certified} refinement even when a fresh numerical solve or a separately generated mesh is not itself monotone. The rectangular triangle bound is conservative and need not decrease under arbitrary changes of triangulation; the actual envelope width does decrease under the stated union. We make no problem-independent grid-size or bit-complexity claim.
+
+\subsection{Proof of the omitted-coordinate examples}
+In the promise example, write terminal actions $u,v$ and date-1 actions $l,h$. The root promise and caps imply
+\[
+ 2=x_0+\tfrac12(l+u+h+v)\leq1+\tfrac12(3/4+5/4)=2.
+\]
+Consequently $x_0=1$, $l+u=3/4$, and $h+v=5/4$. The full optimum equates the two marginal rewards in each branch: $1/4-l=-u$ and $-1/4-h=-v$. These give $l=h=1/2$, $u=1/4$, $v=3/4$, with value $-25/32$. If a current-regime table requires $u=v=c$, then $l=3/4-c$, $h=5/4-c$, and the box requires $c\in[1/4,3/4]$. Its value is $-35/32+c-c^2$, uniquely maximized at $c=1/2$, giving $-27/32$. The root probability is 1 and every nonroot probability is $1/2$. Weighted projection of the full terminal pair $(1/4,3/4)$ onto their common-action line has squared $Q$-distance $1/16$, hence the lower bound $1/32$. This is an all-public, Markov-cap example. Under the unique full optimizer both terminal histories have inherited tier $1/2$ and the same regime; their different exact promises determine different terminal actions. A state omitting the promise cannot implement that optimum.
+
+In the inherited-tier example, the payment equation fixes the second action at $1-x$. Conditional cost is
+\[
+ c_q(x)=\tfrac12[x^2+(1-x)^2]+\tfrac32|x-q|+\tfrac12|1-2x|.
+\]
+For $q=0$ and $x\leq1/2$, it is $x^2-x/2+1$, uniquely minimized at $1/4$. On $[1/2,1]$ its derivative is $2x+3/2>0$. Symmetry gives $3/4$ for $q=1$ and cost $15/16$ in both cases. Under a common action, the average incoming switching cost is $3/4$ and the remaining cost is minimized at $x=1/2$, giving total 1. Here the inherited tiers are public initial conditions of two otherwise identical continuation problems with the same remaining promise. This example isolates the incoming-tier restriction; it is not relabeled as the five-node promise example.
+
+For the inexact version of main Proposition~\ref{prop:r26-dispersion}, the scalar expression is evaluated outward: use a lower bound on the projected distance and an upper bound on $\sqrt{2\epsilon}$. A nonpositive result does not establish zero information value. Positive within-cell variation alone is insufficient when the implemented full-class policy has a large certified optimization gap. The argument provides a sufficient lower bound, not an exact decomposition of every comparator hierarchy.
+
+\subsection{Continuous-state experiment and independent replay}
+The new experiment has two regimes $z=0,1$, transition rows $(3/4,1/4)$ and $(1/4,3/4)$, discount $\beta=3/4$, and the following rational primitives:
+\[
+ a_t(z)=d_t(z)=1,\quad
+ r_t(z)=(2+2z)/3+(t\bmod3)/10,\quad
+ \ell_t(z)=(1+z)/8,\quad
+ \bar b_t(z)=\frac{3+z}{5}\sum_{k=0}^{T-t-1}\beta^k.
+\]
+We use horizons and mesh subdivisions $(T,m)=(3,2),(4,4),(4,8),(4,16),(8,4),(16,4)$. The anchors are the complete grid $q=i/m$, $b=jU_t(z)/m$, $0\leq i,j\leq m$. A parent lower proposal is a linear program over convex weights on stage-action knots and child anchors, together with the exact promise and inherited-tier equations. Linear interpolation of the concave stage quadratic supplies a lower stage value during proposal generation. The stored witness uses the actual quadratic at its resulting deterministic action, which is at least that chord value. An exact rational solve on the proposed basic support repairs equality rounding before the witness is accepted.
+
+An upper proposal uses tangents to the stage quadratic and the already validated child planes in a linear program. Its numerical dual suggests $s$, $\eta$, and child-plane weights; it does not certify them. Switching prices are clipped to their valid interval, child weights are rounded nonnegative and normalized exactly, and main equation~\eqref{eq:r26-plane} is recomputed rationally. Anchor values are rounded downward and plane constants upward to a multiple of $10^{-12}$. These one-sided changes preserve induction and prevent denominator growth in stored continuation values. All numerical coefficients, mixtures, planes, and interval endpoints are stored.
+
+The separate verifier imports only the Python standard library. It checks every probability row, exact domain, promise equation, inherited-tier equation, mixture, lower reward, switching-price cap, quadratic/interval support constant, cross-envelope anchor inequality, and triangle certificate. It also recomputes the exact information examples. Eleven negative controls alter discounts, caps, mixtures, promises, lower rewards, dual capacities, upper constants, terminal domains, or triangle bounds, or attempt deterministic interpolation of indivisible actions. All are rejected. The six models contain 4,414 certified lower anchors and 1,123 recursive upper planes. These are finite rational \emph{witnesses for the stated continuum inequalities}; they are not exact numerical optimizer labels or a proof that an untested stochastic model has the same approximation error.
+
+No wall-clock speed comparison with a history-tree optimizer is made. The sixteen-period history-tree count in the table is the hypothetical complete binary-tree size; the algorithm does not materialize it. The older finite-action enumeration, hierarchy optimizations, robust diagnostics, and matched learned timings remain unchanged and separately labeled. In particular, the new continuous-state test does not turn the earlier negative learning comparison into a positive result.

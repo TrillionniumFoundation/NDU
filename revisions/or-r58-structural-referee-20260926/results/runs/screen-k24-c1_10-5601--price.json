@@ -1,0 +1,117 @@
+{
+  "id": "screen-k24-c1_10-5601",
+  "family": "screening",
+  "method": "price",
+  "instance_sha256": "eba084bfb20ae9606162d2109753a7239440b3bbce95c2ee11502f675b17cd20",
+  "epsilon": "hex:1/64",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.002027650000002268,
+  "status": "EXACT",
+  "lower": "hex:190ed/1e000",
+  "upper": "hex:190ed/1e000",
+  "gap": "hex:0/1",
+  "seconds": 0.0972019410000371,
+  "nodes": 1,
+  "oracle_calls": 5,
+  "trace": [
+    {
+      "seconds": 0.03349546000004011,
+      "lower": "hex:21a337/4c0000",
+      "upper": "hex:1633775/1800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.05235917100003462,
+      "lower": "hex:59e03/78000",
+      "upper": "hex:4dfbd7f5/549c0000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.06707534800000303,
+      "lower": "hex:59e03/78000",
+      "upper": "hex:14ac7/18000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.08186764800001356,
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:3cd5cdd/4740000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.09634991900003342,
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:190ed/1e000",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.0964016850000462,
+      "lower": "hex:190ed/1e000",
+      "upper": "hex:190ed/1e000",
+      "nodes": 1,
+      "oracle_calls": 5
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-5574b/cc0000",
+        "upper": "hex:1ab/c0",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 3,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:0/1"
+  },
+  "algorithm_seconds": 0.09755100400002448,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 17,
+    "denominator_bits": 17,
+    "rational_count": 300
+  },
+  "certificate": "certificates/screen-k24-c1_10-5601--price.json.gz",
+  "certificate_sha256": "b06c33d0e0d779057f03ddec6191a5593fc60585b7db20ae1c67d3d0ab45b6e3",
+  "proof_bytes": 3649,
+  "compressed_proof_bytes": 683,
+  "serialization_seconds": 0.0006407580000313828,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 0,
+  "price_bits": {
+    "numerator_bits": 6,
+    "denominator_bits": 6,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:190ed/1e000",
+    "upper": "hex:190ed/1e000",
+    "gap": "hex:0/1",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.04799266899999566,
+    "instance_sha256": "eba084bfb20ae9606162d2109753a7239440b3bbce95c2ee11502f675b17cd20"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.05245104299996228,
+  "total_measured_seconds": 0.15064280500001814
+}

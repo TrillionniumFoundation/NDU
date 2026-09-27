@@ -1,0 +1,31 @@
+\section{A Complexity Frontier for Joint Design}\label{sec:caps54}
+Equal expected caps do not require equal realization ceilings. A dense catalog may therefore give a different full-catalog prefix to every history even in the following exact regime.
+\begin{theorem}[Two commands suffice under common caps]\label{thm:twocommand54}
+Assume $b_j=b$ for every history, the common increasing concave reward $f$, convex nondecreasing service costs, and nonnegative command charges. For any feasible $B\leq b$ and command budget $m\geq1$, an optimal book exists with at most $\min(m,2)$ commands. With rational quadratic primitives, enumerating feasible singletons and pairs and solving their fixed-book allocations uses
+\[
+ O\bigl(N^2k\log(k+1)\bigr)
+\]
+rational arithmetic operations and polynomial bit complexity, independently of the number of eligibility classes and of any accuracy parameter.
+\end{theorem}
+\begin{proof}
+The assertion is immediate for $m=1$. Consider any feasible book with at least two commands and an optimal fixed-book allocation in the form of Lemma~\ref{lem:nested54}.
+
+If the book contains $B$, the singleton $\{B\}$ is feasible. For any feasible policy, monotonicity and Jensen's inequality give
+\[
+ \sum_j\pi_j\{\mathbb E f(C_j)-h_j(y_j)\}
+ \leq\sum_j\pi_jf(t_j)\leq f(B).
+\]
+The singleton attains this upper bound at every target $B$ and costs no more than a book containing it. It weakly improves that book.
+
+If the largest selected command is $u<B$, all selected commands are below $b$ and hence eligible for every history. All terminal layers can be filled up to $u$ before service is used; the residual $B-u$ is service. The resulting targets are at least $u$. Deleting all other commands leaves the same terminal command, service allocation, targets, and gross value, while weakly reducing charges.
+
+In the remaining case, let $u<B<v$ be the selected neighbors bracketing $B$. Every selected command through $u$ is below $b$ and eligible for every history. Completing the preceding layers puts every target at $u$. If $v\leq b$, the $(u,v)$ layer has aggregate capacity $v-u$; the residual $B-u$ is smaller. The two-command book therefore implements the unique partial-layer pattern of the larger book, with no later terminal layer or service needed.
+
+If $v>b$, histories admitting $v$ have their cap below that command. They have no terminal increment beyond the $(u,v)$ layer and no positive service capacity after it. Histories not admitting $v$ admit no later selected command, so their last eligible selected command is $u$. For targets at least $u$, both groups have exactly the same canonical responses under the full book and under $\{u,v\}$. Later commands have zero useful capacity, and earlier commands have already been fully traversed. Deleting them preserves the optimized gross value. In all cases a singleton or pair weakly improves the original book after charges, proving the reduction.
+
+There are at most $N+\binom N2$ retained possibilities. A two-command fixed-book response is computed by its history-level marginal events followed by capped convex quadratic service allocation, costing $O(k\log(k+1))$ rational operations. The finite sums, sorted marginal ratios, and water-level equations have polynomial rational encoding lengths. Comparing the resulting rational values proves the arithmetic and bit claims.
+\end{proof}
+
+The result is not a claim that every optimal book is small: additional zero-charge commands can remain in an equally good book. It also cannot be extended to arbitrary cap heterogeneity by the same argument. With caps $1/4,1/2,3/4$, positive probabilities, $B=\bar b$, strictly concave common reward, zero service costs and charges, and a catalog containing these three caps, the gross Jensen upper bound $\sum_j\pi_jf(b_j)$ is attained by all three deterministic commands. Attaining it requires the respective commands; two cannot suffice. Conversely, even under a common cap, two commands can be necessary. With one history, $b=B=1/4$, $\tau=1/2$, catalog $\{0,1/2\}$, zero costs and charges, and $f(x)=2x-x^2/2$, the pair yields $7/16$ whereas the only feasible singleton yields zero.
+
+The common-cap theorem and the retained common-prefix theorem in the electronic companion are different polynomial subclasses. Common caps allow many eligibility prefixes; common eligibility allows heterogeneous caps. Neither restriction is imposed on the price-path algorithm below. The next result shows why exact polynomial optimization cannot simply be extended to unrestricted heterogeneous caps unless $\mathrm P=\mathrm{NP}$.

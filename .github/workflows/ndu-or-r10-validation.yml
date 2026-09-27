@@ -1,0 +1,112 @@
+name: NDU OR R10 scientific validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r10-20260921]
+    paths:
+      - .r10-transport/READY.json
+      - main.tex
+      - electronic_companion.tex
+      - historical_supplement.tex
+      - revisions/or-r10-20260921/**
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r10-scientific-publication
+  cancel-in-progress: false
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      REVISION_BRANCH: revision/ndu-operations-research-r10-20260921
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: revision/ndu-operations-research-r10-20260921
+      - name: Materialize the complete checked source payload, when present
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git config user.name 'NDU R10 scientific revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          if test -f .r10-transport/READY.json; then
+            python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import json, base64, lzma, hashlib, subprocess
+          ready=json.loads(Path('.r10-transport/READY.json').read_text())
+          subprocess.run(['git','merge-base','--is-ancestor',ready['parent'],'HEAD'],check=True)
+          parts=sorted(Path('.r10-transport').glob('part-*.b64'))
+          assert len(parts)==ready['parts'], 'Incomplete source payload'
+          packed=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert hashlib.sha256(packed).hexdigest()==ready['sha256'], 'Payload hash mismatch'
+          sources=json.loads(lzma.decompress(packed))
+          roots={'main.tex','electronic_companion.tex','historical_supplement.tex','README.md','NDU_OR_submission_checklist.md'}
+          for name,text in sources.items():
+              path=PurePosixPath(name)
+              assert not path.is_absolute() and '..' not in path.parts
+              assert name in roots or name.startswith('revisions/or-r10-20260921/')
+              target=Path(name);target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_text(text,encoding='utf-8')
+          print('Materialized',len(sources),'ordinary source files')
+          PY
+            git rm -r .r10-transport
+            git add main.tex electronic_companion.tex historical_supplement.tex README.md NDU_OR_submission_checklist.md revisions/or-r10-20260921
+            git commit -m 'paper(or-r10): integrate continuation structure and nonlinear multistage certified learning'
+            git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install numerical and typesetting dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install -r revisions/or-r10-20260921/requirements.txt
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Reproduce both scientific generations and independently verify certificates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p revisions/or-r10-20260921/results
+          bash revisions/or-r10-20260921/reproduce.sh 2>&1 | tee revisions/or-r10-20260921/results/ci-reproduce.log
+      - name: Compile the integrated paper, companion, and complete preserved supplement
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash revisions/or-r10-20260921/build.sh 2>&1 | tee revisions/or-r10-20260921/results/ci-build.log
+          python revisions/or-r10-20260921/manifest.py
+      - name: Publish the actual PDFs and inspectable rational records on this branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git add -f main.pdf electronic_companion.pdf historical_supplement.pdf revisions/or-r10-20260921
+          if ! git diff --cached --quiet; then
+            git commit -m 'build(or-r10): publish independently replayed policies, certified teachers and compiled manuscripts [skip ci]'
+            git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          fi
+          git rev-parse HEAD > /tmp/R10_REVIEWED_COMMIT.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_OR_R10_review_package.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r10-scientific-review-package
+          retention-days: 30
+          path: |
+            /tmp/NDU_OR_R10_review_package.tar.gz
+            /tmp/R10_REVIEWED_COMMIT.txt
+            main.pdf
+            electronic_companion.pdf
+            historical_supplement.pdf
+            main.log
+            electronic_companion.log
+            historical_supplement.log
+            revisions/or-r10-20260921/results/ci-*.log
+          if-no-files-found: warn

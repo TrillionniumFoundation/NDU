@@ -1,0 +1,181 @@
+{
+  "solver_agreements": 480,
+  "SLSQP_crosschecks": 128,
+  "general_tension_LP_crosschecks": 160,
+  "arbitrary_price_bound_checks": 800,
+  "max_dense_value_error": 1.4854784069484595e-13,
+  "max_residual_bound_ratio": 1.0000000000000002,
+  "max_scaling_leaves": 32767,
+  "root_capacity_binding_bound_cases": 106,
+  "status": "PASS"
+}
+paired seed complete 14011
+paired seed complete 14012
+paired seed complete 14013
+paired seed complete 14014
+paired seed complete 14015
+paired seed complete 14016
+paired seed complete 14017
+paired seed complete 14018
+{
+  "plan_sha256": "7431d0439a0c4a4f9e8ac48828bf34bbd212d2d74bf981a2fd2374c07ea7d852",
+  "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "leaves": 127,
+  "positive_friction": true,
+  "test_contexts": 128,
+  "paired_training_seeds": 8,
+  "policy_records": 2048,
+  "timing_records": 480,
+  "R": 0.732357283464567,
+  "kappa": 0.29713675299003656,
+  "mean_optimal_gain": 0.12204730098815877,
+  "methods": {
+    "value": {
+      "mean_regret": 5.96465609340416e-06,
+      "mean_gain": 0.12204133633206538,
+      "value_mse": 2.1397518922543084e-07,
+      "gradient_mse": 1.1706280617098273e-05,
+      "mean_certificate": 1.5340988847532336e-05,
+      "mean_gradient_bound": 2.224256980625745e-05,
+      "mean_residual_bound": 9.130660950219756e-06,
+      "immediate_fraction": 0.1748046875,
+      "static_gate_fraction": 0.0,
+      "cap_projection_fraction": 0.015625
+    },
+    "value-gradient": {
+      "mean_regret": 2.2100018012359983e-06,
+      "mean_gain": 0.12204509098635755,
+      "value_mse": 5.336495754375354e-07,
+      "gradient_mse": 3.70847971537595e-06,
+      "mean_certificate": 5.3672718738172676e-06,
+      "mean_gradient_bound": 7.04631314098686e-06,
+      "mean_residual_bound": 3.194160063556527e-06,
+      "immediate_fraction": 0.1904296875,
+      "static_gate_fraction": 0.0,
+      "cap_projection_fraction": 0.015625
+    }
+  },
+  "paired_differences": {
+    "mean_regret": {
+      "n_training_seeds": 8,
+      "mean": -3.754654292168161e-06,
+      "lower": -9.568298016899394e-06,
+      "upper": 2.0589894325630727e-06,
+      "method": "paired Student t interval across independent training seeds, conditional on the shared test cohort"
+    },
+    "gradient_mse": {
+      "n_training_seeds": 8,
+      "mean": -7.997800901722324e-06,
+      "lower": -1.968238161842707e-05,
+      "upper": 3.6867798149824242e-06,
+      "method": "paired Student t interval across independent training seeds, conditional on the shared test cohort"
+    },
+    "value_mse": {
+      "n_training_seeds": 8,
+      "mean": 3.1967438621210455e-07,
+      "lower": -1.39385468688746e-07,
+      "upper": 7.787342411129551e-07,
+      "method": "paired Student t interval across independent training seeds, conditional on the shared test cohort"
+    },
+    "mean_certificate": {
+      "n_training_seeds": 8,
+      "mean": -9.973716973715069e-06,
+      "lower": -2.5643509469889102e-05,
+      "upper": 5.696075522458964e-06,
+      "method": "paired Student t interval across independent training seeds, conditional on the shared test cohort"
+    }
+  },
+  "timing": {
+    "Brent": {
+      "median_total_ms": 5.3626974999999995,
+      "median_audit_ms": 5.2239375,
+      "median_prediction_ms": 0.0,
+      "median_repair_ms": 0.0,
+      "median_solver_ms": 0.13416850000000002,
+      "mean_iterations": 7.8125,
+      "refinement_fraction": 0.0
+    },
+    "breakpoints": {
+      "median_total_ms": 5.51325,
+      "median_audit_ms": 5.222065000000001,
+      "median_prediction_ms": 0.0,
+      "median_repair_ms": 0.0,
+      "median_solver_ms": 0.2982755,
+      "mean_iterations": 57.90625,
+      "refinement_fraction": 0.0
+    },
+    "cold-newton": {
+      "median_total_ms": 5.3530885,
+      "median_audit_ms": 5.2220154999999995,
+      "median_prediction_ms": 0.0,
+      "median_repair_ms": 0.0,
+      "median_solver_ms": 0.12457399999999999,
+      "mean_iterations": 3.75,
+      "refinement_fraction": 0.0
+    },
+    "value": {
+      "median_total_ms": 10.635121999999999,
+      "median_audit_ms": 10.435963000000001,
+      "median_prediction_ms": 0.06740399999999999,
+      "median_repair_ms": 0.033325,
+      "median_solver_ms": 0.09181600000000001,
+      "mean_iterations": 1.6875,
+      "refinement_fraction": 0.8125
+    },
+    "value-gradient": {
+      "median_total_ms": 10.5998,
+      "median_audit_ms": 10.3967855,
+      "median_prediction_ms": 0.0604245,
+      "median_repair_ms": 0.032027,
+      "median_solver_ms": 0.09154999999999999,
+      "mean_iterations": 1.71875,
+      "refinement_fraction": 0.78125
+    }
+  },
+  "total_training_label_seconds": 0.7555939830000398,
+  "fit_seconds": {
+    "value": 0.09114246899986256,
+    "value-gradient": 0.07585767699993085
+  },
+  "wall_seconds": 15.337343859999976
+}
+{
+  "seed": 14999,
+  "n": 2048,
+  "M": 2,
+  "delta": 0.05,
+  "B_fraction": "744287148266784331619/1945963850000000000000",
+  "B": 0.38247737657962366,
+  "model_sha256": "22178316e41b7de9fca8f7539c3e14faf27125c7b4fbe18aaf39870dcc3a695a",
+  "radius": 0.01147817943417702,
+  "selection_rule": "maximize simultaneous gain lower bound; no retraining on this cohort",
+  "methods": {
+    "value": {
+      "empirical_gain": 0.11959341195968448,
+      "simultaneous_gain_lower": 0.10811523252550746,
+      "mean_gap": 2.495280366338614e-06,
+      "static_gates": 0
+    },
+    "value-gradient": {
+      "empirical_gain": 0.11959375584849322,
+      "simultaneous_gain_lower": 0.1081155764143162,
+      "mean_gap": 1.3741835673431742e-06,
+      "static_gates": 0
+    }
+  },
+  "selected_method": "value-gradient"
+}
+{
+  "status": "PASS",
+  "rational_certificates": 6626,
+  "exact_algebraic_checks": 2577514,
+  "max_final_normalized_gap": 9.625884637492116e-08,
+  "all_friction_strictly_positive": true,
+  "baseline_static_balanced": true,
+  "validation_range_replayed": true,
+  "model_sha256": "22178316e41b7de9fca8f7539c3e14faf27125c7b4fbe18aaf39870dcc3a695a",
+  "imports": "Python standard library only; no numerical optimizer or linear algebra library"
+}

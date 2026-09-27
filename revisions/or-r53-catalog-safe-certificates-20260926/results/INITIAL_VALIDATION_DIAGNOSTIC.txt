@@ -1,0 +1,8 @@
+Initial local run: the random regression passed on 120 models with 2332 capacity identities, 542 context envelopes, 129448 target comparisons, 120 exhaustive equalities, 149 deletions, 20 transfer certificates, and 14 rejected corruptions.
+
+The controlled study then stopped at:
+  File "code/validate.py", in controlled
+    assert set(small['screening']['catalog'])==set(base)
+AssertionError
+
+Diagnosis: the rule also validly deletes the base endpoint 1. Its charge is zero and it is ineligible for every history, so its deletion envelope is zero. The corrected expectation is set(base)-{Fraction(1)}. No instance, random seed, exclusion rule, promise, budget, or tolerance was changed. The complete regression and all twelve controlled cases were rerun after this correction.

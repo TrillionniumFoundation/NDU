@@ -1,0 +1,51 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable,graphicx}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Finite-Catalog Resource Allocation}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\input{revisions/or-r52-resource-path-20260925/generated/metrics.tex}
+\input{revisions/or-r54-exact-price-path-20260926/generated/metrics.tex}
+\hypersetup{pdftitle={Finite-Catalog Resource Allocation: Exact Path Representations and Menu Complexity},pdfauthor={Anonymous}}
+\externaldocument{.build/r59/electronic_companion}[electronic_companion.pdf]
+\begin{document}\hypersetup{pageanchor=false}
+\begin{titlepage}\centering{\Large\bfseries Finite-Catalog Resource Allocation: Exact Path Representations and Menu Complexity\par}
+\vspace{0.25in}Anonymous manuscript for Operations Research --- R59\par\vspace{0.2in}
+\begin{minipage}{\textwidth}\textbf{Abstract.} A finite command catalog couples continuous resource allocation to the cost and cardinality of its implementation. We study a renewal design problem with an accepted aggregate promise, individual expected caps, realization ceilings, and service chosen before a terminal draw. A constructive reduction yields exact path capacities and concave edge payoffs. We characterize the capacity-conservation property on acyclic graphs and identify when all starting points share one deficit state. Within the original model, exact optimization is parameterized-hard jointly in command allowance and cap count, even with a common linear reward and free service. This separates small-type enumeration from fixed-parameter tractability. A centered deficit algorithm nevertheless provides an additive value interval while preserving the original promise and selected commands. Cap-preserving prototype optimization gives a complementary menu-loss frontier. Computational evidence distinguishes rational certificates from numerical mixed-integer convex bounds, includes verification cost, and retains unsuccessful runs. The results identify a structural and encoding-sensitive frontier for finite-catalog allocation rather than assuming that a short command book makes exact design easy.
+\par\vspace{0.15in}\textbf{Keywords:} resource allocation; dynamic programming; parameterized complexity.
+\par\vspace{0.1in}\textbf{Subject classifications:} Programming: resource allocation; Dynamic programming: finite-catalog design.
+\par\vspace{0.1in}\textbf{Area of review:} Optimization.\end{minipage}\vfill September 27, 2026\end{titlepage}
+\hypersetup{pageanchor=true}
+\input{revisions/or-r59-parameterized-deficit-20260927/introduction.tex}
+\input{revisions/or-r58-structural-referee-20260926/model.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/feasibility.tex}
+\paragraph{Units and loss.} Obligations and caps use one normalized resource unit. Rewards, service costs and installation charges share a net-value unit. An additive tolerance is stated in that value unit; rescaling every payoff and the tolerance by the same positive factor preserves its decision meaning. The present theory makes no empirical currency calibration.
+\input{revisions/or-r58-structural-referee-20260926/constructive.tex}
+\input{revisions/or-r53-catalog-safe-certificates-20260926/capacity_potential.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/packing.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/conservative_paths.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/parameterized.tex}
+\input{revisions/or-r58-structural-referee-20260926/deficit_paths.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/grouping.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/study.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/conclusion.tex}
+\clearpage\phantomsection\label{refs-start}
+\input{revisions/or-r59-parameterized-deficit-20260927/references.tex}
+\label{refs-end}\clearpage
+\input{revisions/or-r59-parameterized-deficit-20260927/generated/antecedents_table.tex}
+\input{revisions/or-r59-parameterized-deficit-20260927/generated/study_tables.tex}
+\end{document}

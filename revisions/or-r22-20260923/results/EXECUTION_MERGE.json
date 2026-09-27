@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "study_artifacts": [
+    "ndu-or-r22-study-matched",
+    "ndu-or-r22-study-scaling",
+    "ndu-or-r22-study-validation"
+  ],
+  "source_identity_verified": [
+    "core.py",
+    "certificate.py",
+    "time_comparator.py",
+    "matched_cost.py",
+    "validation.py",
+    "scaling.py",
+    "patch_scaling_fallback.py"
+  ],
+  "timing": "Separate isolated study hosts. Identical compared-method protocol within each study; no cross-study pooling."
+}

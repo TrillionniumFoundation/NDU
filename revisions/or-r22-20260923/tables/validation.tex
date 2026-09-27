@@ -1,0 +1,14 @@
+\begin{table}[tbp]\centering\small
+\caption{Independent deterministic deployment against reoptimized time-only amendments.}\label{tab:r22-validation}
+\begin{tabular}{llrrr}
+\toprule
+Policy & Domain & Mean gain lower & Expected gain lower & Regret upper\\
+\midrule
+Tanh-gradient ensemble & IID & 1.334651 & 1.158492 & 0.002501\\
+RBF-direct ensemble & IID & 1.337039 & 1.160880 & 0.000113\\
+Tanh-gradient ensemble & SHIFT & 1.930681 & 1.386231 & 0.015633\\
+RBF-direct ensemble & SHIFT & 1.945747 & 1.401297 & 0.000566\\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small The gain comparator is the optimized restricted value, not the arbitrary outside protocol. The four expected-gain lower bounds have simultaneous confidence at least $0.95$, conditional on the frozen policies. The mean gain uses certified one-sided observations; regret is bounded against the full accepted optimum.\end{minipage}
+\end{table}

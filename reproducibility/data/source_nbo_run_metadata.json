@@ -1,0 +1,39 @@
+{
+  "actor_hjb_weight": 0.05,
+  "actor_lr": 5e-06,
+  "algorithm": "hbo_full_actor_critic_pytorch_ad",
+  "automatic_differentiation": "PyTorch AD for V_t, grad V, exact state Hessian, and actor Hamiltonian gradients",
+  "backend": "torch-2.11.0+cpu",
+  "batch": 96,
+  "benchmarks": [
+    "exp1_habit_portfolio",
+    "exp2_hidden_regime",
+    "exp3_high_dimensional_allocation",
+    "inventory_service_level"
+  ],
+  "critic_lr": 0.0012,
+  "depth": 2,
+  "dtype": "float64",
+  "grad_clip": 10.0,
+  "initialization": "safe_constant_bias_random_mlp_no_bellman_pretraining",
+  "loss": "L_PERF + omega L_HJB with terminal boundary loss",
+  "methods": [
+    "nbo_action_only_inventory",
+    "nbo_fixed_pref",
+    "nbo_fixed_pref_joint",
+    "nbo_fixed_pref_recurrent",
+    "nbo_fixed_service_inventory",
+    "nbo_full_ndu",
+    "nbo_full_ndu_inventory",
+    "nbo_oracle_factor",
+    "nbo_oracle_joint_action",
+    "nbo_preference_only"
+  ],
+  "networks": "fully_trainable_actor_and_critic_MLPs",
+  "omega": 1.0,
+  "seeds": 30,
+  "source_archive": "Neural_Bellman_Operators.zip",
+  "terminal_weight": 2.0,
+  "train_steps": 450,
+  "width": 56
+}

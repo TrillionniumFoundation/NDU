@@ -1,0 +1,153 @@
+name: NDU OR R21 complete publication and final-SHA verification
+on:
+  push:
+    branches: [revision/ndu-operations-research-r21-20260923]
+    paths:
+      - .r21-delivery/READY.json
+      - revisions/or-r21-20260923/**
+      - .github/workflows/ndu-or-r21-publication.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+  statuses: write
+concurrency:
+  group: ndu-or-r21-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r21-20260923'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+      MKL_NUM_THREADS: 1
+      REVISION_BRANCH: revision/ndu-operations-research-r21-20260923
+    outputs:
+      final_sha: ${{ steps.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: revision/ndu-operations-research-r21-20260923
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Verify source delivery and preserve the exact complete predecessor
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,tarfile,shutil,base64,io
+          r=Path('revisions/or-r21-20260923');ready=Path('.r21-delivery/READY.json')
+          if ready.exists():
+              spec=json.loads(ready.read_text());parts=[]
+              for i,h in enumerate(spec['part_sha256']):
+                  text=Path(f'.r21-delivery/part-{i:02d}.b64').read_text().strip()
+                  assert hashlib.sha256(text.encode()).hexdigest()==h, f'Part {i} hash mismatch'
+                  parts.append(text)
+              archive=base64.b64decode(''.join(parts),validate=True)
+              assert hashlib.sha256(archive).hexdigest()==spec['source_archive_sha256']
+              with tarfile.open(fileobj=io.BytesIO(archive),mode='r:xz') as tf:
+                  for m in tf.getmembers():
+                      p=Path(m.name)
+                      assert m.isfile() and not p.is_absolute() and '..' not in p.parts
+                      assert str(p).startswith(str(r)+'/'),m.name
+                  tf.extractall('.',filter='data')
+          assert (r/'run_all.sh').is_file(), 'Complete ordinary R21 source is missing'
+          expected=json.loads((r/'PREDECESSOR_SHA256.json').read_text());p=r/'predecessor';p.mkdir(exist_ok=True)
+          for name,h in expected.items():
+              target=p/name
+              if not target.exists():shutil.copy2(name,target)
+              assert hashlib.sha256(target.read_bytes()).hexdigest()==h, 'Predecessor mismatch: '+name
+          (p/'SHA256.json').write_text(json.dumps(expected,indent=2)+'\n')
+          (r/'results').mkdir(exist_ok=True);(r/'tables').mkdir(exist_ok=True)
+          PY
+      - name: Persist ordinary sources and immutable predecessor as a source checkpoint
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git config user.name 'NDU R21 revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          if [ -d .r21-delivery ]; then git rm -r .r21-delivery; fi
+          git add -f revisions/or-r21-20260923
+          if ! git diff --cached --quiet; then
+            git commit -m 'source(or-r21): materialize complete revision sources and preserve R19; execution pending'
+            git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          fi
+          echo "SOURCE_CHECKPOINT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Install pinned numerical tools and manuscript packages
+        run: |
+          python -m pip install -r revisions/or-r16-20260922/requirements.txt PyMuPDF==1.26.7
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Execute all studies sequentially, independently replay, and build actual manuscripts
+        run: |
+          set -euo pipefail
+          bash revisions/or-r21-20260923/run_all.sh
+      - name: Publish completed ordinary manuscripts and all executed evidence
+        id: publish
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git diff --exit-code -- reviews historical_supplement.tex historical_supplement.pdf
+          for dir in revisions/*; do
+            if [ "$dir" != revisions/or-r21-20260923 ]; then git diff --exit-code -- "$dir"; fi
+          done
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          find revisions/or-r21-20260923 -type d -name __pycache__ -prune -exec rm -rf {} +
+          find revisions/or-r21-20260923 -name '*.pid' -delete
+          git add -f revisions/or-r21-20260923 main.tex main.pdf main.bib main.bbl electronic_companion.tex electronic_companion.pdf README.md NDU_OR_submission_checklist.md main-labels.aux ec-labels.aux
+          git commit -m 'paper(or-r21): publish complete accepted-expansion revision, proofs, exact replay, scaling and final validation'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          SHA=$(git rev-parse HEAD)
+          echo "final_sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "$SHA" > /tmp/R21_FINAL_SHA.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_OR_R21_review_package.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r21-complete-review-package
+          path: |
+            /tmp/NDU_OR_R21_review_package.tar.gz
+            /tmp/R21_FINAL_SHA.txt
+            revisions/or-r21-20260923/results
+          retention-days: 30
+  validate-final:
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+      FINAL_SHA: ${{ needs.publish.outputs.final_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.publish.outputs.final_sha }}
+          fetch-depth: 1
+      - name: Attach pending status to the actual final commit
+        run: |
+          test "$(git rev-parse HEAD)" = "$FINAL_SHA"
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state=pending -f context=ndu-or-r21/final-sha -f description='Independent final-checkout rational, PDF and manifest verification' -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Independent final-checkout verification without mutation
+        run: |
+          set -euo pipefail
+          python -m pip install PyMuPDF==1.26.7
+          python -S revisions/or-r21-20260923/replay.py --check
+          python -S revisions/or-r19-20260923/replay.py --check
+          python revisions/or-r21-20260923/check_package.py --verify-manifest
+          git diff --exit-code
+      - name: Publish final-SHA validation result
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          state=failure
+          if [ "$JOB_STATUS" = success ]; then state=success; fi
+          gh api "repos/$GITHUB_REPOSITORY/statuses/$FINAL_SHA" -f state="$state" -f context=ndu-or-r21/final-sha -f description='Actual final checkout: rational replays, current PDFs and complete manifest' -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

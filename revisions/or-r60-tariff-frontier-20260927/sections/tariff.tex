@@ -1,0 +1,61 @@
+\section{A Tariff-Sensitive Tractability Frontier}\label{sec:tariff60}
+The hardness result uses command-specific opening charges. This section isolates a positive counterpart without bounding the command allowance, the number of distinct caps, or the numerical denominators. Throughout the section, the common reward is $f(x)=rx$ with $r>0$ and service is free, $h_j=0$. Expected caps, realization ceilings, probabilities and catalog spacing remain arbitrary subject to Section~\ref{sec:model52}.
+
+\begin{lemma}[Terminal capacity of a book]\label{lem:capacity60}
+For a feasible book $c=(u_1<\cdots<u_s)$, put
+\[
+ D(c)=\sum_j\pi_j\min\{b_j,d_j(c)\},\qquad
+ d_j(c)=\max\{u\in c:u\leq\tau_j\}.
+\]
+Its exact gross value at the accepted promise $B$ is $r\min\{B,D(c)\}$. Moreover,
+\begin{equation}\label{eq:gain60}
+ D(c)=u_1+\sum_{i=1}^{s-1}G_{u_i u_{i+1}},\qquad
+ G_{uv}=\sum_{j:\tau_j\geq v}\pi_j[\min\{b_j,v\}-u]_+.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The aggregate terminal mean cannot exceed either $B$ or $D(c)$. If $B\leq D(c)$, distribute $B-u_1$ within the individual intervals $[u_1,\min\{b_j,d_j(c)\}]$, using their probability weights. Adjacent eligible commands implement each resulting terminal mean with zero service. If $B>D(c)$, first attain every terminal capacity. Histories with $b_j>d_j(c)$ then have a deterministic terminal command $d_j(c)$ and residual service capacity $b_j-d_j(c)$. These capacities total $\bar b-D(c)\geq B-D(c)$. Filling them meets the promise exactly and respects the realization ceiling because the final deterministic obligation is at most $b_j\leq\tau_j$. This attains the upper bound. For the identity, fix a history and telescope its eligible prefix after truncation at $b_j$. Every increment is precisely the summand in \eqref{eq:gain60}; the initial contribution is $u_1$ since $u_1\leq\min_j b_j$. Sum with weights $\pi_j$.
+\end{proof}
+
+Choose a standard opening fee $\rho_0\geq0$ and let $E=\{i:\rho_i\ne\rho_0\}$ and $d=|E|$. This parameter counts exceptional \emph{commands}, not distinct fee values. A most frequent catalog fee minimizes $d$ and is found without optimizing any allocation. For $J\subseteq E$, require exactly those exceptional commands in $J$ and forbid $E\setminus J$. Denote the allowed indices by $A_J$. An edge $i\to j$ with $i<j$ is admissible when $i,j\in A_J$ and no required index lies strictly between them. A starting index must precede or equal the first required index; a final index must follow or equal the last required index. These conventions are vacuous when $J$ is empty.
+
+\begin{theorem}[Exact allocation with few tariff exceptions]\label{thm:tariff60}
+Under the assumptions of this section, exact optimization and original-policy recovery require
+\begin{equation}\label{eq:tariffcost60}
+ O(kN^2+2^d mN^2)
+\end{equation}
+rational arithmetic operations, after replacing $m$ by $\min\{m,N\}$. The algorithm has bit complexity $2^d\operatorname{poly}(L)$ for binary input length $L$. It uses no discretization of the promise or capacities. In particular, a uniform nonnegative opening fee gives a polynomial-time algorithm with a strongly polynomial arithmetic count, for unrestricted $m$ and $q_b$.
+\end{theorem}
+\begin{proof}
+Precompute all gains in \eqref{eq:gain60}. For each $J$, let $T^J_s(j)$ be the largest capacity of an admissible $s$-command prefix ending at $a_j$. Use $-\infty$ for absent states and initialize
+\[
+ T^J_1(j)=a_j
+ \quad\text{if }j\in A_J,\quad a_j\leq\min\{B,\min_i b_i\},
+ \quad j\leq\min J,
+\]
+where the last condition is omitted for $J=\varnothing$. The recurrence is
+\begin{equation}\label{eq:tariffdp60}
+ T^J_s(j)=\max_{i<j:\,i\to j\text{ admissible}}
+       \{T^J_{s-1}(i)+G_{a_i a_j}\},\qquad 2\leq s\leq m.
+\end{equation}
+Accept only final indices $j\geq\max J$, with the condition again vacuous for an empty set. A valid start, edges that cannot skip a required index, and a valid end together force every member of $J$ to appear. Conversely, every book with exceptional set $J$ follows exactly such a path. For fixed $J$ and $s$, every accepted book pays the same charge
+\[
+ K^J_s=(s-|J|)\rho_0+\sum_{i\in J}\rho_i.
+\]
+By Lemma~\ref{lem:capacity60}, its value is nondecreasing in capacity. Keeping only the maximum capacity at each state therefore loses no optimal book. Maximize $r\min\{B,T^J_s(j)\}-K^J_s$ over accepted states and all subsets $J$. Predecessors recover an attaining book, and the lemma recovers a feasible original allocation. States with $s<|J|$ cannot reach a valid end and contribute nothing.
+
+Computing the gains costs $O(kN^2)$. Prefix counts of required indices test edge admissibility in constant time, so each subset costs $O(mN^2)$. Capacity entries are sums of at most $N$ gains; equivalently, every attained entry is a sum of $k$ weighted truncated commands. A common product of the input denominators bounds their encoding length polynomially in $L$. Exact comparisons, the value calculation and the interval-filling recovery consequently have polynomial bit cost per operation. Neither a common denominator's numerical value nor a grid size enters \eqref{eq:tariffcost60}. This proves fixed-parameter tractability in $d$ and the uniform-fee conclusion.
+\end{proof}
+
+The distinction from Theorem~\ref{thm:wone59} is substantive. Its linear/free-service hard instances remain within this section's physical primitives but have command-specific fees that need not have few exceptions. Thus a cap-count and command-count lower bound coexists with an exception-count upper bound. Enumerating exceptions costs an exponential function of $d$ multiplying a polynomial whose exponent is independent of $d$; enumerating all books costs a parameter-dependent exponent in $N$. Uniform fees with nonlinear rewards or positive service costs are outside Theorem~\ref{thm:tariff60}, not instances silently solved by it.
+
+\begin{corollary}[The uniform-fee decision frontier]\label{cor:fee60}
+Fix the physical input and $B$. Let $D_s$ be the largest terminal capacity among feasible books with exactly $s$ commands, omitting infeasible sizes. Under a uniform fee $\rho$, the value is
+\[
+ V(\rho)=\max_{1\leq s\leq m}\{r\min(B,D_s)-s\rho\}.
+\]
+It is convex, nonincreasing and piecewise affine in $\rho$. The smallest optimal book size is nonincreasing in $\rho$, and every switching fee is an intersection of two displayed affine functions. The capacity tables compute the full fee frontier without rerunning the resource allocation problem.
+\end{corollary}
+\begin{proof}
+The formula follows from the theorem. A maximum of decreasing affine functions is convex and nonincreasing. If $s_1,s_2$ are optimal at $\rho_1<\rho_2$, their two optimality inequalities imply $(s_1-s_2)(\rho_2-\rho_1)\geq0$. Pairwise intersections give all possible switches, with dominated intersections discarded. No diminishing-returns property in the command budget is assumed.
+\end{proof}

@@ -1,0 +1,75 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[tablesonly,nomarkers,nolists,noheads]{endfloat}
+\renewcommand{\efloatseparator}{\par\bigskip}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Accepted Service Adaptation}\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r29-retained-source-main-labels}[predecessor/main.pdf]
+\externaldocument{r28-ec-labels}[predecessor/electronic_companion.pdf]
+\hypersetup{pdftitle={Retained R28 Computational Evidence},pdfauthor={Anonymous}}
+\begin{document}
+\begin{center}{\Large\bfseries Retained Computational Appendix}\par
+Unabridged R28 numerical narrative and tables\par
+Preserved with Revision R29, September 23, 2026\end{center}
+This document preserves the complete predecessor evidence, including its unfavorable cache and learning outcomes. Its numerical observations are historical R24--R28 records, not new measurements of the R29 finite-price algorithm. References to the earlier manuscript and companion link to their byte-preserved copies. The predecessor result-comparison table is also retained below; the new paper's research positioning is given in its current literature section.
+\input{revisions/or-r28-20260923/novelty_table.tex}
+\section{Computational Evidence}\label{sec:evidence}
+\input{revisions/or-r28-20260923/evidence_main.tex}
+\subsection{Continuous-state guarantees without history enumeration}
+Table~\ref{tab:r26-envelopes} reports the inherited continuous-state construction in Section~\ref{sec:continuous}. Bounds cover every inherited tier and feasible root promise, not only evaluation points. In the four-period design, refining from 25 to 289 anchors per date--regime reduces the worst root bound from 0.113253 to 0.019567. The sixteen-period design stores 800 lower anchors rather than constructing a 65,535-node binary history tree; its coarser grid gives a wider 0.193576 bound. These figures report approximation guarantees and storage, not matched-time superiority or a uniform complexity rate. The six designs, complete rational witnesses, and all eleven negative controls are specified in EC Section~\ref{ec:r26}.
+\input{revisions/or-r26-20260923/tables/envelopes.tex}
+
+\subsection{Protocol and common-instance comparator hierarchy}
+We use two explicitly different families. The first takes the first 24 nominal contexts of the frozen R24 design: 63 history nodes, two service coordinates, six resource-reward coordinates, all continuation rows, and four shared capacities. A pooled action is an equal \emph{amendment} to the existing heterogeneous tier. The fixed-amendment class is the singleton zero amendment because the exact root payment prevents a nonzero uniform change. Calling this an optimized constant actual tier would be incorrect.
+
+The second family has 63 nodes, one tier, a common baseline of $1/2$, an equiprobable binary public regime, and Markov stage rewards, curvature, and conditional continuation caps. All five classes are feasible and pool actual tiers. The exact root commitment fixes the optimized constant tier at $1/2$ but leaves time-only schedules nontrivial. Every adjacent comparison uses the same primitive instance. We vary reward and switching parameters across 24 seeded contexts; EC Section~\ref{ec:experiments} gives the integer and rational design. Integer probability weights multiply all conditional weights by 32, so its raw value unit differs from the legacy family. We report shares within each family, not a cardinal comparison between the two families.
+
+Table~\ref{tab:hierarchy} reports the optimized increments. Full-history amendments retain substantial value beyond two-period memory on the legacy family. In the public-Markov family most of the gain comes from observing the current regime; the additional memory and full-history gains are smaller and can vanish within the numerical bracket on particular instances. This distinction is informative: the total legacy gain is not presented as a uniquely contractual effect or attributed entirely to learning. Regime-only controls omit inherited tiers and promises even in the Markov family. The exact augmented-state result remains Theorem~\ref{thm:recursion}.
+
+\input{revisions/or-r25-20260923/tables/hierarchy.tex}
+
+Each optimized class has a rational feasible policy and a separate rational dual upper bound. If these are $[L_j,U_j]$, the certified interval for an increment is
+$[\max\{0,L_j-U_{j-1}\},U_j-L_{j-1}]$. We do not interpret a tiny difference between two approximate lower endpoints as a negative true increment. Both the lower-endpoint summaries and these enclosing intervals are retained in the raw record. Exact symbolic tests independently verify the three-node release path, the capacity rent example, and the optimized friction example. Additional rational matrix tests verify the regular-cell release formula. Finite-action promise recursions match exhaustive history enumeration at every attainable root promise; these finite checks supplement the induction proof rather than replace it.
+
+\subsection{Radius refinement and comparator reuse}
+Table~\ref{tab:radius} recomputes the true and common-outer time-only comparators on eight fixed legacy contexts and ten radii, including much smaller positive radii than the earlier study. Each hidden coefficient vector is held fixed while its radius varies. The outer-set slack tends toward zero and rises steeply before the earlier smallest positive radius. Thus the coarse positive-radius plateau did not establish a discontinuity. The construction already depended continuously on radius; Proposition~\ref{prop:outer} explains its local behavior. This experiment isolates the outer-set contribution and does not conflate it with objective interpolation over uncertainty vertices.
+\input{revisions/or-r25-20260923/tables/radius.tex}
+
+For comparator reuse we fix the legacy time-only geometry and switching coefficient, build four certified anchors, and validate 32 nearby reward queries. The rational trace curvature bound is approximately $0.45830$. The largest envelope-minus-certified-lower-value gap is reported in Table~\ref{tab:cache}. The deployed envelope makes no query optimization calls; the 32 validation solves are offline work used to measure tightness. The four initial solves and storage are not free. This is a test of a reusable upper bound and its quality, not a measured end-to-end speedup over the historical robust pipeline.
+\input{revisions/or-r25-20260923/tables/cache.tex}
+
+\input{revisions/or-r27-20260923/correlated_evidence.tex}
+
+\subsection{Historical learning and timing evidence}
+The R24 matched study charged optimizer labels, fitting, prediction, auditing, polishing, and fallback against lifted continuation. At the strict target both learned routes fell back in every measured case at 63, 127, and 255 nodes. Their mean total times exceeded the lifted comparator in every configuration, with unfavorable paired intervals. The coarse target also produced no observed finite amortization case. Table~\ref{tab:historical} retains the strict-target comparisons; the complete phase-resolved record and all less favorable and more favorable individual cases remain in the code/data archive. These are implementation diagnostics, not a second positive contribution about learned optimization.
+
+Let $C_{\rm off}\geq0$ be a candidate's incremental offline cost, and let $t_C,t_L$ be its and the lifted method's per-query times. The candidate-minus-lifted total cost after $Q_0$ queries is
+\begin{equation}\label{eq:amortization}
+ C_{\rm off}+Q_0(t_C-t_L)=C_{\rm off}-Q_0\delta,
+ \qquad \delta=t_L-t_C.
+\end{equation}
+For positive offline cost a finite positive crossing exists only when $t_C<t_L$, at $Q_0=C_{\rm off}/(t_L-t_C)$. Strict savings require a query count above this crossing. The analysis code uses this convention, and the displayed equation now matches it. The historical observations have no positive learned crossing under that protocol.
+\input{revisions/or-r25-20260923/tables/historical.tex}
+
+The historical robust study compared different achieved gains. Its roughly 20-millisecond differences between protected learned policies and robust maximin are therefore descriptive cost accounting, not matched-quality dominance. We do not use these three isolated method points as a computational advantage claim. Their complete gain--cost coordinates remain in the archive. The reward-only envelope applies under explicitly fixed geometry, while Theorem~\ref{thm:r27-cache} retains jointly changing coefficients. Neither is retroactively substituted into the old timings; their certificate quality is assessed separately.
+
+
+\input{revisions/or-r29-price-state-20260923/references.tex}
+\end{document}

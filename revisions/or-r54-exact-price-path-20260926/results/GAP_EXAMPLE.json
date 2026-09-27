@@ -1,0 +1,443 @@
+{
+  "spec": {
+    "model": {
+      "caps": [
+        "1"
+      ],
+      "weights": [
+        "1"
+      ],
+      "gamma": [
+        "0"
+      ],
+      "ceilings": [
+        "1"
+      ],
+      "reward_r": [
+        "1"
+      ],
+      "reward_q": [
+        "0"
+      ]
+    },
+    "catalog": [
+      "0",
+      "1/2"
+    ],
+    "charges": [
+      "0",
+      "1/10"
+    ],
+    "promise": "1/20",
+    "budget": 2
+  },
+  "complete": {
+    "status": "EXACT",
+    "lower": "0",
+    "upper": "0",
+    "gap": "0",
+    "seconds": 0.0032324489999950856,
+    "nodes": 3,
+    "oracle_calls": 15,
+    "trace": [
+      {
+        "seconds": 0.00029535199999486395,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 1
+      },
+      {
+        "seconds": 0.0005132290000062767,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 2
+      },
+      {
+        "seconds": 0.0007336099999974977,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 3
+      },
+      {
+        "seconds": 0.0009460670000009941,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 4
+      },
+      {
+        "seconds": 0.0011391280000054849,
+        "lower": "0",
+        "upper": "7/160",
+        "nodes": 1,
+        "oracle_calls": 5
+      },
+      {
+        "seconds": 0.0013246950000223023,
+        "lower": "0",
+        "upper": "13/320",
+        "nodes": 1,
+        "oracle_calls": 6
+      },
+      {
+        "seconds": 0.0015526010000144197,
+        "lower": "0",
+        "upper": "13/320",
+        "nodes": 1,
+        "oracle_calls": 7
+      },
+      {
+        "seconds": 0.0017805360000124892,
+        "lower": "0",
+        "upper": "13/320",
+        "nodes": 1,
+        "oracle_calls": 8
+      },
+      {
+        "seconds": 0.001985710000013796,
+        "lower": "0",
+        "upper": "103/2560",
+        "nodes": 1,
+        "oracle_calls": 9
+      },
+      {
+        "seconds": 0.002171868000004906,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 10
+      },
+      {
+        "seconds": 0.002381940000020677,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 11
+      },
+      {
+        "seconds": 0.0026294730000131494,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 12
+      },
+      {
+        "seconds": 0.002716515000003028,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 12
+      },
+      {
+        "seconds": 0.0028261900000075,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 2,
+        "oracle_calls": 13
+      },
+      {
+        "seconds": 0.0029519349999986844,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 2,
+        "oracle_calls": 14
+      },
+      {
+        "seconds": 0.0030876490000082413,
+        "lower": "0",
+        "upper": "0",
+        "nodes": 3,
+        "oracle_calls": 15
+      },
+      {
+        "seconds": 0.003144705000011072,
+        "lower": "0",
+        "upper": "0",
+        "nodes": 3,
+        "oracle_calls": 15
+      }
+    ],
+    "certificate": {
+      "schema": "NDU-price-path-v1",
+      "spec": {
+        "model": {
+          "caps": [
+            "1"
+          ],
+          "weights": [
+            "1"
+          ],
+          "gamma": [
+            "0"
+          ],
+          "ceilings": [
+            "1"
+          ],
+          "reward_r": [
+            "1"
+          ],
+          "reward_q": [
+            "0"
+          ]
+        },
+        "catalog": [
+          "0",
+          "1/2"
+        ],
+        "charges": [
+          "0",
+          "1/10"
+        ],
+        "promise": "1/20",
+        "budget": 2
+      },
+      "epsilon": "0",
+      "tree": {
+        "proof": {
+          "type": "price",
+          "price": "205/256",
+          "upper": "41/1024"
+        },
+        "split": {
+          "index": 1,
+          "excluded": {
+            "proof": {
+              "type": "price",
+              "price": "0",
+              "upper": "0"
+            }
+          },
+          "included": {
+            "proof": {
+              "type": "price",
+              "price": "1",
+              "upper": "-1/20"
+            }
+          }
+        }
+      },
+      "policy": {
+        "book": [
+          "0"
+        ],
+        "targets": [
+          "1/20"
+        ],
+        "intermediate": [
+          "1/20"
+        ],
+        "lotteries": [
+          [
+            [
+              "0",
+              "1"
+            ]
+          ]
+        ],
+        "gross": "0",
+        "value": "0",
+        "price": "0"
+      },
+      "lower": "0",
+      "upper": "0",
+      "instance_sha256": "e9a118af834e1f1aa2fbcb05963e1320e356c547137ee00330dbeb37384f84ce"
+    }
+  },
+  "limited": {
+    "status": "NODE_LIMIT",
+    "lower": "0",
+    "upper": "41/1024",
+    "gap": "41/1024",
+    "seconds": 0.002779062000001886,
+    "nodes": 1,
+    "oracle_calls": 12,
+    "trace": [
+      {
+        "seconds": 0.000293789000011202,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 1
+      },
+      {
+        "seconds": 0.0004939030000059574,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 2
+      },
+      {
+        "seconds": 0.000705619000001434,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 3
+      },
+      {
+        "seconds": 0.0009390040000027966,
+        "lower": "0",
+        "upper": "1/20",
+        "nodes": 1,
+        "oracle_calls": 4
+      },
+      {
+        "seconds": 0.001135281000017585,
+        "lower": "0",
+        "upper": "7/160",
+        "nodes": 1,
+        "oracle_calls": 5
+      },
+      {
+        "seconds": 0.001316480000014053,
+        "lower": "0",
+        "upper": "13/320",
+        "nodes": 1,
+        "oracle_calls": 6
+      },
+      {
+        "seconds": 0.0015186779999964983,
+        "lower": "0",
+        "upper": "13/320",
+        "nodes": 1,
+        "oracle_calls": 7
+      },
+      {
+        "seconds": 0.0017352020000203083,
+        "lower": "0",
+        "upper": "13/320",
+        "nodes": 1,
+        "oracle_calls": 8
+      },
+      {
+        "seconds": 0.001954041000004736,
+        "lower": "0",
+        "upper": "103/2560",
+        "nodes": 1,
+        "oracle_calls": 9
+      },
+      {
+        "seconds": 0.002138496000014811,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 10
+      },
+      {
+        "seconds": 0.002348077000021931,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 11
+      },
+      {
+        "seconds": 0.00258011100001454,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 12
+      },
+      {
+        "seconds": 0.002666271999999026,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 12
+      },
+      {
+        "seconds": 0.002689786000019012,
+        "lower": "0",
+        "upper": "41/1024",
+        "nodes": 1,
+        "oracle_calls": 12
+      }
+    ],
+    "certificate": {
+      "schema": "NDU-price-path-v1",
+      "spec": {
+        "model": {
+          "caps": [
+            "1"
+          ],
+          "weights": [
+            "1"
+          ],
+          "gamma": [
+            "0"
+          ],
+          "ceilings": [
+            "1"
+          ],
+          "reward_r": [
+            "1"
+          ],
+          "reward_q": [
+            "0"
+          ]
+        },
+        "catalog": [
+          "0",
+          "1/2"
+        ],
+        "charges": [
+          "0",
+          "1/10"
+        ],
+        "promise": "1/20",
+        "budget": 2
+      },
+      "epsilon": "0",
+      "tree": {
+        "proof": {
+          "type": "price",
+          "price": "205/256",
+          "upper": "41/1024"
+        },
+        "split": {
+          "index": 1,
+          "excluded": {
+            "proof": {
+              "type": "price",
+              "price": "205/256",
+              "upper": "41/1024"
+            }
+          },
+          "included": {
+            "proof": {
+              "type": "price",
+              "price": "205/256",
+              "upper": "41/1024"
+            }
+          }
+        }
+      },
+      "policy": {
+        "book": [
+          "0"
+        ],
+        "targets": [
+          "1/20"
+        ],
+        "intermediate": [
+          "1/20"
+        ],
+        "lotteries": [
+          [
+            [
+              "0",
+              "1"
+            ]
+          ]
+        ],
+        "gross": "0",
+        "value": "0",
+        "price": "0"
+      },
+      "lower": "0",
+      "upper": "41/1024",
+      "instance_sha256": "e9a118af834e1f1aa2fbcb05963e1320e356c547137ee00330dbeb37384f84ce"
+    }
+  }
+}

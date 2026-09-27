@@ -1,0 +1,16 @@
+{
+  "revision": "R14", "frozen_before_training": true,
+  "model": "127-leaf accepted star, diagonal quadratic resource, absolute switching",
+  "primitive_seed": 14001,
+  "paired_training_seeds": [14011,14012,14013,14014,14015,14016,14017,14018],
+  "training_contexts_per_seed": 1024, "hidden_tanh_units": 192,
+  "weight_scale": 1.5, "ridge_coefficient": 1e-9, "gradient_loss_weight": 0.25,
+  "test_seed": 14901, "test_contexts": 128,
+  "context_distribution": "independent uniform integer h, alpha in [-1000,1000], lambda in [10,200], divided by 1000",
+  "primary_endpoint": "paired mean feasible-proposal regret, value-gradient minus value, across 8 training seeds",
+  "secondary_endpoints": ["partial-gradient squared error","pre-refinement rational gap","static gate rejection","complete matched-accuracy latency","Newton iterations"],
+  "certificate_tolerance_per_discounted_review": 1e-7,
+  "timing_contexts": 32, "timing_repetitions": 3,
+  "classical_baselines": ["cold scalar Newton","Brent root","sorted breakpoints","small-instance SLSQP"],
+  "scope": "Synthetic fixed star distribution. No arbitrary-tree speed or distribution-shift claim. All prior results retained unchanged."
+}

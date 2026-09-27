@@ -1,0 +1,485 @@
+{
+  "comparisons": "Exact all-book reference for N=9,k<=4; greedy and ideal-target conditional book on all holdout types. Numerical MIP tangent/secant each 3s. No heuristic exactness claim.",
+  "dataset_scope": "Synthetic rational inputs, including explicitly constructed repeated-type cases; no application calibration.",
+  "grid_specs": [
+    {
+      "eps": "1/10",
+      "k": 2,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461002
+    },
+    {
+      "eps": "1/100",
+      "k": 2,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461002
+    },
+    {
+      "eps": "1/1000",
+      "k": 2,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461002
+    },
+    {
+      "eps": "1/10",
+      "k": 3,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461003
+    },
+    {
+      "eps": "1/100",
+      "k": 3,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461003
+    },
+    {
+      "eps": "1/1000",
+      "k": 3,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461003
+    },
+    {
+      "eps": "1/10",
+      "k": 4,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461004
+    },
+    {
+      "eps": "1/100",
+      "k": 4,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461004
+    },
+    {
+      "eps": "1/1000",
+      "k": 4,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461004
+    },
+    {
+      "eps": "1/10",
+      "k": 5,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461005
+    },
+    {
+      "eps": "1/100",
+      "k": 5,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461005
+    },
+    {
+      "eps": "1/1000",
+      "k": 5,
+      "m": 2,
+      "n": 5,
+      "profiles": 1000,
+      "seed": 461005
+    }
+  ],
+  "joint_specs": [
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h2-9-0-0",
+      "k": 2,
+      "m": 2,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460100
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h2-9-0-1",
+      "k": 2,
+      "m": 3,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460101
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h2-9-1-0",
+      "k": 2,
+      "m": 2,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460102
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h2-9-1-1",
+      "k": 2,
+      "m": 3,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460103
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h2-17-0-0",
+      "k": 2,
+      "m": 2,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460104
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h2-17-0-1",
+      "k": 2,
+      "m": 3,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460105
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h2-17-1-0",
+      "k": 2,
+      "m": 2,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460106
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h2-17-1-1",
+      "k": 2,
+      "m": 3,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460107
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h4-9-0-0",
+      "k": 4,
+      "m": 2,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460108
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h4-9-0-1",
+      "k": 4,
+      "m": 3,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460109
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h4-9-1-0",
+      "k": 4,
+      "m": 2,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460110
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h4-9-1-1",
+      "k": 4,
+      "m": 3,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460111
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h4-17-0-0",
+      "k": 4,
+      "m": 2,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460112
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h4-17-0-1",
+      "k": 4,
+      "m": 3,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460113
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h4-17-1-0",
+      "k": 4,
+      "m": 2,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460114
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h4-17-1-1",
+      "k": 4,
+      "m": 3,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460115
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h8-9-0-0",
+      "k": 8,
+      "m": 2,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460116
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h8-9-0-1",
+      "k": 8,
+      "m": 3,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460117
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h8-9-1-0",
+      "k": 8,
+      "m": 2,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460118
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h8-9-1-1",
+      "k": 8,
+      "m": 3,
+      "n": 9,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460119
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h8-17-0-0",
+      "k": 8,
+      "m": 2,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460120
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "h8-17-0-1",
+      "k": 8,
+      "m": 3,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460121
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h8-17-1-0",
+      "k": 8,
+      "m": 2,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460122
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "h8-17-1-1",
+      "k": 8,
+      "m": 3,
+      "n": 17,
+      "nodes": 301,
+      "seconds": 8,
+      "seed": 460123
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "s4-33-32-0",
+      "k": 4,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 32,
+      "seconds": 8,
+      "seed": 460704
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "s4-33-32-1",
+      "k": 4,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 32,
+      "seconds": 8,
+      "seed": 460705
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "s4-33-64-0",
+      "k": 4,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 64,
+      "seconds": 8,
+      "seed": 460704
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "s4-33-64-1",
+      "k": 4,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 64,
+      "seconds": 8,
+      "seed": 460705
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "s8-33-16-0",
+      "k": 8,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 16,
+      "seconds": 8,
+      "seed": 460708
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "s8-33-16-1",
+      "k": 8,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 16,
+      "seconds": 8,
+      "seed": 460709
+    },
+    {
+      "charged": false,
+      "eps": "1/1000",
+      "id": "s16-33-1-0",
+      "k": 16,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 1,
+      "seconds": 8,
+      "seed": 460716
+    },
+    {
+      "charged": true,
+      "eps": "1/1000",
+      "id": "s16-33-1-1",
+      "k": 16,
+      "m": 3,
+      "n": 33,
+      "nodes": 101,
+      "replicas": 1,
+      "seconds": 8,
+      "seed": 460717
+    }
+  ],
+  "mip_ids": [
+    "h2-9-0-0",
+    "h2-9-0-1",
+    "h2-9-1-0",
+    "h2-9-1-1",
+    "h4-9-0-0",
+    "h4-9-0-1",
+    "h4-9-1-0",
+    "h4-9-1-1"
+  ],
+  "mip_seconds_each": 3,
+  "mip_segments": 64,
+  "schema": "r46-frozen-holdout-v1",
+  "seed_policy": "Independent fixed seeds; no deletion, retuning, or replacement after outcomes.",
+  "solver": {
+    "axis": "largest weighted side except dependent largest-weight type",
+    "epsilon_scale": "absolute normalized utility",
+    "price_steps": 8,
+    "warm_start": "one ideal-target conditional book"
+  },
+  "timing": "Wall clock; exact solver limits are checked after a complete node. Net limited by profiles; no net accuracy on interruption."
+}

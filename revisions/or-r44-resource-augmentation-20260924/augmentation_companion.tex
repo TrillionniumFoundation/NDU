@@ -1,0 +1,50 @@
+\section{Detailed Recovery Proof and a Strict Price Gap}\label{sec:r44-proof}
+\paragraph{Endpoint brackets.}
+For every feasible book, the branch response on $[c_1,b_j]$ has slopes between $-H_j$ and $L_f$: the increasing interpolant has slopes in $[0,L_f]$, while the singleton tail has slopes in $[-H_j,0]$. Hence at $\lambda_-=-\max_jH_j-1$ the priced response is strictly increasing, and every branch chooses $b_j$. At $\lambda_+=L_f+1$ it is strictly decreasing, and every branch chooses $c_1\leq B$. This proves the initial total-target bracket for any optimizing book. It applies at $B=0$, at $B=\bar b$, and at a singleton target domain. If $\bar b=a_1$, both endpoints already have total $B$.
+
+At every midpoint, use an exact priced optimizer and replace the left endpoint when its total exceeds $B$, or the right endpoint when its total is below $B$. At equality, its exact promise makes its priced objective equal its feasible objective; weak duality certifies original-budget global optimality. Ties between optimizing books or within a branch do not obstruct the rule: every selected optimizer gives the stated bound and belongs to one of the three total-target cases. After $q$ bisections the retained width is $H2^{-q}$. Thus the call bound in \eqref{eq:r44-calls} holds without solving an algebraic equation for an exact dual minimizer.
+
+\paragraph{Union reconstruction.}
+Let $c^U=c^-\cup c^+$, with its levels sorted once. At any target feasible for $c^-$, its old branch rule is feasible under $c^U$ with unchanged intermediate tier and support. The union response, being optimal for that target, weakly dominates it. The same holds for $c^+$. Every mixed target lies in the union domain $[\min c^U,b_j]$. Concavity of the union response gives
+\begin{equation}\label{eq:r44-union-concavity}
+ v_{j,c^U}(t_j^U)\geq
+ \theta v_{j,c^U}(t_j^-)+(1-\theta)v_{j,c^U}(t_j^+)
+ \geq\theta v_{j,c^-}(t_j^-)+(1-\theta)v_{j,c^+}(t_j^+).
+\end{equation}
+For a branch with highest union-eligible level $d_j^U$, choose the fixed intermediate tier $(t_j^U-d_j^U)_+$ and the adjacent union lottery of mean $\min(t_j^U,d_j^U)$. If the tier is positive, the lottery is a singleton and total realized service equals $t_j^U\leq b_j$. Otherwise the tier is zero and every support point is at most its eligibility threshold. Thus the renewal realization constraint holds exactly, including $\delta=0$. The tier is fixed \emph{before} the draw; this construction does not smuggle in a random tier, a random installed book, or an uncharged shared random seed. The same argument proves the abstract ordered-interface statement using its target and support constraints. The weighted sum of mixed targets is exactly $B$.
+
+\paragraph{Payoff and charge accounting.}
+Write $J_{\rm mix}=\theta J_-+(1-\theta)J_+$. Since
+$\theta(S_--B)=(1-\theta)(B-S_+)$, expanding the weighted price values proves the identity in the main proof. Their minimum $U$ is at most that weighted value and remains an upper bound for every original-budget feasible book. Therefore $J_{\rm mix}\geq U-e$. Put $x=S_--B$ and $y=B-S_+$; both are positive, and $xy/(x+y)\leq(x+y)/4\leq(\bar b-a_1)/4$. This proves the reported error bound, using the actual targets when available rather than only their total range.
+
+Let $R_-$, $R_+$, and $R_\cap$ denote the sums of charges in the two books and their intersection. Inclusion--exclusion gives
+\[
+ \Omega=(1-\theta)R_-+\theta R_+-R_\cap
+ =(1-\theta)R(c^-\setminus c^+)+\theta R(c^+\setminus c^-)\geq0.
+\]
+It is at most $m\rho_{\max}$ and is zero for uncharged levels. Subtracting $R(c^U)$ from \eqref{eq:r44-union-concavity}, after weighting and summing, proves $J_U\geq J_{\rm mix}-\Omega\geq U-e-\Omega$. If an endpoint has total exactly $B$, use it twice, set $\theta=1$, and put $e=\Omega=0$.
+
+The union may have fewer than $2m$ levels because of overlap. If it has at most $m$, it is feasible for the original budget and its value can be included in the original lower bound. Otherwise the interval for that budget must use a separately feasible $m$-level policy. In our implementation this policy is obtained by reallocating the exact promise on each endpoint book with the fixed-book allocator and retaining the better value. That lower bound does not rely on a vanishing price gap.
+
+\paragraph{Arithmetic and storage.}
+Each price call uses Theorem~\ref{thm:r43-price}. For quadratic costs, a branch-support maximizer is found at an eligible knot, the cap, or a clipped tail stationary point, in $O(km)$ rational work after the book has been recovered. Recovering two endpoint books and the union rules also takes $O(km)$ work. The original-budget feasible lower policies use $O(km+k\log(k+1))$ additional work each; the additional $k\log(k+1)$ term in the main theorem accounts for sorting its heterogeneous tail events. This optional lower-bound calculation can be omitted when only the augmentation guarantee is needed. Retaining only the two endpoint policies, rather than all intermediate tables, gives $O(N^2+mN+km)$ storage. Bisection adds at most one bit per call to a common denominator. Scalar quadratic evaluations, sums over polynomially many rational terms, interpolation, and the final ratio defining $\theta$ have bit lengths polynomial in the input and the call count. The continuous-mesh corollary states dependence on the numerical scale $K_0/\eta$ explicitly; it does not turn a magnitude-dependent mesh into a strongly polynomial algorithm.
+
+\subsection{A fixed instance with a strictly positive outer price gap}
+Take two equally weighted branches, caps $(1/4,3/4)$, quadratic coefficients $r=2$, $q=1$, $\gamma=(1,2)$, promise $B=2/5$, risk tolerance zero, budget two, and the catalog $\{i/8:0\leq i\leq8\}$ with zero charges. The exact original-budget optimum is $45/64$. Its book $(1/4,5/8)$ uses targets $(1/4,11/20)$; the second branch assigns probabilities $1/5$ and $4/5$ to its two levels.
+
+For completeness, any singleton book or any book whose highest used eligible level is at most $1/4$ has operating value at most $f(1/4)=15/32<45/64$. An upper codeword above $3/4$ is useless under pathwise participation and can be deleted. The remaining two-level possibilities have lower level $0$, $1/8$, or $1/4$, and upper level $3/8$, $1/2$, $5/8$, or $3/4$. Direct substitution in the concave branch allocation gives the following exhaustive values:
+\begin{center}\small
+\begin{tabular}{c|rrrr}\toprule
+Lower level $\backslash$ upper level & $3/8$ & $1/2$ & $5/8$ & $3/4$\\\midrule
+$0$ & $1977/6400$ & $169/400$ & $10027/19200$ & $487/800$\\
+$1/8$ & $2827/6400$ & $10627/19200$ & $6221/9600$ & $43/64$\\
+$1/4$ & $3577/6400$ & $1073/1600$ & $45/64$ & $111/160$\\\bottomrule
+\end{tabular}\end{center}
+For an entry, eliminate $t_2$ as $4/5-t_1$, evaluate the two piecewise-quadratic responses, and maximize on the feasible interval. This yields the displayed rational values and proves the global claim without trusting a search-order heuristic.
+
+At price $23/16$, the optimal priced books $(1/4,5/8)$ and $(1/4,1/2)$ have totals $7/16$ and $3/8$, with net values $195/256$ and $43/64$. At this positive price, intermediate service has nonpositive priced payoff. The maximum eligible values of $f(c)-(23/16)c$ are $7/64$ on branch one and $5/32$ on branch two. Consequently every book has price bound at most $(23/16)(2/5)+(7/64+5/32)/2=453/640$, and both displayed books attain it. Thus $D(23/16)=453/640$ independently of the recurrence implementation. Their mixture with weight $2/5$ on the first book has total $2/5$ and value $453/640$. For \emph{any} price, the maximum priced value is at least the corresponding weighted value, which equals this mixture value because its promise is exact. Hence
+\[
+ \inf_\lambda D(\lambda)=\frac{453}{640},\qquad
+ \inf_\lambda D(\lambda)-\mathcal V_{2,\mathcal A}^0(2/5;0)=\frac3{640}>0.
+\]
+The fixed union alphabet $(1/4,1/2,5/8)$ attains $453/640$: branch one uses $1/4$; branch two draws $1/2$ with probability $3/5$ and $5/8$ with probability $2/5$. No intermediate service is needed, and both risk bounds hold. The example demonstrates why increased price accuracy alone cannot force the original-budget gap to zero, while the union construction removes this particular obstruction using one extra level. It is not a lower bound proving that the factor two is necessary for every instance.

@@ -1,0 +1,119 @@
+\section{An Exact Global Randomized Memory Frontier}\label{sec:r34-global}
+The fixed-codebook formula in Theorem~\ref{thm:r33-lotteries} leaves a continuous design problem: both the terminal service levels and their assignment probabilities must be chosen. We now solve that problem globally for quadratic terminal rewards and heterogeneous quadratic intermediate costs. The solution also determines when imposing participation after, rather than before, the private draw eliminates the value of randomization. These are restricted-alphabet design results, distinct from the exact-implementation alphabet in Theorem~\ref{thm:minimal}.
+
+Retain the three-date renewal architecture of Theorem~\ref{thm:frontier}, including the saturated root promise $\bar b=\sum_{j=1}^k\pi_jb_j$, strictly ordered caps $0<b_1<\cdots<b_k<1$, and positive probabilities summing to one. Throughout this section,
+\begin{equation}\label{eq:r34-primitives}
+ f(c)=rc-\frac q2c^2,\qquad h_j(y)=\frac{\gamma_j}{2}y^2,
+ \qquad r\geq q>0,\quad \gamma_j\geq0.
+\end{equation}
+The parameters and probabilities can differ across branches as indicated. Terminal reward is strictly increasing on the feasible cap range, including when $r=q$. All private information retained until the common terminal vertex must be encoded in the charged symbol. The decoder and public observation convention are unchanged.
+
+\subsection{Cap anchors and one continuous terminal level}
+For $u\leq b\leq v$, quadratic concavity gives the interpolation loss
+\begin{equation}\label{eq:r34-chord}
+ f(b)-\frac{v-b}{v-u}f(u)-\frac{b-u}{v-u}f(v)
+ =\frac q2(b-u)(v-b),
+\end{equation}
+with the endpoint value understood when levels coincide. Thus an interior codeword enters the loss affinely until it crosses a branch cap. The highest codeword is different: reducing it below a branch cap creates an intermediate payment and its associated cost.
+
+\begin{lemma}[Cap-anchored representation]\label{lem:r34-anchor}
+For every alphabet budget $m\geq1$, an optimum of \eqref{eq:r33-random-frontier} exists with the following representation. Its lowest codeword is $b_1$; every codeword except the highest belongs to $\{b_1,\ldots,b_k\}$; and the highest belongs to $[b_1,b_k]$. A one-symbol optimum is $\{b_1\}$. The highest codeword need not be a branch cap.
+\end{lemma}
+\begin{proof}
+Attainment follows from the compact level-and-probability formulation in Theorem~\ref{thm:r33-lotteries}. Delete unused levels and coincident duplicates. If all levels lie below $b_1$, raising the largest to $b_1$ improves every branch and leaves only that level relevant. Otherwise delete levels below $b_1$ except the largest such level, if any, and raise it to $b_1$. Every affected cap is bracketed by this level and the next one. Equation~\eqref{eq:r34-chord} shows that raising the lower endpoint weakly lowers loss. This also covers a one-level codebook. The same argument at the other extreme deletes superfluous levels above $b_k$ and lowers the remaining highest endpoint to $b_k$ without increasing loss.
+
+Fix the highest level. Take a nonhighest codeword not equal to a cap. Between the nearest caps and its neighboring codewords, the set of branch caps in each adjacent interpolation interval is fixed. Equation~\eqref{eq:r34-chord} makes the sum of their losses affine in the moving codeword; all other losses are unchanged. Move it to an endpoint that does not increase this affine function. At a cap it becomes anchored. At a collision it can be deleted: no strictly intervening branch cap has been crossed, and the limiting interpolation losses agree. Each move reduces the number of unanchored nonhighest levels or the number of levels. Finitely many moves produce the stated representation. Branches above the fixed highest level are unaffected throughout.\end{proof}
+
+The lemma does not discretize the highest level. A cap-only restriction can be strictly suboptimal, as Proposition~\ref{prop:r34-offcap} shows. It also does not assert that every optimal codebook is anchored; it supplies an optimum with this useful form.
+
+\subsection{A finite exact algorithm}
+For adjacent anchored levels $b_i<b_j$, define
+\begin{equation}\label{eq:r34-edge}
+ E(i,j)=\frac q2\sum_{h=i}^{j}\pi_h(b_h-b_i)(b_j-b_h).
+\end{equation}
+Let $P(s,j)$ be the minimum interpolation loss on caps through $b_j$ using exactly $s$ anchored levels, starting at $b_1$ and ending at $b_j$. Set $P(1,1)=0$, $P(1,j)=+\infty$ for $j>1$, and use the ordered recurrence
+\begin{equation}\label{eq:r34-prefix}
+ P(s,j)=\min_{i<j}\{P(s-1,i)+E(i,j)\},\qquad 2\leq s\leq j.
+\end{equation}
+This is a standard shortest-path or segmentation recurrence. The substantive reduction is Lemma~\ref{lem:r34-anchor}, which makes it applicable to a jointly optimized continuous lottery codebook.
+
+Suppose that $b_i$ is the last anchored level and $z$ is the final level. For $\ell\geq i$ and $b_\ell\leq z\leq b_{\ell+1}$, put $b_{k+1}=b_k$ and define
+\begin{align}
+ \Psi_{i\ell}(z)
+ &=\frac q2\sum_{h=i+1}^{\ell}\pi_h(b_h-b_i)(z-b_h)\nonumber\\
+ &\quad+\sum_{h=\ell+1}^{k}\pi_h
+ \left\{f(b_h)-f(z)+\frac{\gamma_h}{2}(b_h-z)^2\right\}.
+ \label{eq:r34-tail}
+\end{align}
+The first sum is the lottery loss below $z$; the second is the terminal-reward and intermediate-payment loss above it. Empty sums are zero. For $\ell<k$ the function is strictly convex in $z$ and has the constrained minimizer
+\begin{equation}\label{eq:r34-top}
+ z_{i\ell}=\left[
+ \frac{r\sum_{h>\ell}\pi_h+\sum_{h>\ell}\pi_h\gamma_hb_h
+       -\frac q2\sum_{h=i+1}^{\ell}\pi_h(b_h-b_i)}
+      {q\sum_{h>\ell}\pi_h+\sum_{h>\ell}\pi_h\gamma_h}
+ \right]_{[b_\ell,b_{\ell+1}]}.
+\end{equation}
+For $\ell=k$, take $z_{ik}=b_k$. Define the terminal cost
+\begin{equation}\label{eq:r34-T}
+ T_i=\min_{i\leq\ell\leq k}\Psi_{i\ell}(z_{i\ell}).
+\end{equation}
+
+\begin{theorem}[Global frontier and exact complexity]\label{thm:r34-global}
+Under \eqref{eq:r34-primitives}, the optimum with at most $m$ symbols is
+\begin{equation}\label{eq:r34-frontier}
+ D_m^{\rm ran}=\min\left\{D_1,
+ \min_{\substack{1\leq s\leq\min(m-1,k)\\1\leq j\leq k}}
+       \{P(s,j)+T_j\}\right\},
+\end{equation}
+where the inner minimum is empty for $m=1$. Backtracking produces a globally optimal codebook and the adjacent lotteries implementing it. For ordered inputs and $1\leq m\leq k$, all frontiers through budget $m$ can be computed in $O(mk^2)$ exact rational operations and $O(mk+k)$ stored rational numbers and indices, including backpointers. No codeword grid is required.
+
+For rational input of total binary length $L$, a reduced-rational implementation has polynomial Turing complexity. A conservative bound is $O(mk^2 S^3)$ bit operations with $S=O(k[L+\log(k+2)])$. This includes exact cost comparisons, clamping, and fraction reduction. For $m\geq k$ the optimal loss is zero; listing additional budget entries requires only their output cost. These guarantees concern the stated algorithm, not an arbitrary nonlinear optimizer for \eqref{eq:r33-random-frontier}.
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:r34-anchor}, a nontrivial optimal codebook consists of an anchored prefix and one final level. The prefix contributes exactly the sum of its edge costs. Splitting at the preceding anchor proves \eqref{eq:r34-prefix} by induction on the number of anchors. If two successive edges share an endpoint cap, its loss is zero, so no term is double counted. Conditional on the final anchor $b_j$, every possible highest level belongs to one of the intervals in \eqref{eq:r34-tail}. Differentiating that quadratic gives \eqref{eq:r34-top}; its quadratic coefficient is strictly positive whenever $\ell<k$ because the remaining probabilities and $q$ are positive. Formula~\eqref{eq:r34-T} therefore optimizes over the entire remaining continuous domain.
+
+Every term in \eqref{eq:r34-frontier} reconstructs a feasible controller with at most $m$ codewords. A coincident final level is deleted. Conversely, the representation lemma maps an optimal controller into one of those terms, including the one-symbol alternative. The two inequalities prove equality, not merely an upper bound or a stationary-point condition. Recover the final level attaining $T_j$, backtrack the minimizing indices in $P$, and apply Theorem~\ref{thm:r33-lotteries} to obtain the encoder probabilities and intermediate tiers.
+
+Prefix sums of $\pi_h$, $\pi_hb_h$, $\pi_hb_h^2$, $\pi_h\gamma_h$, $\pi_h\gamma_hb_h$, and $\pi_h\gamma_hb_h^2$ evaluate each edge and each quadratic tail in constant arithmetic work. All $T_i$ require $O(k^2)$ work. The prefix dynamic program requires $O(mk^2)$ work and $O(mk)$ backpointers; edge costs are evaluated on demand rather than stored in a quadratic array. The six moment arrays and all terminal optima require $O(k)$ storage.
+
+For completeness, each moment, edge coefficient, and tail coefficient is a sum of bounded-degree monomials in rational inputs. A conceptual common denominator is a fixed power of the product of input denominators; it has polynomial bit length and is not constructed by the implementation. Each terminal minimizer adds one division of such coefficients. Each prefix cost adds at most $k$ edges; each final candidate adds one tail optimum. Reducing after every operation gives the conservative height bound $S$. Exact comparisons use cross multiplication on integers of $O(S)$ bits, and ordinary integer arithmetic with greatest-common-divisor reduction costs at most $O(S^3)$ per rational operation. This establishes the stated bound, including comparisons rather than only arithmetic counts. The electronic companion gives an implementation-level concordance.\end{proof}
+
+\subsection{A genuinely continuous optimal codebook}
+\begin{proposition}[An off-cap terminal level is optimal]\label{prop:r34-offcap}
+Let $(b_1,b_2,b_3)=(1/4,1/2,3/4)$, $(\pi_1,\pi_2,\pi_3)=(7/20,3/5,1/20)$, $r=2$, $q=1$, and $\gamma_j=1$. The globally optimal two-symbol expected-participation codebook is $(1/4,5/8)$, and
+\begin{equation}\label{eq:r34-offcap}
+ D_2^{\rm ran}=\frac{23}{1280}
+ <\frac{3}{160}
+ =\min_{\substack{|c|\leq2\\c\subseteq\{b_1,b_2,b_3\}}}D(c)
+ =D_2,
+\end{equation}
+where the cap-only minimum is over feasible codebooks and $D(c)$ denotes their expected-participation loss. Thus even optimizing all cap-only lotteries misses the unrestricted optimum.
+\end{proposition}
+\begin{proof}
+The representation lemma fixes the lower level at $1/4$. For an upper level $z\in[1/2,3/4]$, the loss is
+\[
+ \frac{3}{40}(z-1/2)+\frac1{20}(3/4-z)(2-z)
+ =\frac{z^2}{20}-\frac{z}{16}+\frac{3}{80}.
+\]
+Its unique minimum is at $z=5/8$ and equals $23/1280$. On $[1/4,1/2]$, both higher-cap branches lie above $z$ and the loss strictly decreases up to $1/2$. Levels above $3/4$ can be lowered, as in Lemma~\ref{lem:r34-anchor}. These observations also exclude the one-level boundary. The cap-only choices with two feasible levels have losses $3/160$ and $3/160$; one level has loss $49/160$. The deterministic partition using levels $1/4,1/2$ has loss $3/160$, while the other contiguous two-cell partition has loss $21/80$. Theorem~\ref{thm:frontier} yields the deterministic optimum.
+
+The middle branch draws terminal level $5/8$ with probability $2/3$ and level $1/4$ with probability $1/3$, with zero intermediate tier. The highest-cap branch uses intermediate tier $1/8$ and terminal tier $5/8$. All branch payments equal their caps in expectation, and the root payment is $17/40$. The resulting weighted losses are $3/320$ and $11/1280$, respectively, summing to $23/1280$.\end{proof}
+
+\subsection{Participation after the private draw}
+The preceding frontier is appropriate when a renewal review approves an expected continuation before the protocol draws its private symbol. Consider instead an agreement that requires the same cap to hold for every private realization after that review. A draw-specific intermediate tier is allowed; only the terminal public state and the charged symbol reach the terminal decoder. Write $D_m^{\rm pw,ran}$ for the best randomized loss under these pathwise constraints and the same saturated root promise.
+
+\begin{theorem}[Pathwise randomization has no frontier advantage]\label{thm:r34-pathwise}
+For the general renewal family of Theorem~\ref{thm:frontier}, with strictly increasing concave $f$ and convex nondecreasing $h_j$, and the observation architecture just specified,
+\begin{equation}\label{eq:r34-pathwise}
+ D_m^{\rm pw,ran}=D_m\qquad\text{for every }m\geq1.
+\end{equation}
+Consequently \eqref{eq:r34-frontier} and the deterministic frontier give an exact comparison of the two participation institutions under \eqref{eq:r34-primitives}. Their exact-optimum alphabet thresholds are both $k$ when strict concavity makes the $k$ distinct full-information actions unique.
+\end{theorem}
+\begin{proof}
+Pathwise feasibility gives $Y_j+C_j\leq b_j$ almost surely at each branch. The root promise is $\sum_j\pi_jb_j$ and every branch has positive probability. Hence $Y_j+C_j=b_j$ almost surely on every branch: any positive expected slack would contradict root saturation.
+
+A retained symbol determines a terminal level, after replacing an independent randomized terminal decoder by its mean. This replacement preserves feasibility and weakly improves reward. To see this under pathwise saturation, conditional on a branch and symbol the only permissible additional terminal randomization is fresh and independent of the earlier tier; otherwise a retained shared seed would be an uncharged state. Independence together with $Y_j+C_j=b_j$ almost surely forces that decoder to be degenerate. This also shows why the memory architecture matters.
+
+For a fixed codebook, a symbol with terminal level $c$ can be used on branch $j$ only if $c\leq b_j$; saturation fixes its intermediate tier at $b_j-c$. Its payoff is $f(c)-h_j(b_j-c)$, which is strictly increasing in $c$. Thus the highest eligible codeword weakly dominates every lottery over eligible symbols, including lotteries with draw-specific intermediate tiers. Selecting it deterministically preserves each branch's payment and cannot reduce payoff. Optimizing codebooks yields the deterministic ordered frontier of Theorem~\ref{thm:frontier}. The reverse inequality follows because every deterministic feasible controller is an admissible pathwise-randomized controller. Strict-concavity uniqueness gives the final threshold assertion.\end{proof}
+
+This institutional result is not an assertion that randomization is generally ineffective in dynamic contracts. It uses the saturated root promise, an exogenous recombination, and the charged-information interface. Under expected participation, Theorem~\ref{thm:r34-global} chooses a less expensive lottery protocol; under pathwise participation, the same service model calls for the deterministic frontier. In either institution an operator can price a symbol budget, add its implementation charge to the computed loss, and optimize the budget without confusing read-only program size with retained private information.

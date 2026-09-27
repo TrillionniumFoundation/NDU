@@ -1,0 +1,14 @@
+\begin{table}[htbp]
+\centering\small
+\caption{Preserved strict-target end-to-end timing comparisons}\label{tab:historical}
+\begin{tabular}{rrrr}
+\toprule
+Nodes & Lifted (ms) & Tanh (ms) & RBF (ms) \\ \midrule
+63 & 10.34 & 18.84 & 18.91 \\
+127 & 96.24 & 112.53 & 113.62 \\
+255 & 239.93 & 277.86 & 274.96 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{minipage}{.98\textwidth}\footnotesize Historical R24 measurements, unchanged. Target $10^{-5}$; 32 held-out contexts and three repetitions per method and size. Both learned routes have 100\% fallback at each size. Their paired saving intervals versus lifted continuation are entirely negative. Offline label/fitting costs are retained separately and cannot turn negative online savings into amortization. These are not newly timed R25 measurements.\end{minipage}
+\end{table}

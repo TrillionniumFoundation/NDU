@@ -1,0 +1,87 @@
+{
+  "id": "encoding-H2power16",
+  "family": "encoding_extension",
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:3eb9/10000",
+        "hex:24b3/4000",
+        "hex:6739/10000",
+        "hex:492b/10000",
+        "hex:c4c5/10000",
+        "hex:11e1/10000"
+      ],
+      "weights": [
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6"
+      ],
+      "gamma": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "ceilings": [
+        "hex:2d6f/8000",
+        "hex:a07/1000",
+        "hex:b39d/10000",
+        "hex:887b/10000",
+        "hex:1/1",
+        "hex:6e49/10000"
+      ],
+      "reward_r": [
+        "hex:9/4",
+        "hex:b/4",
+        "hex:9/4",
+        "hex:9/4",
+        "hex:2/1",
+        "hex:3/1"
+      ],
+      "reward_q": [
+        "hex:1/1",
+        "hex:1/1",
+        "hex:1/2",
+        "hex:1/2",
+        "hex:1/2",
+        "hex:3/4"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/6",
+      "hex:1/3",
+      "hex:1/2",
+      "hex:2/3",
+      "hex:5/6",
+      "hex:1/1"
+    ],
+    "charges": [
+      "hex:0/1",
+      "hex:1/64",
+      "hex:3/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/14",
+      "hex:1/64"
+    ],
+    "promise": "hex:1c26b/60000",
+    "budget": 2
+  },
+  "epsilon": "0",
+  "seconds": 2.0,
+  "methods": [
+    "lattice"
+  ],
+  "k": 6,
+  "n": 7,
+  "m": 2,
+  "seed": 5601,
+  "granularity_bits": 16,
+  "instance_sha256": "4c7257d2290185761333865f01d4d1889886bd552e2e2427dc2aa52ea362a0d2"
+}

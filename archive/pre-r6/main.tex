@@ -1,0 +1,77 @@
+% R4 scientific manuscript; historical manuscript is preserved at archive/pre-r4/.
+% Operations Research review format: 11 point, 1.5 spacing, one-inch margins.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\E}{\mathbb E}
+\newcommand{\R}{\mathbb R}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\KL}{\operatorname{KL}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\pos}[1]{(#1)^+}
+\newcommand{\clip}{\operatorname{proj}}
+\newcommand{\Hh}{\mathsf H}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Neural Differential Utility: Endogenous Service Contracts}
+\fancyhead[R]{\small Anonymous}
+\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{pdftitle={Neural Differential Utility: Endogenous Service Contracts and Certified Dynamic Optimization},pdfauthor={Anonymous}}
+\begin{document}
+\begin{titlepage}
+\centering
+{\Large\bfseries Neural Differential Utility:\\ Endogenous Service Contracts and\\ Certified Dynamic Optimization\par}
+\vspace{0.35in}
+{Anonymous manuscript for Operations Research\par}
+\vspace{0.25in}
+\begin{minipage}{\textwidth}
+\textbf{Abstract.}
+A service provider may jointly select operating capacity and a costly contract that changes future cash flows. We study this decision through Neural Differential Utility, retaining a fixed external accounting rule. In a perishable-inventory model, sufficiently responsive contract premiums yield optimal stock and contract choices that increase with demand stress and the inherited contract. We derive an exact upper-envelope algorithm, smooth neural critics with uniform error bounds, and a quadratic contract-discretization bound without global concavity. Expanded-action dynamic programming represents the model exactly; the economic gain is relative to restricted contract choices, not to unrestricted stochastic control. Exact rational calculations under a previously recorded protocol improve net reward and physical cost over a frozen contract while reducing the demand fill rate. A physical-cost oracle remains better on its own objective. For continuous reconfiguration, we establish a boundary-complete value and policy certificate and a scheme-specific refinement bound. Direct value gradients avoid singular volatility inversion, but an identical-data least-squares experiment shows parameterization parity. Exact finite-model results, analytic diffusion certificates, and historical neural diagnostics are reported separately.
+\par\vspace{0.2in}
+\textbf{Keywords:} stochastic control; inventory; service contracts; endogenous adjustment; value gradients; numerical certification.
+\par\vspace{0.12in}
+\textbf{Subject classifications:} Inventory/production: service contracts; Dynamic programming/optimal control: stochastic control; Analysis of algorithms: approximation guarantees.
+\par\vspace{0.12in}
+\textbf{Area of review:} Stochastic Models.
+\end{minipage}
+\vfill
+{Revision R4, September 20, 2026\par}
+\end{titlepage}
+
+\section{Introduction}
+A provider that promises a higher service level can earn a higher premium, incur a larger liability when demand is not served, and pay to maintain or revise the commitment. The operating decision and the contract decision are therefore connected. Stock determines exposure to liability; the contract changes the marginal value of stock; and an inherited commitment makes rapid adjustment costly. The relevant question is not whether a controller may redefine an unfavorable score. It is how a provider should jointly choose a physical action and an externally priced, persistent service commitment.
+
+We develop this operational interpretation of Neural Differential Utility. The term denotes joint control of physical activity and a costly internal or contractual state. The external accounting rule remains fixed throughout optimization and evaluation. The framework includes fixed-contract decision rules, and it is itself an ordinary stochastic-control problem when both decisions are admitted to the action set. This exact representation is useful: it supplies a stringent reference computation and makes the source of any improvement unambiguous.
+
+Our first contribution is a structural result for a perishable-inventory model. When incremental premium growth compensates for the incremental liability associated with demand stress, optimal stock and contract choices are monotone in both the demand regime and the inherited contract. The condition is imposed on cash-flow primitives and is verified for the recorded experiment. It is not inferred from the sign of a controllable penalty. Indeed, a provider allowed merely to lower its own shortage penalty would generally reduce that penalty when exposure rises. The distinction separates an economic service commitment from a change in the scoring rule.
+
+Our second contribution is computational. For each contract, stock can be eliminated by a newsvendor calculation. The remaining value function, after adding back the quadratic adjustment term, is an upper envelope of affine functions of the inherited contract. This representation gives an exact threshold algorithm on finite contract grids. More importantly, the same envelope property yields a quadratic contract-discretization error bound even when the reduced optimization problem is not globally concave. We use the bound to enclose the value of the continuous-contract problem, rather than treating a finer numerical grid as an exact reference.
+
+Our third contribution concerns economic interpretation and evidence. We derive an accounting identity linking changes in physical cost to changes in optimized net reward and contract transfers. It applies to the actual optimizing policy, not to a service parameter selected afterward to match a desired critical fractile. We execute all five methods in a previously recorded protocol with exact rational dynamic programming and independent recomputation. The joint policy improves net reward and physical cost over the fixed contract, but it serves a smaller fraction of demand. A state-aware physical-cost oracle achieves a lower physical cost. These comparisons identify a trade-off rather than universal operational dominance.
+
+The continuous-time part addresses a related computational difficulty. A contract or internal state can evolve nearly deterministically even though its shadow price matters for control. The volatility of the value process then provides a poorly conditioned observation of that shadow price. A direct value-gradient representation avoids the inversion, provided it remains compatible with a scalar value function. We prove a stopped-domain certificate with separate terminal and lateral-boundary errors and with both value comparisons needed for a policy-loss bound. A manufactured controlled diffusion supplies analytic certificates and a separate space--time--action refinement calculation. These results do not turn a sampled residual from a large neural experiment into a uniform certificate.
+
+Joint pricing and replenishment are established stochastic-control decisions; for example, \citet{FedergruenHeching1999} analyze demand-dependent pricing with inventory replenishment and backlogging. Here demand is exogenous, stock perishes, and the service contract changes premium and shortage liability while carrying an adjustment state. We do not claim a new general class of joint control. The useful structure is the premium--liability condition, the inherited-contract envelope, and the resulting computable error budget.
+
+The structural argument builds on lattice optimization \citep{Topkis1978}; the contribution is the premium--liability condition and its dynamic propagation in the contract model. The computational analysis uses the geometry of the Bellman maximization, rather than an assumption that every inner problem is concave. Our continuous-time representation retains the value-process and gradient relationship used in forward--backward methods \citep{MaProtterYong1994,HanJentzenE2018}. Our quantitative grid statement is proved for the displayed scheme and solution; it does not infer a numerical rate solely from qualitative convergence conditions.
+
+
+\input{revisions/or-r4-20260920/sections/model_structure.tex}
+\input{revisions/or-r4-20260920/sections/physical_continuous.tex}
+\input{revisions/or-r4-20260920/sections/study_references.tex}

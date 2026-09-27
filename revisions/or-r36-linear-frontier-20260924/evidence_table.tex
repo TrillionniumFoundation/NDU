@@ -1,0 +1,15 @@
+\begin{table}[htbp]\centering
+\caption{Complete expected-participation frontiers on identical inputs. All budgets one through eight are computed. Counts include repeated economic oracle evaluations, but not ordinal padding comparisons.}\label{tab:r36-scale}
+\begin{tabular}{rrrrr}\toprule
+Branches & Monotone calls & Linear calls & Monotone seconds & Linear seconds\\\midrule
+16 & 289 & 534 & 0.008 & 0.014\\
+32 & 842 & 1,447 & 0.022 & 0.033\\
+64 & 2,177 & 3,375 & 0.054 & 0.073\\
+128 & 5,247 & 7,342 & 0.127 & 0.156\\
+256 & 12,177 & 15,376 & 0.299 & 0.341\\
+512 & 27,600 & 31,551 & 0.697 & 0.721\\
+1,024 & 61,546 & 63,985 & 1.584 & 1.493\\
+2,048 & 135,597 & 128,966 & 3.559 & 3.129\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.97\textwidth}\small Monotone denotes the preceding divide-and-conquer implementation; linear denotes the implemented SMAWK search with symbolic staircase completion. Every row has exact equality for both expected and pathwise frontiers and direct controller replay. The quadratic randomized baseline agrees through 256 branches; larger quadratic runs are not executed. Timing is machine-dependent. Inputs are synthetic.\end{minipage}
+\end{table}

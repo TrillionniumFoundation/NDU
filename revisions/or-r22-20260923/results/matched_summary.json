@@ -1,0 +1,356 @@
+{
+  "observations": 5120,
+  "status": "PASS",
+  "summary": [
+    {
+      "method": "classical-cold",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 14.302315660157383,
+      "median_ms": 13.770582999995895,
+      "p95_ms": 25.27172099998154,
+      "original_pass": 1.0,
+      "polished_pass": 1.0,
+      "fallback": 0.0,
+      "polish_ms": 1.329644511717465,
+      "mean_difference_interval95_ms": [
+        5.443477806402396,
+        8.08333109984596
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "classical-previous",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 13.744830328125568,
+      "median_ms": 12.909240499993757,
+      "p95_ms": 24.51344399996458,
+      "original_pass": 1.0,
+      "polished_pass": 1.0,
+      "fallback": 0.0,
+      "polish_ms": 1.3268933789056803,
+      "mean_difference_interval95_ms": [
+        5.659280950183939,
+        6.752557292000786
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "lifted-price-continuation",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 7.538911207033205,
+      "median_ms": 6.927660999991758,
+      "p95_ms": 12.555263749987944,
+      "original_pass": 1.0,
+      "polished_pass": 1.0,
+      "fallback": 0.0,
+      "polish_ms": 1.3263111171866182,
+      "mean_difference_interval95_ms": [
+        0.0,
+        0.0
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "tanh-value",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 40.443135843750696,
+      "median_ms": 32.48065650001308,
+      "p95_ms": 95.3400747500126,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.3242716367189988,
+      "mean_difference_interval95_ms": [
+        26.94992766985383,
+        38.85852160358116
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "tanh-gradient",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 38.50349216796967,
+      "median_ms": 29.124996000007286,
+      "p95_ms": 96.07507500001589,
+      "original_pass": 0.0078125,
+      "polished_pass": 0.046875,
+      "fallback": 0.953125,
+      "polish_ms": 1.3208483789066694,
+      "mean_difference_interval95_ms": [
+        24.375271933876864,
+        37.55388998799605
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "tanh-direct",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 33.82884661327967,
+      "median_ms": 25.81552549997923,
+      "p95_ms": 94.02066799997044,
+      "original_pass": 0.015625,
+      "polished_pass": 0.125,
+      "fallback": 0.875,
+      "polish_ms": 1.3346091953116979,
+      "mean_difference_interval95_ms": [
+        20.93971080642764,
+        31.640160006065294
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "quadratic-value",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 33.49275325000023,
+      "median_ms": 24.969948999995495,
+      "p95_ms": 88.98920875002148,
+      "original_pass": 0.04296875,
+      "polished_pass": 0.17578125,
+      "fallback": 0.82421875,
+      "polish_ms": 1.322371839843406,
+      "mean_difference_interval95_ms": [
+        20.115830543224504,
+        31.791853542709546
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "quadratic-gradient",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 32.73715622265483,
+      "median_ms": 22.70097450002595,
+      "p95_ms": 96.15064300001563,
+      "original_pass": 0.0859375,
+      "polished_pass": 0.265625,
+      "fallback": 0.734375,
+      "polish_ms": 1.3284494960941196,
+      "mean_difference_interval95_ms": [
+        19.01362332772232,
+        31.382866703520925
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "quadratic-direct",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 10.470933402343396,
+      "median_ms": 7.574045000012575,
+      "p95_ms": 26.676799250026306,
+      "original_pass": 0.55859375,
+      "polished_pass": 0.875,
+      "fallback": 0.125,
+      "polish_ms": 1.325503710938758,
+      "mean_difference_interval95_ms": [
+        1.917558023098024,
+        3.946486367522358
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "rbf-direct",
+      "tol": 0.001,
+      "n": 256,
+      "mean_ms": 8.542288804686882,
+      "median_ms": 7.093635000018139,
+      "p95_ms": 17.348998249985925,
+      "original_pass": 0.8671875,
+      "polished_pass": 0.9375,
+      "fallback": 0.0625,
+      "polish_ms": 1.3322000039055482,
+      "mean_difference_interval95_ms": [
+        0.03681421120074475,
+        1.9699409841066078
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "classical-cold",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 25.60889547265588,
+      "median_ms": 16.577670499970054,
+      "p95_ms": 76.88287175000141,
+      "original_pass": 0.578125,
+      "polished_pass": 0.578125,
+      "fallback": 0.421875,
+      "polish_ms": 1.3241754765613845,
+      "mean_difference_interval95_ms": [
+        4.370687026973263,
+        8.965896176147883
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "classical-previous",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 25.5274343437506,
+      "median_ms": 17.239613000015197,
+      "p95_ms": 79.57557650000524,
+      "original_pass": 0.56640625,
+      "polished_pass": 0.56640625,
+      "fallback": 0.43359375,
+      "polish_ms": 1.3253397500025965,
+      "mean_difference_interval95_ms": [
+        5.1842306699001215,
+        7.989430275410462
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "lifted-price-continuation",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 18.940603871095306,
+      "median_ms": 8.876964499989981,
+      "p95_ms": 67.70013025001731,
+      "original_pass": 0.5859375,
+      "polished_pass": 0.5859375,
+      "fallback": 0.4140625,
+      "polish_ms": 1.324911703125986,
+      "mean_difference_interval95_ms": [
+        0.0,
+        0.0
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "tanh-value",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 40.61053150390648,
+      "median_ms": 32.24683050001431,
+      "p95_ms": 95.27868024999009,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.3203336835956314,
+      "mean_difference_interval95_ms": [
+        15.63513683495589,
+        27.70471843066645
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "tanh-gradient",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 39.54134248828245,
+      "median_ms": 30.0624314999709,
+      "p95_ms": 96.07243849998781,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.319952738280783,
+      "mean_difference_interval95_ms": [
+        14.254406439239402,
+        26.94707079513488
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "tanh-direct",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 38.33026027343678,
+      "median_ms": 27.70852849999983,
+      "p95_ms": 94.96806925002943,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.3248273632833207,
+      "mean_difference_interval95_ms": [
+        14.400411599546345,
+        24.378901205136597
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "quadratic-value",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 38.48869395312637,
+      "median_ms": 29.255761500024846,
+      "p95_ms": 94.64242474999196,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.324668453122957,
+      "mean_difference_interval95_ms": [
+        14.314938349212593,
+        24.78124181484954
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "quadratic-gradient",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 39.55259733203054,
+      "median_ms": 29.619126000028473,
+      "p95_ms": 100.65814950000629,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.32511576171912,
+      "mean_difference_interval95_ms": [
+        15.50950401020128,
+        25.714482911669183
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "quadratic-direct",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 38.15954142187494,
+      "median_ms": 27.95347650001645,
+      "p95_ms": 93.6230150000057,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.3286500234375165,
+      "mean_difference_interval95_ms": [
+        13.450749822831996,
+        24.987125278727277
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    },
+    {
+      "method": "rbf-direct",
+      "tol": 1e-05,
+      "n": 256,
+      "mean_ms": 36.492291742185934,
+      "median_ms": 28.7779285000056,
+      "p95_ms": 89.77851699997075,
+      "original_pass": 0.0,
+      "polished_pass": 0.0,
+      "fallback": 1.0,
+      "polish_ms": 1.323806468748634,
+      "mean_difference_interval95_ms": [
+        12.55532580571242,
+        22.548049936468832
+      ],
+      "classical_comparator": "lifted-price-continuation"
+    }
+  ],
+  "host": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+  "design": "DESIGN.json",
+  "first_eps": 1e-05,
+  "fallback_eps": 1e-09,
+  "all_final_certificates_valid": true,
+  "all_primal_unchanged_by_price_polishing": true,
+  "factorization": "All OSQP objects cache matrices and workspaces; adaptive rho and polishing can trigger numerical refactorization. No symbolic/numeric reuse is claimed across different formulations.",
+  "warm_state": "Previous and lifted retain primal and all dual iterates in separate instances per target; cold and surrogate response reset iterates.",
+  "timing": "Actual sequential wall time includes prediction, response, rational repair/audit, polishing, actual fallback and final audit. Host-specific; cohort Student intervals are descriptive."
+}

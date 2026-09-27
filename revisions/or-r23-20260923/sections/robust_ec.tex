@@ -1,0 +1,55 @@
+\section{Joint misspecification: construction and verification}\label{ec:r23-robust}
+This section supplies the implementation details for Theorem~\ref{thm:r23-robust}. Uncertainty changes the accepted inequalities as well as reward and friction. It is different from the known-model context shift in the preceding experiments.
+
+\subsection{Exact implementation and the comparator outer class}
+Collect the box and vertex participation/capacity inequalities in $a_j^\top x\leq b_j$, retaining the fixed equality $Ex=0$. Suppose an anchor $z$ satisfies that equality and $a_j^\top z<b_j$ for every listed inequality. For an equality-feasible rational proposal $y^0$, set
+\begin{equation}\label{eq:r23-repair}
+ \alpha=\max\left\{0,\ \max_{j:a_j^\top y^0>b_j}
+ \frac{a_j^\top y^0-b_j}{a_j^\top y^0-a_j^\top z}\right\},\qquad
+ y=(1-\alpha)y^0+\alpha z.
+\end{equation}
+An empty inner maximum is omitted. Then $0\leq\alpha<1$, $y$ satisfies every inequality and the equality, and $\alpha$ is the smallest feasible mixing fraction on this ray. Indeed, each violated inequality requires exactly the displayed lower bound on $\alpha$; inequalities already satisfied remain satisfied by convexity. For any concave $F_v$, even if $y^0$ is not accepted,
+\[
+ g(y)\geq\min_v\{(1-\alpha)F_v(y^0)+\alpha F_v(z)-U_v\}.
+\]
+Thus repair has an explicit value charge rather than an unreported feasibility tolerance. The anchor condition belongs to this particular repair construction, not to Theorem~\ref{thm:r23-robust}. A rational polyhedral feasibility solve can supply an alternative implementation when a strict anchor does not exist.
+
+In the recorded tree, nonroot anchor displacements are negative and each root displacement is reconstructed from its exact weighted equality. A common positive scale makes all box and capacity inequalities strict. Nonroot continuation coefficients remain positive over the specified uncertainty set, so their subtree sums are strictly negative. The code rounds only nonroot proposed coordinates, reconstructs root equalities in rational arithmetic, and applies \eqref{eq:r23-repair}. The independent verifier then recomputes every inequality from the implemented rational vector.
+
+Write the nominal continuation matrix as $A^0$, the capacity matrix as $C_0$, and nominal capacity budgets as $a^0$. With $\sigma_i\in\{-1,1\}$ and $\zeta\in[-1,1]^3$, continuation rows become $A_{\zeta,ji}=A^0_{ji}(1+\rho\zeta_3\sigma_i)$ and budgets become $(1+\rho\zeta_2)a^0$. Put $m_i=\max\{|\ell_i|,|u_i|\}$. A common outer time-only class is given by the same box, root and time-only equalities, and
+\begin{equation}\label{eq:r23-outer}
+ A^0_jx\leq\rho\sum_i|A^0_{ji}|m_i,\qquad
+ C_0x\leq(1+\rho)a^0.
+\end{equation}
+For any truly accepted $x$, the first bound follows from
+$A^0_jx=A_{\zeta,j}x-\rho\zeta_3\sum_iA^0_{ji}\sigma_ix_i$;
+the second follows from $\zeta_2\leq1$. Hence every model-specific accepted time-only class is contained in \eqref{eq:r23-outer}. This is an analytical containment argument for all hidden coefficients, not a test on sampled models. At zero radius the outer class equals the nominal accepted time-only class. Positive radius can make the bound conservative; the reported quantity is a lower certificate, not an equality with true robust gain.
+
+\subsection{Frozen-policy interpretation}
+For a context $q$, let $y(q)$ be a predeclared deterministic robust-feasible rule and let $g(q)$ be its certificate. Suppose $F_{q,\zeta}(y(q))\in[0,B]$ and $K_{q,\zeta}\in[0,B]$ uniformly. Then $H(q)=\inf_\zeta\{F_{q,\zeta}(y(q))-K_{q,\zeta}\}\in[-B,B]$ and $H(q)\geq g(q)$. Assume these functions are measurable. For $M$ frozen rules and independent contexts with their stated common deployment law, Hoeffding's inequality and a union bound imply, simultaneously with probability at least $1-\delta$,
+\[
+ \E H(q)\geq\frac1N\sum_{i=1}^N g(q_i)
+       -2B\sqrt{\frac{\log(M/\delta)}{2N}}.
+\]
+Apply concentration to $H$, not to an unbounded numerical lower certificate, and then use $H(q_i)\geq g(q_i)$. The hidden coefficients may depend adversarially on the observed context inside its specified uncertainty set. The probability statement is conditional on frozen rules; it does not average over training randomness or establish coverage of an uncalibrated uncertainty set. The new study below reports pointwise certificates and descriptive averages only, not a new positive population lower confidence bound. The earlier nominal-model population results remain separately identified.
+
+\subsection{Predeclared model and executed protocol}
+The instance retains 63 nodes, two service coordinates, six resource factors, four additional capacities, heterogeneous outside tiers, and endogenous switching signs. The predeclared radii are $0,1/16,1/8,1/4$. In addition to \eqref{eq:r23-outer}'s participation and budget perturbations, the true coefficients are
+\[
+ b_\zeta=(1+\rho\zeta_1)b_0+\rho\zeta_3w,\quad
+ \lambda_\zeta=(1+\rho\zeta_2)\lambda_0,\quad
+ w_i=(-1)^i/8,\quad \sigma_i=(-1)^{\lfloor i/2\rfloor},
+\]
+using zero-based coordinate indices. Curvature, resource loadings, switching incidence, outside tiers and root equalities remain fixed. All objectives are affine in the hidden coefficients for fixed decisions, with nonnegative friction throughout. This is simultaneous coefficient misspecification, not uncertain transition probabilities or arbitrary nonlinear model error.
+
+Ninety-six fresh contexts use seed 2302301 and the original declared discrete reward/friction law. The engineering pilot uses two different contexts and is excluded. The two deterministic predictors average the same eight previously frozen tanh-gradient or RBF-direct price models; no fitting or model selection uses this study. Each predictor supplies an observed-model resource price to a nominal-objective response over the robust accepted set. This response is then rationally repaired and evaluated at all eight uncertainty vertices. A gate substitutes the outside policy only when its worst vertex objective is negative. This protects the outside option, not a zero gain relative to the optimized restricted comparator.
+
+For a strong classical comparison, write $H=D+U^\top U$ and introduce switching epigraphs $t\geq\pm(Bx+v)$ and a scalar $\tau$. With the same certified outer-comparator values $U_a$, solve
+\[
+ \max_{x,t,\tau}\ \tau-\tfrac12x^\top Hx,\qquad
+ \tau\leq b_a^\top x-\lambda_a k^\top t
+       +\lambda_a k^\top|v|-U_a\quad(a\in\mathcal V),
+\]
+subject to robust acceptance. This is an ordinary convex quadratic program. It optimizes the common certified maximin objective before numerical error and repair; it does not compute the exact model-specific worst-case gain. The final reported quantity is recomputed from the implemented rational decision. Nominal learned responses are also retained as nondeployed diagnostics and tested against the entire robust set.
+
+Every solve uses a fresh OSQP workspace and nominal tolerance $10^{-8}$. Eight outer-class solves are charged separately per context and radius, rather than hidden as free certificates. Any numerical failure is recorded; a zero proposal or valid zero-dual upper certificate is available, and negative gain bounds are retained. The script stores integer/rational decisions, multipliers, objective values, and bounds. A Python-standard-library replay reconstructs outer-class containment, robust geometry, exact equalities, all dual-domain constraints and outward-rounded box conjugates without invoking a solver. Mutation controls check invalid tiers, root equalities, inequality prices, switching tensions, outer containment and robust participation rows. The one-dimensional interior-comparator counterexample is independently evaluated at 1,001 rational parameter values.

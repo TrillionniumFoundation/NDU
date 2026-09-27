@@ -1,0 +1,8 @@
+component,channel,declared_bound,local_slope_bound,compact_domain_radius,budget_product,threshold,status,interpretation
+state_feature_clipping,wealth_habit_signal_belief_features,4.0,1.25,1.0,5.0,12.0,budget_recorded,log/normalization/clipping keeps numerical state features inside the declared compact domain
+actor_tanh_control_map,risky_action_and_leverage,1.0,1.0,1.0,1.0,12.0,budget_recorded,tanh or explicit clipping bounds risky-action and leverage channels
+preference_sigmoid_map,valuation_control_theta,1.0,0.25,1.0,0.25,12.0,budget_recorded,sigmoid preference controls map to compact intervals
+belief_simplex_clip,hidden_regime_belief,1.0,1.1,1.0,1.1,12.0,budget_recorded,belief updates are clipped away from simplex boundaries
+portfolio_l1_normalization,multi_asset_weights,1.0,2.0,1.0,2.0,12.0,budget_recorded,portfolio weights use l1-type normalization instead of unrestricted leverage
+value_mlp_gradient_clip,critic_gradient_and_hessian_path,3.0,2.5,1.0,7.5,12.0,budget_recorded,gradient clipping records a finite AD path budget for sampled residual checks
+cem_variance_cap,matched_budget_stress_engine,2.0,1.4,1.0,2.8,12.0,budget_recorded,CEM variance caps avoid unconstrained optimizer excursions

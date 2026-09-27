@@ -1,0 +1,59 @@
+\subsection{Switching thresholds and persistence}\label{sec:thresholds}
+Let
+\[
+ B_t(z,\theta)=r_z\theta-m\theta^2+U_z(\theta)
+       +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta).
+\]
+This notation removes the current adjustment term, but its continuation still depends on the adjustment-cost parameter. Write $b_i=B_t(z,\theta_i)-\lambda\theta_i^2$ for a finite ordered menu.
+\begin{proposition}[Thresholds and two-tier hysteresis]\label{prop:hysteresis}
+For $\lambda>0$, adjacent surviving lines $i<j$ of the upper hull exchange optimality at
+\begin{equation}\label{eq:threshold}
+ q_{ij}=\frac{b_i-b_j}{2\lambda(\theta_j-\theta_i)}.
+\end{equation}
+The greatest optimizer selects the higher tier at equality. Suppose the menu consists of two tiers $a<b$ and put $\Delta=B_t(z,b)-B_t(z,a)$ and $d=b-a$. From inherited tier $a$ the provider switches upward exactly when $\Delta\geq\lambda d^2$. From inherited tier $b$ the provider switches downward exactly when $\Delta<-\lambda d^2$. Thus the interval $-\lambda d^2\leq\Delta<\lambda d^2$ preserves the inherited tier.
+\end{proposition}
+\begin{proof}
+Subtract the two affine maximands in \eqref{eq:envelope} and solve their equality for $q$. Ordered slopes and deletion of dominated lines give ordered crossings. With two tiers, the upward value difference at $q=a$ is $\Delta-\lambda d^2$; at $q=b$ it is $\Delta+\lambda d^2$. The strict and weak inequalities follow from selecting the greater tier at a tie.\end{proof}
+The hysteresis width is $2\lambda d^2$ in continuation-adjusted reward units. This is an implementable rule: change tier only when its incremental premium, liability, maintenance, and continuation advantage crosses the appropriate adjustment threshold. It is not a claim that a threshold expressed in an arbitrary economic signal grows monotonically with $\lambda$: $B_t$ changes with $\lambda$ too. For a continuous menu, a quadratic adjustment cost generally gives small continuous adjustments rather than a positive inaction band. For a larger discrete menu, a pairwise comparison is a decision threshold only when both lines survive the hull. These distinctions connect the present structure to, rather than replace, the hysteretic-control literature \citep{HippHolzbaur1988}.
+
+\begin{proposition}[Aggregate comparative statics]\label{prop:comparative}
+Fix the transition law, initial state, discount, horizon, and a parameter-independent feasible policy class. If a stage coefficient $a$ enters reward as $-a e_t$, then any optimizers $\pi_1,\pi_2$ at $a_1<a_2$ satisfy
+\[
+ \E^{\pi_2}\sum_t\beta^t e_t\leq
+ \E^{\pi_1}\sum_t\beta^t e_t.
+\]
+The optimal value is convex and nonincreasing in $a$ when $e_t\geq0$. Consequently optimal discounted squared movement is nonincreasing in $\lambda$, tier square in $m$, and indemnity exposure $\theta L_z(S)$ in $\kappa$. A uniform additive premium increase makes optimal discounted tier usage nondecreasing.
+\end{proposition}
+\begin{proof}
+Write a policy's objective as $A(\pi)-a E(\pi)$. Optimality at the two coefficients gives
+$A_1-a_1E_1\geq A_2-a_1E_2$ and
+$A_2-a_2E_2\geq A_1-a_2E_1$.
+Adding yields $(a_2-a_1)(E_1-E_2)\geq0$. A supremum of affine functions is convex; their nonpositive slopes give monotonicity. Replace $-aE$ by $+aE$ for the premium statement.\end{proof}
+These are policy-level exposure results, not pointwise monotonicity of each action. In particular, the $\kappa$ comparison does not hold automatically when changing $\kappa$ also changes the participation-feasible set through \eqref{eq:customer}. Neither discounting nor regime persistence is a linear coefficient of a fixed policy's discounted occupation measure; their effects are reported by recomputation, without a universal sign assertion.
+
+A constant contract can be optimal even with state variation. If one tier $\bar\theta$ maximizes $r_z\theta-m\theta^2+U_z(\theta)$ for every regime and $q_0=\bar\theta$, selecting it forever attains every period's intrinsic upper bound with zero adjustment. It is therefore optimal for every horizon, discount, transition law, and $\lambda\geq0$. Conversely, premium--liability compatibility is substantive. For $T=1$, $\mathcal S=\{0\}$, deterministic $D_z=z$, $r_z=1$, $q=1/2$, $m=3/2$, and $\lambda=3/5$, the continuous optimizer is
+\[
+ \theta^*(z)=\operatorname{proj}_{[0,1]}
+          \frac{1.6-1.2z}{4.2}.
+\]
+It decreases from $8/21$ to $2/21$ and then to zero as $z=0,1,2$. This example has a positive external premium; failure is not confined to a self-selected penalty with no counterparty. Compatibility is sufficient, not necessary: a particular calibrated family may remain monotone after the sufficient inequality fails.
+
+\subsection{Beyond scalar quadratic adjustment}\label{sec:bregman}
+For a continuously differentiable strictly convex potential $\phi$ on a compact contract interval, define
+\[
+ D_\phi(\theta,q)=\phi(\theta)-\phi(q)-\phi'(q)(\theta-q).
+\]
+Replace $\lambda(\theta-q)^2$ by $\lambda D_\phi(\theta,q)$; $\phi(q)=q^2$ recovers the original model. The cost can be asymmetric. This is a specified nonquadratic cost family, not a representation of every possible switching cost.
+\begin{theorem}[Dual-coordinate envelope]\label{thm:bregman}
+Suppose current $q$ enters only the adjustment cost and the next inherited state equals $\theta$. Other state transitions and rewards may depend on an operating state $x$, regime, stock, and $\theta$, but not separately on $q$. Then
+\begin{equation}\label{eq:bregman}
+ V_t(x,z,q)=\lambda\{\phi(q)-q\phi'(q)\}
+       +\max_{\theta}\{b_t(x,z,\theta)+\lambda\theta\phi'(q)\},
+\end{equation}
+where $b_t$ includes the optimization over physical actions and all continuation terms, and subtracts $\lambda\phi(\theta)$. For a scalar ordered finite menu, the same linear-time hull construction and ordered queries apply in the coordinate $y=\phi'(q)$. In dimension $d$, the identity holds with $q\phi'(q)$ replaced by $q^\top\nabla\phi(q)$ and with an envelope of affine functions of $y=\nabla\phi(q)$.
+\end{theorem}
+\begin{proof}
+Expand $-\lambda D_\phi$ in the Bellman objective. Terms depending solely on $q$ leave the maximum; all remaining dependence on $q$ is $\lambda\theta\phi'(q)$. Convexity makes $\phi'$ nondecreasing. The scalar affine slopes $\lambda\theta$ are ordered, so the hull proof of Theorem~\ref{thm:envelope} applies verbatim to ordered dual coordinates. The vector identity follows from the same expansion.\end{proof}
+In dimension greater than one the cells are polyhedral in dual coordinates; the identity does not give a linear-time multidimensional hull algorithm. A continuous physical state changes the intercept computation and may still require numerical integration and physical-state discretization. The theorem accelerates the inherited-contract dimension, not every dimension of a general inventory system.
+
+Nonlinear menu payments need not destroy the structure. If premium and liability are $r_z h(\theta)$ and $\kappa h(\theta)L_z(S)$ for a continuous nondecreasing $h$, the stock--tier and regime--tier cross differences retain their signs under Assumption~\ref{ass:lattice}; arbitrary continuous tier-only maintenance does not change those cross differences. With quadratic adjustment, Theorem~\ref{thm:lattice} still applies. The envelope identity also persists because it uses the adjustment term, not linearity of tier payments. However, the particular convexity argument giving the $O(n^{-2})$ bound must be checked anew when $h$ changes. We do not transfer that rate to arbitrary nonlinear payments by assertion.

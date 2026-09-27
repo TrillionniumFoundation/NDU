@@ -1,0 +1,11 @@
+benchmark,metric,full_ndu_value,best_non_ndu_method,best_non_ndu_value,full_minus_best_non_ndu_if_higher_better_else_best_minus_full,lower_is_better,note
+exp1,wealth_terminal,1.03452006974,augmented_state_rl,1.0270823766,0.0074376931396,false,external terminal-wealth metric
+exp2,sharpe,1.43920243028,preference_only,1.41981329579,0.019389134497,false,latent-regime realized Sharpe; theta not used directly in evaluator
+exp2,max_drawdown,-6.60512390279e-05,preference_only,-0.00247768320322,0.0024116319642,false,drawdown closer to zero is better; theta not used directly in evaluator
+exp2,regime_detection_acc,0.608870442708,preference_only,0.604782443576,0.00408799913194,false,diagnostic filtering accuracy; oracle row is privileged
+exp3,sharpe,1.44785358559,oracle_factor_joint_rl,1.49413240996,-0.046278824366,false,realized return Sharpe; theta not used in evaluator
+exp3,max_drawdown,-0.0661957229356,fixed_pref_joint_rl,-0.0464359840561,-0.0197597388795,false,drawdown closer to zero is better; theta not used in evaluator
+exp3,turnover,0.232678992425,fixed_pref_joint_rl,0.295368866166,0.0626898737412,true,portfolio trading turnover; theta not used in evaluator
+inventory,avg_cost,4.30403217005,action_only_adaptive_base_stock,4.3213602795,0.01732810945,true,inventory operating cost
+inventory,ending_backlog,0.266060514148,fixed_service_base_stock,0.289813037168,0.02375252302,true,inventory ending backlog
+inventory,service_breach_count,1.39127604167,valuation_only_service_rule,1.4216796875,0.03040364583,true,periods below service-level target

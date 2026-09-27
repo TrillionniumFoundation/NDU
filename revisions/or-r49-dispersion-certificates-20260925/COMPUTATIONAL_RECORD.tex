@@ -1,0 +1,49 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,graphicx,pgfplots}
+\pgfplotsset{compat=1.18}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Limited-Memory Renewal Contracts}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\externaldocument{r49-main-labels}[../../main.pdf]
+\hypersetup{pdftitle={Limited-Memory Renewal Contracts: Exact Eligibility Pooling and Certified Joint Design},pdfauthor={Anonymous}}
+\renewcommand{\thesection}{CR.\arabic{section}}
+\renewcommand{\theequation}{CR.\arabic{equation}}
+\renewcommand{\thetable}{CR.\arabic{table}}
+
+\externaldocument{r49-ec-labels}[../../electronic_companion.pdf]
+\begin{document}
+\begin{center}{\Large\bfseries Computational Reproduction Record}\end{center}
+This repository reproduction record contains the complete preceding computational narratives and tables, identified by their original revision, followed by every new exact-pooling and numerical mixed-integer case. It is code-and-experiment documentation, not an additional proof appendix. The current article and electronic companion retain all mathematical statements and proofs. Historical measurements are not relabeled as fresh executions.
+\input{revisions/or-r46-box-decomposition-20260925/study.tex}
+\input{revisions/or-r46-box-decomposition-20260925/protocol.tex}
+\input{revisions/or-r47-joint-certificates-20260925/study.tex}
+\input{revisions/or-r48-harmonic-coarsening-20260925/study.tex}
+\clearpage\input{revisions/or-r49-dispersion-certificates-20260925/generated/references.tex}
+\clearpage\input{revisions/or-r48-harmonic-coarsening-20260925/generated/detailed_tables.tex}
+\clearpage\input{revisions/or-r48-harmonic-coarsening-20260925/generated/antecedent_main_tables.tex}
+\clearpage\input{revisions/or-r47-joint-certificates-20260925/generated/main_tables.tex}
+\clearpage\input{revisions/or-r46-box-decomposition-20260925/generated/historical_main_tables.tex}
+\clearpage\input{revisions/or-r48-harmonic-coarsening-20260925/generated/main_table.tex}
+\clearpage\input{revisions/or-r47-joint-certificates-20260925/generated/companion_tables.tex}
+\clearpage\input{revisions/or-r46-box-decomposition-20260925/generated/companion_tables.tex}
+\clearpage\input{revisions/or-r39-robust-quantizer-20260924/derived/accounting_table.tex}
+\clearpage\input{revisions/or-r49-dispersion-certificates-20260925/generated/detailed_tables.tex}
+\end{document}

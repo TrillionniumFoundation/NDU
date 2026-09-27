@@ -1,0 +1,87 @@
+{
+  "id": "lattice-H16-m4-5602",
+  "family": "lattice",
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:1/8",
+        "hex:1/4",
+        "hex:f/10",
+        "hex:d/10",
+        "hex:7/10",
+        "hex:b/10"
+      ],
+      "weights": [
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6",
+        "hex:1/6"
+      ],
+      "gamma": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "ceilings": [
+        "hex:9/10",
+        "hex:5/8",
+        "hex:1/1",
+        "hex:7/8",
+        "hex:7/8",
+        "hex:d/10"
+      ],
+      "reward_r": [
+        "hex:9/4",
+        "hex:b/4",
+        "hex:5/2",
+        "hex:2/1",
+        "hex:2/1",
+        "hex:3/1"
+      ],
+      "reward_q": [
+        "hex:1/4",
+        "hex:1/1",
+        "hex:1/4",
+        "hex:3/4",
+        "hex:3/4",
+        "hex:1/4"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/6",
+      "hex:1/3",
+      "hex:1/2",
+      "hex:2/3",
+      "hex:5/6",
+      "hex:1/1"
+    ],
+    "charges": [
+      "hex:0/1",
+      "hex:1/19",
+      "hex:1/19",
+      "hex:1/19",
+      "hex:1/64",
+      "hex:1/32",
+      "hex:3/64"
+    ],
+    "promise": "hex:d/20",
+    "budget": 4
+  },
+  "epsilon": "0",
+  "seconds": 2.0,
+  "methods": [
+    "lattice",
+    "enumeration"
+  ],
+  "k": 6,
+  "n": 7,
+  "m": 4,
+  "seed": 5602,
+  "instance_sha256": "3781c51c5df12f40dd9f8b87b31f3b1ba0dd529decf7d7995c506c8e051c577a"
+}

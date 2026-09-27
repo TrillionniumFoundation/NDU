@@ -1,0 +1,502 @@
+PIN 9/40 STATIC THETA 0.5821103917760961
+static -5.87011097304676 eta 0.0
+time -5.869294096264034 eta 0.0015682942812897701
+regime -5.252736080200586 eta 0.17484975079685391
+full -5.2334457014353255 eta 0.1802712437335985
+INCREMENTS {'time': 0.0008168767827263874, 'regime': 0.616558016063448, 'full': 0.0192903787652605}
+canonical -5.244970661074603 0.6251403119721557
+lam=0.1 -5.138141463171033 0.728443997789662
+lam=1.2 -5.324351942468791 0.549602253003945
+lam=4.0 -5.526647002646529 0.36112558863230415
+m=1.2 -4.2028788462473585 0.7631260702895348
+m=1.8 -5.951108690393915 0.5350594256119381
+power=1.5 -6.022635823672084 0.9838577840315024
+power=3.0 -3.9296480577896435 0.3773299338486922
+kappa=0.9 -4.981128186507112 0.6331145608279707
+kappa=1.5 -5.507239723440917 0.6105439749417858
+slope=1.1 -6.636750822101716 0.38976877386744047
+slope=1.7 -3.608502888985901 0.9003119517451545
+r0=0.3 -6.450368213366956 0.5761513826022009
+r0=0.9 -3.851498082756051 0.6573167579750043
+nu=1.0 -5.244970661074603 0.6251403119721557
+nu=3.0 -5.244970661074607 0.6251403119721521
+persistence=0.6 -5.28919583778078 0.5809151352659798
+persistence=1.2 -5.226121840831908 0.6439891322148528
+dispersion=0.8 -4.501887821920048 0.6333936754270919
+dispersion=1.2 -6.32437323293414 0.6037741159887258
+utility_delta=-0.2 -5.209900372074305 0.6602106009724542
+utility_delta=0.2 -5.287250069453258 0.5828609035935015
+utility_delta=0.8 -5.434428255460823 0.43568271758593635
+fill_delta=-0.015 -5.244970661074603 0.6251403119721557
+fill_delta=0.015 infeasible None
+stock_step=1.0 -5.244970661074605 0.6251403119721539
+stock_step=0.25 -5.244970661074603 0.6251403119721557
+lower_variance_prob -4.530593518668983 0.6331145608279654
+higher_variance_prob -5.957774391279052 0.6105439749417849
+higher_service_with_cost_slack infeasible None
+zero_regime_premium -8.656094528783953 -1.7763568394002505e-15
+fine [{'intervals': 10, 'randomized_value': -5.244970661074604, 'deterministic_value': -5.247006823317261, 'randomized_gain': 0.6251403119721548, 'deterministic_gain': 0.6231041497294978, 'numerical_upper': -5.244970661074604, 'primal_dual_gap': 0.0, 'deterministic_to_upper': 0.0020361622426570136, 'seconds': 0.030568338999984235}, {'intervals': 20, 'randomized_value': -5.237637536827735, 'deterministic_value': -5.284466720550342, 'randomized_gain': 0.6324734362190245, 'deterministic_gain': 0.5856442524964169, 'numerical_upper': -5.237637536827735, 'primal_dual_gap': 0.0, 'deterministic_to_upper': 0.04682918372260758, 'seconds': 0.031648010999987264}, {'intervals': 40, 'randomized_value': -5.234637361570417, 'deterministic_value': -5.236634206252887, 'randomized_gain': 0.6354736114763417, 'deterministic_gain': 0.6334767667938719, 'numerical_upper': -5.234637361570417, 'primal_dual_gap': 0.0, 'deterministic_to_upper': 0.001996844682469856, 'seconds': 0.035501737999993566}, {'intervals': 80, 'randomized_value': -5.233738432623489, 'deterministic_value': -5.2368601057750706, 'randomized_gain': 0.6363725404232703, 'deterministic_gain': 0.6332508672716886, 'numerical_upper': -5.23373843262349, 'primal_dual_gap': -8.881784197001252e-16, 'deterministic_to_upper': 0.0031216731515808505, 'seconds': 0.04566728599999692}, {'intervals': 160, 'randomized_value': -5.233499396416777, 'deterministic_value': -5.233703759360285, 'randomized_gain': 0.6366115766299822, 'deterministic_gain': 0.636407213686474, 'numerical_upper': -5.233499396416777, 'primal_dual_gap': 0.0, 'deterministic_to_upper': 0.00020436294350822948, 'seconds': 0.08094649799997455}, {'intervals': 320, 'randomized_value': -5.233456635021289, 'deterministic_value': -5.2334777722843056, 'randomized_gain': 0.6366543380254699, 'deterministic_gain': 0.6366332007624536, 'numerical_upper': -5.233456635021288, 'primal_dual_gap': 8.881784197001252e-16, 'deterministic_to_upper': 2.1137263017223518e-05, 'seconds': 0.22509336800001734}]
+{'scope': 'continuous tiers and stock fixed only by exact fill/cost supporting-line lemma; customer continuation participation at every one of 3280 observable regime-history nodes', 'nodes': 3280, 'solver_success': True, 'solver_message': 'CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH', 'iterations': 53, 'seconds_including_exact_audit': 0.31275463200000786, 'minimum_tier': 0.087564039, 'maximum_tier': 0.672234205, 'contraction_factor': '1328705624632182880000000/1328706376107605686501119', 'value': -5.417032207796015, 'value_fraction': '-346690061298944949416526211657054881116207/64000000000000000000000000000000000000000', 'gain_over_static': 0.4530787652507453, 'gain_over_static_fraction': '66187671594401173087458862094492264738277184698404506927/146084249959874496000000000000000000000000000000000000000', 'loss_bound': 6.927890100497008e-07, 'loss_bound_fraction': '2530139072838862320867613135439501540323987377762977161/3652106248996862400000000000000000000000000000000000000000000', 'commitment_value_lost': 0.18358650636068952, 'numerical_active_review_constraints': 838, 'maximum_conditional_customer_deficit': 0, 'exact_residual_term': '5344442358800681309973740465667397/4800000000000000000000000000000000000000000000', 'exact_dual_slack_term': '632533751622666831284630613670783567898865012212881/913026562249215600000000000000000000000000000000000000000', 'tree_order': 'breadth first, root z=1; children z=0,1,2; T=8', 'note': 'The rational upper bound, not optimizer status, determines numerical certainty. Opposite party remains committed; no hidden effort is introduced.'}
+/home/runner/work/NDU/NDU/revisions/or-r7-20260921/portfolio_learning.py:95: FutureWarning: Input has data type int64, but the output has been cast to float64.  In the future, the output data type will match the input. To avoid this warning, set the `dtype` parameter to `None` to have the output dtype match the input, or set it to the desired output data type.
+  off=Ki-diags(Ki.diagonal(),format='csr')
+completed 64 0
+completed 64 1
+completed 64 2
+completed 64 3
+completed 256 0
+completed 256 1
+completed 256 2
+completed 256 3
+completed 1024 0
+completed 1024 1
+completed 1024 2
+completed 1024 3
+[
+  {
+    "d": 64,
+    "method": "cg_rtol1e-4",
+    "n": 4,
+    "mean_loss_per_service": 7.495632448062395e-10,
+    "max_bound_per_service": 4.882628823288882e-09,
+    "median_seconds": 0.0010158819999901425,
+    "minimum_gain_per_service": 0.013516445063484383,
+    "all_feasible": true
+  },
+  {
+    "d": 64,
+    "method": "chebyshev_degree12",
+    "n": 4,
+    "mean_loss_per_service": 2.573971838448763e-08,
+    "max_bound_per_service": 3.4913595288644433e-07,
+    "median_seconds": 0.0003541035000012016,
+    "minimum_gain_per_service": 0.013516421301205322,
+    "all_feasible": true
+  },
+  {
+    "d": 64,
+    "method": "dense_cholesky",
+    "n": 4,
+    "mean_loss_per_service": 0.0,
+    "max_bound_per_service": 5.6142456959067805e-12,
+    "median_seconds": 0.0002874080000054846,
+    "minimum_gain_per_service": 0.013516445735664706,
+    "all_feasible": true
+  },
+  {
+    "d": 64,
+    "method": "sparse_direct",
+    "n": 4,
+    "mean_loss_per_service": 0.0,
+    "max_bound_per_service": 5.6142456959067805e-12,
+    "median_seconds": 0.00031801550001375745,
+    "minimum_gain_per_service": 0.013516445735664706,
+    "all_feasible": true
+  },
+  {
+    "d": 64,
+    "method": "value_gradient",
+    "n": 40,
+    "mean_loss_per_service": 1.2716619271491147e-08,
+    "max_bound_per_service": 3.642422423767367e-07,
+    "median_seconds": 0.0003447859999994307,
+    "minimum_gain_per_service": 0.013516408674492025,
+    "all_feasible": true
+  },
+  {
+    "d": 64,
+    "method": "value_only_equal_oracle",
+    "n": 40,
+    "mean_loss_per_service": 1.578906719812423e-08,
+    "max_bound_per_service": 5.382919529400234e-07,
+    "median_seconds": 0.00034553649999224945,
+    "minimum_gain_per_service": 0.01351638897231363,
+    "all_feasible": true
+  },
+  {
+    "d": 256,
+    "method": "cg_rtol1e-4",
+    "n": 4,
+    "mean_loss_per_service": 8.615342883544486e-10,
+    "max_bound_per_service": 4.9206618419368845e-09,
+    "median_seconds": 0.001378526999985752,
+    "minimum_gain_per_service": 0.016469095597206575,
+    "all_feasible": true
+  },
+  {
+    "d": 256,
+    "method": "chebyshev_degree12",
+    "n": 4,
+    "mean_loss_per_service": 2.7465557939088114e-08,
+    "max_bound_per_service": 3.822552520690193e-07,
+    "median_seconds": 0.000691724999995813,
+    "minimum_gain_per_service": 0.016469069565065286,
+    "all_feasible": true
+  },
+  {
+    "d": 256,
+    "method": "dense_cholesky",
+    "n": 4,
+    "mean_loss_per_service": 0.0,
+    "max_bound_per_service": 7.253222483615312e-12,
+    "median_seconds": 0.0015367684999887388,
+    "minimum_gain_per_service": 0.016469096340372334,
+    "all_feasible": true
+  },
+  {
+    "d": 256,
+    "method": "sparse_direct",
+    "n": 4,
+    "mean_loss_per_service": 0.0,
+    "max_bound_per_service": 7.253222483615312e-12,
+    "median_seconds": 0.001043895500004055,
+    "minimum_gain_per_service": 0.016469096340372334,
+    "all_feasible": true
+  },
+  {
+    "d": 256,
+    "method": "value_gradient",
+    "n": 40,
+    "mean_loss_per_service": 1.503277006209558e-08,
+    "max_bound_per_service": 5.789012369759091e-07,
+    "median_seconds": 0.0006845220000002428,
+    "minimum_gain_per_service": 0.016469041898684058,
+    "all_feasible": true
+  },
+  {
+    "d": 256,
+    "method": "value_only_equal_oracle",
+    "n": 40,
+    "mean_loss_per_service": 1.678850432285106e-08,
+    "max_bound_per_service": 7.449871580770395e-07,
+    "median_seconds": 0.0006840760000130786,
+    "minimum_gain_per_service": 0.016469025615393464,
+    "all_feasible": true
+  },
+  {
+    "d": 1024,
+    "method": "cg_rtol1e-4",
+    "n": 4,
+    "mean_loss_per_service": 6.111209316372879e-10,
+    "max_bound_per_service": 3.4596325699874658e-09,
+    "median_seconds": 0.0027087879999925235,
+    "minimum_gain_per_service": 0.016067186171177944,
+    "all_feasible": true
+  },
+  {
+    "d": 1024,
+    "method": "chebyshev_degree12",
+    "n": 4,
+    "mean_loss_per_service": 2.6893531013261196e-08,
+    "max_bound_per_service": 3.6694189605845154e-07,
+    "median_seconds": 0.0020082059999992907,
+    "minimum_gain_per_service": 0.01606715898907116,
+    "all_feasible": true
+  },
+  {
+    "d": 1024,
+    "method": "dense_cholesky",
+    "n": 4,
+    "mean_loss_per_service": 0.0,
+    "max_bound_per_service": 7.797144646235305e-12,
+    "median_seconds": 0.024460134499989294,
+    "minimum_gain_per_service": 0.016067187025171802,
+    "all_feasible": true
+  },
+  {
+    "d": 1024,
+    "method": "sparse_direct",
+    "n": 4,
+    "mean_loss_per_service": 0.0,
+    "max_bound_per_service": 7.797144646235305e-12,
+    "median_seconds": 0.009079294000002847,
+    "minimum_gain_per_service": 0.016067187025171802,
+    "all_feasible": true
+  },
+  {
+    "d": 1024,
+    "method": "value_gradient",
+    "n": 40,
+    "mean_loss_per_service": 1.5176775475245208e-08,
+    "max_bound_per_service": 8.043576354034583e-07,
+    "median_seconds": 0.0019988985000054527,
+    "minimum_gain_per_service": 0.016067116006716585,
+    "all_feasible": true
+  },
+  {
+    "d": 1024,
+    "method": "value_only_equal_oracle",
+    "n": 40,
+    "mean_loss_per_service": 1.6752970860567374e-08,
+    "max_bound_per_service": 9.008412398080709e-07,
+    "median_seconds": 0.001995833500004096,
+    "minimum_gain_per_service": 0.016067106380911893,
+    "all_feasible": true
+  }
+]
+/home/runner/work/NDU/NDU/revisions/or-r7-20260921/portfolio_learning.py:95: FutureWarning: Input has data type int64, but the output has been cast to float64.  In the future, the output data type will match the input. To avoid this warning, set the `dtype` parameter to `None` to have the output dtype match the input, or set it to the desired output data type.
+  off=Ki-diags(Ki.diagonal(),format='csr')
+Enriched 288 deployments; all exact values and bounds unchanged.
+nonempty 240 retaining 24 total 264
+[
+  {
+    "d": 64,
+    "unit": "one training seed, averaged over four fixed test graphs",
+    "paired_seed_differences": [
+      1.383720091285845e-08,
+      4.1185454491277085e-09,
+      -1.011945194306918e-09,
+      1.8279289748512895e-09,
+      -3.913290552715054e-09,
+      -2.2161064650028095e-10,
+      1.0068306272037475e-08,
+      7.826044728931336e-09,
+      -2.4305675805358362e-09,
+      6.238669025826482e-10
+    ],
+    "mean_improvement": 3.072447926633082e-09,
+    "student_interval_95": [
+      -1.0760337031953884e-09,
+      7.220929556461552e-09
+    ],
+    "improved_seeds": 6,
+    "n_seeds": 10
+  },
+  {
+    "d": 256,
+    "unit": "one training seed, averaged over four fixed test graphs",
+    "paired_seed_differences": [
+      7.0848459876593495e-09,
+      5.421434967622929e-09,
+      2.039441393542063e-10,
+      -1.5633844219209436e-09,
+      -3.871601650384804e-09,
+      -2.289719608361551e-09,
+      7.317708800025358e-09,
+      7.555894576682931e-09,
+      4.958176369473932e-10,
+      -2.7975978200700524e-09
+    ],
+    "mean_improvement": 1.7557342607554815e-09,
+    "student_interval_95": [
+      -1.5327611225840858e-09,
+      5.044229644095049e-09
+    ],
+    "improved_seeds": 6,
+    "n_seeds": 10
+  },
+  {
+    "d": 1024,
+    "unit": "one training seed, averaged over four fixed test graphs",
+    "paired_seed_differences": [
+      9.422750413268233e-09,
+      1.3549704969140208e-09,
+      3.298730122391902e-09,
+      -4.637604605894907e-09,
+      -1.3835771806025576e-08,
+      -1.3058890080408503e-10,
+      5.1644667709016545e-09,
+      1.4581515578315773e-08,
+      -1.1135802835404718e-09,
+      1.6570660676951121e-09
+    ],
+    "mean_improvement": 1.5761953853221656e-09,
+    "student_interval_95": [
+      -3.928351541034688e-09,
+      7.080742311679019e-09
+    ],
+    "improved_seeds": 6,
+    "n_seeds": 10
+  }
+]
+{
+  "hierarchy": {
+    "classes": 4,
+    "exact_order": true,
+    "static_matches_R6": true,
+    "local_direction_step": "1/100",
+    "local_direction_gain": "1184569866484601093557/41454396088105754421090"
+  },
+  "interim": {
+    "nodes": 3280,
+    "all_continuation_constraints_exact": true,
+    "value_fraction": "-346690061298944949416526211657054881116207/64000000000000000000000000000000000000000",
+    "gap_fraction": "2530139072838862320867613135439501540323987377762977161/3652106248996862400000000000000000000000000000000000000000000"
+  },
+  "portfolio": {
+    "deployments": 288,
+    "graphs": 12,
+    "all_feasible_exact": true,
+    "all_residual_bounds_replayed": true,
+    "maximum_learned_bound_per_service": 8.043576354034583e-07
+  },
+  "numerical": {
+    "robustness_cases": 31,
+    "feasible": 29,
+    "infeasible": 2,
+    "numerical_not_interval_verified": true,
+    "fine_menus": 6
+  }
+}
+trained 0 1.1855169469999964
+trained 1 1.211678811000013
+trained 2 1.2524463809999986
+trained 3 1.2626331290000223
+trained 4 1.2831233230000123
+trained 5 1.2886786570000197
+trained 6 1.2805680950000067
+trained 7 1.222092191999991
+trained 8 1.2451247179999996
+trained 9 1.195772379999994
+tested cycle-4-3-33001 28
+tested cycle-4-3-33002 28
+tested erdos-8-3-33001 56
+tested erdos-8-3-33002 56
+tested geometric-8-4-33001 120
+tested geometric-8-4-33002 120
+tested weighted_block-32-5-33001 992
+tested weighted_block-32-5-33002 992
+{
+  "scope": "synthetic multistage quartic service control with history-specific continuation participation",
+  "seeds": 10,
+  "training_instances_per_seed": 24,
+  "queries_per_seed": 72,
+  "test_instances": 8,
+  "max_coordinates": 992,
+  "paired_seed_improvement": [
+    -0.0012286156742374876,
+    0.002700348310502254,
+    0.00042845014005932214,
+    -0.0034847647948355043,
+    -0.00349989795743344,
+    -0.00227433075795469,
+    0.003193040222974952,
+    0.016624056547151156,
+    -0.00578272750305131,
+    -0.000909077398225655
+  ],
+  "mean_improvement_per_service_review": 0.0005766481134949597,
+  "student_95_interval": [
+    -0.003922753413914875,
+    0.0050760496409047945
+  ],
+  "all_exactly_feasible": true,
+  "deployment_records": 176,
+  "seconds": 76.89990062500001,
+  "environment": {
+    "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39"
+  },
+  "warning": "No speed superiority or distribution-free learning guarantee is assumed. Exact residual bounds certify submitted decisions, not statistical generalization."
+}
+/home/runner/work/NDU/NDU/revisions/or-r7-20260921/portfolio_learning.py:95: FutureWarning: Input has data type int64, but the output has been cast to float64.  In the future, the output data type will match the input. To avoid this warning, set the `dtype` parameter to `None` to have the output dtype match the input, or set it to the desired output data type.
+  off=Ki-diags(Ki.diagonal(),format='csr')
+Cached quadratic audit complete: 72 decisions
+{
+  "status": "PASS",
+  "independent_of_solver": true,
+  "deployment_records": 176,
+  "cached_quadratic_records": 72,
+  "exact_continuation_checks": 2640,
+  "exact_tier_checks": 52624,
+  "oracle_records": 720,
+  "max_teacher_upper_gap": 6.14305745618642e-08,
+  "max_normalized_directional_error_bound": 0.004166788622773565,
+  "method": "Python fractions; objective, all subtree inequalities and nonlinear residual reconstructed from primitives",
+  "source_sha256": {
+    "nonlinear_control.py": "c94decae07734ff36efddc7fb97a385dc74cc8eaff9e12761e26d29e5dbafe39",
+    "verify.py": "098788f56809bd38794dd09dbd85b5d99b4db192b300e1adab32d3a3b902f760"
+  }
+}
+PASS: 120 tree criteria; 12 friction cases; exact promise gap 1/32
+{
+  "raw_negative_learned_decisions": 43,
+  "learned_decisions": 160,
+  "all_gated_gains_nonnegative": true,
+  "mean_training_seconds": 1.2427634633000053,
+  "min_cached_setup_seconds": 0.0002835210000000643,
+  "max_cached_setup_seconds": 0.006748168000001442
+}
+[
+  {
+    "id": "training-template",
+    "N": 28,
+    "depth": 3,
+    "family": "cycle",
+    "weighted_hessian_min": 6.2598895309826545,
+    "weighted_hessian_max": 11.705997138075126,
+    "max_weighted_spatial_degree": 2.0
+  },
+  {
+    "id": "cycle-4-3-33001",
+    "N": 28,
+    "depth": 3,
+    "family": "cycle",
+    "weighted_hessian_min": 6.2598895309826545,
+    "weighted_hessian_max": 11.705997138075126,
+    "max_weighted_spatial_degree": 2.0
+  },
+  {
+    "id": "cycle-4-3-33002",
+    "N": 28,
+    "depth": 3,
+    "family": "cycle",
+    "weighted_hessian_min": 6.2598895309826545,
+    "weighted_hessian_max": 11.705997138075126,
+    "max_weighted_spatial_degree": 2.0
+  },
+  {
+    "id": "erdos-8-3-33001",
+    "N": 56,
+    "depth": 3,
+    "family": "erdos",
+    "weighted_hessian_min": 6.2598895309826545,
+    "weighted_hessian_max": 12.922311420486425,
+    "max_weighted_spatial_degree": 5.0
+  },
+  {
+    "id": "erdos-8-3-33002",
+    "N": 56,
+    "depth": 3,
+    "family": "erdos",
+    "weighted_hessian_min": 6.259889530982662,
+    "weighted_hessian_max": 13.354532410256763,
+    "max_weighted_spatial_degree": 6.0
+  },
+  {
+    "id": "geometric-8-4-33001",
+    "N": 120,
+    "depth": 4,
+    "family": "geometric",
+    "weighted_hessian_min": 9.165037613631549,
+    "weighted_hessian_max": 19.625803724985374,
+    "max_weighted_spatial_degree": 5.0
+  },
+  {
+    "id": "geometric-8-4-33002",
+    "N": 120,
+    "depth": 4,
+    "family": "geometric",
+    "weighted_hessian_min": 9.165037613631537,
+    "weighted_hessian_max": 19.40700912433584,
+    "max_weighted_spatial_degree": 5.0
+  },
+  {
+    "id": "weighted_block-32-5-33001",
+    "N": 992,
+    "depth": 5,
+    "family": "weighted_block",
+    "weighted_hessian_min": 12.115495657610227,
+    "weighted_hessian_max": 112.719028180332,
+    "max_weighted_spatial_degree": 43.0
+  },
+  {
+    "id": "weighted_block-32-5-33002",
+    "N": 992,
+    "depth": 5,
+    "family": "weighted_block",
+    "weighted_hessian_min": 12.115495657610262,
+    "weighted_hessian_max": 128.05020602699526,
+    "max_weighted_spatial_degree": 46.0
+  }
+]

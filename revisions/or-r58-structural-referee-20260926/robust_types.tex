@@ -1,0 +1,22 @@
+\subsection{Approximate reward types without changing feasibility}\label{sec:robusttypes58}
+Exact reward classes are useful when service products share a tariff. Estimated reward curves need not coincide exactly. The following result gives a quantitative menu guarantee without rounding a cap, changing a probability, or relaxing a realization ceiling.
+
+Partition histories into $g$ groups, each with one common expected cap. For group $h$, choose a strictly increasing concave prototype $\widehat f_h$ on the catalog. The prototypes may differ across groups. Put
+\begin{equation}\label{eq:oscillation58}
+ e_j(a)=f_j(a)-\widehat f_{h(j)}(a),\qquad
+ \Delta=\sum_j\pi_j\left[\max_{a\in\mathcal A}e_j(a)-\min_{a\in\mathcal A}e_j(a)\right].
+\end{equation}
+Only rewards are replaced in the prototype problem; probabilities, caps, ceilings, service costs, charges, promise and command budget remain original.
+\begin{theorem}[Oscillation-certified menu compression]\label{thm:robusttypes58}
+Every feasible original policy has a dominating prototype-policy compression on a subset of its book with at most $2g$ commands whose original value is at least the supplied original value minus $\Delta$. In particular, some book of at most $\min\{m,2g\}$ commands attains original value at least $V^*(B)-\Delta$. An optimal prototype book can be found by enumeration through that size; reoptimizing its allocation under the original rewards has the same guarantee. A prototype policy within $\xi$ of the prototype optimum gives original regret at most $\Delta+\xi$.
+\end{theorem}
+\begin{proof}
+Write $J(P)$ and $\widehat J(P)$ for the original and prototype net values of the same feasible policy. Their difference is
+$E(P)=\sum_j\pi_j\mathbb E[e_j(C_j)]$; service costs and opening charges cancel. For any two feasible policies $P,P'$, each expectation lies between the catalog minimum and maximum of $e_j$, and hence
+$E(P)-E(P')\leq\Delta$.
+Apply Theorem~\ref{thm:types57} to the supplied policy in the prototype problem. Its construction keeps each group's conditional promise and returns a subset policy $\widetilde P$ with $\widehat J(\widetilde P)\geq\widehat J(P)$. It is feasible for the unchanged original constraints. Therefore
+$J(P)-J(\widetilde P)\leq E(P)-E(\widetilde P)\leq\Delta$.
+Apply this to an original optimum for existence. For the algorithmic statement, compare an original optimum $P^*$ with a prototype $\xi$-optimal policy $\widehat P$; the inequality $\widehat J(P^*)-\widehat J(\widehat P)\leq\xi$ gives $J(P^*)-J(\widehat P)\leq\xi+\Delta$. Optimizing the original allocation on the recovered book can only improve it. Exact enumeration is justified by the prototype compression theorem, not by knowledge of $P^*$.
+\end{proof}
+
+The bound is invariant to arbitrary history-specific additive reward constants. Thus exact equality of reward \emph{increments} on the catalog suffices for zero-loss compression. If $|e_j(a)|\leq\epsilon_j$ for every command, then $\Delta\leq2\sum_j\pi_j\epsilon_j$; the oscillation can be strictly smaller. Choosing more prototype groups trades a larger guaranteed menu against a smaller certified reward loss. This does not assert tractable optimal clustering, nor does it merge distinct expected caps. With rational catalog values the certificate $\Delta$ takes $O(kN)$ rational operations; the enumeration exponent remains $\min\{m,2g\}$. The additional regression compares original and prototype exact enumeration on identical feasibility inputs, including positive and zero reward dispersion.

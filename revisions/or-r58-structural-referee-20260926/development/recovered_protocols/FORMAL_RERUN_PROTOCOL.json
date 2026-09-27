@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-09-26T12:46:40.038003+00:00",
+  "scope": "Complete final rerun of the same 225 declared method/input/limit combinations after two implementation corrections. No cases are selected by result. Initial 225 records, code, plots, verification failures, and replays are preserved under development/initial-225.",
+  "changes": [
+    {
+      "file": "code/enumeration.py and code/worker56.py",
+      "issue": "An outer alarm during construction of a long enumeration certificate could discard its already completed best feasible policy. The initial records remain valid but can have artificially weak fallback lower bounds.",
+      "repair": "Publish each completed incumbent to a caller-owned progress object. On outer interruption retain this exact original policy and its completed-book count, with the valid universal upper."
+    },
+    {
+      "file": "code/deficit.py",
+      "issue": "Decimal conversion of an extremely large rejected state count can itself hit the integer-string security limit.",
+      "repair": "Reject using bit-length diagnostics and a hexadecimal structured state count; never allocate the oversized table and never disable the security limit."
+    }
+  ],
+  "scientific_theorems_changed": false,
+  "selection_prices_grid_inputs_limits_changed": false,
+  "primary_cases_sha256": "6449dcdf879eb94e2a495c7c6b97326d55b82cccb6306c7a3670b65e2ac9fb57",
+  "extension_cases_sha256": "59f0cc921f6e865656f69103cb434e328a0396b0bd70e4f44f7196c90d9cdda1",
+  "published_source_basis": "Final source snapshot manifests in results; development results are excluded from final performance tables.",
+  "initial_manifest_sha256": "aef487d503e5c030ca8d413952989834a5b28c98f13645880166613930a70327"
+}

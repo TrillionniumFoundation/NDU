@@ -1,0 +1,71 @@
+\subsection{Jointly changing commitments and switching costs}\label{sec:r27-cache}
+The reward-only envelope does not address the case in which the same operational shock changes revenue, continuation coefficients, capacity, and switching friction. Replacing these correlated constraints by independent row envelopes loses contractual information. We instead retain the actual coefficient vector in a reusable dual certificate.
+
+For this construction, write $Q=H+R^\top R$, where $H\succ0$ is diagonal, and combine the payment and information equalities into $F_\theta x=f_\theta$. The restricted problem is
+\begin{align}
+ K_\theta&=\max_{x\in Y_\theta}W_\theta(x),\qquad
+ Y_\theta=\{x\in[\ell,u]:A_\theta x\leq b_\theta,\ F_\theta x=f_\theta\},\label{eq:r27-model}\\
+ W_\theta(x)&=c_\theta+p_\theta^\top x-\tfrac12x^\top Hx
+ -\tfrac12\norm{Rx}^2-\lambda_\theta\sum_j\kappa_j|(Dx-h)_j|.\notag
+\end{align}
+The common box, $H,R,D,h$, and positive weights $\kappa$ are fixed; all displayed $\theta$-dependent coefficients may change together, with $\lambda_\theta\geq0$. The known constant $c_\theta$ permits gain-relative objectives. Each restricted class is nonempty. Define
+\[
+ \psi_i(d)=\max_{\ell_i\leq v\leq u_i}\{dv-H_{ii}v^2/2\},
+ \qquad v_i(d)=\min\{u_i,\max\{\ell_i,d/H_{ii}\}\}.
+\]
+A cached price $a=(\alpha,\mu,\nu,\tau)$ has $\mu\geq0$ and $|\tau_j|\leq\kappa_j$. Its switching tension at a query is $\lambda_\theta\tau$, not the unscaled tension from the training problem.
+
+\begin{theorem}[Correlated comparator reuse and its local loss]\label{thm:r27-cache}
+For any such cached price, put
+\begin{align}
+ d_\theta(a)&=p_\theta-R^\top\alpha-A_\theta^\top\mu
+                    -F_\theta^\top\nu-\lambda_\theta D^\top\tau,\label{eq:r27-residual}\\
+ \mathcal U_\theta(a)&=c_\theta+\tfrac12\norm{\alpha}^2
+   +\mu^\top b_\theta+\nu^\top f_\theta
+   +\lambda_\theta\tau^\top h+\sum_i\psi_i(d_{\theta,i}(a)).\label{eq:r27-upper}
+\end{align}
+Then $K_\theta\leq\mathcal U_\theta(a)$ for every query. The minimum over a finite cache remains valid without a new restricted optimization, an interior feasible anchor, or an unchanged active set.
+
+More precisely, for every feasible restricted $z$, the certificate gap is the sum of four nonnegative terms:
+\begin{align}
+ \mathcal U_\theta(a)-W_\theta(z)
+ &=\tfrac12\norm{\alpha-Rz}^2
+ +\sum_i\left\{\psi_i(d_{\theta,i})-d_{\theta,i}z_i+\tfrac12H_{ii}z_i^2\right\}\notag\\
+ &\quad+\mu^\top(b_\theta-A_\theta z)
+ +\lambda_\theta\sum_j\left\{\kappa_j|(Dz-h)_j|-\tau_j(Dz-h)_j\right\}.
+ \label{eq:r27-decomposition}
+\end{align}
+Thus the loss separates into resource-price error, coordinate-response error, unused priced continuation capacity, and switching-price error.
+
+For a local statement, let $z_0$ be the exact restricted optimizer at $\theta_0$, let the cached price attain equality there, and set
+$v_0=d_{\theta_0}(a)-Hz_0\in N_{[\ell,u]}(z_0)$. Suppose the query optimizer $z_\theta$ stays on the \emph{priced face}: $\mu^\top(b_\theta-A_\theta z_\theta)=0$, $v_0\in N_{[\ell,u]}(z_\theta)$, and every switching term in \eqref{eq:r27-decomposition} vanishes. With
+$e_\theta=d_\theta(a)-Hz_\theta-v_0$, one has
+\begin{equation}\label{eq:r27-quadratic}
+ 0\leq\mathcal U_\theta(a)-K_\theta
+ \leq\tfrac12\norm{R(z_\theta-z_0)}^2
+       +\tfrac12 e_\theta^\top H^{-1}e_\theta.
+\end{equation}
+In particular, locally Lipschitz coefficients and a locally Lipschitz optimizer give a quadratic reuse loss on this priced face. The global upper certificate does not require these local conditions.
+\end{theorem}
+\begin{proof}
+Linearize the resource square with $\alpha$, lower-bound each absolute value by its normalized tension, and subtract the feasible inequality and equality residuals. Maximizing the remaining separate concave quadratics on the box gives \eqref{eq:r27-upper}. Adding and subtracting their values at $z$ gives \eqref{eq:r27-decomposition}; equality feasibility removes the equality-price residual. At an exact anchor the resource term implies $\alpha=Rz_0$, and each coordinate is a box maximizer, giving $v_0\in N_{[\ell,u]}(z_0)$. On the priced face only the first two terms remain. For a box-feasible displacement $y-z_\theta$, the second term is the supremum of
+$(v_0+e_\theta)^\top(y-z_\theta)-\norm{y-z_\theta}_H^2/2$.
+The normal term is nonpositive; the unrestricted supremum of the remainder is $e_\theta^\top H^{-1}e_\theta/2$. This proves \eqref{eq:r27-quadratic}. EC Section~\ref{ec:r27} gives explicit constants and the boundary cases.\end{proof}
+
+The continuation prices need not be refitted to remain valid. They may, however, become expensive prices for slack that the query optimizer no longer uses. This distinction explains both the benefit of reuse and its failure mode. With affine coefficient dependence in $d$ parameters, cached matrix--price products reduce evaluation to order $n(d+1)$ arithmetic operations per anchor; exact rational bit cost and all anchor construction remain additional work. This is not the dimension-free reward-only bound of Proposition~\ref{prop:cache}, and it is not a measured speedup.
+
+The quadratic conclusion must not be extended across an arbitrary degenerate face. For $|t|\leq1/4$, the problem $\max\{x-x^2/2:-1/2\leq x\leq1/2,\ x\leq t,\ x\leq-t\}$ has the following behavior. An exact price $(1,0)$ at $t=0$ gives $\mathcal U_t=t$, whereas $K_t=-|t|-t^2/2$. The reuse gap is $2t+t^2/2$ for $t>0$. The released first constraint has positive cached price and positive slack. Numerical anchor error likewise does not disappear by declaring an anchor exact: \eqref{eq:r27-upper} remains valid, but the local quadratic assertion requires the exact-anchor assumptions.
+
+\begin{corollary}[Uniform certification with correlated uncertainty]\label{cor:r27-cells}
+Suppose all $\theta$-dependent coefficients in \eqref{eq:r27-model} are affine on a compact polytope $\Theta$, and $\lambda_\theta\geq0$ there. Partition $\Theta$ into polytopes $C$ with vertex sets $V_C$. A fixed implemented policy $\widehat x$ is feasible for the full accepted class throughout $\Theta$ if it satisfies its affine inequalities and equalities at all vertices. For any finite cache $\mathcal A$,
+\begin{equation}\label{eq:r27-uniform}
+ \inf_{\theta\in\Theta}\{W_\theta(\widehat x)-K_\theta\}
+ \geq\min_C\max_{a\in\mathcal A}\min_{v\in V_C}
+       \{W_v(\widehat x)-\mathcal U_v(a)\}.
+\end{equation}
+Subdivision of cells cannot decrease this lower certificate, and adding cached prices cannot decrease it. Neither operation requires new comparator solves.
+\end{corollary}
+\begin{proof}
+The function $\mathcal U_\theta(a)$ is convex in $\theta$: its residuals are affine and each $\psi_i$ is convex. The fixed-policy reward is affine, so their difference is concave and is bounded below on a cell by its minimum vertex value. Choose the best fixed anchor on that cell, then take the worst cell. Convexity also proves the subdivision assertion; retaining old prices proves the cache assertion.\end{proof}
+
+The anchor must remain fixed inside the vertex minimum in \eqref{eq:r27-uniform}. Taking the best anchor separately at vertices and interpolating those best values is generally invalid. The EC gives an exact failure example and a positive-gain example: four cells certify at least $0.04919921$ uniformly against an optimized restricted contract under jointly changing reward, friction, and participation coefficients. No sampled parameter is substituted for a continuous uncertainty guarantee. The set is designed, not statistically calibrated.

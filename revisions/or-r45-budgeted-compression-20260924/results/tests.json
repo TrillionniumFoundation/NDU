@@ -1,0 +1,1921 @@
+{
+  "status": "PASS",
+  "seeds": [
+    104729,
+    130363,
+    155921,
+    181081,
+    205019,
+    230003
+  ],
+  "exact_instances": 144,
+  "cardinality_comparisons": 288,
+  "repair_checks": 144,
+  "uniform_rate_checks": 15,
+  "boundary_cases": [
+    {
+      "lower": "0",
+      "B": "0"
+    },
+    {
+      "lower": "0",
+      "B": "5/12"
+    },
+    {
+      "lower": "1/8",
+      "B": "1/8"
+    },
+    {
+      "lower": "1/8",
+      "B": "5/12"
+    }
+  ],
+  "corruption_rejections": [
+    "payoff",
+    "charge",
+    "promise",
+    "pre_draw_service",
+    "probability_normalization",
+    "negative_probability",
+    "uninstalled_support",
+    "duplicate_level",
+    "missing_level",
+    "dimension"
+  ],
+  "invalid_rejections": 5,
+  "rows": [
+    {
+      "seed": 104729,
+      "id": 0,
+      "k": 1,
+      "N": 5,
+      "budget": 1,
+      "promise": "35/128",
+      "conditional_values": [
+        "61359/131072"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 1,
+      "k": 2,
+      "N": 6,
+      "budget": 2,
+      "promise": "781/1792",
+      "conditional_values": [
+        "-9/100",
+        "691/1400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 2,
+      "k": 3,
+      "N": 7,
+      "budget": 3,
+      "promise": "757/6144",
+      "conditional_values": [
+        "-9266917/157286400",
+        "152879/921600",
+        "152879/921600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 3,
+      "k": 4,
+      "N": 8,
+      "budget": 1,
+      "promise": "939/5888",
+      "conditional_values": [
+        "-320641/12058624"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 4,
+      "k": 5,
+      "N": 5,
+      "budget": 2,
+      "promise": "1155/6656",
+      "conditional_values": [
+        "-15122369/340787200",
+        "2545971/17039360"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 5,
+      "k": 1,
+      "N": 6,
+      "budget": 3,
+      "promise": "3/128",
+      "conditional_values": [
+        "-393891/3276800",
+        "-393891/3276800",
+        "-393891/3276800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 6,
+      "k": 2,
+      "N": 7,
+      "budget": 1,
+      "promise": "141/1408",
+      "conditional_values": [
+        "-15435/720896"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 7,
+      "k": 3,
+      "N": 8,
+      "budget": 2,
+      "promise": "367/1792",
+      "conditional_values": [
+        "-334881/4587520",
+        "18901/78400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 8,
+      "k": 4,
+      "N": 5,
+      "budget": 3,
+      "promise": "1959/5888",
+      "conditional_values": [
+        "-105157009/301465600",
+        "53287487/301465600",
+        "45173/235520"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 9,
+      "k": 5,
+      "N": 6,
+      "budget": 1,
+      "promise": "125/352",
+      "conditional_values": [
+        "-1252095/5767168"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 10,
+      "k": 1,
+      "N": 7,
+      "budget": 2,
+      "promise": "143/256",
+      "conditional_values": [
+        "11309603/13107200",
+        "22733/25600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 11,
+      "k": 2,
+      "N": 8,
+      "budget": 3,
+      "promise": "291/512",
+      "conditional_values": [
+        "64235509/91750400",
+        "570952051/642252800",
+        "570952051/642252800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 12,
+      "k": 3,
+      "N": 5,
+      "budget": 1,
+      "promise": "201/512",
+      "conditional_values": [
+        "-82539/262144"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 13,
+      "k": 4,
+      "N": 6,
+      "budget": 2,
+      "promise": "31/384",
+      "conditional_values": [
+        "-702299/9830400",
+        "-40751/2457600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 14,
+      "k": 5,
+      "N": 7,
+      "budget": 3,
+      "promise": "615/2816",
+      "conditional_values": [
+        "-14383981/72089600",
+        "4372787/72089600",
+        "4372787/72089600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 15,
+      "k": 1,
+      "N": 8,
+      "budget": 1,
+      "promise": "77/256",
+      "conditional_values": [
+        "13622011/25690112"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 16,
+      "k": 2,
+      "N": 5,
+      "budget": 2,
+      "promise": "495/1664",
+      "conditional_values": [
+        "9047657/21299200",
+        "3465/6656"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 17,
+      "k": 3,
+      "N": 6,
+      "budget": 3,
+      "promise": "217/3072",
+      "conditional_values": [
+        "-8570831/78643200",
+        "-329/25600",
+        "-329/25600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 18,
+      "k": 4,
+      "N": 7,
+      "budget": 1,
+      "promise": "873/5120",
+      "conditional_values": [
+        "-130911/10485760"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 19,
+      "k": 5,
+      "N": 8,
+      "budget": 2,
+      "promise": "357/3328",
+      "conditional_values": [
+        "-16876663/85196800",
+        "-188174551/4174643200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 20,
+      "k": 1,
+      "N": 5,
+      "budget": 3,
+      "promise": "0",
+      "conditional_values": [
+        "-1/25",
+        "-1/25",
+        "-1/25"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 21,
+      "k": 2,
+      "N": 6,
+      "budget": 1,
+      "promise": "9/80",
+      "conditional_values": [
+        "-81/40960"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 22,
+      "k": 3,
+      "N": 7,
+      "budget": 2,
+      "promise": "281/960",
+      "conditional_values": [
+        "-155239/1228800",
+        "824737/2457600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 104729,
+      "id": 23,
+      "k": 4,
+      "N": 8,
+      "budget": 3,
+      "promise": "405/2432",
+      "conditional_values": [
+        "-13206129/62259200",
+        "92541/1433600",
+        "1923879/27238400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 0,
+      "k": 1,
+      "N": 5,
+      "budget": 1,
+      "promise": "13/128",
+      "conditional_values": [
+        "-169/32768"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 1,
+      "k": 2,
+      "N": 6,
+      "budget": 2,
+      "promise": "205/768",
+      "conditional_values": [
+        "-466251/1638400",
+        "155203/983040"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 2,
+      "k": 3,
+      "N": 7,
+      "budget": 3,
+      "promise": "159/1280",
+      "conditional_values": [
+        "-4410263/39321600",
+        "13138091/117964800",
+        "13138091/117964800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 3,
+      "k": 4,
+      "N": 8,
+      "budget": 1,
+      "promise": "763/4352",
+      "conditional_values": [
+        "-59717/1114112"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 4,
+      "k": 5,
+      "N": 5,
+      "budget": 2,
+      "promise": "127/1280",
+      "conditional_values": [
+        "-314037/1638400",
+        "-474423/6553600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 5,
+      "k": 1,
+      "N": 6,
+      "budget": 3,
+      "promise": "27/256",
+      "conditional_values": [
+        "-1132337/6553600",
+        "-379/12800",
+        "-379/12800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 6,
+      "k": 2,
+      "N": 7,
+      "budget": 1,
+      "promise": "13/128",
+      "conditional_values": [
+        "-1521/131072"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 7,
+      "k": 3,
+      "N": 8,
+      "budget": 2,
+      "promise": "43/256",
+      "conditional_values": [
+        "-9541/65536",
+        "79713/1003520"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 8,
+      "k": 4,
+      "N": 5,
+      "budget": 3,
+      "promise": "691/5632",
+      "conditional_values": [
+        "-61420019/288358400",
+        "-160401/9011200",
+        "-160401/9011200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 9,
+      "k": 5,
+      "N": 6,
+      "budget": 1,
+      "promise": "109/192",
+      "conditional_values": [
+        "-181559/393216"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 10,
+      "k": 1,
+      "N": 7,
+      "budget": 2,
+      "promise": "35/256",
+      "conditional_values": [
+        "-292769/6553600",
+        "3097/38400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 11,
+      "k": 2,
+      "N": 8,
+      "budget": 3,
+      "promise": "555/1792",
+      "conditional_values": [
+        "920124199/4495769600",
+        "1906138607/4495769600",
+        "1906138607/4495769600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 12,
+      "k": 3,
+      "N": 5,
+      "budget": 1,
+      "promise": "345/1216",
+      "conditional_values": [
+        "-41265/311296"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 13,
+      "k": 4,
+      "N": 6,
+      "budget": 2,
+      "promise": "215/896",
+      "conditional_values": [
+        "-13020061/45875200",
+        "13541/143360"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 14,
+      "k": 5,
+      "N": 7,
+      "budget": 3,
+      "promise": "2381/6656",
+      "conditional_values": [
+        "-2027733/5242880",
+        "3372761/7987200",
+        "3372761/7987200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 15,
+      "k": 1,
+      "N": 8,
+      "budget": 1,
+      "promise": "15/16",
+      "conditional_values": [
+        "1371/1024"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 16,
+      "k": 2,
+      "N": 5,
+      "budget": 2,
+      "promise": "29/192",
+      "conditional_values": [
+        "-14077/81920",
+        "733/12800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 17,
+      "k": 3,
+      "N": 6,
+      "budget": 3,
+      "promise": "269/448",
+      "conditional_values": [
+        "715233/5734400",
+        "18513441/22937600",
+        "18513441/22937600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 18,
+      "k": 4,
+      "N": 7,
+      "budget": 1,
+      "promise": "1/2",
+      "conditional_values": [
+        "-160959/458752"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 19,
+      "k": 5,
+      "N": 8,
+      "budget": 2,
+      "promise": "301/2048",
+      "conditional_values": [
+        "-2147401/52428800",
+        "12951/51200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 20,
+      "k": 1,
+      "N": 5,
+      "budget": 3,
+      "promise": "0",
+      "conditional_values": [
+        "-3/20",
+        "-3/20",
+        "-3/20"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 21,
+      "k": 2,
+      "N": 6,
+      "budget": 1,
+      "promise": "657/3584",
+      "conditional_values": [
+        "-237249/7340032"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 22,
+      "k": 3,
+      "N": 7,
+      "budget": 2,
+      "promise": "487/2176",
+      "conditional_values": [
+        "-1562551/6963200",
+        "803/6528"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 130363,
+      "id": 23,
+      "k": 4,
+      "N": 8,
+      "budget": 3,
+      "promise": "1043/5632",
+      "conditional_values": [
+        "-49591101/288358400",
+        "42437/281600",
+        "42437/281600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 0,
+      "k": 1,
+      "N": 5,
+      "budget": 1,
+      "promise": "9/128",
+      "conditional_values": [
+        "-729/131072"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 1,
+      "k": 2,
+      "N": 6,
+      "budget": 2,
+      "promise": "385/768",
+      "conditional_values": [
+        "-967153/98304000",
+        "8601/12800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 2,
+      "k": 3,
+      "N": 7,
+      "budget": 3,
+      "promise": "463/1280",
+      "conditional_values": [
+        "4979351/58982400",
+        "85243/230400",
+        "85243/230400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 3,
+      "k": 4,
+      "N": 8,
+      "budget": 1,
+      "promise": "225/896",
+      "conditional_values": [
+        "-38643/917504"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 4,
+      "k": 5,
+      "N": 5,
+      "budget": 2,
+      "promise": "689/2432",
+      "conditional_values": [
+        "-39807953/124518400",
+        "766777/3891200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 5,
+      "k": 1,
+      "N": 6,
+      "budget": 3,
+      "promise": "15/32",
+      "conditional_values": [
+        "63367/102400",
+        "69/100",
+        "69/100"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 6,
+      "k": 2,
+      "N": 7,
+      "budget": 1,
+      "promise": "169/256",
+      "conditional_values": [
+        "1336993/1572864"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 7,
+      "k": 3,
+      "N": 8,
+      "budget": 2,
+      "promise": "669/4096",
+      "conditional_values": [
+        "-281243/8388608",
+        "2090730829/10276044800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 8,
+      "k": 4,
+      "N": 5,
+      "budget": 3,
+      "promise": "377/768",
+      "conditional_values": [
+        "-30017939/78643200",
+        "700013/983040",
+        "700013/983040"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 9,
+      "k": 5,
+      "N": 6,
+      "budget": 1,
+      "promise": "2651/6912",
+      "conditional_values": [
+        "-219595/4718592"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 10,
+      "k": 1,
+      "N": 7,
+      "budget": 2,
+      "promise": "7/32",
+      "conditional_values": [
+        "172717/921600",
+        "1541/4800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 11,
+      "k": 2,
+      "N": 8,
+      "budget": 3,
+      "promise": "65/512",
+      "conditional_values": [
+        "-242099/1638400",
+        "10373/89600",
+        "10373/89600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 12,
+      "k": 3,
+      "N": 5,
+      "budget": 1,
+      "promise": "11/104",
+      "conditional_values": [
+        "-4331/212992"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 13,
+      "k": 4,
+      "N": 6,
+      "budget": 2,
+      "promise": "101/1024",
+      "conditional_values": [
+        "-6904293/52428800",
+        "-6904293/52428800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 14,
+      "k": 5,
+      "N": 7,
+      "budget": 3,
+      "promise": "243/832",
+      "conditional_values": [
+        "-33819911/85196800",
+        "14714171/42598400",
+        "14714171/42598400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 15,
+      "k": 1,
+      "N": 8,
+      "budget": 1,
+      "promise": "0",
+      "conditional_values": [
+        "0"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 16,
+      "k": 2,
+      "N": 5,
+      "budget": 2,
+      "promise": "27/128",
+      "conditional_values": [
+        "-89959/819200",
+        "817/2560"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 17,
+      "k": 3,
+      "N": 6,
+      "budget": 3,
+      "promise": "43/136",
+      "conditional_values": [
+        "-16551/108800",
+        "283/800",
+        "283/800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 18,
+      "k": 4,
+      "N": 7,
+      "budget": 1,
+      "promise": "983/3200",
+      "conditional_values": [
+        "-399753/3276800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 19,
+      "k": 5,
+      "N": 8,
+      "budget": 2,
+      "promise": "1519/6144",
+      "conditional_values": [
+        "-2659531/19660800",
+        "1784217/5017600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 20,
+      "k": 1,
+      "N": 5,
+      "budget": 3,
+      "promise": "15/32",
+      "conditional_values": [
+        "69797/204800",
+        "4363/6400",
+        "4363/6400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 21,
+      "k": 2,
+      "N": 6,
+      "budget": 1,
+      "promise": "87/320",
+      "conditional_values": [
+        "-699/5120"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 22,
+      "k": 3,
+      "N": 7,
+      "budget": 2,
+      "promise": "167/320",
+      "conditional_values": [
+        "-1007319/6553600",
+        "3705633/6553600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 155921,
+      "id": 23,
+      "k": 4,
+      "N": 8,
+      "budget": 3,
+      "promise": "727/2560",
+      "conditional_values": [
+        "-12942431/52428800",
+        "4982007/20070400",
+        "83079/313600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 0,
+      "k": 1,
+      "N": 5,
+      "budget": 1,
+      "promise": "15/128",
+      "conditional_values": [
+        "-225/32768"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 1,
+      "k": 2,
+      "N": 6,
+      "budget": 2,
+      "promise": "175/704",
+      "conditional_values": [
+        "502937/1802240",
+        "502937/1802240"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 2,
+      "k": 3,
+      "N": 7,
+      "budget": 3,
+      "promise": "223/960",
+      "conditional_values": [
+        "-906229/4915200",
+        "793/3840",
+        "793/3840"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 3,
+      "k": 4,
+      "N": 8,
+      "budget": 1,
+      "promise": "2581/5376",
+      "conditional_values": [
+        "-518725/3670016"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 4,
+      "k": 5,
+      "N": 5,
+      "budget": 2,
+      "promise": "1091/3456",
+      "conditional_values": [
+        "-146903/884736",
+        "24851/55296"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 5,
+      "k": 1,
+      "N": 6,
+      "budget": 3,
+      "promise": "9/128",
+      "conditional_values": [
+        "-51177/409600",
+        "-139/3200",
+        "-139/3200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 6,
+      "k": 2,
+      "N": 7,
+      "budget": 1,
+      "promise": "2195/3584",
+      "conditional_values": [
+        "39391847/66060288"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 7,
+      "k": 3,
+      "N": 8,
+      "budget": 2,
+      "promise": "241/704",
+      "conditional_values": [
+        "65500097/441548800",
+        "850697/1724800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 8,
+      "k": 4,
+      "N": 5,
+      "budget": 3,
+      "promise": "637/5632",
+      "conditional_values": [
+        "-10170873/72089600",
+        "-1486597/36044800",
+        "-1486597/36044800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 9,
+      "k": 5,
+      "N": 6,
+      "budget": 1,
+      "promise": "281/896",
+      "conditional_values": [
+        "-22905/131072"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 10,
+      "k": 1,
+      "N": 7,
+      "budget": 2,
+      "promise": "75/256",
+      "conditional_values": [
+        "249193/983040",
+        "7679/19200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 11,
+      "k": 2,
+      "N": 8,
+      "budget": 3,
+      "promise": "1629/2560",
+      "conditional_values": [
+        "-43057/5242880",
+        "1266097179/1284505600",
+        "1266097179/1284505600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 12,
+      "k": 3,
+      "N": 5,
+      "budget": 1,
+      "promise": "179/448",
+      "conditional_values": [
+        "-124527/458752"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 13,
+      "k": 4,
+      "N": 6,
+      "budget": 2,
+      "promise": "1321/4096",
+      "conditional_values": [
+        "-23214413/104857600",
+        "273877/819200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 14,
+      "k": 5,
+      "N": 7,
+      "budget": 3,
+      "promise": "299/1536",
+      "conditional_values": [
+        "-2615221/39321600",
+        "93127039/471859200",
+        "10975559/52428800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 15,
+      "k": 1,
+      "N": 8,
+      "budget": 1,
+      "promise": "0",
+      "conditional_values": [
+        "0"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 16,
+      "k": 2,
+      "N": 5,
+      "budget": 2,
+      "promise": "287/1664",
+      "conditional_values": [
+        "-9345447/85196800",
+        "25439/133120"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 17,
+      "k": 3,
+      "N": 6,
+      "budget": 3,
+      "promise": "75/256",
+      "conditional_values": [
+        "4518419/22937600",
+        "263/800",
+        "263/800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 18,
+      "k": 4,
+      "N": 7,
+      "budget": 1,
+      "promise": "989/3072",
+      "conditional_values": [
+        "1073797/3538944"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 19,
+      "k": 5,
+      "N": 8,
+      "budget": 2,
+      "promise": "51/128",
+      "conditional_values": [
+        "-6387201/22937600",
+        "590406303/1123942400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 20,
+      "k": 1,
+      "N": 5,
+      "budget": 3,
+      "promise": "3/8",
+      "conditional_values": [
+        "4139/12800",
+        "41/80",
+        "41/80"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 21,
+      "k": 2,
+      "N": 6,
+      "budget": 1,
+      "promise": "215/512",
+      "conditional_values": [
+        "154127/409600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 22,
+      "k": 3,
+      "N": 7,
+      "budget": 2,
+      "promise": "89/768",
+      "conditional_values": [
+        "-13595/786432",
+        "381743/1843200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 181081,
+      "id": 23,
+      "k": 4,
+      "N": 8,
+      "budget": 3,
+      "promise": "489/2048",
+      "conditional_values": [
+        "-1762463/13107200",
+        "6061/19600",
+        "6061/19600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 0,
+      "k": 1,
+      "N": 5,
+      "budget": 1,
+      "promise": "25/128",
+      "conditional_values": [
+        "-9375/131072"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 1,
+      "k": 2,
+      "N": 6,
+      "budget": 2,
+      "promise": "279/640",
+      "conditional_values": [
+        "518053/2048000",
+        "5164909/8192000"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 2,
+      "k": 3,
+      "N": 7,
+      "budget": 3,
+      "promise": "761/2304",
+      "conditional_values": [
+        "-1150531/4915200",
+        "105527/230400",
+        "105527/230400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 3,
+      "k": 4,
+      "N": 8,
+      "budget": 1,
+      "promise": "161/2816",
+      "conditional_values": [
+        "-4603/1441792"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 4,
+      "k": 5,
+      "N": 5,
+      "budget": 2,
+      "promise": "83/512",
+      "conditional_values": [
+        "-39361/1572864",
+        "1682201/13107200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 5,
+      "k": 1,
+      "N": 6,
+      "budget": 3,
+      "promise": "5/16",
+      "conditional_values": [
+        "17677/51200",
+        "393/800",
+        "393/800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 6,
+      "k": 2,
+      "N": 7,
+      "budget": 1,
+      "promise": "43/128",
+      "conditional_values": [
+        "353629/1179648"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 7,
+      "k": 3,
+      "N": 8,
+      "budget": 2,
+      "promise": "309/1024",
+      "conditional_values": [
+        "-15558081/52428800",
+        "131083/358400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 8,
+      "k": 4,
+      "N": 5,
+      "budget": 3,
+      "promise": "1883/4864",
+      "conditional_values": [
+        "-95023437/249036800",
+        "407687/972800",
+        "407687/972800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 9,
+      "k": 5,
+      "N": 6,
+      "budget": 1,
+      "promise": "29/208",
+      "conditional_values": [
+        "-26995/851968"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 10,
+      "k": 1,
+      "N": 7,
+      "budget": 2,
+      "promise": "0",
+      "conditional_values": [
+        "-4/25",
+        "-4/25"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 11,
+      "k": 2,
+      "N": 8,
+      "budget": 3,
+      "promise": "39/448",
+      "conditional_values": [
+        "-1420581/9175040",
+        "-1007/31360",
+        "-1007/31360"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 12,
+      "k": 3,
+      "N": 5,
+      "budget": 1,
+      "promise": "443/1792",
+      "conditional_values": [
+        "-71569/3670016"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 13,
+      "k": 4,
+      "N": 6,
+      "budget": 2,
+      "promise": "37/128",
+      "conditional_values": [
+        "-8814581/39321600",
+        "680757/6553600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 14,
+      "k": 5,
+      "N": 7,
+      "budget": 3,
+      "promise": "1603/3328",
+      "conditional_values": [
+        "-36690643/85196800",
+        "7027717/11980800",
+        "7090969/11980800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 15,
+      "k": 1,
+      "N": 8,
+      "budget": 1,
+      "promise": "55/256",
+      "conditional_values": [
+        "6828273/25690112"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 16,
+      "k": 2,
+      "N": 5,
+      "budget": 2,
+      "promise": "229/768",
+      "conditional_values": [
+        "-2218739/9830400",
+        "39913/153600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 17,
+      "k": 3,
+      "N": 6,
+      "budget": 3,
+      "promise": "279/704",
+      "conditional_values": [
+        "177697/819200",
+        "457087/1126400",
+        "515583/1126400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 18,
+      "k": 4,
+      "N": 7,
+      "budget": 1,
+      "promise": "55/256",
+      "conditional_values": [
+        "-228929/2359296"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 19,
+      "k": 5,
+      "N": 8,
+      "budget": 2,
+      "promise": "11/32",
+      "conditional_values": [
+        "-699761/3276800",
+        "41231587/160563200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 20,
+      "k": 1,
+      "N": 5,
+      "budget": 3,
+      "promise": "1/64",
+      "conditional_values": [
+        "-12313/81920",
+        "-12313/81920",
+        "-12313/81920"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 21,
+      "k": 2,
+      "N": 6,
+      "budget": 1,
+      "promise": "73/1088",
+      "conditional_values": [
+        "-3373/278528"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 22,
+      "k": 3,
+      "N": 7,
+      "budget": 2,
+      "promise": "565/4608",
+      "conditional_values": [
+        "-1753973/39321600",
+        "4664881/117964800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 205019,
+      "id": 23,
+      "k": 4,
+      "N": 8,
+      "budget": 3,
+      "promise": "1217/5632",
+      "conditional_values": [
+        "-37069313/288358400",
+        "3104564431/14129561600",
+        "3104564431/14129561600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 0,
+      "k": 1,
+      "N": 5,
+      "budget": 1,
+      "promise": "15/64",
+      "conditional_values": [
+        "-1575/16384"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 1,
+      "k": 2,
+      "N": 6,
+      "budget": 2,
+      "promise": "1/4",
+      "conditional_values": [
+        "-9221/204800",
+        "12467/40960"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 2,
+      "k": 3,
+      "N": 7,
+      "budget": 3,
+      "promise": "107/384",
+      "conditional_values": [
+        "-2521573/9830400",
+        "20962819/88473600",
+        "41497/172800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 3,
+      "k": 4,
+      "N": 8,
+      "budget": 1,
+      "promise": "87/1024",
+      "conditional_values": [
+        "-8811/1048576"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 4,
+      "k": 5,
+      "N": 5,
+      "budget": 2,
+      "promise": "661/3328",
+      "conditional_values": [
+        "-17511569/85196800",
+        "21830531/85196800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 5,
+      "k": 1,
+      "N": 6,
+      "budget": 3,
+      "promise": "21/64",
+      "conditional_values": [
+        "265293/819200",
+        "265293/819200",
+        "265293/819200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 6,
+      "k": 2,
+      "N": 7,
+      "budget": 1,
+      "promise": "603/2048",
+      "conditional_values": [
+        "330529/1048576"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 7,
+      "k": 3,
+      "N": 8,
+      "budget": 2,
+      "promise": "639/2048",
+      "conditional_values": [
+        "-65710151/209715200",
+        "13372937/45875200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 8,
+      "k": 4,
+      "N": 5,
+      "budget": 3,
+      "promise": "685/2048",
+      "conditional_values": [
+        "-15588907/52428800",
+        "13891389/52428800",
+        "14878613/52428800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 9,
+      "k": 5,
+      "N": 6,
+      "budget": 1,
+      "promise": "913/2432",
+      "conditional_values": [
+        "-636939/2490368"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 10,
+      "k": 1,
+      "N": 7,
+      "budget": 2,
+      "promise": "1/32",
+      "conditional_values": [
+        "-14461/204800",
+        "-14461/204800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 11,
+      "k": 2,
+      "N": 8,
+      "budget": 3,
+      "promise": "305/3328",
+      "conditional_values": [
+        "-28445979/170393600",
+        "-6983451/170393600",
+        "-6983451/170393600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 12,
+      "k": 3,
+      "N": 5,
+      "budget": 1,
+      "promise": "165/1024",
+      "conditional_values": [
+        "-28575/524288"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 13,
+      "k": 4,
+      "N": 6,
+      "budget": 2,
+      "promise": "373/768",
+      "conditional_values": [
+        "6221603/49152000",
+        "7618441/16384000"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 14,
+      "k": 5,
+      "N": 7,
+      "budget": 3,
+      "promise": "25/128",
+      "conditional_values": [
+        "-1612629/9420800",
+        "623063/14131200",
+        "2877089/42393600"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 15,
+      "k": 1,
+      "N": 8,
+      "budget": 1,
+      "promise": "13/128",
+      "conditional_values": [
+        "-2535/131072"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 16,
+      "k": 2,
+      "N": 5,
+      "budget": 2,
+      "promise": "43/128",
+      "conditional_values": [
+        "4286513/9830400",
+        "4818743/9830400"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 17,
+      "k": 3,
+      "N": 6,
+      "budget": 3,
+      "promise": "247/768",
+      "conditional_values": [
+        "-6636971/39321600",
+        "682843/2621440",
+        "5284379/13107200"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 18,
+      "k": 4,
+      "N": 7,
+      "budget": 1,
+      "promise": "389/1152",
+      "conditional_values": [
+        "-52747/393216"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 19,
+      "k": 5,
+      "N": 8,
+      "budget": 2,
+      "promise": "1397/6656",
+      "conditional_values": [
+        "-7665777/68157440",
+        "15708807/65228800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 20,
+      "k": 1,
+      "N": 5,
+      "budget": 3,
+      "promise": "3/64",
+      "conditional_values": [
+        "-4321/409600",
+        "613/12800",
+        "613/12800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 21,
+      "k": 2,
+      "N": 6,
+      "budget": 1,
+      "promise": "211/704",
+      "conditional_values": [
+        "-22287/360448"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 22,
+      "k": 3,
+      "N": 7,
+      "budget": 2,
+      "promise": "1985/5632",
+      "conditional_values": [
+        "-44141587/144179200",
+        "13857051/36044800"
+      ],
+      "direct_support_match": true
+    },
+    {
+      "seed": 230003,
+      "id": 23,
+      "k": 4,
+      "N": 8,
+      "budget": 3,
+      "promise": "487/1152",
+      "conditional_values": [
+        "39935299/361267200",
+        "70564933/120422400",
+        "1754161/2822400"
+      ],
+      "direct_support_match": true
+    }
+  ],
+  "seconds": 0.6801889229999887
+}

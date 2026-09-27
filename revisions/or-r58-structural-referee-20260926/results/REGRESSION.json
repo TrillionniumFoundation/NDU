@@ -1,0 +1,7552 @@
+{
+  "status": "PASS",
+  "checks": {
+    "convolution_holes": 200,
+    "general_models": 36,
+    "lattice_models": 36,
+    "cap_compression_models": 36,
+    "tight_constructions": 4,
+    "hex_bits": {
+      "numerator_bits": 20010,
+      "denominator_bits": 20010,
+      "rational_count": 39
+    },
+    "oversized_resource_state_bits": 20000,
+    "rejected_corruptions": [
+      "upper",
+      "target",
+      "promise",
+      "eta",
+      "missing_anchor",
+      "path",
+      "hash"
+    ]
+  },
+  "seconds": 3.9214150520000004,
+  "records": [
+    {
+      "kind": "general",
+      "index": 0,
+      "instance_sha256": "f456a55f3743c8160302a8f03feefdd41f80a7ea48491a8fe16e6cd79c5c68ed",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/8",
+        "budget": 1
+      },
+      "exact": "hex:85/e1",
+      "dp_width": "hex:1/10",
+      "states": 12,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:85/e1",
+        "upper": "hex:931/e10",
+        "gap": "hex:1/10",
+        "tolerance_met": true,
+        "seconds": 0.003189711000004536,
+        "bellman_inequalities": 0,
+        "grid_points": 3,
+        "instance_sha256": "f456a55f3743c8160302a8f03feefdd41f80a7ea48491a8fe16e6cd79c5c68ed"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 1,
+      "instance_sha256": "497b8dd9d5a46b5d5ab058e8e1d6286f7f51f8340f7782bcf050e3a8ee62d1b5",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/10",
+            "hex:7/8",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:7/10",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:9/4",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:3/64"
+        ],
+        "promise": "hex:1/2",
+        "budget": 2
+      },
+      "exact": "hex:2989/2580",
+      "dp_width": "hex:11/c0",
+      "states": 110,
+      "price_nodes": 5,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:2989/2580",
+        "upper": "hex:2cdb/2580",
+        "gap": "hex:11/c0",
+        "tolerance_met": true,
+        "seconds": 0.023329411000005962,
+        "bellman_inequalities": 77,
+        "grid_points": 11,
+        "instance_sha256": "497b8dd9d5a46b5d5ab058e8e1d6286f7f51f8340f7782bcf050e3a8ee62d1b5"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 2,
+      "instance_sha256": "11355f3dcabc4f354de7afc5ffd1c839ab60e1a2ef367644d7a53a3997a5dd6c",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:d/10",
+            "hex:3/4",
+            "hex:9/10",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:d/10",
+            "hex:f/10",
+            "hex:b/10",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:1/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:f/20",
+        "budget": 3
+      },
+      "exact": "hex:507/640",
+      "dp_width": "hex:465b/33900",
+      "states": 198,
+      "price_nodes": 7,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:507/640",
+        "upper": "hex:92cb/a500",
+        "gap": "hex:465b/33900",
+        "tolerance_met": true,
+        "seconds": 0.03896743700001082,
+        "bellman_inequalities": 673,
+        "grid_points": 11,
+        "instance_sha256": "11355f3dcabc4f354de7afc5ffd1c839ab60e1a2ef367644d7a53a3997a5dd6c"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 3,
+      "instance_sha256": "5dd8337ea4445f3f0d6ac86da6675ade619d118ab350d4f4b0d2ba6fd37ea39b",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:3/10",
+            "hex:7/10",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:9/10",
+            "hex:b/10",
+            "hex:b/10",
+            "hex:b/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:b/4",
+            "hex:2/1",
+            "hex:9/4",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:21/a0",
+        "budget": 1
+      },
+      "exact": "hex:-768f/ed800",
+      "dp_width": "hex:92f/9800",
+      "states": 12,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-768f/ed800",
+        "upper": "hex:bb/1900",
+        "gap": "hex:92f/9800",
+        "tolerance_met": true,
+        "seconds": 0.005032074999988367,
+        "bellman_inequalities": 0,
+        "grid_points": 3,
+        "instance_sha256": "5dd8337ea4445f3f0d6ac86da6675ade619d118ab350d4f4b0d2ba6fd37ea39b"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 4,
+      "instance_sha256": "6ccbc18fab3afe5cf2dc0de1b31a300bdb588de045873f596066dd6fc272c9c5",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/10",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:f/40",
+        "budget": 2
+      },
+      "exact": "hex:981/1900",
+      "dp_width": "hex:1d/140",
+      "states": 40,
+      "price_nodes": 5,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:981/1900",
+        "upper": "hex:bc5/1900",
+        "gap": "hex:1d/140",
+        "tolerance_met": true,
+        "seconds": 0.005443674000005672,
+        "bellman_inequalities": 16,
+        "grid_points": 4,
+        "instance_sha256": "6ccbc18fab3afe5cf2dc0de1b31a300bdb588de045873f596066dd6fc272c9c5"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 5,
+      "instance_sha256": "70de2c2b023a9bdf8068160269991986982fce627029a4b07c53212f7f448548",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:f/10",
+            "hex:1/2",
+            "hex:7/10"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:b/20",
+        "budget": 3
+      },
+      "exact": "hex:37bb/4b00",
+      "dp_width": "hex:1d/100",
+      "states": 180,
+      "price_nodes": 7,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:37bb/4b00",
+        "upper": "hex:201d/2580",
+        "gap": "hex:1d/100",
+        "tolerance_met": true,
+        "seconds": 0.026850121000009608,
+        "bellman_inequalities": 555,
+        "grid_points": 10,
+        "instance_sha256": "70de2c2b023a9bdf8068160269991986982fce627029a4b07c53212f7f448548"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 6,
+      "instance_sha256": "29fced1529f76878306a4f54536fc8cfb8a5fd9b7b14da6d7f2482f54452677f",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:1/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/19"
+        ],
+        "promise": "hex:21/40",
+        "budget": 1
+      },
+      "exact": "hex:-95/c00",
+      "dp_width": "hex:c89/d800",
+      "states": 20,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-95/c00",
+        "upper": "hex:20f/d800",
+        "gap": "hex:c89/d800",
+        "tolerance_met": true,
+        "seconds": 0.008506436999994094,
+        "bellman_inequalities": 0,
+        "grid_points": 5,
+        "instance_sha256": "29fced1529f76878306a4f54536fc8cfb8a5fd9b7b14da6d7f2482f54452677f"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 7,
+      "instance_sha256": "2134e36bb4b549c2af17845921837ace12bf25ce0c578d6538e65f92bdf26c35",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:9/10",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:9/10",
+            "hex:d/10",
+            "hex:5/10",
+            "hex:7/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:5/2",
+            "hex:2/1",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:3/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:7b/140",
+        "budget": 2
+      },
+      "exact": "hex:253b/3200",
+      "dp_width": "hex:97/a00",
+      "states": 90,
+      "price_nodes": 3,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:253b/3200",
+        "upper": "hex:1417/1900",
+        "gap": "hex:97/a00",
+        "tolerance_met": true,
+        "seconds": 0.02301613500000599,
+        "bellman_inequalities": 63,
+        "grid_points": 9,
+        "instance_sha256": "2134e36bb4b549c2af17845921837ace12bf25ce0c578d6538e65f92bdf26c35"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 8,
+      "instance_sha256": "da89daf8d4db2887e65ab509353592dfdf7555dc0254d1fe64e0a3bc65e2a01b",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:3/8",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:39/80",
+        "budget": 3
+      },
+      "exact": "hex:11b9/1900",
+      "dp_width": "hex:515f/38400",
+      "states": 198,
+      "price_nodes": 9,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:11b3/1900",
+        "upper": "hex:2ce8b/38400",
+        "gap": "hex:515f/38400",
+        "tolerance_met": true,
+        "seconds": 0.02901991599999576,
+        "bellman_inequalities": 686,
+        "grid_points": 11,
+        "instance_sha256": "da89daf8d4db2887e65ab509353592dfdf7555dc0254d1fe64e0a3bc65e2a01b"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 9,
+      "instance_sha256": "733c9a67ae0178fcc47a8a82a0419d3268c42af1063318c7079aa1764e65324c",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:1/8",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:9/10",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:5/2",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:7/20",
+        "budget": 1
+      },
+      "exact": "hex:-5ef/5000",
+      "dp_width": "hex:1623/19000",
+      "states": 12,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-5ef/5000",
+        "upper": "hex:-f1/3200",
+        "gap": "hex:1623/19000",
+        "tolerance_met": true,
+        "seconds": 0.004309524000007059,
+        "bellman_inequalities": 0,
+        "grid_points": 3,
+        "instance_sha256": "733c9a67ae0178fcc47a8a82a0419d3268c42af1063318c7079aa1764e65324c"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 10,
+      "instance_sha256": "bf0f758a0fb342d905482a65d93e7f99a7f775270a001c07fd7d177641aa7199",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:9/10",
+            "hex:1/4",
+            "hex:7/10",
+            "hex:7/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:d/10",
+            "hex:5/10",
+            "hex:f/10",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/64"
+        ],
+        "promise": "hex:51/100",
+        "budget": 2
+      },
+      "exact": "hex:1aeb/3200",
+      "dp_width": "hex:41/300",
+      "states": 60,
+      "price_nodes": 7,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:1aeb/3200",
+        "upper": "hex:5d73/9600",
+        "gap": "hex:41/300",
+        "tolerance_met": true,
+        "seconds": 0.012935796000007826,
+        "bellman_inequalities": 42,
+        "grid_points": 6,
+        "instance_sha256": "bf0f758a0fb342d905482a65d93e7f99a7f775270a001c07fd7d177641aa7199"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 11,
+      "instance_sha256": "dd375c735c0368d362e157eb0aceea34b3b26a3895c12bec0e10e1b7ff9e9a33",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/10",
+            "hex:9/10",
+            "hex:3/4",
+            "hex:5/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:0/1",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:f/10",
+            "hex:d/10",
+            "hex:5/8",
+            "hex:b/10"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:5/2",
+            "hex:b/4",
+            "hex:9/4",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:0/1"
+        ],
+        "promise": "hex:33/a0",
+        "budget": 3
+      },
+      "exact": "hex:308d/3e80",
+      "dp_width": "hex:32881/278d00",
+      "states": 180,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:308d/3e80",
+        "upper": "hex:15af3/19500",
+        "gap": "hex:32881/278d00",
+        "tolerance_met": true,
+        "seconds": 0.03761176300000102,
+        "bellman_inequalities": 493,
+        "grid_points": 10,
+        "instance_sha256": "dd375c735c0368d362e157eb0aceea34b3b26a3895c12bec0e10e1b7ff9e9a33"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 12,
+      "instance_sha256": "d9bd8eed10d7d4edcb7e60d80fdae6ac22c9c4cdfdc1888caaf5cb278cfd7b74",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/10",
+            "hex:7/10"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/8",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:9/20",
+        "budget": 1
+      },
+      "exact": "hex:-1/32",
+      "dp_width": "hex:1/20",
+      "states": 8,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-1/32",
+        "upper": "hex:9/320",
+        "gap": "hex:1/20",
+        "tolerance_met": true,
+        "seconds": 0.002032718999998906,
+        "bellman_inequalities": 0,
+        "grid_points": 2,
+        "instance_sha256": "d9bd8eed10d7d4edcb7e60d80fdae6ac22c9c4cdfdc1888caaf5cb278cfd7b74"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 13,
+      "instance_sha256": "9cda07fd52c03ada8900f31f6e27e9e4d23333a2102396d69bbe3711cd4018c3",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:9/10",
+            "hex:5/8",
+            "hex:9/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:f/10",
+            "hex:1/1",
+            "hex:9/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:9/4",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:3/4",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:0/1"
+        ],
+        "promise": "hex:7/10",
+        "budget": 2
+      },
+      "exact": "hex:569/600",
+      "dp_width": "hex:1029/f200",
+      "states": 70,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:569/600",
+        "upper": "hex:afc7/b580",
+        "gap": "hex:1029/f200",
+        "tolerance_met": true,
+        "seconds": 0.01376482499999554,
+        "bellman_inequalities": 49,
+        "grid_points": 7,
+        "instance_sha256": "9cda07fd52c03ada8900f31f6e27e9e4d23333a2102396d69bbe3711cd4018c3"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 14,
+      "instance_sha256": "59c1c6918d6ed6a8e6ae9caf1b0e0c830241752e0b19fc390d28f480625ede53",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:7/10",
+            "hex:5/8",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:0/1",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:3/8",
+            "hex:3/4",
+            "hex:f/10",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:45/100",
+        "budget": 3
+      },
+      "exact": "hex:15b9/3200",
+      "dp_width": "hex:d2b7/89800",
+      "states": 108,
+      "price_nodes": 5,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:2a9/640",
+        "upper": "hex:e56b/1b800",
+        "gap": "hex:d2b7/89800",
+        "tolerance_met": true,
+        "seconds": 0.018034955000004516,
+        "bellman_inequalities": 190,
+        "grid_points": 6,
+        "instance_sha256": "59c1c6918d6ed6a8e6ae9caf1b0e0c830241752e0b19fc390d28f480625ede53"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 15,
+      "instance_sha256": "2a92aa273b0e5bcdaf28ddd5bcc2b1ba1cf0aa9ab622457ec7f5e5901c846883",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:b/10",
+            "hex:3/10",
+            "hex:3/10",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:f/10",
+            "hex:1/4",
+            "hex:9/10",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:9/4",
+            "hex:9/4",
+            "hex:5/2",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/64",
+          "hex:3/64",
+          "hex:1/14"
+        ],
+        "promise": "hex:5d/140",
+        "budget": 1
+      },
+      "exact": "hex:-3082f/2bc000",
+      "dp_width": "hex:bfc5/1a4000",
+      "states": 12,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-3082f/2bc000",
+        "upper": "hex:-30eb/4b000",
+        "gap": "hex:bfc5/1a4000",
+        "tolerance_met": true,
+        "seconds": 0.006716002000004551,
+        "bellman_inequalities": 0,
+        "grid_points": 3,
+        "instance_sha256": "2a92aa273b0e5bcdaf28ddd5bcc2b1ba1cf0aa9ab622457ec7f5e5901c846883"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 16,
+      "instance_sha256": "9870abcec799e5bb7fece795af0f44b2afbdf2823bfb6fb531995be7cfbcea99",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:9/10",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/19"
+        ],
+        "promise": "hex:f/40",
+        "budget": 2
+      },
+      "exact": "hex:9c1/1900",
+      "dp_width": "hex:53/300",
+      "states": 40,
+      "price_nodes": 3,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:9c1/1900",
+        "upper": "hex:12af/2580",
+        "gap": "hex:53/300",
+        "tolerance_met": true,
+        "seconds": 0.006193064999990838,
+        "bellman_inequalities": 16,
+        "grid_points": 4,
+        "instance_sha256": "9870abcec799e5bb7fece795af0f44b2afbdf2823bfb6fb531995be7cfbcea99"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 17,
+      "instance_sha256": "d29f29447ad4e0fe6d6355350ec45e10b314a16366e18b7da426d74a3efde2cb",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:7/10",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:9/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:5/2",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:1b/40",
+        "budget": 3
+      },
+      "exact": "hex:f7/100",
+      "dp_width": "hex:e5/900",
+      "states": 234,
+      "price_nodes": 3,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:3023/3200",
+        "upper": "hex:1ddf5/1c200",
+        "gap": "hex:e5/900",
+        "tolerance_met": true,
+        "seconds": 0.038752524000003064,
+        "bellman_inequalities": 911,
+        "grid_points": 13,
+        "instance_sha256": "d29f29447ad4e0fe6d6355350ec45e10b314a16366e18b7da426d74a3efde2cb"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 18,
+      "instance_sha256": "c9cd3489e412d2d3f92cfa3ad96e1c5193bd15041d1057c46fb82761afe74431",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:5/10",
+            "hex:3/10",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/19"
+        ],
+        "promise": "hex:4b/100",
+        "budget": 1
+      },
+      "exact": "hex:-39eff/460000",
+      "dp_width": "hex:e0a0d/f20000",
+      "states": 12,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-39eff/460000",
+        "upper": "hex:d4e5/845800",
+        "gap": "hex:e0a0d/f20000",
+        "tolerance_met": true,
+        "seconds": 0.005067330000002812,
+        "bellman_inequalities": 0,
+        "grid_points": 3,
+        "instance_sha256": "c9cd3489e412d2d3f92cfa3ad96e1c5193bd15041d1057c46fb82761afe74431"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 19,
+      "instance_sha256": "47229212fa9ff387b816a4af621b93dc59f488fc1929fdc0157afc91a7f95de7",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:5/8",
+            "hex:5/10",
+            "hex:7/10",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:d/10",
+            "hex:1/2",
+            "hex:d/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:2/1",
+            "hex:b/4",
+            "hex:9/4",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:3/64"
+        ],
+        "promise": "hex:3f/a0",
+        "budget": 2
+      },
+      "exact": "hex:1183/1400",
+      "dp_width": "hex:d199/f5000",
+      "states": 80,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:1183/1400",
+        "upper": "hex:2d861/31000",
+        "gap": "hex:d199/f5000",
+        "tolerance_met": true,
+        "seconds": 0.022469614000002025,
+        "bellman_inequalities": 56,
+        "grid_points": 8,
+        "instance_sha256": "47229212fa9ff387b816a4af621b93dc59f488fc1929fdc0157afc91a7f95de7"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 20,
+      "instance_sha256": "99b3ba942831e84454fb07948b30ba9003ce9abad01842cba93f52d5a8869866",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:d/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:3/64"
+        ],
+        "promise": "hex:21/40",
+        "budget": 3
+      },
+      "exact": "hex:ad/c8",
+      "dp_width": "hex:7f9/5a00",
+      "states": 198,
+      "price_nodes": 3,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:ad/c8",
+        "upper": "hex:1ad1d/1c200",
+        "gap": "hex:7f9/5a00",
+        "tolerance_met": true,
+        "seconds": 0.02696301099999232,
+        "bellman_inequalities": 741,
+        "grid_points": 11,
+        "instance_sha256": "99b3ba942831e84454fb07948b30ba9003ce9abad01842cba93f52d5a8869866"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 21,
+      "instance_sha256": "2da083060d13ea47eda7810762841a08884bb98795389f0c2de93463d1fbc45e",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:f/10",
+            "hex:1/2",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:2/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:15/40",
+        "budget": 1
+      },
+      "exact": "hex:-174b/32000",
+      "dp_width": "hex:727/a000",
+      "states": 16,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-174b/32000",
+        "upper": "hex:18f/6400",
+        "gap": "hex:727/a000",
+        "tolerance_met": true,
+        "seconds": 0.005553237999990301,
+        "bellman_inequalities": 0,
+        "grid_points": 4,
+        "instance_sha256": "2da083060d13ea47eda7810762841a08884bb98795389f0c2de93463d1fbc45e"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 22,
+      "instance_sha256": "26bc293ab0c35f18adba8012b8d8e5638449e53b16e735974b0011f450dfd2ba",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:9/10",
+            "hex:9/10",
+            "hex:3/10",
+            "hex:b/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:0/1",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/19",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/8",
+        "budget": 2
+      },
+      "exact": "hex:1c5/320",
+      "dp_width": "hex:43/300",
+      "states": 70,
+      "price_nodes": 5,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:1c5/320",
+        "upper": "hex:3103/4b00",
+        "gap": "hex:43/300",
+        "tolerance_met": true,
+        "seconds": 0.015325351999990744,
+        "bellman_inequalities": 28,
+        "grid_points": 7,
+        "instance_sha256": "26bc293ab0c35f18adba8012b8d8e5638449e53b16e735974b0011f450dfd2ba"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 23,
+      "instance_sha256": "63dcc569daa5112224fab208a839ebb3458e42a21a242f6d5d8f962b3e8421bb",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:1/4",
+            "hex:b/10",
+            "hex:f/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:0/1",
+            "hex:1/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:f/10",
+            "hex:3/4",
+            "hex:7/8",
+            "hex:1/1",
+            "hex:5/10"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:b/4",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14"
+        ],
+        "promise": "hex:3/8",
+        "budget": 3
+      },
+      "exact": "hex:2f61/3e80",
+      "dp_width": "hex:50d5/4c2c0",
+      "states": 180,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:2f61/3e80",
+        "upper": "hex:7d971/98580",
+        "gap": "hex:50d5/4c2c0",
+        "tolerance_met": true,
+        "seconds": 0.036992424999994,
+        "bellman_inequalities": 545,
+        "grid_points": 10,
+        "instance_sha256": "63dcc569daa5112224fab208a839ebb3458e42a21a242f6d5d8f962b3e8421bb"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 24,
+      "instance_sha256": "43b0b73458c33ce41f2893e54a537fa9faa723b587145710e486abe78f3db073",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:f/10",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/32"
+        ],
+        "promise": "hex:f/20",
+        "budget": 1
+      },
+      "exact": "hex:-1/64",
+      "dp_width": "hex:b8f/c800",
+      "states": 16,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-1/64",
+        "upper": "hex:98f/c800",
+        "gap": "hex:b8f/c800",
+        "tolerance_met": true,
+        "seconds": 0.004212452999993843,
+        "bellman_inequalities": 0,
+        "grid_points": 4,
+        "instance_sha256": "43b0b73458c33ce41f2893e54a537fa9faa723b587145710e486abe78f3db073"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 25,
+      "instance_sha256": "3cf21f9f5318beba04990fb5ef95d5243ae13050ffb369f6cdb307e5d7a43dfa",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:3/8",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:9/10",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:3/8",
+        "budget": 2
+      },
+      "exact": "hex:653/780",
+      "dp_width": "hex:66d/6000",
+      "states": 90,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:653/780",
+        "upper": "hex:1b4e1/1e000",
+        "gap": "hex:66d/6000",
+        "tolerance_met": true,
+        "seconds": 0.015082657999997195,
+        "bellman_inequalities": 63,
+        "grid_points": 9,
+        "instance_sha256": "3cf21f9f5318beba04990fb5ef95d5243ae13050ffb369f6cdb307e5d7a43dfa"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 26,
+      "instance_sha256": "b9467892a27cca3ee072005c93b823ec99e657993a5fb1df3d41ec3a49fa22ad",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:7/8",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:9/10",
+            "hex:1/1",
+            "hex:9/10",
+            "hex:7/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/64"
+        ],
+        "promise": "hex:9/20",
+        "budget": 3
+      },
+      "exact": "hex:8b/140",
+      "dp_width": "hex:2e9/2100",
+      "states": 126,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:2a7/640",
+        "upper": "hex:1a6dd/33900",
+        "gap": "hex:2e9/2100",
+        "tolerance_met": true,
+        "seconds": 0.021695647000001372,
+        "bellman_inequalities": 282,
+        "grid_points": 7,
+        "instance_sha256": "b9467892a27cca3ee072005c93b823ec99e657993a5fb1df3d41ec3a49fa22ad"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 27,
+      "instance_sha256": "41a727b8070d684a67e8fcaa60584ecf28574d26eedd4735398b1361f52df15f",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:7/10",
+            "hex:3/10",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:f/10",
+            "hex:3/10",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:9/4",
+            "hex:5/2",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/32"
+        ],
+        "promise": "hex:21/50",
+        "budget": 1
+      },
+      "exact": "hex:-ab5/af00",
+      "dp_width": "hex:d49/11800",
+      "states": 20,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:-ab5/af00",
+        "upper": "hex:-133b/57800",
+        "gap": "hex:d49/11800",
+        "tolerance_met": true,
+        "seconds": 0.009325899999993226,
+        "bellman_inequalities": 0,
+        "grid_points": 5,
+        "instance_sha256": "41a727b8070d684a67e8fcaa60584ecf28574d26eedd4735398b1361f52df15f"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 28,
+      "instance_sha256": "f3bd52c58302b19c149ae55c9bbe832d067b3f06b33d9f50f55020c529b342e7",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:b/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:21/40",
+        "budget": 2
+      },
+      "exact": "hex:439/500",
+      "dp_width": "hex:b/80",
+      "states": 70,
+      "price_nodes": 5,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:439/500",
+        "upper": "hex:4a7/500",
+        "gap": "hex:b/80",
+        "tolerance_met": true,
+        "seconds": 0.010315388999998731,
+        "bellman_inequalities": 63,
+        "grid_points": 7,
+        "instance_sha256": "f3bd52c58302b19c149ae55c9bbe832d067b3f06b33d9f50f55020c529b342e7"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 29,
+      "instance_sha256": "04cb05969744caa3f376fc5a2719f9953de3848f7d681a095109c76fe1d75eab",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:7/8",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:5/2",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/19"
+        ],
+        "promise": "hex:5/8",
+        "budget": 3
+      },
+      "exact": "hex:949/640",
+      "dp_width": "hex:2e43/1fa40",
+      "states": 342,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:949/640",
+        "upper": "hex:27eb/1950",
+        "gap": "hex:2e43/1fa40",
+        "tolerance_met": true,
+        "seconds": 0.061712835999998106,
+        "bellman_inequalities": 2056,
+        "grid_points": 19,
+        "instance_sha256": "04cb05969744caa3f376fc5a2719f9953de3848f7d681a095109c76fe1d75eab"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 30,
+      "instance_sha256": "92f90dd6de678d5b7e6b8c95c1eca73787e1f3278872d95d7924a3d6692c2a55",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:7/8",
+            "hex:1/2",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:7/8",
+            "hex:f/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:1/64"
+        ],
+        "promise": "hex:81/100",
+        "budget": 1
+      },
+      "exact": "hex:6ca9c5d/b6d0000",
+      "dp_width": "hex:b0f19f7/114810000",
+      "states": 16,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:6ca9c5d/b6d0000",
+        "upper": "hex:efe135/17a2000",
+        "gap": "hex:b0f19f7/114810000",
+        "tolerance_met": true,
+        "seconds": 0.007243998000006968,
+        "bellman_inequalities": 0,
+        "grid_points": 4,
+        "instance_sha256": "92f90dd6de678d5b7e6b8c95c1eca73787e1f3278872d95d7924a3d6692c2a55"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 31,
+      "instance_sha256": "61972b815810f5557ff3ef1d266e05cb7dcc76f2334522d53fc8ccc0efc1e221",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:5/10",
+            "hex:9/10",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:5/8",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:9/4",
+            "hex:9/4",
+            "hex:3/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/64",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:1b/50",
+        "budget": 2
+      },
+      "exact": "hex:45/50",
+      "dp_width": "hex:1f1/1400",
+      "states": 80,
+      "price_nodes": 11,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:2a7d/3200",
+        "upper": "hex:5eaf/6400",
+        "gap": "hex:1f1/1400",
+        "tolerance_met": true,
+        "seconds": 0.019781681000011986,
+        "bellman_inequalities": 56,
+        "grid_points": 8,
+        "instance_sha256": "61972b815810f5557ff3ef1d266e05cb7dcc76f2334522d53fc8ccc0efc1e221"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 32,
+      "instance_sha256": "701be9f938a94f11872990390aaa279fd05c578440551a0a5a20bd17a7903879",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/10",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:5/10",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/19"
+        ],
+        "promise": "hex:3/10",
+        "budget": 3
+      },
+      "exact": "hex:115/320",
+      "dp_width": "hex:fd/960",
+      "states": 90,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:115/320",
+        "upper": "hex:10f/258",
+        "gap": "hex:fd/960",
+        "tolerance_met": true,
+        "seconds": 0.009357147999992321,
+        "bellman_inequalities": 115,
+        "grid_points": 5,
+        "instance_sha256": "701be9f938a94f11872990390aaa279fd05c578440551a0a5a20bd17a7903879"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 33,
+      "instance_sha256": "4774397300820cb7fda160c1d4513df949bbc064d4cc11fabad3f05e99d2d45d",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:d/10",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:7/8",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:5/2",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:0/1"
+        ],
+        "promise": "hex:21/40",
+        "budget": 1
+      },
+      "exact": "hex:7df2f7/a8c000",
+      "dp_width": "hex:16789/24c000",
+      "states": 20,
+      "price_nodes": 1,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:7df2f7/a8c000",
+        "upper": "hex:195780b/204cc00",
+        "gap": "hex:16789/24c000",
+        "tolerance_met": true,
+        "seconds": 0.006503183999996054,
+        "bellman_inequalities": 0,
+        "grid_points": 5,
+        "instance_sha256": "4774397300820cb7fda160c1d4513df949bbc064d4cc11fabad3f05e99d2d45d"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 34,
+      "instance_sha256": "99053ead77e079022d8df727545bf78191e9d57631f5d270ed357f66acb09c3c",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:f/10",
+            "hex:7/8",
+            "hex:9/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:3/8",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/19",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:1/19"
+        ],
+        "promise": "hex:f/20",
+        "budget": 2
+      },
+      "exact": "hex:34f/500",
+      "dp_width": "hex:2b04d/1e4000",
+      "states": 70,
+      "price_nodes": 3,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:34f/500",
+        "upper": "hex:718741/974000",
+        "gap": "hex:2b04d/1e4000",
+        "tolerance_met": true,
+        "seconds": 0.017161843999986104,
+        "bellman_inequalities": 28,
+        "grid_points": 7,
+        "instance_sha256": "99053ead77e079022d8df727545bf78191e9d57631f5d270ed357f66acb09c3c"
+      }
+    },
+    {
+      "kind": "general",
+      "index": 35,
+      "instance_sha256": "21b263e5c75a0d796b06226a09a7540c5d821c04d032141682f42d1930115309",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:5/10",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:b/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:5/8",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:b/10"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:9/4",
+            "hex:b/4",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:57/a0",
+        "budget": 3
+      },
+      "exact": "hex:84e69d/659000",
+      "dp_width": "hex:5c7/3e80",
+      "states": 324,
+      "price_nodes": 11,
+      "verification": {
+        "status": "PASS",
+        "lower": "hex:209/190",
+        "upper": "hex:572f/3e80",
+        "gap": "hex:5c7/3e80",
+        "tolerance_met": true,
+        "seconds": 0.0772359970000025,
+        "bellman_inequalities": 1768,
+        "grid_points": 18,
+        "instance_sha256": "21b263e5c75a0d796b06226a09a7540c5d821c04d032141682f42d1930115309"
+      }
+    },
+    {
+      "kind": "lattice",
+      "index": 0,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/10",
+        "budget": 1
+      },
+      "instance_sha256": "44decd8ea4c78fa75a86a0aee8875b154260fd3259ad19fb52482b11b04b5fa2",
+      "value": "hex:-1/64",
+      "grid": 7,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 1,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:b/4",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:3/64"
+        ],
+        "promise": "hex:1/4",
+        "budget": 2
+      },
+      "instance_sha256": "ae7b8c21ca7ad493362ba52ba16e256b21d3b3a8078c617e0457f3584e015cf5",
+      "value": "hex:eb/180",
+      "grid": 3,
+      "denominator_bits": 5
+    },
+    {
+      "kind": "lattice",
+      "index": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/8",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:3/1",
+            "hex:b/4",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/32"
+        ],
+        "promise": "hex:d/20",
+        "budget": 3
+      },
+      "instance_sha256": "4bc2857a3af69396ef1da21e33fa6bbf0d02f57d4c6eb27a6bbb2176c599fa0e",
+      "value": "hex:323/320",
+      "grid": 26,
+      "denominator_bits": 8
+    },
+    {
+      "kind": "lattice",
+      "index": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:5/8",
+            "hex:1/4",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:5/2",
+            "hex:b/4",
+            "hex:9/4",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/14",
+          "hex:1/64",
+          "hex:1/19"
+        ],
+        "promise": "hex:9/14",
+        "budget": 1
+      },
+      "instance_sha256": "2e9287aea83fe7c8f214b219adb601be8def640fc08d59f772f3afea497ebf1b",
+      "value": "hex:-3/64",
+      "grid": 19,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:3/64",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/10",
+        "budget": 2
+      },
+      "instance_sha256": "9cb01f8f1d2eb60ca0af9e24a3b44e7b68f5a1e5b9214a352ec6fea8dee64b13",
+      "value": "hex:403/a00",
+      "grid": 3,
+      "denominator_bits": 5
+    },
+    {
+      "kind": "lattice",
+      "index": 5,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:5/8",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:2/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/14"
+        ],
+        "promise": "hex:b/18",
+        "budget": 3
+      },
+      "instance_sha256": "04ae34b4b615ff992af70884ad5527e1d7c41b89b111eb85aae29d5c0e5e8bff",
+      "value": "hex:29/28",
+      "grid": 21,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 6,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:7/8",
+            "hex:1/2",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/8",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:2/1",
+            "hex:3/1",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:3/64"
+        ],
+        "promise": "hex:3/8",
+        "budget": 1
+      },
+      "instance_sha256": "11c808446e9546a6b05f7bdc8165c0083b71f74d53ed37b0121ee9421b452881",
+      "value": "hex:a2b/e10",
+      "grid": 16,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 7,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:5/8",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:7/8",
+            "hex:5/8",
+            "hex:3/4",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:b/4",
+            "hex:3/1",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:3/64",
+          "hex:1/32"
+        ],
+        "promise": "hex:11/28",
+        "budget": 2
+      },
+      "instance_sha256": "9cf90e436efc24709bcc29c59a612bbbcfca0f0201647007c92f1683caf62955",
+      "value": "hex:6fb/640",
+      "grid": 7,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 8,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/19"
+        ],
+        "promise": "hex:1/2",
+        "budget": 3
+      },
+      "instance_sha256": "c2f73d704462bcff2148e5e8db56980425bd06b09b413f6c227042775878fac6",
+      "value": "hex:233/190",
+      "grid": 16,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 9,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:3/1",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/64"
+        ],
+        "promise": "hex:1/2",
+        "budget": 1
+      },
+      "instance_sha256": "2936e3c739dea9472c8a4c96c85a58c2553a77fa39165a8938fc2b61f5bfd28b",
+      "value": "hex:2f5/384",
+      "grid": 13,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 10,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:3/1",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/64"
+        ],
+        "promise": "hex:d/20",
+        "budget": 2
+      },
+      "instance_sha256": "7dbbfb0351221dc0a73eeec2f2e41e656aca02528112594f0bc3415a8cd81a74",
+      "value": "hex:370b/3200",
+      "grid": 6,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 11,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:5/8",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:3/1",
+            "hex:9/4",
+            "hex:2/1",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/8",
+        "budget": 3
+      },
+      "instance_sha256": "9ae44a40b43d077cf5c17d834d1e76746bd9ea50ce1b8621e3fc45900c3c7d5f",
+      "value": "hex:d71/fa0",
+      "grid": 31,
+      "denominator_bits": 8
+    },
+    {
+      "kind": "lattice",
+      "index": 12,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:3/64"
+        ],
+        "promise": "hex:7/10",
+        "budget": 1
+      },
+      "instance_sha256": "8cc4669a3780546c7006ccde39b7c047c4521a3f0f997255b8bddf1e7a101171",
+      "value": "hex:d4b/e10",
+      "grid": 10,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 13,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:3/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:7/8",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:5/2",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:3/64"
+        ],
+        "promise": "hex:1/2",
+        "budget": 2
+      },
+      "instance_sha256": "c106c4233fbec6d13fbd4ad3ab6c02d41e18eaf19e13df33d300078b26deac73",
+      "value": "hex:3e1/320",
+      "grid": 6,
+      "denominator_bits": 5
+    },
+    {
+      "kind": "lattice",
+      "index": 14,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:5/8",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:b/4",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:3/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:9/20",
+        "budget": 3
+      },
+      "instance_sha256": "1dd3dcf44c7d92819ed0e6551849a635e02513dd889507d076a6c6c4582422dd",
+      "value": "hex:693/c80",
+      "grid": 21,
+      "denominator_bits": 8
+    },
+    {
+      "kind": "lattice",
+      "index": 15,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:7/8",
+            "hex:1/1",
+            "hex:5/8",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:2/1",
+            "hex:5/2",
+            "hex:2/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:2/5",
+        "budget": 1
+      },
+      "instance_sha256": "e044202335ad529093d4d5ddde03a9b67b75fa647d1349f1168adc8b4f406954",
+      "value": "hex:-1/32",
+      "grid": 10,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 16,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/10",
+        "budget": 2
+      },
+      "instance_sha256": "6ade0e1bb6547171a02c73cff7bd303d7b6cf945db9aad1c3e20296d604f1bec",
+      "value": "hex:1e59/1900",
+      "grid": 5,
+      "denominator_bits": 5
+    },
+    {
+      "kind": "lattice",
+      "index": 17,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:9/4",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/64"
+        ],
+        "promise": "hex:1/2",
+        "budget": 3
+      },
+      "instance_sha256": "fff8911ef0ff82b9f7b7929a2be9fb79557991226fbdd7d2442dee89e2865c2e",
+      "value": "hex:335/320",
+      "grid": 21,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 18,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:5/8",
+            "hex:7/8",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:9/4",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:3/64"
+        ],
+        "promise": "hex:5/10",
+        "budget": 1
+      },
+      "instance_sha256": "06d51267189c259402df7ec7287a73764dc513f36ebcdd9d0ae5f94492afb5f7",
+      "value": "hex:-1/32",
+      "grid": 7,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 19,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:7/8",
+            "hex:5/8",
+            "hex:1/2",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:3/1",
+            "hex:9/4",
+            "hex:9/4",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:3/64"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "instance_sha256": "f14324391a60d1dc5d2e1bbc6f7cabf1b361ee35f1011b9de0594f833caaa3a9",
+      "value": "hex:647/640",
+      "grid": 7,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 20,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/14"
+        ],
+        "promise": "hex:3/8",
+        "budget": 3
+      },
+      "instance_sha256": "3b519dff2d22ad661bbd8554b545a87a881a4fa680e5f49885998c70d8e592d1",
+      "value": "hex:16b/190",
+      "grid": 16,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 21,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:1/4",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:7/8",
+            "hex:3/8",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:5/2",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/8",
+        "budget": 1
+      },
+      "instance_sha256": "88368faef4d0f55702ce47ef23963bf344349888505e4f8b73df656786d027c1",
+      "value": "hex:-1/14",
+      "grid": 10,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 22,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:5/8",
+            "hex:1/2",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:7/8",
+            "hex:1/1",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:2/1",
+            "hex:5/2",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:3/64"
+        ],
+        "promise": "hex:3/8",
+        "budget": 2
+      },
+      "instance_sha256": "4b5fde6c48da1c8efe82a3bcc7a50453189e9c435c2d35d3ebce3cfbab8c34d7",
+      "value": "hex:a89/c80",
+      "grid": 6,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 23,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:3/8",
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:5/8",
+            "hex:3/8",
+            "hex:1/4"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:9/4",
+            "hex:b/4",
+            "hex:3/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:3/64"
+        ],
+        "promise": "hex:1/4",
+        "budget": 3
+      },
+      "instance_sha256": "c8f749153745b1fc6b27933b0cc18f0942955fe0452a1942787e169b767a4a6d",
+      "value": "hex:9d1/fa0",
+      "grid": 21,
+      "denominator_bits": 8
+    },
+    {
+      "kind": "lattice",
+      "index": 24,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:9/10",
+        "budget": 1
+      },
+      "instance_sha256": "e600dad45cb561b844f864b211df8e23fc72253193c5c0d27eee367b2450e3b9",
+      "value": "hex:b89/e10",
+      "grid": 13,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 25,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:9/4",
+            "hex:b/4"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:1/32"
+        ],
+        "promise": "hex:b/18",
+        "budget": 2
+      },
+      "instance_sha256": "2270037dd48abcb361886188cbd79755133458337b3cdc22ed6f2b5d67260eb3",
+      "value": "hex:26ff/2580",
+      "grid": 5,
+      "denominator_bits": 5
+    },
+    {
+      "kind": "lattice",
+      "index": 26,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:3/1",
+            "hex:3/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/14",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:3/64",
+          "hex:1/19"
+        ],
+        "promise": "hex:9/10",
+        "budget": 3
+      },
+      "instance_sha256": "e7958d83fd7ae42a821fef22d6c6c417239ed2a11a3731d08288879bbde6a962",
+      "value": "hex:77/50",
+      "grid": 36,
+      "denominator_bits": 8
+    },
+    {
+      "kind": "lattice",
+      "index": 27,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:5/2",
+            "hex:3/1",
+            "hex:3/1",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:3/64",
+          "hex:3/64",
+          "hex:1/64"
+        ],
+        "promise": "hex:5/8",
+        "budget": 1
+      },
+      "instance_sha256": "922649852ccf8630280adbd7d3d58577cebc59b36bd441b23f755a49449ef2ae",
+      "value": "hex:40/4b",
+      "grid": 28,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 28,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:5/10",
+        "budget": 2
+      },
+      "instance_sha256": "bfa495942493c1495f68898391db4ceda40bd059443261fee1acb0638e5a88bf",
+      "value": "hex:26fb/3200",
+      "grid": 3,
+      "denominator_bits": 5
+    },
+    {
+      "kind": "lattice",
+      "index": 29,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:7/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:2/1",
+            "hex:9/4"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:3/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:7/c",
+        "budget": 3
+      },
+      "instance_sha256": "86677b48983bdc1cc1cbce6307aef399091bca1d6276743ea9a6b4d9fb81086f",
+      "value": "hex:43f/320",
+      "grid": 26,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 30,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:3/8",
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:1/2",
+            "hex:7/8",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:5/2",
+            "hex:2/1",
+            "hex:3/1"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/2"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/19"
+        ],
+        "promise": "hex:7/10",
+        "budget": 1
+      },
+      "instance_sha256": "378f7fd8d5caee5ec09ad2c84406e731ba09d4a7afacd7a3593cef59b83d8708",
+      "value": "hex:154d/1c20",
+      "grid": 16,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 31,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:7/8",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:7/8",
+            "hex:5/8",
+            "hex:3/8",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:5/2",
+            "hex:9/4",
+            "hex:5/2",
+            "hex:9/4",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/32"
+        ],
+        "promise": "hex:11/28",
+        "budget": 2
+      },
+      "instance_sha256": "3933050ba7a7a179aca0cb07e19fef68868a609d9805d4b16ad143e19c6314f5",
+      "value": "hex:279/280",
+      "grid": 7,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 32,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:9/4",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/8",
+        "budget": 3
+      },
+      "instance_sha256": "d5587ce6fb1e818936b58c345af28d4c7e6ddba96591383dc69b3b1dc43ead34",
+      "value": "hex:143/190",
+      "grid": 11,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 33,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:5/8",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:1/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:3/64"
+        ],
+        "promise": "hex:1/3",
+        "budget": 1
+      },
+      "instance_sha256": "19f0c0292438fa0636d269774d9bba72375dd4bf63a9f6af8146d6a16d928930",
+      "value": "hex:-3/64",
+      "grid": 10,
+      "denominator_bits": 7
+    },
+    {
+      "kind": "lattice",
+      "index": 34,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:5/8",
+            "hex:3/8",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:b/4",
+            "hex:9/4",
+            "hex:9/4",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/14"
+        ],
+        "promise": "hex:d/20",
+        "budget": 2
+      },
+      "instance_sha256": "16e0678fb0e9b2e1befccfd1d4fd8e578c53a197e6a89774f85898ec7f8bfffb",
+      "value": "hex:2b0b/3200",
+      "grid": 6,
+      "denominator_bits": 6
+    },
+    {
+      "kind": "lattice",
+      "index": 35,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:7/8",
+            "hex:3/8",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:3/1",
+            "hex:b/4",
+            "hex:3/1",
+            "hex:3/1",
+            "hex:5/2"
+          ],
+          "reward_q": [
+            "hex:1/4",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:3/4",
+            "hex:3/4"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/a",
+        "budget": 3
+      },
+      "instance_sha256": "60e4d75727ee69fd699bc341cea5637329d70f7594bbbab91983e23e62f9669f",
+      "value": "hex:c1f/fa0",
+      "grid": 26,
+      "denominator_bits": 8
+    },
+    {
+      "kind": "compression",
+      "index": 0,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:5/10",
+            "hex:7/10",
+            "hex:5/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/10",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:345/c80"
+    },
+    {
+      "kind": "compression",
+      "index": 1,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:d/10",
+            "hex:3/4",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:d/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:4b/80",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:17f/190"
+    },
+    {
+      "kind": "compression",
+      "index": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:d/10",
+            "hex:f/10",
+            "hex:3/10",
+            "hex:d/10",
+            "hex:f/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:d/10",
+            "hex:1/1",
+            "hex:7/10",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:3/64"
+        ],
+        "promise": "hex:b1/140",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 4,
+      "distinct_caps": 3,
+      "optimum": "hex:cb5/e10"
+    },
+    {
+      "kind": "compression",
+      "index": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:0/1",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:f/10",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:1/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:9/10",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:173/190"
+    },
+    {
+      "kind": "compression",
+      "index": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:3/10",
+            "hex:1/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/8",
+            "hex:1/4",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:1/14"
+        ],
+        "promise": "hex:7/40",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:103/960"
+    },
+    {
+      "kind": "compression",
+      "index": 5,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/10",
+            "hex:9/10",
+            "hex:3/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:d/10",
+            "hex:b/10",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:1b/80",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:725/1200"
+    },
+    {
+      "kind": "compression",
+      "index": 6,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/10",
+            "hex:3/10",
+            "hex:3/10",
+            "hex:3/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:3/4",
+            "hex:0/1",
+            "hex:1/2",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:3/8",
+            "hex:1/2",
+            "hex:5/8",
+            "hex:1/4",
+            "hex:7/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:9/40",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:baf/3200"
+    },
+    {
+      "kind": "compression",
+      "index": 7,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:b/10",
+            "hex:1/8",
+            "hex:b/10",
+            "hex:1/8",
+            "hex:b/10",
+            "hex:1/8"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:b/10",
+            "hex:9/10",
+            "hex:1/1",
+            "hex:9/10",
+            "hex:1/1",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:0/1",
+          "hex:1/32"
+        ],
+        "promise": "hex:27/80",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 4,
+      "distinct_caps": 2,
+      "optimum": "hex:ccd/1900"
+    },
+    {
+      "kind": "compression",
+      "index": 8,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:b/10",
+            "hex:5/8",
+            "hex:d/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:f/10",
+            "hex:d/10",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/19",
+          "hex:3/64"
+        ],
+        "promise": "hex:11/20",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 2,
+      "distinct_caps": 3,
+      "optimum": "hex:3e/4b"
+    },
+    {
+      "kind": "compression",
+      "index": 9,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/64"
+        ],
+        "promise": "hex:15/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:1a3f/1900"
+    },
+    {
+      "kind": "compression",
+      "index": 10,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/10",
+            "hex:5/8",
+            "hex:5/10",
+            "hex:5/8",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:1/2",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:7/8",
+            "hex:b/10",
+            "hex:1/1",
+            "hex:3/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/64",
+          "hex:3/64",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:15/40",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 3,
+      "distinct_caps": 2,
+      "optimum": "hex:17/28"
+    },
+    {
+      "kind": "compression",
+      "index": 11,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:3/4",
+            "hex:9/10",
+            "hex:7/10",
+            "hex:3/4",
+            "hex:9/10"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:3/4",
+            "hex:0/1",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:1/1",
+            "hex:d/10",
+            "hex:d/10",
+            "hex:1/1",
+            "hex:5/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/32"
+        ],
+        "promise": "hex:7/10",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 2,
+      "distinct_caps": 3,
+      "optimum": "hex:2a1d/3840"
+    },
+    {
+      "kind": "compression",
+      "index": 12,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:3/8",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:9/10",
+            "hex:b/10",
+            "hex:b/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:c3d/1900"
+    },
+    {
+      "kind": "compression",
+      "index": 13,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:b/10",
+            "hex:1/1",
+            "hex:1/4"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:3/64"
+        ],
+        "promise": "hex:3/8",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 3,
+      "distinct_caps": 2,
+      "optimum": "hex:39/64"
+    },
+    {
+      "kind": "compression",
+      "index": 14,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:5/10",
+            "hex:b/10",
+            "hex:7/10",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:3/4",
+            "hex:9/10",
+            "hex:7/8",
+            "hex:7/10",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/19",
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:15/40",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 3,
+      "optimum": "hex:a79/12c0"
+    },
+    {
+      "kind": "compression",
+      "index": 15,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:f/10",
+            "hex:7/8",
+            "hex:1/1",
+            "hex:d/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:1/14"
+        ],
+        "promise": "hex:f/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:3df/500"
+    },
+    {
+      "kind": "compression",
+      "index": 16,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/10",
+            "hex:5/8",
+            "hex:5/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:9/10",
+            "hex:1/1",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/64",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:1/19"
+        ],
+        "promise": "hex:5/10",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:11/20"
+    },
+    {
+      "kind": "compression",
+      "index": 17,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:f/10",
+            "hex:f/10",
+            "hex:1/8",
+            "hex:f/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/8",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/19"
+        ],
+        "promise": "hex:8d/100",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 2,
+      "optimum": "hex:5535/6400"
+    },
+    {
+      "kind": "compression",
+      "index": 18,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:9/10",
+            "hex:3/4",
+            "hex:7/8",
+            "hex:3/4",
+            "hex:1/2"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:0/1",
+          "hex:1/19"
+        ],
+        "promise": "hex:3/8",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:15/20"
+    },
+    {
+      "kind": "compression",
+      "index": 19,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/10",
+            "hex:7/10",
+            "hex:7/10",
+            "hex:7/10",
+            "hex:7/10",
+            "hex:7/10"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:0/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:9/10",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/10",
+            "hex:5/8",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/64",
+          "hex:3/64"
+        ],
+        "promise": "hex:15/40",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:ad/140"
+    },
+    {
+      "kind": "compression",
+      "index": 20,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:7/10",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:0/1",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:b/10",
+            "hex:5/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:15/40",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 3,
+      "optimum": "hex:aa9/12c0"
+    },
+    {
+      "kind": "compression",
+      "index": 21,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:1/8",
+            "hex:1/8",
+            "hex:1/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:9/10",
+            "hex:3/8",
+            "hex:3/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:425/1900"
+    },
+    {
+      "kind": "compression",
+      "index": 22,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8",
+            "hex:5/8"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:3/4",
+            "hex:7/8",
+            "hex:1/1",
+            "hex:d/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/64",
+          "hex:1/64"
+        ],
+        "promise": "hex:f/20",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:4f5/640"
+    },
+    {
+      "kind": "compression",
+      "index": 23,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:d/10",
+            "hex:3/8",
+            "hex:f/10",
+            "hex:d/10",
+            "hex:3/8",
+            "hex:f/10"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:7/8",
+            "hex:f/10",
+            "hex:7/8",
+            "hex:3/8",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:1/14",
+          "hex:3/64"
+        ],
+        "promise": "hex:11/20",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 3,
+      "optimum": "hex:c4d/d80"
+    },
+    {
+      "kind": "compression",
+      "index": 24,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:1/8",
+            "hex:1/8"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:3/10",
+            "hex:3/8",
+            "hex:1/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:3/64",
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/64"
+        ],
+        "promise": "hex:3/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:-139/25800"
+    },
+    {
+      "kind": "compression",
+      "index": 25,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:d/10",
+            "hex:f/10",
+            "hex:d/10",
+            "hex:f/10"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:7/8",
+            "hex:f/10",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/19",
+          "hex:3/64",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:1/64"
+        ],
+        "promise": "hex:15/20",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:337/320"
+    },
+    {
+      "kind": "compression",
+      "index": 26,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/10",
+            "hex:3/10",
+            "hex:d/10",
+            "hex:3/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:3/4",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:3/10",
+            "hex:d/10",
+            "hex:1/4",
+            "hex:5/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/64",
+          "hex:1/14"
+        ],
+        "promise": "hex:f/40",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 2,
+      "optimum": "hex:56ff/e100"
+    },
+    {
+      "kind": "compression",
+      "index": 27,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/8",
+            "hex:3/8",
+            "hex:3/8",
+            "hex:3/8",
+            "hex:3/8",
+            "hex:3/8"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:3/4",
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:b/10",
+            "hex:9/10",
+            "hex:3/8",
+            "hex:5/8",
+            "hex:3/4",
+            "hex:b/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/64"
+        ],
+        "promise": "hex:9/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:b3d/1900"
+    },
+    {
+      "kind": "compression",
+      "index": 28,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:9/10",
+            "hex:7/8",
+            "hex:9/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:d/10",
+            "hex:f/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/32",
+          "hex:0/1",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/19"
+        ],
+        "promise": "hex:1/2",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:53/64"
+    },
+    {
+      "kind": "compression",
+      "index": 29,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:f/10",
+            "hex:1/2",
+            "hex:1/4"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:f/10",
+            "hex:1/1",
+            "hex:7/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/14",
+          "hex:1/14",
+          "hex:1/19",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:1/14"
+        ],
+        "promise": "hex:5d/100",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 3,
+      "optimum": "hex:23b1/3c00"
+    },
+    {
+      "kind": "compression",
+      "index": 30,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:3/4"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/14",
+          "hex:1/64"
+        ],
+        "promise": "hex:9/10",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:121/140"
+    },
+    {
+      "kind": "compression",
+      "index": 31,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:3/10",
+            "hex:7/10",
+            "hex:3/10",
+            "hex:7/10",
+            "hex:3/10",
+            "hex:7/10"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:1/4",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "ceilings": [
+            "hex:1/2",
+            "hex:b/10",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:7/10",
+            "hex:9/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:3/64",
+          "hex:1/64"
+        ],
+        "promise": "hex:f/40",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 3,
+      "distinct_caps": 2,
+      "optimum": "hex:263/640"
+    },
+    {
+      "kind": "compression",
+      "index": 32,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:5/8",
+            "hex:3/10",
+            "hex:3/10"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:1/2",
+            "hex:1/1",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:5/8",
+            "hex:7/10",
+            "hex:3/10"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/14",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14",
+          "hex:1/19",
+          "hex:0/1"
+        ],
+        "promise": "hex:1/4",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 3,
+      "distinct_caps": 2,
+      "optimum": "hex:b05/1c20"
+    },
+    {
+      "kind": "compression",
+      "index": 33,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:1/1",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/2"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:7/8",
+            "hex:7/8"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/4",
+          "hex:1/2",
+          "hex:3/4",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:1/14"
+        ],
+        "promise": "hex:15/20",
+        "budget": 5
+      },
+      "before_commands": 5,
+      "after_commands": 2,
+      "distinct_caps": 1,
+      "optimum": "hex:19bf/1900"
+    },
+    {
+      "kind": "compression",
+      "index": 34,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:b/10",
+            "hex:7/8",
+            "hex:b/10",
+            "hex:7/8",
+            "hex:b/10"
+          ],
+          "weights": [
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5",
+            "hex:1/5"
+          ],
+          "gamma": [
+            "hex:3/4",
+            "hex:1/4",
+            "hex:1/2",
+            "hex:3/4",
+            "hex:1/1"
+          ],
+          "ceilings": [
+            "hex:b/10",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/5",
+          "hex:2/5",
+          "hex:3/5",
+          "hex:4/5",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:0/1",
+          "hex:1/32",
+          "hex:1/14"
+        ],
+        "promise": "hex:b7/140",
+        "budget": 6
+      },
+      "before_commands": 6,
+      "after_commands": 2,
+      "distinct_caps": 2,
+      "optimum": "hex:bf/c8"
+    },
+    {
+      "kind": "compression",
+      "index": 35,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2",
+            "hex:5/8",
+            "hex:7/8",
+            "hex:1/2",
+            "hex:5/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6",
+            "hex:1/6"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:1/1",
+            "hex:1/4",
+            "hex:3/4",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/1",
+            "hex:b/10",
+            "hex:1/1",
+            "hex:9/10",
+            "hex:d/10",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/64",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/64",
+          "hex:0/1",
+          "hex:3/64",
+          "hex:0/1"
+        ],
+        "promise": "hex:1/2",
+        "budget": 7
+      },
+      "before_commands": 7,
+      "after_commands": 1,
+      "distinct_caps": 3,
+      "optimum": "hex:ad/c8"
+    },
+    {
+      "kind": "tightness",
+      "q": 1,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/2"
+          ],
+          "weights": [
+            "hex:1/1"
+          ],
+          "gamma": [
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:2/3"
+          ],
+          "reward_r": [
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:1/3",
+          "hex:2/3"
+        ],
+        "charges": [
+          0,
+          0
+        ],
+        "promise": "hex:1/2",
+        "budget": 2
+      },
+      "optimal_value": "hex:1f/24",
+      "best_smaller": "hex:b/12",
+      "strict_gap": "hex:1/4"
+    },
+    {
+      "kind": "tightness",
+      "q": 2,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/4",
+            "hex:3/4"
+          ],
+          "weights": [
+            "hex:1/2",
+            "hex:1/2"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/3",
+            "hex:5/6"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:1/6",
+          "hex:1/3",
+          "hex:2/3",
+          "hex:5/6"
+        ],
+        "charges": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "promise": "hex:1/2",
+        "budget": 4
+      },
+      "optimal_value": "hex:79/90",
+      "best_smaller": "hex:5/6",
+      "strict_gap": "hex:1/90"
+    },
+    {
+      "kind": "tightness",
+      "q": 3,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/6",
+            "hex:1/2",
+            "hex:5/6"
+          ],
+          "weights": [
+            "hex:1/3",
+            "hex:1/3",
+            "hex:1/3"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:2/9",
+            "hex:5/9",
+            "hex:8/9"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:1/9",
+          "hex:2/9",
+          "hex:4/9",
+          "hex:5/9",
+          "hex:7/9",
+          "hex:8/9"
+        ],
+        "charges": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "promise": "hex:1/2",
+        "budget": 6
+      },
+      "optimal_value": "hex:10f/144",
+      "best_smaller": "hex:32b/3cc",
+      "strict_gap": "hex:1/1e6"
+    },
+    {
+      "kind": "tightness",
+      "q": 4,
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:1/8",
+            "hex:3/8",
+            "hex:5/8",
+            "hex:7/8"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:1/6",
+            "hex:5/c",
+            "hex:2/3",
+            "hex:b/c"
+          ],
+          "reward_r": [
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1",
+            "hex:2/1"
+          ],
+          "reward_q": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ]
+        },
+        "catalog": [
+          "hex:1/c",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:5/c",
+          "hex:7/c",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:b/c"
+        ],
+        "charges": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "promise": "hex:1/2",
+        "budget": 8
+      },
+      "optimal_value": "hex:1e1/240",
+      "best_smaller": "hex:3c1/480",
+      "strict_gap": "hex:1/480"
+    }
+  ]
+}

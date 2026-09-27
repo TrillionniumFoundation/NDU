@@ -1,0 +1,52 @@
+\section{Exact Budgeted Compression at Fixed Targets}\label{sec:r45-compression}
+We first solve alphabet selection without changing the promised branch targets. This is both an independently meaningful design problem and an oracle for joint design. Let $\mathcal A=(a_1<\cdots<a_N)$, with charges $\rho_i\geq0$, and fix $t_j\leq b_j$, $\sum_j\pi_jt_j=B$, and $a_1\leq\min_jt_j$. Write $\tau_j\geq b_j$ for the realization ceiling; the renewal specialization is $\tau_j=b_j+\delta$. In this section $v_{j,c}$ denotes \eqref{eq:prefix-response} with this branch-specific ceiling, and $R(c)=\sum_{a_i\in c}\rho_i$.
+
+For two candidate levels $u<v$, define the target-crossing edge and stopping reward
+\begin{align}
+ A_t(u,v)&=\sum_{j:u\leq t_j<v}\pi_j
+ \begin{cases}
+ f(u)+\dfrac{t_j-u}{v-u}\{f(v)-f(u)\},&v\leq\tau_j,\\
+ f(u)-h_j(t_j-u),&v>\tau_j,
+ \end{cases}\label{eq:r45-edge}\\
+ Z_t(u)&=\sum_{j:t_j\geq u}\pi_j\{f(u)-h_j(t_j-u)\}.\label{eq:r45-tail}
+\end{align}
+The eligibility test is on $v$, not on its mean with $u$. If it fails, a branch uses the lower level and a fixed tier $t_j-u$; averaging an ineligible realization into a feasible mean would not implement the contract. Unlike the priced recurrence, \eqref{eq:r45-edge} has no price-admissibility restriction on an arc.
+
+\begin{theorem}[Conditional memory--charge frontier]\label{thm:r45-frontier}
+For any feasible target vector $t$, define
+\[
+ F_\ell(t)=\max_{\substack{c\subseteq\mathcal A,\ |c|=\ell\\c_1\leq\min_jt_j}}
+ \left\{\sum_j\pi_jv_{j,c}(t_j)-R(c)\right\},\qquad
+ P_s(t)=\max_{1\leq\ell\leq s}F_\ell(t).
+\]
+Infeasible exact cardinalities have value $-\infty$. Set $H_1(i)=Z_t(a_i)$ and
+\begin{equation}\label{eq:r45-dp}
+ H_\ell(i)=\max_{v>i}\{A_t(a_i,a_v)-\rho_v+H_{\ell-1}(v)\}.
+\end{equation}
+Then $F_\ell(t)=\max_{a_i\leq\min_jt_j}\{H_\ell(i)-\rho_i\}$. All frontiers through budget $M\leq N$ and their feasible policies are computable in $O((k+M)N^2)$ arithmetic operations and $O(N^2+MN)$ storage, given constant-time evaluations of $f$ and $h_j$. Rational quadratic data give polynomial bit complexity. Every policy uses one fixed book, preserves the supplied targets exactly, commits intermediate service before its lottery, and respects every realization ceiling.
+\end{theorem}
+\begin{proof}
+Take a feasible ordered book. Every target belongs to exactly one interval $[u,v)$ between consecutive levels, or to the final interval $[u,\infty)$. In the former case $u\leq t_j\leq b_j\leq\tau_j$, so the lower endpoint is eligible. If $v$ is eligible, the canonical response is its chord at $t_j$. If $v$ is ineligible, every later level is ineligible, and the highest eligible book level is $u$; the response is the second line of \eqref{eq:r45-edge}. A final-interval branch has the response in \eqref{eq:r45-tail}. These intervals partition the branches, including targets equal to a selected level. The book's operating value is therefore the sum of its edge and stopping rewards.
+
+The recurrence enumerates ordered paths with exactly $\ell$ vertices. It pays every charge once, with the first charge outside the recurrence. Conversely, each such path starting no higher than the smallest target defines a feasible book, and the preceding partition computes its exact value. Maximization proves both directions of the claimed equality. Taking the best exact cardinality gives an at-most budget and does not assume that an unused additional symbol should be purchased. There are $O(N^2)$ edges, each computed by scanning the branches, and $O(MN^2)$ transitions. Each rational path value is a sum of polynomially many input-derived rational terms, so ordinary rational arithmetic and comparison have polynomial bit complexity.
+\end{proof}
+
+\begin{corollary}[Global catalog design at saturation]\label{cor:r45-saturated}
+If $B=\bar b$, then $P_s(b)=\mathcal V_{s,\mathcal A}^{\tau}(\bar b;\rho)$ for every $s$. Hence joint catalog design at a saturated promise, including arbitrary nonnegative opening charges and branch-specific realization ceilings, has the complexity in Theorem~\ref{thm:r45-frontier}, with both $k$ and $s$ variable.
+\end{corollary}
+\begin{proof}
+Positive weights and $t_j\leq b_j$ imply $\sum_j\pi_jt_j=\bar b$ only when every $t_j=b_j$. There is no remaining target optimization. Apply the theorem.
+\end{proof}
+
+This corollary is a same-budget global result, not a priced relaxation. At an interior promise, the theorem optimizes the entire alphabet conditional on $t$; it does not certify that the selected target vector is jointly optimal. Section~\ref{sec:r45-net} resolves that target choice at fixed branch count. The faster saturated Monge construction in Appendix~\ref{sec:r37-search} concerns its stronger structural assumptions and is retained rather than replaced.
+
+\subsection{Compression, opening costs, and symbol prices}
+Take any candidate pool $U$, including a union of supported books. Applying the theorem with $\mathcal A=U$ gives the optimal sub-book at every allowed cardinality, not just a sequence of greedy deletions. Applying it on the whole catalog can only improve the conditional value. No nestedness of optimal books is required. In particular, comparing budgets $m,m+1,\ldots,|U|$ gives the complete conditional memory--value frontier and identifies the value purchased by each additional symbol.
+
+If an additional uniform certification fee $\kappa\geq0$ is imposed, the exact conditional value is
+\begin{equation}\label{eq:r45-surcharge}
+ \max_{1\leq\ell\leq M}\{F_\ell(t)-\kappa\ell\}.
+\end{equation}
+The upper envelope has finitely many breakpoints, obtained from the computed exact-cardinality values. Chosen cardinalities may be tied, but a largest optimal cardinality is nonincreasing in $\kappa$. Indeed, optimality at $\kappa_1<\kappa_2$ and cardinalities $\ell_1,\ell_2$ gives $(\kappa_2-\kappa_1)(\ell_1-\ell_2)\geq0$. This statement concerns cardinality, not nesting of the selected levels. General nonuniform charges are already included in the recurrence and do not require the uniform-fee interpretation.
+
+The structural advantage over a raw union is that charges enter the optimization itself. A costly level may be discarded even when capacity remains. Nevertheless, an optimal conditional compression can be inferior to a policy with different branch targets. Our returned operational policy therefore compares valid candidates at the \emph{same} budget and keeps the best, including a supplied incumbent. This safeguard never converts a heuristic target portfolio into a global optimality theorem.

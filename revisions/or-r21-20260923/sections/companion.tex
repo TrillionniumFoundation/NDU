@@ -1,0 +1,32 @@
+\section{R21 design, exact restricted repair, and replay}\label{ec:r21-details}
+R21 starts from the complete R19 manuscript, not from an unexecuted result attributed to the R20 plan. The newest referee report is dated September 23, 2026. Its reviewed tip contains only that plan beyond the R19 publication. The current sources, manuscripts, response, raw results, and final-checkout tests form one completed object. The design was declared before the new studies, after knowledge of R19 outcomes; it was not externally preregistered. New observations are not pooled with historical studies.
+
+The new code reuses the declared R16 primitive generator and frozen models. Tanh models use 192 fixed random features and ridge parameter $10^{-7}$; the RBF is cubic with smoothing $10^{-7}$. Normalized reward inputs are divided by sixteen, and integer friction input is centered at seventeen and divided by fifteen. The independent final seeds are 23011 and 23012. A code-inspection pilot used 23001 and 23002; it is excluded because resetting primal and dual iterates alone need not reset adaptive solver state. The final validation reconstructs every response and restricted-comparator workspace for each context, with both ensembles unchanged. The audit note records this correction and the pilot hashes. Scaling training seeds start at 25001 and held-out seeds at 24001, incrementing with the configuration index. No model or seed is selected by the reported results. Timed studies execute sequentially with one BLAS thread and one OpenMP thread; validation and replay are not run concurrently with timed workloads in the reproduction script.
+
+\subsection{Repair that stays inside the economic comparator class}
+Let $d(j)$ be node $j$'s depth. The restricted amendments satisfy $x_{j,a}=\tau_{d(j),a}$ and every original accepted constraint. Extra equality multipliers are included in the restricted conjugate bound. Using the unrestricted transfer repair would generally destroy these time equalities and invalidate this comparator.
+
+Instead, round the nonroot depth amendments to rationals, then set the root amendment by its exact payment equality. Specifically, if $c_{j,a}>0$ are the declared payment coefficients,
+\[
+ \tau_{0,a}=-\frac{\sum_{j\ne0}c_{j,a}\tau_{d(j),a}}{c_{0,a}}.
+\]
+This produces a rational vector $w$ satisfying root and time equalities, but possibly violating an inequality after rounding. Construct a rational strict anchor by setting all nonroot depth amendments negative, imposing the same root formula, and scaling sufficiently toward zero. In the present primitive, zero lies strictly inside every tier box, capacity right-hand sides are positive, and positive payments make every nonroot continuation row strict at that anchor. Hence the required anchor exists; this construction is not asserted for boundary incumbents or signed tariffs without those conditions.
+
+For the finite list of box, capacity, and continuation rows $a_i^\top x\leq b_i$, let $z$ be that strict anchor and put
+\[
+ \alpha=\max\left(0,\max_{i:a_i^\top w>b_i}
+ \frac{a_i^\top w-b_i}{a_i^\top w-a_i^\top z}\right),\qquad
+ y=(1-\alpha)w+\alpha z.
+\]
+All quantities are rational and $0\leq\alpha<1$. For each violated row the definition gives $a_i^\top y\leq b_i$; for every other row feasibility follows from convexity. Both endpoints satisfy all equalities, so $y$ stays in the restricted class. The independent verifier checks the extra equalities explicitly as well as the original commitments. A negative control perturbs two sibling amendments while preserving their total payment; it is accepted by the unrestricted geometry but rejected by the restricted equality check.
+
+\subsection{Recorded objects and independent verification}
+Each timed record contains the initial repaired proposal and its dual certificate, the fixed-primal polished certificate, and the actually returned post-fallback certificate. Replay verifies identical proposal coordinates, switching tensions and inequality prices before and after polishing; nonincreasing rational upper bounds; and the requested final gap. Component checks evaluate the exact four-term identity, including its outward-rounding remainder. An outside gate, when active, is recomputed from the exact proposal value; an ungated component identity is not relabeled as the selected outside decision's gap.
+
+Validation records additionally retain the optimized restricted candidate and its full restricted dual, both deterministic ensemble outputs, reference decisions, and every corner bound. The sample observations use the selected value minus the restricted upper bound. Both the Hoeffding target and its width are independently reconstructed from these objects. The 360 nonsmooth zero-curvature identities and 234 exact regularization-bias checks supplement, rather than replace, the proofs. Historical rational replay remains executable without any numerical solver. Source hashes and final-manuscript hashes are verified on the published commit, rather than only on its pre-publication workflow input.
+
+\input{revisions/or-r21-20260923/tables/scaling_coarse.tex}
+\input{revisions/or-r21-20260923/tables/geometry.tex}
+
+\paragraph{Reading the preserved R19 study.}
+The following complete section is retained from R19, with its numerical values unchanged. References there to ``new'' or ``current'' computations describe R19, not R21. For its uniform-fleet theorem, the reported experiment uses one common context distribution for every constituent policy; a deployed policy index is drawn independently of that common context. More generally, policy-specific laws define the different joint mixture that first draws the index and then draws a context conditionally on it. The latter is not a guarantee for an index chosen independently of a common deployment context. R21's deterministic ensemble validation avoids this target ambiguity altogether.

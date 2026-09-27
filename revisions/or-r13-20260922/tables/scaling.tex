@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering\small
+\caption{Factored critical-friction computation and independent brackets}\label{tab:r13-scaling}
+\begin{tabular}{lrrrrrr}\toprule
+Tree & Nodes & Factored entries & Expanded entries & Factored ms & Expanded ms & Bracket width \\\midrule
+Binary & 31 & 276 & 242 & 2.26 & 2.56 & 0.00003 \\
+Binary & 127 & 1,140 & 1,010 & 3.83 & 3.74 & 0.00009 \\
+Binary & 1023 & 9,204 & 8,178 & 33.63 & 23.97 & 0.00674 \\
+Star & 31 & 276 & 1,054 & 1.55 & 2.63 & 0.00008 \\
+Star & 127 & 1,140 & 16,510 & 3.43 & 7.03 & 0.00008 \\
+Star & 1023 & 9,204 & 1,049,598 & 51.70 & 462.99 & 0.00175 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize Both linear programs use HiGHS; expanded time includes materializing $DB$. The final column is the exact rational width from the separate accelerated projected-gradient algorithm, capped at 12,000 iterations and targeting $10^{-4}$. Widths above target are retained, not recorded as successful solves. Sparse arithmetic is not a claim that this first-order algorithm beats the linear-programming solver.\end{minipage}
+\end{table}

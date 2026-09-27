@@ -1,0 +1,109 @@
+\section{Structure of the provider relaxation}\label{sec:structure}
+Throughout this section, $V=V^{\rm rel}$ denotes the provider relaxation. Accepted values are denoted $W^{\rm acc}$ or $V^{\rm acc}$; a relaxation property is not transferred to an accepted optimizer without checking its constraints.
+
+\begin{assumption}[Premium--liability compatibility]\label{ass:lattice}
+Demand is stochastically nondecreasing in $z$, the regime transition is stochastically monotone, and for every $z_2\geq z_1$ and feasible $S$,
+\begin{equation}\label{eq:premium}
+ r_{z_2}-r_{z_1}\ \geq\ \kappa\{L_{z_2}(S)-L_{z_1}(S)\}.
+\end{equation}
+All other cost coefficients and the product action set are independent of $z$.
+\end{assumption}
+For a translated demand family $D_z=D_0+z$, shortage is 1-Lipschitz in the translation. Thus $r_{z_2}-r_{z_1}\geq\kappa(z_2-z_1)$ is a sufficient primitive condition. It allows shortage exposure to rise; premium growth must compensate for the incremental liability attached to a larger contract.
+
+\begin{theorem}[Monotone stock and contract]\label{thm:lattice}
+Under Assumption~\ref{ass:lattice}, $V_t$ is supermodular in $(z,q)$ for every $t$. The set of maximizing pairs in \eqref{eq:bellman} is a compact sublattice and has a greatest element. Both components of this greatest optimizer, $S_t^*(z,q)$ and $\theta_t^*(z,q)$, are nondecreasing in $z$ and in $q$.
+\end{theorem}
+\begin{proof}
+We verify increasing differences for the full maximand, including the continuation value. In the action pair $(S,\theta)$, the only cross term is $-\kappa\theta L_z(S)$, which has increasing differences because $L_z$ decreases in $S$. In $(\theta,q)$, the cross difference from adjustment is $2\lambda\,\Delta\theta\,\Delta q\geq0$.
+
+For fixed $\theta$, $-C_z(S)-\kappa\theta L_z(S)$ has increasing differences in $(S,z)$. To see this without a density assumption, its stock marginal at continuity points is
+\[
+ -c-hF_z(S)+(p+\kappa\theta)(1-F_z(S));
+\]
+stochastic demand ordering makes this marginal nondecreasing in $z$. Integrating between two stock levels proves the required finite-difference inequality, including at atoms. The stage cross difference in $(\theta,z)$ is
+\[
+ \Delta\theta\,[\Delta r-\kappa\Delta L(S)]\geq0
+\]
+by \eqref{eq:premium}. All remaining cross pairs involving $q$ or $z$ have zero stage cross difference.
+
+Suppose $V_{t+1}$ is supermodular in $(z',q')$. For $\theta_2\geq\theta_1$, the function $z'\mapsto V_{t+1}(z',\theta_2)-V_{t+1}(z',\theta_1)$ is nondecreasing. Stochastic monotonicity here means $\sum_{z'}P_{z_2z'}f(z')\geq\sum_{z'}P_{z_1z'}f(z')$ for every increasing $f$ and $z_2\geq z_1$, equivalently ordering every upper-tail probability. It therefore makes its conditional expectation nondecreasing in $z$. The continuation term has increasing differences in $(z,\theta)$ and is independent of $S,q$. Consequently the full maximand is supermodular on the product lattice $(S,\theta,z,q)$.
+
+Maximizing a supermodular function over a fixed compact action lattice preserves supermodularity in the remaining coordinates: apply the lattice inequality to maximizing pairs at two parameter states, and use their meet and join as feasible pairs at the meet and join of those states. The same inequality makes the argmax a sublattice and orders its greatest elements when the parameters increase. To make the selection step explicit, take greatest maximizers $a$ at $x$ and $b$ at $y\geq x$. The joint lattice inequality gives
+$F(a,x)+F(b,y)\leq F(a\wedge b,x)+F(a\vee b,y)$.
+Optimality forces equality, so $a\vee b$ is optimal at $y$; greatest selection implies $a\vee b\leq b$, hence $a\leq b$. Continuity and compactness give nonempty compact argmax sets. Closure under meet and join gives their greatest elements on the finite-dimensional compact product of chains. This is the supermodular-maximization and greatest-selection form of the lattice theorem of \citet{Topkis1978}, with its existence and order hypotheses verified here. Since $V_T=0$ is supermodular, backward induction completes the proof.\end{proof}
+
+The result concerns the state variables of the stated model. It does not assert a backlog comparative static in a model that has no carried backlog. It also does not follow for an internal penalty-only objective. With terminal value zero, $p(\theta)=\theta$, $q=1/2$, and fixed stock, that alternative objective has optimizer
+\begin{equation}\label{eq:penaltycounter}
+ \argmax_{0\leq\theta\leq1}\{-\theta L-\lambda(\theta-1/2)^2\}
+ =\clip_{[0,1]}\left(\frac12-\frac{L}{2\lambda}\right),
+\end{equation}
+which decreases with exposure. External premium income in \eqref{eq:reward}, and specifically \eqref{eq:premium}, changes this conclusion.
+
+\subsection{Stock elimination and the inherited-contract envelope}
+For a fixed contract, stock solves a newsvendor problem:
+\begin{equation}\label{eq:stock}
+ S_z(\theta)\in\argmin_{S\in\mathcal S}\{cS+hO_z(S)+(p+\kappa\theta)L_z(S)\}.
+\end{equation}
+On a stock interval with a continuous strictly increasing demand distribution, an interior optimum has critical fractile
+\begin{equation}\label{eq:fractile}
+ F_z(S_z(\theta))=\frac{p+\kappa\theta-c}{h+p+\kappa\theta}.
+\end{equation}
+Boundary solutions apply when the right side is outside the attainable distribution range. For atoms or a stock grid, \eqref{eq:stock} itself, with the greatest-minimizer convention, is the definition; no continuous quantile formula is silently substituted for grid optimization.
+
+Set $U_z(\theta)=\max_S\{-C_z(S)-\kappa\theta L_z(S)\}$ and
+\begin{equation}\label{eq:b}
+ b_t(z,\theta)=r_z\theta-(m+\lambda)\theta^2+U_z(\theta)
+                 +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta).
+\end{equation}
+Then
+\begin{equation}\label{eq:envelope}
+ V_t(z,q)=-\lambda q^2+\max_{\theta\in\Theta}\{b_t(z,\theta)+2\lambda\theta q\}.
+\end{equation}
+\begin{theorem}[Exact envelope reduction]\label{thm:envelope}
+For any demand family and any regime transition, $q\mapsto V_t(z,q)+\lambda q^2$ is convex. If $\Theta$ contains $N_\theta$ ordered points, this function is a convex piecewise-affine envelope with ordered slopes $2\lambda\theta$. Its active line selects a greatest optimal contract, and \eqref{eq:stock} supplies the corresponding stock. After stock costs and continuation expectations are computed, the envelope can be constructed in $O(N_\theta)$ arithmetic operations from the ordered slopes and queried at $N_q$ ordered inherited-contract states in $O(N_\theta+N_q)$ operations. No global concavity of $b_t$ is required.
+\end{theorem}
+\begin{proof}
+Equation~\eqref{eq:envelope} is obtained by expanding $-\lambda(\theta-q)^2$. A supremum of affine functions is convex. For finite $\Theta$, insert lines in increasing slope order. Intersections with the current last line must increase along an upper hull; otherwise the last line has an empty interval of optimality and is removed. Each line is inserted and removed at most once. At an intersection choose the larger slope, which selects the greater contract. A single forward pass through ordered queries locates all active intervals. Stock elimination is exact because the continuation and adjustment terms do not depend on stock.\end{proof}
+
+The operation count is an arithmetic count, not a bit-complexity statement for arbitrarily long rational numbers. A direct factored enumeration already reduces the expensive product search: on the recorded grid, it uses 2,904 rather than 37,752 Bellman action comparisons, plus 429 one-time stock-stage computations. The hull construction further avoids enumerating every contract at every inherited state. The executed hull and factored enumeration agree with exhaustive rational optimization at all 264 nonterminal states.
+
+\subsection{A quadratic bound without global concavity}\label{sec:grid}
+Let $V$ now allow every contract in $[0,1]$, retaining the same stock set. Let $V^{(n)}$ restrict all contract actions to $\Theta_n=\{0,1/n,\ldots,1\}$ but permit any initial $q\in[0,1]$. After the first action, the inherited state lies on the grid. Define $H_r=\sum_{k=0}^{r-1}\beta^k$, with $H_0=0$.
+
+\begin{lemma}[A nonsmooth global-maximizer lemma]\label{lem:semiconvex}
+Let $G$ be finite, convex, and continuous on $[0,1]$, let $A\geq0$, and set $f(x)=G(x)-Ax^2+\ell x$. If an interior point $x^*$ is a global maximizer, every $g\in\partial G(x^*)$ equals $2Ax^*-\ell$, and
+$f(x^*)-f(y)\leq A(y-x^*)^2$ for every $y\in[0,1]$.
+A global maximum at an endpoint is represented exactly on every endpoint-containing grid. Consequently an $n$-interval uniform grid loses at most $A/(4n^2)$.
+\end{lemma}
+\begin{proof}
+A supporting line gives
+$f(x^*+h)\geq f(x^*)+(g-2Ax^*+\ell)h-Ah^2$.
+If the linear coefficient were nonzero, a sufficiently small interior $h$ of its sign would strictly improve the objective. Thus it vanishes for every subgradient. The same supporting inequality at any $y$ gives the stated bound, and a nearest grid point has distance at most $1/(2n)$. If $G$ has a genuine kink, its subdifferential is not a singleton and that point cannot be an interior maximum of this form. No endpoint subgradient is assumed and no global concavity of $f$ is used.
+\end{proof}
+
+\begin{theorem}[Continuous-contract value enclosure]\label{thm:quadratic}
+With the primitives of \eqref{eq:reward}, for $r=T-t\geq1$,
+\begin{equation}\label{eq:quadbound}
+ 0\leq V_t(z,q)-V_t^{(n)}(z,q)
+ \leq\frac{(m+\lambda)H_r+\beta\lambda H_{r-1}}{4n^2}.
+\end{equation}
+This is also a performance-loss bound for the exact grid-optimal policy when it is implemented in the continuous-contract problem from $(z,q)$. It is uniform in $z,q$ and does not require differentiability of demand distributions, global concavity, or a numerical smoothness estimate.
+\end{theorem}
+\begin{proof}
+First consider $f(x)=G(x)-A x^2+\ell x$ on $[0,1]$, where $G$ is finite and convex and $A>0$. If a maximum $x^*$ lies at an endpoint, it belongs to every grid. If it is interior, take any subgradient $s$ of $G$ there. The supporting-line inequality gives
+\[
+ f(x)\geq f(x^*)+(s-2Ax^*+\ell)(x-x^*)-A(x-x^*)^2.
+\]
+An interior maximum forces the linear coefficient to vanish: otherwise a sufficiently small displacement with its sign would improve the objective. Therefore the nearest grid point loses at most $A/(4n^2)$.
+
+For the Bellman maximization after stock elimination, $U_z$ is convex as a supremum of affine functions of $\theta$. Theorem~\ref{thm:envelope}, applied to continuous actions, says that $V_{t+1}(z',\theta)+\lambda\theta^2$ is convex. Consequently its contract objective has the displayed form with $A=m+\lambda+\beta\lambda$ whenever $t<T-1$. At the final period, $A=m+\lambda$ because $V_T=0$. Restricting just the current maximization thus loses at most the corresponding $A/(4n^2)$.
+
+Let $E_t=\sup_{z,q}(V_t-V_t^{(n)})$. Monotonicity and the $\beta$-Lipschitz property of the Bellman operator give
+\[
+ E_t\leq \frac{m+\lambda+\beta\lambda\1_{\{t<T-1\}}}{4n^2}
+                  +\beta E_{t+1},\qquad E_T=0.
+\]
+Summing proves \eqref{eq:quadbound}. A grid policy uses admissible continuous actions and has exactly the grid-model reward and transition law, so its continuous-model value is $V^{(n)}$.\end{proof}
+
+The theorem bounds contract discretization, not physical-stock discretization or an inventory diffusion limit. It avoids interpreting a small difference between two numerical grids as a proof. In the recorded instance, the 160-interval result encloses the continuous-contract initial value in $[-4.99278573,-4.99260152]$; the exact rational endpoints are supplied with the code.
+

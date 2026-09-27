@@ -1,0 +1,34 @@
+{
+  "scope": "synthetic multistage quartic service control with history-specific continuation participation",
+  "seeds": 10,
+  "training_instances_per_seed": 24,
+  "queries_per_seed": 72,
+  "test_instances": 8,
+  "max_coordinates": 992,
+  "paired_seed_improvement": [
+    -0.0012286156742374876,
+    0.002700348310502254,
+    0.00042845014005932214,
+    -0.0034847647948355043,
+    -0.00349989795743344,
+    -0.00227433075795469,
+    0.003193040222974952,
+    0.016624056547151156,
+    -0.00578272750305131,
+    -0.000909077398225655
+  ],
+  "mean_improvement_per_service_review": 0.0005766481134949597,
+  "student_95_interval": [
+    -0.003922753413914875,
+    0.0050760496409047945
+  ],
+  "all_exactly_feasible": true,
+  "deployment_records": 176,
+  "seconds": 76.89990062500001,
+  "environment": {
+    "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39"
+  },
+  "warning": "No speed superiority or distribution-free learning guarantee is assumed. Exact residual bounds certify submitted decisions, not statistical generalization."
+}

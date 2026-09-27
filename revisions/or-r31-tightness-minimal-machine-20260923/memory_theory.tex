@@ -1,0 +1,121 @@
+\section{Minimal Additional Writable Memory and Its Contractual Value}\label{sec:memory}
+\subsection{Observation architecture and the reached transducer}
+Fix the public graph, all primitives, and one root promise. At a decision, the decoder observes the current public vertex, including date, and a writable symbol. A read-only table may contain primitives, response coefficients, thresholds, the query's root price, and transition/output maps. Between decisions the update may depend on the old symbol and the realized public transition; the next action decoder has no separate access to the past transition. A retained promise, past tier, branch identity, or random seed must be charged as writable information if it carries history not contained in the current public vertex. A continuous remaining promise is therefore not an uncharged alternative register.
+
+This architecture deliberately separates three resources. The \emph{additional writable alphabet} is the changing record carried across recombination. The \emph{combined reached behavior states} are the observable public vertex paired with a behavior class. The \emph{read-only representation} contains the graph, compiled responses, coefficient precision, and transition/output tables. None of these quantities is used as an unqualified notion of memory below. Changing the root promise requires a new inversion and can change the reached state set.
+
+Let $\mathcal P_v$ be the incoming prices reachable at $v$ under Theorem~\ref{thm:quotient}. For $\eta\in\mathcal P_v$, put $s_v(\eta)=\max\{\eta,\alpha_v\}$ with the missing-barrier convention. The reached system is a deterministic output transducer. Its state set is
+\[
+ \mathcal Q=\{(v,\eta):v\in\mathcal V,\ \eta\in\mathcal P_v\}.
+\]
+At state $(v,\eta)$ the output is $x_v^0(s_v(\eta))$. If the realized public transition is edge $(v,w)$, the next transducer state is $(w,s_v(\eta))$. The public edge is thus an exogenous input to the deterministic machine.
+
+For two prices at the same public vertex, define behavioral equivalence backward:
+\begin{equation}\label{eq:behavior}
+ \eta\sim_v\eta'\quad\Longleftrightarrow\quad
+ \begin{cases}
+ x_v^0(s_v(\eta))=x_v^0(s_v(\eta')),\\
+ s_v(\eta)\sim_w s_v(\eta')\quad\text{for every }(v,w)\in\mathcal E.
+ \end{cases}
+\end{equation}
+At a terminal vertex only the first condition is needed. This is the usual equality-of-output-and-successor-class recursion used in deterministic machine minimization. We use that classical principle explicitly \citep{BeanBirgeSmith1987,GivanDeanGreig2003,Peyriere2023}; the new content lies in the contract-generated transducer and its ordered structure.
+
+\begin{theorem}[Minimal reached transducer and additional writable alphabet]\label{thm:minimal}
+Let $c_v$ be the number of classes of $\sim_v$ on $\mathcal P_v$. Under the preceding observation architecture:
+
+\begin{enumerate}
+\item the reached controller has
+\begin{equation}\label{eq:combined-states}
+ C_*=\sum_{v\in\mathcal V}c_v
+\end{equation}
+reachable public-state/class pairs;
+\item the minimum size of a common \emph{additional writable} alphabet is
+\begin{equation}\label{eq:minimal-alphabet}
+ K_*=\max_{v\in\mathcal V}c_v,
+\end{equation}
+hence the changing record needs $\lceil\log_2K_*\rceil$ bits;
+\item every class is contiguous in the ordered list of incoming prices at its public vertex;
+\item the backward signatures can be constructed on the reached vertex--price graph in $O((N+M)N\log(N+1))$ arithmetic comparisons and elementary index operations.
+\end{enumerate}
+The read-only response compiler remains charged separately: it stores $O(N^2+M)$ rational scalars of coefficient height at most $S$ from Theorem~\ref{thm:bit}. A direct class-transition table has $\sum_v c_v\deg^+(v)$ entries. The exact-optimum lower bound for $K_*$ also holds for randomized controllers whose retained private randomness is charged to the same writable state and whose continuation feasibility is imposed in conditional expectation at each public history.
+\end{theorem}
+\begin{proof}
+For a finite deterministic output transducer, two states can share one minimized state exactly when they emit the same current output and every common input leads to equivalent successors. Applied within a fixed observable public vertex, this is precisely \eqref{eq:behavior}. Backward partition refinement therefore yields the coarsest behavior-preserving partition of the reached price states. This is the classical minimization step.
+
+Under the declared architecture the public vertex is observed without using the writable register. Thus each pair $(v,\text{class})$ is a distinct reached combined state, giving \eqref{eq:combined-states}, while class indices may be reused across different public vertices. A common alphabet of size $\max_v c_v$ is sufficient: at vertex $v$, assign distinct labels only to its $c_v$ classes, decode the common action, and update to the corresponding child label. Conversely, if two inequivalent prices at the same public vertex share one writable symbol, the deterministic decoder and update maps coincide from that point onward, so some positive-probability suffix receives a different action than the unique optimum. Hence at least $c_v$ labels are necessary at each $v$, proving \eqref{eq:minimal-alphabet}.
+
+Along a fixed suffix path, the effective price is the maximum of the incoming price and a fixed finite set of barriers. Every local action is nonincreasing in that effective price. Thus every coordinate of the complete future plan is nonincreasing in the initial incoming price. If two ordered endpoint prices induce the same plan, every intervening price induces that same plan coordinate by coordinate. Hence each equivalence class is contiguous.
+
+A signature consists of the local action and the tuple of successor-class indices. Processing signatures in reverse topological order over at most $N(N+1)$ reached vertex--price pairs and at most $M(N+1)$ pair transitions gives the stated conservative bound. The read-only counts are direct consequences of Theorems~\ref{thm:quotient} and \ref{thm:bit}.
+
+For a randomized feasible controller, take the mean action at each public history. Exogenous transitions and linear payments and caps make this mean vector feasible under conditional-expectation feasibility. Strict concavity gives
+\[
+ \sum_hw_h\mathbb E g_{v(h)}(X_h)
+ \leq \sum_hw_h g_{v(h)}(\mathbb E X_h)\leq J(b_0),
+\]
+with equality only if each action is almost surely constant at the unique optimal value. Distinct required continuation plans must therefore have disjoint supports of retained symbols; a shared symbol with positive probability would impose the same future behavior on both histories. Additional retained randomness capable of distinguishing them is itself writable information under the stipulated accounting. At least $c_v$ symbols are necessary.
+\end{proof}
+
+The randomization convention has a concrete contractual interpretation. Conditional-expectation feasibility applies when participation is evaluated before an internal controller coin is realized and the private coin is not a contractually observable service state. If the institution instead requires every private randomization realization to satisfy every continuation cap pathwise, the admissible controller class is smaller. The deterministic optimum and the lower bound above remain valid; no smaller exact alphabet can be created by imposing the stronger feasibility requirement.
+
+\begin{corollary}[Linear writable-memory order is tight]\label{cor:memory-tight}
+For every $k\geq1$, the renewal family in Theorem~\ref{thm:frontier} has $N=k+2$ public vertices and satisfies $K_*=k=N-2$. Hence the $O(N)$ upper bound on the additional writable alphabet is worst-case tight.
+\end{corollary}
+\begin{proof}
+The $k$ intermediate branches recombine into one terminal public vertex and require $k$ distinct optimal terminal actions. They are therefore $k$ distinct behavioral classes at that terminal vertex. The root and terminal add two public vertices.
+\end{proof}
+
+The theorem minimizes exact execution memory for this fixed optimum under a declared observation interface. It does not minimize the response compiler's storage or characterize the best approximate controller for every alphabet size. Those are separate design questions. The distinction is now explicit in $K_*$, $C_*$, and the read-only response size.
+
+\subsection{Ordered memory frontiers beyond equal branch probabilities}
+Consider three dates. The root tier is fixed at zero. At the intermediate date a branch $j$ is observed with probability $\pi_j>0$, where $\sum_j\pi_j=1$. All branches then enter the same terminal public vertex. Payments and discounting equal one. Intermediate and terminal tiers are in $[0,1]$. Branch $j$ has cap $0<b_1<\cdots<b_k<1$, and the root promise is $\bar b=\sum_j\pi_jb_j$. At the intermediate date the reward is $-h_j(y)$, where $h_j$ is convex, nondecreasing, and $h_j(0)=0$. The common terminal reward $f(c)$ is continuous, concave, and strictly increasing on $[0,1]$. The terminal cap is one. The terminal decoder observes only its public vertex and its memory symbol, not the inherited intermediate tier.
+
+\begin{theorem}[Heterogeneous renewal frontier]\label{thm:frontier}
+The unique full-information policy is $y_j=0$, $c_j=b_j$, with value $J=\sum_j\pi_j f(b_j)$. Exact implementation requires $k$ symbols. With at most $m$ deterministic terminal symbols, an optimal encoding has contiguous nonempty cells in cap order. For a cell $i,\ldots,j$, its terminal tier is $b_i$ and its loss is
+\begin{equation}\label{eq:general-cell}
+ C(i,j)=\sum_{h=i}^j\pi_h\left[f(b_h)-f(b_i)+h_h(b_h-b_i)\right].
+\end{equation}
+The exact minimum loss is $D_m=D(\min(m,k),k)$, where
+\begin{equation}\label{eq:segmentation}
+ D(s,j)=\min_{s-1\leq i<j}\{D(s-1,i)+C(i+1,j)\},\quad D(0,0)=0,
+\end{equation}
+and all other infeasible entries equal $+\infty$. With a precomputed cell-cost table this requires $O(mk^2)$ arithmetic operations. For quadratic $f$ and quadratic $h_j$, prefix sums of the probability-weighted coefficients compute each cell cost in constant arithmetic time.
+\end{theorem}
+\begin{proof}
+The root promise is the mean of the branch caps, so every branch cap must bind. Hence $y_j=b_j-c_j$ and $0\leq c_j\leq b_j$. The branch reward $f(c)-h_j(b_j-c)$ is strictly increasing on that interval. Full information therefore uniquely selects $c_j=b_j$; different terminal actions require different symbols.
+
+Within a memory cell all terminal actions coincide and cannot exceed its smallest cap. Monotonicity selects that cap and subtraction from the full-information reward gives \eqref{eq:general-cell}. Fix any collection of cell minima. Every branch strictly prefers the largest eligible selected minimum, irrespective of its probability and intermediate cost. Reassigning branches in this way keeps each selected minimum in its own nonempty cell and produces contiguous cells without reducing value. Splitting at the final cell gives \eqref{eq:segmentation}. Expanding the quadratic terms gives the stated prefix-sum implementation.
+\end{proof}
+
+This strengthens and includes the quadratic equal-probability frontier. With $f(c)=2c-c^2/2$, $h_j(y)=y^2/2$, and $\pi_j=1/k$, \eqref{eq:general-cell} becomes
+\begin{equation}\label{eq:old-cell}
+ C(i,j)=\frac{2-b_i}{k}\sum_{h=i}^j(b_h-b_i).
+\end{equation}
+For $k=8$ and $b_j=j/9$, one, two, and three symbols lose $119/162$, $5/18$, and $49/324$, respectively. Two writable bits permit four symbols, not three. The segmentation recurrence is standard; the contract-specific cell loss, ordered-cell sufficiency, and exact memory interpretation are the substantive statements.
+
+The earlier nonsaturated two-branch example also remains useful. With branch caps $1/4$ and $1$, root promise $1/2$, and the same quadratic rewards, the full optimum uses terminal tiers $1/4$ and $3/4$ and has value $27/32$. An optimized public-only table uses common terminal tier $1/4$ and intermediate tiers $0,1/2$, giving $13/32$. The adaptation gain is $7/16$ relative to the optimized restriction. At the full optimum both inherited intermediate tiers are zero, so making that tier observable does not evade this example's exact-memory lower bound. By contrast, the entire restricted-memory frontier above depends on not allowing a branch-specific intermediate tier to serve as an uncharged code.
+
+\subsection{Mean-preserving radial spreads of outside options}
+Fix positive probabilities, an interior mean $\bar b$, and strictly increasing numbers $d_j$ with $\sum_j\pi_jd_j=0$. Let
+\begin{equation}\label{eq:dispersion-family}
+ b_j(\varepsilon)=\bar b+\varepsilon d_j,
+ \qquad 0<b_j(\varepsilon)<1.
+\end{equation}
+Keep the common service-benefit continuation fixed. The outside options are that continuation minus $b_j(\varepsilon)$. Increasing $\varepsilon$ is therefore a mean-preserving radial spread of continuation caps and outside options along the fixed ordered direction $d$; physical public transitions are unchanged.
+
+\begin{proposition}[Mean-preserving radial spreads increase the value of contractual memory]\label{prop:dispersion}
+For the quadratic renewal family in \eqref{eq:old-cell}, with arbitrary positive branch probabilities and every strictly ordered zero-mean direction $d$, every insufficient deterministic alphabet $m<k$ has $D_m(\varepsilon)>0$ and $D_m(\varepsilon)$ is strictly increasing in $\varepsilon>0$ throughout the admissible range. Moreover $D_m(\varepsilon)=O(\varepsilon)$ as $\varepsilon\downarrow0$. Exact execution needs one symbol at $\varepsilon=0$ and $k$ symbols at every $\varepsilon>0$.
+\end{proposition}
+\begin{proof}
+For a fixed contiguous partition with cell minimum $i$, the loss on branch $h$ in that cell is
+\[
+ \pi_h\varepsilon(d_h-d_i)(2-\bar b-\varepsilon d_i).
+\]
+For $h>i$, its derivative is
+\[
+ \pi_h(d_h-d_i)(2-\bar b-2\varepsilon d_i)>0.
+\]
+If $d_i\leq0$ this is immediate. If $d_i>0$, admissibility gives $\varepsilon d_i<1-\bar b$, so the last factor exceeds $\bar b>0$. A partition with fewer than $k$ cells has at least one positive term. Every candidate partition cost is therefore strictly increasing and positive. The minimum of finitely many strictly increasing candidate costs is strictly increasing: evaluate at the minimizing partition for the larger parameter. Each cost is $O(\varepsilon)$ near zero. Distinct optimal terminal tiers give the alphabet statement.
+\end{proof}
+
+The proposition is intentionally a theorem about every ordered radial spread direction, not a claim about arbitrary convex-order, majorization, or variance comparisons between unrelated cap vectors. It is nevertheless stronger than an equal-weight or one-calibration statement: branch probabilities are arbitrary positive numbers and the direction $d$ is arbitrary subject to strict order and zero weighted mean. The economic distinction remains sharp: the exact alphabet can jump discontinuously at zero spread while the value loss from insufficient memory converges continuously to zero.

@@ -1,0 +1,26 @@
+\section{When a Price Bound Is Already an Exact Decision}\label{sec:pricebridge60}
+A useful algorithmic distinction is not simply between an integer and a continuous method, but between a price bound that supports one implementable book and a bound that mixes books. Fix the original feasible book family $\mathcal C_B$. For $c\in\mathcal C_B$, let $F_c(t)$ denote its exact net value at aggregate target $t\in[c_1,\bar b]$. For a price $\lambda$, define
+\[
+ H_c(\lambda)=\max_t\{F_c(t)-\lambda t\},\qquad
+ U(\lambda)=\lambda B+\max_{c\in\mathcal C_B}H_c(\lambda).
+\]
+A book is price-active if it attains the second maximum. The maximizing target set $I_c(\lambda)=\argmax_t\{F_c(t)-\lambda t\}$ is a closed interval by concavity. Its endpoints can be recovered by summing the smallest and largest individual maximizing targets. The exact price-path oracle in the companion computes $U(\lambda)$ without enumerating all books.
+
+\begin{theorem}[Same-book support and a distance bound]\label{thm:pricebridge60}
+For any price $\lambda$, $U(\lambda)=V^*(B)$ if and only if a price-active book $c$ has $B\in I_c(\lambda)$. For any price-active $c$, if its fixed-book value is $L$-Lipschitz, then
+\begin{equation}\label{eq:pricedistance60}
+ 0\leq U(\lambda)-F_c(B)
+ \leq (L+|\lambda|)\operatorname{dist}(B,I_c(\lambda)).
+\end{equation}
+For the quadratic primitives, the common bound in \eqref{eq:L52} is sufficient. With free service, common linear reward and zero opening fees, a single exact price certificate always exists: use $\lambda=r$ when $B\leq\max_c D(c)$, and $\lambda=0$ otherwise.
+\end{theorem}
+\begin{proof}
+If $B\in I_c(\lambda)$ for an active book, then $U(\lambda)=F_c(B)\leq V^*(B)$, and weak duality gives equality. Conversely, take an optimal original book. Equality of the global bound with its value forces equality both in its individual price bound and in the maximization over books; it is active and its maximizing target interval contains $B$. For \eqref{eq:pricedistance60}, project $B$ onto $I_c(\lambda)$ at $T$. Then
+$U(\lambda)-F_c(B)=F_c(T)-F_c(B)+\lambda(B-T)$, which gives the stated bound. A fixed-book allocation can be moved to a higher or lower aggregate target by filling or emptying residual individual target intervals. The total weighted change is exactly the aggregate change, so individual $L$-Lipschitz responses imply the same bound for $F_c$.
+
+In the zero-fee linear case, $F_c(t)=r\min\{t,D(c)\}$ by Lemma~\ref{lem:capacity60}. At price $r$, every feasible book is active and its maximizing interval is $[c_1,D(c)]$. Choose a capacity-maximizing book when $B$ is below that capacity. At price zero, capacity-maximizing books are active on $[D(c),\bar b]$. This covers the remaining case.
+\end{proof}
+
+The interval must belong to \emph{one} active book. Merely placing $B$ between targets attained by different active books certifies a relaxation, not an original policy. Even a uniform positive fee can create this distinction. Take two equally likely histories with $b=\tau=(0,1)$, catalog $(0,1)$, $m=2$, common reward $f(x)=x$, free service, and fee $1/4$ for each installed command. At $B=1/8$, the one-command book has net value $-1/4$, whereas the two-command book has value $-3/8$. At $\lambda=1/2$, their price intercepts coincide at $-1/4$, producing the upper bound $-3/16$ and gap $1/16$. The tariff algorithm nonetheless solves this instance exactly. Thus its positive result is not merely a restatement of zero Lagrangian gap.
+
+For method selection, this yields a concrete hierarchy. First check same-book support if a price bound is available. For common linear rewards and free service, a declared exception-count guard admits the exact tariff algorithm; exceeding that guard is an applicability decision, not a complexity guarantee. Outside this regime, price branching and the deficit approximation retain their original roles. A returned price interval supplies an instance-specific certificate. The deficit theorem supplies an a priori additive accuracy bound, but pays for a numerical resource state and, in the independent checker, all predecessor transitions. We compare these components separately rather than report an unimplemented hybrid as an experimental method.

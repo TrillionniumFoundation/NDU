@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "interior_models": 768,
+  "interior_comparator_certificates": 1536,
+  "source_vertex_comparator_certificates": 3072,
+  "timing_deployment_certificates": 1728,
+  "optimizer_label_certificates": 192,
+  "fresh_robust_policy_certificates": 96,
+  "fresh_robust_comparator_certificates": 256,
+  "negative_controls_rejected": 7,
+  "negative_controls": [
+    "broken root payment",
+    "broken time-only equality",
+    "negative inequality price",
+    "invalid switching tension",
+    "coefficient outside strict interior design",
+    "nonconvex interpolation weights",
+    "nominal invalid dual price"
+  ],
+  "arithmetic": "Python standard-library integers and fractions; independent of numerical solvers"
+}

@@ -1,0 +1,21 @@
+\begin{table}[p]\centering
+\caption{Directional targets: step size and certified oracle error}\label{tab:r12-fd}
+\setlength{\tabcolsep}{3.5pt}\begin{tabular}{rrrr}
+\toprule
+Step size & \shortstack{Additional endpoint\\error allowance} & \shortstack{Maximum measured\\direction error} & \shortstack{Maximum certified\\target-error bound} \\
+\midrule
+$1/80$ & 0e+00 & 5.58e-07 & 0.00208 \\
+$1/80$ & 1e-07 & 5.58e-07 & 0.00209 \\
+$1/80$ & 1e-05 & 5.58e-07 & 0.00288 \\
+$1/40$ & 0e+00 & 8.89e-06 & 0.00417 \\
+$1/40$ & 1e-07 & 8.89e-06 & 0.00417 \\
+$1/40$ & 1e-05 & 8.89e-06 & 0.00457 \\
+$1/20$ & 0e+00 & 3.45e-05 & 0.00833 \\
+$1/20$ & 1e-07 & 3.45e-05 & 0.00834 \\
+$1/20$ & 1e-05 & 3.45e-05 & 0.00853 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{.98\textwidth}\small
+Twelve independently generated training-sized problems. Endpoint values are re-solved and rationally certified at every step size. The extra error column is an explicit sensitivity allowance added to each endpoint certificate, not a claim that fresh noisy labels were simulated. Measured error compares with the separately solved central actor and is numerical; the displayed bound includes oracle gaps and the finite-difference bias bound.
+\end{minipage}
+\end{table}

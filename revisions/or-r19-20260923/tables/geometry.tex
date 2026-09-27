@@ -1,0 +1,17 @@
+\begin{table}[p]
+\centering
+\caption{Deliberate multistage geometry checks}\label{tab:r19-geometry}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Stratum & Cases & Capacity & Tier boundary & Kinks & Gradient error \\
+\midrule
+heterogeneous & 16 & 0 & 0 & 16 & 1.04e-06 \\
+binding capacity & 16 & 16 & 0 & 16 & 5.10e-08 \\
+tier boundary & 16 & 0 & 16 & 16 & 1.48e-11 \\
+switching kinks & 16 & 0 & 0 & 16 & 7.47e-05 \\
+\bottomrule
+\end{tabular}
+
+\par\medskip\begin{minipage}{\textwidth}Capacity, tier boundary, and kinks count instances with at least one such event; diagnostics use $10^{-5}$. Each of 128 implemented reference/proposal certificates is independently replayed. The gradient column is the maximum finite-difference error among the four checked contexts in that stratum.\end{minipage}
+\end{table}

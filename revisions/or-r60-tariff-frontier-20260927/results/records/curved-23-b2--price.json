@@ -1,0 +1,110 @@
+{
+  "id": "curved-23-b2",
+  "method": "price",
+  "instance_sha256": "2dba2349e5e5264de00bff22217756712032d1e39afa2ed8381913a888a1b46b",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/64",
+  "lower": "hex:79c247/f0a000",
+  "upper": "hex:1e95771/3c28000",
+  "gap": "hex:179d/268000",
+  "seconds": 0.07650826999997662,
+  "nodes": 1,
+  "oracle_calls": 5,
+  "trace": [
+    {
+      "seconds": 0.021262746000047628,
+      "lower": "hex:49b4cb69cb/e801048000",
+      "upper": "hex:4b8ace305/90c040000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.03724629199996343,
+      "lower": "hex:70b4c3/f0a000",
+      "upper": "hex:4b8ace305/90c040000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.05032329200003005,
+      "lower": "hex:70b4c3/f0a000",
+      "upper": "hex:1ebe39/3c2800",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.06279333500015127,
+      "lower": "hex:1d5cff5/3c28000",
+      "upper": "hex:1ebe39/3c2800",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.07550629300021683,
+      "lower": "hex:79c247/f0a000",
+      "upper": "hex:1e95771/3c28000",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.07555505400023321,
+      "lower": "hex:79c247/f0a000",
+      "upper": "hex:1e95771/3c28000",
+      "nodes": 1,
+      "oracle_calls": 5
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-6c033075b/425e618000",
+        "upper": "hex:9/8",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 4,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:179d/268000"
+  },
+  "optimization_seconds": 0.07667361000039818,
+  "setup_seconds": 0.2131444530000408,
+  "peak_rss_kib": 30412,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/curved-23-b2--price.json.gz",
+  "certificate_sha256": "32d2ba4dfc5a0058c369ec9b23dccff8555ea2910a1e68bd790dba2e99f374b0",
+  "proof_bytes": 4449,
+  "compressed_proof_bytes": 750,
+  "serialization_seconds": 0.0007182259996625362,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:79c247/f0a000",
+    "upper": "hex:1e95771/3c28000",
+    "gap": "hex:179d/268000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.017580607000127202,
+    "instance_sha256": "2dba2349e5e5264de00bff22217756712032d1e39afa2ed8381913a888a1b46b"
+  },
+  "verification_seconds": 0.022035022999716602,
+  "checker_peak_rss_kib": 30412,
+  "worker_seconds": 0.3128139660002489,
+  "parent_finished": true,
+  "parent_seconds": 0.34117414999991524,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

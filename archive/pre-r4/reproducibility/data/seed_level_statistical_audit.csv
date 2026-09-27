@@ -1,0 +1,11 @@
+experiment,metric,method_a,method_b,n_a,n_b,mean_a,mean_b,mean_diff_a_minus_b,ci95_halfwidth_normal_independent,ci95_low,ci95_high,ci_excludes_zero,direction
+I,mean_utility,full_ndu_joint,augmented_state_rl,30,30,-2.7283880247,-2.76073090484,0.0323428801409,0.00316764824702,0.0291752318939,0.0355105283879,yes,higher is better
+I,cew,full_ndu_joint,augmented_state_rl,30,30,-0.934674705173,-0.93675285218,0.00207814700713,0.000201343305375,0.00187680370175,0.0022794903125,yes,higher is better
+II,mean_utility,full_ndu_joint,preference_only,30,30,0.0112470847134,0.00645183034018,0.00479525437323,0.000929440488976,0.00386581388426,0.00572469486221,yes,higher is better
+II,mean_utility,full_ndu_joint,oracle_joint_action_rl,30,30,0.0112470847134,-0.0259053646494,0.0371524493628,0.00628857114989,0.0308638782129,0.0434410205127,yes,higher is better
+II,sharpe,full_ndu_joint,preference_only,30,30,1.43920243028,1.41981329579,0.019389134497,0.0578923450697,-0.0385032105727,0.0772814795667,no,higher is better
+III,mean_utility,full_ndu_joint,oracle_factor_joint_rl,30,30,0.114453688005,0.0923344130179,0.0221192749871,0.00414770711506,0.017971567872,0.0262669821022,yes,higher is better
+III,cew,full_ndu_joint,oracle_factor_joint_rl,30,30,0.1213014123,0.0967628916181,0.0245385206816,0.00460262618703,0.0199358944945,0.0291411468686,yes,higher is better
+III,turnover,full_ndu_joint,oracle_factor_joint_rl,30,30,0.232678992425,0.3750991153,-0.142420122875,0.0158159226975,-0.158236045573,-0.126604200177,yes,lower is better; negative favors A
+inventory,mean_welfare,full_ndu_inventory,action_only_adaptive_base_stock,30,30,-3.70807529382,-3.72804244495,0.0199671511292,0.0119488489444,0.00801830218482,0.0319160000736,yes,higher is better
+inventory,avg_cost,full_ndu_inventory,action_only_adaptive_base_stock,30,30,4.30403217005,4.3213602795,-0.0173281094487,0.0113644694484,-0.0286925788971,-0.00596364000031,yes,lower is better; negative favors A

@@ -1,0 +1,89 @@
+{
+  "id": "heterogeneous-large-5603-t0.5",
+  "family": "heterogeneous-large",
+  "method": "price",
+  "instance_sha256": "e00e26d5dac812ad6b491d3c93b62ce4a01f8ea138ef4cf6e48a7b58b462f1b7",
+  "epsilon": "hex:1/14",
+  "algorithm_limit_seconds": 0.5,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.005501051000010193,
+  "status": "TOLERANCE",
+  "lower": "hex:6a0b25/708000",
+  "upper": "hex:6c83720b/70800000",
+  "gap": "hex:2cf6b/800000",
+  "seconds": 0.288585377000004,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.2859603809999953,
+      "lower": "hex:6a0b25/708000",
+      "upper": "hex:6c83720b/70800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.2860228069999948,
+      "lower": "hex:6a0b25/708000",
+      "upper": "hex:6c83720b/70800000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-2310f8f/2c3d0000",
+        "upper": "hex:227/100",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:2cf6b/800000"
+  },
+  "algorithm_seconds": 0.29082157600001324,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25604,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 31,
+    "denominator_bits": 31,
+    "rational_count": 1095
+  },
+  "certificate": "certificates/heterogeneous-large-5603-t0.5--price.json.gz",
+  "certificate_sha256": "b3bacecf49942b47904854e8e404975b7e69c5c9300cd0f4f280f4cfce37b28b",
+  "proof_bytes": 12204,
+  "compressed_proof_bytes": 1366,
+  "serialization_seconds": 0.0015390459999764516,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 0,
+  "price_bits": {
+    "numerator_bits": 17,
+    "denominator_bits": 16,
+    "rational_count": 1
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:6a0b25/708000",
+    "upper": "hex:6c83720b/70800000",
+    "gap": "hex:2cf6b/800000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.36978743899999245,
+    "instance_sha256": "e00e26d5dac812ad6b491d3c93b62ce4a01f8ea138ef4cf6e48a7b58b462f1b7"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.37466429299999504,
+  "total_measured_seconds": 0.6670249149999847
+}

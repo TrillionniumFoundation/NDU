@@ -1,0 +1,102 @@
+name: NDU OR R15 frozen multistage research
+on:
+  push:
+    branches: [revision/ndu-operations-research-r15-20260922]
+    paths: [.r15-research/READY.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r15-research
+  cancel-in-progress: false
+jobs:
+  research:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r15-20260922'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+      REVISION_BRANCH: revision/ndu-operations-research-r15-20260922
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Commit ordinary executable sources before the first study execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git config user.name 'NDU R15 scientific revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import json, base64, lzma, hashlib, subprocess
+          ready=json.loads(Path('.r15-research/READY.json').read_text())
+          subprocess.run(['git','merge-base','--is-ancestor',ready['parent'],'HEAD'],check=True)
+          parts=sorted(Path('.r15-research').glob('part-*.b64'))
+          assert len(parts)==ready['parts']
+          packed=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert hashlib.sha256(packed).hexdigest()==ready['sha256']
+          sources=json.loads(lzma.decompress(packed));assert len(sources)==ready['source_files']
+          for name,text in sources.items():
+              p=PurePosixPath(name)
+              assert not p.is_absolute() and '..' not in p.parts
+              assert name.startswith('revisions/or-r15-20260922/')
+              assert not name.endswith('EXPERIMENT_PLAN.json')
+              out=Path(name);out.parent.mkdir(parents=True,exist_ok=True);out.write_text(text,encoding='utf-8')
+          print('Materialized',len(sources),'ordinary source files')
+          PY
+          git add revisions/or-r15-20260922
+          git commit -m 'research(or-r15): freeze ordinary executable sources before primary and stress outcomes'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          git rev-parse HEAD > /tmp/R15_RESEARCH_SOURCE_SHA.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install pinned numerical dependencies
+        run: python -m pip install -r revisions/or-r15-20260922/requirements.txt
+      - name: Heterogeneous structural and independent optimization tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p revisions/or-r15-20260922/results
+          python revisions/or-r15-20260922/structural_tests.py 2>&1 | tee revisions/or-r15-20260922/results/structural.log
+      - name: Execute all eight independent training and deployment pairs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python revisions/or-r15-20260922/study.py 2>&1 | tee revisions/or-r15-20260922/results/study.log
+      - name: Reassess the original star with hard geometry and non-neural baselines
+        shell: bash
+        run: |
+          set -euo pipefail
+          python revisions/or-r15-20260922/star_reassessment.py 2>&1 | tee revisions/or-r15-20260922/results/star.log
+      - name: Replay every multistage certificate without site packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -S revisions/or-r15-20260922/verify.py 2>&1 | tee revisions/or-r15-20260922/results/verify.log
+          cp /tmp/R15_RESEARCH_SOURCE_SHA.txt revisions/or-r15-20260922/results/SOURCE_SHA.txt
+      - name: Publish ordinary results only on R15
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          git add revisions/or-r15-20260922/results
+          git commit -m 'research(or-r15): publish all frozen multistage and hard-regime observations with exact replay'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          git rev-parse HEAD > /tmp/R15_RESEARCH_RESULTS_SHA.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_OR_R15_research.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r15-frozen-research
+          retention-days: 30
+          path: |
+            /tmp/NDU_OR_R15_research.tar.gz
+            /tmp/R15_RESEARCH_SOURCE_SHA.txt
+            /tmp/R15_RESEARCH_RESULTS_SHA.txt
+            revisions/or-r15-20260922/results
+          if-no-files-found: warn

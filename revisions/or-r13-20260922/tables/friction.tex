@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering\small
+\caption{Accepted decisions along nonzero switching-friction paths}\label{tab:r13-friction}
+\begin{tabular}{rrrrrrr}\toprule
+Nodes & $\lambda/\lambda_c$ & $\lambda$ & Gain & Switching & Binding caps & Fused edges \\\midrule
+15 & 0.00 & 0.0000 & 0.008837 & 0.08549 & 8 & 0 \\
+15 & 0.50 & 0.2066 & 0.001294 & 0.01253 & 13 & 12 \\
+15 & 1.00 & 0.4131 & 0.000000 & 0.00000 & 14 & 15 \\
+15 & 1.25 & 0.5164 & 0.000000 & 0.00000 & 14 & 15 \\
+31 & 0.00 & 0.0000 & 0.014286 & 0.09843 & 14 & 0 \\
+31 & 0.50 & 0.2347 & 0.002270 & 0.02281 & 22 & 15 \\
+31 & 1.00 & 0.4694 & 0.000000 & 0.00000 & 30 & 31 \\
+31 & 1.25 & 0.5867 & 0.000000 & 0.00000 & 30 & 31 \\
+63 & 0.00 & 0.0000 & 0.015029 & 0.11327 & 26 & 2 \\
+63 & 0.50 & 0.2823 & 0.001509 & 0.01341 & 45 & 41 \\
+63 & 1.00 & 0.5646 & 0.000000 & 0.00000 & 62 & 63 \\
+63 & 1.25 & 0.7058 & 0.000000 & 0.00000 & 62 & 63 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize Context $(0.2,-0.4)$; all 81 paths across three contexts are retained in the data. Gain and switching are per discounted review. Binding and fused masks use $10^{-6}$ for numerical diagnosis; exact rational policy gaps, rather than masks, determine validity. The zero-friction row is the control, not the learning experiment.\end{minipage}
+\end{table}

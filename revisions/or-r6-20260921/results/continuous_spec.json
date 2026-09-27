@@ -1,0 +1,30 @@
+{
+  "T": 8.0,
+  "boundary": "inward velocities, no exit or reflection",
+  "certificate": "finite controlled Markov chain only; no uncomputed continuum enclosure",
+  "diffusion": 0.0,
+  "discount": "exact per review, reward rate by rectangle rule",
+  "evaluation_intervals": 80,
+  "lambda_speed": 0.6,
+  "max_speed": 0.5,
+  "regime_generator": [
+    [
+      -0.30000000000000004,
+      0.25,
+      0.05
+    ],
+    [
+      0.15,
+      -0.30000000000000004,
+      0.15
+    ],
+    [
+      0.05,
+      0.25,
+      -0.30000000000000004
+    ]
+  ],
+  "rho": 0.030459207484708574,
+  "teacher_intervals": 160,
+  "torch_version": "2.10.0+cpu"
+}

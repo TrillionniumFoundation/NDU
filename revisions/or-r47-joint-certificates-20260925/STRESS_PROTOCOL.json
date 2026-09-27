@@ -1,0 +1,56 @@
+{
+  "cases": [
+    {
+      "id": "stress-0",
+      "gamma2": "5/2",
+      "budget": 2,
+      "charge": "0"
+    },
+    {
+      "id": "stress-1",
+      "gamma2": "6",
+      "budget": 2,
+      "charge": "0"
+    },
+    {
+      "id": "stress-2",
+      "gamma2": "5/2",
+      "budget": 1,
+      "charge": "0"
+    },
+    {
+      "id": "stress-3",
+      "gamma2": "6",
+      "budget": 1,
+      "charge": "1/20"
+    }
+  ],
+  "caps": [
+    "1/5",
+    "2/5",
+    "4/5"
+  ],
+  "weights": [
+    "1/5",
+    "3/10",
+    "1/2"
+  ],
+  "ceilings": [
+    "1",
+    "1",
+    "1"
+  ],
+  "promise": "sum weighted caps",
+  "initial_groups": [
+    [
+      0
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "requested_epsilon": "1/1000",
+  "refinement": "split maximum positive-defect group; stop at original tolerance",
+  "disclosure": "Supplementary stress protocol added after primary runs; all four cases retained"
+}

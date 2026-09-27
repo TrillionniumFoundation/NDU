@@ -1,0 +1,12 @@
+\begin{table}[p]\centering
+\caption{Harmonic versus minimum-curvature aggregation at identical partitions and search limits. Entries report original-space certificates at tolerance $0.001$, not reduced-solver completion. Every family contains six instances, including 32, 128, and 256 histories.}\label{tab:r48-paired}
+\begin{tabular}{lrrrrrr}\toprule
+& \multicolumn{2}{c}{Certified / 6}&\multicolumn{2}{c}{Maximum gap}&\multicolumn{2}{c}{Median seconds}\\
+Family & Harmonic & Minimum & Harmonic & Minimum & Harmonic & Minimum\\\midrule
+Common caps & 6 & 3 & 0.0005123 & 0.009995 & 0.01367 & 0.01547 \\
+Dispersed caps & 1 & 1 & 0.0316 & 0.03165 & 0.1842 & 0.1223 \\
+Eligibility / high promise & 1 & 1 & 0.003552 & 0.009106 & 0.01772 & 0.007898 \\
+Zero cost / charged & 6 & 6 & 0.0005434 & 0.0004811 & 0.04613 & 0.02399 \\
+\bottomrule\end{tabular}
+\par\small Both methods receive 31 target boxes and four price refinements. Larger exact rational denominators and optimal original-group recovery can make harmonic pooling slower. A tighter reduced optimum is not a theorem about interrupted-search runtime or every returned interval.
+\end{table}

@@ -1,0 +1,86 @@
+\subsection{Transfer coordinates relative to an optimized contract}\label{sec:r24-transfers}
+The nonnegative-flow representation above is exact around an outside protocol
+that exhausts the continuation caps. An optimized restricted contract need not
+exhaust them. Applying that representation without translating its lower bounds
+would remove accepted expansions. The following result supplies the missing
+benchmark-relative coordinates; it also permits a nonconstant or boundary
+benchmark. Its tree algebra is elementary, but the lower bounds have an
+operational meaning: an expansion can spend acceptance slack already earned by
+the restricted contract.
+
+Let the scalar-service tree have root $0$, positive payment coefficients $c_i$,
+and nonroot subtree caps $\sum_{i\succeq n}c_i x_i\leq b_n$.
+Retain a root payment equality, a box, and any additional linear capacities
+$Gx\leq g_0$. Let $z$ be any feasible restricted contract, and write
+$s_n=b_n-\sum_{i\succeq n}c_i z_i\geq0$.
+Let $B$ have one column for each nonroot node $n$, with
+$B_{nn}=-1$, $B_{\operatorname{pa}(n),n}=c_n/c_{\operatorname{pa}(n)}$,
+and all other entries zero. Here $B$ is the transfer map of
+Proposition~\ref{prop:r13-flow}, not the switching incidence used in
+Section~\ref{sec:r19-bridge}.
+
+\begin{theorem}[Benchmark-relative accepted transfers]\label{thm:r24-transfers}
+The map $y\mapsto z+By$ is a bijection from
+\begin{equation}\label{eq:r24-transfer-set}
+ \mathcal Y_z=\{y:y_n\geq-s_n/c_n,\quad
+       \ell\leq z+By\leq u,\quad GBy\leq g_0-Gz\}
+\end{equation}
+onto the entire accepted class with the same root payment as $z$.
+Its inverse is
+$y_n=-c_n^{-1}\sum_{i\succeq n}c_i(x_i-z_i)$; both directions take linear
+work in the tree size, apart from checking the additional capacity rows.
+If the restricted class additionally imposes $Lx=Lz$, its coordinate
+representation is exactly $\mathcal Y_z\cap\ker(LB)$.
+
+For
+$W_\lambda(x)=p^\top x-x^\top Qx/2-\lambda\sum_a\kappa_a|(Dx-h)_a|$
+with $Q\succeq0$, set $a_z=B^\top(p-Qz)$, $\mathcal K=DB$, and $d_z=Dz-h$.
+If $z$ optimizes the restricted class, the accepted expansion value is exactly
+\begin{equation}\label{eq:r24-exact-expansion}
+ J_\lambda-K_\lambda
+ =\max_{y\in\mathcal Y_z}\left\{
+ a_z^\top y-\tfrac12y^\top B^\top QB y
+ -\lambda\sum_a\kappa_a\bigl(|(d_z+\mathcal Ky)_a|-|(d_z)_a|\bigr)\right\}.
+\end{equation}
+Thus a positive value of the displayed expression is a constructive accepted
+gain witness against the optimized restricted contract. More generally, if
+$z$ is only certified to satisfy $K_\lambda-W_\lambda(z)\leq\delta_T$,
+any feasible $y$ gives a lower gain certificate equal to that expression minus
+$\delta_T$. No interiority, constant benchmark, or strict participation
+assumption is required.
+\end{theorem}
+\begin{proof}
+Put $f_n=c_n y_n$ for nonroots and $f_0=0$. The transfer equation gives
+$c_i(x_i-z_i)=-f_i+\sum_{n:\operatorname{pa}(n)=i}f_n$.
+Summing over a nonroot subtree cancels every internal transfer and leaves
+$\sum_{i\succeq n}c_i(x_i-z_i)=-f_n$; summing over the whole tree gives zero.
+Consequently its continuation cap is equivalent to $f_n\geq-s_n$.
+The box and additional capacities translate exactly as in
+\eqref{eq:r24-transfer-set}. Conversely, the displayed inverse constructed
+from any accepted $x$ satisfies each node balance by subtraction of child
+subtree sums. This proves both uniqueness and surjectivity, including at
+boundary points. A postorder pass computes the inverse and the sparse columns
+compute the forward map. The restricted equalities become $LBy=0$.
+The box and the continuous inverse also make the coordinate set compact, so the displayed maximum is attained. Expanding the quadratic term in $W_\lambda(z+By)-W_\lambda(z)$ gives the
+expression in braces. Maximizing over a bijective parametrization proves
+\eqref{eq:r24-exact-expansion} when $W_\lambda(z)=K_\lambda$.
+For an approximate restricted optimizer, subtract the certified bound
+$K_\lambda-W_\lambda(z)\leq\delta_T$ instead. This last implication uses the
+actual feasible implementation, not the numerical proposal before repair.
+\end{proof}
+
+\paragraph{A nonconstant optimized comparator with slack.}
+On a root and two children, take $c_i=1$, $0\leq x_i\leq1$,
+$x_0+x_1+x_2=3/2$, and $x_1,x_2\leq3/4$.
+Let $W(x)=x_1-\|x\|^2/2$ and let the time-only restriction be $x_1=x_2$.
+The restricted optimum is $z=(1/6,2/3,2/3)$ with value $5/24$;
+the accepted optimum is $(3/8,3/4,3/8)$ with value $21/64$.
+Both claims follow by the concave quadratic first-order conditions.
+The exact expansion is $23/192$. Its transfer is
+$y=(-1/12,7/24)$, whose first coordinate spends the entire $1/12$
+continuation slack at child~1. Imposing $y\geq0$ around this comparator would
+exclude that optimum. The retained nonnegative-flow theorem is unchanged:
+its cap-matching hypothesis sets every $s_n$ to zero. The present result
+connects that structural representation to the reoptimized comparator used
+in the economic certificates, rather than claiming a new generic network-flow
+or convex-duality principle.

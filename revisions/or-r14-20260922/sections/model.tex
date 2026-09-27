@@ -1,0 +1,41 @@
+\section{An externally priced inventory contract}\label{sec:model}
+There are periods $t=0,\ldots,T-1$. The observed state is $(z,q)$, where $z$ is a demand regime in a finite ordered set $\mathcal Z$ and $q\in[0,1]$ is the inherited contract. Conditional demand $D_z$ is nonnegative with finite first moment. A decision consists of stock $S\in\mathcal S\subset[0,\bar S]$ and contract $\theta\in\Theta\subset[0,1]$. Both feasible sets are fixed compact chains; finite grids are allowed. Unused stock perishes and unmet demand is lost. Thus no inventory or backlog is carried. The next regime has exogenous transition matrix $P$, and the next inherited contract equals the chosen contract.
+
+Write the expected overage and shortage as
+\begin{equation}\label{eq:cost}
+ O_z(S)=\E\pos{S-D_z},\qquad L_z(S)=\E\pos{D_z-S},\qquad
+ C_z(S)=cS+hO_z(S)+pL_z(S).
+\end{equation}
+Here $c,h,p\geq0$ are externally fixed physical-cost coefficients. The provider receives premium $r_z\theta$, pays incremental liability $\kappa\theta L_z(S)$, pays maintenance $m\theta^2$, and pays adjustment $\lambda(\theta-q)^2$, where $\kappa,m,\lambda>0$. Expected one-period net reward is
+\begin{equation}\label{eq:reward}
+ g(z,q,S,\theta)=r_z\theta-C_z(S)-\kappa\theta L_z(S)
+                       -m\theta^2-\lambda(\theta-q)^2.
+\end{equation}
+The expectation in this expression is over demand, not over the decision. Premium rates, liability coefficients, and physical-cost weights cannot be controlled. The contract is a real cash-flow commitment. Its level affects both reward and the future state; it is not an estimator of a preference parameter.
+
+\subsection{A customer-accepted master agreement}\label{sec:institution}
+The contract is a publicly specified menu, not a penalty that the provider can change after performance is observed. Before period zero, a risk-neutral customer and provider sign a master agreement. It specifies the premium schedule $r_z\theta$, the indemnity $\kappa\theta(D_z-S)^+$, the horizon, and a contingent operating protocol. Regime, tier, stock, demand, and fulfillment are observable and contractible. At each review the provider implements the announced protocol after observing $(z,q)$ and before demand is realized. Public randomization is permitted when specified in the agreement. The customer commits to the contingent menu, not to a new purchase at each review. Transfers and compliance with the protocol are enforceable. No hidden effort or private type is assumed.
+
+Let $f_z(S)=\E D_z-L_z(S)$ be expected units served. For a fixed service benefit $\nu>0$, the customer's incremental one-period utility is
+\begin{equation}\label{eq:customer}
+ u(z,S,\theta)=\nu f_z(S)+\kappa\theta L_z(S)-r_z\theta.
+\end{equation}
+Indemnity is a transfer from the provider to this customer. Maintenance and adjustment are real resource expenditures, not payments to the customer. Write $F^\pi=\E^\pi\sum_t\beta^t f_{z_t}(S_t)$, $D=\E\sum_t\beta^t\E D_{z_t}$, and $U^\pi=\E^\pi\sum_t\beta^t u(z_t,S_t,\theta_t)$. Demand is exogenous, so $D$ is independent of the protocol. The agreement is accepted only if
+\begin{equation}\label{eq:participation}
+ U^\pi\geq\underline U,\qquad F^\pi\geq\gamma D.
+\end{equation}
+These are ex ante participation and expected discounted fill commitments. They are not period-by-period chance constraints or a right to renegotiate after each regime realization. A customer with such rights would require continuation participation constraints and an additional promised-utility state.
+
+A fixed retainer $A_0$ can fund provider participation. Total provider profit is $A_0+W^\pi$ and total customer surplus is $U^\pi-A_0$; the retainer does not affect policy comparisons. In the canonical inventory study $A_0=6$, $\nu=2$, and the customer's outside alternative is the best fixed-contract arrangement, including the same retainer. Both that arrangement and the accepted adaptive arrangement satisfy a zero provider outside option. We report incremental $W$ and $U$ so that the historical accounting remains exactly comparable.
+
+The institution fixes the menu and designs the contingent protocol subject to acceptance. It does not claim to solve private-information screening or to endogenize every price in the menu. The unconstrained Bellman equation below is the provider relaxation and is also the problem when the acceptance constraints are slack. Section~\ref{sec:accepted} solves the binding-acceptance problem. A lower fill rate or customer surplus in the relaxation is not presented as an improvement under the accepted agreement.
+
+For discount $\beta\in(0,1]$ and zero terminal reward, the Bellman equation is
+\begin{equation}\label{eq:bellman}
+ V_t(z,q)=\max_{S,\theta}\left\{g(z,q,S,\theta)
+       +\beta\sum_{z'}P_{zz'}V_{t+1}(z',\theta)\right\},\qquad V_T=0.
+\end{equation}
+Finite actions make existence immediate. For compact intervals, bounded demand moments, continuity of the stage reward, and induction give a continuous value and an attained maximum. We select the greatest optimal pair when the lattice conditions below hold.
+
+
+The exact expanded-action representation and the provider-relaxation structure are retained in EC Section~\ref{sec:representation}. The ex ante master agreement above defines the canonical inventory benchmark. The unified formulation below additionally permits an enforceable continuation exit option at every review, implemented by a cap for every nonroot subtree and a root payment equality. The later tree and scalar-critic experiments use that continuation institution; they do not reinterpret an ex ante commitment as a continuation guarantee.

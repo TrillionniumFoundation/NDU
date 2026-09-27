@@ -1,0 +1,345 @@
+{
+  "status": "PASS",
+  "observations": 4608,
+  "plan_source": "revisions/or-r16-20260922/MATCHED_COST_PLAN.json",
+  "classification": "follow-up execution of an existing plan, not preregistered learning",
+  "state_isolation": "A separate previous-context solver instance is maintained for each requested deployment tolerance; no within-context cross-tolerance iterate reuse.",
+  "initial_qp_tolerance": 1e-05,
+  "refinement_qp_tolerance": 1e-09,
+  "summary": [
+    {
+      "method": "classical-cold",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.014028822542969777,
+      "median": 0.013503625000026886,
+      "p95": 0.02540314150002132,
+      "fallback_rate": 0.0,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        -0.0009532236597343249,
+        0.002105040144113223
+      ],
+      "amortization_cost_seconds": 0.0,
+      "break_even_queries": null
+    },
+    {
+      "method": "classical-previous",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.013452914300780328,
+      "median": 0.012542689500008919,
+      "p95": 0.02552727625001694,
+      "fallback_rate": 0.0,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.0,
+        0.0
+      ],
+      "amortization_cost_seconds": 0.0,
+      "break_even_queries": null
+    },
+    {
+      "method": "tanh-value",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.0437124240468747,
+      "median": 0.03431680100007384,
+      "p95": 0.10964775474994326,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.024083816509073635,
+        0.0364352029831151
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "tanh-gradient",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.04216859458594169,
+      "median": 0.031220301999979938,
+      "p95": 0.10077047525001603,
+      "fallback_rate": 0.9921875,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.022543625428361587,
+        0.03488773514196113
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "tanh-direct",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.0415193048906245,
+      "median": 0.02928793750001546,
+      "p95": 0.1023431034999902,
+      "fallback_rate": 0.984375,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.021360862887724638,
+        0.0347719182919637
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "quadratic-value",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.040263565683587355,
+      "median": 0.030127019500014285,
+      "p95": 0.0988759905000478,
+      "fallback_rate": 0.953125,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.019297966540914098,
+        0.034323336224699956
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "quadratic-gradient",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.03965379211329134,
+      "median": 0.028965926500006844,
+      "p95": 0.10221656574995563,
+      "fallback_rate": 0.9140625,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.0177735559154801,
+        0.034628199709541924
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "quadratic-direct",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.01979019884375055,
+      "median": 0.009567592999985663,
+      "p95": 0.05838719950003224,
+      "fallback_rate": 0.44140625,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        0.002319862696257716,
+        0.010354706389682729
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "rbf-direct",
+      "tol": 0.001,
+      "n": 256,
+      "mean": 0.009563169679690509,
+      "median": 0.00626521649999745,
+      "p95": 0.028487337249956113,
+      "fallback_rate": 0.12890625,
+      "classical_comparator": "classical-previous",
+      "mean_difference_interval95": [
+        -0.005390662910034119,
+        -0.0023888263321455187
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": 2546
+    },
+    {
+      "method": "classical-cold",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.026179953437497128,
+      "median": 0.016727024500028165,
+      "p95": 0.08490629799999283,
+      "fallback_rate": 0.421875,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.0,
+        0.0
+      ],
+      "amortization_cost_seconds": 0.0,
+      "break_even_queries": null
+    },
+    {
+      "method": "classical-previous",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.026822162519528736,
+      "median": 0.017043042500034744,
+      "p95": 0.08311942699998554,
+      "fallback_rate": 0.43359375,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        -0.0023857438567363764,
+        0.003670162020799593
+      ],
+      "amortization_cost_seconds": 0.0,
+      "break_even_queries": null
+    },
+    {
+      "method": "tanh-value",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.04353228698437439,
+      "median": 0.03357562799999414,
+      "p95": 0.10961133699998982,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.010300927301705317,
+        0.02440373979204921
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "tanh-gradient",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.042720656296877046,
+      "median": 0.032292745999995986,
+      "p95": 0.10152307774993119,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.009417351136629885,
+        0.023664054582129952
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "tanh-direct",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.04159374976171715,
+      "median": 0.029225653999930046,
+      "p95": 0.10487482349996924,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.007888086979930663,
+        0.022939505668509375
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "quadratic-value",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.04120135014062998,
+      "median": 0.030508538999981738,
+      "p95": 0.09869623275001516,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.006580956321350169,
+        0.023461837084915532
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "quadratic-gradient",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.04208006867968883,
+      "median": 0.030949035999981334,
+      "p95": 0.10202486049999493,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.007348508429489578,
+        0.024451722054893828
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "quadratic-direct",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.039857962433597405,
+      "median": 0.029390159500024993,
+      "p95": 0.09909713324996972,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.0072821093618574105,
+        0.020073908630343144
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    },
+    {
+      "method": "rbf-direct",
+      "tol": 1e-05,
+      "n": 256,
+      "mean": 0.03780817105078038,
+      "median": 0.02949572150001245,
+      "p95": 0.09646158600003218,
+      "fallback_rate": 1.0,
+      "classical_comparator": "classical-cold",
+      "mean_difference_interval95": [
+        0.0065530550758482456,
+        0.01670338015071826
+      ],
+      "amortization_cost_seconds": 9.899987064624991,
+      "break_even_queries": null
+    }
+  ],
+  "offline": [
+    {
+      "seed": 15011,
+      "label_seconds": 10.082584830000002,
+      "fit_all_seconds": 0.03500067400000262
+    },
+    {
+      "seed": 15012,
+      "label_seconds": 8.764514104,
+      "fit_all_seconds": 0.009088794000035705
+    },
+    {
+      "seed": 15013,
+      "label_seconds": 9.065711718999978,
+      "fit_all_seconds": 0.009340236000014102
+    },
+    {
+      "seed": 15014,
+      "label_seconds": 9.522703619000026,
+      "fit_all_seconds": 0.00927471099998911
+    },
+    {
+      "seed": 15015,
+      "label_seconds": 10.01187857399998,
+      "fit_all_seconds": 0.008917430999986209
+    },
+    {
+      "seed": 15016,
+      "label_seconds": 11.198275502000001,
+      "fit_all_seconds": 0.009207761999959985
+    },
+    {
+      "seed": 15017,
+      "label_seconds": 10.252267578999977,
+      "fit_all_seconds": 0.009453601000018352
+    },
+    {
+      "seed": 15018,
+      "label_seconds": 10.202845718999981,
+      "fit_all_seconds": 0.008831661999977314
+    }
+  ],
+  "all_final_certificates_meet_requested_tolerance": true,
+  "inference": "Approximate Student intervals over eight cohort mean differences. Repeats are not independent fits; comparator selection is descriptive.",
+  "python": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39"
+}

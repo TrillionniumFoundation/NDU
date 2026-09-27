@@ -1,0 +1,89 @@
+{
+  "id": "exceptions-28-b2",
+  "method": "price",
+  "instance_sha256": "5a84d079e32287bb8dc4c892ca755280f5c359067e0f50d66788604f3d202834",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/14",
+  "lower": "hex:1444f/2fa80",
+  "upper": "hex:1481f/2fa80",
+  "gap": "hex:1/c8",
+  "seconds": 0.008871848000126192,
+  "nodes": 1,
+  "oracle_calls": 2,
+  "trace": [
+    {
+      "seconds": 0.005097686999988582,
+      "lower": "hex:-1/c8",
+      "upper": "hex:1481f/2fa80",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.008300800000142772,
+      "lower": "hex:1444f/2fa80",
+      "upper": "hex:1481f/2fa80",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.008350802999984808,
+      "lower": "hex:1444f/2fa80",
+      "upper": "hex:1481f/2fa80",
+      "nodes": 1,
+      "oracle_calls": 2
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:3/2",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:1/c8"
+  },
+  "optimization_seconds": 0.008953259999998409,
+  "setup_seconds": 0.2134797690000596,
+  "peak_rss_kib": 30412,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/exceptions-28-b2--price.json.gz",
+  "certificate_sha256": "ed2e87fb383aa526d3e800adab9b155704299b5883117df42aebe18a9d4c4106",
+  "proof_bytes": 2549,
+  "compressed_proof_bytes": 548,
+  "serialization_seconds": 0.00047110200011957204,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:1444f/2fa80",
+    "upper": "hex:1481f/2fa80",
+    "gap": "hex:1/c8",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.005235323999841057,
+    "instance_sha256": "5a84d079e32287bb8dc4c892ca755280f5c359067e0f50d66788604f3d202834"
+  },
+  "verification_seconds": 0.0095196100000976,
+  "checker_peak_rss_kib": 30412,
+  "worker_seconds": 0.2326419480000368,
+  "parent_finished": true,
+  "parent_seconds": 0.26096341299989945,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

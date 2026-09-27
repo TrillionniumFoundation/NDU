@@ -1,0 +1,11 @@
+\begin{table}[t]
+\centering\small
+\caption{Independent validation of frozen, static-gated pipelines}\label{tab:r13-validation}
+\begin{tabular}{lrrrr}\toprule
+Pipeline & Cell accepted (\%) & Mean gain & Expected gain floor & Expected regret ceiling \\\midrule
+Neural, one cell & 16.43 & 0.001734 & 0.000482 & 0.042906 \\
+Neural, three cells & 28.86 & 0.003006 & 0.001754 & 0.036684 \\
+Nearest anchor & 21.34 & 0.002291 & 0.001039 & 0.040445 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.96\textwidth}\footnotesize A separate sample of $n=4096$ contexts, three frozen pipelines, and $\delta=0.05$. Both expectation bounds hold simultaneously under the declared deployment distribution. The model-derived range is $B=\RThirteenRange$ and the deviation radius is $\RThirteenRadius$. The gain floor compares with static, not with an optimized nonstatic policy. The regret ceilings are valid but not small enough to imply near-optimality.\end{minipage}
+\end{table}

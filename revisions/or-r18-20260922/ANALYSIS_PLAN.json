@@ -1,0 +1,27 @@
+{
+  "revision": "R18",
+  "date": "2026-09-22",
+  "branch_base": "94321bb032ebc5420fa40bc6d90b98ecb672163c",
+  "research_results_parent": "a3ddde9d80ef5c390dbb019d13bb719ddc22e1ef",
+  "latest_actual_report": "reviews/operation_research_referee_report_r14_2026-09-22.md",
+  "version_findings": "The branch named review/operation-research-r16-harsh-20260922 points to R16 research results, not a new R16 report. R17 still has R14 root manuscript files and a partial transport. R18 preserves both branches and publishes ordinary complete manuscript files.",
+  "already_inspected": "The full R14 report, R14 manuscript sources, R13 structural derivations, R16 sources, plans, amendment, all aggregate method and timing summaries, and the R16 star/structural outcomes. R18 does not describe its reanalysis as preregistered or its existing data as newly generated.",
+  "scientific_work": [
+    "Prove a face-free resource-price/value-gradient bridge for general accepted polyhedra, vector and multistage decisions, nonconstant comparators, endogenous absolute switching signs, and smooth convex resource coupling.",
+    "Prove an inexact-response regret bound whose subproblem error is independently upper bounded; include numerical repair rather than silently assuming exact optimization.",
+    "Derive a fixed-mixture conditional gain bound for the eight frozen policies using all independent deployment cohorts. Use seven simultaneous method statements, uniform mixture weights, the existing analytic gain range 25, and delta 0.05. Do not claim a guarantee for each training realization or the population training procedure.",
+    "Recompute complete latency means and medians, paired cohort uncertainty, all non-neural/direct-price comparators, hard-regime strata, and offline break-even costs from all stored rows without selection."
+  ],
+  "new_structural_checks": {
+    "seeds": [18001, 18002, 18003, 18004],
+    "nodes": [15, 31],
+    "services": 2,
+    "ranks": [2, 4],
+    "contexts_per_seed_stratum": 4,
+    "strata": ["heterogeneous", "binding cross-service capacities", "tier boundaries", "switching kinks"],
+    "construction": "Retain nonconstant outside tiers and nonzero switching costs. For the binding stratum impose explicit root cross-service capacities and positive root incentives. For tier-boundary checks impose high root incentives with slack cross-service capacities. Switching checks use higher positive friction. These are deliberate theorem tests, not a calibrated deployment distribution.",
+    "requirements": "Independently replay every rational primal and dual certificate; verify the inexact-response bound, record actual binding counts and switching signs, and compare one small capacity-binding case with independent SLSQP. Fail rather than omit an unsuccessful instance."
+  },
+  "preservation": "Do not delete or overwrite earlier revision directories, reports, observations, or other branches. Snapshot R14 root documents. Provide a full relocation map and retain complete prior manuscripts and supplements.",
+  "publication": "Build ordinary TeX and actual main/companion PDFs, provide point-by-point response and reproducible checks, and validate the exact final reviewable branch SHA. No claim that transport files alone constitute a manuscript."
+}

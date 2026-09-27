@@ -1,0 +1,15 @@
+\subsection{An exact all-budget frontier at a saturated promise}\label{sec:saturation58}
+The zero-deficit case is a second exact regime, distinct from zero service cost. It permits fully heterogeneous caps, rewards and strictly positive service costs.
+\begin{corollary}[Saturated-promise menu frontier]\label{cor:saturation58}
+For rational quadratic primitives and $B=\bar b$, all optimum values for command budgets $1,\ldots,N$ and an attaining book for each budget can be computed together in $O(kN^2+N^3)$ rational operations with polynomial bit complexity. Storing edge weights, Bellman values and predecessors requires $O(N^2)$ rational or integer entries. No common lattice or reward-type assumption is needed. The original policy is recovered at the unchanged targets $t_j=b_j$.
+\end{corollary}
+\begin{proof}
+Since probabilities are positive and $t_j\leq b_j$, the equality of weighted sums forces $t_j=b_j$ for every history. In the deficit representation $R=0$, all nonnegative edge deficits are zero. The full-capacity edge weight is
+\[
+ w_{uv}=\sum_{j:\tau_j\geq v}\pi_j\sigma^j_{uv}\delta_j(u,v)
+        -\sum_{j\in J_{uv}}\pi_jh_j((b_j-u)_+)-\rho(v),
+\]
+with the first sum and opening charge omitted on the sink edge. Computing each weight directly costs $O(k)$ operations: all terminal components and all service components are full, so no sorting or water-level search is required. Initialize every feasible anchor $a_i$ with value $\sum_j\pi_jf_j(a_i)-\rho_i$. For each exact selected count, propagate these weights along the ordered graph. All $N$ layers cost $O(N^3)$ operations. Adding the sink weights and taking cumulative maxima over the layers gives the value for every at-most budget. Predecessors recover the attaining books. The graph and layer tables each have $O(N^2)$ entries. Each entry is a sum of at most $N$ rational edge weights of polynomial input encoding length, proving the bit claim. Theorem~\ref{thm:packing54} and the canonical response reconstruct original lotteries and service at $t_j=b_j$.
+\end{proof}
+
+The implementation forms this frontier in one count-indexed pass. It then exports each budget's state table and original policy in the existing deficit-certificate format. The independent checker reconstructs full-capacity kernels and checks all Bellman inequalities without importing the frontier solver. For positive deficit, the approximate state count is $\lfloor2Km(\bar b-B)/\varepsilon\rfloor+1$; it depends on the unused obligation capacity, not on the number of distinct caps. The exact saturated frontier and the positive-deficit guarantee thus describe adjacent but different computational regimes.

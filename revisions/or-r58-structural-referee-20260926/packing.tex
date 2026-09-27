@@ -1,0 +1,29 @@
+\subsection{A heterogeneous-reward primal extension}\label{sec:packing54}
+The priced identity also suggests the correct generalization of the primal arc payoff. Simply replacing the common reward by different rewards in \eqref{eq:arc52} would be incorrect, because one chord slope no longer describes all histories. Instead, define the within-edge terminal allocation value
+\begin{equation}\label{eq:terminalprofile54}
+ R_{uv}(x)=\max\left\{\sum_{j:\tau_j\geq v}\pi_j\sigma^j_{uv}e_j:
+ 0\leq e_j\leq\delta_j(u,v),\ \sum_j\pi_je_j=x\right\},\quad 0\leq x\leq T_{uv}.
+\end{equation}
+The feasible within-edge polytope is nonempty and compact at each stated total, so its linear objective attains a maximum. Its value is continuous, increasing and concave, with marginal slopes drawn from the history-specific chord slopes. Set
+\begin{equation}\label{eq:heteroarc54}
+ \widetilde\Phi_{uv}(x)=R_{uv}(\min(x,T_{uv}))-H_{uv}((x-T_{uv})_+).
+\end{equation}
+The terminal edge still has payoff $-H_{u\dagger}$. All terminal slopes are positive and all service marginal returns are nonpositive, so this joined payoff is concave.
+
+\begin{theorem}[History-level component packing]\label{thm:packing54}
+For a common ordered catalog with ceiling-induced prefix eligibility and heterogeneous increasing concave terminal rewards, replace $f(a)$ in \eqref{eq:pathidentity52} by $\sum_j\pi_jf_j(a)$ and every $\Phi$ by $\widetilde\Phi$. The resulting scalar-resource path identity is exact. Its capacities remain those in \eqref{eq:capacityidentity52}. For any feasible arc-resource vector, within-edge optimizers followed by history-level packing produce a feasible original policy with the same individual component totals and no smaller payoff.
+\end{theorem}
+\begin{proof}
+For a fixed book, introduce a component $e_{j,uv}\in[0,\delta_j(u,v)]$ for every eligible terminal segment, and service $z_j\in[0,(b_j-d_j)_+]$. Temporarily drop the requirement that a history's earlier components must be filled before its later ones. The relaxed objective, apart from charges, is
+\[
+ \sum_j\pi_j\left[f_j(a)+\sum_{(u,v)}\sigma^j_{uv}e_{j,uv}-h_j(z_j)\right],
+ \qquad \sum_j\pi_j\left[\sum_{(u,v)}e_{j,uv}+z_j\right]=B-a.
+\]
+Every original canonical policy embeds in this relaxation by filling its eligible segments in order and then its service tail. Conversely, fix any relaxed component allocation and define
+$t_j=a+\sum_{(u,v)}e_{j,uv}+z_j$.
+The sum of that history's component capacities is exactly $b_j-a$, so $a\leq t_j\leq b_j$. Its components can be packed in their original order while preserving $t_j$: move service into any unfinished positive terminal segment, then move mass from a later positive segment into any unfinished earlier segment. Each move weakly improves payoff, because the history's terminal slopes are decreasing and positive and service cost is nondecreasing. This comparison is entirely within a history; it needs no common ordering across histories. At termination the components implement its canonical response at $t_j$. Proposition~\ref{prop:canonical52} supplies the adjacent lottery or sure-command service policy, with every realization constraint intact. The weighted promise is unchanged by packing. Thus relaxation and original problem have the same optimum.
+
+Now regroup the relaxed components by selected edge, assigning $z_j$ to the unique exit edge of history $j$. Groups share only the scalar total-resource equality; their individual component bounds are otherwise disjoint. For a fixed group resource $x$, optimal allocation fills positive terminal returns first, whose optimum is $R_{uv}$, and then minimizes the exit-set service cost $H_{uv}$. This is exactly \eqref{eq:heteroarc54}. Maximizing over group resources is therefore the same relaxation already proved exact. The component-capacity telescoping is unchanged. Within-edge optimizers followed by the preceding history-level packing provide the asserted constructive recovery.
+\end{proof}
+
+In the quadratic specialization, $R_{uv}$ is evaluated by sorting the eligible history slopes and filling weighted segment capacities. Its Lipschitz constant is at most $\max_j r_j$. The service part is bounded by $\max_j\gamma_j$. Hence the polynomial additive resource construction also extends to heterogeneous rewards with these new kernels. The retained uniform-grid implementation used in the comparison study has only the common-reward kernels; it is not represented as an executed heterogeneous solver. The new price-path implementation and independent certificates do support heterogeneous rewards. Those statements describe the antecedent comparison. The merged-origin implementation in Section~\ref{sec:deficit56} now evaluates these heterogeneous primal kernels directly; the new study tests and independently checks them rather than carrying the extension only as a theorem.

@@ -1,0 +1,81 @@
+\begin{table}[p]\centering
+\caption{Joint-design regimes and theorem provenance. Each guarantee retains its stated assumptions.}\label{tab:r49-complexity}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{.18\textwidth}p{.25\textwidth}p{.27\textwidth}p{.23\textwidth}}\toprule
+Regime & Guarantee & Dependence & Provenance \\
+\midrule
+Saturated catalog & Exact joint recurrence & Polynomial at saturation & R42; retained companion \\
+Unrestricted price & Exact priced menu & Polynomial per price, not a joint optimum & R43; Appendix~\ref{sec:r43-decomposition} \\
+Fixed individual targets & Exact memory--charge frontier & Polynomial conditional on targets & R45; Theorem~\ref{thm:r45-frontier} \\
+Individual target boxes & Exact two-sided bound; checked cover & Accuracy search in response types & R46; Theorems~\ref{thm:r46-box}--\ref{thm:r46-adaptive} \\
+Guarded / harmonic groups & Original-space error composition & Accuracy-dependent cap and cost bins & R47--R48; companion \\
+One eligible prefix & Exact original-budget joint optimum & Polynomial in histories, catalog and budget & New; Theorem~\ref{thm:r49-frontier} \\
+Several eligible prefixes & Exact group oracle; additive joint accuracy & Exponent $E-1$, no dispersion allowance & New; Theorems~\ref{thm:r49-box}--\ref{thm:r49-accuracy} \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}The full R42--R48 theorem map remains in Table~\ref{tab:r46-contributions} of the computational record. Conditional, augmented-budget and original-budget results are not interchanged.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{All 24 paired original-space intervals. The unchanged tolerance is $10^{-3}$ and the node allowance is 31.}\label{tab:r49-paired}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rrrrrrrrr}\toprule
+Case & Histories & Catalog & Budget & Classes & Prior gap & Pooled gap & Nodes & Seconds \\
+\midrule
+00 & 4 & 7 & 1 & 1 & 0.0000727 & 0 & 1 & 0.003 \\
+01 & 6 & 7 & 3 & 1 & 0.0175658 & 0 & 1 & 0.004 \\
+02 & 8 & 7 & 2 & 3 & 0.001003 & 0 & 1 & 0.025 \\
+03 & 4 & 7 & 3 & 3 & 0.000022 & 0.00002196 & 1 & 0.024 \\
+04 & 6 & 7 & 1 & 1 & 0 & 0 & 1 & 0.004 \\
+05 & 8 & 7 & 3 & 1 & 0.0252872 & 0 & 1 & 0.005 \\
+06 & 4 & 7 & 2 & 3 & 0 & 0 & 1 & 0.017 \\
+07 & 6 & 7 & 3 & 3 & 0.0000079 & 0.00000788 & 1 & 0.035 \\
+08 & 8 & 7 & 1 & 1 & 0.0005123 & 0 & 1 & 0.005 \\
+09 & 4 & 7 & 3 & 1 & 0.0008874 & 0 & 1 & 0.003 \\
+10 & 6 & 7 & 2 & 3 & 0.0031844 & 0 & 1 & 0.02 \\
+11 & 8 & 7 & 3 & 3 & 0.0005434 & 0.00001723 & 1 & 0.041 \\
+12 & 32 & 9 & 1 & 1 & 0.0000124 & 0 & 1 & 0.025 \\
+13 & 32 & 9 & 3 & 1 & 0.0264696 & 0 & 1 & 0.024 \\
+14 & 32 & 9 & 2 & 3 & 0.0027258 & 0 & 1 & 0.135 \\
+15 & 32 & 9 & 3 & 3 & 0.0004471 & 0.00013796 & 5 & 0.509 \\
+16 & 128 & 9 & 1 & 1 & 0.0000115 & 0 & 1 & 0.16 \\
+17 & 128 & 9 & 3 & 1 & 0.0290573 & 0 & 1 & 0.111 \\
+18 & 128 & 9 & 2 & 3 & 0.0031839 & 0 & 1 & 0.924 \\
+19 & 128 & 9 & 3 & 3 & 0.0000496 & 0.00008945 & 1 & 0.743 \\
+20 & 256 & 9 & 1 & 1 & 0.0000041 & 0 & 1 & 0.634 \\
+21 & 256 & 9 & 3 & 1 & 0.0315955 & 0 & 1 & 0.269 \\
+22 & 256 & 9 & 2 & 3 & 0.0035516 & 0 & 1 & 2.938 \\
+23 & 256 & 9 & 3 & 3 & 0 & 0 & 1 & 1.538 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}Prior gaps are the immutable harmonic-coarsening intervals, not fresh matched-machine measurements. All new intervals meet tolerance; 19 have zero rational width. Case 19 retains a slightly wider interrupted interval. Exact arithmetic and complete lotteries are in the machine-readable certificates.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Common-eligibility joint optimization: all 16 intervals are exactly closed in one node.}\label{tab:r49-scaling}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rrrrr}\toprule
+Histories & Catalog & Exact / cases & Optimization seconds & Checking seconds \\
+\midrule
+16 & 9 & 2/2 & 0.012--0.012 & 0.009--0.009 \\
+16 & 17 & 2/2 & 0.028--0.028 & 0.020--0.020 \\
+64 & 9 & 2/2 & 0.043--0.044 & 0.030--0.031 \\
+64 & 17 & 2/2 & 0.098--0.099 & 0.072--0.072 \\
+256 & 9 & 2/2 & 0.168--0.171 & 0.121--0.123 \\
+256 & 17 & 2/2 & 0.383--0.384 & 0.287--0.292 \\
+1024 & 9 & 2/2 & 0.682--0.685 & 0.485--0.488 \\
+1024 & 17 & 2/2 & 1.530--1.576 & 1.166--1.191 \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}Each row contains the two declared seeds; time ranges are reported without a statistical confidence claim. The budget is three and the requested tolerance is zero. Caps and service costs vary within the single eligibility class.\end{minipage}
+\end{table}
+\begin{table}[p]\centering
+\caption{Eligibility stress at tolerance $10^{-3}$. Every row has 12 histories, nine catalog levels and budget three.}\label{tab:r49-stress}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{rrrrrrr}\toprule
+Seed & Classes & Exact value & Gap (31) & Gap (127) & Seconds (127) & Complete \\
+\midrule
+49500 & 6 & 0.302083 & 0.0029167 & 0.0017708 & 2.825 & No \\
+49501 & 7 & 0.53564 & 0.0019627 & 0.0012862 & 3.192 & No \\
+49502 & 6 & 0.459188 & 0.0022344 & 0.0009966 & 3.343 & Yes \\
+49503 & 8 & 0.030152 & 0.0017608 & 0.0015092 & 1.979 & No \\
+49504 & 5 & 0.464255 & 0.0012245 & 0.0009165 & 1.431 & Yes \\
+49505 & 6 & 0.436758 & 0.009043 & 0.0059058 & 3.144 & No \\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}Parentheses give node allowances, not claims that every run used all nodes. Two of the twelve tighter requests finish; all twelve requests at $10^{-2}$ finish. The record includes both tolerances, both budgets, exact references and every interruption. The final column refers to the 127-node allowance.\end{minipage}
+\end{table}

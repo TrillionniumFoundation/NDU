@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "independent_policy_replays": 32416,
+  "groups": {
+    "matched": 15360,
+    "validation": 15616,
+    "scaling": 1440
+  },
+  "component_identities": 320,
+  "negative_controls_rejected": 4,
+  "scaling_labels": 640,
+  "scaling_target_failures_retained": 0,
+  "validation_unique_contexts": {
+    "iid": 2048,
+    "shift": 512
+  },
+  "validation_training_context_overlap": {
+    "iid": 0,
+    "shift": 0
+  },
+  "statistical_target": "Fixed deterministic ensembles with fully reset solver state, restricted optimum, two fresh context populations; four simultaneous lower bounds independently reconstructed."
+}

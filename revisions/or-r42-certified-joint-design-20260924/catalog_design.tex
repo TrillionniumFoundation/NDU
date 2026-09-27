@@ -1,0 +1,59 @@
+\section{Joint Design of a Risk-Limited Certified Alphabet}\label{sec:catalog}
+A finite certification catalog gives a general intermediate institution and a nontrivial codebook-dependent implementation problem. Let $\mathcal A=\{a_1<\cdots<a_N\}\subset[0,1]$ be the allowable terminal levels, with $a_1\leq b_1$. Selecting a level $a$ incurs an arbitrary nonnegative charge $\rho(a)$; for example, it may combine a declared precision/storage charge and a per-level certification charge in the same units as service loss. These are stipulated prices, not estimated operational costs. A book is any subset of $\mathcal A$ of size at most $m$. The objective includes the charges of its actual selected levels, not merely its declared capacity.
+
+The root promise is saturated in this section. Intermediate service $y_j$ is chosen before the symbol draw, with
+\begin{equation}\label{eq:r37-overrun}
+ y_j+\E C_j=b_j,\qquad y_j+C_j\leq b_j+\delta\quad\text{almost surely}.
+\end{equation} This explicitly defined institution has the two familiar endpoints: $\delta=0$ attains the pathwise/deterministic catalog optimum, while $\delta\geq1$ removes the overrun restriction. The pre-draw restriction is not asserted without loss for arbitrary intermediate risk protocols.
+
+For adjacent selected levels $u<v$, assign to this edge the branches $u\leq b_j<v$ and define
+\begin{equation}\label{eq:catalog-edge}
+ K_\delta(u,v)=\sum_{j:u\leq b_j<v}\pi_j\ell_j^\delta(u,v),
+\end{equation}
+where, on that interval,
+\begin{equation}\label{eq:catalog-loss}
+ \ell_j^\delta(u,v)=
+ \begin{cases}
+ f(b_j)-\dfrac{v-b_j}{v-u}f(u)-\dfrac{b_j-u}{v-u}f(v),&v-b_j\leq\delta,\\[4pt]
+ f(b_j)-f(u)+h_j(b_j-u),&v-b_j>\delta.
+ \end{cases}
+\end{equation}
+At a selected cap the branch loss is zero, including the boundary $b_j=u$. The last selected level $u$ carries tail cost
+\begin{equation}\label{eq:catalog-tail}
+ T(u)=\sum_{j:b_j\geq u}\pi_j\{f(b_j)-f(u)+h_j(b_j-u)\}.
+\end{equation}
+No original-cap anchoring is imposed on catalog entries.
+
+\begin{theorem}[Global catalog frontier with level-dependent charges]\label{thm:catalog}
+For strictly increasing concave $f$ and convex nondecreasing $h_j$, the following dynamic program globally minimizes service loss plus selected-level charges under the bounded-overrun institution:
+\begin{align}
+ H_1(v)&=\begin{cases}\rho(v),&v\leq b_1,\\+\infty,&v>b_1,\end{cases}\nonumber\\
+ H_s(v)&=\rho(v)+\min_{u\in\mathcal A:\,u<v}\{H_{s-1}(u)+K_\delta(u,v)\},\quad s\geq2,\label{eq:catalog-dp}\\
+ W_m^\delta&=\min_{1\leq s\leq\min(m,N),\ v\in\mathcal A}
+                  \{H_s(v)+T(v)\}.\nonumber
+\end{align}
+Backtracking recovers the book, intermediate tiers, and lottery probabilities. All budgets through $m$ require $O(kN^2+mN^2)$ arithmetic/evaluation work with a direct branch-sum precomputation, and $O(N^2+mN)$ storage. For rational quadratic data and rational catalog charges the calculation is exact in rational arithmetic. An arbitrary additional charge depending only on $s$ can be added at the final minimization, but level charges must enter the recurrence itself.
+\end{theorem}
+\begin{proof}
+For a fixed book, Proposition~\ref{prop:r37-fixed-overrun} gives the optimal branch rule. On $u\leq b_j<v$, if $v-b_j\leq\delta$ use the adjacent unbiased lottery of mean $b_j$ and set $y_j=0$; otherwise use $u$ deterministically and set $y_j=b_j-u$. Branches above the last level also use that last level deterministically. Consequently the book's exact loss is the sum of its adjacent-edge costs and its terminal tail. Every branch is counted exactly once; cap endpoints contribute zero regardless of the interval convention.
+
+Increasing paths through the catalog enumerate every possible sorted book. A path can begin exactly at levels no larger than $b_1$, which is necessary and sufficient for feasibility. Charging $\rho$ at each visited vertex adds the book's actual implementation cost. Induction on path length gives \eqref{eq:catalog-dp}; appending the tail and minimizing over feasible lengths proves both inequalities needed for global optimality. If a selected level is unused, deleting it weakly lowers its nonnegative charge and does not worsen service. Thus the at-most-budget optimization also covers redundant symbols. Store predecessor indices and replay the fixed-book rule to reconstruct a controller.
+
+There are $O(N^2)$ edges, each computable by $k$ branch evaluations, and $m$ layers of $O(N^2)$ comparisons/additions. Storing edges and backpointers gives the stated bounds. In the quadratic rational model every interpolation, difference, and cost is rational. There is no continuous optimizer or rounding tolerance in the recurrence. At $\delta=0$ every strictly bracketing upper level is excluded, so the branch rule is the deterministic one; at $\delta\geq1$ every possible upper level is admissible. The endpoint claims follow after optimization over the same catalog.
+\end{proof}
+
+This theorem solves the saturated catalog specialization of the unified design problem for arbitrary $k,N,m,\delta$ and nonuniform $\rho$. An exact catalog optimum is not itself an optimum over all real codewords; Theorem~\ref{thm:mesh} supplies the missing quantitative comparison. This recurrence does not assume that risk-limited costs are Monge. The continuous uncharged expected frontier retains its separate $O(mk)$ guarantee; the certified-catalog theorem uses a general ordered-path algorithm to accommodate actual level charges and risk eligibility. Entropy coding, shared-table compression depending on pairs of levels, repeated-customer state, and arbitrary codebook-dependent costs are not silently reduced to additive $\rho$.
+
+\paragraph{Why a loss frontier followed by a resource surcharge is insufficient.}
+Use the off-cap model of Proposition~\ref{prop:r34-offcap} and catalog $\{1/4,1/2,5/8,3/4\}$ with two symbols and $\delta=1$. With zero charges, $(1/4,5/8)$ attains loss $23/1280$. Give only level $5/8$ charge $1/640$. That book now costs $25/1280$, whereas each cap-only pair $(1/4,1/2)$ and $(1/4,3/4)$ costs $24/1280$. The optimum changes its selected levels, not merely its capacity. The exact catalog recurrence finds the change; retaining the uncharged loss-minimizing book and adding its storage bill does not.
+
+\paragraph{Risk exposure along the continuous example.}
+The original two-symbol continuous example is retained as an exact illustration beyond a fixed catalog. Its globally optimal top level and loss are
+\begin{equation}\label{eq:r37-risk-frontier}
+ z_\delta=1/2+\min(\delta,1/8),\qquad D_2^\delta=z_\delta^2/20-z_\delta/16+3/80.
+\end{equation} On the middle branch the high-realization probability is
+\[
+ p_{\rm high}(\delta)=\frac{1/4}{z_\delta-1/4},\qquad
+ \text{maximum overrun}=z_\delta-1/2.
+\]
+At zero tolerance this branch uses its cap deterministically; at tolerance $1/8$, the high probability is $2/3$ and the possible overrun is $1/8$. Thus probability, mean obligation, and maximum overrun are separate reported quantities. Figure~\ref{fig:top-loss} shows the continuous loss profile; the complete global-example proof is in the electronic companion.

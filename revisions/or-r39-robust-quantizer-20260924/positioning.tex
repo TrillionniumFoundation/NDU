@@ -1,0 +1,27 @@
+\section{Quantization, Contracting, and the Contribution Boundary}\label{sec:r37-position}
+\paragraph{Ordered scalar quantization.}
+\citet{Wu1991} accelerates the discrete optimal mean-square $K$-level quantization dynamic program from $O(KN^2)$ to $O(KN)$ by matrix searching. Later one-dimensional clustering treatments extend the cost structures and discuss reconstruction and space reductions \citep{GronlundEtAl2017}. Thus contiguous-cell dynamic programming, continuous reproduction-point optimization, and an $O(mk)$ matrix-search consequence are not new as generic claims. In the present deterministic problem, participation forces a cell's reconstruction to its smallest cap, not its least-squares centroid. Its loss includes branch-specific intermediate-service costs. The difference is a particular feasible distortion, not a new ordered-partition paradigm.
+
+\paragraph{Unbiased randomization and dual quantization.}
+The adjacent lottery is exactly the classical unbiased two-point quantizer. For distinct adjacent levels $u<v$ and $u\leq b\leq v$,
+\begin{equation}\label{eq:unbiased}
+ \Pr(C=v)=\frac{b-u}{v-u},\qquad
+ \Pr(C=u)=\frac{v-b}{v-u},\qquad \E C=b.
+\end{equation}
+Stochastic rounding uses this same rule \citep{CrociEtAl2022}. Dual quantization is an even closer optimization predecessor: \citet{PagesWilbertz2012} optimize mean-preserving random splitting and relate it to piecewise-affine interpolation. Their extended formulation also uses nearest-neighbor projection outside the grid's convex hull. We therefore do not claim that random splitting, optimized grids, interpolation, or treatment of out-of-hull points first arise here.
+
+For the quadratic terminal reward, our in-hull loss is $q(b-u)(v-b)/2$, the corresponding quadratic dual-quantization error multiplied by $q/2$. Above the highest level $z$, however, the contractual loss is
+\[
+ f(b)-f(z)+h_j(b-z)
+ =(r-qz)(b-z)+\frac{\gamma_j-q}{2}(b-z)^2.
+\]
+It is generally not a common squared-distance projection penalty: it carries a level-dependent linear term and a heterogeneous intermediate-service curvature. The paper's combined structural result concerns this one-sided contractual tail, its continuously chosen endpoint, and the cancellation that preserves the terminal Monge order. The affine movement of an interior codeword follows the quadratic interpolation structure and is not advertised as an independent general quantization principle. Its sufficient conditions are explicit: saturated branch targets, quadratic terminal reward, uncharged codewords, and intermediate costs arising only above the highest level. Section~\ref{sec:promise} treats endogenous targets, and Section~\ref{sec:catalog} treats actual level charges without assuming the same anchoring lemma.
+
+\paragraph{Finite-rate control and contracts.}
+An informed encoder and a downstream finite-alphabet decoder are standard in communication-constrained control \citep{Fu2024}. Our result is not a stabilization or channel-capacity theorem. There is no dynamic plant whose state is estimated through noisy feedback, no hidden type report, and no incentive-compatibility claim. What the contract adds is the allocation of accepted continuation payments and the distinction between conditional expected and realization-wise participation. Continuation promises themselves have a long contracting history \citep{SpearSrivastava1987,ThomasWorrall1988}, including finite policy-graph implementations \citep{Zhang2012}. Below the exact alphabet threshold, participation determines the allowable quantizer rather than communication alone determining the objective.
+
+\paragraph{Classical matrix search, model-specific cost structure.}
+Quadrangle-inequality dynamic programming \citep{Yao1980} and full totally monotone matrix search \citep{AggarwalEtAl1987} supply the algorithmic framework. Generalized and partial Monge matrix searching require their own domain analysis \citep{KlaweKleitman1990,Chan2021,Kaplan2017}. Our suffix and prefix domains have the favorable completion orientation; this is not an improvement on the general partial-matrix bounds. We retain complete proofs of the finite tie rule, wholly padded selected rows, column offsets, and reachable predecessor intervals so that the implementation's use of the classical result is checkable. The essential contractual input is the inequality after continuous tail minimization, not merely convexity of a scalar reproduction-point objective. We do not claim that minimizing a reproduction point preserves Monge structure for arbitrary quantizer losses.
+
+Table~\ref{tab:r37-priority} states the predecessor principle and contractual increment for each result.
+

@@ -1,0 +1,13 @@
+{
+  "revision": "R53",
+  "date": "2026-09-26",
+  "parent": "7bdfda8f84b84f491e80b50a86089c37ea4c7f3a",
+  "latest_review": "4f0b662bd4184fc77fb57bd09c339bffb6213a69",
+  "purpose": "Validate exact non-anchor command screening, capacity potentials, and transfer of reduced-catalog global certificates to an explicitly bound original instance.",
+  "development_disclosure": "The deletion bounds were derived after inspecting the R49 reports and R52 source/results. R52 examples are known development material. No R53 screening experiments have run at this protocol commit. This is an algorithmic regression and controlled synthetic study, not statistical preregistration.",
+  "random_regression": {"seed": 530926, "models": 120, "histories": [1,6], "catalog_size": [3,8], "budget_max": 4, "checks": ["capacity-potential identity on every catalog arc", "canonical target-preserving deletion bound on all feasible books and 11 equally spaced feasible targets per history", "full-versus-screened exhaustive optimum equality", "all removal-chain inequalities"]},
+  "certificate_regression": {"first_random_models": 20, "absolute_epsilon": "1/10", "checks": ["independent original-policy and complete Bellman verification", "screening-chain verification by independent breakpoint evaluation", "bound original-instance digest", "malformed and altered witnesses rejected"]},
+  "controlled_study": {"histories": [4,16,64], "insertions": [0,2,4,8], "base_catalog": ["0","1/4","1/2","1"], "inserted_levels": "1/2+i/20 for i=1,...,insertions", "weights": "uniform", "caps": "1/4", "ceilings": "1/2+(j+1)/(2(k+1))", "gamma": "j mod 4", "promise": "1/8", "budget": 2, "reward": {"r":"2","curvature":"1"}, "base_charges": "zero", "inserted_charge": "1/2", "epsilon": "1/10", "checks": ["full and screened resource intervals", "exact exhaustive optima", "catalog and selected-book classes", "grid state counts", "compressed certificate bytes", "optimization and verification seconds", "comparison with f(1)-incumbent coarse screen"]},
+  "edge_cases": ["equality-charge deletion", "strict-charge deletion", "unsafe anchor deletion rejected", "zero curvature", "threshold exactly at candidate", "zero cap and zero promise", "multi-step refinement certificate transfer"],
+  "reporting": "Report every prescribed case, actual counts, exceptions, and measured runtimes. Do not replace inherited R52 or earlier results. Positive-width certificates are not exact solutions. Timing includes declared screening/optimization/checking components, and no real application calibration is claimed."
+}

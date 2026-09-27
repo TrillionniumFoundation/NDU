@@ -1,0 +1,31 @@
+\begin{table}[p]
+\centering
+\caption{Timing dispersion and conservative offline break-even}\label{tab:r19-cost-details}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrr}
+\toprule
+Method & Target & \shortstack{Median\\ms} & \shortstack{95th percentile\\ms} & Break-even \\
+\midrule
+Classical: cold & $10^{-3}$ & 13.50 & 25.40 & -- \\
+Classical: cold & $10^{-5}$ & 16.73 & 84.91 & -- \\
+Classical: previous & $10^{-3}$ & 12.54 & 25.53 & -- \\
+Classical: previous & $10^{-5}$ & 17.04 & 83.12 & -- \\
+Tanh: value & $10^{-3}$ & 34.32 & 109.65 & -- \\
+Tanh: value & $10^{-5}$ & 33.58 & 109.61 & -- \\
+Tanh: value + gradient & $10^{-3}$ & 31.22 & 100.77 & -- \\
+Tanh: value + gradient & $10^{-5}$ & 32.29 & 101.52 & -- \\
+Tanh: price & $10^{-3}$ & 29.29 & 102.34 & -- \\
+Tanh: price & $10^{-5}$ & 29.23 & 104.87 & -- \\
+Quadratic: value & $10^{-3}$ & 30.13 & 98.88 & -- \\
+Quadratic: value & $10^{-5}$ & 30.51 & 98.70 & -- \\
+Quadratic: value + gradient & $10^{-3}$ & 28.97 & 102.22 & -- \\
+Quadratic: value + gradient & $10^{-5}$ & 30.95 & 102.02 & -- \\
+Quadratic: price & $10^{-3}$ & 9.57 & 58.39 & -- \\
+Quadratic: price & $10^{-5}$ & 29.39 & 99.10 & -- \\
+RBF: price & $10^{-3}$ & 6.27 & 28.49 & 2546 \\
+RBF: price & $10^{-5}$ & 29.50 & 96.46 & -- \\
+\bottomrule
+\end{tabular}
+
+\par\medskip\begin{minipage}{\textwidth}A dash means no positive observed saving (or a classical method), not unmeasured overhead. All same-host label-generation and seven-model fitting cost is charged to each surrogate. Raw rows, component costs, and approximate eight-cohort timing-difference intervals are supplied in the results file.\end{minipage}
+\end{table}

@@ -1,0 +1,37 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,booktabs,array,longtable}
+\usepackage{newtxtext,newtxmath}
+\usepackage[round,authoryear]{natbib}
+\usepackage{setspace,xr-hyper,xurl}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\onehalfspacing\setlength{\emergencystretch}{2em}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\E}{\mathbb E}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Exact Renewal Path Representations}
+\fancyhead[R]{\small Anonymous}\fancyfoot[C]{\thepage}\setlength{\headheight}{14pt}
+\input{revisions/or-r52-resource-path-20260925/generated/metrics.tex}
+\input{revisions/or-r54-exact-price-path-20260926/generated/metrics.tex}
+\externaldocument{.build/r54/main}[main.pdf]
+\renewcommand{\thesection}{EC.\arabic{section}}
+\renewcommand{\thetable}{EC.\arabic{table}}
+\begin{document}
+\begin{center}{\Large\bfseries Electronic Companion}\par Exact Path Representations for Finite-Catalog Renewal Design\par Anonymous\end{center}
+This companion distinguishes current diagnostics from retained antecedent proofs. The full historical sources and readers remain unchanged. Counts in the retained resource-checker discussion describe its antecedent validation, not the current 130-model test.\par
+\input{revisions/or-r54-exact-price-path-20260926/diagnostics.tex}
+\input{revisions/or-r52-resource-path-20260925/algorithm.tex}
+\input{revisions/or-r52-resource-path-20260925/common_and_robustness.tex}
+\input{revisions/or-r53-catalog-safe-certificates-20260926/safe_catalog.tex}
+\input{revisions/or-r54-exact-price-path-20260926/retained_certificate_math.tex}
+\input{revisions/or-r52-resource-path-20260925/production.tex}
+\clearpage\input{revisions/or-r54-exact-price-path-20260926/references.tex}
+\clearpage\input{revisions/or-r54-exact-price-path-20260926/generated/ec_tables.tex}
+\end{document}

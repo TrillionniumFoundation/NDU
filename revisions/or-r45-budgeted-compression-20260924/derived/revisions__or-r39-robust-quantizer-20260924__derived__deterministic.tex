@@ -1,0 +1,23 @@
+\section{The Deterministic Service-Code Frontier}
+Consider three dates. The root tier is fixed at zero. At the intermediate date a branch $j$ is observed with probability $\pi_j>0$, where $\sum_j\pi_j=1$. All branches then enter the same terminal public vertex. Payments and discounting equal one. Intermediate and terminal tiers are in $[0,1]$. Branch $j$ has cap $0<b_1<\cdots<b_k<1$, and the root promise is $\bar b=\sum_j\pi_jb_j$. At the intermediate date the reward is $-h_j(y)$, where $h_j$ is convex, nondecreasing, and $h_j(0)=0$. The common terminal reward $f(c)$ is continuous, concave, and strictly increasing on $[0,1]$. The terminal cap is one. The terminal decoder observes only its public vertex and its memory symbol, not the inherited intermediate tier.
+
+\begin{theorem}[Heterogeneous renewal frontier]\label{thm:frontier}
+The unique full-information policy is $y_j=0$, $c_j=b_j$, with value $J=\sum_j\pi_j f(b_j)$. Exact implementation requires $k$ symbols under strict cap ordering; repeated caps are covered by Proposition~\ref{prop:repeated}. With at most $m$ deterministic terminal symbols, an optimal encoding has contiguous nonempty cells in cap order. For a cell $i,\ldots,j$, its terminal tier is $b_i$ and its loss is
+\begin{equation}\label{eq:general-cell}
+ C(i,j)=\sum_{h=i}^j\pi_h\left[f(b_h)-f(b_i)+h_h(b_h-b_i)\right].
+\end{equation}
+The exact minimum loss is $D_m=D(\min(m,k),k)$, where
+\begin{equation}\label{eq:segmentation}
+ D(s,j)=\min_{s-1\leq i<j}\{D(s-1,i)+C(i+1,j)\},\quad D(0,0)=0,
+\end{equation}
+and all other infeasible entries equal $+\infty$. With a precomputed cell-cost table this requires $O(mk^2)$ arithmetic operations. For quadratic $f$ and quadratic $h_j$, prefix sums of the probability-weighted coefficients compute each cell cost in constant arithmetic time.
+\end{theorem}
+\noindent The proof is in Electronic Companion Section~\ref{ec-proof-thm-frontier}.
+
+
+This strengthens and includes the quadratic equal-probability frontier. With $f(c)=2c-c^2/2$, $h_j(y)=y^2/2$, and $\pi_j=1/k$, \eqref{eq:general-cell} becomes
+\begin{equation}\label{eq:old-cell}
+ C(i,j)=\frac{2-b_i}{k}\sum_{h=i}^j(b_h-b_i).
+\end{equation}
+For $k=8$ and $b_j=j/9$, one, two, and three symbols lose $119/162$, $5/18$, and $49/324$, respectively. Two writable bits permit four symbols, not three. The segmentation recurrence is standard; the contract-specific cell loss, ordered-cell sufficiency, and exact memory interpretation are the substantive statements.
+

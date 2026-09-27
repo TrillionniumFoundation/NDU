@@ -1,0 +1,53 @@
+{
+  "id": "heterogeneous-large-5602-t0.5",
+  "family": "heterogeneous-large",
+  "method": "deficit",
+  "instance_sha256": "11112a9387022639ab01e52333233fb8fed034fbd59d57bb8ea10ea51ee2987f",
+  "epsilon": "hex:1/14",
+  "algorithm_limit_seconds": 0.5,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.00983209000000329,
+  "status": "TIME_LIMIT",
+  "lower": "hex:-5794521/58480000",
+  "upper": "hex:22b/100",
+  "gap": "hex:c4dd5d21/58480000",
+  "evidence_scope": "Fallback policy/universal bound; interrupted internal solver work is not certified",
+  "algorithm_seconds": 0.5160532550000028,
+  "algorithm_limit_overrun_seconds": 0.016053255000002764,
+  "peak_rss_kib": 31636,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "rational_bits": {
+    "numerator_bits": 27,
+    "denominator_bits": 31,
+    "rational_count": 1019
+  },
+  "certificate": "certificates/heterogeneous-large-5602-t0.5--deficit.json.gz",
+  "certificate_sha256": "2f8e172144c7315a750c3cafe946505fb797ff2c6d78c4a66fffa91249083a8c",
+  "proof_bytes": 11712,
+  "compressed_proof_bytes": 1167,
+  "serialization_seconds": 0.0013784669999949983,
+  "tree_leaves": 1,
+  "created_tree_nodes": 1,
+  "max_depth": 0,
+  "live_leaves": 1,
+  "price_bits": {
+    "numerator_bits": 0,
+    "denominator_bits": 0,
+    "rational_count": 0
+  },
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:-5794521/58480000",
+    "upper": "hex:22b/100",
+    "gap": "hex:c4dd5d21/58480000",
+    "tolerance_met": false,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 0,
+    "seconds": 0.006332057000008717,
+    "instance_sha256": "11112a9387022639ab01e52333233fb8fed034fbd59d57bb8ea10ea51ee2987f"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.006727777999998352,
+  "total_measured_seconds": 0.5241594999999961
+}

@@ -1,0 +1,80 @@
+\section{Execution details and constructive neural evidence}
+\subsection{Frozen inputs and exact arithmetic}
+The experiment reads the original R2 protocol and verifies its SHA-256 before computing. The protocol bytes are unchanged. R3's recorded conventions specify time indices, the oracle's contract-one tie, duplicate gate labels, paired batch inference, and identical-data least squares. The contract-grid theorem, smooth neural compilation, and joint space--time--action study are additional analytic or deterministic calculations; they do not replace any recorded method or change its parameters.
+
+For contract grid denominator $n$, write $S=s/2$, $\theta=j/n$, and inherited $q=i/n$. Let $w_d=(1,3,4,2)$ and $D=z+d$. Define integer quantities
+\[
+ O=\sum_d w_d(s-2D)^+,\qquad L=\sum_d w_d(2D-s)^+,
+ \qquad C_{\rm num}=60s+12O+13L.
+\]
+Expected physical cost is $C_{\rm num}/400$. Expected net stage reward, on denominator $400n^2$, has numerator
+\begin{equation}
+ 80(3+7z)jn-C_{\rm num}n^2-24jLn-600j^2-240(j-i)^2.
+\end{equation}
+The transition numerator matrix on denominator 20 is
+\[
+ \begin{pmatrix}14&5&1\\3&14&3\\1&5&14\end{pmatrix},
+ \qquad\beta=97/100.
+\]
+With $r$ periods remaining, values use common denominator $400n^2 2000^{r-1}$. Thus all action comparisons use integers with no numerical tie tolerance. A separately written implementation reconstructs expected costs from the demand realizations using \texttt{Fraction} arithmetic and enumerates the actions independently. It checks all 264 state--time values and policies for each of the five methods. It also verifies that the tie-selected pair is componentwise greatest among all maximizers.
+
+The primary expanded-action comparator uses a flattened list of 143 physical-contract pairs. Its equality with the joint solver is exact at every state, not merely agreement after rounding. The dummy gate enumerates 11 duplicate labels per stock choice, but the economic contract and next inherited state stay at one half. It therefore has 13 distinct economic choices, not 143. Its output equals the frozen-contract solution exactly.
+
+The 416 neighboring-state monotonicity checks support the displayed instance; the general result is the proof in the main paper. The minimum observed adjacent cross difference of the exact value is $9/250$. The exact upper hull is evaluated at all 264 primary states. The hull weights and rational switch locations are stored in \texttt{exact\_envelopes.json}.
+
+\subsection{Simulation and uncertainty}
+Each of 64 independent batches contains 4,096 episodes. A NumPy PCG64 generator is seeded with $2026092300+b$, $b=0,\ldots,63$. Demand and regime uniforms are generated before all policy evaluations, and the same exogenous histories are used by all methods within a batch. Confidence intervals use the two-sided Student quantile with 63 degrees of freedom applied to the batch means; comparisons use paired batch differences. They quantify simulation error, not training variability or external validity. No simulated sign determines which methods are retained.
+
+The paired net-reward increase over the frozen contract is approximately $0.943729$, with 95\% interval $[0.939821,0.947636]$. The exact expectation is $0.9447470609\ldots$. The paired physical-cost difference, joint minus frozen, is approximately $-0.212112$, with interval $[-0.214933,-0.209291]$. The exact difference is $-0.2132039512\ldots$. All batch ledgers, not only aggregate intervals, are retained.
+
+\subsection{Identical-data least-squares parity}
+The conditioning batches use seed $2026092400+b$ and 2,048 pairs $(u,\xi)$. The same pairs are reused across the four noise levels within a batch. Let $X=[u^2/2,1]$ and $X_Z=[u^2/(2\sqrt{2\varepsilon}),1]$. For nonzero $\varepsilon$,
+\[
+ X_Z=X\operatorname{diag}((2\varepsilon)^{-1/2},1).
+\]
+Their fitted function spaces coincide. With full column rank, unregularized least squares gives $\widehat\zeta=\sqrt{2\varepsilon}\,\widehat k$ and the same intercept in exact arithmetic. Hence the inferred shadow-price functions coincide. Conditional expectation of the observed payoff is $u^2/2+\varepsilon$, so the true gradient is $u$. Integrated error on uniform test states is $(\widehat k-1)^2/3$. The naturally induced volatility error is $2\varepsilon$ times this error. These identities explain why the experiment does not realize a fixed volatility-target error floor.
+
+\subsection{Smooth neural weights and certified policies}
+For each state--time envelope, take its first affine line and its successive nonnegative slope jumps at the rational switch locations. Replace each positive-part hinge by the three cubic-ReLU units in Corollary~3.5 of the main paper. The quadratic skip term is $-\lambda q^2$. Thus every weight, shift, and coefficient is specified by \texttt{exact\_envelopes.json} and the chosen rational $\tau$. The network is $C^2$ in the inherited contract; time and regime index separate networks in this finite-horizon model. This is not a $C^{1,2}$ space--time solution of the diffusion problem.
+
+The maximum network size is 27 cubic-ReLU units. For all five smoothing levels, exact rational policy evaluation verifies all 264 primary grid states, for 1,320 state-level checks. The policy does not change at any of these states. This exact finite-grid result is stronger than a small sampled training residual, but it does not assert policy equality at every off-grid initial contract. The uniform analytic policy bound covers those initial states and decreases as follows:
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+$m$ in $\tau=2^{-m}$ & Uniform critic bound & Uniform policy-loss bound\\
+\midrule
+4 & $1/80$ & $0.077606934$\\
+8 & $1/1280$ & $0.004850433$\\
+12 & $1/20480$ & $0.000303152$\\
+16 & $1/327680$ & $0.000018947$\\
+20 & $1/5242880$ & $0.000001184$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The critic bound follows from the exact triangular smoothing inequality, not from sampling. The policy bound is relative to the unchanged primary contract grid. Adding the contract-discretization budget gives a bound relative to continuous contracts on the same stock set. No post hoc target noise, optimizer selection, or claim of large-neural training is involved.
+
+\subsection{Diffusion and mesh results}
+The manufactured stopped diffusion, its full parabolic payoff, and its perturbation sequence are specified in the main paper. The residual bound $2.30e+1.05e^2$ is analytic. Terminal and lateral defects are identically zero. The actor is analytically greedy and feasible throughout the domain. The additional explicit upwind/central scheme uses a nonnegative transition stencil under the displayed CFL condition, exact boundary data, and the actual refined state and time grids. Its numerical node errors and analytic node bounds are different columns. The latter does not certify an interpolated continuous-state actor. The earlier fixed-state inventory action-cover refinement is not used as evidence of space--time convergence.
+
+\section{Preservation and interpretation of historical material}
+\subsection{An immutable historical snapshot}
+The entire source tree at reviewed commit
+\begin{center}\texttt{a91b707883b2408de58d9392e4fc546e08a00881}\end{center}
+is retained as \texttt{archive/pre-r4/}. This is a Git-tree identity, not a reconstructed selection of files. The reviewed root manuscript has blob
+\begin{center}\texttt{2569eee2eb7f80f0a5b31ed07be75d5da9e6a0d3}\end{center}
+and remains there unchanged, together with its PDF, bibliography, figures, code, tables, reviews, and release package. That root manuscript and companion were the R4 scientific text; R6 is now active and their complete source is preserved at archive/pre-r6/. The archive is provenance, not a second set of current theorem claims.
+
+The main theoretical threads are retained with the following explicit treatment. Frozen-valuation embedding is now exact policy-class restriction and expanded-action equivalence. Exposed affine faces remain a comparator-specific result in EC.1, while entropic overlap is derived rather than excluded. Inventory structure is proved for the external-contract primitive; the penalty-only reversal is preserved as an exact counterexample. Strongly concave inner selection remains a conditional computational lemma, alongside the stronger envelope calculation that needs no such concavity. Physical critical-fractile mismatch remains in EC.2, while the actual optimizer is analyzed by the cash-flow identity. FBSDE/value-gradient relationships, adjoint scope, and vanishing-noise conditioning remain in EC.3. The HJB argument is replaced by a boundary-complete stopped-domain proof and a scheme-specific bound. The constructive neural representation and exact finite-model checks are new positive results.
+
+\subsection{Historical numerical evidence is not discarded or upgraded}
+The earlier experiment families, SKU and exact-DP replays, uncertainty tables, actor--critic ablations, residual audits, figures, and manifests remain in the snapshot. They concern their original simulators and objectives. They are neither rerun by the R4 script nor pooled with the new contract experiment. Their successful software checks do not establish hypotheses of a theorem for a different model.
+
+For example, the archived large-neural inventory ladder reports a native-HJB ratio of $0.192341487123$, normalized-RMSE ratio $0.979300855398$, terminal-loss ratio $0.929461677903$, greedy-gap 95th percentile $29.326960415$, and held-out increment $0.000199407352943$. These numbers are retained as sampled diagnostics. The ladder's literal label \texttt{sampled\_inventory\_gap\_closure\_pass} is not treated as a mathematical predicate. It provides neither an interior sup enclosure nor a lateral-boundary defect. The absence of those quantities is not replaced by a zero in any R4 certificate.
+
+The archived finite inventory cover has 122 states and 1,220 Bellman nodes. Its nested action cover refines actions while retaining those state--time nodes. That is a finite-model action refinement, not evidence that a continuous state--time mesh tends to zero. Earlier direct-$P$/learned-$Z$ ablations retain their architecture, optimizer, data, and target-error interpretation; the new identical-data least-squares calculation is a separate result and reports parity.
+
+\subsection{Software governance outside the theorem stack}
+Hash consistency, package replay, release parity, validation guards, and reviewer handoff indexes are valuable reproducibility engineering. They are preserved in the historical tree and indexed in the R4 response and validation record. They are not restated as propositions proving scientific novelty or correctness. The new source entry point, executed result files, table generator, build commands, and artifact hashes make the present claims inspectable without an internal ``referee closure'' theorem. A failed or unverified scientific hypothesis cannot be converted to a certificate by changing a manifest label.
+
+The revision therefore preserves the original material while giving each result a specific current role. It replaces incorrect statements with proofs and executable counterchecks rather than suppressing the history or asserting that all historical neural diagnostics have become certified.
+

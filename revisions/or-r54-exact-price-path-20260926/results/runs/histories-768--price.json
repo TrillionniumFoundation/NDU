@@ -1,0 +1,94 @@
+{
+  "id": "histories-768",
+  "method": "price",
+  "instance_sha256": "8ced762f93cf68c64524f617c0d8aa0e410c1d7f2c24a76283d8afaf770b93d9",
+  "epsilon": "1/1000",
+  "setup_seconds": 0.0193909169999813,
+  "algorithm_limit_seconds": 4.0,
+  "address_space_limit_mib": 2048,
+  "status": "TIME_LIMIT",
+  "lower": "299332823/454752000",
+  "upper": "300478513/454752000",
+  "gap": "114569/45475200",
+  "seconds": 3.981679836000012,
+  "nodes": 1,
+  "oracle_calls": 8,
+  "trace": [
+    {
+      "seconds": 0.8677930659999902,
+      "lower": "7644727772563829/13515309021600000",
+      "upper": "59402419752971/89756676000000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 1.4441109390000122,
+      "lower": "147715313/227376000",
+      "upper": "59402419752971/89756676000000",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 1.9263627429999985,
+      "lower": "299332823/454752000",
+      "upper": "100181327/151584000",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 2.3955339580000157,
+      "lower": "299332823/454752000",
+      "upper": "100181327/151584000",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 2.8610198579999917,
+      "lower": "299332823/454752000",
+      "upper": "100181327/151584000",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 3.3462566580000157,
+      "lower": "299332823/454752000",
+      "upper": "100181327/151584000",
+      "nodes": 1,
+      "oracle_calls": 6
+    },
+    {
+      "seconds": 3.8258386139999914,
+      "lower": "299332823/454752000",
+      "upper": "300478513/454752000",
+      "nodes": 1,
+      "oracle_calls": 7
+    },
+    {
+      "seconds": 3.9727815619999944,
+      "lower": "299332823/454752000",
+      "upper": "300478513/454752000",
+      "nodes": 1,
+      "oracle_calls": 8
+    }
+  ],
+  "algorithm_seconds": 4.010807104999998,
+  "algorithm_peak_rss_kib": 27652,
+  "certificate": "certificates/histories-768--price.json.gz",
+  "certificate_bytes": 5895,
+  "uncompressed_certificate_bytes": 54672,
+  "verification": {
+    "status": "PASS",
+    "lower": "299332823/454752000",
+    "upper": "300478513/454752000",
+    "gap": "114569/45475200",
+    "tolerance_met": false,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.5082183160000113,
+    "instance_sha256": "8ced762f93cf68c64524f617c0d8aa0e410c1d7f2c24a76283d8afaf770b93d9"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.5085169339999993,
+  "process_peak_rss_kib": 27652
+}

@@ -1,0 +1,3607 @@
+{
+  "status": "RETROSPECTIVE",
+  "source_rows": 800,
+  "summary": [
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 6.090816874980476,
+        "median": 6.6083374999550415,
+        "q25": 4.355074000002901,
+        "q75": 7.053933499975074,
+        "p95": 8.171993049984394,
+        "max": 8.546582999997554
+      },
+      "paired_savings_ms": {
+        "mean": -1.8278657499877227,
+        "percentile95": [
+          -2.6023921249773707,
+          -1.1194639999985156
+        ],
+        "moving_block4_percentile95": [
+          -2.352098874979447,
+          -1.3036326249959984
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 5.466416124981777,
+        "median": 5.627953499981686,
+        "q25": 4.329548999990607,
+        "q75": 6.207905999971786,
+        "p95": 6.833560999984911,
+        "max": 7.12629399998832
+      },
+      "paired_savings_ms": {
+        "mean": -1.2034649999890235,
+        "percentile95": [
+          -1.4353606249954964,
+          -0.9929782499895623
+        ],
+        "moving_block4_percentile95": [
+          -1.3309842499822366,
+          -1.0759457499958103
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 4.262951124992753,
+        "median": 4.33256750000055,
+        "q25": 3.4566960000006475,
+        "q75": 4.84340949999762,
+        "p95": 5.255170199976078,
+        "max": 5.324101999974573
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 5.538297750000254,
+        "median": 4.615535499993939,
+        "q25": 3.4064297500151497,
+        "q75": 5.300357499990582,
+        "p95": 11.200669150022687,
+        "max": 14.118217000032018
+      },
+      "paired_savings_ms": {
+        "mean": -1.2753466250075007,
+        "percentile95": [
+          -3.6763751468823713,
+          0.15170374997808267
+        ],
+        "moving_block4_percentile95": [
+          -2.683086375007804,
+          0.1323931249928023
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 4.305816999995216,
+        "median": 4.5910690000141585,
+        "q25": 3.3859732499905704,
+        "q75": 4.811184749968334,
+        "p95": 5.387001350021592,
+        "max": 5.66284300003872
+      },
+      "paired_savings_ms": {
+        "mean": -0.04286587500246242,
+        "percentile95": [
+          -0.4137855781314314,
+          0.2803456250006775
+        ],
+        "moving_block4_percentile95": [
+          -0.28337187499971606,
+          0.19764012499479122
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 7.43294937499428,
+        "median": 6.403970999997455,
+        "q25": 4.447263499983478,
+        "q75": 6.924998000030769,
+        "p95": 15.513817699985559,
+        "max": 20.061352999960036
+      },
+      "paired_savings_ms": {
+        "mean": -1.8888173749829207,
+        "percentile95": [
+          -2.8928796593207906,
+          -1.1002564999955666
+        ],
+        "moving_block4_percentile95": [
+          -2.5154391249913033,
+          -1.262195624974538
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 6.770638749991065,
+        "median": 5.734276999987742,
+        "q25": 4.336776750008653,
+        "q75": 6.4896152500182325,
+        "p95": 13.15480744996193,
+        "max": 16.40709599996626
+      },
+      "paired_savings_ms": {
+        "mean": -1.2265067499797055,
+        "percentile95": [
+          -1.4522721812165074,
+          -1.0067779999687332
+        ],
+        "moving_block4_percentile95": [
+          -1.3504792499858809,
+          -1.1025342499735302
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 5.544132000011359,
+        "median": 4.429082000029894,
+        "q25": 3.452700749974724,
+        "q75": 4.927434000009612,
+        "p95": 11.68226240000933,
+        "max": 15.109615000028498
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 9.768430874999012,
+        "median": 10.397595499995305,
+        "q25": 4.617067499978589,
+        "q75": 14.165071500002568,
+        "p95": 15.616350900018004,
+        "max": 16.315485000006902
+      },
+      "paired_savings_ms": {
+        "mean": -4.224298874987653,
+        "percentile95": [
+          -7.020518809379617,
+          -1.4187792499740226
+        ],
+        "moving_block4_percentile95": [
+          -5.258407874997317,
+          -3.190189874977989
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 0,
+      "spec": [
+        31,
+        2,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 6.495375375003221,
+        "median": 4.707386500001576,
+        "q25": 4.262263250012666,
+        "q75": 6.201528750011676,
+        "p95": 14.204290050005849,
+        "max": 16.329530999996678
+      },
+      "paired_savings_ms": {
+        "mean": -0.9512433749918614,
+        "percentile95": [
+          -2.737045703107732,
+          0.15490874999812831
+        ],
+        "moving_block4_percentile95": [
+          -1.8161781249830256,
+          -0.08630862500069725
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.25
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 16.399082500008433,
+        "median": 14.787335000022495,
+        "q25": 13.335746500004575,
+        "q75": 19.158488500011117,
+        "p95": 23.31317314999808,
+        "max": 23.604132000002664
+      },
+      "paired_savings_ms": {
+        "mean": -7.526169500003732,
+        "percentile95": [
+          -10.334990359382346,
+          -5.305960500002982
+        ],
+        "moving_block4_percentile95": [
+          -8.90593500000847,
+          -6.146403999998995
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 15.448510375001945,
+        "median": 15.154054000021233,
+        "q25": 11.263814000017192,
+        "q75": 17.1214334999803,
+        "p95": 22.56807949999313,
+        "max": 24.810210999987703
+      },
+      "paired_savings_ms": {
+        "mean": -6.575597374997244,
+        "percentile95": [
+          -8.169913874993995,
+          -4.904605250004579
+        ],
+        "moving_block4_percentile95": [
+          -8.238901374987506,
+          -4.912293375006982
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 8.8729130000047,
+        "median": 7.728267000004507,
+        "q25": 7.404247000025066,
+        "q75": 8.853282500012938,
+        "p95": 13.169373749997247,
+        "max": 14.753961999986132
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 28.008641749991625,
+        "median": 27.98419699996657,
+        "q25": 20.879586999967614,
+        "q75": 34.072602250034834,
+        "p95": 43.99039055000742,
+        "max": 44.901680999998916
+      },
+      "paired_savings_ms": {
+        "mean": -19.135728749986924,
+        "percentile95": [
+          -25.969768318734054,
+          -12.13129586558832
+        ],
+        "moving_block4_percentile95": [
+          -26.172294000019747,
+          -12.099163499954102
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 17.47634299999845,
+        "median": 11.803117999988899,
+        "q25": 8.011258500033591,
+        "q75": 25.2515219999907,
+        "p95": 36.30595319999656,
+        "max": 38.8234920000059
+      },
+      "paired_savings_ms": {
+        "mean": -8.60342999999375,
+        "percentile95": [
+          -17.551100915616225,
+          -0.8034247500035008
+        ],
+        "moving_block4_percentile95": [
+          -15.518415749994574,
+          -1.6884442499929264
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.375
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 25.463672625001266,
+        "median": 15.910815500006947,
+        "q25": 11.985667749996765,
+        "q75": 38.57074749998901,
+        "p95": 52.52935525000736,
+        "max": 57.77241999999205
+      },
+      "paired_savings_ms": {
+        "mean": -10.537536750000243,
+        "percentile95": [
+          -20.47792512500024,
+          -4.126320375000603
+        ],
+        "moving_block4_percentile95": [
+          -15.796519625013161,
+          -5.278553874987324
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.375
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 21.628682874997196,
+        "median": 17.202419500023325,
+        "q25": 13.744922999975984,
+        "q75": 27.72120399998812,
+        "p95": 39.3760526499932,
+        "max": 41.25052000000551
+      },
+      "paired_savings_ms": {
+        "mean": -6.702546999996173,
+        "percentile95": [
+          -8.345713250008657,
+          -4.983835124996006
+        ],
+        "moving_block4_percentile95": [
+          -8.441399124990312,
+          -4.963694875002034
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.25
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 14.926135875001023,
+        "median": 9.357381000000942,
+        "q25": 7.40750574999538,
+        "q75": 17.83618399998943,
+        "p95": 33.39925850002316,
+        "max": 37.14419900001076
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.25
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 28.81622412499496,
+        "median": 26.94681700000956,
+        "q25": 20.93891699998096,
+        "q75": 32.2736892499762,
+        "p95": 43.9507552499947,
+        "max": 44.61975399999574
+      },
+      "paired_savings_ms": {
+        "mean": -13.890088249993937,
+        "percentile95": [
+          -19.789348999999845,
+          -8.55674565935374
+        ],
+        "moving_block4_percentile95": [
+          -18.77817400000481,
+          -9.002002499983064
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 1,
+      "spec": [
+        63,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 29.25244450000264,
+        "median": 26.85133400001405,
+        "q25": 21.332554249994473,
+        "q75": 33.46600350000983,
+        "p95": 45.02107500001102,
+        "max": 48.41333100000611
+      },
+      "paired_savings_ms": {
+        "mean": -14.326308625001616,
+        "percentile95": [
+          -21.391430874999173,
+          -7.918977499997482
+        ],
+        "moving_block4_percentile95": [
+          -19.560860750011955,
+          -9.091756499991277
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 119.22355937497287,
+        "median": 89.16927599997848,
+        "q25": 84.01787399996863,
+        "q75": 150.5576222499485,
+        "p95": 217.88008899999338,
+        "max": 244.18156000001545
+      },
+      "paired_savings_ms": {
+        "mean": -82.56909012497715,
+        "percentile95": [
+          -132.75360712499662,
+          -40.01717266873032
+        ],
+        "moving_block4_percentile95": [
+          -115.11795187498564,
+          -50.02022837496867
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 106.5178596249865,
+        "median": 93.2734074999928,
+        "q25": 67.9407735000126,
+        "q75": 143.37833950000345,
+        "p95": 184.80618464993765,
+        "max": 195.14057899993986
+      },
+      "paired_savings_ms": {
+        "mean": -69.86339037499079,
+        "percentile95": [
+          -107.4214447530693,
+          -38.52144987502015
+        ],
+        "moving_block4_percentile95": [
+          -83.11648837500485,
+          -56.61029237497672
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 36.654469249995714,
+        "median": 30.17047149995733,
+        "q25": 27.475036000026876,
+        "q75": 32.657966250013715,
+        "p95": 74.70449669998797,
+        "max": 95.0852969999687
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 198.748218249996,
+        "median": 158.46081199995865,
+        "q25": 97.22152250002125,
+        "q75": 202.14407299999948,
+        "p95": 480.4112565000052,
+        "max": 596.926687000007
+      },
+      "paired_savings_ms": {
+        "mean": -162.0937490000003,
+        "percentile95": [
+          -294.10244724998336,
+          -65.68831549999743
+        ],
+        "moving_block4_percentile95": [
+          -230.79699062500225,
+          -93.39050737499832
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 113.25935425001177,
+        "median": 98.77094249998208,
+        "q25": 36.352619499979255,
+        "q75": 175.852781250029,
+        "p95": 232.61650905006374,
+        "max": 253.18161900008818
+      },
+      "paired_savings_ms": {
+        "mean": -76.60488500001605,
+        "percentile95": [
+          -136.79069331563696,
+          -21.707368749986244
+        ],
+        "moving_block4_percentile95": [
+          -126.8329222500384,
+          -26.376847749993715
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.75
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 236.54547962500772,
+        "median": 196.88840600002777,
+        "q25": 145.35120924998068,
+        "q75": 263.817394000057,
+        "p95": 509.8466138499985,
+        "max": 623.1642129999955
+      },
+      "paired_savings_ms": {
+        "mean": -78.2808760000222,
+        "percentile95": [
+          -124.75889021877329,
+          -48.78907709378276
+        ],
+        "moving_block4_percentile95": [
+          -98.4592105000246,
+          -58.10254150001981
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 230.72400875000199,
+        "median": 185.37687349999032,
+        "q25": 155.70206725000446,
+        "q75": 225.31324600001312,
+        "p95": 522.3647845500037,
+        "max": 644.7628459999919
+      },
+      "paired_savings_ms": {
+        "mean": -72.45940512501647,
+        "percentile95": [
+          -112.51429035623985,
+          -40.067382750038405
+        ],
+        "moving_block4_percentile95": [
+          -85.4608567499966,
+          -59.45795350003635
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 158.2646036249855,
+        "median": 97.30956099997456,
+        "q25": 27.564734250034917,
+        "q75": 188.20377974998337,
+        "p95": 467.4327241499894,
+        "max": 580.9012229999553
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 199.2884661250045,
+        "median": 160.4823584999906,
+        "q25": 97.41688174997876,
+        "q75": 203.70680624998272,
+        "p95": 478.64984650004186,
+        "max": 593.127920000029
+      },
+      "paired_savings_ms": {
+        "mean": -41.02386250001899,
+        "percentile95": [
+          -87.40814238121092,
+          -4.06357062502849
+        ],
+        "moving_block4_percentile95": [
+          -66.07009675002473,
+          -15.977628250013254
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 2,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 198.22333200001196,
+        "median": 165.48913400001197,
+        "q25": 102.4841872500275,
+        "q75": 209.02388900003643,
+        "p95": 460.06682464997635,
+        "max": 573.7700299999915
+      },
+      "paired_savings_ms": {
+        "mean": -39.95872837502645,
+        "percentile95": [
+          -92.45042139379169,
+          1.8427208750040336
+        ],
+        "moving_block4_percentile95": [
+          -64.03717962503919,
+          -15.88027712501372
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 794.7573342499936,
+        "median": 761.0267090000207,
+        "q25": 516.4068987500059,
+        "q75": 847.8214705000084,
+        "p95": 1590.8950283499616,
+        "max": 1935.5323419999877
+      },
+      "paired_savings_ms": {
+        "mean": -706.6846406250136,
+        "percentile95": [
+          -1061.9610986249768,
+          -436.96421650003003
+        ],
+        "moving_block4_percentile95": [
+          -984.7881092500188,
+          -428.58117200000834
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 513.3055405000135,
+        "median": 322.1500055000206,
+        "q25": 271.5660345000117,
+        "q75": 490.47670700005597,
+        "p95": 1325.5635407000054,
+        "max": 1539.837067999997
+      },
+      "paired_savings_ms": {
+        "mean": -425.2328468750335,
+        "percentile95": [
+          -737.4104996812928,
+          -185.12397100003852
+        ],
+        "moving_block4_percentile95": [
+          -665.446736125034,
+          -185.01895762503295
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 88.07269362498005,
+        "median": 77.54021450000437,
+        "q25": 65.06028899991634,
+        "q75": 103.02484149997326,
+        "p95": 146.4997750500288,
+        "max": 154.51252700006535
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 342.8933591250143,
+        "median": 340.9694550000495,
+        "q25": 219.96483150002177,
+        "q75": 396.3977499999487,
+        "p95": 574.9987251000049,
+        "max": 663.9180500000066
+      },
+      "paired_savings_ms": {
+        "mean": -254.82066550003424,
+        "percentile95": [
+          -346.7058992500398,
+          -172.6428738750485
+        ],
+        "moving_block4_percentile95": [
+          -347.16703737502996,
+          -162.4742936250385
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 359.63412687499385,
+        "median": 349.4382984999902,
+        "q25": 222.95998600006328,
+        "q75": 392.7791739999975,
+        "p95": 642.2508883999453,
+        "max": 774.1691069999206
+      },
+      "paired_savings_ms": {
+        "mean": -271.5614332500138,
+        "percentile95": [
+          -385.446633206233,
+          -181.39592525002968
+        ],
+        "moving_block4_percentile95": [
+          -372.3401966249895,
+          -170.7826698750381
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 980.3961022499976,
+        "median": 947.4076470000341,
+        "q25": 788.742560500026,
+        "q75": 1082.1414257499384,
+        "p95": 1788.3214086499884,
+        "max": 2161.78189499999
+      },
+      "paired_savings_ms": {
+        "mean": -682.6503742500023,
+        "percentile95": [
+          -970.6426733750106,
+          -443.5498363750128
+        ],
+        "moving_block4_percentile95": [
+          -910.0180366249901,
+          -455.28271187501446
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 723.7492855000056,
+        "median": 591.6057630000182,
+        "q25": 433.13018349999766,
+        "q75": 711.3983680000047,
+        "p95": 1667.8110249000035,
+        "max": 2067.5076109999964
+      },
+      "paired_savings_ms": {
+        "mean": -426.0035575000103,
+        "percentile95": [
+          -739.9651177656476,
+          -214.63304420627415
+        ],
+        "moving_block4_percentile95": [
+          -646.2226683750174,
+          -205.78444662500317
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 297.7457279999953,
+        "median": 339.8426925000422,
+        "q25": 164.57702199991786,
+        "q75": 358.1887722500312,
+        "p95": 549.6099749499818,
+        "max": 643.761746999985
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.75
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 333.06839637499763,
+        "median": 334.887330000015,
+        "q25": 221.29410424997786,
+        "q75": 367.9961169999899,
+        "p95": 565.1459740500399,
+        "max": 659.8232690000714
+      },
+      "paired_savings_ms": {
+        "mean": -35.32266837500231,
+        "percentile95": [
+          -75.79141936250267,
+          -0.7298328749811844
+        ],
+        "moving_block4_percentile95": [
+          -60.29964475000327,
+          -10.34569200000135
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 3,
+      "spec": [
+        255,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 358.7114492499808,
+        "median": 351.58815899995943,
+        "q25": 224.0535765000118,
+        "q75": 395.5516667499239,
+        "p95": 647.6796038000086,
+        "max": 783.4069410000666
+      },
+      "paired_savings_ms": {
+        "mean": -60.96572124998545,
+        "percentile95": [
+          -101.03222387503763,
+          -23.522787028130317
+        ],
+        "moving_block4_percentile95": [
+          -76.42406500002608,
+          -45.50737749994482
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 5425.711233249998,
+        "median": 5672.75771300001,
+        "q25": 2275.665287500061,
+        "q75": 7021.474980999955,
+        "p95": 10486.623145449981,
+        "max": 11652.454284999976
+      },
+      "paired_savings_ms": {
+        "mean": -4282.585264874996,
+        "percentile95": [
+          -5855.527441774932,
+          -2710.383489171902
+        ],
+        "moving_block4_percentile95": [
+          -5434.397208749985,
+          -3130.7733210000065
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.375
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 3881.654180499993,
+        "median": 3709.4652620000375,
+        "q25": 1375.4058057499776,
+        "q75": 4139.87410424997,
+        "p95": 9069.35554815001,
+        "max": 11707.100781000008
+      },
+      "paired_savings_ms": {
+        "mean": -2738.52821212499,
+        "percentile95": [
+          -3982.8599713280787,
+          -1653.141771387532
+        ],
+        "moving_block4_percentile95": [
+          -3191.2617474999934,
+          -2285.794676749987
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.25
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 1143.1259683750027,
+        "median": 341.60841150003307,
+        "q25": 150.8747537499744,
+        "q75": 809.3488897499981,
+        "p95": 4383.624371200038,
+        "max": 5591.682722000087
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.25
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 2016.606969250006,
+        "median": 1848.0602325000177,
+        "q25": 457.911638999974,
+        "q75": 2497.879932500041,
+        "p95": 4804.03212675,
+        "max": 5588.864361999981
+      },
+      "paired_savings_ms": {
+        "mean": -873.4810008750031,
+        "percentile95": [
+          -1624.0374893750272,
+          -234.1575583906319
+        ],
+        "moving_block4_percentile95": [
+          -1323.9477501250149,
+          -423.0142516249913
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 2045.5334910000147,
+        "median": 1913.4766875000082,
+        "q25": 489.9840105000237,
+        "q75": 2544.5972172499864,
+        "p95": 4799.964248099978,
+        "max": 5589.761589999966
+      },
+      "paired_savings_ms": {
+        "mean": -902.4075226250119,
+        "percentile95": [
+          -1673.6775926781286,
+          -265.0357210937357
+        ],
+        "moving_block4_percentile95": [
+          -1365.9744507500022,
+          -438.84059450002155
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 5921.991376000023,
+        "median": 6980.965866500014,
+        "q25": 2749.97425400008,
+        "q75": 7923.666340499977,
+        "p95": 10039.129375300034,
+        "max": 11135.741648000021
+      },
+      "paired_savings_ms": {
+        "mean": -3970.053649375018,
+        "percentile95": [
+          -5084.993744500025,
+          -2766.390143575031
+        ],
+        "moving_block4_percentile95": [
+          -4930.041732125005,
+          -3010.0655666250304
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 4689.164587499988,
+        "median": 4268.8186654999645,
+        "q25": 1593.5232760000133,
+        "q75": 6203.129640000071,
+        "p95": 10094.78075489994,
+        "max": 11754.17860199991
+      },
+      "paired_savings_ms": {
+        "mean": -2737.2268608749837,
+        "percentile95": [
+          -3949.9853720531414,
+          -1702.5074211093627
+        ],
+        "moving_block4_percentile95": [
+          -3139.1804132499747,
+          -2335.2733084999927
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 1951.9377266250049,
+        "median": 1824.309439999979,
+        "q25": 375.6015612500221,
+        "q75": 2460.506871000035,
+        "p95": 4861.840835099996,
+        "max": 5674.271549999958
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 1999.90230637502,
+        "median": 1804.4978799999853,
+        "q25": 514.210722500053,
+        "q75": 2525.849969000035,
+        "p95": 4677.937685750003,
+        "max": 5365.700984
+      },
+      "paired_savings_ms": {
+        "mean": -47.964579750015446,
+        "percentile95": [
+          -177.81627435004026,
+          84.29574980621972
+        ],
+        "moving_block4_percentile95": [
+          -115.28220437503478,
+          19.35304487500389
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 4,
+      "spec": [
+        511,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 2054.078231500029,
+        "median": 1921.3527359999603,
+        "q25": 494.89713625007425,
+        "q75": 2594.30231150003,
+        "p95": 4747.51177055005,
+        "max": 5493.097355000032
+      },
+      "paired_savings_ms": {
+        "mean": -102.14050487502391,
+        "percentile95": [
+          -199.58930283755157,
+          1.6324796531108585
+        ],
+        "moving_block4_percentile95": [
+          -177.91388637499495,
+          -26.36712337505287
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 23790.216004250055,
+        "median": 20995.420963000015,
+        "q25": 14990.49835900007,
+        "q75": 28234.164299500095,
+        "p95": 43789.1042467,
+        "max": 51943.210507
+      },
+      "paired_savings_ms": {
+        "mean": -20637.3456850001,
+        "percentile95": [
+          -28400.621756759334,
+          -14990.431572384494
+        ],
+        "moving_block4_percentile95": [
+          -23860.384276750126,
+          -17414.30709325007
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 17698.93201100001,
+        "median": 14982.585779000034,
+        "q25": 11959.037903999957,
+        "q75": 20444.63743675004,
+        "p95": 34514.751112550046,
+        "max": 37854.77078400004
+      },
+      "paired_savings_ms": {
+        "mean": -14546.061691750056,
+        "percentile95": [
+          -20171.526703943768,
+          -10021.311644040628
+        ],
+        "moving_block4_percentile95": [
+          -16967.67606512509,
+          -12124.44731837502
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 3152.870319249956,
+        "median": 2482.0945104999055,
+        "q25": 435.2896432499733,
+        "q75": 5463.827371249863,
+        "p95": 7176.969345100007,
+        "max": 7819.055634000051
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.5
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 4005.4890666249603,
+        "median": 3520.811935999973,
+        "q25": 1823.6221912499673,
+        "q75": 5769.077276749954,
+        "p95": 7761.5633044999395,
+        "max": 8716.295134999882
+      },
+      "paired_savings_ms": {
+        "mean": -852.6187473750042,
+        "percentile95": [
+          -1272.1882897437097,
+          -449.5249848813246
+        ],
+        "moving_block4_percentile95": [
+          -1054.211186374971,
+          -651.0263083750374
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 4108.014587499952,
+        "median": 3669.7310669999297,
+        "q25": 2077.815229749831,
+        "q75": 5643.878448999999,
+        "p95": 7897.568917550085,
+        "max": 9000.84568200009
+      },
+      "paired_savings_ms": {
+        "mean": -955.1442682499953,
+        "percentile95": [
+          -1458.625530502946,
+          -460.73335656881454
+        ],
+        "moving_block4_percentile95": [
+          -1219.1487207499279,
+          -691.1398157500628
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 23474.90620012502,
+        "median": 20381.653153000116,
+        "q25": 15027.135660499993,
+        "q75": 27434.260596249944,
+        "p95": 43788.48598985003,
+        "max": 52374.868497000076
+      },
+      "paired_savings_ms": {
+        "mean": -19716.696093375074,
+        "percentile95": [
+          -27851.225753875155,
+          -13738.502335500129
+        ],
+        "moving_block4_percentile95": [
+          -23380.391786500073,
+          -16053.000400250085
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 17741.589484624994,
+        "median": 14999.086175000002,
+        "q25": 12318.130297749974,
+        "q75": 20403.956781249974,
+        "p95": 34415.510006699944,
+        "max": 37725.5490739999
+      },
+      "paired_savings_ms": {
+        "mean": -13983.379377875055,
+        "percentile95": [
+          -19565.170352750072,
+          -9056.352458197032
+        ],
+        "moving_block4_percentile95": [
+          -16701.298954250065,
+          -11265.459801500045
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 3758.2101067499425,
+        "median": 3433.2868489999555,
+        "q25": 1701.4821862499048,
+        "q75": 5416.222970999911,
+        "p95": 7123.221146349964,
+        "max": 7753.37427799991
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 4018.7475980000045,
+        "median": 3610.8560670000998,
+        "q25": 1918.8546199999905,
+        "q75": 5749.832514749925,
+        "p95": 7718.672150299982,
+        "max": 8664.540361000036
+      },
+      "paired_savings_ms": {
+        "mean": -260.5374912500622,
+        "percentile95": [
+          -479.9337862876321,
+          -78.37774150007704
+        ],
+        "moving_block4_percentile95": [
+          -407.66738787510803,
+          -113.40759462501637
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 5,
+      "spec": [
+        1023,
+        2,
+        6,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 3987.109093125042,
+        "median": 3640.6205279999995,
+        "q25": 1936.2086502500802,
+        "q75": 5630.264514500027,
+        "p95": 7437.167545400097,
+        "max": 8273.45507300015
+      },
+      "paired_savings_ms": {
+        "mean": -228.89898637509987,
+        "percentile95": [
+          -338.25695737516526,
+          -120.00917875005257
+        ],
+        "moving_block4_percentile95": [
+          -309.22810475013307,
+          -148.56986800006666
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 22.462762000003522,
+        "median": 15.526835000059691,
+        "q25": 13.658552000038071,
+        "q75": 27.765885000007984,
+        "p95": 45.93547624990605,
+        "max": 51.14827299985336
+      },
+      "paired_savings_ms": {
+        "mean": -10.707242750044088,
+        "percentile95": [
+          -18.27154900001915,
+          -4.268847943787791
+        ],
+        "moving_block4_percentile95": [
+          -15.657967875029044,
+          -5.756517625059132
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 22.86744049996514,
+        "median": 16.929607999941254,
+        "q25": 12.00949449997779,
+        "q75": 30.54541749997952,
+        "p95": 46.30529619989829,
+        "max": 50.32158399990294
+      },
+      "paired_savings_ms": {
+        "mean": -11.111921250005707,
+        "percentile95": [
+          -18.660981999971682,
+          -4.295483000049671
+        ],
+        "moving_block4_percentile95": [
+          -15.656642749974026,
+          -6.567199750037389
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 11.755519249959434,
+        "median": 10.24162399994566,
+        "q25": 7.3221255000248675,
+        "q75": 16.569299249965752,
+        "p95": 18.52825099988422,
+        "max": 19.32489999990139
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 15.568577625003854,
+        "median": 11.391225000011218,
+        "q25": 8.847857999967346,
+        "q75": 22.339278750052927,
+        "p95": 29.570542700116672,
+        "max": 32.876866000151495
+      },
+      "paired_savings_ms": {
+        "mean": -3.8130583750444202,
+        "percentile95": [
+          -9.221435993879368,
+          1.1903004562796573
+        ],
+        "moving_block4_percentile95": [
+          -8.719934375108096,
+          1.0938176250192555
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 13.581142625014309,
+        "median": 10.228378999954657,
+        "q25": 8.782646000099703,
+        "q75": 14.877960999967854,
+        "p95": 27.42737830003534,
+        "max": 30.77974899997571
+      },
+      "paired_savings_ms": {
+        "mean": -1.8256233750548745,
+        "percentile95": [
+          -5.4311677500891165,
+          1.7401384624712073
+        ],
+        "moving_block4_percentile95": [
+          -4.751670500041882,
+          1.1004237499321334
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 34.08605612494853,
+        "median": 24.45812749988363,
+        "q25": 20.19432524991771,
+        "q75": 43.412870999929964,
+        "p95": 71.5745546000221,
+        "max": 80.84170899996934
+      },
+      "paired_savings_ms": {
+        "mean": -8.694055125033628,
+        "percentile95": [
+          -17.70293354378225,
+          -0.9566223750425706
+        ],
+        "moving_block4_percentile95": [
+          -15.688710375087567,
+          -1.6993998749796901
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 34.783920125022405,
+        "median": 31.42394450003394,
+        "q25": 15.579060249933718,
+        "q75": 45.13951775004443,
+        "p95": 71.23959680013739,
+        "max": 78.92230400011613
+      },
+      "paired_savings_ms": {
+        "mean": -9.391919125107506,
+        "percentile95": [
+          -17.911257831350724,
+          -1.655468125079551
+        ],
+        "moving_block4_percentile95": [
+          -13.709447125165752,
+          -5.07439112504926
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 25.3920009999149,
+        "median": 22.08969049991083,
+        "q25": 15.780619749875768,
+        "q75": 36.492603999931816,
+        "p95": 45.872106949923364,
+        "max": 47.66683799994098
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.75
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 31.890483249981116,
+        "median": 30.308325500072897,
+        "q25": 19.870822750021944,
+        "q75": 35.59139474998574,
+        "p95": 54.50965844991059,
+        "max": 62.39745899983973
+      },
+      "paired_savings_ms": {
+        "mean": -6.498482250066218,
+        "percentile95": [
+          -13.576527624991286,
+          -0.07226500008528092
+        ],
+        "moving_block4_percentile95": [
+          -9.571738500085303,
+          -3.4252260000471324
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 6,
+      "spec": [
+        127,
+        1,
+        2,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 28.459345375040357,
+        "median": 22.160082000027614,
+        "q25": 18.997445500076537,
+        "q75": 35.61348350001481,
+        "p95": 52.36603735008883,
+        "max": 59.39434500010066
+      },
+      "paired_savings_ms": {
+        "mean": -3.067344375125458,
+        "percentile95": [
+          -9.251958125133797,
+          3.4628132498824016
+        ],
+        "moving_block4_percentile95": [
+          -6.4605416251311,
+          0.32585287488018366
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 619.169876250055,
+        "median": 529.8817084999428,
+        "q25": 426.89786549999553,
+        "q75": 805.8727692501861,
+        "p95": 1121.518545650042,
+        "max": 1279.3590679998488
+      },
+      "paired_savings_ms": {
+        "mean": -515.5885595000882,
+        "percentile95": [
+          -744.8911107501885,
+          -324.03451777189224
+        ],
+        "moving_block4_percentile95": [
+          -625.8895838749368,
+          -405.28753512523963
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 420.01420625007313,
+        "median": 332.316283000182,
+        "q25": 276.43616099987867,
+        "q75": 525.1629770000363,
+        "p95": 747.9401242501581,
+        "max": 762.2463970001263
+      },
+      "paired_savings_ms": {
+        "mean": -316.4328895001063,
+        "percentile95": [
+          -434.7310308377004,
+          -209.7987472499767
+        ],
+        "moving_block4_percentile95": [
+          -393.8760273752564,
+          -238.98975162495617
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 103.58131674996685,
+        "median": 74.89689399994859,
+        "q25": 58.155282250027085,
+        "q75": 139.08999399973254,
+        "p95": 197.92880415002398,
+        "max": 212.91126500000246
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 548.8927441249984,
+        "median": 476.81632700027876,
+        "q25": 364.4915112497529,
+        "q75": 638.8461835000498,
+        "p95": 1005.5474858999557,
+        "max": 1142.290261999733
+      },
+      "paired_savings_ms": {
+        "mean": -445.3114273750316,
+        "percentile95": [
+          -619.3124011251143,
+          -297.78794922180947
+        ],
+        "moving_block4_percentile95": [
+          -546.9474554999465,
+          -343.6753992501167
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 561.7700831250545,
+        "median": 479.57546300017384,
+        "q25": 369.43650975001674,
+        "q75": 642.8038829999423,
+        "p95": 1010.316072850105,
+        "max": 1136.0973680002644
+      },
+      "paired_savings_ms": {
+        "mean": -458.18876637508765,
+        "percentile95": [
+          -631.1823884064097,
+          -312.2131789875838
+        ],
+        "moving_block4_percentile95": [
+          -565.3676235000376,
+          -351.00990925013775
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 983.5995443749539,
+        "median": 892.983389499932,
+        "q25": 750.1087820000976,
+        "q75": 1224.8512134998464,
+        "p95": 1582.0661351001033,
+        "max": 1745.610465000027
+      },
+      "paired_savings_ms": {
+        "mean": -451.96822362493094,
+        "percentile95": [
+          -585.5020644999627,
+          -311.7195316249308
+        ],
+        "moving_block4_percentile95": [
+          -590.9477373749041,
+          -312.98870987495775
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 881.5692728750264,
+        "median": 677.1096859999943,
+        "q25": 581.5057262500432,
+        "q75": 1154.3656072499289,
+        "p95": 1581.6789571999832,
+        "max": 1759.1037249999317
+      },
+      "paired_savings_ms": {
+        "mean": -349.93795212500345,
+        "percentile95": [
+          -463.75581940620947,
+          -247.60489199996982
+        ],
+        "moving_block4_percentile95": [
+          -452.81472012493396,
+          -247.06118412507294
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 531.631320750023,
+        "median": 452.740291499822,
+        "q25": 389.768436250165,
+        "q75": 653.5339072501074,
+        "p95": 1062.8805916501276,
+        "max": 1229.9186730001566
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 546.1204339999313,
+        "median": 499.86552449990995,
+        "q25": 357.31147625017456,
+        "q75": 632.8349110001454,
+        "p95": 973.6936330997194,
+        "max": 1091.0268959996756
+      },
+      "paired_savings_ms": {
+        "mean": -14.489113249908314,
+        "percentile95": [
+          -96.1657352499401,
+          56.41206962525587
+        ],
+        "moving_block4_percentile95": [
+          -69.57742187483973,
+          40.5991953750231
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 7,
+      "spec": [
+        127,
+        4,
+        12,
+        4,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 563.446575875048,
+        "median": 479.14785500006474,
+        "q25": 379.06504950001363,
+        "q75": 645.7748222500186,
+        "p95": 1005.7577082498935,
+        "max": 1128.0297059997793
+      },
+      "paired_savings_ms": {
+        "mean": -31.815255125025033,
+        "percentile95": [
+          -128.6190358155963,
+          40.85797512504996
+        ],
+        "moving_block4_percentile95": [
+          -94.129467375069,
+          30.498957125018933
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 142.29488925002443,
+        "median": 112.63075550004942,
+        "q25": 93.65224400016814,
+        "q75": 200.24758449994806,
+        "p95": 257.4576026999466,
+        "max": 276.4407829999982
+      },
+      "paired_savings_ms": {
+        "mean": -66.34233862513383,
+        "percentile95": [
+          -113.40814225019358,
+          -27.51934045319615
+        ],
+        "moving_block4_percentile95": [
+          -97.31921725006032,
+          -35.36546000020735
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 130.55917962498143,
+        "median": 129.74841249979363,
+        "q25": 87.2740974999715,
+        "q75": 179.7619419999137,
+        "p95": 209.81505245006247,
+        "max": 216.9852480001282
+      },
+      "paired_savings_ms": {
+        "mean": -54.606629000090834,
+        "percentile95": [
+          -81.0820341250178,
+          -27.4144941251393
+        ],
+        "moving_block4_percentile95": [
+          -72.06546825005944,
+          -37.14778975012223
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.125
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 75.95255062489059,
+        "median": 51.59588699984852,
+        "q25": 41.487854499791865,
+        "q75": 82.5753302499379,
+        "p95": 181.86030464994468,
+        "max": 208.94820500006972
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.25
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 139.9212356250814,
+        "median": 134.98159300002044,
+        "q25": 112.23776024996823,
+        "q75": 165.07750375023988,
+        "p95": 228.88169920008744,
+        "max": 259.8503320000418
+      },
+      "paired_savings_ms": {
+        "mean": -63.96868500019082,
+        "percentile95": [
+          -121.80209762522054,
+          -10.157357500304443
+        ],
+        "moving_block4_percentile95": [
+          -91.78963137520668,
+          -36.14773862517495
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 144.35200924992841,
+        "median": 134.113207999917,
+        "q25": 115.60114749977402,
+        "q75": 178.8500825000483,
+        "p95": 234.23808859995455,
+        "max": 263.71539799993116
+      },
+      "paired_savings_ms": {
+        "mean": -68.39945862503782,
+        "percentile95": [
+          -122.31668572203915,
+          -18.69003225004917
+        ],
+        "moving_block4_percentile95": [
+          -100.29021262505466,
+          -36.50870462502098
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 199.54304299994874,
+        "median": 210.86941099997603,
+        "q25": 160.13582100015356,
+        "q75": 265.9141074999525,
+        "p95": 304.90409534970695,
+        "max": 310.3744759996516
+      },
+      "paired_savings_ms": {
+        "mean": -46.5571937499476,
+        "percentile95": [
+          -71.50433823740343,
+          -15.115031862423223
+        ],
+        "moving_block4_percentile95": [
+          -62.70528300001388,
+          -30.409104499881323
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.75
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 222.55915449994745,
+        "median": 230.19217499995648,
+        "q25": 200.06666474989743,
+        "q75": 285.75114900002063,
+        "p95": 303.2449460998123,
+        "max": 311.8477619996156
+      },
+      "paired_savings_ms": {
+        "mean": -69.57330524994632,
+        "percentile95": [
+          -90.24064812496135,
+          -47.60089312514992
+        ],
+        "moving_block4_percentile95": [
+          -80.06847287492747,
+          -59.078137624965166
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 152.98584925000114,
+        "median": 140.66893049994178,
+        "q25": 134.2792347500108,
+        "q75": 192.1117144999016,
+        "p95": 244.81484420007288,
+        "max": 262.1518939999987
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.875
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 139.5170227499989,
+        "median": 128.85072199992464,
+        "q25": 114.26857050025774,
+        "q75": 164.7223589998248,
+        "p95": 230.45895020009078,
+        "max": 257.41021300018474
+      },
+      "paired_savings_ms": {
+        "mean": 13.468826500002251,
+        "percentile95": [
+          -1.4204774313938626,
+          28.965863875157538
+        ],
+        "moving_block4_percentile95": [
+          7.940950374972999,
+          18.996702625031503
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 8,
+      "spec": [
+        127,
+        2,
+        12,
+        8,
+        1
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 144.11966037499724,
+        "median": 132.6319219999732,
+        "q25": 107.02979475013308,
+        "q75": 181.29471999975522,
+        "p95": 241.37888475008816,
+        "max": 271.776236000278
+      },
+      "paired_savings_ms": {
+        "mean": 8.8661888750039,
+        "percentile95": [
+          -5.593678037496375,
+          22.093165375110857
+        ],
+        "moving_block4_percentile95": [
+          3.6122016250033084,
+          14.120176125004491
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 0.001,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 85.8126694998873,
+        "median": 90.1143599999159,
+        "q25": 75.0805909999599,
+        "q75": 102.91516975007653,
+        "p95": 115.09882744960578,
+        "max": 117.91450499958955
+      },
+      "paired_savings_ms": {
+        "mean": -62.99767712494031,
+        "percentile95": [
+          -77.4393804997544,
+          -47.08464556559451
+        ],
+        "moving_block4_percentile95": [
+          -69.83591199991679,
+          -56.15944224996383
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 0.001,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 67.06524525003488,
+        "median": 61.75032950022796,
+        "q25": 55.235020249938316,
+        "q75": 73.78576549990612,
+        "p95": 95.11553950014785,
+        "max": 103.85152200024095
+      },
+      "paired_savings_ms": {
+        "mean": -44.25025287508788,
+        "percentile95": [
+          -54.163341125274655,
+          -36.031679934295376
+        ],
+        "moving_block4_percentile95": [
+          -50.97066912503578,
+          -37.52983662513998
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 0.001,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 22.814992374946996,
+        "median": 22.709898999892175,
+        "q25": 21.047873499924208,
+        "q75": 23.42920249998315,
+        "p95": 28.86645215012322,
+        "max": 31.14965300028416
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.0
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 0.001,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 92.51249650003501,
+        "median": 88.87493949987402,
+        "q25": 73.24565600004007,
+        "q75": 101.08126675015683,
+        "p95": 146.09977080008318,
+        "max": 168.75509300007252
+      },
+      "paired_savings_ms": {
+        "mean": -69.69750412508802,
+        "percentile95": [
+          -92.23622280626813,
+          -51.02905125016832
+        ],
+        "moving_block4_percentile95": [
+          -83.13351550003745,
+          -56.261492750138586
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 0.001,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 76.99970062509465,
+        "median": 67.09330100011357,
+        "q25": 48.15289024998037,
+        "q75": 101.01604700003008,
+        "p95": 142.08186830012434,
+        "max": 163.7467010000364
+      },
+      "paired_savings_ms": {
+        "mean": -54.18470825014765,
+        "percentile95": [
+          -82.65776337501904,
+          -28.17921854395849
+        ],
+        "moving_block4_percentile95": [
+          -64.82708587515162,
+          -43.54233062514368
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.75
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 1e-05,
+      "method": "dense-cold",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 131.64208087505358,
+        "median": 145.2582674999121,
+        "q25": 75.46443700016425,
+        "q75": 160.3597120001723,
+        "p95": 225.64463889991652,
+        "max": 257.8868229998079
+      },
+      "paired_savings_ms": {
+        "mean": -62.57600962504739,
+        "percentile95": [
+          -77.3755717500535,
+          -46.46400770014196
+        ],
+        "moving_block4_percentile95": [
+          -68.68803937510393,
+          -56.463979874990855
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 1e-05,
+      "method": "dense-previous",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 113.64153674998079,
+        "median": 114.41397299995515,
+        "q25": 69.03818000000683,
+        "q75": 126.59284374967683,
+        "p95": 200.5493708000585,
+        "max": 239.00846700007605
+      },
+      "paired_savings_ms": {
+        "mean": -44.5754654999746,
+        "percentile95": [
+          -53.701905756213364,
+          -37.295202587320375
+        ],
+        "moving_block4_percentile95": [
+          -51.542464125191145,
+          -37.60846687475805
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 1e-05,
+      "method": "lifted-price-continuation",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 69.06607125000619,
+        "median": 67.28796299989881,
+        "q25": 23.397280750032223,
+        "q75": 93.1269867503488,
+        "p95": 142.997408899987,
+        "max": 168.40573099989342
+      },
+      "paired_savings_ms": {
+        "mean": 0.0,
+        "percentile95": [
+          0.0,
+          0.0
+        ],
+        "moving_block4_percentile95": [
+          0.0,
+          0.0
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 0.625
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 1e-05,
+      "method": "tanh-gradient",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 89.8459183750333,
+        "median": 86.94988000002013,
+        "q25": 71.48729024982003,
+        "q75": 99.93407474985361,
+        "p95": 139.80611605022656,
+        "max": 159.98787800026548
+      },
+      "paired_savings_ms": {
+        "mean": -20.779847125027118,
+        "percentile95": [
+          -37.27798991883162,
+          -6.84209314076441
+        ],
+        "moving_block4_percentile95": [
+          -25.481734250149657,
+          -16.07795999990458
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    },
+    {
+      "instance": 9,
+      "spec": [
+        127,
+        2,
+        6,
+        4,
+        16
+      ],
+      "tol": 1e-05,
+      "method": "rbf-direct",
+      "attempts": 8,
+      "failures": 0,
+      "total_ms": {
+        "mean": 90.18562174998124,
+        "median": 84.4563969999399,
+        "q25": 69.70263824996437,
+        "q75": 100.48292574992956,
+        "p95": 143.23360285013675,
+        "max": 164.8732030002975
+      },
+      "paired_savings_ms": {
+        "mean": -21.11955049997505,
+        "percentile95": [
+          -37.5946312499309,
+          -7.165815000121256
+        ],
+        "moving_block4_percentile95": [
+          -26.926169250202747,
+          -15.31293174974735
+        ],
+        "pairs": 8,
+        "scope": "Descriptive fixed-fit paired resampling; no retraining guarantee or distribution-free coverage claim."
+      },
+      "fallback_fraction": 1.0
+    }
+  ],
+  "scope": "Eight historical contexts per configuration; no new run, retraining or accuracy claim."
+}

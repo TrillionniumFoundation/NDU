@@ -1,0 +1,52 @@
+\section{From Price Bounds to a Fixed Expanded Alphabet}\label{sec:r44-augmentation}
+The polynomial price oracle also gives a constructive guarantee when the execution interface can accommodate additional levels. This result does not require the outer price gap to vanish, nor does it randomize the installed alphabet. A single union alphabet is installed before execution, and its branch rules retain the original promise and realization constraints.
+
+Use the ordered-interface class of Section~\ref{sec:r43-decomposition}. Let $R(c)=\sum_{z\in c}\rho(z)$, $\bar b=\sum_j\pi_jb_j$, and $H=L_f+\max_jH_j+2$, where $L_f$ and $H_j$ are Lipschitz bounds from Section~\ref{sec:grid}. A priced optimizer consists of a book $c$ and targets $t_j$; write $S=\sum_j\pi_jt_j$ and $J=\sum_j\pi_jv_{j,c}(t_j)-R(c)$. Thus its exact price value is $D(\lambda)=J+\lambda(B-S)$. The feasible-first-level restriction in \eqref{eq:r43-dual} is retained even when $S\ne B$.
+
+\begin{theorem}[Two-price recovery with resource augmentation]\label{thm:r44-recovery}
+Suppose the catalog is feasible, $\rho\geq0$, and $\varepsilon>0$. With an exact scalar shortfall oracle, at most
+\begin{equation}\label{eq:r44-calls}
+ 2+\max\left\{0,\left\lceil\log_2
+ \frac{H(\bar b-a_1)}{4\varepsilon}\right\rceil\right\}
+\end{equation}
+price calls suffice, interpreting the maximum as zero when $\bar b=a_1$. The algorithm returns an original-budget upper bound $U$, and one fixed alphabet $c^U$ of size at most $\min(2m,N)$ with exactly feasible targets and net payoff $J_U$ such that
+\begin{equation}\label{eq:r44-guarantee}
+ J_U\geq U-e-\Omega\geq
+ \mathcal V_{m,\mathcal A}^{\delta}(B;\rho)-\varepsilon-\Omega,
+ \qquad 0\leq e\leq\varepsilon.
+\end{equation}
+Here the renewal notation denotes its specialization; the same result holds for the abstract class. The reported charge excess $\Omega$ is computed from the two selected books, not replaced by an unobserved constant. With zero charges $\Omega=0$. For charges bounded by $\rho_{\max}$, $0\leq\Omega\leq m\rho_{\max}$.
+
+For rational quadratic data the algorithm is exact rational arithmetic and uses
+$O((k+m)N^2[1+\log_+(H(\bar b-a_1)/\varepsilon)]+k\log(k+1))$ arithmetic operations, where $\log_+x=\max(0,\log_2x)$ with value zero at $x=0$. Its storage is $O(N^2+mN+km)$, and its bit complexity is polynomial in the encoded input and the number of price calls. If $|c^U|\leq m$, \eqref{eq:r44-guarantee} is also a same-budget certificate; otherwise $J_U$ must not be used as a lower endpoint for the original-budget optimum.
+\end{theorem}
+\begin{proof}[Construction and proof outline]
+Start with prices $\lambda_-=-\max_jH_j-1$ and $\lambda_+=L_f+1$. Their optimizing totals satisfy $S_-\geq B\geq S_+$. Bisect prices, retaining this bracket, until its width times $(\bar b-a_1)/4$ is at most $\varepsilon$. An exact optimizer with total $B$ already gives an original-budget global certificate. Otherwise $S_->B>S_+$, and set
+\begin{align}
+ \theta&=\frac{B-S_+}{S_--S_+},&
+ c^U&=c^-\cup c^+,& t_j^U&=\theta t_j^-+(1-\theta)t_j^+,\label{eq:r44-union}\\
+ e&=(\lambda_+-\lambda_-)\frac{(S_--B)(B-S_+)}{S_--S_+},&
+ \Omega&=R(c^U)-\theta R(c^-)-(1-\theta)R(c^+).\label{eq:r44-errors}
+\end{align}
+Install $c^U$ once and apply its canonical response to $t_j^U$. Enlarging a book weakly improves its response on the original target domain. Concavity of that response then bounds the new operating payoff below by the convex combination of the two operating payoffs. This is a feasible-policy construction, not an assumption that the original book problem is convex. Also,
+\[
+ \theta D(\lambda_-)+(1-\theta)D(\lambda_+)
+ =\theta J_-+(1-\theta)J_++e.
+\]
+Take $U=\min\{D(\lambda_-),D(\lambda_+)\}$ and subtract the actual union charge. The elementary bound $e\leq(\lambda_+-\lambda_-)(\bar b-a_1)/4$ proves termination and accuracy. The full endpoint, charge, risk, and bit-complexity arguments appear in Section~\ref{sec:r44-proof} of the companion.
+\end{proof}
+
+Lagrangian convexification and recovery from supporting solutions are classical \citep{HandlerZang1980,Lemarechal2001}. The structural addition is that, in this ordered-interface problem, their aggregate-target mixture can be implemented by a \emph{fixed} union alphabet and one pre-draw intermediate tier on each branch. Concavity after eligibility truncation is essential: averaging terminal levels can break catalog membership, while mixing services and lotteries directly need not respect the pre-draw service restriction. Equations~\eqref{eq:r44-union}--\eqref{eq:r44-errors} avoid both problems and charge every installed level.
+
+\begin{corollary}[Continuous comparison with variable alphabet budget]\label{cor:r44-continuous}
+For a catalog of maximum spacing $h$, containing zero and one, the same algorithm returns an exactly feasible, at-most-$2m$-level policy satisfying
+\[
+ J_U\geq\mathcal V_m^\delta(B;\rho)-K_mh-\varepsilon-\Omega.
+\]
+In particular, with zero charges, a uniform mesh with denominator
+$\max\{1,\lceil2K_0/\eta\rceil\}$ and price accuracy $\varepsilon=\eta/2$ gives payoff at least $\mathcal V_m^\delta(B;0)-\eta$. For rational quadratic primitives this is polynomial in $k$, $m$, $K_0/\eta$, and the sampled rational encoding length. It preserves the promise and risk ceiling without slack.
+\end{corollary}
+\begin{proof}
+Combine Theorems~\ref{thm:mesh} and \ref{thm:r44-recovery}; $K_0=L_f+\sum_j\pi_jH_j$ is independent of the alphabet budget.
+\end{proof}
+This is an additive resource-augmentation guarantee, not an FPTAS at the original memory limit. The exact original-budget continuous theorem and the finite prefix search remain available when additional symbols cannot be installed. With charged levels, the explicit $\Omega$ identifies the economic price of the augmentation instead of concealing it inside an operating-payoff comparison.

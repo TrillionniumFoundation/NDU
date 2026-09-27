@@ -1,0 +1,118 @@
+name: NDU OR R14 price-mediated scalar-critic revision
+on:
+  push:
+    branches: [revision/ndu-operations-research-r14-20260922]
+    paths: [.r14-transport/READY.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r14-isolated-publication
+  cancel-in-progress: false
+jobs:
+  reproduce-and-publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r14-20260922'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      REVISION_BRANCH: revision/ndu-operations-research-r14-20260922
+      OPENBLAS_NUM_THREADS: 1
+      OMP_NUM_THREADS: 1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: revision/ndu-operations-research-r14-20260922
+      - name: Materialize complete ordinary sources and snapshot the immutable predecessor
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "$REVISION_BRANCH"
+          git config user.name 'NDU R14 scientific revision'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import json, base64, lzma, hashlib, subprocess
+          ready=json.loads(Path('.r14-transport/READY.json').read_text())
+          subprocess.run(['git','merge-base','--is-ancestor',ready['parent'],'HEAD'],check=True)
+          parts=sorted(Path('.r14-transport').glob('part-*.b64'))
+          assert len(parts)==ready['parts']
+          packed=base64.b64decode(''.join(p.read_text().strip() for p in parts),validate=True)
+          assert hashlib.sha256(packed).hexdigest()==ready['sha256']
+          sources=json.loads(lzma.decompress(packed))
+          assert len(sources)==ready['source_files']
+          roots={'main.tex','electronic_companion.tex','README.md','NDU_OR_submission_checklist.md'}
+          for name,text in sources.items():
+              p=PurePosixPath(name)
+              assert not p.is_absolute() and '..' not in p.parts
+              assert name in roots or name.startswith('revisions/or-r14-20260922/')
+              out=Path(name);out.parent.mkdir(parents=True,exist_ok=True);out.write_text(text,encoding='utf-8')
+          print('Materialized',len(sources),'ordinary source files')
+          PY
+          python revisions/or-r14-20260922/assemble.py
+          python revisions/or-r14-20260922/preserve.py
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md revisions/or-r14-20260922
+          git commit -m 'paper(or-r14): derive nonoracular scalar-gradient policies and explicit accepted-star friction algorithm'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install pinned numerical and typesetting dependencies
+        run: |
+          python -m pip install -r revisions/or-r14-20260922/requirements.txt
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic poppler-utils
+      - name: Execute paired training, independent confirmation, solver comparisons, and exact replay
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p revisions/or-r14-20260922/results
+          bash revisions/or-r14-20260922/reproduce.sh 2>&1 | tee /tmp/ndu-r14-reproduce.log
+          cp /tmp/ndu-r14-reproduce.log revisions/or-r14-20260922/results/ci-reproduce.log
+      - name: Build actual manuscripts and verify preservation and journal layout
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash revisions/or-r14-20260922/build.sh 2>&1 | tee /tmp/ndu-r14-build.log
+          python revisions/or-r14-20260922/check_package.py 2>&1 | tee /tmp/ndu-r14-package.log
+          cp /tmp/ndu-r14-build.log revisions/or-r14-20260922/results/ci-build.log
+          cp /tmp/ndu-r14-package.log revisions/or-r14-20260922/results/ci-package.log
+          python revisions/or-r14-20260922/manifest.py
+      - name: Publish only this revision branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin "$REVISION_BRANCH"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse FETCH_HEAD)"
+          python - <<'PY'
+          import subprocess
+          allowed={'README.md','NDU_OR_submission_checklist.md','main.tex','main.pdf','electronic_companion.tex','electronic_companion.pdf','historical_supplement.pdf'}
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          assert all(p in allowed or p.startswith('revisions/or-r14-20260922/') for p in changed),changed
+          PY
+          find revisions/or-r14-20260922 -type d -name __pycache__ -prune -exec rm -rf {} +
+          git add -f main.pdf electronic_companion.pdf historical_supplement.pdf revisions/or-r14-20260922
+          git commit -m 'build(or-r14): publish 6626 independently replayed certificates, confirmation data and compiled manuscripts [skip ci]'
+          git push origin HEAD:"refs/heads/$REVISION_BRANCH"
+          git rev-parse HEAD > /tmp/R14_REVIEWED_COMMIT.txt
+          git archive --format=tar.gz HEAD > /tmp/NDU_OR_R14_review_package.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r14-price-mediated-review-package
+          retention-days: 30
+          path: |
+            /tmp/NDU_OR_R14_review_package.tar.gz
+            /tmp/R14_REVIEWED_COMMIT.txt
+            main.pdf
+            electronic_companion.pdf
+            historical_supplement.pdf
+            main.log
+            electronic_companion.log
+            historical_supplement.log
+            /tmp/ndu-r14-*.log
+            revisions/or-r14-20260922/results/verification.json
+            revisions/or-r14-20260922/results/package_checks.json
+            revisions/or-r14-20260922/results/summary.json
+            revisions/or-r14-20260922/results/validation.json
+          if-no-files-found: warn

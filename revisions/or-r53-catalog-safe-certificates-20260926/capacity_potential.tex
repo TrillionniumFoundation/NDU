@@ -1,0 +1,13 @@
+\subsection{An eligibility-independent capacity potential}
+The path-capacity identity has a stronger local form. It explains why eligibility affects returns, but does not create a hidden resource state.
+\begin{proposition}[Capacity potential]\label{prop:potential53}
+Define $p(u)=\sum_j\pi_j\min(b_j,u)$ for catalog vertices and $p(\dagger)=\bar b$. Every selected-boundary arc satisfies
+\begin{equation}\label{eq:potential53}
+ T_{uv}+Q_{uv}=p(v)-p(u),\qquad Q_{u\dagger}=p(\dagger)-p(u).
+\end{equation}
+Thus its capacity is independent of the realization ceilings as long as $\tau_j\geq b_j$. For a feasible anchor $a$, $p(a)=a$.
+\end{proposition}
+\begin{proof}
+Fix one history and an ordinary edge $u<v$. If $\tau_j<u$, then $b_j<u$, so both its contribution to the arc and $\min(b_j,v)-\min(b_j,u)$ are zero. If $u\leq\tau_j<v$, then $b_j<v$ and its exit-service capacity is $(b_j-u)_+=\min(b_j,v)-\min(b_j,u)$. If $\tau_j\geq v$, its terminal increment is $[\min(b_j,v)-u]_+$, which equals the same difference. These cases partition the histories. Multiplication by the probabilities and summation prove the first identity. For the terminal edge, $\tau_j<u$ again implies $(b_j-u)_+=0$, giving $Q_{u\dagger}=\sum_j\pi_j(b_j-u)_+=\bar b-p(u)$. Finally, feasibility implies $a\leq b_j$ for every history.
+\end{proof}
+Changing a ceiling can still change an arc's payoff through its exit set. Proposition~\ref{prop:potential53} asserts capacity invariance, not value continuity across a threshold. It also identifies the renewal reduction as a capacity-conservative configuration of the type used in the production model below.

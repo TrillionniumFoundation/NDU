@@ -1,0 +1,43 @@
+{
+  "all_state_monotonicity_comparisons": 416,
+  "batches": 64,
+  "compiled_c2_neural_critic_levels": 5,
+  "compiled_neural_policy_states_checked": 1320,
+  "dummy_gate_exact_equality": true,
+  "episodes_per_batch": 4096,
+  "exact_envelope_states_checked": 264,
+  "execution_seconds": 10.65726961700011,
+  "exhaustive_candidates": 37752,
+  "expanded_action_exact_equality": true,
+  "factored_candidates": 2904,
+  "factored_exact_equality": true,
+  "greatest_optimal_pair_checked": true,
+  "independent_fraction_states_checked": 1320,
+  "minimum_value_cross_difference": "9/250",
+  "net_reward_gain_over_frozen": "60463811896246358919998377/64000000000000000000000000",
+  "numpy": "2.3.5",
+  "physical_cost_reduction_over_frozen": "68225264375561860996773/320000000000000000000000",
+  "physical_excess_over_oracle": "277785360524124379003227/320000000000000000000000",
+  "protocol_blob": "055cec67f297166cca69b60d92be3faeb0cb86f4",
+  "protocol_bytes_verified": true,
+  "protocol_sha256": "ef3b61559baa1b015a23ee06ade6e3fa4097273e09ca314559f68047f7809b5b",
+  "python": "3.13.5",
+  "regressions": {
+    "QA_is_not_a_mathematical_certificate": true,
+    "gibbs_variational_error": 0.0,
+    "missing_boundary_counterexample": "w(t,x)=(1-t)^(-1/2) exp(-x^2/[4(1-t)]), x in [1,2]",
+    "penalty_sign_exact": true,
+    "policy_two_comparisons": "For optimal residual and greedy-gap bounds: 2*d_boundary+T*(2*d_H+d_A).",
+    "spatial_boundary_counterexample_value": 0.569782824730923,
+    "terminal_only_one_comparison_regression": {
+      "actual_policy_loss": "19/10",
+      "bellman_error": "0",
+      "greedy_error": "0",
+      "terminal_error": "1"
+    }
+  },
+  "review_commit": "a91b707883b2408de58d9392e4fc546e08a00881",
+  "scientific_scope": "Exact finite-model certificates and analytic manufactured-PDE bounds; natural-data least-squares experiment; no new large-neural training or field experiment.",
+  "stage_precomputations": 429,
+  "training_pairs_per_conditioning_batch": 2048
+}

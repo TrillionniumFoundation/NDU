@@ -1,0 +1,42 @@
+{
+  "id": "lattice-H32-m2-5601",
+  "family": "lattice",
+  "method": "enumeration",
+  "instance_sha256": "99d55eb1a3da50785e1e4c49f07d2b27d7d5054170edc72d14e2d097d5a3e01c",
+  "epsilon": "hex:0/1",
+  "algorithm_limit_seconds": 2.0,
+  "address_space_limit_mib": 2048,
+  "setup_seconds": 0.006675787999995464,
+  "status": "EXACT",
+  "lower": "hex:5eb1/9600",
+  "upper": "hex:5eb1/9600",
+  "gap": "hex:0/1",
+  "books_evaluated": 7,
+  "seconds": 0.0026377000000081807,
+  "algorithm_seconds": 0.002675932000016701,
+  "algorithm_limit_overrun_seconds": 0,
+  "peak_rss_kib": 25320,
+  "certificate_schema": "NDU-enumeration-v1-hex",
+  "rational_bits": {
+    "numerator_bits": 17,
+    "denominator_bits": 18,
+    "rational_count": 100
+  },
+  "certificate": "certificates/lattice-H32-m2-5601--enumeration.json.gz",
+  "certificate_sha256": "52d028fd4f8c4fb2f2bd72fa12ada8f35aa0f324d616bd4b4390b05835e819d0",
+  "proof_bytes": 1731,
+  "compressed_proof_bytes": 534,
+  "serialization_seconds": 0.00037907800000880343,
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:5eb1/9600",
+    "upper": "hex:5eb1/9600",
+    "gap": "hex:0/1",
+    "seconds": 0.004160987000005889,
+    "books_checked": 7,
+    "instance_sha256": "99d55eb1a3da50785e1e4c49f07d2b27d7d5054170edc72d14e2d097d5a3e01c"
+  },
+  "verification_status": "PASS",
+  "verification_seconds": 0.0043174399999941215,
+  "total_measured_seconds": 0.007372450000019626
+}

@@ -1,0 +1,18 @@
+\section{A Second Model: Compatible Production Modules}\label{sec:production52}
+The capacity-repair theorem is not specific to renewal lotteries. Consider a production interface assembled from compatible modules. A directed acyclic graph describes compatibility; choosing a source-to-sink path installs its modules, with at most $h$ modules and installation payment $\kappa_e\geq0$ for module $e$. Module $e$ can process a divisible amount $x_e\in[0,C_e]$ and earns concave net operating return $\psi_e(x_e)$. An accepted order of size $R$ must be assigned exactly:
+\begin{equation}\label{eq:production52}
+ \max_{P,x}\left\{\sum_{e\in P}\bigl[\psi_e(x_e)-\kappa_e\bigr]:
+ |P|\leq h,\ \sum_{e\in P}x_e=R,\ 0\leq x_e\leq C_e\right\}.
+\end{equation}
+Modules on a selected compatibility chain supply parallel divisible capacity; the order is allocated across them, not passed serially through each module. This distinguishes the workload equality in \eqref{eq:production52} from a serial-flow bottleneck model.
+
+One relevant design is capacity-conservative configuration. Each graph vertex has a cumulative capacity coordinate $p_v$, and a module spanning $u$ to $v$ supplies $C_{uv}=p_v-p_u\geq0$. A complete chain covers the same total capacity regardless of how finely it is configured. The operating curves and installation charges may differ across compatible modules. For example, $\psi_e(x)=\alpha_ex-\beta_ex^2/2$, with $\beta_e\geq0$, represents diminishing operating return; it need not be increasing over the entire capacity range.
+
+\begin{corollary}[Original-order production guarantee]\label{cor:production52}
+Suppose every admissible configuration in \eqref{eq:production52} has total capacity at least $R$, and all operating curves are $L$-Lipschitz. Resource gridding with step $\eta=\varepsilon/(2Lh)$ and residual repair returns a feasible configuration and an additive interval of width at most $\varepsilon$, without exceeding the module budget. If the curves are concave and rational grid values can be evaluated in polynomial time, the length-indexed dynamic program has $O(h|\mathcal E|Q\log(Q+1))$ arithmetic complexity after preprocessing, where $Q=\lceil R/\eta\rceil+1$.
+\end{corollary}
+\begin{proof}
+Every accepted rounded configuration can absorb its omitted workload by the capacity assumption. Theorem~\ref{thm:repair52} therefore applies directly. A topological dynamic program uses the same scalar-resource convolution as \eqref{eq:dp52}, now over graph arcs rather than catalog pairs and without anchor enumeration. Concavity gives the monotone convolution bound. Capacity-conservative configurations satisfy the assumption by telescoping $\sum_{e\in P}C_e=p_{\rm sink}-p_{\rm source}$.
+\end{proof}
+
+This second model has neither heterogeneous renewal histories nor terminal-command lotteries. It reuses the capacity-repair mechanism, whereas Theorem~\ref{thm:path52} derives that mechanism from the original renewal constraints. We offer the model as a mathematical application of the abstraction, not as an observed industrial deployment. Empirical calibration of either setting requires operational data beyond the synthetic study reported here.

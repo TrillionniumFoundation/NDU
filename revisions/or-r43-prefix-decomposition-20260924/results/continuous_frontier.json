@@ -1,0 +1,1447 @@
+[
+  {
+    "case": 0,
+    "k": 1,
+    "m": 1,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "1/5"
+      ],
+      "probabilities": [
+        "1"
+      ],
+      "gamma": [
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "4/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 5,
+      "nonsingular": 4,
+      "feasible": 2,
+      "max_candidate_bits": 7,
+      "max_elimination_integer_bits": 12,
+      "max_cell_inequalities": 4,
+      "status": "exact",
+      "value": "299/1000",
+      "seconds": 0.0016463279999925362,
+      "peak_traced_bytes": 6463,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 1,
+    "k": 1,
+    "m": 1,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "1/2"
+      ],
+      "probabilities": [
+        "1"
+      ],
+      "gamma": [
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "2/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 5,
+      "nonsingular": 4,
+      "feasible": 2,
+      "max_candidate_bits": 7,
+      "max_elimination_integer_bits": 9,
+      "max_cell_inequalities": 4,
+      "status": "exact",
+      "value": "707/1000",
+      "seconds": 0.0015835699999797725,
+      "peak_traced_bytes": 6144,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 2,
+    "k": 1,
+    "m": 1,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "1/5"
+      ],
+      "probabilities": [
+        "1"
+      ],
+      "gamma": [
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "4/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 5,
+      "nonsingular": 4,
+      "feasible": 2,
+      "max_candidate_bits": 7,
+      "max_elimination_integer_bits": 12,
+      "max_cell_inequalities": 4,
+      "status": "exact",
+      "value": "299/1000",
+      "seconds": 0.0015432749999604312,
+      "peak_traced_bytes": 6176,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 3,
+    "k": 1,
+    "m": 2,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "4/5"
+      ],
+      "probabilities": [
+        "1"
+      ],
+      "gamma": [
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "16/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 4,
+      "cells_completed": 4,
+      "infeasible_completed_cells": 0,
+      "systems": 59,
+      "nonsingular": 31,
+      "feasible": 15,
+      "max_candidate_bits": 8,
+      "max_elimination_integer_bits": 21,
+      "max_cell_inequalities": 6,
+      "status": "exact",
+      "value": "5287/5000",
+      "seconds": 0.023793828999998823,
+      "peak_traced_bytes": 24128,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "lower": 1.0574000036800002,
+      "upper": 1.0574000036800002,
+      "sizes": [
+        {
+          "s": 1,
+          "status": "optimal",
+          "lower": 1.0574000036800002,
+          "upper": 1.0574000036800002,
+          "seconds": 0.001134,
+          "nodes": 1,
+          "gap": 0.0,
+          "solutions": 3
+        },
+        {
+          "s": 2,
+          "status": "optimal",
+          "lower": 1.0524000228799144,
+          "upper": 1.0524000228799144,
+          "seconds": 0.136898,
+          "nodes": 47,
+          "gap": 0.0,
+          "solutions": 4
+        }
+      ],
+      "pyscipopt": "6.2.1",
+      "interpretation": "Numerical global bounds, feasibility tolerance 1e-8, relative gap target 1e-7."
+    },
+    "comparison_passed": true
+  },
+  {
+    "case": 4,
+    "k": 1,
+    "m": 2,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "9/10"
+      ],
+      "probabilities": [
+        "1"
+      ],
+      "gamma": [
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "18/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 4,
+      "cells_completed": 4,
+      "infeasible_completed_cells": 0,
+      "systems": 59,
+      "nonsingular": 28,
+      "feasible": 15,
+      "max_candidate_bits": 7,
+      "max_elimination_integer_bits": 21,
+      "max_cell_inequalities": 6,
+      "status": "exact",
+      "value": "5807/5000",
+      "seconds": 0.02348307800002658,
+      "peak_traced_bytes": 23960,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "lower": 1.1614000035200005,
+      "upper": 1.1614000035200005,
+      "sizes": [
+        {
+          "s": 1,
+          "status": "optimal",
+          "lower": 1.1614000035200005,
+          "upper": 1.1614000035200005,
+          "seconds": 0.000772,
+          "nodes": 1,
+          "gap": 0.0,
+          "solutions": 3
+        },
+        {
+          "s": 2,
+          "status": "optimal",
+          "lower": 1.156400022672234,
+          "upper": 1.156400022672234,
+          "seconds": 0.10760399999999999,
+          "nodes": 55,
+          "gap": 0.0,
+          "solutions": 4
+        }
+      ],
+      "pyscipopt": "6.2.1",
+      "interpretation": "Numerical global bounds, feasibility tolerance 1e-8, relative gap target 1e-7."
+    },
+    "comparison_passed": true
+  },
+  {
+    "case": 5,
+    "k": 1,
+    "m": 2,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "3/5"
+      ],
+      "probabilities": [
+        "1"
+      ],
+      "gamma": [
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "12/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 4,
+      "cells_completed": 4,
+      "infeasible_completed_cells": 0,
+      "systems": 59,
+      "nonsingular": 28,
+      "feasible": 15,
+      "max_candidate_bits": 7,
+      "max_elimination_integer_bits": 21,
+      "max_cell_inequalities": 6,
+      "status": "exact",
+      "value": "4151/5000",
+      "seconds": 0.02231437300002881,
+      "peak_traced_bytes": 23960,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "lower": 0.8302000040000004,
+      "upper": 0.8302000040000004,
+      "sizes": [
+        {
+          "s": 1,
+          "status": "optimal",
+          "lower": 0.8302000040000004,
+          "upper": 0.8302000040000004,
+          "seconds": 0.000759,
+          "nodes": 1,
+          "gap": 0.0,
+          "solutions": 3
+        },
+        {
+          "s": 2,
+          "status": "optimal",
+          "lower": 0.8252000237626637,
+          "upper": 0.8252000237626637,
+          "seconds": 0.153088,
+          "nodes": 79,
+          "gap": 0.0,
+          "solutions": 6
+        }
+      ],
+      "pyscipopt": "6.2.1",
+      "interpretation": "Numerical global bounds, feasibility tolerance 1e-8, relative gap target 1e-7."
+    },
+    "comparison_passed": true
+  },
+  {
+    "case": 6,
+    "k": 2,
+    "m": 1,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "7/10",
+        "7/10"
+      ],
+      "probabilities": [
+        "1/2",
+        "1/2"
+      ],
+      "gamma": [
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "14/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 22,
+      "nonsingular": 20,
+      "feasible": 5,
+      "max_candidate_bits": 9,
+      "max_elimination_integer_bits": 20,
+      "max_cell_inequalities": 6,
+      "status": "exact",
+      "value": "947/1000",
+      "seconds": 0.011901353000041581,
+      "peak_traced_bytes": 14400,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 7,
+    "k": 2,
+    "m": 1,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "3/10",
+        "4/5"
+      ],
+      "probabilities": [
+        "1/3",
+        "2/3"
+      ],
+      "gamma": [
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "38/75",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 22,
+      "nonsingular": 20,
+      "feasible": 3,
+      "max_candidate_bits": 10,
+      "max_elimination_integer_bits": 24,
+      "max_cell_inequalities": 6,
+      "status": "exact",
+      "value": "7199/15000",
+      "seconds": 0.011991252000029817,
+      "peak_traced_bytes": 14336,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 8,
+    "k": 2,
+    "m": 1,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "3/10",
+        "4/5"
+      ],
+      "probabilities": [
+        "2/3",
+        "1/3"
+      ],
+      "gamma": [
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "28/75",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 22,
+      "nonsingular": 20,
+      "feasible": 4,
+      "max_candidate_bits": 10,
+      "max_elimination_integer_bits": 25,
+      "max_cell_inequalities": 6,
+      "status": "exact",
+      "value": "3959/7500",
+      "seconds": 0.012102619000017967,
+      "peak_traced_bytes": 14592,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 9,
+    "k": 2,
+    "m": 2,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "2/5",
+        "3/5"
+      ],
+      "probabilities": [
+        "2/3",
+        "1/3"
+      ],
+      "gamma": [
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "28/75",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 10,
+      "cells_completed": 10,
+      "infeasible_completed_cells": 0,
+      "systems": 780,
+      "nonsingular": 528,
+      "feasible": 103,
+      "max_candidate_bits": 11,
+      "max_elimination_integer_bits": 35,
+      "max_cell_inequalities": 9,
+      "status": "exact",
+      "value": "29903/45000",
+      "seconds": 0.6604602990000217,
+      "peak_traced_bytes": 337080,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "lower": 0.6645111153244447,
+      "upper": 0.6645111153244447,
+      "sizes": [
+        {
+          "s": 1,
+          "status": "optimal",
+          "lower": 0.6645111153244447,
+          "upper": 0.6645111153244447,
+          "seconds": 0.001279,
+          "nodes": 1,
+          "gap": 0.0,
+          "solutions": 1
+        },
+        {
+          "s": 2,
+          "status": "optimal",
+          "lower": 0.6595111353886309,
+          "upper": 0.6595111353886309,
+          "seconds": 0.238534,
+          "nodes": 69,
+          "gap": 0.0,
+          "solutions": 4
+        }
+      ],
+      "pyscipopt": "6.2.1",
+      "interpretation": "Numerical global bounds, feasibility tolerance 1e-8, relative gap target 1e-7."
+    },
+    "comparison_passed": true
+  },
+  {
+    "case": 10,
+    "k": 2,
+    "m": 2,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "3/5",
+        "9/10"
+      ],
+      "probabilities": [
+        "1/2",
+        "1/2"
+      ],
+      "gamma": [
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "3/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 10,
+      "cells_completed": 10,
+      "infeasible_completed_cells": 0,
+      "systems": 900,
+      "nonsingular": 591,
+      "feasible": 146,
+      "max_candidate_bits": 13,
+      "max_elimination_integer_bits": 29,
+      "max_cell_inequalities": 10,
+      "status": "exact",
+      "value": "1003/1000",
+      "seconds": 0.708229284999959,
+      "peak_traced_bytes": 118672,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "lower": 1.0030000037600002,
+      "upper": 1.0030000037600002,
+      "sizes": [
+        {
+          "s": 1,
+          "status": "optimal",
+          "lower": 1.0030000037600002,
+          "upper": 1.0030000037600002,
+          "seconds": 0.001281,
+          "nodes": 1,
+          "gap": 0.0,
+          "solutions": 1
+        },
+        {
+          "s": 2,
+          "status": "optimal",
+          "lower": 0.9980000228676021,
+          "upper": 0.9980000228676021,
+          "seconds": 0.284141,
+          "nodes": 189,
+          "gap": 0.0,
+          "solutions": 5
+        }
+      ],
+      "pyscipopt": "6.2.1",
+      "interpretation": "Numerical global bounds, feasibility tolerance 1e-8, relative gap target 1e-7."
+    },
+    "comparison_passed": true
+  },
+  {
+    "case": 11,
+    "k": 2,
+    "m": 2,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "1/5",
+        "4/5"
+      ],
+      "probabilities": [
+        "3/4",
+        "1/4"
+      ],
+      "gamma": [
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "7/25",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 10,
+      "cells_completed": 10,
+      "infeasible_completed_cells": 1,
+      "systems": 780,
+      "nonsingular": 524,
+      "feasible": 72,
+      "max_candidate_bits": 12,
+      "max_elimination_integer_bits": 36,
+      "max_cell_inequalities": 9,
+      "status": "exact",
+      "value": "1217/2500",
+      "seconds": 0.6060641400000009,
+      "peak_traced_bytes": 43608,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.1
+    },
+    "independent_minlp": {
+      "lower": 0.486800027019586,
+      "upper": 0.486800027019586,
+      "sizes": [
+        {
+          "s": 1,
+          "status": "optimal",
+          "lower": 0.34540003241766376,
+          "upper": 0.34540003241766376,
+          "seconds": 0.005059,
+          "nodes": 1,
+          "gap": 0.0,
+          "solutions": 1
+        },
+        {
+          "s": 2,
+          "status": "optimal",
+          "lower": 0.486800027019586,
+          "upper": 0.486800027019586,
+          "seconds": 0.117147,
+          "nodes": 23,
+          "gap": 0.0,
+          "solutions": 3
+        }
+      ],
+      "pyscipopt": "6.2.1",
+      "interpretation": "Numerical global bounds, feasibility tolerance 1e-8, relative gap target 1e-7."
+    },
+    "comparison_passed": true
+  },
+  {
+    "case": 12,
+    "k": 3,
+    "m": 1,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "3/5",
+        "9/10",
+        "9/10"
+      ],
+      "probabilities": [
+        "1/2",
+        "1/3",
+        "1/6"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "3/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 93,
+      "nonsingular": 79,
+      "feasible": 17,
+      "max_candidate_bits": 12,
+      "max_elimination_integer_bits": 26,
+      "max_cell_inequalities": 8,
+      "status": "exact",
+      "value": "1003/1000",
+      "seconds": 0.08897578400001294,
+      "peak_traced_bytes": 13900,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 13,
+    "k": 3,
+    "m": 1,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "3/10",
+        "1/2",
+        "7/10"
+      ],
+      "probabilities": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "2/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 93,
+      "nonsingular": 79,
+      "feasible": 11,
+      "max_candidate_bits": 11,
+      "max_elimination_integer_bits": 23,
+      "max_cell_inequalities": 8,
+      "status": "exact",
+      "value": "263/500",
+      "seconds": 0.08696173900000304,
+      "peak_traced_bytes": 13804,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 14,
+    "k": 3,
+    "m": 1,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "3/10",
+        "1/2",
+        "4/5"
+      ],
+      "probabilities": [
+        "3/8",
+        "3/8",
+        "1/4"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "2/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 93,
+      "nonsingular": 79,
+      "feasible": 9,
+      "max_candidate_bits": 14,
+      "max_elimination_integer_bits": 32,
+      "max_cell_inequalities": 8,
+      "status": "exact",
+      "value": "854/1625",
+      "seconds": 0.08835272899995061,
+      "peak_traced_bytes": 14060,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 15,
+    "k": 3,
+    "m": 2,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "1/5",
+        "3/10",
+        "4/5"
+      ],
+      "probabilities": [
+        "1/5",
+        "2/5",
+        "2/5"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "48/125",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 16,
+      "cells_completed": 15,
+      "infeasible_completed_cells": 3,
+      "systems": 5000,
+      "nonsingular": 3552,
+      "feasible": 174,
+      "max_candidate_bits": 15,
+      "max_elimination_integer_bits": 46,
+      "max_cell_inequalities": 11,
+      "status": "system_limit",
+      "value": "8021/12500",
+      "seconds": 6.952270752000004,
+      "peak_traced_bytes": 459856,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.2
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 16,
+    "k": 3,
+    "m": 2,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "1/2",
+        "3/5",
+        "7/10"
+      ],
+      "probabilities": [
+        "1/4",
+        "1/4",
+        "1/2"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "1/2",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 13,
+      "cells_completed": 12,
+      "infeasible_completed_cells": 0,
+      "systems": 5000,
+      "nonsingular": 3455,
+      "feasible": 371,
+      "max_candidate_bits": 18,
+      "max_elimination_integer_bits": 33,
+      "max_cell_inequalities": 13,
+      "status": "system_limit",
+      "value": "43/50",
+      "seconds": 7.041516669000032,
+      "peak_traced_bytes": 27880,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 17,
+    "k": 3,
+    "m": 2,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "1/2",
+        "1/2",
+        "7/10"
+      ],
+      "probabilities": [
+        "1/3",
+        "1/2",
+        "1/6"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "32/75",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 16,
+      "cells_completed": 15,
+      "infeasible_completed_cells": 0,
+      "systems": 5000,
+      "nonsingular": 3690,
+      "feasible": 363,
+      "max_candidate_bits": 17,
+      "max_elimination_integer_bits": 45,
+      "max_cell_inequalities": 11,
+      "status": "system_limit",
+      "value": "6739/9000",
+      "seconds": 7.0566302210000345,
+      "peak_traced_bytes": 28168,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 18,
+    "k": 4,
+    "m": 1,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "1/5",
+        "3/5",
+        "3/5",
+        "4/5"
+      ],
+      "probabilities": [
+        "1/7",
+        "2/7",
+        "1/7",
+        "3/7"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "88/175",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 386,
+      "nonsingular": 286,
+      "feasible": 27,
+      "max_candidate_bits": 16,
+      "max_elimination_integer_bits": 52,
+      "max_cell_inequalities": 10,
+      "status": "exact",
+      "value": "135097/455000",
+      "seconds": 0.6130836350000095,
+      "peak_traced_bytes": 15596,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 19,
+    "k": 4,
+    "m": 1,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "1/5",
+        "3/10",
+        "3/10",
+        "3/10"
+      ],
+      "probabilities": [
+        "2/9",
+        "1/3",
+        "1/3",
+        "1/9"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "2/9",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 386,
+      "nonsingular": 286,
+      "feasible": 29,
+      "max_candidate_bits": 16,
+      "max_elimination_integer_bits": 29,
+      "max_cell_inequalities": 10,
+      "status": "exact",
+      "value": "23333/63000",
+      "seconds": 0.5795555590000276,
+      "peak_traced_bytes": 15300,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 20,
+    "k": 4,
+    "m": 1,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "1/5",
+        "1/5",
+        "7/10",
+        "9/10"
+      ],
+      "probabilities": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "2/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 386,
+      "nonsingular": 286,
+      "feasible": 25,
+      "max_candidate_bits": 14,
+      "max_elimination_integer_bits": 32,
+      "max_cell_inequalities": 10,
+      "status": "exact",
+      "value": "311/1000",
+      "seconds": 0.5605971820000377,
+      "peak_traced_bytes": 15044,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 21,
+    "k": 4,
+    "m": 2,
+    "delta": "0",
+    "model": {
+      "caps": [
+        "1/5",
+        "2/5",
+        "4/5",
+        "4/5"
+      ],
+      "probabilities": [
+        "1/8",
+        "1/8",
+        "3/8",
+        "3/8"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "27/50",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 5,
+      "cells_completed": 4,
+      "infeasible_completed_cells": 0,
+      "systems": 5000,
+      "nonsingular": 3281,
+      "feasible": 119,
+      "max_candidate_bits": 16,
+      "max_elimination_integer_bits": 61,
+      "max_cell_inequalities": 12,
+      "status": "system_limit",
+      "value": "47067/70000",
+      "seconds": 10.989583347999996,
+      "peak_traced_bytes": 281768,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 22,
+    "k": 4,
+    "m": 2,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/2"
+      ],
+      "probabilities": [
+        "1/5",
+        "2/5",
+        "1/5",
+        "1/5"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "26/125",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 5,
+      "cells_completed": 4,
+      "infeasible_completed_cells": 0,
+      "systems": 5000,
+      "nonsingular": 3110,
+      "feasible": 213,
+      "max_candidate_bits": 19,
+      "max_elimination_integer_bits": 53,
+      "max_cell_inequalities": 13,
+      "status": "system_limit",
+      "value": "4693/12500",
+      "seconds": 10.665983069000049,
+      "peak_traced_bytes": 27248,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 23,
+    "k": 4,
+    "m": 2,
+    "delta": "1",
+    "model": {
+      "caps": [
+        "2/5",
+        "1/2",
+        "1/2",
+        "7/10"
+      ],
+      "probabilities": [
+        "2/7",
+        "3/7",
+        "1/7",
+        "1/7"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "2/5",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 5,
+      "cells_completed": 4,
+      "infeasible_completed_cells": 0,
+      "systems": 5000,
+      "nonsingular": 3290,
+      "feasible": 292,
+      "max_candidate_bits": 19,
+      "max_elimination_integer_bits": 46,
+      "max_cell_inequalities": 12,
+      "status": "system_limit",
+      "value": "707/1000",
+      "seconds": 10.80287567399995,
+      "peak_traced_bytes": 26968,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  },
+  {
+    "case": 24,
+    "k": 5,
+    "m": 1,
+    "delta": "1/8",
+    "model": {
+      "caps": [
+        "3/10",
+        "3/10",
+        "1/2",
+        "4/5",
+        "9/10"
+      ],
+      "probabilities": [
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5"
+      ],
+      "gamma": [
+        "1",
+        "2",
+        "3",
+        "1",
+        "2"
+      ],
+      "r": "2",
+      "q": "1"
+    },
+    "promise": "56/125",
+    "price": [
+      "0",
+      "1/50",
+      "1/200"
+    ],
+    "face": {
+      "cells_started": 1,
+      "cells_completed": 1,
+      "infeasible_completed_cells": 0,
+      "systems": 1586,
+      "nonsingular": 989,
+      "feasible": 77,
+      "max_candidate_bits": 16,
+      "max_elimination_integer_bits": 56,
+      "max_cell_inequalities": 12,
+      "status": "exact",
+      "value": "70693/137500",
+      "seconds": 3.959235828999965,
+      "peak_traced_bytes": 19424,
+      "process_peak_rss_kib": 273288,
+      "system_limit": 5000,
+      "infeasible_cell_fraction": 0.0
+    },
+    "independent_minlp": {
+      "status": "not_run",
+      "reason": "outside_declared_six_case_crosscheck"
+    }
+  }
+]

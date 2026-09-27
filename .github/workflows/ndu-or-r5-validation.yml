@@ -1,0 +1,23 @@
+name: NDU OR R5 revision validation
+on:
+  push:
+    branches: [revision/ndu-operations-research-r5-20260920]
+    paths: ['.github/workflows/ndu-or-r5-validation.yml', 'revisions/or-r5-20260920/**', 'main.tex', 'electronic_companion.tex']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  baseline:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r5-20260920'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Export the exact reviewed scientific baseline
+        run: git archive --format=tar.gz --output=ndu-r5-reviewed-baseline.tar.gz e7e04eb45b190fe1ab0c3bf86502948a6101f1b7
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ndu-r5-reviewed-baseline
+          path: ndu-r5-reviewed-baseline.tar.gz
+          retention-days: 7

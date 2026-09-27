@@ -1,0 +1,23 @@
+{
+  "revision": "R16",
+  "source_parent": "5755f89d4ea302d7a9f4797258e2911cadf3f3ce",
+  "review": "d4b3d13fc3798ef4f474fe4e4cdf0e66b8910462",
+  "original_plan": "revisions/or-r15-20260922/EXPERIMENT_PLAN.json",
+  "failed_run": 35700371505,
+  "observed_before_amendment": "The frozen R15 run failed during cohort 15016 at OSQP's 50000-iteration limit. Five completed cohort summaries and the failure log were inspected. No claim that all R16 work preceded inspection of R15 results is made.",
+  "numerical_change": "Copy the frozen R15 executable sources to the R16 directory, rename revision labels only, and increase the same OSQP iteration ceiling from 50000 to 500000. Keep absolute and relative solver tolerances at 1e-9, all exact audit tolerances, random seeds, samples, model classes, feature width, regularization, loss weights, endpoints, and inference units unchanged.",
+  "execution_rule": "Rerun all eight training/deployment pairs from scratch. Do not omit or replace a seed, context, method, unfavorable observation, or solver failure. Charge actual solve and fallback cost. A further failure must be documented rather than bypassed silently.",
+  "star_rule": "Execute the already frozen four-seed star reassessment with all four declared strata and all original baselines. Treat primitive perturbations as out-of-distribution stress tests, not calibrated operational data.",
+  "validation_scope": "Completion of the frozen R15 design under a disclosed numerical amendment; not external preregistration. R14 finite-sample confirmation remains held-out internal validation. Exact rational certificate replay is independent of the numerical solver.",
+  "source_sha256": {
+    "study.py": "ab08a79c667a4c2af9b0a48d0a665469973aaa93b36bb39c362bdc6c89d92e8b",
+    "star_reassessment.py": "f0326745f3360fcfab9eb50de4f8064e4a211231051a53d8c160454028151db0",
+    "structural_tests.py": "41a9c7dfe2f7a7fd523fec213050e4161dae427de84e74cd8519df930976b6c6",
+    "osqp_bridge.c": "0da109005910ae29995ca3c2b538d76f7800e57cc2210ea9f9a4f0184fe71281",
+    "exact.py": "194dc2cd716141c30761f1cb502a336e3bba5f37ba8db58c5214c32261e46dfd",
+    "qp.py": "8f28c25d557dd4e41c105bdda7eba59439237f43d031b1f8e9cc650c7a687c85",
+    "surrogates.py": "2d766be23e58af97cccba20ec0f725c267f865876127d2e826d1272e9d22fc32",
+    "multiresource.py": "c8b3d4220a834fe2b8bb7784940166e4f48f02be7d668fb84944496ef7cebc3b",
+    "verify.py": "73f85d36efe7f4f86603d6c7b3b497c63b5075359ac29e59c93341293ed5c629"
+  }
+}

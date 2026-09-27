@@ -1,0 +1,131 @@
+{
+  "status": "PASS",
+  "scientific_source_commit": "1aad270af100736a17ce13138109404dd4a52cfb",
+  "workflow_trigger_commit": "56805bc64d2a4e6b95565a6bdff4ef646651b7d9",
+  "base_commit": "38b3f264e371758054d94a9f94088ae17a816241",
+  "review_commit": "a017f474619e86be533547acac87a3c8354f64cf",
+  "abstract_words": 190,
+  "python": "3.12.14",
+  "runner": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "documents": {
+    "main": {
+      "pages": 36,
+      "sha256": "dde35743233f2f6e57d6509bafc7c6c1afa8174d47bf83ce4a5eb6597db1e5bc",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    },
+    "electronic_companion": {
+      "pages": 17,
+      "sha256": "07a88a5be1ea16df240d84dea9ca7132661906af562ef6a26edab393009ea60b",
+      "undefined_references_or_citations": 0,
+      "overfull_boxes": 0
+    }
+  },
+  "new_exact_verification": {
+    "status": "PASS",
+    "cases": 51,
+    "counts": {
+      "exhaustive_codebook_candidates": 1932,
+      "frontier_equalities": 446,
+      "controller_replays": 255,
+      "off_anchor_grid_comparisons": 1073,
+      "direct_moment_equalities": 1346,
+      "invalid_inputs_rejected": 10
+    },
+    "source_sha256": {
+      "randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
+      "verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578"
+    }
+  },
+  "inherited_exact_verification": {
+    "status": "PASS",
+    "base_commit": "38b3f264e371758054d94a9f94088ae17a816241",
+    "unchanged_script_sha256": {
+      "exact_compiler.py": "eded5ff0f3ea22a0a729947b8a9ec83305156a147cfca699d79e40d4cfd22a2d",
+      "verify.py": "1da61e188983de45b8c1300f6e423537205579d69007e30ab00a811394aac3e0"
+    },
+    "rerun": {
+      "status": "PASS",
+      "arithmetic": "fractions.Fraction; no numerical tolerances",
+      "random_seed": 20260923,
+      "piecewise_dag_instances": 24,
+      "local_optimality_checks": 4170,
+      "whole_graph_circuit_checks": 834,
+      "primal_dual_certificates": 836,
+      "circuit_inversions": 834,
+      "parametric_active_set_reference": [
+        {
+          "instance": 0,
+          "active_sets_attempted": 130,
+          "valid_kkt_regions": 5,
+          "open_cells_compared": 5,
+          "full_path_equal": true
+        },
+        {
+          "instance": 1,
+          "active_sets_attempted": 130,
+          "valid_kkt_regions": 3,
+          "open_cells_compared": 3,
+          "full_path_equal": true
+        },
+        {
+          "instance": 2,
+          "active_sets_attempted": 130,
+          "valid_kkt_regions": 4,
+          "open_cells_compared": 4,
+          "full_path_equal": true
+        },
+        {
+          "instance": 3,
+          "active_sets_attempted": 130,
+          "valid_kkt_regions": 5,
+          "open_cells_compared": 5,
+          "full_path_equal": true
+        }
+      ],
+      "chain_sizes": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "deterministic_two_symbol_loss": "1/8",
+      "randomized_two_symbol_loss": "1/96",
+      "runtime_seconds": 1.270687290000005,
+      "limitations": [
+        "Synthetic exact verification, not service data.",
+        "Active-set reference is exponential, not published solver software.",
+        "Timing is descriptive and environment-dependent."
+      ]
+    },
+    "note": "Executed from a temporary directory; inherited evidence files were not overwritten."
+  },
+  "source_sha256": {
+    "main.tex": "979c9d63d525b90f1c48bbb589f25042becb9afcaee27fe1dc4e803e4a4bfcbe",
+    "electronic_companion.tex": "2f9fad195c6ce123ce0138a8a59210f37f515fc10b0bf6a81eb754ae5b1169cc",
+    "revisions/or-r34-global-randomized-frontier-20260923/global_frontier.tex": "8943e65d30d8639c6e8235110e2b0c1cc47937c5a15742607991579e58c72f95",
+    "revisions/or-r34-global-randomized-frontier-20260923/introduction.tex": "8d8c1b6bed4e2594ed5300875a862c0dd28c9626d9d261a771bfa2954c257e59",
+    "revisions/or-r34-global-randomized-frontier-20260923/evidence.tex": "57281375399158c20096904f62dfbc836a919668c73ee21086abd37ecddbb9bb",
+    "revisions/or-r34-global-randomized-frontier-20260923/evidence_table.tex": "d27733dd30e82e74642651cb29b8b78316ea2ccb94269c0056403f67f31e3d03",
+    "revisions/or-r34-global-randomized-frontier-20260923/companion_addendum.tex": "329a3e4370f0d09809f024523f4ca0671c40a4daca25c092b5985a6444098d0c",
+    "revisions/or-r34-global-randomized-frontier-20260923/randomized_frontier.py": "c51e32ef5da985adeafd05fc05dfc977962ea3db6b5b2f9b7f5c418b88a30990",
+    "revisions/or-r34-global-randomized-frontier-20260923/verify.py": "2ee286e1b1e56b44832d7e86dfa566455461c087c33b30e07238bcda8f5ae578",
+    "revisions/or-r34-global-randomized-frontier-20260923/reproduce_inherited.py": "9d2a1abbf42593a8f531285a78ca7e56765f58e3a45c6f46c1f90e1720653c72",
+    "revisions/or-r34-global-randomized-frontier-20260923/build_validate.py": "20ebefcf0164d96031190a2890b77de5ea58765b30125934dc00dd9760cb5aff"
+  },
+  "preserved_reader_files": 35,
+  "preserved_predecessor_wrappers": 4,
+  "submission_category": "Lengthy Manuscript; no journal submission performed",
+  "format": {
+    "font_points": 11,
+    "line_spacing": 1.5,
+    "margins_inches": 1,
+    "tables_after_references": true,
+    "main_all_pages_at_most_40": true,
+    "companion_not_longer_than_main": true
+  },
+  "note": "A clean build and exact tests do not certify referee acceptance, empirical calibration, or exhaustive literature priority."
+}

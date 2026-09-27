@@ -1,0 +1,80 @@
+\section{Continuous contract reconfiguration and learned value gradients}\label{sec:operationalcontinuous}
+The same operating primitives yield a continuous-review model in which contract persistence affects a genuine control problem. Let the demand regime be a continuous-time Markov chain with generator $Q$, and let the installed tier evolve as $\dot q_s=v_s$, $|v_s|\leq\bar v$. At $q=0$ only $v\geq0$ is admissible; at $q=1$ only $v\leq0$ is admissible. There is no exit payoff or reflected diffusion in this model. The operating reward rate is
+\[
+ R_z(q)=r_zq-mq^2+U_z(q),
+ \qquad \mathcal W(t,z,q)=\sup_v\E\int_t^T
+ e^{-\rho(s-t)}\{R_{z_s}(q_s)-\lambda v_s^2\}\,ds.
+\]
+Stock is selected by \eqref{eq:stock} at the current installed tier. Finite-stock demand primitives make $R$ a piecewise-quadratic, generally nonsmooth function. The value is unknown; it is not chosen and then used to manufacture the reward. An optional customer commitment can be dualized by replacing $R$ with the similarly reduced reward $g+\mu f+\eta u-\chi C$. The numerical learning experiment uses the provider relaxation, separately from the exact accepted-contract comparison above.
+
+\begin{proposition}[A locally consistent continuous-review embedding]\label{prop:embedding}
+Consider review intervals $\Delta$, allowed changes $\theta=q+v\Delta$, transition $I+Q\Delta$, discount $e^{-\rho\Delta}$, operating reward $\Delta[r_z\theta-C_z(S)-\kappa\theta L_z(S)-m\theta^2]$, and adjustment cost $\lambda(\theta-q)^2/\Delta$. For a bounded test function smooth in time and $q$, the one-step dynamic programming operator, after subtracting the test function and dividing by $\Delta$, converges to
+\begin{equation}\label{eq:operationalhjb}
+ w_t+R_z(q)+(Qw)_z-\rho w+
+ \sup_{v\in A(q)}\{v w_q-\lambda v^2\},
+\end{equation}
+where $A(q)$ is the inward velocity interval. For tests with bounded required second derivatives, the local consistency error is $O(\Delta)$.
+\end{proposition}
+\begin{proof}
+On each review, $\lambda(\theta-q)^2/\Delta=\lambda v^2\Delta$. Taylor expand $w(t+\Delta,z',q+v\Delta)$ and $e^{-\rho\Delta}$, and use $I+Q\Delta$. Products of regime changes and $q$ changes are of order $\Delta^2$. The operating reward at $q+v\Delta$ differs from that at $q$ by $O(\Delta)$ before multiplication by $\Delta$, since the compact-menu reward is uniformly Lipschitz in its tier. The remainder is uniform over the compact velocity set, so taking the maximum preserves convergence.\end{proof}
+This is an explicit flow-rate embedding with a rescaled adjustment coefficient and bounded revision speed. It is not a claim that sending the period length to zero in the unscaled eight-period model leaves its economic units unchanged. The connection is through the same premium, demand, liability, stock, and maintenance primitives.
+
+In the interior, the optimal instantaneous velocity for a smooth value is
+\begin{equation}\label{eq:gradientactor}
+ v^*(t,z,q)=\operatorname{proj}_{[-\bar v,\bar v]}
+                    \frac{\mathcal W_q(t,z,q)}{2\lambda}.
+\end{equation}
+At the endpoints the projection uses $A(q)$. This makes a learned derivative operational: a small value error need not give a small revision-speed error. A scalar critic $w_\varphi$ supplies the compatible derivative $\partial_qw_\varphi$ rather than an independently fitted vector field.
+
+\subsection{Verification and discrete certification}
+\begin{theorem}[Verification for the confined switching model]\label{thm:jumpcertificate}
+Assume bounded rewards, a finite-state generator, compact velocities, well-posed admissible confined trajectories, and measurable arbitrarily accurate Hamiltonian selectors. Let each $w_z$ be $C^1$ in $(t,q)$ with bounded derivatives. Suppose the absolute residual in \eqref{eq:operationalhjb} is at most $\delta_H$ everywhere, terminal error is at most $\delta_T$, and an admissible actor loses at most $\delta_A$ in the velocity Hamiltonian. Then
+\[
+ |w-\mathcal W|\leq\delta_T+H_\rho\delta_H,
+ \qquad
+ 0\leq\mathcal W-\mathcal W^{A}\leq
+ 2\delta_T+H_\rho(2\delta_H+\delta_A),
+\]
+where $H_\rho=\int_t^T e^{-\rho(s-t)}ds$.
+\end{theorem}
+\begin{proof}
+Apply the discounted chain rule with the compensated regime-jump martingale to $w(s,z_s,q_s)$. Its drift is $w_t+v w_q+Qw-\rho w$. Boundedness gives integrability. The upper residual inequality bounds every policy; an arbitrarily accurate maximizing selector gives the reverse value inequality. For the specified actor charge its Hamiltonian gap as well. Add the two critic comparisons for the policy bound. The process remains in $[0,1]$ and has no boundary local-time or stopping payoff; the inward restriction is part of the maximization, including at endpoints.\end{proof}
+The stopped Dirichlet theorem, controlled-diffusion Hessian term, lateral-boundary defects, and singular-volatility examples from the earlier development are retained in the Electronic Companion (EC). They concern a different boundary mechanism. The present theorem does not remove lateral errors from a stopped problem.
+
+For computation use $q_i=ih$ and $\Delta=T/N_t$ satisfying
+$\Delta(\bar v/h+\max_z(-Q_{zz}))\leq1$. A positive speed moves to $i+1$ with probability $\Delta v/h$, a negative speed to $i-1$ with probability $-\Delta v/h$, and a regime jump to $z'\ne z$ with probability $\Delta Q_{zz'}$. Remaining probability stays put. At endpoints impose inward speeds. With $d=e^{-\rho\Delta}$, its exact Bellman operator is
+\begin{equation}\label{eq:chain}
+ (\mathcal T_h W)_{z,i}=\Delta R_z(q_i)+d\{W_{z,i}+\Delta(QW)_{z,i}\}
+ +\Delta\max_{v\in A(q_i)}
+ \{d[v^+D^+W+v^-D^-W]-\lambda v^2\},
+\end{equation}
+where $v^+=\max(v,0)$ and $v^-=\min(v,0)$. Optimize each sign branch as a scalar quadratic and compare them. These are exact continuous-speed maximizations for a specified finite-state Markov chain. For a smooth test function the upwind spatial truncation is generally $O(h)$ and the temporal truncation $O(\Delta)$; neither vanishes merely because the original manufactured test was quadratic and time independent. The grid refinement below is an observed convergence study, not a proved continuum error rate for this nonsmooth value.
+
+\begin{proposition}[A complete finite-chain learned-policy budget]\label{prop:chaincertificate}
+Let $w_{N_t}=0$, $e_k=\|w_k-\mathcal T_hw_{k+1}\|_\infty$, and
+$a_k=\|\mathcal T_hw_{k+1}-\mathcal T_h^{A_k}w_{k+1}\|_\infty$.
+The actor's initial loss against the exact chain optimum is at most
+\begin{equation}\label{eq:chainbound}
+ \sum_{k=0}^{N_t-1} d^k(2e_k+a_k).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Both Bellman and fixed-actor operators are monotone $d$-contractions in sup norm because their continuation coefficients are transition probabilities. Backward induction gives a critic-to-optimum error of at most $\sum d^k e_k$ and a critic-to-actor error of at most $\sum d^k(e_k+a_k)$. Add them.\end{proof}
+Every maximum in this certificate is over the complete finite chain, not a sampled loss. The exact formula is a chain statement; its floating-point evaluation is reported as a numerical budget, not an interval-arithmetic enclosure. Applying Theorem~\ref{thm:jumpcertificate} to the continuum would additionally require uniform residual bounds between validation points. A refinement difference does not provide those bounds.
+
+\subsection{A genuine training problem}
+We train the scalar architecture
+\[
+ w_\varphi(t,z,q)=8(1-t/8)\,
+ \operatorname{MLP}_\varphi(t/8,q,\operatorname{onehot}(z)),
+\]
+with widths $5$--$32$--$32$--$1$ and two hyperbolic-tangent layers, totaling 1,281 trainable parameters. The terminal value is exactly zero by construction. The teacher is the nonmanufactured inventory-contract problem on a 160-interval, 803-step chain. Values and centered-difference derivative labels are interpolated at 2,048 independent time--tier--regime draws for each of seeds 17 and 29. Both methods use the same draws, initial weights, minibatch sequence, and 6,000 Adam steps. Learning rates are $0.003$, multiplied by $0.35$ at steps 3,000 and 5,000. The objectives are
+\[
+ \mathcal L_0=\frac1N\sum_j(w_\varphi(x_j)-Y_j)^2,
+ \qquad
+ \mathcal L_1=\mathcal L_0+
+ \frac{0.1}{N}\sum_j(\partial_qw_\varphi(x_j)-G_j)^2.
+\]
+Derivative-informed training is an established method \citep{Czarnecki2017}; here its role is to train the derivative entering the contractual revision decision. The second loss uses additional derivative information, not an equivalent reparameterization of identical targets. The gradient labels are numerical teacher estimates, not exact continuum derivatives.
+
+Deployment uses the projected derivative actor, with the one-step discount factor appropriate to \eqref{eq:chain}. We evaluate on a separate 80-interval, 403-step chain and compute both its Bellman reference and the entire actor value recursion. In addition to realized chain losses, we evaluate \eqref{eq:chainbound} at all 98,172 time--state points, reporting its deliberately distinct worst-case budget. This is actual optimization of randomly initialized networks, rather than a hinge compilation. The constructive cubic-ReLU result remains useful as a different, deterministic approximation theorem. The learning experiment establishes an operational use of compatible gradients on these instances, not superiority over exact dynamic programming or a new general neural convergence theorem.

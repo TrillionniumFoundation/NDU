@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "tests": {
+    "inherited": {
+      "instances": 35,
+      "full_curve_and_value_equality": true,
+      "independent_full_curve_audit": true,
+      "checker_count_field_sum": 147157
+    },
+    "independent_laminar": {
+      "instances": 40,
+      "exact_value_equality": true,
+      "expanded_behavior_pair_checks": 202
+    },
+    "strict_automaton_reduction": {
+      "minimal_symbols": 1,
+      "max_raw_states_at_vertex": 2,
+      "writable_bits": 0
+    },
+    "heterogeneous_frontier": {
+      "arbitrary_partition_checks": 2308,
+      "probabilities": "unequal positive",
+      "rewards": [
+        "quadratic",
+        "strictly increasing piecewise concave"
+      ],
+      "costs": [
+        "heterogeneous quadratic",
+        "heterogeneous cubic"
+      ]
+    },
+    "retained_eight_branch_frontier": {
+      "1": "119/162",
+      "2": "5/18",
+      "3": "49/324",
+      "4": "7/81",
+      "5": "13/216",
+      "6": "1/27",
+      "7": "11/648",
+      "8": "0"
+    },
+    "dispersion": {
+      "exact_strict_inequalities": 84,
+      "mean_payment": "1/2"
+    },
+    "corridor_normals": {
+      "feasible_anchors": 150,
+      "tied_normal_occurrences": 96,
+      "exact_support_inequalities": 1185,
+      "splits": [
+        "physical first",
+        "corridor first",
+        "equal split"
+      ],
+      "fixed_and_zero_width_intersections": true
+    },
+    "promise_grid": {
+      "exact_feasible_replays": 9,
+      "nested_grid_values_nondecreasing": true
+    },
+    "rejections": {
+      "deliberate_invalid_cases": 7
+    },
+    "laminar_polymatroid": {
+      "examples": 9,
+      "exact_rank_identities": 576,
+      "submodular_inequalities": 36864,
+      "feasible_base_allocations": 533,
+      "scope": "finite integer checks, not the continuous proof"
+    }
+  },
+  "elapsed_seconds": 15.244773436999822
+}

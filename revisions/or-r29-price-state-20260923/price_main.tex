@@ -1,0 +1,81 @@
+\section{Finite Continuation Prices on a Recombining Graph}\label{sec:price}
+We now give a constructive result, rather than recover a recursive certificate from an already solved scenario tree. Consider a finite acyclic public graph $\mathcal G=(\mathcal V,\mathcal E)$ with one root, $N=|\mathcal V|$ reachable vertices, and $M=|\mathcal E|$ edges. A vertex includes the date, regime, and any predeclared public memory. At a nonterminal vertex, $p_{vw}>0$ sums to one over its successors. The graph is an input description; its unfolding may have exponentially many histories. Discounting is $0<\beta\leq1$.
+
+At an occurrence of vertex $v$, the provider chooses a continuous tier in $[l_v,h_v]\subseteq[0,1]$, earns
+\begin{equation}\label{eq:price-local}
+ g_v(x)=r_vx-\tfrac12 q_vx^2,\qquad q_v>0,
+\end{equation}
+and incurs payment $a_vx$, where $a_v>0$. Every occurrence must satisfy the conditional continuation cap $B_v$; the root payment is exactly $b_0$. These caps need not be slack. The specialization excludes intertemporal switching costs and other constraints coupling the current action to future actions except through the additive payment. It retains continuous decisions, heterogeneous rewards and payments, discounting, nonstationary Markov transitions, and binding participation at every review. The general switching model of Section~\ref{sec:model} remains in the paper; Appendix~\ref{sec:recursion} treats it with the inherited tier and remaining promise.
+
+For a price $\eta\in\R$, let $H_v(\eta)$ be the optimal conditional reward minus $\eta$ times the total conditional payment, subject to all caps in the subtree starting at $v$. Let $R_v(\eta)$ be the payment of that optimizer. A root equality price can be negative. The local tier response and the payment before imposing the current cap are
+\begin{equation}\label{eq:raw-response}
+ x_v(\eta)=\left[\frac{r_v-a_v\eta}{q_v}\right]_{l_v}^{h_v},\qquad
+ d_v(\eta)=a_vx_v(\eta)+\beta\sum_{w}p_{vw}R_w(\eta),
+\end{equation}
+where $[y]_l^h=\max(l,\min(h,y))$ and an empty successor sum is zero. The feasible payment interval is computed backward:
+\begin{equation}\label{eq:price-domain}
+ L_v=a_vl_v+\beta\sum_wp_{vw}L_w,\qquad
+ U_v=\min\{B_v,a_vh_v+\beta\sum_wp_{vw}U_w\}.
+\end{equation}
+An infeasible successor, $L_v>U_v$, or $b_0\notin[L_0,U_0]$ is reported as infeasibility. No grid projection changes the promise.
+
+\begin{theorem}[Finite-price construction]\label{thm:finite-price}
+Under the preceding assumptions, on every feasible subtree,
+\begin{equation}\label{eq:response-identity}
+ R_v(\eta)=\min\{B_v,d_v(\eta)\}.
+\end{equation}
+If $B_v\geq d_v(-\infty)$, set $\alpha_v=-\infty$. Otherwise, let $\alpha_v$ be the leftmost finite solution of $d_v(\alpha_v)=B_v$. The optimizer at incoming price $\eta$ selects $x_v(s_v)$ and sends price $s_v$ to every successor, where
+\begin{equation}\label{eq:reflection}
+ s_v=\max(\eta,\alpha_v),\qquad \chi_v=s_v-\eta\geq0.
+\end{equation}
+Each response is continuous, nonincreasing, and piecewise affine, with constant outer tails. Every response breakpoint belongs to
+\begin{equation}\label{eq:alphabet-knots}
+ \mathcal B=\left\{\frac{r_v-q_vh_v}{a_v},
+ \frac{r_v-q_vl_v}{a_v}:v\in\mathcal V\right\}
+ \cup\{\alpha_v:\alpha_v> -\infty\},\qquad |\mathcal B|\leq3N.
+\end{equation}
+Consequently all responses can be constructed exactly from the graph in
+$O((N+M)N\log(N+1))$ arithmetic operations and comparisons, storing $O(N^2+M)$ coefficient and graph entries. Coefficients are rational when the primitives are rational. These are arithmetic, not unit-cost bit-complexity, bounds.
+
+Choose any finite $\eta_0$ with $R_0(\eta_0)=b_0$. The resulting policy is optimal for the exact root promise. Along a realized history its effective price is the running maximum of $\eta_0$ and the barriers encountered so far. Thus an optimal contract uses at most $N+1$ price labels and $N(N+1)$ public-vertex/incoming-price pairs. Neither the construction nor this policy graph requires an unfolded scenario tree or a full-tree primal--dual solution.
+\end{theorem}
+
+\begin{proof}
+For a finite unfolding, the feasible tier set is compact and convex. Its quadratic reward is strictly concave on every nonfixed coordinate, so the optimizer is unique. All intermediate payments in \eqref{eq:price-domain} are attainable by convex mixing; induction proves the interval formula.
+
+Assume the response assertion holds at the successors. Omit only the current cap. At a given $\eta$, the local tier and successor subproblems separate, giving \eqref{eq:raw-response}. If its payment is at most $B_v$, this optimizer is feasible and no current multiplier is needed. Otherwise increase its price to $s=\alpha_v$ so that its payment is $B_v$. Such a finite crossing exists because $B_v\geq L_v$ and the lower tail is constant. The policy optimal for the problem without the current cap at price $s$ is also optimal with that cap at price $\eta$: for every feasible policy with reward $G$ and payment $P$,
+\[
+ G-\eta P=(G-sP)+(s-\eta)P
+ \leq H_v^{\rm uncapped}(s)+(s-\eta)B_v.
+\]
+The constructed policy attains equality. This proves both \eqref{eq:response-identity} and \eqref{eq:reflection}; it also proves complementarity $\chi_v(B_v-R_v(\eta))=0$. A plateau creates no difficulty: the stated leftmost crossing or any price on an equality plateau implements the same unique policy. If the entire response is constant, the cap is redundant whenever the subtree is feasible.
+
+A local clipped affine payment has at most two breakpoints. Taking a weighted sum introduces no breakpoint outside the union of the summands' breakpoints. Truncating a continuous nonincreasing piecewise-affine function from above removes some breakpoints and introduces at most its one crossing with the cap. Induction in reverse topological order proves \eqref{eq:alphabet-knots}. This argument concerns the \emph{union over graph vertices}, not a separate union over histories. At each vertex, merge sorted child and local breakpoint lists, add their affine coefficients, and locate the cap crossing by an interval scan. With at most $3N$ retained breakpoints per list, the displayed conservative arithmetic bound follows. Store the coefficient lists and graph adjacency; no ancestor-indexed price data are an input.
+
+The continuous response takes every value in its feasible interval, including its constant tails. Root inversion therefore supplies a finite $\eta_0$. For any policy with payment $b_0$, optimizing reward minus $\eta_0$ times payment is equivalent to optimizing reward. The backward construction is hence optimal for the root equality. Repeated application of \eqref{eq:reflection} gives the running maximum. Its incoming value belongs to $\{\eta_0\}\cup\{\alpha_v> -\infty\}$, proving the finite-label bound. Forward propagation on these pairs computes discounted occupation weights, rewards, and all conditional obligations without unfolding histories.
+\end{proof}
+
+\paragraph{What makes this a compression theorem.}
+The bound is relative to the supplied public graph, not to an unbounded family of history augmentations. Arbitrarily enlarging public memory can enlarge $N$; the theorem instead constructs its own bounded price record on that fixed graph. The theorem generates its own thresholds before solving the root query. Each cap contributes at most one threshold because scalar prices are ordered and payment responses are monotone. The resulting finite union bounds both exact response storage and the history information retained by the optimizer. In contrast, the general shared-table representation in Appendix~\ref{sec:bridge} may reconstruct arbitrarily many supporting planes from extensive-form multipliers. We call that earlier statement \emph{extensive-form-dual representability}; no discovery bound is attached to it. The finite-price theorem does not claim that Benders cuts are new, or that generic multistage convex programs enjoy this bound.
+
+\begin{corollary}[Several service coordinates under one commitment]\label{cor:vector-tiers}
+At vertex $v$, replace the scalar tier by $d_v^{\rm act}$ coordinates, a product interval, reward $\sum_i(r_{vi}x_i-q_{vi}x_i^2/2)$, and the scalar payment $\sum_i a_{vi}x_i$, with $q_{vi},a_{vi}>0$. Let $D=\sum_vd_v^{\rm act}$. Theorem~\ref{thm:finite-price} holds with at most $2D+N$ global response breakpoints, at most $N+1$ price labels, and $O(N(2D+N)+M)$ coefficient/graph storage. A weighted sum of the coordinate clipped responses replaces the first term in \eqref{eq:raw-response}.
+\end{corollary}
+\begin{proof}
+The local Lagrangian separates by service coordinate and has at most $2d_v^{\rm act}$ tier knots. The scalar cap still adds at most one threshold. Every remaining step of the preceding proof is unchanged.
+\end{proof}
+Several \emph{independent} commitments with separable feasible sets can be solved coordinate by coordinate. Coupled vector promises, dense intertemporal quadratic terms, or switching frictions do not inherit the ordered scalar reflection. Their retained promise-state formulation remains valid, but no finite-price complexity claim is made for them.
+
+\subsection{A compact exact optimality certificate}\label{sec:price-certificate}
+The construction also makes the optimality claim independently checkable. For a reached pair $(v,\eta)$, record its discounted occupation weight $w$, incoming and effective prices, action $x$, cap multiplier $\chi$, and nonnegative lower/upper interval multipliers $\ell,u$ satisfying
+\begin{equation}\label{eq:price-kkt}
+ r_v-q_vx-a_vs+\ell-u=0,\quad
+ \ell(x-l_v)=u(h_v-x)=\chi(B_v-R_v(\eta))=0.
+\end{equation}
+Check the conditional payment identity and propagate weight $\beta wp_{vw}$ to each child with incoming price $s$. The scalar
+\begin{equation}\label{eq:price-dual}
+ \eta_0b_0+\sum_{(v,\eta)}w\left[
+ \chi B_v+u h_v-\ell l_v+
+ \frac{(r_v-a_vs+\ell-u)^2}{2q_v}\right]
+\end{equation}
+is an extensive-form dual upper bound represented on the compact policy graph. Indeed, price propagation collects precisely the normalized ancestor cap multipliers on each payment coefficient; maximizing each unconstrained quadratic gives its squared term. With \eqref{eq:price-kkt} and feasible promised payments, this bound equals the implemented reward. This certifies the exact \emph{system-level} value; an error allowance is not multiplied by the number of replicated components.

@@ -1,0 +1,108 @@
+{
+  "id": "group2-0",
+  "family": "group-sum",
+  "seed": 595020,
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:0/1",
+        "hex:1/3",
+        "hex:1/2",
+        "hex:2/3",
+        "hex:49/5a"
+      ],
+      "weights": [
+        "hex:1/5",
+        "hex:1/5",
+        "hex:1/5",
+        "hex:1/5",
+        "hex:1/5"
+      ],
+      "gamma": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "ceilings": [
+        "hex:0/1",
+        "hex:1/3",
+        "hex:1/2",
+        "hex:2/3",
+        "hex:49/5a"
+      ],
+      "reward_r": [
+        "hex:1/1",
+        "hex:1/1",
+        "hex:1/1",
+        "hex:1/1",
+        "hex:1/1"
+      ],
+      "reward_q": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/3",
+      "hex:11/2d",
+      "hex:15/32",
+      "hex:1/2",
+      "hex:2/3",
+      "hex:139/1c2",
+      "hex:151/1c2",
+      "hex:49/5a"
+    ],
+    "charges": [
+      "hex:0/1",
+      "hex:0/1",
+      "hex:1/e1",
+      "hex:d/5dc",
+      "hex:1/3c",
+      "hex:0/1",
+      "hex:d/1194",
+      "hex:25/1194",
+      "hex:d/384"
+    ],
+    "promise": "hex:137/2ee",
+    "budget": 5
+  },
+  "epsilon": "hex:0/1",
+  "groups": [
+    [
+      20,
+      39,
+      75
+    ],
+    [
+      13,
+      37,
+      65
+    ]
+  ],
+  "target": 33,
+  "structured_exact_value": "hex:263/5dc",
+  "metadata": {
+    "k": 5,
+    "N": 9,
+    "m": 5,
+    "q_b": 5,
+    "joint_types": 5,
+    "min_weight": "hex:1/5",
+    "max_weight": "hex:1/5",
+    "weight_denominator_bits": 3,
+    "promise_fraction": "hex:3a5/410",
+    "deficit": "hex:6b/8ca",
+    "centered_K": "hex:1/2",
+    "grid_Q": null,
+    "lattice_D": "2250",
+    "lattice_D_bits": 12
+  },
+  "total_seconds": 3.0,
+  "optimization_cutoff_seconds": 1.8
+}

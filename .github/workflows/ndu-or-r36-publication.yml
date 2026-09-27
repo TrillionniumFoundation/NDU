@@ -1,0 +1,131 @@
+name: NDU R36 linear frontier and reader build
+on:
+  push:
+    branches: [revision/ndu-operations-research-r36-linear-frontier-20260924]
+    paths:
+      - '.github/workflows/ndu-or-r36-publication.yml'
+      - '.r36-transport/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ndu-or-r36-publication
+  cancel-in-progress: false
+env:
+  REVISION_BRANCH: revision/ndu-operations-research-r36-linear-frontier-20260924
+  R: revisions/or-r36-linear-frontier-20260924
+  PYTHONDONTWRITEBYTECODE: '1'
+jobs:
+  revise-build-publish:
+    if: github.ref == 'refs/heads/revision/ndu-operations-research-r36-linear-frontier-20260924'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Materialize verified scientific sources and archive the exact R35 wrappers
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          python - <<'PY'
+          import base64,hashlib,json,lzma,os,subprocess
+          from pathlib import Path,PurePosixPath
+          base='7e49851cd04f0f7e015c2561b43a4e7591574e67'
+          rev=Path(os.environ['R']);transport=Path('.r36-transport')
+          ready=json.loads((transport/'READY.json').read_text())
+          assert ready['base_commit']==base and ready['files_count']==18
+          assert subprocess.check_output(['git','rev-parse',base+'^{tree}'],text=True).strip()==ready['base_tree']
+          parts=sorted(transport.glob('part*.b64'))
+          assert [p.name for p in parts]==[f'part{i:02d}.b64' for i in range(3)]
+          assert [p.name for p in parts]==[p['name'] for p in ready['parts']]
+          chunks=[]
+          for path,metadata in zip(parts,ready['parts']):
+              chunk=path.read_text()
+              # Normalize the single recorded transcription error, then verify the original source hash.
+              if path.name=='part01.b64' and len(chunk)==16001:
+                  assert hashlib.sha256(chunk.encode()).hexdigest()=='d9dcc5109fc93ba986c4170ec86eb599188183bb6be4f3ef5ba745b1e2c9ff62'
+                  assert chunk.count('GEc+4iBKCFejiU7HAm')==1
+                  chunk=chunk.replace('GEc+4iBKCFejiU7HAm','GEc+4iBKFejiU7HAm')
+                  path.write_text(chunk,encoding='utf-8')
+              assert len(chunk)==metadata['characters']
+              assert hashlib.sha256(chunk.encode()).hexdigest()==metadata['sha256']
+              chunks.append(chunk)
+          raw=base64.b64decode(''.join(chunks),validate=True)
+          digest=hashlib.sha256(raw).hexdigest()
+          assert digest==ready['compressed_sha256']=='5f4a6c6d82fae76371791bc48f18fd60de63031d5009ac989cd874c9e3b72c8a'
+          files=json.loads(lzma.decompress(raw))['files']
+          assert len(files)==18
+          wrappers=['main.tex','electronic_companion.tex','README.md','NDU_OR_submission_checklist.md']
+          (rev/'predecessor').mkdir(parents=True,exist_ok=True)
+          for name in wrappers:
+              (rev/'predecessor'/name).write_bytes(subprocess.check_output(['git','show',f'{base}:{name}']))
+          for name,content in files.items():
+              path=PurePosixPath(name)
+              assert not path.is_absolute() and '..' not in path.parts
+              assert name in wrappers or str(path).startswith(str(rev)+'/')
+              assert isinstance(content,str)
+              target=Path(name)
+              assert not target.is_symlink() and not any(p.is_symlink() for p in target.parents)
+              target.parent.mkdir(parents=True,exist_ok=True)
+              target.write_text(content,encoding='utf-8')
+          record={'compressed_sha256':digest,'base_commit':base,'source_files':{n:hashlib.sha256(c.encode()).hexdigest() for n,c in files.items()}}
+          (rev/'SOURCE_PAYLOAD_MANIFEST.json').write_text(json.dumps(record,indent=2)+'\n')
+          print('Verified and materialized 18 scientific source files; archived four exact predecessor wrappers.')
+          PY
+      - name: Exact tests, complete-frontier comparison, and unchanged inherited regression suites
+        run: |
+          python "$R/verify.py"
+          python "$R/benchmark.py"
+          python "$R/reproduce_inherited.py"
+          python "$R/response_reader.py"
+      - name: Commit and push scientific sources and actual evidence
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git config user.name 'NDU revision build'
+          git config user.email 'ndu-revision@users.noreply.github.com'
+          git add main.tex electronic_companion.tex README.md NDU_OR_submission_checklist.md "$R" .r36-transport
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r36): prove linear exact frontiers via ordinal staircase completion and classical SMAWK'
+            git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          fi
+      - name: Install reader-build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-extra texlive-fonts-extra texlive-fonts-recommended texlive-plain-generic texlive-science poppler-utils
+      - name: Compile readers and audit source identity, complete base tree, and layout
+        run: python "$R/build_validate.py"
+      - name: Publish validated article, electronic companion, and referee response
+        run: |
+          test "$(git branch --show-current)" = "$REVISION_BRANCH"
+          git add -f main.pdf electronic_companion.pdf r36-main-labels.aux r36-ec-labels.aux "$R/BUILD_VALIDATION.json" "$R/RESPONSE_TO_REFEREES.pdf"
+          if ! git diff --cached --quiet; then
+            git commit -m 'paper(or-r36): publish validated reader PDFs and immutable source/test/preservation record'
+            git push origin "HEAD:refs/heads/$REVISION_BRANCH"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ndu-or-r36-reader-build
+          include-hidden-files: true
+          path: |
+            main.tex
+            electronic_companion.tex
+            main.pdf
+            electronic_companion.pdf
+            README.md
+            NDU_OR_submission_checklist.md
+            r36-main-labels.aux
+            r36-ec-labels.aux
+            revisions/or-r36-linear-frontier-20260924/
+            revisions/or-r31-tightness-minimal-machine-20260923/*.tex
+            revisions/or-r32-priority-complexity-closure-20260923/*.tex
+            revisions/or-r33-piecewise-randomized-20260923/
+            revisions/or-r34-global-randomized-frontier-20260923/
+            revisions/or-r35-monge-frontier-20260923/
+            .build/ndu-r36/
+            !revisions/**/__pycache__/**
+          retention-days: 30
+          if-no-files-found: warn

@@ -1,0 +1,31 @@
+\section{When Randomization Improves a Restricted Memory Budget}\label{sec:r33-random}
+The exact-optimum lower bound in Theorem~\ref{thm:clipped} does not imply that randomization is useless below that alphabet size. The renewal family permits an explicit answer under the declared conditional-expectation participation institution. At an intermediate public branch, the controller may randomize its terminal symbol; it carries no uncharged seed or branch record. Participation is evaluated before that private draw. Terminal actions may depend only on the terminal public vertex and the retained symbol.
+
+For terminal levels $c_1<\cdots<c_s$, let $F_c$ be the linear interpolant through $(c_i,f(c_i))$. Since $f$ is concave and strictly increasing, this interpolant is concave and strictly increasing on $[c_1,c_s]$; for $s=1$ it is defined at its sole point. Retain the caps, probabilities, and convex intermediate costs of Theorem~\ref{thm:frontier}.
+
+\begin{theorem}[Optimal lotteries for a fixed terminal alphabet]\label{thm:r33-lotteries}
+For a fixed set of terminal levels, a feasible randomized controller exists if and only if $c_1\leq b_1$. Its optimum at branch $j$ has deterministic intermediate tier and terminal mean
+\[
+ \mu_j=\min\{b_j,c_s\},\qquad y_j=b_j-\mu_j.
+\]
+It randomizes over at most the two adjacent terminal levels bracketing $\mu_j$. The optimal loss with at most $m$ writable terminal symbols is consequently
+\begin{equation}\label{eq:r33-random-frontier}
+ D_m^{\rm ran}=\min_{\substack{1\leq s\leq m,\ 0\leq c_1<\cdots<c_s\leq1\\c_1\leq b_1}}
+ \sum_j\pi_j\{f(b_j)-F_c(\min\{b_j,c_s\})+h_j((b_j-c_s)_+)\}.
+\end{equation}
+The minimum allows coincident levels by deleting unused duplicates. It satisfies $D_m^{\rm ran}\leq D_m$. Equality with the full-information optimum still requires $k$ symbols when the full-information actions are distinct and rewards are strictly concave. Formula~\eqref{eq:r33-random-frontier} optimizes the encoding for each continuous codebook; it is not a claim that the joint codebook problem is solved by the deterministic segmentation recurrence.
+\end{theorem}
+\noindent The proof is in Electronic Companion Section~\ref{ec-proof-thm-r33-lotteries}.
+
+
+\begin{proposition}[A strict, exactly solved two-symbol separation]\label{prop:r33-random-gap}
+In the quadratic renewal model, take three equiprobable branches with caps $1/4,1/2,3/4$, $f(c)=2c-c^2/2$, and $h_j(y)=y^2/2$. Then
+\begin{equation}\label{eq:r33-gap}
+ D_2=\frac18,\qquad D_2^{\rm ran}=\frac1{96},\qquad D_3=D_3^{\rm ran}=0.
+\end{equation}
+Two symbols thus reduce the randomized loss to one twelfth of the best deterministic loss, without reducing the three-symbol requirement for exact implementation.
+\end{proposition}
+\noindent The proof is in Electronic Companion Section~\ref{ec-proof-prop-r33-random-gap}.
+
+
+The institutional qualification is substantive. On the middle branch, the high private draw delivers terminal payment $3/4$ against an expected-continuation cap $1/2$. The lottery is feasible when participation is checked before the private draw, as stipulated here, but not when that branch cap must hold for every private draw. We do not transfer the randomized frontier to the pathwise institution. The deterministic frontier and the exact-memory lower bound retain their original domains. This separation explains why a statement about the minimum alphabet at the exact optimum cannot settle the economic value of randomization under a smaller alphabet.

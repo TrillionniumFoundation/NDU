@@ -1,0 +1,11 @@
+\begin{table}[tbp]\centering\small
+\caption{Certified gains under joint coefficient misspecification.}\label{tab:r23-robust}
+\begin{tabular}{lrrrrr}\toprule
+Radius & Tanh mean & RBF mean & Classical mean & Lowest bound & Unsafe nominal (\%)\\\midrule
+0\% & 1.364006 & 1.366248 & 1.366353 & 0.751482 & 0.00\\
+6.25\% & 1.176079 & 1.179672 & 1.182258 & 0.616950 & 100.00\\
+12.5\% & 1.056337 & 1.061266 & 1.070484 & 0.507726 & 100.00\\
+25\% & 0.808414 & 0.815943 & 0.848251 & 0.225658 & 100.00\\
+\bottomrule\end{tabular}
+\par\smallskip\begin{minipage}{.98\textwidth}\small Each radius uses the same 96 fresh contexts. Means average pointwise lower certificates against the true, model-specific optimized time-only comparator; they are not lower confidence bounds. \emph{Lowest bound} is the minimum across all three methods and contexts. The classical rule solves the robust maximin certificate problem. Both nominal learned rules have the displayed unsafe fraction before robust response and repair; none of these unsafe diagnostics is deployed. All 1,152 protected implementations are exactly feasible throughout the specified uncertainty cube.\end{minipage}
+\end{table}
