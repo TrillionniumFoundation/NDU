@@ -1,0 +1,82 @@
+{
+  "id": "curved-19-b1",
+  "method": "price",
+  "instance_sha256": "7718c0d7b4bf9de13c56d11a61906bd67b6ae95bfeee146de54377159a582074",
+  "status": "TOLERANCE",
+  "epsilon": "hex:1/14",
+  "lower": "hex:145b03ad/3d740800",
+  "upper": "hex:6282fd/1081000",
+  "gap": "hex:42d43547/63dc8d000",
+  "seconds": 0.006237231999875803,
+  "nodes": 1,
+  "oracle_calls": 1,
+  "trace": [
+    {
+      "seconds": 0.005676743000094575,
+      "lower": "hex:145b03ad/3d740800",
+      "upper": "hex:6282fd/1081000",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.00572970199982592,
+      "lower": "hex:145b03ad/3d740800",
+      "upper": "hex:6282fd/1081000",
+      "nodes": 1,
+      "oracle_calls": 1
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-12460cf1/19e671c00",
+        "upper": "hex:9/8",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:42d43547/63dc8d000"
+  },
+  "optimization_seconds": 0.006339994999962073,
+  "setup_seconds": 0.21114397700011978,
+  "peak_rss_kib": 30412,
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate": "certificates/curved-19-b1--price.json.gz",
+  "certificate_sha256": "456ae7c37f3d4afd0a193c655c0d52845d5478bc2f20c5cfe80888fea789b6e4",
+  "proof_bytes": 2654,
+  "compressed_proof_bytes": 653,
+  "serialization_seconds": 0.0004486600000745966,
+  "max_depth": 0,
+  "tree_leaves": 1,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:145b03ad/3d740800",
+    "upper": "hex:6282fd/1081000",
+    "gap": "hex:42d43547/63dc8d000",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.005953581000085251,
+    "instance_sha256": "7718c0d7b4bf9de13c56d11a61906bd67b6ae95bfeee146de54377159a582074"
+  },
+  "verification_seconds": 0.010163349999857019,
+  "checker_peak_rss_kib": 30412,
+  "worker_seconds": 0.22830296800020733,
+  "parent_finished": true,
+  "parent_seconds": 0.25614881899991815,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "accepted_rational_interval": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

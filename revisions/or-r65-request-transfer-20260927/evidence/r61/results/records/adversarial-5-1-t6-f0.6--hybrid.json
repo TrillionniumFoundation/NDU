@@ -1,0 +1,337 @@
+{
+  "id": "adversarial-5-1-t6-f0.6",
+  "method": "hybrid",
+  "instance_sha256": "e07946da6b62881a798ce34441588bdc929fb1e99ba0a06e9164ff800d4aa717",
+  "status": "TOLERANCE",
+  "tariff_metadata": {
+    "standard_fee": "1/200",
+    "exceptions": 20,
+    "configured_guard": 12,
+    "mathematical_applicability": true,
+    "within_guard": false,
+    "tie_rule": "smallest rational modal fee"
+  },
+  "probe_mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 1,
+    "incumbent_updates": 1,
+    "bound_prunes": 0,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:1/c8",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:100f62f/244ef88",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:14ca1/2e799",
+        "supports_promise": false,
+        "support_seconds": 0.00045992900004421244,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:25751e7/489df10",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:18754/2e799",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.000596001000076285,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:4536f13/913be20",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.00055776799990781,
+        "oracle_calls": 3
+      }
+    ]
+  },
+  "probe_seconds": 0.09831489599991983,
+  "selected_route": "price_restart",
+  "lower": "hex:7f074b/12277c4",
+  "upper": "hex:7f627fbb/12277c400",
+  "gap": "hex:3a5f3/b9e6400",
+  "seconds": 0.22368416099993738,
+  "nodes": 1,
+  "oracle_calls": 8,
+  "trace": [
+    {
+      "seconds": 0.04370972299989262,
+      "lower": "hex:-1/c8",
+      "upper": "hex:100f62f/244ef88",
+      "nodes": 1,
+      "oracle_calls": 1
+    },
+    {
+      "seconds": 0.06914929000004122,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:100f62f/244ef88",
+      "nodes": 1,
+      "oracle_calls": 2
+    },
+    {
+      "seconds": 0.0946573690000605,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:100f62f/244ef88",
+      "nodes": 1,
+      "oracle_calls": 3
+    },
+    {
+      "seconds": 0.12036313999988124,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:100f62f/244ef88",
+      "nodes": 1,
+      "oracle_calls": 4
+    },
+    {
+      "seconds": 0.14605333600002268,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:100f62f/244ef88",
+      "nodes": 1,
+      "oracle_calls": 5
+    },
+    {
+      "seconds": 0.1716692489999332,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:201d077b/489df100",
+      "nodes": 1,
+      "oracle_calls": 6
+    },
+    {
+      "seconds": 0.19740135100005318,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:35c9239/7a4d600",
+      "nodes": 1,
+      "oracle_calls": 7
+    },
+    {
+      "seconds": 0.22312445900001876,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:7f627fbb/12277c400",
+      "nodes": 1,
+      "oracle_calls": 8
+    },
+    {
+      "seconds": 0.2231606870000178,
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:7f627fbb/12277c400",
+      "nodes": 1,
+      "oracle_calls": 8
+    }
+  ],
+  "mechanics": {
+    "evaluations": [
+      {
+        "required": 0,
+        "forbidden": 0,
+        "depth": 0,
+        "lower": "hex:-1/c8",
+        "upper": "hex:1/1",
+        "oracle_start": 0
+      }
+    ],
+    "splits": 0,
+    "incumbent_updates": 1,
+    "bound_prunes": 1,
+    "infeasible_prunes": 0,
+    "fixed_book_closures": 0,
+    "root_gap": "hex:3a5f3/b9e6400",
+    "root_support": [
+      {
+        "book": [
+          "hex:0/1"
+        ],
+        "price": "hex:1/1",
+        "upper": "hex:100f62f/244ef88",
+        "support_low": "hex:0/1",
+        "support_high": "hex:0/1",
+        "distance": "hex:14ca1/2e799",
+        "supports_promise": false,
+        "support_seconds": 0.00042679599982875516,
+        "oracle_calls": 1
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:0/1",
+        "upper": "hex:25751e7/489df10",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:18754/2e799",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005761590000474826,
+        "oracle_calls": 2
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:1/2",
+        "upper": "hex:4536f13/913be20",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005363079999369802,
+        "oracle_calls": 3
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:3/4",
+        "upper": "hex:84ba96b/12277c40",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005585839999184827,
+        "oracle_calls": 4
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:7/8",
+        "upper": "hex:103c1e1b/244ef880",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005624230000194075,
+        "oracle_calls": 5
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:f/10",
+        "upper": "hex:201d077b/489df100",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005436789999748726,
+        "oracle_calls": 6
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:1f/20",
+        "upper": "hex:35c9239/7a4d600",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005656790001467016,
+        "oracle_calls": 7
+      },
+      {
+        "book": [
+          "hex:0/1",
+          "hex:9/10"
+        ],
+        "price": "hex:3f/40",
+        "upper": "hex:7f627fbb/12277c400",
+        "support_low": "hex:187003/2e7990",
+        "support_high": "hex:187003/2e7990",
+        "distance": "hex:3a5f3/2e7990",
+        "supports_promise": false,
+        "support_seconds": 0.0005650609998610889,
+        "oracle_calls": 8
+      }
+    ]
+  },
+  "optimization_seconds": 0.32487486100012575,
+  "setup_seconds": 0.17974241199999597,
+  "optimizer_peak_rss_kib": 27644,
+  "certificate": "certificates/adversarial-5-1-t6-f0.6--hybrid.json.gz",
+  "certificate_schema": "NDU-price-path-v2-hex",
+  "certificate_sha256": "5a19cc83a1cd52a4d6e6fe2d81e094346a7212b031f7e2b8e4d7a0588d5c0ef1",
+  "proof_bytes": 10662,
+  "compressed_proof_bytes": 1112,
+  "serialization_seconds": 0.0007615669999267993,
+  "tree_leaves": 1,
+  "max_depth": 0,
+  "verification_status": "PASS",
+  "verification": {
+    "status": "PASS",
+    "lower": "hex:7f074b/12277c4",
+    "upper": "hex:7f627fbb/12277c400",
+    "gap": "hex:3a5f3/b9e6400",
+    "tolerance_met": true,
+    "leaves": 1,
+    "splits": 0,
+    "prices": 1,
+    "seconds": 0.04024578999997175,
+    "instance_sha256": "6b0e0f8ee34ac7ae438c3f271ed75f8ca1ee376cc9a7d0a61911a0da4ad6ae16",
+    "root_diagnostics": {
+      "status": "PASS",
+      "checked_root_candidates": 8
+    },
+    "hybrid_probe": {
+      "status": "PASS",
+      "lower": "hex:7f074b/12277c4",
+      "upper": "hex:100f62f/244ef88",
+      "gap": "hex:1/c8",
+      "tolerance_met": false,
+      "leaves": 2,
+      "splits": 1,
+      "prices": 1,
+      "seconds": 0.0460321450000265,
+      "instance_sha256": "6b0e0f8ee34ac7ae438c3f271ed75f8ca1ee376cc9a7d0a61911a0da4ad6ae16",
+      "root_diagnostics": {
+        "status": "PASS",
+        "checked_root_candidates": 3
+      }
+    },
+    "checking_seconds": 0.5098924179999358,
+    "process_seconds": 0.6903817669999626,
+    "peak_rss_kib": 25828
+  },
+  "checker_peak_rss_kib": 25828,
+  "verification_seconds": 0.7086959759999445,
+  "checker_process_peak_rss_kib": 27644,
+  "worker_seconds": 1.2147348590001457,
+  "parent_finished": true,
+  "parent_seconds": 1.2379591280000568,
+  "parent_timeout": false,
+  "parent_returncode": 0,
+  "within_total_budget": true,
+  "rational_target_met": true,
+  "numerical_target_met": false
+}

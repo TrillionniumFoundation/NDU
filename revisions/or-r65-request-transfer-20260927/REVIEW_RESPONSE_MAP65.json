@@ -1,0 +1,61 @@
+{
+  "review_commit": "3fa2fc1db4257a15af4b3a437c54b306a4589e63",
+  "required_items": [
+    {
+      "id": "R1",
+      "request": "Bind externally requested tolerance",
+      "implementation": "code/binding65.py",
+      "evidence": "stricter-self-declared-tolerance; coordinated-request-and-digest"
+    },
+    {
+      "id": "R2",
+      "request": "Bind configured guard",
+      "implementation": "code/binding65.py; code/check_tariff60.py",
+      "evidence": "guard-larger-than-external; changed-external-guard; guard-smaller-than-exception-count"
+    },
+    {
+      "id": "R3",
+      "request": "Verify same-book equal gross and exact transferred lower",
+      "implementation": "code/check_robust61.py",
+      "evidence": "feasible-degraded-same-book-policy; equal-gross positive tie"
+    },
+    {
+      "id": "R4",
+      "request": "Reproduce coordinated referee witnesses",
+      "implementation": "code/tests65.py",
+      "evidence": "REFEREE_WITNESSES65.json; REQUEST_TESTS65.json"
+    },
+    {
+      "id": "R5",
+      "request": "Replay robust proofs without timing changes",
+      "implementation": "code/replay65.py",
+      "evidence": "REQUEST_REPLAY65.json; REQUEST_RECEIPTS65.jsonl"
+    },
+    {
+      "id": "R6",
+      "request": "Document request-level schema",
+      "implementation": "REQUEST_CONTRACT65.md; electronic_companion.tex",
+      "evidence": "sec:binding63; sec:transfer65"
+    },
+    {
+      "id": "R7",
+      "request": "Validate redundant tie-rule metadata",
+      "implementation": "code/check_tariff60.py",
+      "evidence": "false-modal-tie-rule; missing-modal-tie-rule"
+    },
+    {
+      "id": "R8",
+      "request": "Precise response and exact-head receipt",
+      "implementation": "RESPONSE_TO_REFEREES.tex; verify65.py",
+      "evidence": "Published-commit read-only check and fresh replay"
+    }
+  ],
+  "editorial": [
+    "Sparse-exception class explicit",
+    "Separate sorts stated",
+    "Regret-bound brackets preserved",
+    "Stylized interpretation retained",
+    "Implementation detail in companion",
+    "Exact surrogate / feasible original / additive original claims separate"
+  ]
+}

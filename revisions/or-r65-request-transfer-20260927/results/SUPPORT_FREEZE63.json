@@ -1,0 +1,3159 @@
+{
+  "schema": "NDU-R63-root-panel-v1",
+  "source_sha256": "9785b8643151b33a42d19296293f4a0336f54bf871b6de02bbb0b02ad8799753",
+  "source_hashes": {
+    "binding63.py": "a1832ab8f6efa0a4db140d9aaa3f2c142a4c80905038b3591b83514005ed8ab3",
+    "check_deficit.py": "791da95d073b7904a47604373b3a016c89677e8b527b9026ef8a50a48cb57f53",
+    "check_enumeration.py": "d26aa051d7930f970d0cfa22d3104d47b54ed2d7722776bd3ce902a72c8dfaa6",
+    "check_price.py": "f87daa7d42f6dfef9468903eb0b6f46067190ea95f37fbabc66847626470344f",
+    "check_robust61.py": "ca1d370ac76411f537a75d71408cce99bc689a5fd93e2eec5835b474810bbe73",
+    "check_tariff60.py": "9ac798785d6a262932ca177fe8da1875f6a016ccb60caa5fa0906020067352e1",
+    "checker61.py": "7f01e4748102da15905e1faa98326900e71d4fed429a2977a39daa0fa0ee1249",
+    "deficit.py": "3ff830eb9a025736486dd2c9a461aff1fba8923643ad5132503dfbf283403fba",
+    "diagnostics61.py": "33c43a6eb5aca4fd51c480a05bb394cc029b220e7698a39925b2f32af9552400",
+    "enumeration.py": "389fd5df1dc37ac35550fb2bd1f5381956b97d3d6ee5f9aeb38447111b7293ae",
+    "flat_verify60.py": "209426175735323799691dfa8a77917842c4365493a28b0e8c1ed80c93ec87eb",
+    "paths60.py": "1501f12134b04407471211a599f05f5b4f10a95c65cc6a9791ea91fb9edcc35f",
+    "price_path.py": "dd8baf73ae76f45ebd8a3649767c8017b7f3ad1d4f6d6ab32f43d159f721f985",
+    "rational.py": "a7c385db4747adebe01104291df579632e0dbc0d46f0190964bd6ab0a2997d88",
+    "replay63.py": "9cc10dda87d00a084e1598220515df6b5b4e2cb0dc1b4295682bb19c737d1581",
+    "robust61.py": "ae3b9e5a601c2b0f345d0e592920b612b5c25fc6d2b3cb3b513c818dae37678a",
+    "scip61.py": "ea5f391cf649a5d3902d91f67f915be7337e2c51f5693f4550f94b6bfb8db930",
+    "study60.py": "21c1716b4d0f8d68aee52a7d5b54d6b7c262fc3f7bb58859873732bf06aa211e",
+    "study61.py": "ebc558fcaeb3505930aec4827685ccdc9c2a5a1cf2fb92f9e6b265d6000012a5",
+    "support63.py": "9785b8643151b33a42d19296293f4a0336f54bf871b6de02bbb0b02ad8799753",
+    "tariff60.py": "098a7f7ba0e4cf5b1d421954987a18fb70f6bbdfbddb33a36638480a34ff80fa",
+    "tests60.py": "7d82352070ddd74a9ae740b33c0fab3a9e74a5062d93b6b362bad965a410f654",
+    "tests61.py": "a196ef4d1cb483edfb7851042fb241d4b6b89d8e61f0c77d128a5d00ac64ba68",
+    "tests63.py": "64ca31c5684728cbdc0f3680497e939ac9fbebb1fe290be4b1ea422b45cb898d",
+    "worker60.py": "b9aeb225571c82fd67e03856e29247b56c096febec8379d9db4f94bdeda1c0a7",
+    "worker61.py": "12b8f3f96d5da1ce8e91963ae5ecef7200e7c7ef5b1a2c7b0f4190b7861c8780"
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jun 12 2025, 03:51:15) [GCC 11.4.0]",
+    "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.35"
+  },
+  "cases": [
+    {
+      "id": "root-00",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-01",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-02",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-03",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-04",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-05",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-06",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-07",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-08",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-09",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-10",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-11",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-12",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-13",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-14",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-15",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-16",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-17",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-18",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-19",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-20",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-21",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-22",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-23",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-24",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-25",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-26",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-27",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-28",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-29",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-30",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-31",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-32",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-33",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-34",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-35",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 2
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-36",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-37",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-38",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-39",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:1/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-40",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-41",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-42",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-43",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:3/a",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-44",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1",
+          "hex:0/1"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-45",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-46",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4",
+          "hex:1/4"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    },
+    {
+      "id": "root-47",
+      "spec": {
+        "model": {
+          "caps": [
+            "hex:0/1",
+            "hex:1/3",
+            "hex:2/3",
+            "hex:1/1"
+          ],
+          "weights": [
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4",
+            "hex:1/4"
+          ],
+          "gamma": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ],
+          "ceilings": [
+            "hex:0/1",
+            "hex:1/2",
+            "hex:5/6",
+            "hex:1/1"
+          ],
+          "reward_r": [
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1",
+            "hex:1/1"
+          ],
+          "reward_q": [
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1",
+            "hex:0/1"
+          ]
+        },
+        "catalog": [
+          "hex:0/1",
+          "hex:1/6",
+          "hex:1/3",
+          "hex:1/2",
+          "hex:2/3",
+          "hex:5/6",
+          "hex:1/1"
+        ],
+        "charges": [
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32",
+          "hex:3/64",
+          "hex:1/19",
+          "hex:1/32"
+        ],
+        "promise": "hex:9/14",
+        "budget": 4
+      },
+      "epsilon": "1/1000",
+      "seconds": 2
+    }
+  ],
+  "design": "48 complete factorial cells; not random independent observations; no time-based filtering"
+}

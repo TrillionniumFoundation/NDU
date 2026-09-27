@@ -1,0 +1,617 @@
+{
+  "schema": "NDU-R64-frozen-projection-table-v1",
+  "status": "PASS",
+  "source_freeze_sha256": "e6df2094f2dd483f1ac21fbdd93c888ff1ea913259fa73b88c8bbac9424d29ed",
+  "source_csv_sha256": "711dde693d66bae78b795d5ac39620b6f55b232912042c0decc40d12beed084f",
+  "source_requests": 405,
+  "rows": [
+    {
+      "id": "adversarial-0-0-t6-f0.6",
+      "case": "A0.0",
+      "N": 19,
+      "epsilon": "1/500",
+      "original_status": "TOLERANCE",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.06813571099996807,
+      "original_check_seconds": 0.26452278800002205,
+      "proof_bytes": 210832,
+      "compressed_proof_bytes": 8535,
+      "record_sha256": "5cf520583faee528a9528d5c7e433e09cee98947a8428e4a8d12437b6f637745",
+      "projection": {
+        "selected_exception_budget": 8,
+        "projected_exceptions": 8,
+        "tariff_exceptions": 8,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "3/2000",
+        "previous_projection_l1": "3/1000",
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "0",
+        "exact": true,
+        "comparators": [
+          {
+            "method": "tariff",
+            "record_sha256": "71bce599376a8c71b1b3de732c542ab408a23720fe47a803e4b0997f1971b89b",
+            "certificate_sha256": "91a7474684efe3c7339be1f0db9d258a6884f978ab9d422501f90ff295fafc48",
+            "lower": "1390121/3294000",
+            "upper": "1390121/3294000",
+            "original_status": "EXACT",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "price",
+            "record_sha256": "b81071be19a0e11845ca74af25d9816d79548353bb273277d6dc4d956f40ea3f",
+            "certificate_sha256": "5fa4ae5fa049be33786acb5e70009c0d585772837b029d6d3a404768fd78d760",
+            "lower": "154103/366000",
+            "upper": "154717/366000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "8a1807c0bfd2885b082f515ef791a20f249e62044ccf363c54b8bc153d3bef94",
+            "certificate_sha256": "e60f2c3b82437954be7b776a2a5c112792475b348337b9576d2301d896f6eda9",
+            "lower": "154103/366000",
+            "upper": "154717/366000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "e3ef5c8fd055352b7b243d70635a25adddd49139a4887e8347243263b805a90f",
+            "certificate_sha256": "3d29cdd1abd87865410b794cec4e0d108dbb5b4ba47cbe3cc102af525321e747",
+            "lower": "1390121/3294000",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "56a0885d9d923580668fd12ff1b26257b785a8d4806fcd0d08210368ecd32677",
+      "E_plus": "3/2000",
+      "E_minus": "0",
+      "lower": "1390121/3294000",
+      "upper": "278683/658800",
+      "interval_width": "1/1000"
+    },
+    {
+      "id": "adversarial-0-1-t6-f0.6",
+      "case": "A0.1",
+      "N": 41,
+      "epsilon": "1/500",
+      "original_status": "EXACT",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.7505406410000433,
+      "original_check_seconds": 1.188930851999885,
+      "proof_bytes": 1532637,
+      "compressed_proof_bytes": 106327,
+      "record_sha256": "c87192415bbf440c72d33d10dcd7a0a6fa53a315efc23a9349e1887402d6de93",
+      "projection": {
+        "selected_exception_budget": 8,
+        "projected_exceptions": 8,
+        "tariff_exceptions": 8,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "3/2000",
+        "previous_projection_l1": "3/1000",
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "0",
+        "exact": true,
+        "comparators": [
+          {
+            "method": "tariff",
+            "record_sha256": "f50503a04bd13d12f841167683db685eff50cd536c0fc3baf1203962bf1291f6",
+            "certificate_sha256": "66b9bc1813d24dee2bf2cc85ff017973862cd07d12985bcb9543b36960931549",
+            "lower": "1797/4484",
+            "upper": "1797/4484",
+            "original_status": "EXACT",
+            "original_verification_status": null,
+            "original_timed_target": false
+          },
+          {
+            "method": "price",
+            "record_sha256": "2960399b306ccdc79fc1808c32c8765a6adca03e2dd7752661aede6780691e36",
+            "certificate_sha256": "433677e55e2016c7538318640110a8abd49e2ce7f856dbde4ee07bf12e25cce4",
+            "lower": "1797/4484",
+            "upper": "1444103/3587200",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "38d94463cea0b8b5e5cc7a3aa0e1dcc18314eb7723015d081c02649eca8ae4c5",
+            "certificate_sha256": "3ad37dc95dab8905fb8580e75ba91911d21cd8c05014cac5c226d1f7599259e0",
+            "lower": "1797/4484",
+            "upper": "1444103/3587200",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "9aad4228dc075617a78ab35b029638b6644389ebda66a5fd96c6c122b2cb943d",
+            "certificate_sha256": "b6aa9c45e7dc4c4efe10cb1ef216cf5db3ea3d85c115b983a5c2c6c76b8c5c5c",
+            "lower": "406453/1121000",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "abed8769e42c3ec3dfb0b447c88b7f0f6a107b466b7c8550b6043201c0e9b6ee",
+      "E_plus": "3/2000",
+      "E_minus": "0",
+      "lower": "1797/4484",
+      "upper": "1797/4484",
+      "interval_width": "0"
+    },
+    {
+      "id": "adversarial-1-0-t6-f0.6",
+      "case": "A1.0",
+      "N": 19,
+      "epsilon": "1/500",
+      "original_status": "EXACT",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.00994148699987818,
+      "original_check_seconds": 0.22149172900003578,
+      "proof_bytes": 10925,
+      "compressed_proof_bytes": 1422,
+      "record_sha256": "7c49dd46a966512b85df47fd6f2257e027cf8ea177b0329ad531023d8dcf7ec7",
+      "projection": {
+        "selected_exception_budget": 2,
+        "projected_exceptions": 2,
+        "tariff_exceptions": 2,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "3/2000",
+        "previous_projection_l1": "3/1000",
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "0",
+        "exact": true,
+        "comparators": [
+          {
+            "method": "tariff",
+            "record_sha256": "5cfe1c7a428522b7a73969df64c073d285a67c12c4bf680e6042c8b960ae976c",
+            "certificate_sha256": "8ebdce6bd3a3c212b30c4ece5febf9fb161a06fe6950f8af0972c4f68ce2d881",
+            "lower": "13621/1000900",
+            "upper": "13621/1000900",
+            "original_status": "EXACT",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "price",
+            "record_sha256": "c6d00b7422853c2f9b72057577edc19b8ab2bcbe31a640b20726d4614946d24a",
+            "certificate_sha256": "552bc461b69388f8369e873cdb6539690a9b18f4098fb9c9900b78842843ef29",
+            "lower": "13621/1000900",
+            "upper": "68521/5004500",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "c42497f192f317c2e67691d337a30685a6bf4387da025b419b0327e27ff3e171",
+            "certificate_sha256": "94b1e778fb70050f5e8246c2422b62cde5d513a9eb2d4629935727fbaab5c33f",
+            "lower": "13621/1000900",
+            "upper": "13621/1000900",
+            "original_status": "EXACT",
+            "original_verification_status": "FAIL",
+            "original_timed_target": false
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "557ee1e57c1abdf40446377002bd3f640d87a7b092dd59861d602248dd0c83d1",
+            "certificate_sha256": "9b4e5f69c4ac9da35a7231451e9ea4fc6f4c13fdc45ed30a1a872ae44547523c",
+            "lower": "13621/1000900",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "b2c7fcfe300234a7942beb6ece66d2e028aa2b214aecf24695d913c253da6912",
+      "E_plus": "3/2000",
+      "E_minus": "0",
+      "lower": "13621/1000900",
+      "upper": "13621/1000900",
+      "interval_width": "0"
+    },
+    {
+      "id": "adversarial-1-1-t6-f0.6",
+      "case": "A1.1",
+      "N": 41,
+      "epsilon": "1/500",
+      "original_status": "EXACT",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.058261377000008,
+      "original_check_seconds": 0.2662325419998979,
+      "proof_bytes": 41709,
+      "compressed_proof_bytes": 5009,
+      "record_sha256": "1714b2adbe07c72e831830c524d74d15ba8a9ab607a6855be88143c5fb804b5f",
+      "projection": {
+        "selected_exception_budget": 2,
+        "projected_exceptions": 2,
+        "tariff_exceptions": 2,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "3/2000",
+        "previous_projection_l1": "3/1000",
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "0",
+        "exact": true,
+        "comparators": [
+          {
+            "method": "tariff",
+            "record_sha256": "dc7ba2c44a0c436006602e3909dbaf79b03d3ad173d146b31d0c092396e8c6c1",
+            "certificate_sha256": "c54fdcb9f5d729981e547dbf4a8aa2074afa6dd742cfd24d284ded050f515e14",
+            "lower": "58851/4759025",
+            "upper": "58851/4759025",
+            "original_status": "EXACT",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "price",
+            "record_sha256": "831085ead415c169aaed874b9fc290b1e062c16ab228d1df0193d7df59fe695c",
+            "certificate_sha256": "795d709428cc5faa4a39f30d9e20d9e50f04aa6c1dff7495e36ce1fd65c1b555",
+            "lower": "58851/4759025",
+            "upper": "43008939/3045776000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "28af0945c0b0aa58c88454efe5320b637174486171391d7942f8ba3e0a1bdd8e",
+            "certificate_sha256": "06a0296bb72ed11ef498ffc6eb8c188d395e51fe746aae073eff9ac8ff3fa1e9",
+            "lower": "58851/4759025",
+            "upper": "58851/4759025",
+            "original_status": "EXACT",
+            "original_verification_status": "FAIL",
+            "original_timed_target": false
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "6a8504253134ddf83a27253e079fe89e6721f84e99c4ae2de9e021c3ee1a54d9",
+            "certificate_sha256": "23555162a45094d932c5c3585c5e16dce38648488001c61ab22e620a8cf1f9dd",
+            "lower": "58851/4759025",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "776234f662fb318066038c6da41877d9f77e618cba6a6e122162ee59000dc688",
+      "E_plus": "3/2000",
+      "E_minus": "0",
+      "lower": "58851/4759025",
+      "upper": "58851/4759025",
+      "interval_width": "0"
+    },
+    {
+      "id": "adversarial-2-0-t6-f0.6",
+      "case": "A2.0",
+      "N": 19,
+      "epsilon": "1/500",
+      "original_status": "TOLERANCE",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.008086384000080216,
+      "original_check_seconds": 0.2074300490000951,
+      "proof_bytes": 6491,
+      "compressed_proof_bytes": 1036,
+      "record_sha256": "d164eb9dbee0d76498a3f7389046b7b46c5fdf7171f1fe8cdf6711d432b450e7",
+      "projection": {
+        "selected_exception_budget": 0,
+        "projected_exceptions": 0,
+        "tariff_exceptions": 0,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "11/50000",
+        "previous_projection_l1": null,
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "1/12500",
+        "exact": false,
+        "comparators": [
+          {
+            "method": "price",
+            "record_sha256": "5da83b246e99810e8ef42008c023e997d7b634a6c3e252dc8323d71ae513dd6f",
+            "certificate_sha256": "8c17583cebe6a02ee099628f5b3d981dce7d237d132d7c89fdc6e32e7623ae49",
+            "lower": "321699491/780800000",
+            "upper": "7756312159/18739200000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "4a60d66cdd437c050f24b0a7aa80414e42979918909e0a7fe79190cdfe787006",
+            "certificate_sha256": "477c5434ca8044b3f0e026194a9bd58b74aed0100ce4846dede7728d2ba95337",
+            "lower": "321699491/780800000",
+            "upper": "64352391/156160000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "FAIL",
+            "original_timed_target": false
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "db6c6986a8d869fed7383dfa48be073088d208735c4540ea884720d72b350477",
+            "certificate_sha256": "513347d79f1b5c0c949bf5b753d512963a112141b23908148b2fbcf3ae0598ee",
+            "lower": "321699491/780800000",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "d21c4fd1e20cb44fdff527008d6b28a6f825a35359cd56f9fd67fd0c0ee9d1c3",
+      "E_plus": "9/100000",
+      "E_minus": "1/10000",
+      "lower": "321699491/780800000",
+      "upper": "64352391/156160000",
+      "interval_width": "1/12500"
+    },
+    {
+      "id": "adversarial-2-1-t6-f0.6",
+      "case": "A2.1",
+      "N": 41,
+      "epsilon": "1/500",
+      "original_status": "TOLERANCE",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.043712065999898186,
+      "original_check_seconds": 0.24674982999999884,
+      "proof_bytes": 16331,
+      "compressed_proof_bytes": 1377,
+      "record_sha256": "ba947fcab11565843139a71881680f60ee77817293464ada8740318d65c43f88",
+      "projection": {
+        "selected_exception_budget": 0,
+        "projected_exceptions": 0,
+        "tariff_exceptions": 0,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "1/2000",
+        "previous_projection_l1": null,
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "19/100000",
+        "exact": false,
+        "comparators": [
+          {
+            "method": "price",
+            "record_sha256": "9b81b3fa42dcb40ff87ee528e8c3435dadad81c8bb27c8c5ade6f1df59cb7662",
+            "certificate_sha256": "aed074210803b45cd7d7e47a90d6c4e98005b166ca026a3df0a096f6990dd764",
+            "lower": "633322979/1510400000",
+            "upper": "20351747453/48332800000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "53567810ea2e5348af2c6cdabdd2b5e19e633ca20a08a8552a4de30c22d39632",
+            "certificate_sha256": "6157ca00ae90590e4dc1bd35d244cf44602b9d01c2335de6d97e406456d1d93a",
+            "lower": "633338083/1510400000",
+            "upper": "633625059/1510400000",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "FAIL",
+            "original_timed_target": false
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "9b98069788928696941f2b995da28bb4c5b0f7a061d2a9b405280729b561017b",
+            "certificate_sha256": "2e429bca81bbb70e1d0116c7342e524a5607e43cdd0c193b52eebe46640a762c",
+            "lower": "633338083/1510400000",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "d4eb1d4a47b322c6850536953447e3a3d87843be4c4347a6e1555fec1fd3eb71",
+      "E_plus": "1/5000",
+      "E_minus": "21/100000",
+      "lower": "633338083/1510400000",
+      "upper": "633625059/1510400000",
+      "interval_width": "19/100000"
+    },
+    {
+      "id": "adversarial-3-0-t6-f0.6",
+      "case": "A3.0",
+      "N": 19,
+      "epsilon": "1/500",
+      "original_status": "MATHEMATICALLY_INAPPLICABLE",
+      "original_timed_target": false,
+      "original_verification_status": null,
+      "optimization_seconds": 0.0029949459999443206,
+      "original_check_seconds": null,
+      "proof_bytes": null,
+      "compressed_proof_bytes": null,
+      "record_sha256": "a4b53ebc6899c213d3c4903ac37e2fa38982a15d49d23a4c7431a96ebfcd4d36",
+      "projection": null,
+      "regret": null
+    },
+    {
+      "id": "adversarial-3-1-t6-f0.6",
+      "case": "A3.1",
+      "N": 41,
+      "epsilon": "1/500",
+      "original_status": "MATHEMATICALLY_INAPPLICABLE",
+      "original_timed_target": false,
+      "original_verification_status": null,
+      "optimization_seconds": 0.00414471399994909,
+      "original_check_seconds": null,
+      "proof_bytes": null,
+      "compressed_proof_bytes": null,
+      "record_sha256": "b32acd56ae982b3dbf6403f58edb3ac62a412e4d18b40abfbbb8ddbcba51c91e",
+      "projection": null,
+      "regret": null
+    },
+    {
+      "id": "adversarial-4-0-t6-f0.6",
+      "case": "A4.0",
+      "N": 19,
+      "epsilon": "1/500",
+      "original_status": "MATHEMATICALLY_INAPPLICABLE",
+      "original_timed_target": false,
+      "original_verification_status": null,
+      "optimization_seconds": 0.003026426999895193,
+      "original_check_seconds": null,
+      "proof_bytes": null,
+      "compressed_proof_bytes": null,
+      "record_sha256": "f066d1f8571ad396eec0187e4c8656adc294a99340f2f6d124422ac65072ff94",
+      "projection": null,
+      "regret": null
+    },
+    {
+      "id": "adversarial-4-1-t6-f0.6",
+      "case": "A4.1",
+      "N": 41,
+      "epsilon": "1/500",
+      "original_status": "MATHEMATICALLY_INAPPLICABLE",
+      "original_timed_target": false,
+      "original_verification_status": null,
+      "optimization_seconds": 0.004078013000025749,
+      "original_check_seconds": null,
+      "proof_bytes": null,
+      "compressed_proof_bytes": null,
+      "record_sha256": "550772d91cccff779c576355f5e3e391ff3d7732e929dccf4758fa6100d48368",
+      "projection": null,
+      "regret": null
+    },
+    {
+      "id": "adversarial-5-0-t6-f0.6",
+      "case": "A5.0",
+      "N": 19,
+      "epsilon": "1/500",
+      "original_status": "EXACT",
+      "original_timed_target": true,
+      "original_verification_status": "PASS",
+      "optimization_seconds": 0.13443620699990788,
+      "original_check_seconds": 0.33857656700001826,
+      "proof_bytes": 503467,
+      "compressed_proof_bytes": 15487,
+      "record_sha256": "af912af70a35f6ecb746fafcb0471dcd3db72a35631432dd001bd8f849e38e35",
+      "projection": {
+        "selected_exception_budget": 9,
+        "projected_exceptions": 9,
+        "tariff_exceptions": 9,
+        "projection_standard_fee": "1/200",
+        "tariff_standard_fee": "1/200",
+        "projection_l1": "0",
+        "previous_projection_l1": "9/200",
+        "minimum_allowance_certified": true
+      },
+      "regret": {
+        "lower": "0",
+        "upper": "0",
+        "exact": true,
+        "comparators": [
+          {
+            "method": "tariff",
+            "record_sha256": "55a8f9a9c8194ec6ff83cbff9e9004e53a0878966b5a512ec33fa4589334e56a",
+            "certificate_sha256": "5fdfb0989f05e91b38c80b41de40ac9760c28f9d89bc23bfefabf6998f6b7a4d",
+            "lower": "1303973/3002700",
+            "upper": "1303973/3002700",
+            "original_status": "EXACT",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "price",
+            "record_sha256": "edc5b87f930b4b04a110a7dcf032c33eab9a747750e779587706f392b615e234",
+            "certificate_sha256": "79953c32f0da53300f875491eb0c0b6bafe38b81a9bead53235ecb052e27a65c",
+            "lower": "1303973/3002700",
+            "upper": "17624071/40536450",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "hybrid",
+            "record_sha256": "a1f712085f48b01586c8aa51578046ccc7302104eff66750caf114be1687fbb1",
+            "certificate_sha256": "6c1a72aace910335a8a265aaa93303318c35db06f971a8eaf887490edf7844ca",
+            "lower": "1303973/3002700",
+            "upper": "17624071/40536450",
+            "original_status": "TOLERANCE",
+            "original_verification_status": "PASS",
+            "original_timed_target": true
+          },
+          {
+            "method": "enumeration",
+            "record_sha256": "f4daa9fb8b2bc22c1a75b09d808d49a7b0f75d9feafce52587cc1867f922e786",
+            "certificate_sha256": "468f2a5747249f9c3b174650ad7dc4f0b0a475c788d1c6aa736a9d91646e0e35",
+            "lower": "1303973/3002700",
+            "upper": "1",
+            "original_status": "TIME_LIMIT",
+            "original_verification_status": "PASS",
+            "original_timed_target": false
+          }
+        ],
+        "scope": "Post-study rational comparison, not original target attainment"
+      },
+      "certificate_sha256": "834e9b41d883cd1827855e6cdba2c86499ec81e5065ca7bdb4c260053fe0e71a",
+      "E_plus": "0",
+      "E_minus": "0",
+      "lower": "1303973/3002700",
+      "upper": "1303973/3002700",
+      "interval_width": "0"
+    },
+    {
+      "id": "adversarial-5-1-t6-f0.6",
+      "case": "A5.1",
+      "N": 41,
+      "epsilon": "1/500",
+      "original_status": "ENGINEERING_GUARD",
+      "original_timed_target": false,
+      "original_verification_status": null,
+      "optimization_seconds": 0.0044577119999758,
+      "original_check_seconds": null,
+      "proof_bytes": null,
+      "compressed_proof_bytes": null,
+      "record_sha256": "f58374b3f13ad9afd6095843ca8e4e97974ba9cd986a02c94a612daaf68bfacb",
+      "projection": null,
+      "regret": null
+    }
+  ],
+  "new_optimization_runs": 0,
+  "accounting": "All times, outcomes, and proof sizes are ORIGINAL recorded values; current checking is an integrity audit only."
+}

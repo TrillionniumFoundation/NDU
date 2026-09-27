@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "positive_robust_certificates": 577,
+  "exhaustive_projection_instances": 288,
+  "legacy_accepts_false_metadata": 10,
+  "new_semantic_rejections": 10,
+  "rejections": [
+    {
+      "name": "nonmodal-standard",
+      "reason": "Noncanonical standard fee: expected smallest rational mode"
+    },
+    {
+      "name": "wrong-modal-tie",
+      "reason": "Noncanonical standard fee: expected smallest rational mode"
+    },
+    {
+      "name": "nonoptimal-retained-window",
+      "reason": "Nonoptimal or nondeterministic projection retained_window"
+    },
+    {
+      "name": "incorrect-median",
+      "reason": "Incorrect projection median"
+    },
+    {
+      "name": "nonminimal-selected-allowance",
+      "reason": "Nonminimal selected projection allowance"
+    },
+    {
+      "name": "false-distortion",
+      "reason": "Incorrect minimum distortion"
+    },
+    {
+      "name": "detached-projection-charges",
+      "reason": "Nonoptimal projected charges"
+    },
+    {
+      "name": "false-projection-exceptions",
+      "reason": "Nonoptimal or nondeterministic projection exceptions"
+    },
+    {
+      "name": "invalid-budget-type",
+      "reason": "Invalid projection allowance"
+    },
+    {
+      "name": "out-of-range-budget",
+      "reason": "Invalid projection allowance"
+    }
+  ],
+  "optimizer_free_checker_imports": true,
+  "seconds": 1.9700060139999778,
+  "scope": "Deterministic exact regression and witnessed semantic counterexamples; not a proof substitute."
+}

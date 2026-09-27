@@ -1,0 +1,117 @@
+{
+  "id": "standard-09-b2",
+  "specification_id": "standard-09",
+  "family": "standard",
+  "seed": 600936,
+  "spec": {
+    "model": {
+      "caps": [
+        "hex:1b/20",
+        "hex:17/20",
+        "hex:3/4",
+        "hex:1/4",
+        "hex:7/10",
+        "hex:5/10",
+        "hex:5/8",
+        "hex:5/10"
+      ],
+      "weights": [
+        "hex:4/21",
+        "hex:7/21",
+        "hex:7/21",
+        "hex:7/21",
+        "hex:1/21",
+        "hex:2/21",
+        "hex:1/b",
+        "hex:2/21"
+      ],
+      "gamma": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ],
+      "ceilings": [
+        "hex:1d/20",
+        "hex:3/4",
+        "hex:19/20",
+        "hex:3/8",
+        "hex:f/20",
+        "hex:5/10",
+        "hex:5/8",
+        "hex:b/20"
+      ],
+      "reward_r": [
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2",
+        "hex:3/2"
+      ],
+      "reward_q": [
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1",
+        "hex:0/1"
+      ]
+    },
+    "catalog": [
+      "hex:0/1",
+      "hex:1/8",
+      "hex:1/4",
+      "hex:3/8",
+      "hex:1/2",
+      "hex:5/8",
+      "hex:3/4",
+      "hex:7/8",
+      "hex:1/1"
+    ],
+    "charges": [
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64",
+      "hex:1/64"
+    ],
+    "promise": "hex:25f/1080",
+    "budget": 4
+  },
+  "epsilon": "hex:1/14",
+  "metadata": {
+    "k": 8,
+    "N": 9,
+    "m": 4,
+    "q_b": 7,
+    "joint_types": 7,
+    "exceptions": 0,
+    "weight_denominator_bits": 6,
+    "promise_fraction": "hex:1/4",
+    "deficit": "hex:25f/580",
+    "epsilon": "hex:1/14",
+    "grid_Q": 52
+  },
+  "total_seconds": 3.0,
+  "optimization_cutoff_seconds": 1.7999999999999998,
+  "methods": [
+    "price",
+    "deficit",
+    "enumeration",
+    "scip",
+    "tariff"
+  ]
+}
