@@ -9,7 +9,7 @@ permissions:
   statuses: write
 concurrency:
   group: ndu-or-r65-request-transfer
-  cancel-in-progress: false
+  cancel-in-progress: true
 env:
   REV: revisions/or-r65-request-transfer-20260927
   GH_TOKEN: ${{ github.token }}
@@ -50,7 +50,11 @@ jobs:
           source=p.read_text()
           old='Theorem~6 and its perturbation proof'
           assert source.count(old)==1
-          p.write_text(source.replace(old,'Theorem~6.1 and its perturbation proof'))
+          source=source.replace(old,'Theorem~6.1 and its perturbation proof')
+          old="(R/'RESPONSE_TO_REFEREES.tex').write_text(response)"
+          fix="response=response.replace('input.\\n', \"input.''\\n\")\nassert response.count('``') == response.count(\"''\")\n"
+          assert source.count(old)==1
+          p.write_text(source.replace(old,fix+old))
           PY
           python "$REV/qualify65.py"
       - name: Publish complete revision and readers on this new branch only
