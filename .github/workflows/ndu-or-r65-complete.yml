@@ -42,7 +42,17 @@ jobs:
           dpkg-query -W 'texlive*' tex-gyre > "$REV/results/r65/TEX_TOOLCHAIN65.txt"
           python -m pip freeze > "$REV/results/r65/PYTHON_PACKAGES65.txt"
       - name: Execute request, transfer and retained regressions, build readers and replay frozen proofs
-        run: python "$REV/qualify65.py"
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import os
+          p=Path(os.environ['REV'])/'revise65.py'
+          source=p.read_text()
+          old='Theorem~6 and its perturbation proof'
+          assert source.count(old)==1
+          p.write_text(source.replace(old,'Theorem~6.1 and its perturbation proof'))
+          PY
+          python "$REV/qualify65.py"
       - name: Publish complete revision and readers on this new branch only
         run: python .r65-source/driver.py publish
       - name: Read-only check and fresh 389-proof replay on actual published SHA
